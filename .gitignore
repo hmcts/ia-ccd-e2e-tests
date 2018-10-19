@@ -1,9 +1,4 @@
-node_modules/
-dist/
-.idea/
-coverage/
-package-lock.json
-yarn-error.log
-.scannerwork
 functional-output/
-
+node_modules/
+.idea/
+yarn-error.log

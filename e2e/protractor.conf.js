@@ -1,35 +1,54 @@
 const { SpecReporter } = require('jasmine-spec-reporter');
 const puppeteer = require('puppeteer');
+const iaConfig = require('./ia.conf');
 
 exports.config = {
 
-  baseUrl: 'https://angularjs.org',
-  specs: ['./specs/todo-spec.js'],
+  baseUrl: iaConfig.CcdWebUrl,
+  specs: ['./**/*.spec.ts'],
 
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
       args: [
-        '--headless',
+        '--disable-dev-shm-usage',
+        '--disable-gpu',
         '--no-sandbox',
-        '--disable-dev-shm-usage'
+        iaConfig.UseHeadlessBrowser ? '--headless' : '--noop'
       ],
-      binary: puppeteer.executablePath(),
+      binary: puppeteer.executablePath()
     },
     acceptInsecureCerts: true,
-    maxInstances: 1
+    maxInstances: 1,
+    proxy: (!iaConfig.UseProxy) ? {} : {
+      proxyType: 'manual',
+      httpProxy: iaConfig.UseProxy.replace('http://', ''),
+      sslProxy: iaConfig.UseProxy.replace('http://', '')
+    },
+    loggingPrefs: {
+      'driver': 'INFO',
+      'browser': 'INFO'
+    }
   },
 
+  directConnect: true,
   useAllAngular2AppRoots: true,
+
+  // this causes issues with test failing
+  // so do not enable it unless all tests pass
+  // on a variety of environments first :)
+  restartBrowserBetweenTests: false,
 
   framework: 'jasmine2',
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 120000,
-    includeStackTrace: false,
-    isVerbose: false,
+    defaultTimeoutInterval: 60000,
+    includeStackTrace: true,
+    isVerbose: true,
     showColors: true,
     showTiming: true,
-    print: function () { /* disable dot-printer*/ }
+    print: function() {
+      /* disable dot-printer*/
+    }
   },
 
   plugins: [{
@@ -55,14 +74,16 @@ exports.config = {
         // noop
       });
 
+    require('ts-node').register({
+      project: require('path').join(__dirname, './tsconfig.e2e.json')
+    });
+
     jasmine
       .getEnv()
       .addReporter(new SpecReporter({
         spec: {
-          displayStacktrace: false
+          displayStacktrace: true
         }
       }));
-
-    return browser.get('/');
   }
 };
