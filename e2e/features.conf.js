@@ -1,11 +1,10 @@
-const { SpecReporter } = require('jasmine-spec-reporter');
 const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 
 exports.config = {
 
   baseUrl: iaConfig.CcdWebUrl,
-  specs: ['./**/*.spec.ts'],
+  specs: ['./features/*.feature'],
 
   capabilities: {
     browserName: 'chrome',
@@ -39,29 +38,17 @@ exports.config = {
   // on a variety of environments first :)
   restartBrowserBetweenTests: false,
 
-  framework: 'jasmine2',
-  jasmineNodeOpts: {
-    defaultTimeoutInterval: 60000,
-    includeStackTrace: true,
-    isVerbose: true,
-    showColors: true,
-    showTiming: true,
-    print: function() {
-      /* disable dot-printer*/
-    }
-  },
+  framework: 'custom',
+  frameworkPath: require.resolve('protractor-cucumber-framework'),
 
-  plugins: [{
-    package: 'protractor-screenshoter-plugin',
-    screenshotPath: './functional-output/e2e',
-    screenshotOnExpect: 'failure+success',
-    screenshotOnSpec: 'none',
-    withLogs: true,
-    writeReportFreq: 'asap',
-    verbose: 'info',
-    imageToAscii: 'none',
-    clearFoldersBeforeTest: true
-  }],
+  cucumberOpts: {
+    require: [
+      './features/stepDefinitions/**/*.steps.ts'
+    ],
+    tags: false,
+    profile: false,
+    'no-source': true
+  },
 
   onPrepare() {
 
@@ -77,13 +64,5 @@ exports.config = {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.e2e.json')
     });
-
-    jasmine
-      .getEnv()
-      .addReporter(new SpecReporter({
-        spec: {
-          displayStacktrace: true
-        }
-      }));
   }
 };
