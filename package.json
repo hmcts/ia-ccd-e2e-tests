@@ -5,8 +5,8 @@
   "scripts": {
     "postinstall": "webdriver-manager update",
     "lint": "NODE_PATH=. eslint --fix .",
-    "e2e": "yarn test:functional",
-    "test:functional": "protractor ./e2e/features.conf.js",
+    "e2e": "yarn test:fullfunctional",
+    "test:fullfunctional": "protractor ./e2e/features.conf.js",
     "test:nsp": "nsp check"
   },
   "dependencies": {
