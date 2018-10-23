@@ -1,5 +1,9 @@
+/* eslint-disable no-negated-condition, multiline-ternary */
+
 const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
+const tsNode = require('ts-node');
+const path = require('path');
 
 exports.config = {
 
@@ -25,8 +29,8 @@ exports.config = {
       sslProxy: iaConfig.UseProxy.replace('http://', '')
     },
     loggingPrefs: {
-      'driver': 'INFO',
-      'browser': 'INFO'
+      driver: 'INFO',
+      browser: 'INFO'
     }
   },
 
@@ -42,27 +46,24 @@ exports.config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'),
 
   cucumberOpts: {
-    require: [
-      './features/stepDefinitions/**/*.steps.ts'
-    ],
+    require: ['./features/stepDefinitions/**/*.steps.ts'],
     tags: false,
     profile: false,
     'no-source': true
   },
 
   onPrepare() {
-
     // returning the promise makes protractor wait for
     // the reporter config before executing tests
     global
       .browser
       .getProcessedConfig()
-      .then(function(config) {
+      .then({
         // noop
       });
 
-    require('ts-node').register({
-      project: require('path').join(__dirname, './tsconfig.e2e.json')
+    tsNode.register({
+      project: path.join(__dirname, './tsconfig.e2e.json')
     });
   }
 };

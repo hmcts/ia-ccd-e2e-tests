@@ -19,9 +19,7 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_CASEOFFICER_USERNAME = params.CCD_USERNAME
     env.TEST_CASEOFFICER_PASSWORD = params.CCD_PASSWORD
 
-    before("lint") {
-        sh "yarn e2e"
-    }
+    fullFunctionalTest()
 
 //    enableSlackNotifications('#immigrationandasylum')  // can be turned back on once the overnight functionality is working fully
 

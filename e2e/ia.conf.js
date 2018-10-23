@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 module.exports = {
 
   CcdGatewayUrl: process.env.TEST_E2E_URL_GATEWAY || 'https://gateway-ccd.nonprod.platform.hmcts.net',
@@ -12,6 +14,6 @@ module.exports = {
   TestLawFirmAUserName: process.env.TEST_LAW_FIRM_A_USERNAME,
   TestLawFirmAPassword: process.env.TEST_LAW_FIRM_A_PASSWORD,
   TestLawFirmBUserName: process.env.TEST_LAW_FIRM_B_USERNAME,
-  TestLawFirmBPassword: process.env.TEST_LAW_FIRM_B_PASSWORD,
+  TestLawFirmBPassword: process.env.TEST_LAW_FIRM_B_PASSWORD
 
 };
