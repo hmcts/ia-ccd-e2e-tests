@@ -23,10 +23,10 @@ exports.config = {
     },
     acceptInsecureCerts: true,
     maxInstances: 1,
-    proxy: (!iaConfig.UseProxy) ? {} : {
+    proxy: (!iaConfig.UseProxy) ? null : {
       proxyType: 'manual',
-      httpProxy: iaConfig.UseProxy.replace('http://', ''),
-      sslProxy: iaConfig.UseProxy.replace('http://', '')
+      httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
+      sslProxy: iaConfig.ProxyUrl.replace('http://', '')
     },
     loggingPrefs: {
       driver: 'INFO',
