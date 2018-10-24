@@ -1,7 +1,7 @@
-import {browser, $} from 'protractor';
-import {AnyPage} from "./any.page";
-import {FormFiller} from '../helpers/form-filler';
-import {Wait} from '../enums/wait';
+import { browser, $ } from 'protractor';
+import { AnyPage } from './any.page';
+import { FormFiller } from '../helpers/form-filler';
+import { Wait } from '../enums/wait';
 
 export class IdamSignInPage extends AnyPage {
 

@@ -1,5 +1,5 @@
-import {AnyCcdPage} from '../../../pages/any-ccd.page';
-import {When} from 'cucumber';
+import { AnyCcdPage } from '../../../pages/any-ccd.page';
+import { When } from 'cucumber';
 
 const anyCcdPage = new AnyCcdPage();
 

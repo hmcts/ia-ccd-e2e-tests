@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 module.exports = {
 
   CcdGatewayUrl: process.env.TEST_E2E_URL_GATEWAY || 'https://gateway-ccd.nonprod.platform.hmcts.net',

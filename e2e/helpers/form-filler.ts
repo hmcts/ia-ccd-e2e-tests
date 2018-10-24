@@ -1,4 +1,4 @@
-import {ElementFinder, Key} from 'protractor';
+import { ElementFinder, Key } from 'protractor';
 
 export class FormFiller {
 

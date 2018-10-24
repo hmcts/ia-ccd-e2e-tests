@@ -1,5 +1,5 @@
-import {browser} from "protractor";
-import {IdamSignInPage} from '../pages/idam-sign-in.page';
+import { browser } from 'protractor';
+import { IdamSignInPage } from '../pages/idam-sign-in.page';
 
 const iaConfig = require('../ia.conf');
 

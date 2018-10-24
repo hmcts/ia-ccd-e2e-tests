@@ -1,6 +1,6 @@
-import {$, browser, ExpectedConditions} from 'protractor';
-import {AnyPage} from "./any.page";
-import {Wait} from "../enums/wait";
+import { $, browser, ExpectedConditions } from 'protractor';
+import { AnyPage } from './any.page';
+import { Wait } from '../enums/wait';
 
 export class AnyCcdPage extends AnyPage {
 
