@@ -15,7 +15,7 @@ Running the application requires the following tools to be installed in your env
   * [Node.js](https://nodejs.org/) v7.2.0 or later
   * [yarn](https://yarnpkg.com/)
 
-### Running the application
+### Install dependencies
 
 Install dependencies by executing the following command:
 
@@ -26,5 +26,19 @@ $ yarn install
 ### Running the tests
 
  ```bash
-$ yarn test-e2e
+$ yarn e2e
+ ```
+
+## Other tasks
+
+To ensure your code is clean (i.e. linting):
+
+ ```bash
+$ yarn lint
+ ```
+
+To perform NSP dependency checks:
+
+ ```bash
+$ yarn test:nsp
  ```
