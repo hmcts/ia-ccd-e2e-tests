@@ -4,14 +4,36 @@
   "private": true,
   "scripts": {
     "postinstall": "webdriver-manager update",
-    "e2e": "protractor ./e2e/protractor.conf.js"
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "e2e": "yarn test:fullfunctional",
+    "test:fullfunctional": "protractor ./e2e/features.conf.js",
+    "test:nsp": "nsp check"
   },
   "dependencies": {
+    "@angular/compiler": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@hmcts/eslint-config": "^1.4.0",
+    "@types/chai": "^4.1.6",
+    "@types/cucumber": "^4.0.4",
+    "@types/jasmine": "^2.8.9",
+    "@types/node": "^10.12.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "codelyzer": "^4.5.0",
+    "cucumber": "^5.0.2",
     "jasmine-core": "^3.2.1",
     "jasmine-spec-reporter": "^4.2.1",
+    "moment": "^2.22.2",
+    "nsp": "^3.2.1",
     "protractor": "^5.4.1",
     "protractor-beautiful-reporter": "^1.2.5",
-    "protractor-screenshoter-plugin": "^0.10.3",
-    "puppeteer": "^1.9.0"
+    "protractor-cucumber-framework": "^6.1.1",
+    "protractor-multiple-cucumber-html-reporter-plugin": "^1.8.0",
+    "puppeteer": "^1.9.0",
+    "rxjs": "^6.3.3",
+    "ts-loader": "^5.2.2",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.3"
   }
 }
