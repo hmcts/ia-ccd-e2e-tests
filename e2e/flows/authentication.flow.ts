@@ -8,6 +8,8 @@ export class AuthenticationFlow {
     private idamSignInPage = new IdamSignInPage();
 
     async signInAsCaseOfficer() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
             iaConfig.TestCaseOfficerUserName,
             iaConfig.TestCaseOfficerPassword
@@ -15,6 +17,8 @@ export class AuthenticationFlow {
     }
 
     async signInAsJudiciary() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
             iaConfig.TestJudiciaryUserName,
             iaConfig.TestJudiciaryPassword
@@ -22,6 +26,8 @@ export class AuthenticationFlow {
     }
 
     async signInAsLawFirmA() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
             iaConfig.TestLawFirmAUserName,
             iaConfig.TestLawFirmAPassword
@@ -29,6 +35,8 @@ export class AuthenticationFlow {
     }
 
     async signInAsLawFirmB() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
             iaConfig.TestLawFirmBUserName,
             iaConfig.TestLawFirmBPassword
