@@ -9,8 +9,9 @@ Feature: User authentication
     Given I am signed in as a <persona>
     When I go to the Case List
     Then I should see the Case List page
+    Then I should see the username <username>
 
     Examples:
-      | persona      |
-      | Case Officer |
-      | Legal Rep    |
+      | persona      | username     |
+      | Case Officer | Case Officer |
+      | Legal Rep    | Lawfirm A    |

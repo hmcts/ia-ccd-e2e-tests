@@ -19,7 +19,8 @@ Feature: Complete the appeal application online
 
     Given I click the Save and continue button
     Then I should see an alert confirming the case has been created
-    When I click the Case details tab
-#    Then Within the Nationality collection, I should see Finland for the first Nationality field
-#    Then I should see the Nationality row showing Iceland
+
+    Given I click the Case details tab
+    Then Within the Nationality collection, I should see Finland for the first Nationality field
+    Then Within the Nationality collection, I should see Iceland for the second Nationality field
     Then I should see No for the My client's nationality is not agreed field

@@ -28,17 +28,35 @@ export class AnyCcdPage extends AnyPage {
 
     async pageHeadingContains(match: string) {
 
-        await browser.wait(
-            async () => {
-                return await element
-                    .all(by.xpath('//*[self::h1 or self::h2][contains(text(), "' + match + '")]'))
-                    .isPresent();
-            },
-            Wait.normal,
-            'Page heading did not show in time'
-        );
+        try {
 
-        return true;
+            await browser.wait(
+                async () => {
+                    return await element
+                        .all(by.xpath('//*[self::h1 or self::h2][contains(text(), "' + match + '")]'))
+                        .isPresent();
+                },
+                Wait.normal,
+                'Page heading did not show in time'
+            );
+
+            return true;
+
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async usernameContains(match: string) {
+
+        try {
+
+            return await element(by.xpath('//*[@id="user-name" and contains(text(), "' + match + '")]'))
+                .isDisplayed();
+
+        } catch (error) {
+            return false;
+        }
     }
 
     async alertContains(match: string) {

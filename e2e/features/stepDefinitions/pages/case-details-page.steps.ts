@@ -12,19 +12,19 @@ Then(/^I should see (.+) for the (.+) field$/, async function (fieldValue, field
     expect(await caseDetailsPage.isFieldValueDisplayed(fieldLabel, fieldValue)).to.equal(true);
 });
 
-// Then(/^Within the (.+) collection, I should see (.+) for the ([^\s]+) (.+) field$/,
-//     async function (
-//         collectionLabel,
-//         fieldValue,
-//         collectionItemNumber,
-//         fieldLabel
-//     ) {
-//         expect(
-//             await caseDetailsPage.isCollectionItemFieldValueDisplayed(
-//                 collectionLabel,
-//                 collectionItemNumber,
-//                 fieldValue,
-//                 fieldLabel
-//             )
-//         ).to.equal(true);
-//     });
+Then(/^Within the (.+) collection, I should see (.+) for the ([^\s]+) (.+) field$/,
+    async function (
+        collectionLabel,
+        fieldValue,
+        collectionItemNumber,
+        fieldLabel
+    ) {
+        expect(
+            await caseDetailsPage.isCollectionItemFieldValueDisplayed(
+                collectionLabel,
+                collectionItemNumber,
+                fieldValue,
+                fieldLabel
+            )
+        ).to.equal(true);
+    });
