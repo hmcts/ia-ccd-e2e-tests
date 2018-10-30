@@ -35,6 +35,10 @@ Feature: Complete the appeal application online
     Then I select 10 Downing Street, London for the Select an address field
     Then I click the Continue button
 
+    Given I am on the Why is your client appealing? page
+    Then I select My client's protection claim was refused for the Appeal reason field
+    Then I click the Continue button
+
     Given I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
@@ -51,8 +55,9 @@ Feature: Complete the appeal application online
     Then Within the Address fieldset, I should see London for the Town or City field
     Then Within the Address fieldset, I should see SW1A 2AA for the Postcode/Zipcode field
     Then Within the Address fieldset, I should see United Kingdom for the Country field
+    Then I should see My client's protection claim was refused for the Appeal reason field
 
-  @create-case @lodge-appeal @no-fixed-address
+  @create-case @lodge-appeal @alternate
   Scenario: Lodge an appeal application (without a fixed address)
 
     Given I am signed in as a Legal Rep
@@ -63,8 +68,27 @@ Feature: Complete the appeal application online
     Then I select No for the Does the appellant have a fixed address? field
     Then I click the Continue button
 
-    Given I click the Save and continue button
+    Given I complete the Why is your client appealing? page
+    Then I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
     Given I click the Case details tab
     Then I should see No for the Does the appellant have a fixed address? field
+
+  @create-case @lodge-appeal @alternate
+  Scenario: Lodge an appeal application (without a fixed address)
+
+    Given I am signed in as a Legal Rep
+    Given I create a new case
+    Given I complete the Basic details page
+    Given I complete the Client's address page
+
+    Given I am on the Why is your client appealing? page
+    Then I select My client's protection status was revoked for the Appeal reason field
+    Then I click the Continue button
+
+    Given I click the Save and continue button
+    Then I should see an alert confirming the case has been created
+
+    Given I click the Case details tab
+    Then I should see My client's protection status was revoked for the Appeal reason field

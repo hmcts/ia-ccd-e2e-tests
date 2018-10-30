@@ -15,6 +15,16 @@ Given('I complete the Basic details page', {timeout: 60 * 1000}, async function 
     await anyCcdFormPage.click('Continue');
 });
 
+Given('I complete the Client\'s address page', {timeout: 60 * 1000}, async function () {
+    await anyCcdFormPage.setFieldValue('Does the appellant have a fixed address?', 'No');
+    await anyCcdFormPage.click('Continue');
+});
+
+Given('I complete the Why is your client appealing? page', {timeout: 60 * 1000}, async function () {
+    await anyCcdFormPage.setFieldValue('Appeal reason', 'My client\'s protection claim was refused');
+    await anyCcdFormPage.click('Continue');
+});
+
 When(/^I add (?:a|another) new item to the (.+) collection$/, async function (collectionLabel) {
     await anyCcdFormPage.addNewCollectionItem(collectionLabel);
 });
