@@ -28,3 +28,18 @@ Then(/^Within the (.+) collection, I should see (.+) for the ([^\s]+) (.+) field
             )
         ).to.equal(true);
     });
+
+Then(/^Within the (.+) fieldset, I should see (.+) for the (.+) field$/,
+    async function (
+        fieldsetLabel,
+        fieldValue,
+        fieldLabel
+    ) {
+        expect(
+            await caseDetailsPage.isFieldsetFieldValueDisplayed(
+                fieldsetLabel,
+                fieldLabel,
+                fieldValue
+            )
+        ).to.equal(true);
+    });
