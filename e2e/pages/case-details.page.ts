@@ -7,8 +7,8 @@ export class CaseDetailsPage extends AnyCcdPage {
     async isCollectionItemFieldValueDisplayed(
         collectionLabel: string,
         collectionItemNumber: string,
-        fieldValue: string,
-        fieldLabel: string
+        fieldLabel: string,
+        fieldValue: string
     ) {
         try {
 
@@ -22,20 +22,6 @@ export class CaseDetailsPage extends AnyCcdPage {
 
             return await fieldContainer
                 .element(by.xpath('.//td/span[normalize-space()="' + fieldValue + '"]'))
-                .isDisplayed();
-
-        } catch (error) {
-            return false;
-        }
-    }
-
-    async isFieldValueDisplayed(
-        fieldLabel: string,
-        fieldValue: string
-    ) {
-        try {
-
-            return await element(by.xpath('//div[normalize-space()="' + fieldLabel + '"]/../../td[normalize-space()="' + fieldValue + '"]'))
                 .isDisplayed();
 
         } catch (error) {

@@ -1,8 +1,12 @@
 import { $, browser, by, element, ExpectedConditions } from 'protractor';
 import { AnyCcdPage } from './any-ccd.page';
+import { FormFiller } from '../helpers/form-filler';
 import { OrdinalToCardinal } from '../helpers/ordinal-to-cardinal';
+import moment = require('moment');
 
 export class AnyCcdFormPage extends AnyCcdPage {
+
+    private formFiller = new FormFiller();
 
     private cancelLink = 'p.cancel';
 
@@ -38,8 +42,8 @@ export class AnyCcdFormPage extends AnyCcdPage {
     async setCollectionItemFieldValue(
         collectionLabel: string,
         collectionItemNumber: string,
-        fieldValue: string,
-        fieldLabel: string
+        fieldLabel: string,
+        fieldValue: string
     ) {
         const collectionItemContainer =
             await this.findCollectionItemContainer(collectionLabel, collectionItemNumber);
@@ -51,8 +55,8 @@ export class AnyCcdFormPage extends AnyCcdPage {
     }
 
     async setFieldValue(
-        fieldValue: string,
-        fieldLabel: string
+        fieldLabel: string,
+        fieldValue: string
     ) {
         const fieldContainer =
             await this.findFieldContainer(element, fieldLabel);
@@ -99,11 +103,57 @@ export class AnyCcdFormPage extends AnyCcdPage {
 
     private async setFieldValueWithinContainer(fieldContainer, fieldValue) {
 
-        if (await fieldContainer.$$('ccd-write-fixed-list-field').isPresent()) {
+        // the order can be important, for example ccd-write-address-field must be before
+        // ccd-write-text-field to allow addresses to be selected from the AddressUK complex type
+
+        if (await fieldContainer.$$('ccd-write-address-field').isPresent()) {
+
+            const optionElement = await fieldContainer
+                .element(by.xpath('.//option[normalize-space()="' + fieldValue + '"]'));
+
+            if (await optionElement.isPresent()) {
+                await optionElement.click();
+            } else {
+
+                await this.formFiller.replaceText(
+                    await fieldContainer
+                        .all(by.xpath('.//input[@type="text"]'))
+                        .first(),
+                    fieldValue
+                );
+            }
+
+        } else if (await fieldContainer.$$('ccd-write-date-field').isPresent()) {
+
+            const date = moment(fieldValue, 'DD MM YYYY');
+
+            await this.formFiller.replaceText(
+                await fieldContainer.element(by.xpath('.//input[@type="number" and contains(@name, "-day")]')),
+                date.date()
+            );
+
+            await this.formFiller.replaceText(
+                await fieldContainer.element(by.xpath('.//input[@type="number" and contains(@name, "-month")]')),
+                (date.month() + 1)
+            );
+
+            await this.formFiller.replaceText(
+                await fieldContainer.element(by.xpath('.//input[@type="number" and contains(@name, "-year")]')),
+                date.year()
+            );
+
+        } else if (await fieldContainer.$$('ccd-write-fixed-list-field').isPresent()) {
 
             await fieldContainer
                 .element(by.xpath('.//option[normalize-space()="' + fieldValue + '"]'))
                 .click();
+
+        } else if (await fieldContainer.$$('ccd-write-text-field').isPresent()) {
+
+            await this.formFiller.replaceText(
+                await fieldContainer.element(by.xpath('.//input[@type="text"]')),
+                fieldValue
+            );
 
         } else if (await fieldContainer.$$('ccd-write-yes-no-field').isPresent()) {
 

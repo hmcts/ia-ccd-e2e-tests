@@ -16,6 +16,6 @@ export class FormFiller {
         value: any
     ) {
         await this.clearText(inputElement);
-        inputElement.sendKeys(value);
+        await inputElement.sendKeys(value);
     }
 }
