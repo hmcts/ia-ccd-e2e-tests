@@ -23,6 +23,11 @@ Given('I am signed in as a Legal Rep', {timeout: 30 * 1000}, async function () {
     await anyCcdPage.waitUntilLoaded();
 });
 
+Given('I am signed in as a Legal Rep without any cases', async function () {
+    await authenticationFlow.signInAsLawFirmB();
+    await anyCcdPage.waitUntilLoaded();
+});
+
 Then(/^I should be redirected to the sign in page(?:| instead)$/, async function () {
     await idamSignInPage.waitUntilLoaded();
     expect(await anyCcdPage.isLoaded()).to.equal(false);
