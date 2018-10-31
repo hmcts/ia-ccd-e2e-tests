@@ -33,6 +33,25 @@ export class AnyCcdFormPage extends AnyCcdPage {
         await this.setFieldValueWithinContainer(fieldContainer, fieldValue);
     }
 
+    async getCollectionItemFieldValues(
+        collectionLabel: string,
+        collectionItemNumber: string,
+        fieldLabel: string
+    ) {
+        const collectionItemContainer =
+            await this.findCollectionItemContainer(collectionLabel, collectionItemNumber);
+
+        let listOfValues = [];
+        await collectionItemContainer
+            .all(by.xpath('.//span[@class="form-label" and normalize-space()="' + fieldLabel + '"]/../../.././/option'))
+            .each(function(item) {
+                item.getText().then(function (text) {
+                    listOfValues.push(text.trim());
+                });
+            });
+        return listOfValues;
+    }
+
     async setFieldValue(
         fieldValue: string,
         fieldLabel: string

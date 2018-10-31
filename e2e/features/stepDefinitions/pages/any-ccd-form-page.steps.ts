@@ -1,5 +1,6 @@
 import { AnyCcdFormPage } from '../../../pages/any-ccd-form.page';
 import { Then, When } from 'cucumber';
+import { expect } from 'chai';
 
 const anyCcdFormPage = new AnyCcdFormPage();
 
@@ -31,4 +32,17 @@ Then(/^I (?:choose|select|type) (.+) for the (.+) field$/,
             fieldValue,
             fieldLabel
         );
+    });
+
+Then(/^I see a list of all nationalities$/,
+async function () {
+
+    const nationalityList = await anyCcdFormPage.getCollectionItemFieldValues(
+                'Nationality',
+                'first',
+                'Nationality'
+            );
+    expect(nationalityList).to.have.lengthOf(251);
+    expect(nationalityList[1]).to.equal('Afghanistan');
+    expect(nationalityList[(nationalityList.length - 1)]).to.equal('Zimbabwe');
     });
