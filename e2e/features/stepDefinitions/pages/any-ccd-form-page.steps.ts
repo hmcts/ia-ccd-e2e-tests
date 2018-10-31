@@ -35,14 +35,15 @@ Then(/^I (?:choose|select|type) (.+) for the (.+) field$/,
     });
 
 Then(/^I see a list of all nationalities$/,
-async function () {
+    {timeout: 30 * 1000},
+    async function () {
 
-    const nationalityList = await anyCcdFormPage.getCollectionItemFieldValues(
-                'Nationality',
-                'first',
-                'Nationality'
-            );
-    expect(nationalityList).to.have.lengthOf(251);
-    expect(nationalityList[1]).to.equal('Afghanistan');
-    expect(nationalityList[(nationalityList.length - 1)]).to.equal('Zimbabwe');
+        const nationalityList = await anyCcdFormPage.getCollectionItemFieldValues(
+            'Nationality',
+            'first',
+            'Nationality'
+        );
+        expect(nationalityList).to.have.lengthOf(251);
+        expect(nationalityList[1]).to.equal('Afghanistan');
+        expect(nationalityList[(nationalityList.length - 1)]).to.equal('Zimbabwe');
     });

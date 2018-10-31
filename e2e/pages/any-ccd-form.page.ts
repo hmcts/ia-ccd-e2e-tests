@@ -16,6 +16,25 @@ export class AnyCcdFormPage extends AnyCcdPage {
             .click();
     }
 
+    async getCollectionItemFieldValues(
+        collectionLabel: string,
+        collectionItemNumber: string,
+        fieldLabel: string
+    ) {
+        const collectionItemContainer =
+            await this.findCollectionItemContainer(collectionLabel, collectionItemNumber);
+
+        const fieldContainer =
+            await this.findFieldContainer(collectionItemContainer, fieldLabel);
+
+        if (await fieldContainer.$$('ccd-write-fixed-list-field').isPresent()) {
+
+            return await fieldContainer
+                .all(by.xpath('.//option'))
+                .map(async (option) => (await option.getText()).trim());
+        }
+    }
+
     async setCollectionItemFieldValue(
         collectionLabel: string,
         collectionItemNumber: string,
@@ -26,30 +45,9 @@ export class AnyCcdFormPage extends AnyCcdPage {
             await this.findCollectionItemContainer(collectionLabel, collectionItemNumber);
 
         const fieldContainer =
-            await collectionItemContainer
-                .all(by.xpath('.//span[@class="form-label" and normalize-space()="' + fieldLabel + '"]/../../..'))
-                .first();
+            await this.findFieldContainer(collectionItemContainer, fieldLabel);
 
         await this.setFieldValueWithinContainer(fieldContainer, fieldValue);
-    }
-
-    async getCollectionItemFieldValues(
-        collectionLabel: string,
-        collectionItemNumber: string,
-        fieldLabel: string
-    ) {
-        const collectionItemContainer =
-            await this.findCollectionItemContainer(collectionLabel, collectionItemNumber);
-
-        let listOfValues = [];
-        await collectionItemContainer
-            .all(by.xpath('.//span[@class="form-label" and normalize-space()="' + fieldLabel + '"]/../../.././/option'))
-            .each(function(item) {
-                item.getText().then(function (text) {
-                    listOfValues.push(text.trim());
-                });
-            });
-        return listOfValues;
     }
 
     async setFieldValue(
@@ -57,9 +55,7 @@ export class AnyCcdFormPage extends AnyCcdPage {
         fieldLabel: string
     ) {
         const fieldContainer =
-            await element
-                .all(by.xpath('.//span[@class="form-label" and normalize-space()="' + fieldLabel + '"]/../../../..'))
-                .first();
+            await this.findFieldContainer(element, fieldLabel);
 
         await this.setFieldValueWithinContainer(fieldContainer, fieldValue);
     }
@@ -94,21 +90,29 @@ export class AnyCcdFormPage extends AnyCcdPage {
             .first();
     }
 
+    private async findFieldContainer(container, fieldLabel) {
+
+        return await container
+            .all(by.xpath('.//span[@class="form-label" and normalize-space()="' + fieldLabel + '"]/ancestor::ccd-field-write'))
+            .last();
+    }
+
     private async setFieldValueWithinContainer(fieldContainer, fieldValue) {
 
-        const tagName = await fieldContainer.getTagName();
-
-        if (tagName === 'ccd-write-fixed-list-field') {
+        if (await fieldContainer.$$('ccd-write-fixed-list-field').isPresent()) {
 
             await fieldContainer
                 .element(by.xpath('.//option[normalize-space()="' + fieldValue + '"]'))
                 .click();
 
-        } else if (tagName === 'ccd-write-yes-no-field') {
+        } else if (await fieldContainer.$$('ccd-write-yes-no-field').isPresent()) {
 
             await fieldContainer
                 .element(by.xpath('.//label[normalize-space()="' + fieldValue + '"]/../input'))
                 .click();
+
+        } else {
+            throw 'Unsupported field type';
         }
     }
 }
