@@ -9,6 +9,9 @@
     "test:fullfunctional": "protractor ./e2e/features.conf.js",
     "test:nsp": "nsp check"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "dependencies": {
     "@angular/compiler": "^7.0.0",
     "@angular/core": "^7.0.0",
@@ -25,6 +28,7 @@
     "jasmine-spec-reporter": "^4.2.1",
     "moment": "^2.22.2",
     "nsp": "^3.2.1",
+    "pre-commit": "^1.2.2",
     "protractor": "^5.4.1",
     "protractor-beautiful-reporter": "^1.2.5",
     "protractor-cucumber-framework": "^6.1.1",

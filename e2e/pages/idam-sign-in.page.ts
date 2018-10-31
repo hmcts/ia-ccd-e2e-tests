@@ -25,8 +25,7 @@ export class IdamSignInPage extends AnyPage {
         await browser.waitForAngularEnabled(false);
 
         const currentUrl = await browser.driver.getCurrentUrl();
-        return currentUrl.includes('idam')
-            && currentUrl.includes('login')
+        return currentUrl.includes('login')
             && await this.signInButton.isPresent();
     }
 
