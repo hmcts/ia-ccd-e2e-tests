@@ -16,6 +16,11 @@ Feature: Complete the appeal application online
     Given I am signed in as a Legal Rep
     Given I create a new case
 
+    Given I am on the Home Office reference page
+    When I type A1234567/001 for the Home Office reference number field
+    When I type 31 10 2018 for the Date on the decision letter field
+    When I click the Continue button
+
     Given I am on the Basic details page
     When I type Mr for the Title field
     When I type José for the Given names field
@@ -56,12 +61,15 @@ Feature: Complete the appeal application online
     Then Within the Address fieldset, I should see SW1A 2AA for the Postcode/Zipcode field
     Then Within the Address fieldset, I should see United Kingdom for the Country field
     Then I should see My client's protection claim was refused for the Appeal reason field
+    Then I should see A1234567/001 for the Home Office reference number field
+    Then I should see 31 Oct 2018 for the Date on the decision letter field
 
   @create-case @lodge-appeal @alternate
   Scenario: Lodge an appeal application (without a fixed address)
 
     Given I am signed in as a Legal Rep
     Given I create a new case
+    Given I complete the Home Office reference page
     Given I complete the Basic details page
 
     Given I am on the Your client's address page
@@ -80,6 +88,7 @@ Feature: Complete the appeal application online
 
     Given I am signed in as a Legal Rep
     Given I create a new case
+    Given I complete the Home Office reference page
     Given I complete the Basic details page
     Given I complete the Your client's address page
 

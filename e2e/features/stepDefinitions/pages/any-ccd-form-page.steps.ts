@@ -4,6 +4,13 @@ import { expect } from 'chai';
 
 const anyCcdFormPage = new AnyCcdFormPage();
 
+Given('I complete the Home Office reference page', {timeout: 60 * 1000}, async function () {
+    expect(await anyCcdFormPage.pageHeadingContains('Home Office reference')).to.equal(true);
+    await anyCcdFormPage.setFieldValue('Home Office reference number', 'A1234567/001');
+    await anyCcdFormPage.setFieldValue('Date on the decision letter', '31 10 2018');
+    await anyCcdFormPage.click('Continue');
+});
+
 Given('I complete the Basic details page', {timeout: 60 * 1000}, async function () {
     expect(await anyCcdFormPage.pageHeadingContains('Basic details')).to.equal(true);
     await anyCcdFormPage.setFieldValue('Title', 'Mr');
