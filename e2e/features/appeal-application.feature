@@ -1,7 +1,7 @@
 Feature: Complete the appeal application online
 
   @lodge-appeal
-  Scenario: Lodge an appeal application
+  Scenario: Lodge an appeal application (happy path)
 
     Given I am signed in as a Legal Rep
     When I click the Create new case button
@@ -21,6 +21,12 @@ Feature: Complete the appeal application online
     Then I select No for the My client's nationality is not agreed field
     Then I click the Continue button
 
+    Given I am on the Your client's address page
+    Then I type SW1A 2AA for the Enter a UK postcode field
+    Then I click the Find address button
+    Then I select 10 Downing Street, London for the Select an address field
+    Then I click the Continue button
+
     Given I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
@@ -32,3 +38,7 @@ Feature: Complete the appeal application online
     Then Within the Nationality collection, I should see Finland for the first Nationality field
     Then Within the Nationality collection, I should see Iceland for the second Nationality field
     Then I should see No for the My client's nationality is not agreed field
+    Then Within the Address fieldset, I should see 10 Downing Street for the Building and Street field
+    Then Within the Address fieldset, I should see London for the Town or City field
+    Then Within the Address fieldset, I should see SW1A 2AA for the Postcode/Zipcode field
+    Then Within the Address fieldset, I should see United Kingdom for the Country field
