@@ -33,9 +33,17 @@ $ yarn e2e
 
 Tests can be executed against an instance of CCD running locally using docker.
 
-Follow the instructions here to get CCD running locally:
+### Prerequisites
 
-https://github.com/hmcts/ccd-docker
+Running the tests locally requires the following tools to be installed in your environment:
+
+  * docker
+  * curl
+  * psql (postgresql client)
+
+Follow the *Quick start* instructions here to get CCD running locally:
+
+https://github.com/hmcts/ccd-docker#quick-start
 
 Once all of the docker containers are running, configure the environment variables shown below so that the tests run against the docker containers.
 
