@@ -81,7 +81,7 @@ Feature: Complete the appeal application online
     Given I am signed in as a Legal Rep
     Given I create a new case
     Given I complete the Basic details page
-    Given I complete the Client's address page
+    Given I complete the Your client's address page
 
     Given I am on the Why is your client appealing? page
     When I select My client's protection status was revoked for the Appeal reason field

@@ -5,6 +5,7 @@ import { expect } from 'chai';
 const anyCcdFormPage = new AnyCcdFormPage();
 
 Given('I complete the Basic details page', {timeout: 60 * 1000}, async function () {
+    expect(await anyCcdFormPage.pageHeadingContains('Basic details')).to.equal(true);
     await anyCcdFormPage.setFieldValue('Title', 'Mr');
     await anyCcdFormPage.setFieldValue('Given names', 'José');
     await anyCcdFormPage.setFieldValue('Last name', 'González');
@@ -15,12 +16,14 @@ Given('I complete the Basic details page', {timeout: 60 * 1000}, async function 
     await anyCcdFormPage.click('Continue');
 });
 
-Given('I complete the Client\'s address page', {timeout: 60 * 1000}, async function () {
+Given('I complete the Your client\'s address page', {timeout: 60 * 1000}, async function () {
+    expect(await anyCcdFormPage.pageHeadingContains('Your client\'s address')).to.equal(true);
     await anyCcdFormPage.setFieldValue('Does the appellant have a fixed address?', 'No');
     await anyCcdFormPage.click('Continue');
 });
 
 Given('I complete the Why is your client appealing? page', {timeout: 60 * 1000}, async function () {
+    expect(await anyCcdFormPage.pageHeadingContains('Why is your client appealing?')).to.equal(true);
     await anyCcdFormPage.setFieldValue('Appeal reason', 'My client\'s protection claim was refused');
     await anyCcdFormPage.click('Continue');
 });
