@@ -18,8 +18,8 @@ Then(/^Within the (.+) collection, I (?:choose|select|type) (.+) for the ([^\s]+
         await anyCcdFormPage.setCollectionItemFieldValue(
             collectionLabel,
             collectionItemNumber,
-            fieldValue,
-            fieldLabel
+            fieldLabel,
+            fieldValue
         );
     });
 
@@ -29,8 +29,8 @@ Then(/^I (?:choose|select|type) (.+) for the (.+) field$/,
         fieldLabel
     ) {
         await anyCcdFormPage.setFieldValue(
-            fieldValue,
-            fieldLabel
+            fieldLabel,
+            fieldValue
         );
     });
 

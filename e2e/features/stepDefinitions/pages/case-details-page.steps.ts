@@ -23,8 +23,8 @@ Then(/^Within the (.+) collection, I should see (.+) for the ([^\s]+) (.+) field
             await caseDetailsPage.isCollectionItemFieldValueDisplayed(
                 collectionLabel,
                 collectionItemNumber,
-                fieldValue,
-                fieldLabel
+                fieldLabel,
+                fieldValue
             )
         ).to.equal(true);
     });

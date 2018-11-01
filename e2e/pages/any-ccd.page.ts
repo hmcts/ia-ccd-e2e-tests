@@ -1,4 +1,4 @@
-import { $, browser, by, element, ExpectedConditions } from 'protractor';
+import { $, $$, browser, by, element, ExpectedConditions } from 'protractor';
 import { AnyPage } from './any.page';
 import { Wait } from '../enums/wait';
 
@@ -24,6 +24,79 @@ export class AnyCcdPage extends AnyPage {
             .all(by.xpath(linkPath))
             .first()
             .click();
+    }
+
+    async isFieldValueDisplayed(
+        fieldLabel: string,
+        fieldValue: string
+    ) {
+        try {
+
+            if (await $$('ccd-create-case-filters').isPresent()) {
+
+                const fieldLabelElement = await element(by.xpath('//label[normalize-space()="' + fieldLabel + '"]'));
+                const fieldElement = await element(by.css('#' + (await fieldLabelElement.getAttribute('for'))));
+                const fieldElementTagName = await fieldElement.getTagName();
+
+                if (fieldElementTagName === 'select') {
+
+                    const fieldSelectedElement = await fieldElement.element(by.css('option:checked'));
+                    return (await fieldSelectedElement.getText() == fieldValue);
+
+                } else {
+                    throw 'Unsupported field type';
+                }
+
+            } else if ($$('cut-tabs').isPresent()) {
+
+                return await element(by.xpath('//div[normalize-space()="' + fieldLabel + '"]/../../td[normalize-space()="' + fieldValue + '"]'))
+                    .isDisplayed();
+            }
+
+            return false;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async isFieldsetFieldValueDisplayed(
+        fieldsetLabel: string,
+        fieldLabel: string,
+        fieldValue: string
+    ) {
+        try {
+
+            const fieldsetContainer =
+                await element
+                    .all(by.xpath('//dl[@class="complex-panel-title"]//span[normalize-space()="' + fieldsetLabel + '"]/ancestor::ccd-read-complex-field'))
+                    .first();
+
+            const fieldContainer =
+                await fieldsetContainer
+                    .all(by.xpath('.//th/span[normalize-space()="' + fieldLabel + '"]/../..'))
+                    .first();
+
+            return await fieldContainer
+                .element(by.xpath('.//td/span[normalize-space()="' + fieldValue + '"]'))
+                .isDisplayed();
+
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async linkContains(match: string) {
+
+        try {
+
+            const linkPath = '//*[self::button or self::a][contains(text(), "' + match + '")]';
+
+            return await element(by.xpath(linkPath)).isDisplayed()
+                && await element(by.xpath(linkPath)).isEnabled();
+
+        } catch (error) {
+            return false;
+        }
     }
 
     async pageHeadingContains(match: string) {
@@ -63,6 +136,12 @@ export class AnyCcdPage extends AnyPage {
 
         await browser.wait(ExpectedConditions.visibilityOf($('div.alert-message')));
         return (await $('div.alert-message').getText()).includes(match);
+    }
+
+    async notificationContains(match: string) {
+
+        await browser.wait(ExpectedConditions.visibilityOf($('div.notification')));
+        return (await $('div.notification').getText()).includes(match);
     }
 
     async isLoaded() {
