@@ -14,6 +14,14 @@ When(/^I click the (.+) (?:button|link|tab)$/, {timeout: 30 * 1000}, async funct
     await anyCcdPage.click(linkText);
 });
 
+Then(/^I should see the (.+) (?:button|link|tab)$/, async function (linkText) {
+    expect(await anyCcdPage.linkContains(linkText)).to.equal(true);
+});
+
+Then(/^I should see (.+) for the (.+) field$/, async function (fieldValue, fieldLabel) {
+    expect(await anyCcdPage.isFieldValueDisplayed(fieldLabel, fieldValue)).to.equal(true);
+});
+
 Then(/^I (?:am on|should see) the (.+) page$/, async function (headingText) {
     expect(await anyCcdPage.pageHeadingContains(headingText)).to.equal(true);
 });

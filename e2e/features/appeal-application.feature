@@ -1,6 +1,16 @@
 Feature: Complete the appeal application online
 
-  @lodge-appeal
+  @create-case
+  Scenario: Create case
+    Given I am signed in as a Legal Rep
+    When I click the Create new case button
+    Then I should see the Create Case page
+    Then I should see Immigration & Asylum for the Jurisdiction field
+    Then I should see IA Asylum Case for the Case type field
+    Then I should see Start your appeal for the Event field
+    Then I should see the Start button
+
+  @create-case @lodge-appeal
   Scenario: Lodge an appeal application (happy path)
 
     Given I am signed in as a Legal Rep
@@ -42,7 +52,7 @@ Feature: Complete the appeal application online
     Then Within the Address fieldset, I should see SW1A 2AA for the Postcode/Zipcode field
     Then Within the Address fieldset, I should see United Kingdom for the Country field
 
-  @lodge-appeal @no-fixed-address
+  @create-case @lodge-appeal @no-fixed-address
   Scenario: Lodge an appeal application (without a fixed address)
 
     Given I am signed in as a Legal Rep

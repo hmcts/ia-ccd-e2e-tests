@@ -8,10 +8,6 @@ Then('I should see an alert confirming the case has been created', {timeout: 30 
     expect(await caseDetailsPage.alertContains('has been created')).to.equal(true);
 });
 
-Then(/^I should see (.+) for the (.+) field$/, async function (fieldValue, fieldLabel) {
-    expect(await caseDetailsPage.isFieldValueDisplayed(fieldLabel, fieldValue)).to.equal(true);
-});
-
 Then(/^Within the (.+) collection, I should see (.+) for the ([^\s]+) (.+) field$/,
     async function (
         collectionLabel,
