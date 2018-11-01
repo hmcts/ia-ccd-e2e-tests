@@ -1,8 +1,19 @@
 import { AnyCcdFormPage } from '../../../pages/any-ccd-form.page';
-import { Then, When } from 'cucumber';
+import { Given, Then, When } from 'cucumber';
 import { expect } from 'chai';
 
 const anyCcdFormPage = new AnyCcdFormPage();
+
+Given('I complete the Basic details page', {timeout: 60 * 1000}, async function () {
+    await anyCcdFormPage.setFieldValue('Title', 'Mr');
+    await anyCcdFormPage.setFieldValue('Given names', 'José');
+    await anyCcdFormPage.setFieldValue('Last name', 'González');
+    await anyCcdFormPage.setFieldValue('Date of birth', '31 12 1999');
+    await anyCcdFormPage.addNewCollectionItem('Nationality');
+    await anyCcdFormPage.setCollectionItemFieldValue('Nationality', 'first', 'Nationality', 'Finland');
+    await anyCcdFormPage.setFieldValue('My client\'s nationality is not agreed', 'No');
+    await anyCcdFormPage.click('Continue');
+});
 
 When(/^I add (?:a|another) new item to the (.+) collection$/, async function (collectionLabel) {
     await anyCcdFormPage.addNewCollectionItem(collectionLabel);
