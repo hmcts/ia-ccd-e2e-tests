@@ -18,12 +18,12 @@ Given('I am signed in as a Case Officer', {timeout: 30 * 1000}, async function (
     await anyCcdPage.waitUntilLoaded();
 });
 
-Given('I am signed in as a Legal Rep', {timeout: 30 * 1000}, async function () {
+Given(/^I am signed in as(?:| a) Legal Rep(?:| A)$/, {timeout: 30 * 1000}, async function () {
     await authenticationFlow.signInAsLawFirmA();
     await anyCcdPage.waitUntilLoaded();
 });
 
-Given('I am signed in as a Legal Rep without any cases', async function () {
+Given(/^I am signed in as(?:| a) Legal Rep(?:| B) without any cases$/, {timeout: 30 * 1000}, async function () {
     await authenticationFlow.signInAsLawFirmB();
     await anyCcdPage.waitUntilLoaded();
 });

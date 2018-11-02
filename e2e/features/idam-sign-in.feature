@@ -15,3 +15,22 @@ Feature: User authentication
       | persona      | username     |
       | Case Officer | Case Officer |
       | Legal Rep    | Lawfirm A    |
+
+  Scenario: Should only show cases related to that Legal Representative
+    Given I am signed in as Legal Rep A
+    And I create a new case
+    And I complete the Home Office reference page
+    And I complete the Basic details page
+    And I complete the Your client's address page
+    And I complete the Why is your client appealing? page
+    And I click the Save and continue button
+    And I should see an alert confirming the case has been created
+
+    Given I am signed in as Legal Rep B without any cases
+    When I go to the Case List
+    Then I should see a notification saying No cases found
+
+    Given I click the Search link
+    Then I click the Apply button
+    Then I should see a notification saying No cases found
+
