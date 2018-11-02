@@ -35,6 +35,21 @@ Given('I complete the Why is your client appealing? page', {timeout: 60 * 1000},
     await anyCcdFormPage.click('Continue');
 });
 
+Given('I complete the New matters page', {timeout: 60 * 1000}, async function () {
+    expect(await anyCcdFormPage.pageHeadingContains('New matters')).to.equal(true);
+    await anyCcdFormPage.setFieldValue(
+        'Are there any new reasons your client wishes to remain in the UK ' +
+        'or any new grounds on which they should be permitted to stay?',
+        'Yes'
+    );
+    await anyCcdFormPage.setFieldValue('New matters', 'Birth of a child');
+    await anyCcdFormPage.setFieldValue('New matters', 'New relationship');
+    await anyCcdFormPage.setFieldValue('New matters', 'Removal would disrupt family life');
+    await anyCcdFormPage.setFieldValue('New matters', 'Appellant now claims to be a refugee');
+    await anyCcdFormPage.setFieldValue('New matters', 'New marriage');
+    await anyCcdFormPage.click('Continue');
+});
+
 When(/^I add (?:a|another) new item to the (.+) collection$/, async function (collectionLabel) {
     await anyCcdFormPage.addNewCollectionItem(collectionLabel);
 });
@@ -54,7 +69,7 @@ Then(/^Within the (.+) collection, I (?:choose|select|type) (.+) for the ([^\s]+
         );
     });
 
-Then(/^I (?:choose|select|type) (.+) for the (.+) field$/,
+Then(/^I (?:check|choose|select|toggle|type) (.+) (?:for|from) the (.+) field$/,
     async function (
         fieldValue,
         fieldLabel
