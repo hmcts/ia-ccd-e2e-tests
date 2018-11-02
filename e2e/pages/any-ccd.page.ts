@@ -26,6 +26,22 @@ export class AnyCcdPage extends AnyPage {
             .click();
     }
 
+    async isFieldDisplayed(fieldLabel: string) {
+
+        try {
+
+            if ($$('cut-tabs').isPresent()) {
+
+                return await element(by.xpath('//div[normalize-space()="' + fieldLabel + '"]/../..//td'))
+                    .isDisplayed();
+            }
+
+            return false;
+        } catch (error) {
+            return false;
+        }
+    }
+
     async isFieldValueDisplayed(
         fieldLabel: string,
         fieldValue: string

@@ -22,6 +22,10 @@ Then(/^I should see (.+) for the (.+) field$/, async function (fieldValue, field
     expect(await anyCcdPage.isFieldValueDisplayed(fieldLabel, fieldValue)).to.equal(true);
 });
 
+Then(/^I should not see the (.+) field$/, async function (fieldLabel) {
+    expect(await anyCcdPage.isFieldDisplayed(fieldLabel)).to.equal(false);
+});
+
 Then(/^I (?:am on|should see) the (.+) page$/, async function (headingText) {
     expect(await anyCcdPage.pageHeadingContains(headingText)).to.equal(true);
 });

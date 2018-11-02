@@ -118,3 +118,24 @@ Feature: Complete the appeal application online
 
     Given I click the Case details tab
     Then I should see My client's protection status was revoked for the Appeal reason field
+
+  @create-case @lodge-appeal @alternate
+  Scenario: Lodge an appeal application (no new matters)
+
+    Given I am signed in as a Legal Rep
+    Given I create a new case
+    Given I complete the Home Office reference page
+    Given I complete the Basic details page
+    Given I complete the Your client's address page
+    Given I complete the Why is your client appealing? page
+
+    Given I am on the New matters page
+    When I select No for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
+    Then I click the Continue button
+
+    Given I click the Save and continue button
+    Then I should see an alert confirming the case has been created
+
+    Given I click the Case details tab
+    Then I should see No for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
+    Then I should not see the New matters field
