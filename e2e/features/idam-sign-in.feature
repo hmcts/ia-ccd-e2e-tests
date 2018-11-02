@@ -23,6 +23,7 @@ Feature: User authentication
     And I complete the Basic details page
     And I complete the Your client's address page
     And I complete the Why is your client appealing? page
+    And I complete the New matters page
     And I click the Save and continue button
     And I should see an alert confirming the case has been created
 
@@ -33,4 +34,3 @@ Feature: User authentication
     Given I click the Search link
     Then I click the Apply button
     Then I should see a notification saying No cases found
-
