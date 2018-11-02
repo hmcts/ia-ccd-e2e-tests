@@ -1,5 +1,6 @@
 import { AnyCcdPage } from '../../../pages/any-ccd.page';
-import { When } from 'cucumber';
+import { Then, When } from 'cucumber';
+import { expect } from 'chai';
 
 const anyCcdPage = new AnyCcdPage();
 
@@ -9,4 +10,8 @@ When('I go to the Case List', {timeout: 30 * 1000}, async function () {
 
 When('I attempt to go to the Case List', {timeout: 30 * 1000}, async function () {
     await anyCcdPage.getWithoutWaitingForAngular('/list/case');
+});
+
+Then(/^I should see a notification saying (.+)$/, async function (message) {
+    expect(await anyCcdPage.notificationContains(message)).to.equal(true);
 });

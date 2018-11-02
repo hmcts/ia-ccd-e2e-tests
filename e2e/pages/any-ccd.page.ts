@@ -41,7 +41,7 @@ export class AnyCcdPage extends AnyPage {
                 if (fieldElementTagName === 'select') {
 
                     const fieldSelectedElement = await fieldElement.element(by.css('option:checked'));
-                    return (await fieldSelectedElement.getText() == fieldValue);
+                    return (await fieldSelectedElement.getText() === fieldValue);
 
                 } else {
                     throw 'Unsupported field type';
@@ -49,7 +49,8 @@ export class AnyCcdPage extends AnyPage {
 
             } else if ($$('cut-tabs').isPresent()) {
 
-                return await element(by.xpath('//div[normalize-space()="' + fieldLabel + '"]/../../td[normalize-space()="' + fieldValue + '"]'))
+                return await element(by.xpath('//div[normalize-space()="' + fieldLabel + '"]/../../td[normalize-space()="'
+                    + fieldValue + '"]'))
                     .isDisplayed();
             }
 
@@ -68,7 +69,8 @@ export class AnyCcdPage extends AnyPage {
 
             const fieldsetContainer =
                 await element
-                    .all(by.xpath('//dl[@class="complex-panel-title"]//span[normalize-space()="' + fieldsetLabel + '"]/ancestor::ccd-read-complex-field'))
+                    .all(by.xpath('//dl[@class="complex-panel-title"]//span[normalize-space()="' + fieldsetLabel
+                        + '"]/ancestor::ccd-read-complex-field'))
                     .first();
 
             const fieldContainer =
