@@ -148,6 +148,12 @@ export class AnyCcdFormPage extends AnyCcdPage {
                 .element(by.xpath('.//option[normalize-space()="' + fieldValue + '"]'))
                 .click();
 
+        } else if (await fieldContainer.$$('ccd-write-multi-select-list-field').isPresent()) {
+
+            await fieldContainer
+                .element(by.xpath('.//label[normalize-space()="' + fieldValue + '"]/../input[@type="checkbox"]'))
+                .click();
+
         } else if (await fieldContainer.$$('ccd-write-text-field').isPresent()) {
 
             await this.formFiller.replaceText(
