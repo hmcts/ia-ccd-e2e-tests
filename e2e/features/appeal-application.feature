@@ -72,6 +72,7 @@ Feature: Complete the appeal application online
     Then Within the Address fieldset, I should see London for the Town or City field
     Then Within the Address fieldset, I should see SW1A 2AA for the Postcode/Zipcode field
     Then Within the Address fieldset, I should see United Kingdom for the Country field
+    Then I should see Yes for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
     Then I should see Birth of a child for the New matters field
     Then I should see New relationship for the New matters field
     Then I should see Removal would disrupt family life for the New matters field
