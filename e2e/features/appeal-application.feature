@@ -10,7 +10,7 @@ Feature: Complete the appeal application online
     Then I should see Start your appeal for the Event field
     Then I should see the Start button
 
-  @create-case @lodge-appeal
+  @create-case @lodge-appeal @happy-path
   Scenario: Lodge an appeal application (happy path)
 
     Given I am signed in as a Legal Rep
@@ -44,10 +44,21 @@ Feature: Complete the appeal application online
     When I select My client's protection claim was refused for the Appeal reason field
     When I click the Continue button
 
+    Given I am on the New matters page
+    When I select Yes for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
+    When I select Birth of a child from the New matters field
+    When I select New relationship from the New matters field
+    When I select Removal would disrupt family life from the New matters field
+    When I select Appellant now claims to be a refugee from the New matters field
+    When I select New marriage from the New matters field
+    When I click the Continue button
+
     Given I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
     Given I click the Case details tab
+    Then I should see A1234567/001 for the Home Office reference number field
+    Then I should see 31 Oct 2018 for the Date on the decision letter field
     Then I should see Mr for the Title field
     Then I should see José for the Given names field
     Then I should see González for the Last name field
@@ -61,8 +72,12 @@ Feature: Complete the appeal application online
     Then Within the Address fieldset, I should see SW1A 2AA for the Postcode/Zipcode field
     Then Within the Address fieldset, I should see United Kingdom for the Country field
     Then I should see My client's protection claim was refused for the Appeal reason field
-    Then I should see A1234567/001 for the Home Office reference number field
-    Then I should see 31 Oct 2018 for the Date on the decision letter field
+    Then I should see Yes for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
+    Then I should see Birth of a child for the New matters field
+    Then I should see New relationship for the New matters field
+    Then I should see Removal would disrupt family life for the New matters field
+    Then I should see Appellant now claims to be a refugee for the New matters field
+    Then I should see New marriage for the New matters field
 
   @create-case @lodge-appeal @alternate
   Scenario: Lodge an appeal application (without a fixed address)
@@ -77,6 +92,7 @@ Feature: Complete the appeal application online
     When I click the Continue button
 
     Given I complete the Why is your client appealing? page
+    Given I complete the New matters page
     When I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
@@ -84,7 +100,7 @@ Feature: Complete the appeal application online
     Then I should see No for the Does the appellant have a fixed address? field
 
   @create-case @lodge-appeal @alternate
-  Scenario: Lodge an appeal application (without a fixed address)
+  Scenario: Lodge an appeal application (protection status revoked)
 
     Given I am signed in as a Legal Rep
     Given I create a new case
@@ -96,6 +112,7 @@ Feature: Complete the appeal application online
     When I select My client's protection status was revoked for the Appeal reason field
     Then I click the Continue button
 
+    Given I complete the New matters page
     Given I click the Save and continue button
     Then I should see an alert confirming the case has been created
 

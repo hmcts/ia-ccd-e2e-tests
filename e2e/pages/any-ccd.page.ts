@@ -49,8 +49,8 @@ export class AnyCcdPage extends AnyPage {
 
             } else if ($$('cut-tabs').isPresent()) {
 
-                return await element(by.xpath('//div[normalize-space()="' + fieldLabel + '"]/../../td[normalize-space()="'
-                    + fieldValue + '"]'))
+                return await element(by.xpath('//div[normalize-space()="' + fieldLabel + '"]/../..' +
+                    '//td[normalize-space()="' + fieldValue + '"]'))
                     .isDisplayed();
             }
 
