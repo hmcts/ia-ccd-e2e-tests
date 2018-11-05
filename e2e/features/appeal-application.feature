@@ -126,3 +126,22 @@ Feature: Complete the appeal application online
 
     Given I click the Case details tab
     Then I should see My client's protection status was revoked for the Appeal reason field
+
+  @create-case @lodge-appeal @alternate
+  Scenario: Lodge an appeal application (without providing legal representative reference number)
+
+    Given I am signed in as a Legal Rep
+    Given I create a new case
+    Given I complete the Home Office reference page
+    Given I complete the Basic details page
+    Given I complete the Your client's address page
+    Given I complete the Why is your client appealing? page
+    Given I complete the New matters page
+
+    Given I am on the Your own reference number page
+    When I click the Continue button
+    And I click the Save and continue button
+    Then I should see an alert confirming the case has been created
+
+    Given I click the Case details tab
+    Then the If you prefer to use your own reference number for this case, you can enter it here. field should be empty
