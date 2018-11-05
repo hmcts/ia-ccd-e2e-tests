@@ -24,6 +24,7 @@ Feature: User authentication
     And I complete the Your client's address page
     And I complete the Why is your client appealing? page
     And I complete the New matters page
+    And I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
     And I click the Save and continue button
     And I should see an alert confirming the case has been created
