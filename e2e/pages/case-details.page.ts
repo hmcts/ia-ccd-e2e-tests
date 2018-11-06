@@ -15,14 +15,24 @@ export class CaseDetailsPage extends AnyCcdPage {
             const collectionItemContainer =
                 await this.findCollectionItemContainer(collectionLabel, collectionItemNumber);
 
-            const fieldContainer =
-                await collectionItemContainer
-                    .all(by.xpath('.//th/span[normalize-space()="' + fieldLabel + '"]/../..'))
-                    .first();
+            if ((await collectionItemContainer.getTagName()) === 'ccd-read-complex-field-table') {
 
-            return await fieldContainer
-                .element(by.xpath('.//td/span[normalize-space()="' + fieldValue + '"]'))
-                .isDisplayed();
+                const fieldContainer =
+                    await collectionItemContainer
+                        .all(by.xpath('.//th/span[normalize-space()="' + fieldLabel + '"]/../..'))
+                        .first();
+
+                return await fieldContainer
+                    .element(by.xpath('.//td/span[normalize-space()="' + fieldValue + '"]'))
+                    .isDisplayed();
+
+            } else {
+
+                return await collectionItemContainer
+                    .all(by.xpath('.//*[normalize-space()="' + fieldValue + '"]'))
+                    .last()
+                    .isDisplayed();
+            }
 
         } catch (error) {
             return false;
@@ -32,11 +42,7 @@ export class CaseDetailsPage extends AnyCcdPage {
     private async findCollectionContainer(collectionLabel: string) {
 
         return await element
-            .all(by.xpath('//div[normalize-space()="' + collectionLabel + '"]/../..'))
-            .filter(async (childElement) => {
-                return await childElement
-                    .isElementPresent(by.xpath('.//table[@class="collection-field-table"]'))
-            })
+            .all(by.xpath('//div[normalize-space()="' + collectionLabel + '"]/../..//table[@class="collection-field-table"]'))
             .first();
     }
 
@@ -46,12 +52,21 @@ export class CaseDetailsPage extends AnyCcdPage {
             ? collectionItemNumber
             : OrdinalToCardinal.convertWordToNumber(collectionItemNumber);
 
-        let collectionItemLabel = collectionLabel + ' ' + cardinalNumber;
-
         const collectionContainer = await this.findCollectionContainer(collectionLabel);
 
-        return await collectionContainer
-            .all(by.xpath('.//dt/span[normalize-space()="' + collectionItemLabel + '"]/../../..'))
-            .first();
+        if (await collectionContainer.$$('ccd-read-complex-field').isPresent()) {
+
+            let collectionItemLabel = collectionLabel + ' ' + cardinalNumber;
+
+            return await collectionContainer
+                .all(by.xpath('.//dt/span[normalize-space()="' + collectionItemLabel + '"]/ancestor::ccd-read-complex-field-table'))
+                .first();
+
+        } else {
+
+            return await collectionContainer
+                .all(by.xpath('.//ccd-field-read[' + cardinalNumber + ']'))
+                .first();
+        }
     }
 }

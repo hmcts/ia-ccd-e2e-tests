@@ -15,7 +15,7 @@ export class AnyCcdFormPage extends AnyCcdPage {
         const collectionContainer = await this.findCollectionContainer(collectionLabel);
 
         await collectionContainer
-            .all(by.xpath('button[normalize-space()="Add new"]'))
+            .all(by.xpath('.//button[normalize-space()="Add new"]'))
             .first()
             .click();
     }
@@ -72,7 +72,7 @@ export class AnyCcdFormPage extends AnyCcdPage {
     private async findCollectionContainer(collectionLabel: string) {
 
         return await element
-            .all(by.xpath('//ccd-write-collection-field//h3[normalize-space()="' + collectionLabel + '"]/..'))
+            .all(by.xpath('//ccd-write-collection-field//h3[normalize-space()="' + collectionLabel + '"]/ancestor::ccd-write-collection-field'))
             .first();
     }
 
@@ -96,9 +96,18 @@ export class AnyCcdFormPage extends AnyCcdPage {
 
     private async findFieldContainer(container, fieldLabel) {
 
-        return await container
-            .all(by.xpath('.//span[@class="form-label" and normalize-space()="' + fieldLabel + '"]/ancestor::ccd-field-write'))
-            .last();
+        const fieldWithLabelContainer =
+            container
+                .all(by.xpath('.//span[@class="form-label" and normalize-space()="' + fieldLabel + '"]/ancestor::ccd-field-write'));
+
+        if (await fieldWithLabelContainer.isPresent()) {
+            return await fieldWithLabelContainer.last();
+        } else {
+
+            return container
+                .all(by.xpath('.//ccd-field-write'))
+                .last();
+        }
     }
 
     private async setFieldValueWithinContainer(fieldContainer, fieldValue) {
