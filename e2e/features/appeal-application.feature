@@ -58,8 +58,8 @@ Feature: Complete the appeal application online
     When I click the Continue button
 
     Given I am on the Has your client appealed against any other UK immigration decisions? page
-    When I add a new item to the Other appeals collection
-    When Within the Other appeals collection, I type 1234 for the first Other appeals field
+    When I add a new item to the Appeal number collection
+    When Within the Appeal number collection, I type 1234 for the first Appeal number field
     When I click the Continue button
 
     Given I am on the Your own reference number page
@@ -92,7 +92,7 @@ Feature: Complete the appeal application online
     Then I should see Appellant now claims to be a refugee for the New matters field
     Then I should see New marriage for the New matters field
     Then I should see Yes for the Other appeals field
-    Then Within the Other appeals collection, I should see 1234 for the first Other appeals field
+    Then Within the Appeal number collection, I should see 1234 for the first Appeal number field
     Then I should see some-ref for the If you prefer to use your own reference number for this case, you can enter it here. field
 
   @create-case @lodge-appeal @alternate
