@@ -50,6 +50,12 @@ Given('I complete the New matters page', {timeout: 60 * 1000}, async function ()
     await anyCcdFormPage.click('Continue');
 });
 
+Given('I complete the Your own reference number page', {timeout: 60 * 1000}, async function () {
+    expect(await anyCcdFormPage.pageHeadingContains('Your own reference number')).to.equal(true);
+    await anyCcdFormPage.setFieldValue('If you prefer to use your own reference number for this case, you can enter it here. (Optional)', 'some-ref');
+    await anyCcdFormPage.click('Continue');
+});
+
 When(/^I add (?:a|another) new item to the (.+) collection$/, async function (collectionLabel) {
     await anyCcdFormPage.addNewCollectionItem(collectionLabel);
 });
