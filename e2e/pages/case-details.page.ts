@@ -65,8 +65,7 @@ export class CaseDetailsPage extends AnyCcdPage {
         } else {
 
             return await collectionContainer
-                .all(by.xpath('.//ccd-field-read[' + cardinalNumber + ']'))
-                .first();
+                .all(by.xpath('.//ccd-field-read')).get(cardinalNumber - 1);
         }
     }
 }
