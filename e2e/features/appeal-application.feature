@@ -53,6 +53,10 @@ Feature: Complete the appeal application online
     When I select New marriage from the New matters field
     When I click the Continue button
 
+    Given I am on the Your own reference number page
+    When I type some-ref for the If you prefer to use your own reference number for this case, you can enter it here. (Optional) field
+    When I click the Continue button
+
     Given I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
@@ -78,6 +82,7 @@ Feature: Complete the appeal application online
     Then I should see Removal would disrupt family life for the New matters field
     Then I should see Appellant now claims to be a refugee for the New matters field
     Then I should see New marriage for the New matters field
+    Then I should see some-ref for the If you prefer to use your own reference number for this case, you can enter it here. field
 
   @create-case @lodge-appeal @alternate
   Scenario: Lodge an appeal application (without a fixed address)
@@ -93,6 +98,8 @@ Feature: Complete the appeal application online
 
     Given I complete the Why is your client appealing? page
     Given I complete the New matters page
+    Given I complete the Your own reference number page
+
     When I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
@@ -113,11 +120,31 @@ Feature: Complete the appeal application online
     Then I click the Continue button
 
     Given I complete the New matters page
+    Given I complete the Your own reference number page
     Given I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
     Given I click the Case details tab
     Then I should see My client's protection status was revoked for the Appeal reason field
+
+  @create-case @lodge-appeal @alternate
+  Scenario: Lodge an appeal application (without providing legal representative reference number)
+
+    Given I am signed in as a Legal Rep
+    Given I create a new case
+    Given I complete the Home Office reference page
+    Given I complete the Basic details page
+    Given I complete the Your client's address page
+    Given I complete the Why is your client appealing? page
+    Given I complete the New matters page
+
+    Given I am on the Your own reference number page
+    When I click the Continue button
+    And I click the Save and continue button
+    Then I should see an alert confirming the case has been created
+
+    Given I click the Case details tab
+    Then the If you prefer to use your own reference number for this case, you can enter it here. field should be empty
 
   @create-case @lodge-appeal @alternate
   Scenario: Lodge an appeal application (no new matters)
@@ -133,6 +160,7 @@ Feature: Complete the appeal application online
     When I select No for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
     Then I click the Continue button
 
+    Given I complete the Your own reference number page
     Given I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
