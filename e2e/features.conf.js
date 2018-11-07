@@ -50,6 +50,7 @@ exports.config = {
     require: ['./features/stepDefinitions/**/*.steps.ts'],
     tags: false,
     profile: false,
+    timeout: 20000,
     'no-source': true
   },
 

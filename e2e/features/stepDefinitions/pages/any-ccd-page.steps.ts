@@ -38,3 +38,7 @@ Then(/^I (?:am on|should see) the (.+) page$/, async function (headingText) {
 Then(/^I should see the username (.+)$/, async function (username) {
     expect(await anyCcdPage.usernameContains(username)).to.equal(true);
 });
+
+Then(/^the (.+) button is (enabled|disabled)$/, async function (buttonText, enabledOrDisabled) {
+    expect(await anyCcdPage.isButtonEnabled(buttonText)).to.equal(enabledOrDisabled === 'enabled');
+});

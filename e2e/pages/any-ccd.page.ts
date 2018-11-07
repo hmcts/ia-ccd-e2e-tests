@@ -26,6 +26,18 @@ export class AnyCcdPage extends AnyPage {
             .click();
     }
 
+    async isButtonEnabled(buttonText: string) {
+
+        const buttonPath = '//*[self::button or self::a][normalize-space()="' + buttonText + '"]';
+
+        const buttonElement =
+            await element
+                .all(by.xpath(buttonPath))
+                .first();
+
+        return await buttonElement.isEnabled();
+    }
+
     async isFieldDisplayed(fieldLabel: string) {
 
         try {
