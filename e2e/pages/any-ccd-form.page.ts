@@ -64,6 +64,12 @@ export class AnyCcdFormPage extends AnyCcdPage {
         await this.setFieldValueWithinContainer(fieldContainer, fieldValue);
     }
 
+    async fieldErrorContains(match: string) {
+
+        await browser.wait(ExpectedConditions.visibilityOf($('.error-message')));
+        return (await $('.error-message').getText()).includes(match);
+    }
+
     async isLoaded() {
         return (await browser.driver.getCurrentUrl()).includes('ccd')
             && (await ExpectedConditions.visibilityOf($(this.cancelLink))());

@@ -17,7 +17,7 @@ Feature: Complete the appeal application online
     Given I create a new case
 
     Given I am on the Home Office reference page
-    When I type A1234567/001 for the Home Office reference number field
+    When I type A123456/001 for the Home Office reference number field
     When I type 31 10 2018 for the Date on the decision letter field
     When I click the Continue button
 
@@ -72,7 +72,7 @@ Feature: Complete the appeal application online
     Then I should see an alert confirming the case has been created
 
     Given I click the Case details tab
-    Then I should see A1234567/001 for the Home Office reference number field
+    Then I should see A123456/001 for the Home Office reference number field
     Then I should see 31 Oct 2018 for the Date on the decision letter field
     Then I should see Mr for the Title field
     Then I should see José for the Given names field
