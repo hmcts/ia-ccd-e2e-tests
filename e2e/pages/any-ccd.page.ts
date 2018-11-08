@@ -97,8 +97,11 @@ export class AnyCcdPage extends AnyPage {
 
             const fieldsetContainer =
                 await element
-                    .all(by.xpath('//dl[@class="complex-panel-title"]//span[normalize-space()="' + fieldsetLabel
-                        + '"]/ancestor::ccd-read-complex-field'))
+                    .all(by.xpath(
+                        '//dl[@class="complex-panel-title"]' +
+                        '//span[normalize-space()="' + fieldsetLabel + '"]' +
+                        '/ancestor::ccd-read-complex-field'
+                    ))
                     .first();
 
             const fieldContainer =
@@ -136,8 +139,8 @@ export class AnyCcdPage extends AnyPage {
             await browser.wait(
                 async () => {
                     return await element
-                        .all(by.xpath('//*[self::h1 or self::h2][contains(text(), "' + match + '")]'))
-                        .isPresent();
+                        .all(by.xpath('//*[self::h1 or self::h2][contains(normalize-space(), "' + match + '")]'))
+                        .isDisplayed();
                 },
                 Wait.normal,
                 'Page heading did not show in time'
@@ -150,11 +153,27 @@ export class AnyCcdPage extends AnyPage {
         }
     }
 
+    async tagContains(text: string) {
+
+        try {
+
+            return await element
+                .all(by.xpath('//*[normalize-space()="' + text + '"]'))
+                .last()
+                .isDisplayed();
+
+            return true;
+
+        } catch (error) {
+            return false;
+        }
+    }
+
     async usernameContains(match: string) {
 
         try {
 
-            return await element(by.xpath('//*[@id="user-name" and contains(text(), "' + match + '")]'))
+            return await element(by.xpath('//*[@id="user-name" and contains(normalize-space(), "' + match + '")]'))
                 .isDisplayed();
 
         } catch (error) {
