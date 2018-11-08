@@ -8,7 +8,7 @@ export class AnyCcdPage extends AnyPage {
 
     async click(linkText: string) {
 
-        const linkPath = '//*[self::button or self::a][normalize-space()="' + linkText + '"]';
+        const linkPath = '//*[self::button or self::a or self::span][normalize-space()="' + linkText + '"]';
 
         await browser.wait(
             async () => {
@@ -17,7 +17,7 @@ export class AnyCcdPage extends AnyPage {
                     .isPresent();
             },
             Wait.normal,
-            'Button did not show in time'
+            'Button or link did not show in time'
         );
 
         await element
