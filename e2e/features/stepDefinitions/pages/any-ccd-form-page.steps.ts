@@ -70,6 +70,13 @@ When(/^I add (?:a|another) new item to the (.+) collection$/, async function (co
     await anyCcdFormPage.addNewCollectionItem(collectionLabel);
 });
 
+When(/^I remove the (.+) item from the (.+) collection$/, async function (
+    collectionItemNumber,
+    collectionLabel
+) {
+    await anyCcdFormPage.removeCollectionItem(collectionLabel, collectionItemNumber);
+});
+
 When(/^Within the (.+) collection, I (?:choose|select|type) (.+) for the ([^\s]+) (.+) field$/,
     async function (
         collectionLabel,
