@@ -19,6 +19,32 @@ export class AnyCcdFormPage extends AnyCcdPage {
             .click();
     }
 
+    async removeCollectionItem(collectionLabel: string, collectionItemNumber: string) {
+
+        const collectionItemContainer =
+            await this.findCollectionItemContainer(collectionLabel, collectionItemNumber);
+
+        await collectionItemContainer
+            .all(by.xpath('.//button[normalize-space()="Remove"]'))
+            .first()
+            .click();
+
+        await browser.wait(ExpectedConditions.visibilityOf(
+            collectionItemContainer
+                .element(by.xpath('//ccd-remove-dialog//button[normalize-space()="Remove"]')))
+        );
+
+        await collectionItemContainer
+            .all(by.xpath('//ccd-remove-dialog//button[normalize-space()="Remove"]'))
+            .first()
+            .click();
+
+        await browser.wait(ExpectedConditions.invisibilityOf(
+            collectionItemContainer
+                .element(by.xpath('//ccd-remove-dialog//button[normalize-space()="Remove"]')))
+        );
+    }
+
     async getCollectionItemFieldValues(
         collectionLabel: string,
         collectionItemNumber: string,

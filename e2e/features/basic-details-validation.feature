@@ -58,3 +58,22 @@ Feature: Basic details are validated
     Then the Continue button is disabled
     When I type 31-12-1999 for the Date of birth field
     Then the Continue button is enabled
+
+  @create-case @alternate @RIA-624
+  Scenario: Empty Nationality is not allowed
+
+    Given I complete the Basic details form
+    When I remove the first item from the Nationality collection
+    Then the Continue button is disabled
+    When I add a new item to the Nationality collection
+    When Within the Nationality collection, I select Finland for the first Nationality field
+    Then the Continue button is enabled
+
+  @create-case @alternate @RIA-624
+  Scenario: Unselected Nationality is not allowed
+
+    Given I complete the Basic details form
+    When Within the Nationality collection, I select --Select a value-- for the first Nationality field
+    Then the Continue button is disabled
+    When Within the Nationality collection, I select Finland for the first Nationality field
+    Then the Continue button is enabled
