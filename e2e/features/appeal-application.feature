@@ -18,14 +18,14 @@ Feature: Complete the appeal application online
 
     Given I am on the Home Office reference page
     When I type A123456/001 for the Home Office reference number field
-    When I type 31 10 2018 for the Date on the decision letter field
+    When I type 31-10-2018 for the Date on the decision letter field
     When I click the Continue button
 
     Given I am on the Basic details page
     When I type Mr for the Title field
     When I type José for the Given names field
     When I type González for the Last name field
-    When I type 31 12 1999 for the Date of birth field
+    When I type 31-12-1999 for the Date of birth field
     When I add a new item to the Nationality collection
     When Within the Nationality collection, I select Finland for the first Nationality field
     When I add another new item to the Nationality collection

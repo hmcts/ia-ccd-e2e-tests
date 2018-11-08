@@ -2,7 +2,6 @@ import { $, browser, by, element, ExpectedConditions } from 'protractor';
 import { AnyCcdPage } from './any-ccd.page';
 import { FormFiller } from '../helpers/form-filler';
 import { OrdinalToCardinal } from '../helpers/ordinal-to-cardinal';
-import moment = require('moment');
 
 export class AnyCcdFormPage extends AnyCcdPage {
 
@@ -143,21 +142,25 @@ export class AnyCcdFormPage extends AnyCcdPage {
 
         } else if (await fieldContainer.$$('ccd-write-date-field').isPresent()) {
 
-            const date = moment(fieldValue, 'DD MM YYYY');
+            if (!fieldValue) {
+                fieldValue = '--';
+            }
+
+            const dateParts = fieldValue.split('-'); // DD-MM-YYYY
 
             await this.formFiller.replaceText(
                 await fieldContainer.element(by.xpath('.//input[@type="number" and contains(@name, "-day")]')),
-                date.date()
+                dateParts[0]
             );
 
             await this.formFiller.replaceText(
                 await fieldContainer.element(by.xpath('.//input[@type="number" and contains(@name, "-month")]')),
-                (date.month() + 1)
+                dateParts[1]
             );
 
             await this.formFiller.replaceText(
                 await fieldContainer.element(by.xpath('.//input[@type="number" and contains(@name, "-year")]')),
-                date.year()
+                dateParts[2]
             );
 
         } else if (await fieldContainer.$$('ccd-write-fixed-list-field').isPresent()) {

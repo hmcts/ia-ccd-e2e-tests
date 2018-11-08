@@ -9,7 +9,7 @@ Feature: Home Office reference number is validated
 
     Given I am on the Home Office reference page
     When I type <invalidReference> for the Home Office reference number field
-    When I type 31 10 2018 for the Date on the decision letter field
+    When I type 31-10-2018 for the Date on the decision letter field
     When I click the Continue button
     Then I should see an error saying The data entered is not valid for this type of field, please delete and re-enter using only valid data
     And the Continue button is disabled
@@ -28,7 +28,7 @@ Feature: Home Office reference number is validated
 
     Given I am on the Home Office reference page
     When I type <validReference> for the Home Office reference number field
-    When I type 31 10 2018 for the Date on the decision letter field
+    When I type 31-10-2018 for the Date on the decision letter field
     When I click the Continue button
     Then I am on the Basic details page
 
