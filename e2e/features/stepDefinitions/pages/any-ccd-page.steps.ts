@@ -4,6 +4,10 @@ import { expect } from 'chai';
 
 const anyCcdPage = new AnyCcdPage();
 
+Then(/^I do nothing$/, async function () {
+    // noop
+});
+
 Given('I create a new case', async function () {
     await anyCcdPage.click('Create new case');
     expect(await anyCcdPage.pageHeadingContains('Create Case')).to.equal(true);
