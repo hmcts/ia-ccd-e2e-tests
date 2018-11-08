@@ -8,22 +8,22 @@ const anyCcdPage = new AnyCcdPage();
 const authenticationFlow = new AuthenticationFlow();
 const idamSignInPage = new IdamSignInPage();
 
-Given('I am not signed in', {timeout: 30 * 1000}, async function () {
+Given('I am not signed in', async function () {
     await authenticationFlow.signOut();
     await idamSignInPage.waitUntilLoaded();
 });
 
-Given('I am signed in as a Case Officer', {timeout: 30 * 1000}, async function () {
+Given('I am signed in as a Case Officer', async function () {
     await authenticationFlow.signInAsCaseOfficer();
     await anyCcdPage.waitUntilLoaded();
 });
 
-Given(/^I am signed in as(?:| a) Legal Rep(?:| A)$/, {timeout: 30 * 1000}, async function () {
+Given(/^I am signed in as(?:| a) Legal Rep(?:| A)$/, async function () {
     await authenticationFlow.signInAsLawFirmA();
     await anyCcdPage.waitUntilLoaded();
 });
 
-Given(/^I am signed in as(?:| a) Legal Rep(?:| B) without any cases$/, {timeout: 30 * 1000}, async function () {
+Given(/^I am signed in as(?:| a) Legal Rep(?:| B) without any cases$/, async function () {
     await authenticationFlow.signInAsLawFirmB();
     await anyCcdPage.waitUntilLoaded();
 });

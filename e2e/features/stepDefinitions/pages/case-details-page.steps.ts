@@ -4,7 +4,7 @@ import { expect } from 'chai';
 
 const caseDetailsPage = new CaseDetailsPage();
 
-Then('I should see an alert confirming the case has been created', {timeout: 30 * 1000}, async function () {
+Then('I should see an alert confirming the case has been created', async function () {
     expect(await caseDetailsPage.alertContains('has been created')).to.equal(true);
 });
 
