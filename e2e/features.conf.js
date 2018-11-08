@@ -17,13 +17,13 @@ exports.config = {
         '--disable-dev-shm-usage',
         '--disable-gpu',
         '--no-sandbox',
-          iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
-          iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
+        iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
+        iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
       ],
       binary: puppeteer.executablePath()
     },
     acceptInsecureCerts: true,
-    maxInstances: 1,
+    maxInstances: iaConfig.RunWithNumberOfBrowsers,
     proxy: (!iaConfig.UseProxy) ? null : {
       proxyType: 'manual',
       httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
@@ -32,7 +32,8 @@ exports.config = {
     loggingPrefs: {
       driver: 'INFO',
       browser: 'INFO'
-    }
+    },
+    shardTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1)
   },
 
   directConnect: true,
@@ -47,10 +48,13 @@ exports.config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'),
 
   cucumberOpts: {
-    require: ['./features/stepDefinitions/**/*.steps.ts'],
+    require: [
+      './cucumber.conf.js',
+      './features/stepDefinitions/**/*.steps.ts'
+    ],
+    keepAlive: false,
     tags: false,
     profile: false,
-    timeout: 20000,
     'no-source': true
   },
 
