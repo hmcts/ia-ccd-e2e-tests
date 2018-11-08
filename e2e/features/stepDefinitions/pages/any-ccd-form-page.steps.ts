@@ -1,41 +1,42 @@
 import { AnyCcdFormPage } from '../../../pages/any-ccd-form.page';
+import { BasicDetailsFlow } from '../../../flows/basic-details.flow';
 import { Given, Then, When } from 'cucumber';
 import { expect } from 'chai';
 
 const anyCcdFormPage = new AnyCcdFormPage();
+const basicDetailsFlow = new BasicDetailsFlow();
 
-Given('I complete the Home Office reference page', {timeout: 60 * 1000}, async function () {
+Given('I complete the Home Office reference page', async function () {
     expect(await anyCcdFormPage.pageHeadingContains('Home Office reference')).to.equal(true);
     await anyCcdFormPage.setFieldValue('Home Office reference number', 'A123456/001');
     await anyCcdFormPage.setFieldValue('Date on the decision letter', '31 10 2018');
     await anyCcdFormPage.click('Continue');
 });
 
-Given('I complete the Basic details page', {timeout: 60 * 1000}, async function () {
+Given('I complete the Basic details form', async function () {
     expect(await anyCcdFormPage.pageHeadingContains('Basic details')).to.equal(true);
-    await anyCcdFormPage.setFieldValue('Title', 'Mr');
-    await anyCcdFormPage.setFieldValue('Given names', 'José');
-    await anyCcdFormPage.setFieldValue('Last name', 'González');
-    await anyCcdFormPage.setFieldValue('Date of birth', '31 12 1999');
-    await anyCcdFormPage.addNewCollectionItem('Nationality');
-    await anyCcdFormPage.setCollectionItemFieldValue('Nationality', 'first', 'Nationality', 'Finland');
-    await anyCcdFormPage.setFieldValue('My client\'s nationality is not agreed', 'No');
+    await basicDetailsFlow.completeForm();
+});
+
+Given('I complete the Basic details page', async function () {
+    expect(await anyCcdFormPage.pageHeadingContains('Basic details')).to.equal(true);
+    await basicDetailsFlow.completeForm();
     await anyCcdFormPage.click('Continue');
 });
 
-Given('I complete the Your client\'s address page', {timeout: 60 * 1000}, async function () {
+Given('I complete the Your client\'s address page', async function () {
     expect(await anyCcdFormPage.pageHeadingContains('Your client\'s address')).to.equal(true);
     await anyCcdFormPage.setFieldValue('Does the appellant have a fixed address?', 'No');
     await anyCcdFormPage.click('Continue');
 });
 
-Given('I complete the Why is your client appealing? page', {timeout: 60 * 1000}, async function () {
+Given('I complete the Why is your client appealing? page', async function () {
     expect(await anyCcdFormPage.pageHeadingContains('Why is your client appealing?')).to.equal(true);
     await anyCcdFormPage.setFieldValue('Appeal reason', 'My client\'s protection claim was refused');
     await anyCcdFormPage.click('Continue');
 });
 
-Given('I complete the New matters page', {timeout: 60 * 1000}, async function () {
+Given('I complete the New matters page', async function () {
     expect(await anyCcdFormPage.pageHeadingContains('New matters')).to.equal(true);
     await anyCcdFormPage.setFieldValue(
         'Are there any new reasons your client wishes to remain in the UK ' +
@@ -50,15 +51,18 @@ Given('I complete the New matters page', {timeout: 60 * 1000}, async function ()
     await anyCcdFormPage.click('Continue');
 });
 
-Given('I complete the Has your client appealed against any other UK immigration decisions? page', {timeout: 60 * 1000}, async function () {
+Given('I complete the Has your client appealed against any other UK immigration decisions? page', async function () {
     expect(await anyCcdFormPage.pageHeadingContains('Has your client appealed against any other UK immigration decisions?')).to.equal(true);
     await anyCcdFormPage.setFieldValue('Other appeals', 'No');
     await anyCcdFormPage.click('Continue');
 });
 
-Given('I complete the Your own reference number page', {timeout: 60 * 1000}, async function () {
+Given('I complete the Your own reference number page', async function () {
     expect(await anyCcdFormPage.pageHeadingContains('Your own reference number')).to.equal(true);
-    await anyCcdFormPage.setFieldValue('If you prefer to use your own reference number for this case, you can enter it here. (Optional)', 'some-ref');
+    await anyCcdFormPage.setFieldValue(
+        'If you prefer to use your own reference number for this case, you can enter it here. (Optional)',
+        'some-ref'
+    );
     await anyCcdFormPage.click('Continue');
 });
 
@@ -66,7 +70,7 @@ When(/^I add (?:a|another) new item to the (.+) collection$/, async function (co
     await anyCcdFormPage.addNewCollectionItem(collectionLabel);
 });
 
-Then(/^Within the (.+) collection, I (?:choose|select|type) (.+) for the ([^\s]+) (.+) field$/,
+When(/^Within the (.+) collection, I (?:choose|select|type) (.+) for the ([^\s]+) (.+) field$/,
     async function (
         collectionLabel,
         fieldValue,
@@ -81,7 +85,14 @@ Then(/^Within the (.+) collection, I (?:choose|select|type) (.+) for the ([^\s]+
         );
     });
 
-Then(/^I (?:check|choose|select|toggle|type) (.+) (?:for|from) the (.+) field$/,
+When(/^I clear the (.+) field$/, async function (fieldLabel) {
+    await anyCcdFormPage.setFieldValue(
+        fieldLabel,
+        ''
+    );
+});
+
+When(/^I (?:check|choose|select|toggle|type) (.+) (?:for|from) the (.+) field$/,
     async function (
         fieldValue,
         fieldLabel

@@ -4,7 +4,7 @@ Feature: Home Office reference number is validated
     Given I am signed in as a Legal Rep
     And I create a new case
 
-  @create-case @lodge-appeal @alternate @RIA-597
+  @create-case @alternate @RIA-597
   Scenario Outline: Invalid home office reference is not allowed
 
     Given I am on the Home Office reference page
@@ -23,7 +23,7 @@ Feature: Home Office reference number is validated
       | 123456/001       |
       | A123456/1234     |
 
-  @create-case @lodge-appeal @alternate @RIA-597
+  @create-case @alternate @RIA-597
   Scenario Outline: Valid home office reference is allowed
 
     Given I am on the Home Office reference page

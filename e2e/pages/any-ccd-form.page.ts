@@ -78,7 +78,10 @@ export class AnyCcdFormPage extends AnyCcdPage {
     private async findCollectionContainer(collectionLabel: string) {
 
         return await element
-            .all(by.xpath('//ccd-write-collection-field//h3[normalize-space()="' + collectionLabel + '"]/ancestor::ccd-write-collection-field'))
+            .all(by.xpath(
+                '//ccd-write-collection-field//h3[normalize-space()="' + collectionLabel + '"]' +
+                '/ancestor::ccd-write-collection-field'
+            ))
             .first();
     }
 
