@@ -34,6 +34,10 @@ Then(/^I (?:am on|should see) the (.+) page$/, async function (headingText) {
     expect(await anyCcdPage.pageHeadingContains(headingText)).to.equal(true);
 });
 
+Then(/^I should (see|not see) the text (.+)$/, async function (seeOrNotSee, text) {
+    expect(await anyCcdPage.tagContains(text)).to.equal(seeOrNotSee === 'see');
+});
+
 Then(/^I should see the username (.+)$/, async function (username) {
     expect(await anyCcdPage.usernameContains(username)).to.equal(true);
 });
