@@ -22,3 +22,16 @@ Feature: Address details are validated
 
     When I select No for the Does the appellant have a fixed address? field
     When I should see the text We will use the address of your legal practice.
+
+  @create-case @alternate @RIA-690
+  Scenario: Postcode without any addresses
+
+    Given I am on the Your client's address page
+    When I select Yes for the Does the appellant have a fixed address? field
+    Then I should not see the text No address found
+
+    When I type N01 RAL for the Enter a UK postcode field
+    And I click the Find address button
+
+    Then I should see the text No address found
+    And the Continue button is disabled
