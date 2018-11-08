@@ -30,7 +30,6 @@ Feature: Complete the appeal application online
     When Within the Nationality collection, I select Finland for the first Nationality field
     When I add another new item to the Nationality collection
     When Within the Nationality collection, I select Iceland for the second Nationality field
-    When I select No for the My client's nationality is not agreed field
     When I click the Continue button
 
     Given I am on the Your client's address page
@@ -80,7 +79,6 @@ Feature: Complete the appeal application online
     Then I should see 31 Dec 1999 for the Date of birth field
     Then Within the Nationality collection, I should see Finland for the first Nationality field
     Then Within the Nationality collection, I should see Iceland for the second Nationality field
-    Then I should see No for the My client's nationality is not agreed field
     Then I should see Yes for the Does the appellant have a fixed address? field
     Then Within the Address fieldset, I should see 10 Downing Street for the Building and Street field
     Then Within the Address fieldset, I should see London for the Town or City field
