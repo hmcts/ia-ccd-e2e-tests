@@ -55,6 +55,7 @@ exports.config = {
     keepAlive: false,
     tags: false,
     profile: false,
+    'fail-fast': true,
     'no-source': true
   },
 
