@@ -71,7 +71,7 @@ Feature: Complete the appeal application online
     Then I should see an alert confirming the case has been created
 
     Given I click the Case details tab
-    Then I should see A123456/001 for the Home Office reference number field
+    Then I should see A123456 for the Home Office reference number field
     Then I should see 31 Oct 2018 for the Date on the decision letter field
     Then I should see Mr for the Title field
     Then I should see José for the Given names field
@@ -159,7 +159,7 @@ Feature: Complete the appeal application online
     Then I should see an alert confirming the case has been created
 
     Given I click the Case details tab
-    Then the If you prefer to use your own reference number for this case, you can enter it here. field should be empty
+    Then I should not see the If you prefer to use your own reference number for this case, you can enter it here. field
 
   @create-case @lodge-appeal @alternate
   Scenario: Lodge an appeal application (no new matters)

@@ -8,7 +8,7 @@ const basicDetailsFlow = new BasicDetailsFlow();
 
 Given('I complete the Home Office reference page', async function () {
     expect(await anyCcdFormPage.pageHeadingContains('Home Office reference')).to.equal(true);
-    await anyCcdFormPage.setFieldValue('Home Office reference number', 'A123456/001');
+    await anyCcdFormPage.setFieldValue('Home Office reference number', 'A123456');
     await anyCcdFormPage.setFieldValue('Date on the decision letter', '31-10-2018');
     await anyCcdFormPage.click('Continue');
 });
