@@ -8,7 +8,9 @@ export class AnyCcdPage extends AnyPage {
 
     async click(linkText: string) {
 
-        const linkPath = '//*[self::button or self::a or self::span][normalize-space()="' + linkText + '"]';
+        const linkPath =
+            '//*[self::button or self::a or self::label or self::span]' +
+            '[normalize-space()="' + linkText + '"]';
 
         await browser.wait(
             async () => {

@@ -3,6 +3,7 @@ Feature: Basic details are validated
   Background:
     Given I am signed in as a Legal Rep
     And I create a new case
+    And I complete the screening questions page
     And I complete the Home Office reference page
 
   @create-case @alternate @RIA-683

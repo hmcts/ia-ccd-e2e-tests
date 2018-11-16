@@ -9,7 +9,7 @@ Feature: User authentication
     Given I am signed in as a <persona>
     When I go to the Case List
     Then I should see the Case List page
-    Then I should see the username <username>
+    And I should see the username <username>
 
     Examples:
       | persona      | username     |
@@ -19,6 +19,7 @@ Feature: User authentication
   Scenario: Should only show cases related to that Legal Representative
     Given I am signed in as Legal Rep A
     And I create a new case
+    And I complete the screening questions page
     And I complete the Home Office reference page
     And I complete the Basic details page
     And I complete the Your client's address page
@@ -32,7 +33,6 @@ Feature: User authentication
     Given I am signed in as Legal Rep B without any cases
     When I go to the Case List
     Then I should see a notification saying No cases found
-
-    Given I click the Search link
-    Then I click the Apply button
+    When I click the Search link
+    And I click the Apply button
     Then I should see a notification saying No cases found
