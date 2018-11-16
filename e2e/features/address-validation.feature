@@ -10,7 +10,7 @@ Feature: Address details are validated
   Scenario: Legal rep indicates there is no fixed address for the appellant
 
     When I select Yes for the Does the appellant have a fixed address? field
-    When I should not see the text We will use the address of your legal practice.
-    
+    Then I should not see the text We will use the address of your legal practice.
+
     When I select No for the Does the appellant have a fixed address? field
-    When I should see the text We will use the address of your legal practice.
+    Then I should see the text We will use the address of your legal practice.
