@@ -8,6 +8,11 @@ Then('I should see an alert confirming the case has been created', async functio
     expect(await caseDetailsPage.alertContains('has been created')).to.equal(true);
 });
 
+Then(/^I select the (.+) Next step$/, async function (nextStep) {
+    await caseDetailsPage.selectNextStep(nextStep)
+    await caseDetailsPage.click('Go')
+});
+
 Then(/^Within the (.+) collection, I should see (.+) for the ([^\s]+) (.+) field$/,
     async function (
         collectionLabel,

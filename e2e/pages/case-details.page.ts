@@ -4,6 +4,12 @@ import { OrdinalToCardinal } from '../helpers/ordinal-to-cardinal';
 
 export class CaseDetailsPage extends AnyCcdPage {
 
+    async selectNextStep(nextStep: string) {
+
+        await element(by.xpath('//select[@id="next-step"]/option[normalize-space()="' + nextStep + '"]'))
+            .click();
+    }
+
     async isCollectionItemFieldValueDisplayed(
         collectionLabel: string,
         collectionItemNumber: string,
