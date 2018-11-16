@@ -57,11 +57,7 @@ Given('I complete the New matters page', async function () {
         'or any new grounds on which they should be permitted to stay?',
         'Yes'
     );
-    await anyCcdFormPage.setFieldValue('New matters', 'Birth of a child');
-    await anyCcdFormPage.setFieldValue('New matters', 'New relationship');
-    await anyCcdFormPage.setFieldValue('New matters', 'Removal would disrupt family life');
-    await anyCcdFormPage.setFieldValue('New matters', 'Appellant now claims to be a refugee');
-    await anyCcdFormPage.setFieldValue('New matters', 'New marriage');
+    await anyCcdFormPage.setFieldValue('Explain what the new matters are and why they are relevant to this appeal.', 'Birth of a child');
     await anyCcdFormPage.click('Continue');
 });
 

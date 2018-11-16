@@ -46,11 +46,7 @@ Feature: Complete the appeal application online
 
     Given I am on the New matters page
     When I select Yes for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
-    And I select Birth of a child from the New matters field
-    And I select New relationship from the New matters field
-    And I select Removal would disrupt family life from the New matters field
-    And I select Appellant now claims to be a refugee from the New matters field
-    And I select New marriage from the New matters field
+    And I type Birth of a child for the Explain what the new matters are and why they are relevant to this appeal. field
     And I click the Continue button
 
     Given I am on the Has your client appealed against any other UK immigration decisions? page
@@ -87,11 +83,7 @@ Feature: Complete the appeal application online
     And Within the Address fieldset, I should see United Kingdom for the Country field
     And I should see My client's protection claim was refused for the Appeal reason field
     And I should see Yes for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
-    And I should see Birth of a child for the New matters field
-    And I should see New relationship for the New matters field
-    And I should see Removal would disrupt family life for the New matters field
-    And I should see Appellant now claims to be a refugee for the New matters field
-    And I should see New marriage for the New matters field
+    And I should see Birth of a child for the Explain what the new matters are and why they are relevant to this appeal. field
     And I should see Yes for the Other appeals field
     And Within the Appeal number collection, I should see RP/12345/2014 for the first Appeal number field
     And Within the Appeal number collection, I should see PA/54321/2015 for the second Appeal number field
@@ -186,7 +178,7 @@ Feature: Complete the appeal application online
 
     When I click the Case details tab
     Then I should see No for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
-    Then I should not see the New matters field
+    Then I should not see the Explain what the new matters are and why they are relevant to this appeal. field
 
   @create-case @save-application @alternate
   Scenario Outline: Lodge an appeal application (no known other appeals)
