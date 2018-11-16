@@ -10,7 +10,7 @@ Given('I create a new case', async function () {
     await anyCcdPage.click('Start');
 });
 
-When(/^I click the (.+) (?:button|link|tab)$/, async function (linkText) {
+When(/^I click the (.+) (?:button|link|tab|label)$/, async function (linkText) {
     await anyCcdPage.click(linkText);
 });
 

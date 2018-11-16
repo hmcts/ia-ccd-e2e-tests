@@ -6,6 +6,20 @@ import { expect } from 'chai';
 const anyCcdFormPage = new AnyCcdFormPage();
 const basicDetailsFlow = new BasicDetailsFlow();
 
+Given('I complete the screening questions page', async function () {
+    expect(await anyCcdFormPage.pageHeadingContains('Tell us about your client')).to.equal(true);
+    await anyCcdFormPage.click('My client is at least 18 years old');
+    await anyCcdFormPage.click('My client is not currently in detention');
+    await anyCcdFormPage.click('My client isn\'t appealing with other people as part of a linked appeal');
+    await anyCcdFormPage.click(
+        'My client is located in one of these postcodes: ' +
+        'BN, CB, CM, HP, IP, ME, N, NR, RH, SE, TN, W, L, LA, M, OL, PR, SK, WA, WN'
+    );
+    await anyCcdFormPage.click('My client is presently in the UK');
+    await anyCcdFormPage.click('My client is not stateless');
+    await anyCcdFormPage.click('Continue');
+});
+
 Given('I complete the Home Office reference page', async function () {
     expect(await anyCcdFormPage.pageHeadingContains('Home Office reference')).to.equal(true);
     await anyCcdFormPage.setFieldValue('Home Office reference number', 'A123456');
