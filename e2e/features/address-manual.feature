@@ -23,7 +23,7 @@ Feature: Address details are entered manually without using postcode lookup
     And I complete the New matters page
     And I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
-    When I click the Save and continue button
+    And I complete the Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab

@@ -100,7 +100,7 @@ export class AnyCcdFormPage extends AnyCcdPage {
             && (await ExpectedConditions.visibilityOf($(this.cancelLink))());
     }
 
-    private async findCollectionContainer(collectionLabel: string) {
+    protected async findCollectionContainer(collectionLabel: string) {
 
         return await element
             .all(by.xpath(
@@ -110,7 +110,7 @@ export class AnyCcdFormPage extends AnyCcdPage {
             .first();
     }
 
-    private async findCollectionItemContainer(collectionLabel: string, collectionItemNumber: string | number) {
+    protected async findCollectionItemContainer(collectionLabel: string, collectionItemNumber: string | number) {
 
         const cardinalNumber = typeof collectionItemNumber === 'number'
             ? collectionItemNumber
