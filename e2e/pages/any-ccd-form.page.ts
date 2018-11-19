@@ -144,7 +144,7 @@ export class AnyCcdFormPage extends AnyCcdPage {
         }
     }
 
-    private async setFieldValueWithinContainer(fieldContainer, fieldValue) {
+    private async setFieldValueWithinContainer(fieldContainer, fieldValue: string) {
 
         // the order can be important, for example ccd-write-address-field must be before
         // ccd-write-text-field to allow addresses to be selected from the AddressUK complex type
@@ -169,10 +169,15 @@ export class AnyCcdFormPage extends AnyCcdPage {
         } else if (await fieldContainer.$$('ccd-write-date-field').isPresent()) {
 
             if (!fieldValue) {
-                fieldValue = '--';
+                fieldValue = '--:::';
             }
 
-            const dateParts = fieldValue.split('-'); // DD-MM-YYYY
+            // DD-MM-YYYY HH:MM:SS
+            const dateParts =
+                fieldValue
+                    .replace(/\s+/g, '-')
+                    .replace(/:/g, '-')
+                    .split('-');
 
             await this.formFiller.replaceText(
                 await fieldContainer.element(by.xpath('.//input[@type="number" and contains(@name, "-day")]')),
@@ -188,6 +193,48 @@ export class AnyCcdFormPage extends AnyCcdPage {
                 await fieldContainer.element(by.xpath('.//input[@type="number" and contains(@name, "-year")]')),
                 dateParts[2]
             );
+
+            if (dateParts.length > 3) {
+
+                const hourElement =
+                    await fieldContainer
+                        .element(by.xpath('.//input[@type="number" and contains(@name, "-hour")]'));
+
+                if (await hourElement.isPresent()) {
+                    await this.formFiller.replaceText(
+                        hourElement,
+                        dateParts[3]
+                    );
+                }
+            }
+
+            if (dateParts.length > 4) {
+
+                const minuteElement =
+                    await fieldContainer
+                        .element(by.xpath('.//input[@type="number" and contains(@name, "-minute")]'));
+
+                if (await minuteElement.isPresent()) {
+                    await this.formFiller.replaceText(
+                        minuteElement,
+                        dateParts[4]
+                    );
+                }
+            }
+
+            if (dateParts.length > 5) {
+
+                const secondElement =
+                    await fieldContainer
+                        .element(by.xpath('.//input[@type="number" and contains(@name, "-second")]'));
+
+                if (await secondElement.isPresent()) {
+                    await this.formFiller.replaceText(
+                        secondElement,
+                        dateParts[5]
+                    );
+                }
+            }
 
         } else if (await fieldContainer.$$('ccd-write-fixed-list-field').isPresent()) {
 

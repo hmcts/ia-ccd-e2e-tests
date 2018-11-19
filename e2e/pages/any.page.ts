@@ -21,7 +21,7 @@ export class AnyPage {
 
         await element
             .all(by.xpath(linkPath))
-            .first()
+            .last()
             .click();
     }
 

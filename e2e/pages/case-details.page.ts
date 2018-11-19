@@ -1,5 +1,6 @@
-import { $$, by, element } from 'protractor';
+import { $$, browser, by, element } from 'protractor';
 import { AnyCcdPage } from './any-ccd.page';
+import { Wait } from '../enums/wait';
 
 export class CaseDetailsPage extends AnyCcdPage {
 
@@ -25,8 +26,20 @@ export class CaseDetailsPage extends AnyCcdPage {
 
     async selectNextStep(nextStep: string) {
 
-        await element(by.xpath(
-            '//select[@id="next-step"]/option[normalize-space()="' + nextStep + '"]'
-        )).click();
+        const nextStepPath =
+            '//select[@id="next-step"]' +
+            '/option[normalize-space()="' + nextStep + '"]';
+
+        await browser.wait(
+            async () => {
+                return await element
+                    .all(by.xpath(nextStepPath))
+                    .isPresent();
+            },
+            Wait.normal,
+            'Next steps did not show in time'
+        );
+
+        await element(by.xpath(nextStepPath)).click();
     }
 }
