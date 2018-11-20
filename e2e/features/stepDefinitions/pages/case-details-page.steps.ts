@@ -17,7 +17,7 @@ Then(/^I select the `?([^`]+)`? Next step$/, async function (nextStep) {
 });
 
 Then(/^I submit my appeal$/, async function () {
-    await submitAppealFlow.submitAppeal();
+    await submitAppealFlow.submitAppeal(true);
 });
 
 Then(/^Within the `?([^`]+)`? collection, I should see `?([^`]+)`? for the `?([^\s`]+)`? `?([^`]+)`? field$/,

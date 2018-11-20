@@ -39,6 +39,16 @@ export class AnyPage {
 
         const buttonPath = '//*[self::button or self::a][normalize-space()="' + buttonText + '"]';
 
+        await browser.wait(
+            async () => {
+                return await element
+                    .all(by.xpath(buttonPath))
+                    .isPresent();
+            },
+            Wait.normal,
+            'Button or link did not show in time'
+        );
+
         const buttonElement =
             await element
                 .all(by.xpath(buttonPath))

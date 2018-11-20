@@ -19,16 +19,7 @@ Feature: User authentication
   Scenario: Should only show cases related to that Legal Representative
     Given I am signed in as Legal Rep A
     And I create a new case
-    And I complete the screening questions page
-    And I complete the Home Office reference page
-    And I complete the Basic details page
-    And I complete the Your client's address page
-    And I complete the Why is your client appealing? page
-    And I complete the New matters page
-    And I complete the Has your client appealed against any other UK immigration decisions? page
-    And I complete the Your own reference number page
-    And I complete the lodge appeal Check your answers page
-    And I should see an alert confirming the case has been created
+    And I lodge an appeal
 
     Given I am signed in as Legal Rep B without any cases
     When I go to the Case List

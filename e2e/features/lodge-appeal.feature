@@ -16,7 +16,7 @@ Feature: Complete the appeal application online
   @create-case @lodge-appeal @RIA-515
   Scenario: Lodge an appeal application (happy path)
 
-    Given I should see an alert confirming the case has been created
+    Given I close and return to case details
     When I select the Submit your appeal Next step
     Then I am on the Submit your appeal page
     And the Continue button is disabled
@@ -28,3 +28,10 @@ Feature: Complete the appeal application online
     And I should see the text You will receive an email confirming that this appeal has been submitted successfully.
     When I click the Close and Return to case details button
     Then I should see an alert confirming the case has been updated with event: Submit your appeal
+
+  @create-case @lodge-appeal @RIA-515
+  Scenario: Lodge an appeal application (confirmation link takes user to submit appeal form)
+
+    Given I see the text Appeal saved
+    When I click the Submit your appeal link
+    Then I am on the Submit your appeal page

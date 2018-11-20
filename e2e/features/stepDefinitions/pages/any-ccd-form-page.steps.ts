@@ -56,8 +56,12 @@ Given('I complete the lodge appeal Check your answers page', async function () {
     await lodgeAppealFlow.completeCheckYourAnswers(true);
 });
 
+Given('I close and return to case details', async function () {
+    await anyCcdFormPage.click('Close and Return to case details');
+});
+
 Given('I lodge an appeal', async function () {
-    await lodgeAppealFlow.lodgeAppeal();
+    await lodgeAppealFlow.lodgeAppeal(true);
 });
 
 When(/^I add (?:a|another) new item to the `?([^`]+)`? collection$/, async function (collectionLabel) {

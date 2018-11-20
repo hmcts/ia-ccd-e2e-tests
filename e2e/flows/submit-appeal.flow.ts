@@ -19,13 +19,22 @@ export class SubmitAppealFlow {
         }
     }
 
-    async submitAppeal() {
+    async completeCheckYourAnswers(clickContinue = false) {
+
+        if (clickContinue) {
+            await this.anyCcdFormPage.click('Submit');
+        }
+    }
+
+    async submitAppeal(clickContinue = false) {
         await this.caseDetailsPage.selectNextStep('Submit your appeal');
         await this.caseDetailsPage.click('Go');
 
         await this.completeDeclaration(true);
-        await this.anyCcdFormPage.click('Submit');
+        await this.completeCheckYourAnswers(true);
 
-        await this.anyCcdFormPage.click('Close and Return to case details');
+        if (clickContinue) {
+            await this.anyCcdFormPage.click('Close and Return to case details');
+        }
     }
 }

@@ -86,9 +86,15 @@ Feature: Complete the appeal application online
     And Within the Appeal number collection, I should see PA/54321/2015 for the second Appeal number answer
     And I should see some-ref for the If you prefer to use your own reference number for this case, you can enter it here. answer
     When I click the Save and continue button
-    Then I should see an alert confirming the case has been created
+    Then I should see the text Appeal saved
+    Then I should see the text You still need to submit it
+    Then I should see the text Ready to submit?
+    Then I should see the text Submit your appeal when you are ready.
+    Then I should see the text Not ready to submit yet?
+    Then I should see the text You can return to the case to make changes.
 
-    When I click the Case details tab
+    When I click the Close and Return to case details button
+    And I click the Case details tab
     Then I should see A123456 for the Home Office reference number field
     And I should see 31 Oct 2018 for the Date on the decision letter field
     And I should see Mr for the Title field
@@ -129,8 +135,7 @@ Feature: Complete the appeal application online
     And I complete the Your own reference number page
 
     Given I complete the lodge appeal Check your answers page
-    Then I should see an alert confirming the case has been created
-
+    And I close and return to case details
     When I click the Case details tab
     Then I should see No for the Does the appellant have a fixed address? field
 
@@ -153,8 +158,7 @@ Feature: Complete the appeal application online
     And I complete the Your own reference number page
 
     Given I complete the lodge appeal Check your answers page
-    Then I should see an alert confirming the case has been created
-
+    And I close and return to case details
     When I click the Case details tab
     Then I should see My client's protection status was revoked for the Appeal reason field
 
@@ -175,8 +179,7 @@ Feature: Complete the appeal application online
     When I click the Continue button
 
     Given I complete the lodge appeal Check your answers page
-    Then I should see an alert confirming the case has been created
-
+    And I close and return to case details
     When I click the Case details tab
     Then I should not see the If you prefer to use your own reference number for this case, you can enter it here. field
 
@@ -199,8 +202,7 @@ Feature: Complete the appeal application online
     And I complete the Your own reference number page
 
     Given I complete the lodge appeal Check your answers page
-    Then I should see an alert confirming the case has been created
-
+    And I close and return to case details
     When I click the Case details tab
     Then I should see No for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
     Then I should not see the Explain what the new matters are and why they are relevant to this appeal. field
@@ -223,8 +225,7 @@ Feature: Complete the appeal application online
 
     Given I complete the Your own reference number page
     And I complete the lodge appeal Check your answers page
-    Then I should see an alert confirming the case has been created
-
+    And I close and return to case details
     When I click the Case details tab
     Then I should see <otherAppeals> for the Other appeals field
 
