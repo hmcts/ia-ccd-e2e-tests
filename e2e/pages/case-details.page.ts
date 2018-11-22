@@ -17,10 +17,18 @@ export class CaseDetailsPage extends AnyCcdPage {
 
             if ((await collectionItemContainer.getTagName()) === 'ccd-read-complex-field-table') {
 
-                const fieldContainer =
+                let fieldContainer =
                     await collectionItemContainer
                         .all(by.xpath('.//th/span[normalize-space()="' + fieldLabel + '"]/../..'))
                         .first();
+
+                if (!(await fieldContainer.isPresent())) {
+
+                    fieldContainer =
+                        await collectionItemContainer
+                            .all(by.xpath('.//th/span[normalize-space()=""]/../..'))
+                            .first();
+                }
 
                 return await fieldContainer
                     .element(by.xpath('.//td/span[normalize-space()="' + fieldValue + '"]'))

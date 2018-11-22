@@ -59,9 +59,9 @@ Feature: Complete the appeal application online
 
     Given I am on the Has your client appealed against any other UK immigration decisions? page
     When I add a new item to the Appeal number collection
-    And Within the Appeal number collection, I type 1234 for the first Appeal number field
+    And Within the Appeal number collection, I type RP/12345/2014 for the first Appeal number field
     And I add a new item to the Appeal number collection
-    And Within the Appeal number collection, I type 5678 for the second Appeal number field
+    And Within the Appeal number collection, I type PA/54321/2015 for the second Appeal number field
     And I click the Continue button
 
     Given I am on the Your own reference number page
@@ -93,8 +93,8 @@ Feature: Complete the appeal application online
     And I should see Appellant now claims to be a refugee for the New matters field
     And I should see New marriage for the New matters field
     And I should see Yes for the Other appeals field
-    And Within the Appeal number collection, I should see 1234 for the first Appeal number field
-    And Within the Appeal number collection, I should see 5678 for the second Appeal number field
+    And Within the Appeal number collection, I should see RP/12345/2014 for the first Appeal number field
+    And Within the Appeal number collection, I should see PA/54321/2015 for the second Appeal number field
     And I should see some-ref for the If you prefer to use your own reference number for this case, you can enter it here. field
 
   @create-case @lodge-appeal @alternate
