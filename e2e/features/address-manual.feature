@@ -20,15 +20,15 @@ Feature: Address details are entered manually without using postcode lookup
     And I click the Continue button
 
     Given I complete the Why is your client appealing? page
-    Given I complete the New matters page
-    Given I complete the Has your client appealed against any other UK immigration decisions? page
-    Given I complete the Your own reference number page
+    And I complete the New matters page
+    And I complete the Has your client appealed against any other UK immigration decisions? page
+    And I complete the Your own reference number page
     When I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
     Then I should see Yes for the Does the appellant have a fixed address? field
-    Then Within the Address fieldset, I should see 11 Downing Street for the Building and Street field
-    Then Within the Address fieldset, I should see London for the Town or City field
-    Then Within the Address fieldset, I should see SW1A 2AB for the Postcode/Zipcode field
-    Then Within the Address fieldset, I should see United Kingdom for the Country field
+    And Within the Address fieldset, I should see 11 Downing Street for the Building and Street field
+    And Within the Address fieldset, I should see London for the Town or City field
+    And Within the Address fieldset, I should see SW1A 2AB for the Postcode/Zipcode field
+    And Within the Address fieldset, I should see United Kingdom for the Country field

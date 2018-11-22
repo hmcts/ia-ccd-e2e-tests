@@ -208,6 +208,13 @@ export class AnyCcdFormPage extends AnyCcdPage {
                 fieldValue
             );
 
+        } else if (await fieldContainer.$$('ccd-write-text-area-field').isPresent()) {
+
+            await this.formFiller.replaceText(
+                await fieldContainer.element(by.xpath('.//textarea')),
+                fieldValue
+            );
+
         } else if (await fieldContainer.$$('ccd-write-yes-no-field').isPresent()) {
 
             await fieldContainer
