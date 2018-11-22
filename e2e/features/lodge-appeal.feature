@@ -26,3 +26,5 @@ Feature: Complete the appeal application online
     Then I should see the text Your appeal has been submitted
     And I should see the text What happens next
     And I should see the text You will receive an email confirming that this appeal has been submitted successfully.
+    When I click the Close and Return to case details button
+    Then I should see an alert confirming the case has been updated with event: Submit your appeal
