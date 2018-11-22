@@ -7,7 +7,7 @@ Feature: Address details are entered manually without using postcode lookup
     And I complete the Home Office reference page
     And I complete the Basic details page
 
-  @create-case @lodge-appeal@alternate @RIA-691
+  @create-case @save-application @alternate @RIA-691
   Scenario: Lodge an appeal application with a manually entered address
 
     Given I am on the Your client's address page

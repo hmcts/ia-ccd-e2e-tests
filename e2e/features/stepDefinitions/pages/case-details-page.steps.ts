@@ -4,8 +4,13 @@ import { expect } from 'chai';
 
 const caseDetailsPage = new CaseDetailsPage();
 
-Then('I should see an alert confirming the case has been created', async function () {
-    expect(await caseDetailsPage.alertContains('has been created')).to.equal(true);
+Then(/^I should see an alert confirming the case (.+)$/, async function (alertText) {
+    expect(await caseDetailsPage.alertContains(alertText)).to.equal(true);
+});
+
+Then(/^I select the (.+) Next step$/, async function (nextStep) {
+    await caseDetailsPage.selectNextStep(nextStep);
+    await caseDetailsPage.click('Go');
 });
 
 Then(/^Within the (.+) collection, I should see (.+) for the ([^\s]+) (.+) field$/,

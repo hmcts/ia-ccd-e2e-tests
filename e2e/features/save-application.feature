@@ -10,8 +10,8 @@ Feature: Complete the appeal application online
     Then I should see Start your appeal for the Event field
     Then I should see the Start button
 
-  @create-case @lodge-appeal @happy-path
-  Scenario: Lodge an appeal application (happy path)
+  @create-case @save-application @happy-path
+  Scenario: Save appeal application
 
     Given I am signed in as a Legal Rep
     And I create a new case
@@ -97,7 +97,7 @@ Feature: Complete the appeal application online
     And Within the Appeal number collection, I should see PA/54321/2015 for the second Appeal number field
     And I should see some-ref for the If you prefer to use your own reference number for this case, you can enter it here. field
 
-  @create-case @lodge-appeal @alternate
+  @create-case @save-application @alternate
   Scenario: Lodge an appeal application (without a fixed address)
 
     Given I am signed in as a Legal Rep
@@ -120,7 +120,7 @@ Feature: Complete the appeal application online
     When I click the Case details tab
     Then I should see No for the Does the appellant have a fixed address? field
 
-  @create-case @lodge-appeal @alternate
+  @create-case @save-application @alternate
   Scenario: Lodge an appeal application (protection status revoked)
 
     Given I am signed in as a Legal Rep
@@ -143,7 +143,7 @@ Feature: Complete the appeal application online
     When I click the Case details tab
     Then I should see My client's protection status was revoked for the Appeal reason field
 
-  @create-case @lodge-appeal @alternate
+  @create-case @save-application @alternate
   Scenario: Lodge an appeal application (without providing legal representative reference number)
 
     Given I am signed in as a Legal Rep
@@ -164,7 +164,7 @@ Feature: Complete the appeal application online
     When I click the Case details tab
     Then I should not see the If you prefer to use your own reference number for this case, you can enter it here. field
 
-  @create-case @lodge-appeal @alternate
+  @create-case @save-application @alternate
   Scenario: Lodge an appeal application (no new matters)
 
     Given I am signed in as a Legal Rep
@@ -188,7 +188,7 @@ Feature: Complete the appeal application online
     Then I should see No for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? field
     Then I should not see the New matters field
 
-  @create-case @lodge-appeal @alternate
+  @create-case @save-application @alternate
   Scenario Outline: Lodge an appeal application (no known other appeals)
 
     Given I am signed in as a Legal Rep
