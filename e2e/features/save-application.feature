@@ -3,7 +3,7 @@ Feature: Complete the appeal application online
   @create-case
   Scenario: Create case
     Given I am signed in as a Legal Rep
-    When I click the Create new case button
+    When I click the Create Case link
     Then I should see the Create Case page
     Then I should see Immigration & Asylum for the Jurisdiction field
     Then I should see IA Asylum Case for the Case type field
