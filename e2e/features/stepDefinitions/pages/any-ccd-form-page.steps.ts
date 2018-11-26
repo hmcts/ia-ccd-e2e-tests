@@ -76,6 +76,11 @@ Given('I complete the Your own reference number page', async function () {
     await anyCcdFormPage.click('Continue');
 });
 
+Given('I complete the Check your answers page', async function () {
+    expect(await anyCcdFormPage.pageHeadingContains('Check your answers')).to.equal(true);
+    await anyCcdFormPage.click('Save and continue');
+});
+
 When(/^I add (?:a|another) new item to the (.+) collection$/, async function (collectionLabel) {
     await anyCcdFormPage.addNewCollectionItem(collectionLabel);
 });

@@ -27,7 +27,7 @@ Feature: User authentication
     And I complete the New matters page
     And I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
-    And I click the Save and continue button
+    And I complete the Check your answers page
     And I should see an alert confirming the case has been created
 
     Given I am signed in as Legal Rep B without any cases

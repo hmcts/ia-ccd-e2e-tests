@@ -1,43 +1,31 @@
 import { $, $$, browser, by, element, ExpectedConditions } from 'protractor';
 import { AnyPage } from './any.page';
-import { Wait } from '../enums/wait';
+import { OrdinalToCardinal } from '../helpers/ordinal-to-cardinal';
 
 export class AnyCcdPage extends AnyPage {
 
-    private signOutLink = '#sign-out';
+    async alertContains(match: string) {
 
-    async click(linkText: string) {
-
-        const linkPath =
-            '//*[self::button or self::a or self::label or self::span]' +
-            '[normalize-space()="' + linkText + '"]';
-
-        await browser.wait(
-            async () => {
-                return await element
-                    .all(by.xpath(linkPath))
-                    .isPresent();
-            },
-            Wait.normal,
-            'Button or link did not show in time'
-        );
-
-        await element
-            .all(by.xpath(linkPath))
-            .first()
-            .click();
+        await browser.wait(ExpectedConditions.visibilityOf($('div.alert-message')));
+        return (await $('div.alert-message').getText()).includes(match);
     }
 
-    async isButtonEnabled(buttonText: string) {
+    async notificationContains(match: string) {
 
-        const buttonPath = '//*[self::button or self::a][normalize-space()="' + buttonText + '"]';
+        await browser.wait(ExpectedConditions.visibilityOf($('div.notification')));
+        return (await $('div.notification').getText()).includes(match);
+    }
 
-        const buttonElement =
-            await element
-                .all(by.xpath(buttonPath))
-                .first();
+    async usernameContains(match: string) {
 
-        return await buttonElement.isEnabled();
+        try {
+
+            return await element(by.xpath('//*[@id="user-name" and contains(normalize-space(), "' + match + '")]'))
+                .isDisplayed();
+
+        } catch (error) {
+            return false;
+        }
     }
 
     async isFieldDisplayed(fieldLabel: string) {
@@ -77,6 +65,12 @@ export class AnyCcdPage extends AnyPage {
                     throw 'Unsupported field type';
                 }
 
+            } else if ($$('ccd-case-edit-submit').isPresent()) {
+
+                return await element(by.xpath('//tr/th[normalize-space()="' + fieldLabel + '"]/..' +
+                    '//td[normalize-space()="' + fieldValue + '"]'))
+                    .isDisplayed();
+
             } else if ($$('cut-tabs').isPresent()) {
 
                 return await element(by.xpath('//div[normalize-space()="' + fieldLabel + '"]/../..' +
@@ -85,6 +79,48 @@ export class AnyCcdPage extends AnyPage {
             }
 
             return false;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async isCollectionItemFieldValueDisplayed(
+        collectionLabel: string,
+        collectionItemNumber: string,
+        fieldLabel: string,
+        fieldValue: string
+    ) {
+        try {
+
+            const collectionItemContainer =
+                await this.findCollectionItemContainer(collectionLabel, collectionItemNumber);
+
+            if ((await collectionItemContainer.getTagName()) === 'ccd-read-complex-field-raw') {
+
+                return await
+                    this.isRawComplexFieldDisplayed(
+                        collectionItemContainer,
+                        fieldLabel,
+                        fieldValue
+                    );
+
+            } else if ((await collectionItemContainer.getTagName()) === 'ccd-read-complex-field-table') {
+
+                return await
+                    this.isTableComplexFieldDisplayed(
+                        collectionItemContainer,
+                        fieldLabel,
+                        fieldValue
+                    );
+
+            } else {
+
+                return await collectionItemContainer
+                    .all(by.xpath('.//*[normalize-space()="' + fieldValue + '"]'))
+                    .last()
+                    .isDisplayed();
+            }
+
         } catch (error) {
             return false;
         }
@@ -120,84 +156,91 @@ export class AnyCcdPage extends AnyPage {
         }
     }
 
-    async linkContains(match: string) {
+    protected async findCollectionContainer(collectionLabel: string) {
 
-        try {
+        return await element
+            .all(by.xpath('//div[normalize-space()="' + collectionLabel + '"]/../..//table[@class="collection-field-table"]'))
+            .first();
+    }
 
-            const linkPath = '//*[self::button or self::a][contains(text(), "' + match + '")]';
+    protected async findCollectionItemContainer(collectionLabel: string, collectionItemNumber: string | number) {
 
-            return await element(by.xpath(linkPath)).isDisplayed()
-                && await element(by.xpath(linkPath)).isEnabled();
+        const cardinalNumber = typeof collectionItemNumber === 'number'
+            ? collectionItemNumber
+            : OrdinalToCardinal.convertWordToNumber(collectionItemNumber);
 
-        } catch (error) {
-            return false;
+        const collectionContainer = await this.findCollectionContainer(collectionLabel);
+
+        if (await collectionContainer.$$('ccd-read-complex-field').isPresent()) {
+
+            let collectionItemLabel = collectionLabel + ' ' + cardinalNumber;
+
+            return await collectionContainer
+                .all(by.xpath(
+                    './/dt/span[normalize-space()="' + collectionItemLabel + '"]' +
+                    '/ancestor::ccd-read-complex-field-table'
+                ))
+                .first();
+
+        } else {
+
+            return await collectionContainer
+                .all(by.xpath('.//ccd-field-read'))
+                .get(cardinalNumber - 1);
         }
     }
 
-    async pageHeadingContains(match: string) {
+    protected async isRawComplexFieldDisplayed(rawComplexContainer, fieldLabel: string, fieldValue: string) {
 
-        try {
+        const fieldDisplayedByLabel =
+            rawComplexContainer
+                .all(by.xpath(
+                    './/dt[normalize-space()="' + fieldLabel + '"]' +
+                    '/following-sibling::dd[1][normalize-space()="' + fieldValue + '"]'
+                ));
 
-            await browser.wait(
-                async () => {
-                    return await element
-                        .all(by.xpath('//*[self::h1 or self::h2][contains(normalize-space(), "' + match + '")]'))
-                        .isDisplayed();
-                },
-                Wait.normal,
-                'Page heading did not show in time'
-            );
-
-            return true;
-
-        } catch (error) {
-            return false;
-        }
-    }
-
-    async tagContains(text: string) {
-
-        try {
-
-            return await element
-                .all(by.xpath('//*[normalize-space()="' + text + '"]'))
-                .last()
+        if ((await fieldDisplayedByLabel.count()) > 0) {
+            return await fieldDisplayedByLabel
+                .first()
                 .isDisplayed();
-
-            return true;
-
-        } catch (error) {
-            return false;
         }
+
+        return await rawComplexContainer
+            .all(by.xpath(
+                './/dt[normalize-space()=""]' +
+                '/following-sibling::dd[1][normalize-space()="' + fieldValue + '"]'
+            ))
+            .first()
+            .isDisplayed();
     }
 
-    async usernameContains(match: string) {
+    protected async isTableComplexFieldDisplayed(tableComplexContainer, fieldLabel: string, fieldValue: string) {
 
-        try {
+        const fieldDisplayedByLabel =
+            tableComplexContainer
+                .all(by.xpath(
+                    './/th/span[normalize-space()="' + fieldLabel + '"]/../..' +
+                    '//td/span[normalize-space()="' + fieldValue + '"]'
+                ));
 
-            return await element(by.xpath('//*[@id="user-name" and contains(normalize-space(), "' + match + '")]'))
+        if ((await fieldDisplayedByLabel.count()) > 0) {
+            return await fieldDisplayedByLabel
+                .first()
                 .isDisplayed();
-
-        } catch (error) {
-            return false;
         }
-    }
 
-    async alertContains(match: string) {
-
-        await browser.wait(ExpectedConditions.visibilityOf($('div.alert-message')));
-        return (await $('div.alert-message').getText()).includes(match);
-    }
-
-    async notificationContains(match: string) {
-
-        await browser.wait(ExpectedConditions.visibilityOf($('div.notification')));
-        return (await $('div.notification').getText()).includes(match);
+        return await tableComplexContainer
+            .all(by.xpath(
+                './/th/span[normalize-space()=""]/../..' +
+                '//td/span[normalize-space()="' + fieldValue + '"]'
+            ))
+            .first()
+            .isDisplayed();
     }
 
     async isLoaded() {
         return (await browser.driver.getCurrentUrl()).includes('ccd')
-            && (await ExpectedConditions.visibilityOf($(this.signOutLink))());
+            && (await ExpectedConditions.visibilityOf($('#sign-out'))());
     }
 
     async waitUntilLoaded() {

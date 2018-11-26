@@ -3,7 +3,7 @@ Feature: Complete the appeal application online
   @create-case
   Scenario: Create case
     Given I am signed in as a Legal Rep
-    When I click the Create new case button
+    When I click the Create Case link
     Then I should see the Create Case page
     Then I should see Immigration & Asylum for the Jurisdiction field
     Then I should see IA Asylum Case for the Case type field
@@ -64,6 +64,27 @@ Feature: Complete the appeal application online
     When I type some-ref for the If you prefer to use your own reference number for this case, you can enter it here. (Optional) field
     And I click the Continue button
 
+    Given I am on the Check your answers page
+    Then I should see A123456/001 for the Home Office reference number answer
+    And I should see 31 Oct 2018 for the Date on the decision letter answer
+    And I should see Mr for the Title answer
+    And I should see José for the Given names answer
+    And I should see González for the Last name answer
+    And I should see 31 Dec 1999 for the Date of birth answer
+    And Within the Nationality collection, I should see Finland for the first Nationality answer
+    And Within the Nationality collection, I should see Iceland for the second Nationality answer
+    And I should see Yes for the Does the appellant have a fixed address? answer
+    And Within the Address fieldset, I should see 10 Downing Street for the Building and Street answer
+    And Within the Address fieldset, I should see London for the Town or City answer
+    And Within the Address fieldset, I should see SW1A 2AA for the Postcode/Zipcode answer
+    And Within the Address fieldset, I should see United Kingdom for the Country answer
+    And I should see My client's protection claim was refused for the Appeal reason answer
+    And I should see Yes for the Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay? answer
+    And I should see Birth of a child for the Explain what the new matters are and why they are relevant to this appeal. answer
+    And I should see Yes for the Other appeals answer
+    And Within the Appeal number collection, I should see RP/12345/2014 for the first Appeal number answer
+    And Within the Appeal number collection, I should see PA/54321/2015 for the second Appeal number answer
+    And I should see some-ref for the If you prefer to use your own reference number for this case, you can enter it here. answer
     When I click the Save and continue button
     Then I should see an alert confirming the case has been created
 
@@ -106,7 +127,8 @@ Feature: Complete the appeal application online
     And I complete the New matters page
     And I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
-    When I click the Save and continue button
+
+    Given I complete the Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
@@ -129,7 +151,8 @@ Feature: Complete the appeal application online
     Given I complete the New matters page
     And I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
-    When I click the Save and continue button
+
+    Given I complete the Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
@@ -150,7 +173,8 @@ Feature: Complete the appeal application online
 
     Given I am on the Your own reference number page
     When I click the Continue button
-    And I click the Save and continue button
+
+    Given I complete the Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
@@ -173,7 +197,8 @@ Feature: Complete the appeal application online
 
     Given I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
-    When I click the Save and continue button
+
+    Given I complete the Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
@@ -197,7 +222,7 @@ Feature: Complete the appeal application online
     And I click the Continue button
 
     Given I complete the Your own reference number page
-    When I click the Save and continue button
+    And I complete the Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
