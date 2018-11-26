@@ -1,11 +1,11 @@
-import { AnyCcdPage } from '../../pages/any-ccd.page';
 import { AuthenticationFlow } from '../../flows/authentication.flow';
+import { CcdPage } from '../../pages/ccd.page';
 import { Given, Then } from 'cucumber';
 import { IdamSignInPage } from '../../pages/idam-sign-in.page';
 import { expect } from 'chai';
 
-const anyCcdPage = new AnyCcdPage();
 const authenticationFlow = new AuthenticationFlow();
+const ccdPage = new CcdPage();
 const idamSignInPage = new IdamSignInPage();
 
 Given('I am not signed in', async function () {
@@ -13,23 +13,23 @@ Given('I am not signed in', async function () {
     await idamSignInPage.waitUntilLoaded();
 });
 
-Given('I am signed in as a Case Officer', async function () {
+Given(/^I am signed in as a `?Case (?:Officer|Worker)`?$/, async function () {
     await authenticationFlow.signInAsCaseOfficer();
-    await anyCcdPage.waitUntilLoaded();
+    await ccdPage.waitUntilLoaded();
 });
 
-Given(/^I am signed in as(?:| a) Legal Rep(?:| A)$/, async function () {
+Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
     await authenticationFlow.signInAsLawFirmA();
-    await anyCcdPage.waitUntilLoaded();
+    await ccdPage.waitUntilLoaded();
 });
 
-Given(/^I am signed in as(?:| a) Legal Rep(?:| B) without any cases$/, async function () {
+Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, async function () {
     await authenticationFlow.signInAsLawFirmB();
-    await anyCcdPage.waitUntilLoaded();
+    await ccdPage.waitUntilLoaded();
 });
 
-Then(/^I should be redirected to the sign in page(?:| instead)$/, async function () {
+Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {
     await idamSignInPage.waitUntilLoaded();
-    expect(await anyCcdPage.isLoaded()).to.equal(false);
+    expect(await ccdPage.isLoaded()).to.equal(false);
     expect(await idamSignInPage.isLoaded()).to.equal(true);
 });

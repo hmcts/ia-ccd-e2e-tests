@@ -1,4 +1,3 @@
-
 export class OrdinalToCardinal {
 
     public static convertWordToNumber(ordinalWord: string): number {
