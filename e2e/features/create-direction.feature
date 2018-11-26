@@ -11,15 +11,15 @@ Feature: Create direction
 
     When I select the Send direction Next step
     Then I am on the Send direction page
-    When I type Do the thing for the Explanation of what they must do field
-    And I select Legal representative for the Who are you sending the direction to? field
-    And I type 31-12-2018 for the When is the direction due by? field
+    When I type Do the thing for the Explain the direction you are issuing field
+    And I select Legal representative for the Who are you giving the direction to? field
+    And I type 31-12-2018 for the By what date must they comply? field
     And I click the Continue button
 
     Then I am on the Check your answers page
-    And I should see Do the thing for the Explanation of what they must do answer
-    And I should see Legal representative for the Who are you sending the direction to? answer
-    And I should see 31 Dec 2018 for the When is the direction due by? answer
+    And I should see Do the thing for the Explain the direction you are issuing answer
+    And I should see Legal representative for the Who are you giving the direction to? answer
+    And I should see 31 Dec 2018 for the By what date must they comply? answer
 
     When I click the Send direction button
     Then I should see the text You have sent a direction
