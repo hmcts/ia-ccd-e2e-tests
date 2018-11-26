@@ -26,7 +26,7 @@ export class CcdWriteFixedListField implements Field {
     }
 
     public async getValue() {
-        return await (this.getSelectedOptionElement()).getAttribute('value');
+        return await (this.getSelectedOptionElement()).getText();
     }
 
     public async setValue(value) {
@@ -57,6 +57,6 @@ export class CcdWriteFixedListField implements Field {
     }
 
     private getSelectedOptionElement() {
-        return this.container.element(by.css('.//option[@selected]'));
+        return this.container.element(by.css('option:checked'));
     }
 }

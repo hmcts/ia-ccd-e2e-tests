@@ -73,7 +73,7 @@ export class Fields {
 
             await complexFieldContainer
                 .all(by.xpath('.//button[normalize-space()="Add new"]'))
-                .first()
+                .last()
                 .click();
         }
     }
