@@ -1,12 +1,33 @@
 import moment = require('moment');
+import * as path from 'path';
 
 export class ValueExpander {
 
+    private static FILE_PATTERN = /{@([^\\/}]+)}/gi;
     private static TODAY_PATTERN = /{\$TODAY([+-]?\d*?)\|?([^0-9]*?)}/gi;
 
     public async expand(value: string) {
 
+        value = this.expandFiles(value);
         value = this.expandToday(value);
+
+        return value;
+    }
+
+    private expandFiles(value: string) {
+
+        const fileRegExp = new RegExp(ValueExpander.FILE_PATTERN);
+
+        let match = fileRegExp.exec(value);
+
+        while (match != null) {
+
+            const absoluteFilename = path.resolve('./documents/' + match[1]);
+
+            value = value.replace(match[0], absoluteFilename);
+
+            match = fileRegExp.exec(value);
+        }
 
         return value;
     }

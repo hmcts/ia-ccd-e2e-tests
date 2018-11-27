@@ -10,3 +10,7 @@ When('I go to the `Case List`', async function () {
 When('I attempt to go to the `Case List`', async function () {
     await ccdPage.getWithoutWaitingForAngular('/list/case');
 });
+
+When('I open 1543316153347598', async function () {
+    await ccdPage.get('/case/IA/Asylum/1543316153347598');
+});
