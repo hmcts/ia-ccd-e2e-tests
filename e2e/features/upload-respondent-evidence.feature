@@ -7,8 +7,8 @@ Feature: Upload respondent evidence
     And I submit my appeal
     And I request respondent evidence
 
-  @create-direction @RIA-700
-  Scenario: Upload respondent evidence
+  @create-direction @RIA-700 @RIA-592
+  Scenario: Uploading respondent evidence adds documents and a new direction
 
     When I select the `Upload respondent evidence` Next step
     Then I am on the `Upload respondent evidence` page
@@ -32,3 +32,12 @@ Feature: Upload respondent evidence
     And Within the first `Respondent documents` collection item, I should see `RespondentEvidence.pdf` in the `Document` field
     And Within the first `Respondent documents` collection item, I should see `This is the evidence` in the `Description` field
     And Within the first `Respondent documents` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    When I click the `Directions` tab
+    Then I should see the `Directions` field
+    And Within the first `Directions` collection item, I should see `You must now build your case` in the `Explanation` field
+    And Within the first `Directions` collection item, I should see `You must write a full argument` in the `Explanation` field
+    And Within the first `Directions` collection item, I should see `The respondent then has 14 days to respond` in the `Explanation` field
+    And Within the first `Directions` collection item, I should see `Legal representative` for the `Parties` field
+    And Within the first `Directions` collection item, I should see `{$TODAY+28|D MMM YYYY}` for the `Date due` field
+    And Within the first `Directions` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
