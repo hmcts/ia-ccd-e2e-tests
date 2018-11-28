@@ -16,6 +16,7 @@ Feature: Start an appeal application alternate paths
     And I click the `Continue` button
 
     Given I complete the `Why is your client appealing?` page
+    And I complete the `On which grounds will you build your appeal?` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Your own reference number` page
@@ -37,7 +38,11 @@ Feature: Start an appeal application alternate paths
     When I select `My client's protection status was revoked` for the `Appeal reason` field
     And I click the `Continue` button
 
-    Given I complete the `New matters` page
+    Given I am on the `On which grounds will you build your appeal?` page
+    When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` label
+    And I click the `Continue` button
+
+    And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Your own reference number` page
 
@@ -54,6 +59,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
     And I complete the `Why is your client appealing?` page
+    And I complete the `On which grounds will you build your appeal?` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
 
@@ -73,6 +79,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
     And I complete the `Why is your client appealing?` page
+    And I complete the `On which grounds will you build your appeal?` page
 
     Given I am on the `New matters` page
     When I select `No` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
@@ -95,6 +102,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
     And I complete the `Why is your client appealing?` page
+    And I complete the `On which grounds will you build your appeal?` page
     And I complete the `New matters` page
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
