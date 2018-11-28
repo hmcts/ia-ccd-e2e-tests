@@ -128,7 +128,7 @@ Feature: Complete the appeal application online
     And I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
 
-    Given I complete the Check your answers page
+    Given I complete the lodge appeal Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
@@ -152,7 +152,7 @@ Feature: Complete the appeal application online
     And I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
 
-    Given I complete the Check your answers page
+    Given I complete the lodge appeal Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
@@ -174,7 +174,7 @@ Feature: Complete the appeal application online
     Given I am on the Your own reference number page
     When I click the Continue button
 
-    Given I complete the Check your answers page
+    Given I complete the lodge appeal Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
@@ -198,7 +198,7 @@ Feature: Complete the appeal application online
     Given I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
 
-    Given I complete the Check your answers page
+    Given I complete the lodge appeal Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab
@@ -222,7 +222,7 @@ Feature: Complete the appeal application online
     And I click the Continue button
 
     Given I complete the Your own reference number page
-    And I complete the Check your answers page
+    And I complete the lodge appeal Check your answers page
     Then I should see an alert confirming the case has been created
 
     When I click the Case details tab

@@ -12,6 +12,6 @@ When('I attempt to go to the Case List', async function () {
     await anyCcdPage.getWithoutWaitingForAngular('/list/case');
 });
 
-Then(/^I should see a notification saying (.+)$/, async function (message) {
+Then(/^I should see a notification saying `?([^`]+)`?$/, async function (message) {
     expect(await anyCcdPage.notificationContains(message)).to.equal(true);
 });

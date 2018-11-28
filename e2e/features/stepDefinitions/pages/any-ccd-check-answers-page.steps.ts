@@ -4,11 +4,11 @@ import { expect } from 'chai';
 
 const anyCcdCheckAnswersPage = new AnyCcdCheckAnswersPage();
 
-Then(/^I should see (.+) for the (.+) answer$/, async function (fieldValue, fieldLabel) {
+Then(/^I should see `?([^`]+)`? for the `?([^`]+)`? answer$/, async function (fieldValue, fieldLabel) {
     expect(await anyCcdCheckAnswersPage.isFieldValueDisplayed(fieldLabel, fieldValue)).to.equal(true);
 });
 
-Then(/^Within the (.+) collection, I should see (.+) for the ([^\s]+) (.+) answer$/,
+Then(/^Within the `?([^`]+)`? collection, I should see `?([^`]+)`? for the `?([^\s`]+)`? `?([^`]+)`? answer$/,
     async function (
         collectionLabel,
         fieldValue,
@@ -25,7 +25,7 @@ Then(/^Within the (.+) collection, I should see (.+) for the ([^\s]+) (.+) answe
         ).to.equal(true);
     });
 
-Then(/^Within the (.+) fieldset, I should see (.+) for the (.+) answer$/,
+Then(/^Within the `?([^`]+)`? fieldset, I should see `?([^`]+)`? for the `?([^`]+)`? answer$/,
     async function (
         fieldsetLabel,
         fieldValue,

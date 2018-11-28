@@ -11,7 +11,7 @@ Feature: Complete the appeal application online
     And I complete the New matters page
     And I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
-    And I complete the Check your answers page
+    And I complete the lodge appeal Check your answers page
 
   @create-case @lodge-appeal @RIA-515
   Scenario: Lodge an appeal application (happy path)
