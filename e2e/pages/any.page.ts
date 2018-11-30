@@ -29,6 +29,10 @@ export class AnyPage {
             .click();
     }
 
+    async getCurrentUrl() {
+        return await browser.driver.getCurrentUrl();
+    }
+
     async get(uri: string) {
         await browser.waitForAngularEnabled(true);
         await browser.get(uri);
