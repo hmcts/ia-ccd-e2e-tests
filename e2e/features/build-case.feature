@@ -8,11 +8,11 @@ Feature: Build case
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
+    And I switch to be a `Legal Rep`
 
   @create-direction @RIA-480 @RIA-600
   Scenario: Upload Case argument and evidence
 
-    Given I switch to be a `Legal Rep`
     When I select the `Build your case` Next step
     Then I am on the `Build your case` page
     When I upload `{@CaseArgument.pdf}` for the `Appeal skeleton argument` field
