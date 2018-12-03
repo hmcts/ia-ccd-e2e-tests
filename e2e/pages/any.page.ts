@@ -61,7 +61,7 @@ export class AnyPage {
 
         try {
 
-            const linkPath = '//*[self::button or self::a][contains(text(), "' + match + '")]';
+            const linkPath = '//*[self::button or self::a][contains(normalize-space(), "' + match + '")]';
 
             return await element(by.xpath(linkPath)).isDisplayed()
                 && await element(by.xpath(linkPath)).isEnabled();
@@ -97,7 +97,7 @@ export class AnyPage {
         try {
 
             return await element
-                .all(by.xpath('//*[normalize-space()="' + text + '"]'))
+                .all(by.xpath('//*[contains(normalize-space(), "' + text + '")]'))
                 .last()
                 .isDisplayed();
 

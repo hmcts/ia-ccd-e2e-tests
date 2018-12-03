@@ -1,0 +1,23 @@
+import { CollectionItemFinder } from './collection-item-finder';
+import { by } from 'protractor';
+
+export class TableCollectionItemFinder implements CollectionItemFinder {
+
+    public async findCollectionItem(
+        collectionContainer,
+        collectionItemNumber: number
+    ) {
+        if (await collectionContainer.$$('ccd-read-complex-field').isPresent()) {
+
+            return await collectionContainer
+                .all(by.xpath('.//ccd-read-complex-field'))
+                .get(collectionItemNumber - 1);
+
+        } else {
+
+            return await collectionContainer
+                .all(by.xpath('.//ccd-field-read'))
+                .get(collectionItemNumber - 1);
+        }
+    }
+}

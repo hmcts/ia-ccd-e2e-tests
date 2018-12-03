@@ -1,40 +1,39 @@
-import { AnyCcdFormPage } from '../pages/any-ccd-form.page';
-import { CaseDetailsPage } from '../pages/case-details.page';
+import { CcdPage } from '../pages/ccd.page';
 
 export class SubmitAppealFlow {
 
-    private anyCcdFormPage = new AnyCcdFormPage();
-    private caseDetailsPage = new CaseDetailsPage();
+    private ccdPage = new CcdPage();
 
     async completeDeclaration(clickContinue = false) {
-        await this.anyCcdFormPage.pageHeadingContains('Submit your appeal');
+        await this.ccdPage.pageHeadingContains('Submit your appeal');
 
-        await this.anyCcdFormPage.click(
+        await this.ccdPage.click(
             'I the representative am giving notice of appeal in accordance with the appellant\'s instructions ' +
             'and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.'
         );
 
         if (clickContinue) {
-            await this.anyCcdFormPage.click('Continue');
+            await this.ccdPage.click('Continue');
         }
     }
 
     async completeCheckYourAnswers(clickContinue = false) {
 
         if (clickContinue) {
-            await this.anyCcdFormPage.click('Submit');
+            await this.ccdPage.click('Submit');
         }
     }
 
     async submitAppeal(clickContinue = false) {
-        await this.caseDetailsPage.selectNextStep('Submit your appeal');
-        await this.caseDetailsPage.click('Go');
+
+        await this.ccdPage.selectNextStep('Submit your appeal');
+        await this.ccdPage.click('Go');
 
         await this.completeDeclaration(true);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
-            await this.anyCcdFormPage.click('Close and Return to case details');
+            await this.ccdPage.click('Close and Return to case details');
         }
     }
 }
