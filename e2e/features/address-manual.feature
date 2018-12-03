@@ -24,7 +24,7 @@ Feature: Address details are entered manually without using postcode lookup
     And I complete the Has your client appealed against any other UK immigration decisions? page
     And I complete the Your own reference number page
     And I complete the lodge appeal Check your answers page
-    Then I should see an alert confirming the case has been created
+    And I close and return to case details
 
     When I click the Case details tab
     Then I should see Yes for the Does the appellant have a fixed address? field

@@ -117,7 +117,7 @@ export class LodgeAppealFlow {
         }
     }
 
-    async lodgeAppeal() {
+    async lodgeAppeal(clickContinue = false) {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReference(true);
         await this.completeBasicDetails(true);
@@ -127,5 +127,9 @@ export class LodgeAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeReferenceNumber(true);
         await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.anyCcdFormPage.click('Close and Return to case details');
+        }
     }
 }
