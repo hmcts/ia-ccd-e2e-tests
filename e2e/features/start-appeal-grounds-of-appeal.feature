@@ -12,7 +12,7 @@ Feature: Grounds of appeal
   Scenario: Grounds of appeal are captured for protection type cases
 
     Given I am on the `Why is your client appealing?` page
-    When I select `My client's protection claim was refused` for the `Appeal reason` field
+    When I select `The refusal of a protection claim` for the `Decision type` field
     And I click the `Continue` button
 
     Given I am on the `On which grounds will you build your appeal?` page
@@ -45,7 +45,7 @@ Feature: Grounds of appeal
   Scenario: Grounds of appeal are captured for revocation type cases
 
     Given I am on the `Why is your client appealing?` page
-    When I select `My client's protection status was revoked` for the `Appeal reason` field
+    When I select `The revocation of a protection status` for the `Decision type` field
     And I click the `Continue` button
 
     Given I am on the `On which grounds will you build your appeal?` page

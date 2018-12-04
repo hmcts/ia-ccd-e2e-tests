@@ -35,7 +35,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Your client's address` page
 
     Given I am on the `Why is your client appealing?` page
-    When I select `My client's protection status was revoked` for the `Appeal reason` field
+    When I select `The revocation of a protection status` for the `Decision type` field
     And I click the `Continue` button
 
     Given I am on the `On which grounds will you build your appeal?` page
@@ -49,7 +49,7 @@ Feature: Start an appeal application alternate paths
     Given I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button
     When I click the `Case details` tab
-    Then I should see `My client's protection status was revoked` for the `Appeal reason` field
+    Then I should see `The revocation of a protection status` for the `Decision type` field
 
   @start-appeal @alternate
   Scenario: Start an appeal application without providing legal representative reference number

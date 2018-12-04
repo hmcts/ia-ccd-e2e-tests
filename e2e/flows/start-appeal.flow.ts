@@ -56,7 +56,7 @@ export class StartAppealFlow {
 
     async completeWhyIsClientAppealing(clickContinue = false) {
 
-        await this.ccdFormPage.setFieldValue('Appeal reason', 'My client\'s protection claim was refused');
+        await this.ccdFormPage.setFieldValue('Decision type', 'The refusal of a protection claim');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
