@@ -18,6 +18,7 @@ import { OrdinalToCardinal } from '../helpers/ordinal-to-cardinal';
 import { TableCollectionItemFinder } from './collection-item-finders/table-collection-item-finder';
 import { browser, by, ElementFinder, ExpectedConditions } from 'protractor';
 import { CreateCaseFixedListFieldFinder } from './create-case-fixed-list-field-finder';
+import { CcdWriteDocumentFieldFinder } from './ccd-write-document-field-finder';
 
 export class Fields {
 
@@ -46,6 +47,7 @@ export class Fields {
         new CcdWriteTextAreaFieldFinder(),
         new CcdWriteYesNoFieldFinder(),
 
+        new CcdWriteDocumentFieldFinder(),
         new CcdWriteLabelFieldFinder(),
 
         // the following fields are not specific to one type

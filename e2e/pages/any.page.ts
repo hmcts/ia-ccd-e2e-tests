@@ -7,21 +7,25 @@ export class AnyPage {
 
         const linkPath =
             '//*[self::button or self::a or self::label or self::span]' +
-            '[normalize-space()="' + linkText + '"]';
+            '[text()[normalize-space()="' + linkText + '"]]';
+
+        const links =
+            element
+                .all(by.xpath(linkPath))
+                .filter(function (linkElement) {
+                    return linkElement.isDisplayed();
+                });
 
         await browser.wait(
             async () => {
-                return await element
-                    .all(by.xpath(linkPath))
-                    .isPresent();
+                return links.isDisplayed();
             },
             Wait.normal,
             'Button or link did not show in time'
         );
 
-        await element
-            .all(by.xpath(linkPath))
-            .last()
+        await links
+            .first()
             .click();
     }
 

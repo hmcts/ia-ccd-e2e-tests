@@ -77,7 +77,7 @@ When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I clear the `?([^`]
         );
     });
 
-When(/^I (?:check|choose|select|toggle|type) `?([^`]+)`? (?:for|from) the field without a label$/,
+When(/^I (check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
     async function (
         fieldValue
     ) {
@@ -87,7 +87,7 @@ When(/^I (?:check|choose|select|toggle|type) `?([^`]+)`? (?:for|from) the field 
         );
     });
 
-When(/^I (?:check|choose|select|toggle|type) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
+When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
     async function (
         fieldValue,
         fieldLabel
@@ -98,7 +98,7 @@ When(/^I (?:check|choose|select|toggle|type) `?([^`]+)`? (?:for|from) the `?([^`
         );
     });
 
-When(/^Within the `?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type) `?([^`]+)`? (?:for|from) the field without a label$/,
+When(/^Within the `?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
     async function (
         fieldsetLabel,
         fieldValue
@@ -110,7 +110,7 @@ When(/^Within the `?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type) `?
         );
     });
 
-When(/^Within the `?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
+When(/^Within the `?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
     async function (
         fieldsetLabel,
         fieldValue,
@@ -123,7 +123,7 @@ When(/^Within the `?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type) `?
         );
     });
 
-When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I (?:check|choose|select|toggle|type) `?([^`]+)`? (?:for|from) the field without a label$/,
+When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
     async function (
         collectionItemNumber,
         collectionLabel,
@@ -137,7 +137,7 @@ When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I (?:check|choose|s
         );
     });
 
-When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I (?:check|choose|select|toggle|type) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
+When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
     async function (
         collectionItemNumber,
         collectionLabel,

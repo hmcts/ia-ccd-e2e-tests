@@ -1,8 +1,8 @@
 import { AnyPage } from './any.page';
 import { Fields } from '../fields/fields';
 import { ValueExpander } from '../helpers/value-expander';
-import { $, browser, by, element, ExpectedConditions } from 'protractor';
 import { Wait } from '../enums/wait';
+import { $, browser, by, element, ExpectedConditions } from 'protractor';
 
 export class CcdPage extends AnyPage {
 
