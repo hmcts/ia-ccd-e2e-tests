@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  ia-ccd-e2e-tests:
+    build: .
+    volumes:
+      - ./:/project
+      - /project/node_modules/
+    working_dir: /project
+    shm_size: 1gb
+    # just run the container doing nothing
+    entrypoint: ["sh", "-c", "sleep infinity"]
+    network_mode: "host"
+    environment:
+      TEST_E2E_URL_GATEWAY: "${TEST_E2E_URL_GATEWAY}"
+      TEST_E2E_URL_WEB: "${TEST_E2E_URL_WEB}"
+      TEST_E2E_USE_PROXY: "${TEST_E2E_USE_PROXY}"
+      TEST_CASEOFFICER_USERNAME: "${TEST_CASEOFFICER_USERNAME}"
+      TEST_CASEOFFICER_PASSWORD: "${TEST_CASEOFFICER_PASSWORD}"
+      TEST_LAW_FIRM_A_USERNAME: "${TEST_LAW_FIRM_A_USERNAME}"
+      TEST_LAW_FIRM_A_PASSWORD: "${TEST_LAW_FIRM_A_PASSWORD}"
+      TEST_LAW_FIRM_B_USERNAME: "${TEST_LAW_FIRM_B_USERNAME}"
+      TEST_LAW_FIRM_B_PASSWORD: "${TEST_LAW_FIRM_B_PASSWORD}"
