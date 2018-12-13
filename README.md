@@ -26,6 +26,13 @@ $ yarn install
 ### Running the tests
 
  ```bash
+### start the docker container:
+$ docker-compose build
+$ docker-compose up -d
+
+### tests run inside the docker container:
+$ docker-compose exec ia-ccd-e2e-tests bash
+$ yarn install
 $ yarn e2e
  ```
 
