@@ -11,6 +11,7 @@ export class TableCollectionFinder implements ComplexFieldFinder {
             .all(by.xpath(
                 '//tr[.//th[normalize-space()="' + complexFieldLabel + '"]]'
             ))
+            .filter(e => e.isDisplayed())
             .first();
     }
 }

@@ -7,16 +7,18 @@ export class TableCollectionItemFinder implements CollectionItemFinder {
         collectionContainer,
         collectionItemNumber: number
     ) {
-        if (await collectionContainer.$$('ccd-read-complex-field').isPresent()) {
+        if (await collectionContainer.$$('ccd-read-complex-field').isDisplayed()) {
 
             return await collectionContainer
                 .all(by.xpath('.//ccd-read-complex-field'))
+                .filter(e => e.isDisplayed())
                 .get(collectionItemNumber - 1);
 
         } else {
 
             return await collectionContainer
                 .all(by.xpath('.//ccd-field-read'))
+                .filter(e => e.isDisplayed())
                 .get(collectionItemNumber - 1);
         }
     }

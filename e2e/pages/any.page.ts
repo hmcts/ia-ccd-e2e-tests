@@ -3,32 +3,6 @@ import { Wait } from '../enums/wait';
 
 export class AnyPage {
 
-    async click(linkText: string) {
-
-        const linkPath =
-            '//*[self::button or self::a or self::label or self::span]' +
-            '[text()[normalize-space()="' + linkText + '"]]';
-
-        const links =
-            element
-                .all(by.xpath(linkPath))
-                .filter(function (linkElement) {
-                    return linkElement.isDisplayed();
-                });
-
-        await browser.wait(
-            async () => {
-                return links.isDisplayed();
-            },
-            Wait.normal,
-            'Button or link did not show in time'
-        );
-
-        await links
-            .first()
-            .click();
-    }
-
     async getCurrentUrl() {
         return await browser.driver.getCurrentUrl();
     }
@@ -43,54 +17,113 @@ export class AnyPage {
         await browser.get(uri);
     }
 
-    async isButtonEnabled(buttonText: string) {
+    async click(linkText: string) {
 
-        const buttonPath = '//*[self::button or self::a][normalize-space()="' + buttonText + '"]';
+        const buttonPath = '//button[normalize-space()="' + linkText + '"]';
 
-        await browser.wait(
-            async () => {
-                return await element
-                    .all(by.xpath(buttonPath))
-                    .isPresent();
-            },
-            Wait.normal,
-            'Button or link did not show in time'
-        );
+        const button = await element
+            .all(by.xpath(buttonPath))
+            .filter(e => e.isPresent() && e.isDisplayed())
+            .first();
 
-        const buttonElement =
-            await element
-                .all(by.xpath(buttonPath))
-                .first();
-
-        return await buttonElement.isEnabled();
-    }
-
-    async linkContains(match: string) {
-
-        try {
-
-            const linkPath = '//*[self::button or self::a][contains(normalize-space(), "' + match + '")]';
-
-            return await element(by.xpath(linkPath)).isDisplayed()
-                && await element(by.xpath(linkPath)).isEnabled();
-
-        } catch (error) {
-            return false;
+        if (await button.isPresent()) {
+            await button.click();
+            return;
         }
+
+        const anchorPath = '//a[normalize-space()="' + linkText + '"]';
+
+        const anchor = await element
+            .all(by.xpath(anchorPath))
+            .filter(e => e.isPresent() && e.isDisplayed())
+            .first();
+
+        if (await anchor.isPresent()) {
+            await anchor.click();
+            return;
+        }
+
+        const linkPath =
+            '//*[self::label or self::span]' +
+            '[text()[normalize-space()="' + linkText + '"]]';
+
+        const link = await element
+            .all(by.xpath(linkPath))
+            .filter(e => e.isPresent() && e.isDisplayed())
+            .first();
+
+        await link.click();
     }
 
-    async pageHeadingContains(match: string) {
+    async isButtonEnabled(match: string, shortWait: boolean = false) {
 
         try {
 
             await browser.wait(
                 async () => {
-                    return await element
-                        .all(by.xpath('//*[self::h1 or self::h2][contains(normalize-space(), "' + match + '")]'))
-                        .isDisplayed();
+                    return (await element
+                        .all(by.xpath(
+                            '//*[self::button or self::a]' +
+                            '[contains(normalize-space(), "' + match + '") and not(ancestor::*[@hidden])]'
+                        ))
+                        .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
+                        .count()) > 0;
                 },
-                Wait.normal,
-                'Page heading did not show in time'
+                shortWait ? Wait.short : Wait.normal
+            );
+
+            return true;
+
+        } catch (error) {
+            return false;
+        }
+
+        // const buttonPath = '//*[self::button or self::a][normalize-space()="' + buttonText + '"]';
+        //
+        // await browser.wait(
+        //     async () => {
+        //         return await element
+        //             .all(by.xpath(buttonPath))
+        //             .isPresent();
+        //     },
+        //     Wait.normal,
+        //     'Button or link did not show in time'
+        // );
+        //
+        // const buttonElement =
+        //     await element
+        //         .all(by.xpath(buttonPath))
+        //         .first();
+        //
+        // return await buttonElement.isEnabled();
+    }
+
+    async linkContains(match: string, shortWait: boolean = false) {
+
+        // try {
+        //
+        //     const linkPath = '//*[self::button or self::a][contains(normalize-space(), "' + match + '")]';
+        //
+        //     return await element(by.xpath(linkPath)).isDisplayed()
+        //         && await element(by.xpath(linkPath)).isEnabled();
+        //
+        // } catch (error) {
+        //     return false;
+        // }
+
+        try {
+
+            await browser.wait(
+                async () => {
+                    return (await element
+                        .all(by.xpath(
+                            '//*[self::button or self::a]' +
+                            '[contains(normalize-space(), "' + match + '") and not(ancestor::*[@hidden])]'
+                        ))
+                        .filter(e => e.isPresent() && e.isDisplayed())
+                        .count()) > 0;
+                },
+                shortWait ? Wait.short : Wait.normal
             );
 
             return true;
@@ -100,14 +133,87 @@ export class AnyPage {
         }
     }
 
-    async tagContains(text: string) {
+    async headingContains(match: string, shortWait: boolean = false) {
 
         try {
 
-            return await element
-                .all(by.xpath('//*[contains(normalize-space(), "' + text + '")]'))
-                .last()
-                .isDisplayed();
+            await browser.wait(
+                async () => {
+                    return (await element
+                        .all(by.xpath(
+                            '//*[self::h1 or self::h2 or self::caption]' +
+                            '[contains(normalize-space(), "' + match + '") and not(ancestor::*[@hidden])]'
+                        ))
+                        .filter(e => e.isPresent() && e.isDisplayed())
+                        .count()) > 0;
+                },
+                shortWait ? Wait.short : Wait.normal
+            );
+
+            return true;
+
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async contentContains(match: string, shortWait: boolean = false) {
+
+        try {
+
+            await browser.wait(
+                async () => {
+                    return (await element
+                        .all(by.xpath(
+                            '//*[self::p or self::h1 or self::h2 or self::h3 or self::h4 or self::caption or self::label or self::td/text()]' +
+                            '[contains(normalize-space(), "' + match + '") and not(ancestor::*[@hidden])]'
+                        ))
+                        .filter(e => e.isPresent() && e.isDisplayed())
+                        .count()) > 0;
+                },
+                shortWait ? Wait.short : Wait.normal
+            );
+
+            return true;
+
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async imgSrcContains(match: string, shortWait: boolean = false) {
+
+        try {
+
+            await browser.wait(
+                async () => {
+                    return (await element
+                        .all(by.xpath('//img[contains(@src, "' + match + '")]'))
+                        .filter(e => e.isPresent() && e.isDisplayed())
+                        .count()) > 0;
+                },
+                shortWait ? Wait.short : Wait.normal
+            );
+
+            return true;
+
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async urlContains(match: string, shortWait: boolean = false) {
+
+        try {
+
+            await browser.wait(
+                async () => {
+                    return (await browser.driver.getCurrentUrl()).includes(match);
+                },
+                shortWait ? Wait.short : Wait.normal
+            );
+
+            return true;
 
         } catch (error) {
             return false;

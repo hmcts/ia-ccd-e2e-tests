@@ -5,7 +5,7 @@ export class SubmitAppealFlow {
     private ccdPage = new CcdPage();
 
     async completeDeclaration(clickContinue = false) {
-        await this.ccdPage.pageHeadingContains('Submit your appeal');
+        await this.ccdPage.headingContains('Submit your appeal');
 
         await this.ccdPage.click(
             'I the representative am giving notice of appeal in accordance with the appellant\'s instructions ' +

@@ -54,7 +54,7 @@ export class StartAppealFlow {
         }
     }
 
-    async completeWhyIsClientAppealing(clickContinue = false) {
+    async whatTypeOfDecisionIsYourClientAppealingAgainst(clickContinue = false) {
 
         await this.ccdFormPage.setFieldValue('Decision type', 'The refusal of a protection claim');
 
@@ -122,7 +122,7 @@ export class StartAppealFlow {
         await this.completeHomeOfficeReference(true);
         await this.completeBasicDetails(true);
         await this.completeClientAddress(true);
-        await this.completeWhyIsClientAppealing(true);
+        await this.whatTypeOfDecisionIsYourClientAppealingAgainst(true);
         await this.completeAppealGrounds(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);

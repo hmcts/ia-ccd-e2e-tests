@@ -109,6 +109,10 @@ export class Fields {
             }
         }
 
+        if (container === undefined) {
+            throw 'Cannot find field: ' + fieldLabel + " (" + complexFieldLabel + "@" + collectionItemNumber + ")"
+        }
+
         return await this.findWithinContainer(container, fieldLabel);
     }
 
@@ -169,7 +173,7 @@ export class Fields {
     }
 
     private async findCollectionItemContainer(
-        complexFieldContainer: string,
+        complexFieldContainer,
         collectionItemNumber: string | number
     ): Promise<ElementFinder> {
 
