@@ -31,8 +31,7 @@ export class CcdWriteTextFieldFinder implements FieldFinder {
                 .all(by.xpath('.//ccd-field-write[.//ccd-write-text-field]'))
                 .first();
 
-        if (await fieldContainer.isPresent()
-            && await fieldContainer.$$('ccd-write-text-field').isPresent()) {
+        if (await fieldContainer.isPresent()) {
 
             return new CcdWriteTextField(
                 fieldContainer,

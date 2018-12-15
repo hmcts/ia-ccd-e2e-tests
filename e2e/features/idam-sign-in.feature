@@ -5,10 +5,13 @@ Feature: User authentication
     When I attempt to go to the `Case List`
     Then I should be redirected to the `Sign In` page instead
 
-  Scenario Outline: Should show Case List after a user has signed in as a Case Officer
+  @authentication
+  Scenario Outline: Should show Case List after a user has signed in
     Given I am signed in as a <persona>
     When I go to the `Case List`
-    Then I should see the `Case List` page
+    Then I should see `/list/case` in the url
+    And I should see `jurisdiction=IA` in the url
+    And I should see `case-type=Asylum` in the url
     And I should see the username <username>
 
     Examples:

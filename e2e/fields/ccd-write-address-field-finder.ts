@@ -33,8 +33,7 @@ export class CcdWriteAddressFieldFinder implements FieldFinder {
                 ))
                 .first();
 
-        if (await fieldContainer.isPresent()
-            && await fieldContainer.$$('ccd-write-address-field').isPresent()) {
+        if (await fieldContainer.isPresent()) {
 
             return new CcdWriteAddressField(
                 fieldContainer,

@@ -33,8 +33,7 @@ export class CcdWriteFixedListFieldFinder implements FieldFinder {
                 ))
                 .first();
 
-        if (await fieldContainer.isPresent()
-            && await fieldContainer.$$('ccd-write-fixed-list-field').isPresent()) {
+        if (await fieldContainer.isPresent()) {
 
             return new CcdWriteFixedListField(
                 fieldContainer,

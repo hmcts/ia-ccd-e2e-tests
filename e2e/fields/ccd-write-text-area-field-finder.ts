@@ -33,8 +33,7 @@ export class CcdWriteTextAreaFieldFinder implements FieldFinder {
                 ))
                 .first();
 
-        if (await fieldContainer.isPresent()
-            && await fieldContainer.$$('ccd-write-text-area-field').isPresent()) {
+        if (await fieldContainer.isPresent()) {
 
             return new CcdWriteTextAreaField(
                 fieldContainer,

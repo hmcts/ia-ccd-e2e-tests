@@ -33,8 +33,7 @@ export class CcdWriteYesNoFieldFinder implements FieldFinder {
                 ))
                 .first();
 
-        if (await fieldContainer.isPresent()
-            && await fieldContainer.$$('ccd-write-yes-no-field').isPresent()) {
+        if (await fieldContainer.isPresent()) {
 
             return new CcdWriteYesNoField(
                 fieldContainer,

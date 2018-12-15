@@ -15,7 +15,7 @@ Feature: Start an appeal application alternate paths
     When I select `No` for the `Does the appellant have a fixed address?` field
     And I click the `Continue` button
 
-    Given I complete the `Why is your client appealing?` page
+    Given I complete the `What type of decision is your client appealing against?` page
     And I complete the `On which grounds will you build your appeal?` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
@@ -34,7 +34,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
 
-    Given I am on the `Why is your client appealing?` page
+    Given I am on the `What type of decision is your client appealing against?` page
     When I select `The revocation of a protection status` for the `Decision type` field
     And I click the `Continue` button
 
@@ -58,7 +58,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Home Office reference` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
-    And I complete the `Why is your client appealing?` page
+    And I complete the `What type of decision is your client appealing against?` page
     And I complete the `On which grounds will you build your appeal?` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
@@ -78,7 +78,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Home Office reference` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
-    And I complete the `Why is your client appealing?` page
+    And I complete the `What type of decision is your client appealing against?` page
     And I complete the `On which grounds will you build your appeal?` page
 
     Given I am on the `New matters` page
@@ -101,7 +101,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Home Office reference` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
-    And I complete the `Why is your client appealing?` page
+    And I complete the `What type of decision is your client appealing against?` page
     And I complete the `On which grounds will you build your appeal?` page
     And I complete the `New matters` page
 

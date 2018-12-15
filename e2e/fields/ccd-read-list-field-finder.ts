@@ -12,6 +12,7 @@ export class CcdReadListFieldFinder implements FieldFinder {
                     './/dt[normalize-space()="' + fieldLabel + '"]' +
                     '/following-sibling::dd[1]'
                 ))
+                .filter(e => e.isDisplayed())
                 .first();
 
         if (await fieldContainer.isPresent()) {
@@ -31,6 +32,7 @@ export class CcdReadListFieldFinder implements FieldFinder {
                     './/dt[normalize-space()=""]' +
                     '/following-sibling::dd[1]'
                 ))
+                .filter(e => e.isDisplayed())
                 .first();
 
         if (await fieldContainer.isPresent()) {

@@ -11,7 +11,7 @@ Feature: Grounds of appeal
   @start-appeal @RIA-230
   Scenario: Grounds of appeal are captured for protection type cases
 
-    Given I am on the `Why is your client appealing?` page
+    Given I am on the `What type of decision is your client appealing against?` page
     When I select `The refusal of a protection claim` for the `Decision type` field
     And I click the `Continue` button
 
@@ -44,7 +44,7 @@ Feature: Grounds of appeal
   @start-appeal @RIA-236
   Scenario: Grounds of appeal are captured for revocation type cases
 
-    Given I am on the `Why is your client appealing?` page
+    Given I am on the `What type of decision is your client appealing against?` page
     When I select `The revocation of a protection status` for the `Decision type` field
     And I click the `Continue` button
 
