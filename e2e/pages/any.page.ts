@@ -1,7 +1,10 @@
 import { browser, by, element } from 'protractor';
 import { Wait } from '../enums/wait';
+import { ValueExpander } from '../helpers/value-expander';
 
 export class AnyPage {
+
+    protected readonly valueExpander = new ValueExpander();
 
     async getCurrentUrl() {
         return await browser.driver.getCurrentUrl();
@@ -19,7 +22,9 @@ export class AnyPage {
 
     async click(linkText: string) {
 
-        const buttonPath = '//button[normalize-space()="' + linkText + '"]';
+        const expandedLinkText = await this.valueExpander.expand(linkText);
+
+        const buttonPath = '//button[normalize-space()="' + expandedLinkText + '"]';
 
         const button = await element
             .all(by.xpath(buttonPath))
@@ -31,7 +36,7 @@ export class AnyPage {
             return;
         }
 
-        const anchorPath = '//a[normalize-space()="' + linkText + '"]';
+        const anchorPath = '//a[normalize-space()="' + expandedLinkText + '"]';
 
         const anchor = await element
             .all(by.xpath(anchorPath))
@@ -45,7 +50,7 @@ export class AnyPage {
 
         const linkPath =
             '//*[self::label or self::span]' +
-            '[text()[normalize-space()="' + linkText + '"]]';
+            '[text()[normalize-space()="' + expandedLinkText + '"]]';
 
         const link = await element
             .all(by.xpath(linkPath))
@@ -57,6 +62,8 @@ export class AnyPage {
 
     async isButtonEnabled(match: string, shortWait: boolean = false) {
 
+        const expandedMatch = await this.valueExpander.expand(match);
+
         try {
 
             await browser.wait(
@@ -64,7 +71,7 @@ export class AnyPage {
                     return (await element
                         .all(by.xpath(
                             '//*[self::button or self::a]' +
-                            '[contains(normalize-space(), "' + match + '") and not(ancestor::*[@hidden])]'
+                            '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]'
                         ))
                         .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
                         .count()) > 0;
@@ -77,39 +84,11 @@ export class AnyPage {
         } catch (error) {
             return false;
         }
-
-        // const buttonPath = '//*[self::button or self::a][normalize-space()="' + buttonText + '"]';
-        //
-        // await browser.wait(
-        //     async () => {
-        //         return await element
-        //             .all(by.xpath(buttonPath))
-        //             .isPresent();
-        //     },
-        //     Wait.normal,
-        //     'Button or link did not show in time'
-        // );
-        //
-        // const buttonElement =
-        //     await element
-        //         .all(by.xpath(buttonPath))
-        //         .first();
-        //
-        // return await buttonElement.isEnabled();
     }
 
     async linkContains(match: string, shortWait: boolean = false) {
 
-        // try {
-        //
-        //     const linkPath = '//*[self::button or self::a][contains(normalize-space(), "' + match + '")]';
-        //
-        //     return await element(by.xpath(linkPath)).isDisplayed()
-        //         && await element(by.xpath(linkPath)).isEnabled();
-        //
-        // } catch (error) {
-        //     return false;
-        // }
+        const expandedMatch = await this.valueExpander.expand(match);
 
         try {
 
@@ -118,7 +97,7 @@ export class AnyPage {
                     return (await element
                         .all(by.xpath(
                             '//*[self::button or self::a]' +
-                            '[contains(normalize-space(), "' + match + '") and not(ancestor::*[@hidden])]'
+                            '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]'
                         ))
                         .filter(e => e.isPresent() && e.isDisplayed())
                         .count()) > 0;
@@ -135,6 +114,8 @@ export class AnyPage {
 
     async headingContains(match: string, shortWait: boolean = false) {
 
+        const expandedMatch = await this.valueExpander.expand(match);
+
         try {
 
             await browser.wait(
@@ -142,7 +123,7 @@ export class AnyPage {
                     return (await element
                         .all(by.xpath(
                             '//*[self::h1 or self::h2 or self::caption]' +
-                            '[contains(normalize-space(), "' + match + '") and not(ancestor::*[@hidden])]'
+                            '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]'
                         ))
                         .filter(e => e.isPresent() && e.isDisplayed())
                         .count()) > 0;
@@ -159,15 +140,32 @@ export class AnyPage {
 
     async contentContains(match: string, shortWait: boolean = false) {
 
+        const expandedMatch = await this.valueExpander.expand(match);
+
+        const contentPath =
+            '//*[' +
+            'self::h1 or ' +
+            'self::h2 or ' +
+            'self::h3 or ' +
+            'self::h4 or ' +
+            'self::caption or ' +
+            'self::label or ' +
+            'self::p or ' +
+            'self::div                       [contains(text(), "' + expandedMatch + '")] or ' +  // avoid text in child nodes
+            'self::ccd-read-date-field       [contains(text(), "' + expandedMatch + '")] or ' +  // for more generic containers
+            'self::ccd-read-fixed-list-field [contains(text(), "' + expandedMatch + '")] or ' +  // ..
+            'self::ng-component              [contains(text(), "' + expandedMatch + '")] or ' +  // ..
+            'self::span                      [contains(text(), "' + expandedMatch + '")] or ' +  // ..
+            'self::td                        [contains(text(), "' + expandedMatch + '")]' +      // ..
+            ']' +
+            '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]';
+
         try {
 
             await browser.wait(
                 async () => {
                     return (await element
-                        .all(by.xpath(
-                            '//*[self::p or self::h1 or self::h2 or self::h3 or self::h4 or self::caption or self::label or self::td/text()]' +
-                            '[contains(normalize-space(), "' + match + '") and not(ancestor::*[@hidden])]'
-                        ))
+                        .all(by.xpath(contentPath))
                         .filter(e => e.isPresent() && e.isDisplayed())
                         .count()) > 0;
                 },
@@ -183,12 +181,14 @@ export class AnyPage {
 
     async imgSrcContains(match: string, shortWait: boolean = false) {
 
+        const expandedMatch = await this.valueExpander.expand(match);
+
         try {
 
             await browser.wait(
                 async () => {
                     return (await element
-                        .all(by.xpath('//img[contains(@src, "' + match + '")]'))
+                        .all(by.xpath('//img[contains(@src, "' + expandedMatch + '")]'))
                         .filter(e => e.isPresent() && e.isDisplayed())
                         .count()) > 0;
                 },
@@ -204,11 +204,13 @@ export class AnyPage {
 
     async urlContains(match: string, shortWait: boolean = false) {
 
+        const expandedMatch = await this.valueExpander.expand(match);
+
         try {
 
             await browser.wait(
                 async () => {
-                    return (await browser.driver.getCurrentUrl()).includes(match);
+                    return (await browser.driver.getCurrentUrl()).includes(expandedMatch);
                 },
                 shortWait ? Wait.short : Wait.normal
             );
