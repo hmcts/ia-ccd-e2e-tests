@@ -1,6 +1,8 @@
+import { CaseListFlow } from '../../../flows/case-list.flow';
 import { CcdPage } from '../../../pages/ccd.page';
 import { When } from 'cucumber';
 
+const caseListFlow = new CaseListFlow();
 const ccdPage = new CcdPage();
 
 When('I go to the `Case List`', async function () {
@@ -9,4 +11,8 @@ When('I go to the `Case List`', async function () {
 
 When('I attempt to go to the `Case List`', async function () {
     await ccdPage.getWithoutWaitingForAngular('/list/case');
+});
+
+When('I filter the cases by todays date', async function () {
+    await caseListFlow.filterCasesByTodaysDate(true);
 });
