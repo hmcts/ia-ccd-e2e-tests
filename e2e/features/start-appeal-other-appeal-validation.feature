@@ -27,7 +27,6 @@ Feature: Other Appeal Numbers are validated
       | invalidAppealReference |
       | RT/12345/2014          |
       | PA/1234x/2014          |
-      | PA/1234x/2014          |
       | PA/123456/2014         |
       | PA/123456/201          |
       | PA/123456/20143        |

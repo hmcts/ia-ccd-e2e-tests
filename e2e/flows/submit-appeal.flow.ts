@@ -34,6 +34,7 @@ export class SubmitAppealFlow {
 
         if (clickContinue) {
             await this.ccdPage.click('Close and Return to case details');
+            await this.ccdPage.waitUntilLoaded();
         }
     }
 }

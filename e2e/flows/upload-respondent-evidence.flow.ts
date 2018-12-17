@@ -1,0 +1,34 @@
+import { CcdFormPage } from '../pages/ccd-form.page';
+
+export class UploadRespondentEvidenceFlow {
+
+    private ccdFormPage = new CcdFormPage();
+
+    async uploadRespondentEvidence(clickContinue = false) {
+
+        await this.ccdFormPage.selectNextStep('Upload respondent evidence');
+        await this.ccdFormPage.click('Go');
+
+        await this.ccdFormPage.addCollectionItem('Upload case documents');
+        await this.ccdFormPage.setFieldValue(
+            'Document',
+            '{@RespondentEvidence.pdf}',
+            'Upload case documents',
+            'first'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Describe the document',
+            'The respondent evidence',
+            'Upload case documents',
+            'first'
+        );
+
+        await this.ccdFormPage.click('Continue');
+        await this.ccdFormPage.click('Upload');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+            await this.ccdFormPage.waitUntilLoaded();
+        }
+    }
+}
