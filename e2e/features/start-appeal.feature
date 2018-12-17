@@ -102,7 +102,7 @@ Feature: Start initial appeal application
     And Within the `Address` fieldset, I should see `London` for the `Town or City` field
     And Within the `Address` fieldset, I should see `SW1A 2AA` for the `Postcode/Zipcode` field
     And Within the `Address` fieldset, I should see `United Kingdom` for the `Country` field
-    And I should see `The refusal of a protection claim` for the `Decision type` field
+    And I should see `The refusal of a protection claim` for the `Type of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain what the new matters are and why they are relevant to this appeal.` field
     And I should see `Yes` for the `Other appeals` field
