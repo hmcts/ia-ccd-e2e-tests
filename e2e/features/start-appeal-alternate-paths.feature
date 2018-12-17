@@ -49,7 +49,7 @@ Feature: Start an appeal application alternate paths
     Given I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button
     When I click the `Case details` tab
-    Then I should see `The revocation of a protection status` for the `Decision type` field
+    Then I should see `The revocation of a protection status` for the `Type of appeal` field
 
   @start-appeal @alternate
   Scenario: Start an appeal application without providing legal representative reference number

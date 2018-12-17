@@ -11,7 +11,7 @@ Given('I create a new case', async function () {
     await ccdPage.click('Start');
 });
 
-Then(/^The (.+) field should contain a value of length (\d+)$/, async function (fieldLabel, fieldValueSize) {
+Then(/^The `?([^`]+)`? field should contain a value of length (\d+)$/, async function (fieldLabel, fieldValueSize) {
     expect(await ccdPage.isFieldValueCorrectLength(fieldLabel, fieldValueSize)).to.equal(true);
 });
 
