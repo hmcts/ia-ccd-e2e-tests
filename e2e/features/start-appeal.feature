@@ -34,6 +34,10 @@ Feature: Start initial appeal application
     When I select `My client's protection claim was refused` for the `Appeal reason` field
     And I click the `Continue` button
 
+    Given I am on the `On which grounds will you build your appeal?` page
+    When I click the `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` label
+    And I click the `Continue` button
+
     Given I am on the `New matters` page
     When I select `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I type `Birth of a child` for the `Explain what the new matters are and why they are relevant to this appeal.` field

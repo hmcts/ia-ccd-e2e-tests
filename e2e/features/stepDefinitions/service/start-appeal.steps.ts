@@ -36,6 +36,11 @@ Given('I complete the `Why is your client appealing?` page', async function () {
     await startAppealFlow.completeWhyIsClientAppealing(true);
 });
 
+Given('I complete the `On which grounds will you build your appeal?` page', async function () {
+    expect(await ccdFormPage.pageHeadingContains('On which grounds will you build your appeal?')).to.equal(true);
+    await startAppealFlow.completeAppealGrounds(true);
+});
+
 Given('I complete the `New matters` page', async function () {
     expect(await ccdFormPage.pageHeadingContains('New matters')).to.equal(true);
     await startAppealFlow.completeNewMatters(true);

@@ -31,7 +31,7 @@ Then(/^I (?:should |)(see|not see) the text `?([^`]+)`?$/, async function (seeOr
     expect(await ccdPage.tagContains(text)).to.equal(seeOrNotSee === 'see');
 });
 
-Then(/^the `?([^`]+)`? button is (enabled|disabled)$/, async function (buttonText, enabledOrDisabled) {
+Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function (buttonText, enabledOrDisabled) {
     expect(await ccdPage.isButtonEnabled(buttonText)).to.equal(enabledOrDisabled === 'enabled');
 });
 

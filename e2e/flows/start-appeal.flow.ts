@@ -5,7 +5,6 @@ export class StartAppealFlow {
     private ccdFormPage = new CcdFormPage();
 
     async completeScreeningQuestions(clickContinue = false) {
-        await this.ccdFormPage.pageHeadingContains('Tell us about your client')
 
         await this.ccdFormPage.click('My client is at least 18 years old');
         await this.ccdFormPage.click('My client is not currently in detention');
@@ -23,7 +22,6 @@ export class StartAppealFlow {
     }
 
     async completeHomeOfficeReference(clickContinue = false) {
-        await this.ccdFormPage.pageHeadingContains('Home Office reference');
 
         await this.ccdFormPage.setFieldValue('Home Office reference number', 'A123456/001');
         await this.ccdFormPage.setFieldValue('Date on the decision letter', '31-10-2018');
@@ -34,7 +32,6 @@ export class StartAppealFlow {
     }
 
     async completeBasicDetails(clickContinue = false) {
-        await this.ccdFormPage.pageHeadingContains('Basic details');
 
         await this.ccdFormPage.setFieldValue('Title', 'Mr');
         await this.ccdFormPage.setFieldValue('Given names', 'José');
@@ -49,7 +46,6 @@ export class StartAppealFlow {
     }
 
     async completeClientAddress(clickContinue = false) {
-        await this.ccdFormPage.pageHeadingContains('Your client\'s address');
 
         await this.ccdFormPage.setFieldValue('Does the appellant have a fixed address?', 'No');
 
@@ -59,7 +55,6 @@ export class StartAppealFlow {
     }
 
     async completeWhyIsClientAppealing(clickContinue = false) {
-        await this.ccdFormPage.pageHeadingContains('Why is your client appealing?');
 
         await this.ccdFormPage.setFieldValue('Appeal reason', 'My client\'s protection claim was refused');
 
@@ -68,8 +63,16 @@ export class StartAppealFlow {
         }
     }
 
+    async completeAppealGrounds(clickContinue = false) {
+
+        await this.ccdFormPage.click('Removing the appellant from the UK would breach the UK\'s obligation under the Refugee Convention');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeNewMatters(clickContinue = false) {
-        await this.ccdFormPage.pageHeadingContains('New matters');
 
         await this.ccdFormPage.setFieldValue(
             'Are there any new reasons your client wishes to remain in the UK ' +
@@ -87,7 +90,6 @@ export class StartAppealFlow {
     }
 
     async completeOtherAppeals(clickContinue = false) {
-        await this.ccdFormPage.pageHeadingContains('Has your client appealed against any other UK immigration decisions?');
 
         await this.ccdFormPage.setFieldValue('Other appeals', 'No');
 
@@ -97,7 +99,6 @@ export class StartAppealFlow {
     }
 
     async completeReferenceNumber(clickContinue = false) {
-        await this.ccdFormPage.pageHeadingContains('Your own reference number');
 
         await this.ccdFormPage.setFieldValue(
             'If you prefer to use your own reference number for this case, you can enter it here. (Optional)',
@@ -110,7 +111,6 @@ export class StartAppealFlow {
     }
 
     async completeCheckYourAnswers(clickContinue = false) {
-        await this.ccdFormPage.pageHeadingContains('Check your answers');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Save and continue');
@@ -123,6 +123,7 @@ export class StartAppealFlow {
         await this.completeBasicDetails(true);
         await this.completeClientAddress(true);
         await this.completeWhyIsClientAppealing(true);
+        await this.completeAppealGrounds(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeReferenceNumber(true);

@@ -9,7 +9,7 @@ export class CreateCaseFixedListFieldFinder implements FieldFinder {
         if (await $$('ccd-create-case-filters').isPresent()) {
 
             // special case for Create Case form, which has a different structure
-            // to the other forms
+            // to the CCD event forms
 
             const fieldContainer =
                 container
