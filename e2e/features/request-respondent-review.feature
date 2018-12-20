@@ -40,12 +40,12 @@ Feature: Request respondent evidence
     When I click the `Close and Return to case details` button
     And I click the `Directions` tab
     Then I should see the `Directions` field
-    And Within the first `Directions` collection item, I should see `You must now review this case.` in the `Explanation` field
-    And Within the first `Directions` collection item, I should see `You have 14 days to review` in the `Explanation` field
-    And Within the first `Directions` collection item, I should see `You must explain whether the appellant's appeal argument makes a valid case` in the `Explanation` field
-    And Within the first `Directions` collection item, I should see `Respondent` for the `Parties` field
-    And Within the first `Directions` collection item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
-    And Within the first `Directions` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's first item, I should see `You must now review this case.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You have 14 days to review` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You must explain whether the appellant's appeal argument makes a valid case` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
   @create-direction @RIA-435
   Scenario: Request respondent review with changes to default values
@@ -67,7 +67,7 @@ Feature: Request respondent evidence
     When I click the `Close and Return to case details` button
     And I click the `Directions` tab
     Then I should see the `Directions` field
-    And Within the first `Directions` collection item, I should see `Something else` for the `Explanation` field
-    And Within the first `Directions` collection item, I should see `Respondent` for the `Parties` field
-    And Within the first `Directions` collection item, I should see `31 Dec 2020` for the `Date due` field
-    And Within the first `Directions` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's first item, I should see `Something else` for the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
+    And within the `Directions` collection's first item, I should see `31 Dec 2020` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

@@ -9,21 +9,37 @@ export class CcdFormPage extends CcdPage {
         return (await $('.error-message').getText()).includes(match);
     }
 
-    async addCollectionItem(complexFieldLabel) {
-        await this.fields.addCollectionItem(complexFieldLabel);
+    async addCollectionItem(
+        complexFieldLabel: string,
+        instanceNumber?: string | number
+    ) {
+        await this.fields.addCollectionItem(
+            complexFieldLabel,
+            instanceNumber
+        );
     }
 
-    async removeCollectionItem(complexFieldLabel, collectionItemNumber) {
-        await this.fields.removeCollectionItem(complexFieldLabel, collectionItemNumber);
+    async removeCollectionItem(
+        complexFieldLabel: string,
+        collectionItemNumber: string | number,
+        instanceNumber?: string | number
+    ) {
+        await this.fields.removeCollectionItem(
+            complexFieldLabel,
+            instanceNumber,
+            collectionItemNumber
+        );
     }
 
     async getFieldOptions(
         fieldLabel: string,
+        instanceNumber?: string | number,
         complexFieldLabel?: string,
         collectionItemNumber?: string | number
     ) {
         const field = await this.fields.find(
             fieldLabel,
+            instanceNumber,
             complexFieldLabel,
             collectionItemNumber
         );
@@ -40,11 +56,13 @@ export class CcdFormPage extends CcdPage {
     async setFieldValue(
         fieldLabel: string,
         fieldValue: string,
+        instanceNumber?: string | number,
         complexFieldLabel?: string,
         collectionItemNumber?: string | number
     ) {
         const field = await this.fields.find(
             fieldLabel,
+            instanceNumber,
             complexFieldLabel,
             collectionItemNumber
         );

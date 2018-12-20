@@ -4,8 +4,11 @@ import { $$, by } from 'protractor';
 
 export class CcdWriteLabelFieldFinder implements FieldFinder {
 
-    public async findByLabel(container, fieldLabel) {
-
+    public async findByLabel(
+        container,
+        instanceNumber: number,
+        fieldLabel: string
+    ) {
         if (!(await $$('ccd-case-edit-page').isPresent())) {
             return;
         }
@@ -16,7 +19,7 @@ export class CcdWriteLabelFieldFinder implements FieldFinder {
                     './/dt[normalize-space()="' + fieldLabel + '"]' +
                     '/ancestor::ccd-field-read-label[position()=1]'
                 ))
-                .first();
+                .get(instanceNumber - 1);
 
         if (await fieldContainer.isPresent()) {
 
@@ -27,8 +30,10 @@ export class CcdWriteLabelFieldFinder implements FieldFinder {
         }
     }
 
-    public async findFirstHavingEmptyLabel(container) {
-
+    public async findHavingEmptyLabel(
+        container,
+        instanceNumber: number
+    ) {
         if (!(await $$('ccd-case-edit-page').isPresent())) {
             return;
         }
@@ -38,7 +43,7 @@ export class CcdWriteLabelFieldFinder implements FieldFinder {
                 .all(by.xpath(
                     './/ccd-field-read-label'
                 ))
-                .first();
+                .get(instanceNumber - 1);
 
         if (await fieldContainer.isPresent()) {
 

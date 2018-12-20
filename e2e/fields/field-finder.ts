@@ -1,6 +1,13 @@
 export interface FieldFinder {
 
-    findByLabel(container, fieldLabel);
+    findByLabel(
+        container,
+        instanceNumber: number,
+        fieldLabel: string
+    );
 
-    findFirstHavingEmptyLabel(container);
+    findHavingEmptyLabel(
+        container,
+        instanceNumber: number
+    );
 }

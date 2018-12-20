@@ -14,8 +14,8 @@ Feature: Upload respondent evidence
     When I select the `Upload respondent evidence` Next step
     Then I am on the `Upload respondent evidence` page
     When I add an item to the `Upload case documents` collection
-    And Within the first `Upload case documents` collection item, I upload `{@RespondentEvidence.pdf}` for the `Document` field
-    And Within the first `Upload case documents` collection item, I type `This is the evidence` for the `Describe the document` field
+    And within the `Upload case documents` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` field
+    And within the `Upload case documents` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -30,15 +30,15 @@ Feature: Upload respondent evidence
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
     Then I should see the `Respondent documents` field
-    And Within the first `Respondent documents` collection item, I should see `RespondentEvidence.pdf` in the `Document` field
-    And Within the first `Respondent documents` collection item, I should see `This is the evidence` in the `Description` field
-    And Within the first `Respondent documents` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's first item, I should see `RespondentEvidence.pdf` in the `Document` field
+    And within the `Respondent documents` collection's first item, I should see `This is the evidence` in the `Description` field
+    And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
     Then I should see the `Directions` field
-    And Within the first `Directions` collection item, I should see `You must now build your case` in the `Explanation` field
-    And Within the first `Directions` collection item, I should see `You must write a full argument` in the `Explanation` field
-    And Within the first `Directions` collection item, I should see `The respondent then has 14 days to respond` in the `Explanation` field
-    And Within the first `Directions` collection item, I should see `Legal representative` for the `Parties` field
-    And Within the first `Directions` collection item, I should see `{$TODAY+28|D MMM YYYY}` for the `Date due` field
-    And Within the first `Directions` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's first item, I should see `You must now build your case` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You must write a full argument` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `The respondent then has 14 days to respond` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+28|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

@@ -29,7 +29,7 @@ Feature: Address details are entered manually without using postcode lookup
 
     When I click the `Case details` tab
     Then I should see `Yes` for the `Does the appellant have a fixed address?` field
-    And Within the `Address` fieldset, I should see `11 Downing Street` for the `Building and Street` field
-    And Within the `Address` fieldset, I should see `London` for the `Town or City` field
-    And Within the `Address` fieldset, I should see `SW1A 2AB` for the `Postcode/Zipcode` field
-    And Within the `Address` fieldset, I should see `United Kingdom` for the `Country` field
+    And within the `Address` fieldset, I should see `11 Downing Street` for the `Building and Street` field
+    And within the `Address` fieldset, I should see `London` for the `Town or City` field
+    And within the `Address` fieldset, I should see `SW1A 2AB` for the `Postcode/Zipcode` field
+    And within the `Address` fieldset, I should see `United Kingdom` for the `Country` field
