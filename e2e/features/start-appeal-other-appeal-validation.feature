@@ -19,7 +19,7 @@ Feature: Other Appeal Numbers are validated
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
     And I add an item to the `Appeal number` collection
-    When Within the first `Appeal number` collection item, I type <invalidAppealReference> for the field without a label
+    When within the `Appeal number` collection's first item, I type <invalidAppealReference> for the field without a label
     And I click the `Continue` button
     Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
 
@@ -36,13 +36,13 @@ Feature: Other Appeal Numbers are validated
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
     And I add an item to the `Appeal number` collection
-    When Within the first `Appeal number` collection item, I type <validAppealReference1> for the field without a label
+    When within the `Appeal number` collection's first item, I type <validAppealReference1> for the field without a label
     And I add another item to the `Appeal number` collection
-    When Within the second `Appeal number` collection item, I type <validAppealReference2> for the field without a label
+    When within the `Appeal number` collection's second item, I type <validAppealReference2> for the field without a label
     And I add another item to the `Appeal number` collection
-    When Within the third `Appeal number` collection item, I type <validAppealReference3> for the field without a label
+    When within the `Appeal number` collection's third item, I type <validAppealReference3> for the field without a label
     And I add another item to the `Appeal number` collection
-    When Within the fourth `Appeal number` collection item, I type <validAppealReference4> for the field without a label
+    When within the `Appeal number` collection's fourth item, I type <validAppealReference4> for the field without a label
     And I click the `Continue` button
     Then I am on the `Your own reference number` page
 

@@ -1,7 +1,7 @@
 import { CcdPage } from '../../pages/ccd.page';
 import { Given, Then, When } from 'cucumber';
-import { expect } from 'chai';
 import { browser } from 'protractor';
+import { expect } from 'chai';
 
 const ccdPage = new CcdPage();
 
@@ -9,10 +9,6 @@ Given('I create a new case', async function () {
     await ccdPage.click('Create Case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.click('Start');
-});
-
-Then(/^The `?([^`]+)`? field should contain a value of length (\d+)$/, async function (fieldLabel, fieldValueSize) {
-    expect(await ccdPage.isFieldValueCorrectLength(fieldLabel, fieldValueSize)).to.equal(true);
 });
 
 Then(/I wait for (\d+) seconds?$/, async function (waitDelay) {
@@ -58,26 +54,52 @@ When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (link
     await ccdPage.click(linkText);
 });
 
-Then(/^I should (see|not see) the (?:answer|field) without a label$/, async function (seeOrNotSee) {
-    expect(await ccdPage.isFieldDisplayed('')).to.equal(seeOrNotSee === 'see');
-});
+Then(/^I should (see|not see) the `?(first|second|third|)`?\s?(?:answer|field) without a label$/,
+    async function (
+        seeOrNotSee,
+        instanceNumber
+    ) {
+        expect(await ccdPage.isFieldDisplayed('', instanceNumber)).to.equal(seeOrNotSee === 'see');
+    });
 
-Then(/^I should (see|not see) the `?([^`]+)`? (?:answer|field)$/, async function (seeOrNotSee, fieldLabel) {
-    expect(await ccdPage.isFieldDisplayed(fieldLabel)).to.equal(seeOrNotSee === 'see');
-});
+Then(/^I should (see|not see) the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field)$/,
+    async function (
+        seeOrNotSee,
+        instanceNumber,
+        fieldLabel
+    ) {
+        expect(await ccdPage.isFieldDisplayed(fieldLabel, instanceNumber)).to.equal(seeOrNotSee === 'see');
+    });
 
-Then(/^the `?([^`]+)`? (?:answer|field) should be empty$/, async function (fieldLabel) {
-    expect(await ccdPage.isFieldValueDisplayed(fieldLabel, '')).to.equal(true);
-});
+Then(/^the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field) should be empty$/,
+    async function (
+        instanceNumber,
+        fieldLabel
+    ) {
+        expect(await ccdPage.isFieldValueDisplayed(fieldLabel, '', true, instanceNumber)).to.equal(true);
+    });
 
-Then(/^the (?:answer|field) without a label should be empty$/, async function () {
-    expect(await ccdPage.isFieldValueDisplayed('', '')).to.equal(true);
-});
+Then(/^the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field) should be (\d+) characters long$/,
+    async function (
+        instanceNumber,
+        fieldLabel,
+        fieldValueSize
+    ) {
+        expect(await ccdPage.isFieldValueCorrectLength(fieldLabel, fieldValueSize, instanceNumber)).to.equal(true);
+    });
 
-Then(/^I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
+Then(/^the `?(first|second|third|)`?\s?(?:answer|field) without a label should be empty$/,
+    async function (
+        instanceNumber
+    ) {
+        expect(await ccdPage.isFieldValueDisplayed('', '', true, instanceNumber)).to.equal(true);
+    });
+
+Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?(?:answer|field) without a label$/,
     async function (
         fieldMatch,
-        inOrFor
+        inOrFor,
+        instanceNumber
     ) {
         const isExactMatch = (inOrFor === 'for');
 
@@ -85,15 +107,17 @@ Then(/^I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
             await ccdPage.isFieldValueDisplayed(
                 '',
                 fieldMatch,
-                isExactMatch
+                isExactMatch,
+                instanceNumber
             )
         ).to.equal(true);
     });
 
-Then(/^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
+Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field)$/,
     async function (
         fieldMatch,
         inOrFor,
+        instanceNumber,
         fieldLabel
     ) {
         const isExactMatch = (inOrFor === 'for');
@@ -102,13 +126,15 @@ Then(/^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
             await ccdPage.isFieldValueDisplayed(
                 fieldLabel,
                 fieldMatch,
-                isExactMatch
+                isExactMatch,
+                instanceNumber
             )
         ).to.equal(true);
     });
 
-Then(/^Within the `?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
+Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
     async function (
+        instanceNumber,
         fieldsetLabel,
         fieldMatch,
         inOrFor
@@ -120,13 +146,15 @@ Then(/^Within the `?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the (?
                 '',
                 fieldMatch,
                 isExactMatch,
+                instanceNumber,
                 fieldsetLabel
             )
         ).to.equal(true);
     });
 
-Then(/^Within the `?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
+Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
     async function (
+        instanceNumber,
         fieldsetLabel,
         fieldMatch,
         inOrFor,
@@ -139,15 +167,17 @@ Then(/^Within the `?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the `?
                 fieldLabel,
                 fieldMatch,
                 isExactMatch,
+                instanceNumber,
                 fieldsetLabel
             )
         ).to.equal(true);
     });
 
-Then(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
+Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
     async function (
-        collectionItemNumber,
+        instanceNumber,
         collectionLabel,
+        collectionItemNumber,
         fieldMatch,
         inOrFor
     ) {
@@ -158,16 +188,18 @@ Then(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I should see `?([^`
                 '',
                 fieldMatch,
                 isExactMatch,
+                instanceNumber,
                 collectionLabel,
                 collectionItemNumber
             )
         ).to.equal(true);
     });
 
-Then(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
+Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
     async function (
-        collectionItemNumber,
+        instanceNumber,
         collectionLabel,
+        collectionItemNumber,
         fieldMatch,
         inOrFor,
         fieldLabel
@@ -179,6 +211,7 @@ Then(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I should see `?([^`
                 fieldLabel,
                 fieldMatch,
                 isExactMatch,
+                instanceNumber,
                 collectionLabel,
                 collectionItemNumber
             )

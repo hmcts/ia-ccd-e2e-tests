@@ -25,9 +25,9 @@ Feature: Request hearing requirements
 
     When I click the `Directions` tab
     Then I should see the `Directions` field
-    And Within the first `Directions` collection item, I should see `Your appeal is going to a hearing.` in the `Explanation` field
-    And Within the first `Directions` collection item, I should see `The case officer will review your hearing requirements and try to accommodate them.` in the `Explanation` field
-    And Within the first `Directions` collection item, I should see `If you do not supply your hearing requirements within 5 days` in the `Explanation` field
-    And Within the first `Directions` collection item, I should see `Legal representative` for the `Parties` field
-    And Within the first `Directions` collection item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
-    And Within the first `Directions` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's first item, I should see `Your appeal is going to a hearing.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `The case officer will review your hearing requirements and try to accommodate them.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not supply your hearing requirements within 5 days` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

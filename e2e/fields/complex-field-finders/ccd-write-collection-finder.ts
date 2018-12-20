@@ -5,6 +5,7 @@ export class CcdWriteCollectionFinder implements ComplexFieldFinder {
 
     public async findComplexField(
         container,
+        instanceNumber: number,
         complexFieldLabel: string
     ) {
         return await container
@@ -14,6 +15,6 @@ export class CcdWriteCollectionFinder implements ComplexFieldFinder {
                 '/ancestor::ccd-write-collection-field[position()=1]'
             ))
             .filter(e => e.isDisplayed())
-            .first();
+            .get(instanceNumber - 1);
     }
 }

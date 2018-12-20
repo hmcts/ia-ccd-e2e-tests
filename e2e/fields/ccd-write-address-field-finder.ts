@@ -4,15 +4,18 @@ import { by } from 'protractor';
 
 export class CcdWriteAddressFieldFinder implements FieldFinder {
 
-    public async findByLabel(container, fieldLabel) {
-
+    public async findByLabel(
+        container,
+        instanceNumber: number,
+        fieldLabel: string
+    ) {
         const fieldContainer =
             container
                 .all(by.xpath(
                     './/span[contains(@class, "form-label") and normalize-space()="' + fieldLabel + '"]' +
                     '/ancestor::ccd-field-write[position()=1]'
                 ))
-                .first();
+                .get(instanceNumber - 1);
 
         if (await fieldContainer.isPresent()
             && await fieldContainer.$$('ccd-write-address-field').isPresent()) {
@@ -24,14 +27,16 @@ export class CcdWriteAddressFieldFinder implements FieldFinder {
         }
     }
 
-    public async findFirstHavingEmptyLabel(container) {
-
+    public async findHavingEmptyLabel(
+        container,
+        instanceNumber: number
+    ) {
         const fieldContainer =
             container
                 .all(by.xpath(
                     './/ccd-field-write[.//ccd-write-address-field]'
                 ))
-                .first();
+                .get(instanceNumber - 1);
 
         if (await fieldContainer.isPresent()) {
 

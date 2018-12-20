@@ -20,3 +20,5 @@ Feature: Submit appeal application
     And I should see the text `You will receive an email confirming that this appeal has been submitted successfully.`
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
+    When I click the `Case details` tab
+    Then the `Reference number` field should be 13 characters long

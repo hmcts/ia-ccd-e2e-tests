@@ -8,110 +8,138 @@ Then(/^I should see an error saying `?([^`]+)`?$/, async function (errorMessage)
     expect(await ccdFormPage.fieldErrorContains(errorMessage)).to.equal(true);
 });
 
-When(/^I add (?:an|another) item to the `?([^`]+)`? collection$/, async function (collectionLabel) {
-    await ccdFormPage.addCollectionItem(collectionLabel);
-});
-
-When(/^I remove the `?([^\s`]+)`? item from the `?([^`]+)`? collection$/, async function (
-    collectionItemNumber,
-    collectionLabel
-) {
-    await ccdFormPage.removeCollectionItem(collectionLabel, collectionItemNumber);
-});
-
-When(/^I clear the field without a label$/, async function () {
-    await ccdFormPage.setFieldValue('', '');
-});
-
-When(/^I clear the `?([^`]+)`? field$/, async function (fieldLabel) {
-    await ccdFormPage.setFieldValue(fieldLabel, '');
-});
-
-When(/^Within the `?([^`]+)`? fieldset, I clear the field without a label$/,
+When(/^I add (?:an|another) item to the `?(first|second|third|)`?\s?`?([^`]+)`? collection$/,
     async function (
+        instanceNumber,
+        collectionLabel
+    ) {
+        await ccdFormPage.addCollectionItem(collectionLabel, instanceNumber);
+    });
+
+When(/^I remove the `?([^\s`]+)`? item from the `?(first|second|third|)`?\s?`?([^`]+)`? collection$/,
+    async function (
+        collectionItemNumber,
+        instanceNumber,
+        collectionLabel
+    ) {
+        await ccdFormPage.removeCollectionItem(collectionLabel, collectionItemNumber, instanceNumber);
+    });
+
+When(/^I clear the `?(first|second|third|)`?\s?field without a label$/,
+    async function (
+        instanceNumber
+    ) {
+        await ccdFormPage.setFieldValue('', '', instanceNumber);
+    });
+
+When(/^I clear the `?(first|second|third|)`?\s?`?([^`]+)`? field$/,
+    async function (
+        instanceNumber,
+        fieldLabel
+    ) {
+        await ccdFormPage.setFieldValue(fieldLabel, '', instanceNumber);
+    });
+
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I clear the field without a label$/,
+    async function (
+        instanceNumber,
         fieldsetLabel
     ) {
         await ccdFormPage.setFieldValue(
             '',
             '',
+            instanceNumber,
             fieldsetLabel
         );
     });
 
-When(/^Within the `?([^`]+)`? fieldset, I clear the `?([^`]+)`? field$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I clear the `?([^`]+)`? field$/,
     async function (
+        instanceNumber,
         fieldsetLabel,
         fieldLabel
     ) {
         await ccdFormPage.setFieldValue(
             fieldLabel,
             '',
+            instanceNumber,
             fieldsetLabel
         );
     });
 
-When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I clear the field without a label$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I clear the field without a label$/,
     async function (
-        collectionItemNumber,
-        collectionLabel
+        instanceNumber,
+        collectionLabel,
+        collectionItemNumber
     ) {
         await ccdFormPage.setFieldValue(
             '',
             '',
+            instanceNumber,
             collectionLabel,
             collectionItemNumber
         );
     });
 
-When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I clear the `?([^`]+)`? field$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I clear the `?([^`]+)`? field$/,
     async function (
-        collectionItemNumber,
+        instanceNumber,
         collectionLabel,
+        collectionItemNumber,
         fieldLabel
     ) {
         await ccdFormPage.setFieldValue(
             fieldLabel,
             '',
+            instanceNumber,
             collectionLabel,
             collectionItemNumber
         );
     });
 
-When(/^I (check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
-    async function (
-        fieldValue
-    ) {
-        await ccdFormPage.setFieldValue(
-            '',
-            fieldValue
-        );
-    });
-
-When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
+When(/^I (check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(first|second|third|)`?\s?field without a label$/,
     async function (
         fieldValue,
+        instanceNumber
+    ) {
+        await ccdFormPage.setFieldValue(
+            '',
+            fieldValue,
+            instanceNumber
+        );
+    });
+
+When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(first|second|third|)`?\s?`?([^`]+)`? field$/,
+    async function (
+        fieldValue,
+        instanceNumber,
         fieldLabel
     ) {
         await ccdFormPage.setFieldValue(
             fieldLabel,
-            fieldValue
+            fieldValue,
+            instanceNumber
         );
     });
 
-When(/^Within the `?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
     async function (
+        instanceNumber,
         fieldsetLabel,
         fieldValue
     ) {
         await ccdFormPage.setFieldValue(
             '',
             fieldValue,
+            instanceNumber,
             fieldsetLabel
         );
     });
 
-When(/^Within the `?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
     async function (
+        instanceNumber,
         fieldsetLabel,
         fieldValue,
         fieldLabel
@@ -119,34 +147,39 @@ When(/^Within the `?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upl
         await ccdFormPage.setFieldValue(
             fieldLabel,
             fieldValue,
+            instanceNumber,
             fieldsetLabel
         );
     });
 
-When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
     async function (
-        collectionItemNumber,
+        instanceNumber,
         collectionLabel,
+        collectionItemNumber,
         fieldValue
     ) {
         await ccdFormPage.setFieldValue(
             '',
             fieldValue,
+            instanceNumber,
             collectionLabel,
             collectionItemNumber
         );
     });
 
-When(/^Within the `?([^\s`]+)`? `?([^`]+)`? collection item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
     async function (
-        collectionItemNumber,
+        instanceNumber,
         collectionLabel,
+        collectionItemNumber,
         fieldValue,
         fieldLabel
     ) {
         await ccdFormPage.setFieldValue(
             fieldLabel,
             fieldValue,
+            instanceNumber,
             collectionLabel,
             collectionItemNumber
         );

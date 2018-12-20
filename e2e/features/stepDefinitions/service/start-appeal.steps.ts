@@ -69,6 +69,7 @@ Then(/^I see a list of all nationalities$/, async function () {
 
     const nationalities = await ccdFormPage.getFieldOptions(
         'Nationality',
+        'first',
         'Nationality',
         'first'
     );
