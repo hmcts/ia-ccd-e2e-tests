@@ -15,7 +15,7 @@ Feature: Start initial appeal application
     Given I am on the `Basic details` page
     And I type `Mr` for the `Title` field
     And I type `José` for the `Given names` field
-    And I type `González` for the `Last name` field
+    And I type `González` for the `Family name` field
     And I type `31-12-1999` for the `Date of birth` field
     And I add an item to the `Nationality` collection
     And within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
@@ -63,7 +63,7 @@ Feature: Start initial appeal application
     And I should see `31 Oct 2018` for the `Date on the decision letter` answer
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
-    And I should see `González` for the `Last name` answer
+    And I should see `González` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
     And within the `Nationality` collection's second item, I should see `Iceland` for the `Nationality` answer
@@ -93,7 +93,7 @@ Feature: Start initial appeal application
     And I should see `31 Oct 2018` for the `Date on the decision letter` field
     And I should see `Mr` for the `Title` field
     And I should see `José` for the `Given names` field
-    And I should see `González` for the `Last name` field
+    And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` field
     And within the `Nationality` collection's second item, I should see `Iceland` for the `Nationality` field
