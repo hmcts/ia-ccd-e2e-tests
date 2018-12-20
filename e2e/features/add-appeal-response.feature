@@ -14,8 +14,8 @@ Feature: Add respondent response
     And I switch to be a `Case Officer`
     And I request respondent review
 
-  @create-direction @RIA-697
-  Scenario: Upload respondent response
+  @create-direction @RIA-697 @RIA-237
+  Scenario: Uploading respondent response adds documents and a new direction
 
     When I select the `Add appeal response` Next step
     Then I am on the `Add appeal response` page
@@ -46,3 +46,11 @@ Feature: Add respondent response
     And Within the second `Respondent documents` collection item, I should see `Evidence1.pdf` in the `Document` field
     And Within the second `Respondent documents` collection item, I should see `This is the evidence` in the `Description` field
     And Within the second `Respondent documents` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    When I click the `Directions` tab
+    Then I should see the `Directions` field
+    And Within the first `Directions` collection item, I should see `The respondent has replied to your appeal argument and evidence. You must now review their response.` in the `Explanation` field
+    And Within the first `Directions` collection item, I should see `You have 5 days to review the response.` in the `Explanation` field
+    And Within the first `Directions` collection item, I should see `Legal representative` for the `Parties` field
+    And Within the first `Directions` collection item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
+    And Within the first `Directions` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
