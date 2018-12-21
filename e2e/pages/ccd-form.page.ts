@@ -19,7 +19,6 @@ export class CcdFormPage extends CcdPage {
 
     async getFieldOptions(
         fieldLabel: string,
-        fieldValue: string,
         complexFieldLabel?: string,
         collectionItemNumber?: string | number
     ) {

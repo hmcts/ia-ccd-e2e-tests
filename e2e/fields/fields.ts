@@ -19,6 +19,7 @@ import { TableCollectionItemFinder } from './collection-item-finders/table-colle
 import { browser, by, ElementFinder, ExpectedConditions } from 'protractor';
 import { CreateCaseFixedListFieldFinder } from './create-case-fixed-list-field-finder';
 import { CcdWriteDocumentFieldFinder } from './ccd-write-document-field-finder';
+import { CcdWriteFixedRadioListFieldFinder } from './ccd-write-fixed-radio-list-field-finder';
 
 export class Fields {
 
@@ -43,6 +44,7 @@ export class Fields {
         new CcdWriteDateFieldFinder(),
 
         new CcdWriteFixedListFieldFinder(),
+        new CcdWriteFixedRadioListFieldFinder(),
         new CcdWriteTextFieldFinder(),
         new CcdWriteTextAreaFieldFinder(),
         new CcdWriteYesNoFieldFinder(),
