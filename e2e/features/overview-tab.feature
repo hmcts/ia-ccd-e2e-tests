@@ -1,6 +1,6 @@
 Feature: Overview tab
 
-  @send-direction @RIA-908
+  @overview-tab @RIA-908
   Scenario: Overview tab shows case details
 
     Given I am signed in as a `Legal Rep`

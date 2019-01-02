@@ -1,16 +1,26 @@
 Feature: Case progression
 
-  @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915
+  @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905
   Scenario: Case progression information is displayed for each case state (contextalised to Case Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I save my initial appeal
-    And I submit my appeal
+
+    ### appeal started
+
+    When I click the `Overview` tab
+    And I should see the image `legalRep_appealStarted.png`
+    And I should see the text `Do this next`
+    And I should see the text `You still need to submit your appeal`
+    When I click the `Submit your appeal` link
+    Then I am on the `Submit your appeal` page
+    And I click the `Cancel` link
 
     ### appeal submitted
 
-    When I click the `Overview` tab
+    When I submit my appeal
+    And I click the `Overview` tab
     Then I should not see the image `caseOfficer_appealSubmitted.png`
     And I should see the image `legalRep_appealSubmitted.png`
     And I should see the text `Do this next`
