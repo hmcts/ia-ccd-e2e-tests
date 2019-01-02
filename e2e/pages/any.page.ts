@@ -74,7 +74,7 @@ export class AnyPage {
         await link.click();
     }
 
-    async isButtonEnabled(match: string, shortWait: boolean = false) {
+    async isButtonEnabled(match: string, shortWait = false) {
 
         const expandedMatch = await this.valueExpander.expand(match);
 
@@ -100,7 +100,7 @@ export class AnyPage {
         }
     }
 
-    async linkContains(match: string, shortWait: boolean = false) {
+    async linkContains(match: string, shortWait = false) {
 
         const expandedMatch = await this.valueExpander.expand(match);
 
@@ -126,7 +126,7 @@ export class AnyPage {
         }
     }
 
-    async headingContains(match: string, shortWait: boolean = false) {
+    async headingContains(match: string, shortWait = false) {
 
         const expandedMatch = await this.valueExpander.expand(match);
 
@@ -152,7 +152,7 @@ export class AnyPage {
         }
     }
 
-    async contentContains(match: string, shortWait: boolean = false) {
+    async contentContains(match: string, shortWait = false) {
 
         const expandedMatch = await this.valueExpander.expand(match);
 
@@ -193,7 +193,7 @@ export class AnyPage {
         }
     }
 
-    async imgSrcContains(match: string, shortWait: boolean = false) {
+    async imgSrcContains(match: string, shortWait = false) {
 
         const expandedMatch = await this.valueExpander.expand(match);
 
@@ -216,7 +216,7 @@ export class AnyPage {
         }
     }
 
-    async urlContains(match: string, shortWait: boolean = false) {
+    async urlContains(match: string, shortWait = false) {
 
         const expandedMatch = await this.valueExpander.expand(match);
 
