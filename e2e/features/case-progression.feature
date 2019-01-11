@@ -76,10 +76,9 @@ Feature: Case progression
     And I should see the image `caseOfficer_caseBuilding.png`
     And I should see the text `Do this next`
     And I should see the text `Wait for the appellant to submit their built case`
-# @todo uncomment when RIA-602 is ready:
-#    When I click the `Change the direction due date` link
-#    Then I am on the `Change the direction due date` page
-#    And I click the `Cancel` link
+    When I click the `Change the direction due date` link
+    Then I am on the `Change the direction due date` page
+    And I click the `Cancel` link
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
