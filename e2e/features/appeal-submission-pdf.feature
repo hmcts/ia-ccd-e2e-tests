@@ -10,5 +10,5 @@ Feature: Appeal submission PDF
 
     When I click the `Documents` tab
     Then I should see the `Legal representative documents` field
-    And within the `Legal representative documents` collection's first item, I should see `PA 50056 2019-González-appeal-form.PDF` in the `Document` field
+    And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
     And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
