@@ -16,12 +16,12 @@ Feature: Basic details are validated
     Then the `Continue` button is enabled
 
   @start-appeal @alternate @RIA-684 @migrate-to-unit-tests
-  Scenario: Empty Last name is not allowed
+  Scenario: Empty Family name is not allowed
 
     Given I complete the `Basic details` form
-    When I clear the `Last name` field
+    When I clear the `Family name` field
     Then the `Continue` button is disabled
-    When I type `González` for the `Last name` field
+    When I type `González` for the `Family name` field
     Then the `Continue` button is enabled
 
   @start-appeal @alternate @RIA-654 @migrate-to-unit-tests
