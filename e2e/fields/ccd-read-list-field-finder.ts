@@ -4,8 +4,11 @@ import { by } from 'protractor';
 
 export class CcdReadListFieldFinder implements FieldFinder {
 
-    public async findByLabel(container, fieldLabel) {
-
+    public async findByLabel(
+        container,
+        instanceNumber: number,
+        fieldLabel: string
+    ) {
         const fieldContainer =
             container
                 .all(by.xpath(
@@ -13,7 +16,7 @@ export class CcdReadListFieldFinder implements FieldFinder {
                     '/following-sibling::dd[1]'
                 ))
                 .filter(e => e.isDisplayed())
-                .first();
+                .get(instanceNumber - 1);
 
         if (await fieldContainer.isPresent()) {
 
@@ -24,8 +27,10 @@ export class CcdReadListFieldFinder implements FieldFinder {
         }
     }
 
-    public async findFirstHavingEmptyLabel(container) {
-
+    public async findHavingEmptyLabel(
+        container,
+        instanceNumber: number
+    ) {
         const fieldContainer =
             container
                 .all(by.xpath(
@@ -33,7 +38,7 @@ export class CcdReadListFieldFinder implements FieldFinder {
                     '/following-sibling::dd[1]'
                 ))
                 .filter(e => e.isDisplayed())
-                .first();
+                .get(instanceNumber - 1);
 
         if (await fieldContainer.isPresent()) {
 

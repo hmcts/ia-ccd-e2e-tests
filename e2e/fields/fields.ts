@@ -69,9 +69,10 @@ export class Fields {
     }
 
     public async addCollectionItem(
-        complexFieldLabel: string
+        complexFieldLabel: string,
+        instanceNumber?: string | number
     ) {
-        const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel);
+        const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
 
         if (!!complexFieldContainer) {
 
@@ -84,6 +85,7 @@ export class Fields {
 
     public async find(
         fieldLabel: string,
+        instanceNumber?: string | number,
         complexFieldLabel?: string,
         collectionItemNumber?: string | number
     ): Promise<Field> {
@@ -92,7 +94,7 @@ export class Fields {
 
         if (complexFieldLabel !== undefined) {
 
-            const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel);
+            const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
 
             if (!!complexFieldContainer) {
 
@@ -107,20 +109,29 @@ export class Fields {
                     container = complexFieldContainer;
                 }
             }
-        }
 
-        if (container === undefined) {
-            throw 'Cannot find field: ' + fieldLabel + " (" + complexFieldLabel + "@" + collectionItemNumber + ")"
-        }
+            if (container === undefined) {
+                throw 'Cannot find field: ' + fieldLabel + '@' + instanceNumber + ' (' + complexFieldLabel + '@' + collectionItemNumber + ')'
+            }
 
-        return await this.findWithinContainer(container, fieldLabel);
+            return await this.findWithinContainer(container, fieldLabel);
+
+        } else {
+
+            if (container === undefined) {
+                throw 'Cannot find field: ' + fieldLabel + '@' + instanceNumber + ')'
+            }
+
+            return await this.findWithinContainer(container, fieldLabel, instanceNumber);
+        }
     }
 
     public async removeCollectionItem(
         complexFieldLabel: string,
-        collectionItemNumber: string | number
+        collectionItemNumber: string | number,
+        instanceNumber?: string | number
     ) {
-        const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel);
+        const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
 
         if (!!complexFieldContainer) {
 
@@ -153,8 +164,13 @@ export class Fields {
     }
 
     private async findComplexFieldContainer(
-        complexFieldLabel: string
+        complexFieldLabel: string,
+        instanceNumber?: string | number
     ): Promise<ElementFinder> {
+
+        const cardinalInstanceNumber = typeof instanceNumber === 'number'
+            ? instanceNumber
+            : OrdinalToCardinal.convertWordToNumber(instanceNumber);
 
         for (let i = 0; i < this.complexFieldFinders.length; i++) {
 
@@ -162,6 +178,7 @@ export class Fields {
                 await this.complexFieldFinders[i]
                     .findComplexField(
                         this.container,
+                        cardinalInstanceNumber,
                         complexFieldLabel
                     );
 
@@ -199,17 +216,22 @@ export class Fields {
 
     private async findWithinContainer(
         container: ElementFinder,
-        fieldLabel: string
+        fieldLabel: string,
+        instanceNumber?: string | number
     ): Promise<Field> {
+
+        const cardinalInstanceNumber = typeof instanceNumber === 'number'
+            ? instanceNumber
+            : OrdinalToCardinal.convertWordToNumber(instanceNumber);
 
         for (let i = 0; i < this.fieldFinders.length; i++) {
 
             let field;
 
             if (!!fieldLabel) {
-                field = await this.fieldFinders[i].findByLabel(container, fieldLabel);
+                field = await this.fieldFinders[i].findByLabel(container, cardinalInstanceNumber, fieldLabel);
             } else {
-                field = await this.fieldFinders[i].findFirstHavingEmptyLabel(container);
+                field = await this.fieldFinders[i].findHavingEmptyLabel(container, cardinalInstanceNumber);
             }
 
             if (field) {

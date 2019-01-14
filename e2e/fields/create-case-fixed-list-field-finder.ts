@@ -4,8 +4,11 @@ import { $$, by } from 'protractor';
 
 export class CreateCaseFixedListFieldFinder implements FieldFinder {
 
-    public async findByLabel(container, fieldLabel) {
-
+    public async findByLabel(
+        container,
+        instanceNumber: number,
+        fieldLabel: string
+    ) {
         if (await $$('ccd-create-case-filters').isPresent()) {
 
             // special case for Create Case form, which has a different structure
@@ -17,7 +20,7 @@ export class CreateCaseFixedListFieldFinder implements FieldFinder {
                         './/label[normalize-space()="' + fieldLabel + '"]' +
                         '/ancestor::div[position()=1]'
                     ))
-                    .first();
+                    .get(instanceNumber - 1);
 
             if (await fieldContainer.isPresent()
                 && await fieldContainer.$$('select').isPresent()) {
@@ -30,7 +33,10 @@ export class CreateCaseFixedListFieldFinder implements FieldFinder {
         }
     }
 
-    public async findFirstHavingEmptyLabel(container) {
+    public async findHavingEmptyLabel(
+        container,
+        instanceNumber: number
+    ) {
         throw 'Unsupported -- Create Case form has no fields without a label';
     }
 }

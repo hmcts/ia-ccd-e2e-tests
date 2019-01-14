@@ -29,10 +29,10 @@ Feature: Send direction action
 
     When I click the `directions tab` link
     Then I should see the `Directions` field
-    And Within the first `Directions` collection item, I should see `Do the thing` for the `Explanation` field
-    And Within the first `Directions` collection item, I should see `Legal representative` for the `Parties` field
-    And Within the first `Directions` collection item, I should see `31 Dec 2018` for the `Date due` field
-    And Within the first `Directions` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's first item, I should see `Do the thing` for the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
+    And within the `Directions` collection's first item, I should see `31 Dec 2018` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
     When I click the `Send a new direction` link
     Then I am on the `Send direction` page

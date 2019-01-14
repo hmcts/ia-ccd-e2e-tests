@@ -38,7 +38,7 @@ export class StartAppealFlow {
         await this.ccdFormPage.setFieldValue('Last name', 'González');
         await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
         await this.ccdFormPage.addCollectionItem('Nationality');
-        await this.ccdFormPage.setFieldValue('Nationality', 'Finland', 'Nationality', 'first');
+        await this.ccdFormPage.setFieldValue('Nationality', 'Finland', 'first', 'Nationality', 'first');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');

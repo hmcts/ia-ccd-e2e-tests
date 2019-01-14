@@ -16,17 +16,17 @@ Feature: Build case
     When I select the `Build your case` Next step
     Then I am on the `Build your case` page
     When I upload `{@CaseArgument.pdf}` for the `Appeal skeleton argument` field
-    And I type `This is my case argument` for the `Describe the document (Optional)` field
+    And I type `This is the case argument` for the `Describe the document (Optional)` field
     And I add an item to the `Evidence (Optional)` collection
-    And Within the first `Evidence (Optional)` collection item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
-    And Within the first `Evidence (Optional)` collection item, I type `This is the evidence` for the `Describe the document (Optional)` field
+    And within the `Evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Evidence (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `CaseArgument.pdf` in the `Appeal skeleton argument` field
-    And I should see `This is my case argument` in the `Describe the document` field
-    And Within the first `Evidence` collection item, I should see `Evidence1.pdf` for the `Document` field
-    And Within the first `Evidence` collection item, I should see `This is the evidence` in the `Describe the document` field
+    And I should see `This is the case argument` in the `Describe the document` field
+    And within the `Evidence` collection's first item, I should see `Evidence1.pdf` for the `Document` field
+    And within the `Evidence` collection's first item, I should see `This is the evidence` in the `Describe the document` field
 
     When I click the `Upload` button
     Then I should see the text `Upload saved`
@@ -38,9 +38,9 @@ Feature: Build case
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
     Then I should see the `Legal representative documents` field
-    And Within the first `Legal representative documents` collection item, I should see `CaseArgument.pdf` in the `Document` field
-    And Within the first `Legal representative documents` collection item, I should see `This is my case argument` in the `Description` field
-    And Within the first `Legal representative documents` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And Within the second `Legal representative documents` collection item, I should see `Evidence1.pdf` in the `Document` field
-    And Within the second `Legal representative documents` collection item, I should see `This is the evidence` in the `Description` field
-    And Within the second `Legal representative documents` collection item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Legal representative documents` collection's first item, I should see `CaseArgument.pdf` in the `Document` field
+    And within the `Legal representative documents` collection's first item, I should see `This is the case argument` in the `Description` field
+    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Legal representative documents` collection's second item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Legal representative documents` collection's second item, I should see `This is the evidence` in the `Description` field
+    And within the `Legal representative documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

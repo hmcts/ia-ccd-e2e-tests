@@ -52,11 +52,13 @@ export class CcdPage extends AnyPage {
 
     async isFieldDisplayed(
         fieldLabel: string,
+        instanceNumber?: string | number,
         collectionLabel?: string,
         collectionItemNumber?: string | number
     ) {
         const field = await this.fields.find(
             fieldLabel,
+            instanceNumber,
             collectionLabel,
             collectionItemNumber
         );
@@ -68,11 +70,13 @@ export class CcdPage extends AnyPage {
         fieldLabel: string,
         fieldMatch: string,
         isExactMatch = true,
+        instanceNumber?: string | number,
         collectionLabel?: string,
         collectionItemNumber?: string | number
     ) {
         const field = await this.fields.find(
             fieldLabel,
+            instanceNumber,
             collectionLabel,
             collectionItemNumber
         );
@@ -95,12 +99,13 @@ export class CcdPage extends AnyPage {
     async isFieldValueCorrectLength(
         fieldLabel: string,
         fieldValueLength: number,
+        instanceNumber?: string | number,
         collectionLabel?: string,
         collectionItemNumber?: string | number
-
     ) {
         const field = await this.fields.find(
             fieldLabel,
+            instanceNumber,
             collectionLabel,
             collectionItemNumber
         );

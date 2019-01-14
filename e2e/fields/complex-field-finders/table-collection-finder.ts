@@ -5,13 +5,14 @@ export class TableCollectionFinder implements ComplexFieldFinder {
 
     public async findComplexField(
         container,
+        instanceNumber: number,
         complexFieldLabel: string
     ) {
         return await container
             .all(by.xpath(
-                '//tr[.//th[normalize-space()="' + complexFieldLabel + '"]]'
+                '//tr[.//th[normalize-space()="' + complexFieldLabel + '" and not(.//ccd-markdown)]]'
             ))
             .filter(e => e.isDisplayed())
-            .first();
+            .get(instanceNumber - 1);
     }
 }

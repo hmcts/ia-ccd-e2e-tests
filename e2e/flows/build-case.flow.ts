@@ -14,6 +14,29 @@ export class BuildCaseFlow {
             '{@CaseArgument.pdf}'
         );
 
+        await this.ccdFormPage.setFieldValue(
+            'Describe the document (Optional)',
+            'This is the case argument'
+        );
+
+        await this.ccdFormPage.addCollectionItem('Evidence (Optional)');
+
+        await this.ccdFormPage.setFieldValue(
+            'Document (Optional)',
+            '{@CaseArgumentEvidence.pdf}',
+            'first',
+            'Evidence (Optional)',
+            'first'
+        );
+
+        await this.ccdFormPage.setFieldValue(
+            'Describe the document (Optional)',
+            'The is the case argument evidence',
+            'first',
+            'Evidence (Optional)',
+            'first'
+        );
+
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.click('Upload');
 

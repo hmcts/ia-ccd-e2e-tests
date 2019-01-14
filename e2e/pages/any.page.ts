@@ -26,6 +26,20 @@ export class AnyPage {
 
         const buttonPath = '//button[normalize-space()="' + expandedLinkText + '"]';
 
+        try {
+            await browser.wait(
+                async () => {
+                    return (await element
+                        .all(by.xpath(buttonPath))
+                        .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
+                        .count()) > 0;
+                },
+                linkText === 'Close and Return to case details' ? Wait.normal : Wait.minimal
+            );
+        } catch (e) {
+            // do nothing and carry on ...
+        }
+
         const button = await element
             .all(by.xpath(buttonPath))
             .filter(e => e.isPresent() && e.isDisplayed())

@@ -68,14 +68,14 @@ Feature: Basic details are validated
     When I remove the first item from the `Nationality` collection
     Then the `Continue` button is disabled
     When I add an item to the `Nationality` collection
-    When Within the first `Nationality` collection item, I select `Finland` for the `Nationality` field
+    When within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
     Then the `Continue` button is enabled
 
   @start-appeal @alternate @RIA-624 @migrate-to-unit-tests
   Scenario: Unselected Nationality is not allowed
 
     Given I complete the `Basic details` form
-    When Within the first `Nationality` collection item, I select `--Select a value--` for the `Nationality` field
+    When within the `Nationality` collection's first item, I select `--Select a value--` for the `Nationality` field
     Then the `Continue` button is disabled
-    When Within the first `Nationality` collection item, I select `Finland` for the `Nationality` field
+    When within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
     Then the `Continue` button is enabled
