@@ -13,6 +13,7 @@ export class CcdWriteCollectionFinder implements ComplexFieldFinder {
                 '//h3[normalize-space()="' + complexFieldLabel + '"]' +
                 '/ancestor::ccd-write-collection-field[position()=1]'
             ))
+            .filter(e => e.isDisplayed())
             .first();
     }
 }

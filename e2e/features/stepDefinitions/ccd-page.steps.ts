@@ -7,11 +7,11 @@ const ccdPage = new CcdPage();
 
 Given('I create a new case', async function () {
     await ccdPage.click('Create Case');
-    expect(await ccdPage.pageHeadingContains('Create Case')).to.equal(true);
+    expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.click('Start');
 });
 
-Then(/^The (.+) field should contain a value of length (\d+)$/, async function (fieldLabel, fieldValueSize) {
+Then(/^The `?([^`]+)`? field should contain a value of length (\d+)$/, async function (fieldLabel, fieldValueSize) {
     expect(await ccdPage.isFieldValueCorrectLength(fieldLabel, fieldValueSize)).to.equal(true);
 });
 
@@ -19,8 +19,12 @@ Then(/I wait for (\d+) seconds?$/, async function (waitDelay) {
     await browser.sleep(waitDelay * 1000);
 });
 
+Then(/^I should see `?([^`]+)`? in the url$/, async function (urlText) {
+    expect(await ccdPage.urlContains(urlText)).to.equal(true);
+});
+
 Then(/^I (?:am on|should see) the `?([^`]+)`? page$/, async function (headingText) {
-    expect(await ccdPage.pageHeadingContains(headingText)).to.equal(true);
+    expect(await ccdPage.headingContains(headingText)).to.equal(true);
 });
 
 Then(/^I should see a notification saying `?([^`]+)`?$/, async function (message) {
@@ -31,16 +35,23 @@ Then(/^I should see the username `?([^`]+)`?$/, async function (username) {
     expect(await ccdPage.usernameContains(username)).to.equal(true);
 });
 
-Then(/^I (?:should |)(see|not see) the text `?([^`]+)`?$/, async function (seeOrNotSee, text) {
-    expect(await ccdPage.tagContains(text)).to.equal(seeOrNotSee === 'see');
+Then(/^I (?:should |)(see|not see) the image `?([^`]+)`?$/, async function (seeOrNotSee, match) {
+    const shortWait = (seeOrNotSee === 'not see');
+    expect(await ccdPage.imgSrcContains(match, shortWait)).to.equal(seeOrNotSee === 'see');
+});
+
+Then(/^I (?:should |)(see|not see) the text `?([^`]+)`?$/, async function (seeOrNotSee, match) {
+    const shortWait = (seeOrNotSee === 'not see');
+    expect(await ccdPage.contentContains(match, shortWait)).to.equal(seeOrNotSee === 'see');
+});
+
+Then(/^I (?:should |)(see|not see) the `?([^`]+)`? (?:button|link|tab|label)$/, async function (seeOrNotSee, linkText) {
+    const shortWait = (seeOrNotSee === 'not see');
+    expect(await ccdPage.linkContains(linkText, shortWait)).to.equal(seeOrNotSee === 'see');
 });
 
 Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function (buttonText, enabledOrDisabled) {
     expect(await ccdPage.isButtonEnabled(buttonText)).to.equal(enabledOrDisabled === 'enabled');
-});
-
-Then(/^I should see the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
-    expect(await ccdPage.linkContains(linkText)).to.equal(true);
 });
 
 When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {

@@ -12,6 +12,7 @@ export class CcdReadTableFieldFinder implements FieldFinder {
                     './/tr/th[normalize-space()="' + fieldLabel + '"]' +
                     '/ancestor::tr[position()=1]'
                 ))
+                .filter(e => e.isDisplayed())
                 .first();
 
         if (await fieldContainer.isPresent()) {
@@ -31,6 +32,7 @@ export class CcdReadTableFieldFinder implements FieldFinder {
                     './/tr/th[normalize-space()=""]' +
                     '/ancestor::tr[position()=1]'
                 ))
+                .filter(e => e.isDisplayed())
                 .first();
 
         if (await fieldContainer.isPresent()) {

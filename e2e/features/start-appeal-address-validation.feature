@@ -1,7 +1,7 @@
 Feature: Address details are validated
 
   Background:
-    Given I am signed in as a Legal Rep
+    Given I am signed in as a `Legal Rep`
     And I create a new case
     And I complete the `Tell us about your client` page
     And I complete the `Home Office reference` page

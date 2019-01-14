@@ -33,8 +33,7 @@ export class CcdWriteDateFieldFinder implements FieldFinder {
                 ))
                 .first();
 
-        if (await fieldContainer.isPresent()
-            && await fieldContainer.$$('cut-date-input').isPresent()) {
+        if (await fieldContainer.isPresent()) {
 
             return new CcdWriteDateField(
                 fieldContainer,

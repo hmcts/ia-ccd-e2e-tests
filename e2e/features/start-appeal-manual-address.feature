@@ -19,7 +19,7 @@ Feature: Address details are entered manually without using postcode lookup
     And I type `United Kingdom` for the `Country` field
     And I click the `Continue` button
 
-    Given I complete the `Why is your client appealing?` page
+    Given I complete the `What type of decision is your client appealing against?` page
     And I complete the `On which grounds will you build your appeal?` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page

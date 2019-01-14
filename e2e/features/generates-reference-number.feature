@@ -9,4 +9,4 @@ Feature: Generates an appeal reference number when appeal is lodged
   @create-case @lodge-appeal @RIA-581
   Scenario: Generates appeal reference and display on case details tab (happy path)
     Given I click the Case details tab
-    Then The Appeal reference number field should contain a value of length 13
+    Then The `Reference number` field should contain a value of length 13
