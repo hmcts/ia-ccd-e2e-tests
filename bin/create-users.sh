@@ -128,8 +128,8 @@ curl \
   http://localhost:4501/testing-support/accounts \
   -H "Content-Type: application/json" \
   -d '{"email":"'"${TEST_LAW_FIRM_A_USERNAME}"'",
-       "forename":"LawFirm",
-       "surname":"A",
+       "forename":"A",
+       "surname":"Legal Rep",
        "password":"'"${TEST_LAW_FIRM_A_PASSWORD}"'",
        "levelOfAccess":1,
        "roles":["caseworker-ia", "caseworker-ia-legalrep-solicitor"],
@@ -140,8 +140,8 @@ curl \
   http://localhost:4501/testing-support/accounts \
   -H "Content-Type: application/json" \
   -d '{"email":"'"${TEST_LAW_FIRM_B_USERNAME}"'",
-       "forename":"LawFirm",
-       "surname":"B",
+       "forename":"B",
+       "surname":"Legal Rep",
        "password":"'"${TEST_LAW_FIRM_B_PASSWORD}"'",
        "levelOfAccess":1,
        "roles":["caseworker-ia", "caseworker-ia-legalrep-solicitor"],

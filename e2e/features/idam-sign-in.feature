@@ -15,9 +15,9 @@ Feature: User authentication
     And I should see the username <username>
 
     Examples:
-      | persona      | username     |
-      | Case Officer | Case Officer |
-      | Legal Rep    | Lawfirm A    |
+      | persona      | username       |
+      | Case Officer | Case Officer   |
+      | Legal Rep    | A Legal Rep    |
 
   Scenario: Should only show cases related to that Legal Representative
 
