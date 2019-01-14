@@ -1,13 +1,11 @@
 import { AnyPage } from './any.page';
 import { Fields } from '../fields/fields';
-import { ValueExpander } from '../helpers/value-expander';
 import { Wait } from '../enums/wait';
 import { $, browser, by, element, ExpectedConditions } from 'protractor';
 
 export class CcdPage extends AnyPage {
 
     protected readonly fields = new Fields($('body'));
-    protected readonly valueExpander = new ValueExpander();
 
     async alertContains(match: string) {
 

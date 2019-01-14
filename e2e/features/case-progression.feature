@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @send-direction @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915
+  @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915
   Scenario: Case progression information is displayed for each case state
 
     Given I am signed in as a `Legal Rep`
