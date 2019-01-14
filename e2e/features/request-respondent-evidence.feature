@@ -1,10 +1,11 @@
 Feature: Request respondent evidence
 
   Background:
-    Given I am signed in as a `Case Officer`
+    Given I am signed in as a `Legal Rep`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
+    And I switch to be a `Case Officer`
 
   @create-direction @RIA-892
   Scenario: Request respondent evidence

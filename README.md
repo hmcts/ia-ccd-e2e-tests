@@ -74,6 +74,9 @@ export TEST_LAW_FIRM_A_PASSWORD=password
 
 export TEST_LAW_FIRM_B_USERNAME=ia-legal-rep-b@example.com
 export TEST_LAW_FIRM_B_PASSWORD=password
+
+export IA_SYSTEM_USERNAME=system-user
+export IA_SYSTEM_PASSWORD=system-password
 ```
 
 Configure CCD with the users exported to your environment (do this once when you first run ccd-docker):

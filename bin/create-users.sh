@@ -47,6 +47,16 @@ if [[ -z "${TEST_LAW_FIRM_B_PASSWORD}" ]]; then
     exit 1
 fi
 
+if [[ -z "${IA_SYSTEM_USERNAME}" ]]; then
+    echo "ERROR: IA_SYSTEM_USERNAME must be defined in the environment" 1>&2
+    exit 1
+fi
+
+if [[ -z "${IA_SYSTEM_PASSWORD}" ]]; then
+    echo "ERROR: IA_SYSTEM_PASSWORD must be defined in the environment" 1>&2
+    exit 1
+fi
+
 CCD_DEFINITION_STORE_API_IS_RUNNING=false
 (exec 6<>/dev/tcp/127.0.0.1/4451) &>/dev/null && CCD_DEFINITION_STORE_API_IS_RUNNING=true || echo "ERROR: CCD Definition Store API is not running" 1>&2
 exec 6>&- # close output connection
@@ -77,6 +87,18 @@ psql -h 127.0.0.1 -p 5000 -U postgres -d idam -c \
      ('caseworker-ia-legalrep-solicitor', 'IA Legal Rep'),
      ('caseworker-ia-system', 'IA System')
      ON CONFLICT DO NOTHING"
+
+curl \
+  http://localhost:4501/testing-support/accounts \
+  -H "Content-Type: application/json" \
+  -d '{"email":"'"${IA_SYSTEM_USERNAME}"'",
+       "forename":"System",
+       "surname":"user",
+       "password":"'"${IA_SYSTEM_PASSWORD}"'",
+       "levelOfAccess":1,
+       "roles":["caseworker-ia", "caseworker-ia-system"],
+       "userGroup": {"code": "caseworker"}
+      }'
 
 curl \
   http://localhost:4501/testing-support/accounts \

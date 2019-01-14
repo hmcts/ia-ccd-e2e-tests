@@ -94,6 +94,28 @@ export class CcdPage extends AnyPage {
         return false;
     }
 
+    async isFieldValueCorrectLength(
+        fieldLabel: string,
+        fieldValueLength: number,
+        collectionLabel?: string,
+        collectionItemNumber?: string | number
+
+    ) {
+        const field = await this.fields.find(
+            fieldLabel,
+            collectionLabel,
+            collectionItemNumber
+        );
+
+        if (!!field && await field.isDisplayed()) {
+
+            const fieldValue = await field.getValue();
+            return fieldValue.length === fieldValueLength;
+        }
+
+        return false;
+    }
+
     async isLoaded() {
         return (await browser.driver.getCurrentUrl()).includes('ccd')
             && (await ExpectedConditions.visibilityOf($('#sign-out'))());

@@ -11,6 +11,10 @@ Given('I create a new case', async function () {
     await ccdPage.click('Start');
 });
 
+Then(/^The (.+) field should contain a value of length (\d+)$/, async function (fieldLabel, fieldValueSize) {
+    expect(await ccdPage.isFieldValueCorrectLength(fieldLabel, fieldValueSize)).to.equal(true);
+});
+
 Then(/I wait for (\d+) seconds?$/, async function (waitDelay) {
     await browser.sleep(waitDelay * 1000);
 });
