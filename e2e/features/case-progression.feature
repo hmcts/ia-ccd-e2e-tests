@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653
+  @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944
   Scenario: Case progression information is displayed for each case state (contextalised to Case Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -150,3 +150,13 @@ Feature: Case progression
     And I should see the text `The case has now been sent to the respondent for review`
     And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
     And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
+
+     ### submit hearing requirements
+    
+    When I switch to be a `Case Officer`
+    And I request hearing requirements
+    And I click the `Overview` tab
+    Then I should not see the image `legalRep_submitHearingRequirements.png`
+    Then I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the text `Do this next`
+    And I should see the text `Wait for the appellant to submit their hearing requirements. You dont need to do anything right now.`
