@@ -2,6 +2,7 @@ import { CcdPage } from '../../pages/ccd.page';
 import { Given, Then, When } from 'cucumber';
 import { browser } from 'protractor';
 import { expect } from 'chai';
+// import { RunningOnAAT } from '../../ia.conf';
 
 const ccdPage = new CcdPage();
 
@@ -50,7 +51,11 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
     expect(await ccdPage.isButtonEnabled(buttonText)).to.equal(enabledOrDisabled === 'enabled');
 });
 
-When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
+When(/^I click the `?([^`]+)`? (button|link|tab|label)$/, async function (linkText, clickyThingy) {
+    // console.log("RunningOnAAT = ", RunningOnAAT);
+    // console.log("clickyThingy = ", clickyThingy === 'tab');
+    //
+    // await (RunningOnAAT && clickyThingy === 'tab') ? await browser.sleep(3000) : console.log("NOT waitin bruv!");
     await ccdPage.click(linkText);
 });
 

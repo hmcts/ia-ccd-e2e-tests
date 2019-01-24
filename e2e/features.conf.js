@@ -9,6 +9,8 @@ exports.config = {
 
   baseUrl: iaConfig.CcdWebUrl,
   specs: ['./features/*.feature'],
+  allScriptsTimeout: 120000,
+  getPageTimeout: 120000,
 
   capabilities: {
     browserName: 'chrome',
@@ -55,7 +57,7 @@ exports.config = {
     keepAlive: false,
     tags: false,
     profile: false,
-    'fail-fast': true,
+    'fail-fast': !iaConfig.RunningOnAAT,
     'no-source': true
   },
 
