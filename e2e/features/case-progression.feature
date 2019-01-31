@@ -158,4 +158,4 @@ Feature: Case progression
     Then I should not see the image `legalRep_submitHearingRequirements.png`
     Then I should see the image `caseOfficer_submitHearingRequirements.png`
     And I should see the text `Do this next`
-    And I should see the text `Wait for the appellant to submit their hearing requirements. You dont need to do anything right now.`
+    And I should see the text `Wait for the appellant to submit their hearing requirements. You don't need to do anything right now.`
