@@ -1,7 +1,7 @@
 Feature: Case list
 
   @case-list @RIA-583 @RIA-902 @RIA-608
-  Scenario: Case list contains correct columns
+  Scenario: Case list contains correct columns for Legal Rep
 
     Given I am signed in as a `Legal Rep`
     And I create a new case
@@ -13,6 +13,9 @@ Feature: Case list
     And I should see the text `Status`
     And I should see the text `Appeal start date`
     And I should see the `DRAFT` link
+
+  @case-list @RIA-583 @RIA-902 @RIA-608
+  Scenario: Case list contains correct columns for Case Officer
 
     Given I am signed in as a `Legal Rep`
     And I create a new case
