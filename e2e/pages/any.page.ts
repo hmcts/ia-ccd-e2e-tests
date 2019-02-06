@@ -11,6 +11,10 @@ export class AnyPage {
     }
 
     async get(uri: string) {
+        await browser.get(uri);
+    }
+
+    async getWaitingForAngular(uri: string) {
         await browser.waitForAngularEnabled(true);
         await browser.get(uri);
     }

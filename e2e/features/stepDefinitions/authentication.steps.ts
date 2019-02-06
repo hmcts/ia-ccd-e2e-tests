@@ -36,9 +36,9 @@ Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsCaseOfficer();
     await browser.sleep(100);
-    await ccdPage.waitUntilLoaded();
+    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.waitUntilLoaded();
+    await ccdPage.contentContains('Immigration');
 });
 
 Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
@@ -47,9 +47,9 @@ Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function ()
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsLawFirmA();
     await browser.sleep(100);
-    await ccdPage.waitUntilLoaded();
+    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.waitUntilLoaded();
+    await ccdPage.contentContains('Immigration');
 });
 
 Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {

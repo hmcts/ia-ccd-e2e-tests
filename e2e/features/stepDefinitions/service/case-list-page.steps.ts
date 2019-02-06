@@ -5,6 +5,10 @@ import { When } from 'cucumber';
 const caseListFlow = new CaseListFlow();
 const ccdPage = new CcdPage();
 
+When(/^I open `?([^`]+)`?$/, async function (uri) {
+    await ccdPage.get(uri);
+});
+
 When('I go to the `Case List`', async function () {
     await ccdPage.get('/list/case');
 });
