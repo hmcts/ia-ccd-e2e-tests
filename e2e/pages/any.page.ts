@@ -14,16 +14,6 @@ export class AnyPage {
         await browser.get(uri);
     }
 
-    async getWaitingForAngular(uri: string) {
-        await browser.waitForAngularEnabled(true);
-        await browser.get(uri);
-    }
-
-    async getWithoutWaitingForAngular(uri: string) {
-        await browser.waitForAngularEnabled(false);
-        await browser.get(uri);
-    }
-
     async click(linkText: string) {
 
         const expandedLinkText = await this.valueExpander.expand(linkText);
@@ -140,7 +130,7 @@ export class AnyPage {
                 async () => {
                     return (await element
                         .all(by.xpath(
-                            '//*[self::h1 or self::h2 or self::caption]' +
+                            '//*[self::h1 or self::h2 or self::h3 or self::caption]' +
                             '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]'
                         ))
                         .filter(e => e.isPresent() && e.isDisplayed())

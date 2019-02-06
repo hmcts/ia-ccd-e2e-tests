@@ -14,6 +14,7 @@ export class AuthenticationFlow {
             iaConfig.TestCaseOfficerUserName,
             iaConfig.TestCaseOfficerPassword
         );
+        await this.idamSignInPage.contentContains('Case List');
     }
 
     async signInAsJudiciary() {
@@ -23,6 +24,7 @@ export class AuthenticationFlow {
             iaConfig.TestJudiciaryUserName,
             iaConfig.TestJudiciaryPassword
         );
+        await this.idamSignInPage.contentContains('Case List');
     }
 
     async signInAsLawFirmA() {
@@ -32,6 +34,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmAUserName,
             iaConfig.TestLawFirmAPassword
         );
+        await this.idamSignInPage.contentContains('Case List');
     }
 
     async signInAsLawFirmB() {
@@ -41,6 +44,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmBUserName,
             iaConfig.TestLawFirmBPassword
         );
+        await this.idamSignInPage.contentContains('Case List');
     }
 
     async signOut() {
@@ -48,5 +52,6 @@ export class AuthenticationFlow {
         await browser.driver.manage().deleteAllCookies();
         await browser.get(iaConfig.CcdGatewayUrl + '/logout');
         await browser.get(iaConfig.CcdWebUrl + '/');
+        await this.idamSignInPage.waitUntilLoaded();
     }
 }

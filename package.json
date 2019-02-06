@@ -6,7 +6,7 @@
     "postinstall": "webdriver-manager update",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "e2e": "yarn test:fullfunctional",
-    "test:fullfunctional": "protractor ./e2e/features.conf.js",
+    "test:fullfunctional": "protractor ./e2e/features.conf.js --cucumberOpts.format='node_modules/cucumber-pretty'",
     "test:nsp": "nsp check"
   },
   "pre-commit": [
@@ -30,11 +30,11 @@
     "moment": "^2.22.2",
     "nsp": "^3.2.1",
     "pre-commit": "^1.2.2",
-    "protractor": "^5.4.1",
+    "protractor": "^5.4.2",
     "protractor-beautiful-reporter": "^1.2.5",
     "protractor-cucumber-framework": "^6.1.1",
     "protractor-multiple-cucumber-html-reporter-plugin": "^1.8.0",
-    "puppeteer": "^1.11.0",
+    "puppeteer": "^1.12.2",
     "rxjs": "^6.3.3",
     "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",

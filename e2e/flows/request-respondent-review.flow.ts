@@ -9,6 +9,7 @@ export class RequestRespondentReviewFlow {
         await this.ccdFormPage.selectNextStep('Request respondent review');
         await this.ccdFormPage.click('Go');
 
+        await this.ccdFormPage.headingContains('Request respondent review');
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.click('Send direction');
 

@@ -37,7 +37,8 @@ Feature: Build case
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Legal representative documents` field
+    Then I should see the `Documents` page
+    And I should see the `Legal representative documents` field
     And within the `Legal representative documents` collection's first item, I should see `CaseArgument.pdf` in the `Document` field
     And within the `Legal representative documents` collection's first item, I should see `This is the case argument` in the `Description` field
     And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

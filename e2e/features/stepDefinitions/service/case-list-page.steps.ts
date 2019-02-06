@@ -14,7 +14,7 @@ When('I go to the `Case List`', async function () {
 });
 
 When('I attempt to go to the `Case List`', async function () {
-    await ccdPage.getWithoutWaitingForAngular('/list/case');
+    await ccdPage.get('/list/case');
 });
 
 When('I filter the cases by todays date', async function () {

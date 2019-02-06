@@ -8,6 +8,7 @@ Feature: Overview tab
     And I save my initial appeal
     And I submit my appeal
     And I click the `Overview` tab
+    And I should see the `Overview` page
     And the `Reference number` field should be 13 characters long
 #    the check below is blocked by CCD bug: https://tools.hmcts.net/jira/browse/RIA-980
 #    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field
@@ -18,6 +19,7 @@ Feature: Overview tab
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
+    And I should see the `Overview` page
     And the `Reference number` field should be 13 characters long
 #    the check below is blocked by CCD bug: https://tools.hmcts.net/jira/browse/RIA-980
 #    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field

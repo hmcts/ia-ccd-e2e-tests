@@ -125,7 +125,6 @@ export class CcdPage extends AnyPage {
     }
 
     async waitUntilLoaded() {
-        await browser.waitForAngularEnabled(true);
-        await browser.waitForAngular();
+        await browser.sleep(Wait.minimal)
     }
 }

@@ -12,22 +12,18 @@ const caseUrlMatcher = /^.*?\/case\/IA\/Asylum\/\d{16}/g;
 
 Given('I am not signed in', async function () {
     await authenticationFlow.signOut();
-    await idamSignInPage.waitUntilLoaded();
 });
 
 Given(/^I am signed in as a `?Case (?:Officer|Worker)`?$/, async function () {
     await authenticationFlow.signInAsCaseOfficer();
-    await ccdPage.waitUntilLoaded();
 });
 
 Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
     await authenticationFlow.signInAsLawFirmA();
-    await ccdPage.waitUntilLoaded();
 });
 
 Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, async function () {
     await authenticationFlow.signInAsLawFirmB();
-    await ccdPage.waitUntilLoaded();
 });
 
 Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {

@@ -9,6 +9,7 @@ export class AddAppealResponseFlow {
         await this.ccdFormPage.selectNextStep('Add appeal response');
         await this.ccdFormPage.click('Go');
 
+        await this.ccdFormPage.headingContains('Add appeal response');
         await this.ccdFormPage.setFieldValue(
             'Response document',
             '{@AppealResponse.pdf}'

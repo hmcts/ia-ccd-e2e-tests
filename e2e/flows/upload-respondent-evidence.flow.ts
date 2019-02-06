@@ -9,7 +9,9 @@ export class UploadRespondentEvidenceFlow {
         await this.ccdFormPage.selectNextStep('Upload respondent evidence');
         await this.ccdFormPage.click('Go');
 
+        await this.ccdFormPage.headingContains('Upload respondent evidence');
         await this.ccdFormPage.addCollectionItem('Upload case documents');
+        await this.ccdFormPage.contentContains('Describe the document');
         await this.ccdFormPage.setFieldValue(
             'Document',
             '{@RespondentEvidence.pdf}',
