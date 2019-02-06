@@ -1,6 +1,6 @@
 Feature: Appeal submission PDF
 
-  @overview-tab @RIA-769
+  @overview-tab @RIA-769 @toggled-off
   Scenario: Appeal submission PDF is in documents tab
 
     Given I am signed in as a `Legal Rep`
