@@ -52,10 +52,6 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
 });
 
 When(/^I click the `?([^`]+)`? (button|link|tab|label)$/, async function (linkText, clickyThingy) {
-    // console.log("RunningOnAAT = ", RunningOnAAT);
-    // console.log("clickyThingy = ", clickyThingy === 'tab');
-    //
-    // await (RunningOnAAT && clickyThingy === 'tab') ? await browser.sleep(3000) : console.log("NOT waitin bruv!");
     await ccdPage.click(linkText);
 });
 
@@ -64,6 +60,7 @@ Then(/^I should (see|not see) the `?(first|second|third|)`?\s?(?:answer|field) w
         seeOrNotSee,
         instanceNumber
     ) {
+        await ccdPage.waitUntilLoaded();
         expect(await ccdPage.isFieldDisplayed('', instanceNumber)).to.equal(seeOrNotSee === 'see');
     });
 
@@ -73,6 +70,7 @@ Then(/^I should (see|not see) the `?(first|second|third|)`?\s?`?([^`]+)`? (?:ans
         instanceNumber,
         fieldLabel
     ) {
+        await ccdPage.waitUntilLoaded();
         expect(await ccdPage.isFieldDisplayed(fieldLabel, instanceNumber)).to.equal(seeOrNotSee === 'see');
     });
 
@@ -81,6 +79,7 @@ Then(/^the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field) should be em
         instanceNumber,
         fieldLabel
     ) {
+        await ccdPage.waitUntilLoaded();
         expect(await ccdPage.isFieldValueDisplayed(fieldLabel, '', true, instanceNumber)).to.equal(true);
     });
 
@@ -90,6 +89,7 @@ Then(/^the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field) should be (\
         fieldLabel,
         fieldValueSize
     ) {
+        await ccdPage.waitUntilLoaded();
         expect(await ccdPage.isFieldValueCorrectLength(fieldLabel, fieldValueSize, instanceNumber)).to.equal(true);
     });
 
@@ -97,6 +97,7 @@ Then(/^the `?(first|second|third|)`?\s?(?:answer|field) without a label should b
     async function (
         instanceNumber
     ) {
+        await ccdPage.waitUntilLoaded();
         expect(await ccdPage.isFieldValueDisplayed('', '', true, instanceNumber)).to.equal(true);
     });
 
@@ -108,6 +109,7 @@ Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?(?:answ
     ) {
         const isExactMatch = (inOrFor === 'for');
 
+        await ccdPage.waitUntilLoaded();
         expect(
             await ccdPage.isFieldValueDisplayed(
                 '',
@@ -127,6 +129,7 @@ Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?`?([^`]
     ) {
         const isExactMatch = (inOrFor === 'for');
 
+        await ccdPage.waitUntilLoaded();
         expect(
             await ccdPage.isFieldValueDisplayed(
                 fieldLabel,
@@ -146,6 +149,7 @@ Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see
     ) {
         const isExactMatch = (inOrFor === 'for');
 
+        await ccdPage.waitUntilLoaded();
         expect(
             await ccdPage.isFieldValueDisplayed(
                 '',
@@ -167,6 +171,7 @@ Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see
     ) {
         const isExactMatch = (inOrFor === 'for');
 
+        await ccdPage.waitUntilLoaded();
         expect(
             await ccdPage.isFieldValueDisplayed(
                 fieldLabel,
@@ -188,6 +193,7 @@ Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]
     ) {
         const isExactMatch = (inOrFor === 'for');
 
+        await ccdPage.waitUntilLoaded();
         expect(
             await ccdPage.isFieldValueDisplayed(
                 '',
@@ -211,6 +217,7 @@ Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]
     ) {
         const isExactMatch = (inOrFor === 'for');
 
+        await ccdPage.waitUntilLoaded();
         expect(
             await ccdPage.isFieldValueDisplayed(
                 fieldLabel,
