@@ -9,7 +9,8 @@ Feature: Overview tab
     And I submit my appeal
     And I click the `Overview` tab
     And the `Reference number` field should be 13 characters long
-    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field
+#    the check below is blocked by CCD bug: https://tools.hmcts.net/jira/browse/RIA-980
+#    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field
     And I should see `The refusal of a protection claim` for the `Type of appeal` field
     And I should see `José González` for the `Appellant name` field
     And within the `Appellant nationalities` collection's first item, I should see `Finland` for the `Nationality` field
@@ -18,7 +19,8 @@ Feature: Overview tab
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
     And the `Reference number` field should be 13 characters long
-    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field
+#    the check below is blocked by CCD bug: https://tools.hmcts.net/jira/browse/RIA-980
+#    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field
     And I should see `The refusal of a protection claim` for the `Type of appeal` field
     And I should see `José González` for the `Appellant name` field
     And within the `Appellant nationalities` collection's first item, I should see `Finland` for the `Nationality` field
