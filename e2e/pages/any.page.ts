@@ -229,4 +229,8 @@ export class AnyPage {
             return false;
         }
     }
+
+    async waitUntilLoaded() {
+        await browser.sleep(Wait.minimal);
+    }
 }
