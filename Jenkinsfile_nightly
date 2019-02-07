@@ -3,13 +3,7 @@
 properties([
         pipelineTriggers([cron('00 22 * * *')]),
         parameters([
-                string(name: 'URL_TO_TEST', defaultValue: 'https://www-ccd.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
-                string(name: 'CCD_USERNAME', defaultValue: '', description: 'The CCD Username you want to run these tests with'),
-                string(name: 'CCD_PASSWORD', defaultValue: '', description: 'The CCD Password you want to run these tests with'),
-                string(name: 'A_USERNAME', defaultValue: '', description: 'The A Username you want to run these tests with'),
-                string(name: 'A_PASSWORD', defaultValue: '', description: 'The A Password you want to run these tests with'),
-                string(name: 'B_USERNAME', defaultValue: '', description: 'The B Username you want to run these tests with'),
-                string(name: 'B_PASSWORD', defaultValue: '', description: 'The B Password you want to run these tests with')
+                string(name: 'URL_TO_TEST', defaultValue: 'https://www-ccd.aat.platform.hmcts.net', description: 'The URL you want to run these tests against')
         ])
 ])
 
@@ -18,15 +12,21 @@ properties([
 def product = "ia"
 def component = "ccd-e2e-tests"
 
-withNightlyPipeline("nodejs", product, component) {
-    env.TEST_E2E_URL_WEB = params.URL_TO_TEST
-    env.TEST_CASEOFFICER_USERNAME = params.CCD_USERNAME
-    env.TEST_CASEOFFICER_PASSWORD = params.CCD_PASSWORD
-    env.TEST_LAW_FIRM_A_USERNAME = params.A_USERNAME
-    env.TEST_LAW_FIRM_A_PASSWORD = params.A_PASSWORD
-    env.TEST_LAW_FIRM_B_USERNAME = params.B_USERNAME
-    env.TEST_LAW_FIRM_B_PASSWORD = params.B_PASSWORD
+List<LinkedHashMap<String, Object>> secrets = [
 
+        secret('test-caseofficer-username', 'TEST_CASEOFFICER_USERNAME'),
+        secret('test-caseofficer-password', 'TEST_CASEOFFICER_PASSWORD'),
+        secret('test-law-firm-a-username', 'TEST_LAW_FIRM_A_USERNAME'),
+        secret('test-law-firm-a-password', 'TEST_LAW_FIRM_A_PASSWORD'),
+        secret('test-law-firm-b-username', 'TEST_LAW_FIRM_B_USERNAME'),
+        secret('test-law-firm-b-password', 'TEST_LAW_FIRM_B_PASSWORD')
+]
+
+withNightlyPipeline("nodejs", product, component) {
+    setVaultName('ia')
+    loadVaultSecrets(secrets)
+
+    env.TEST_E2E_URL_WEB = params.URL_TO_TEST
     enableFullFunctionalTest()
 
 //    enableSlackNotifications('#immigrationandasylum')  // can be turned back on once the overnight functionality is working fully
