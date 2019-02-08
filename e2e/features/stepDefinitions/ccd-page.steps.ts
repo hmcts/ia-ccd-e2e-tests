@@ -17,6 +17,14 @@ Given('I create a new case', async function () {
     await ccdPage.click('Start');
 });
 
+Then('I wait for Create Case fields to load', async function () {
+    await ccdPage.headingContains('Create Case');
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdPage.doesDropdownHaveValues('Case type');
+    await ccdPage.doesDropdownHaveValues('Event');
+    await ccdPage.isButtonEnabled('Start');
+});
+
 Then(/I wait for (\d+) seconds?$/, async function (waitDelay) {
     await browser.sleep(waitDelay * 1000);
 });

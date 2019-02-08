@@ -19,7 +19,9 @@ List<LinkedHashMap<String, Object>> secrets = [
         secret('test-law-firm-a-username', 'TEST_LAW_FIRM_A_USERNAME'),
         secret('test-law-firm-a-password', 'TEST_LAW_FIRM_A_PASSWORD'),
         secret('test-law-firm-b-username', 'TEST_LAW_FIRM_B_USERNAME'),
-        secret('test-law-firm-b-password', 'TEST_LAW_FIRM_B_PASSWORD')
+        secret('test-law-firm-b-password', 'TEST_LAW_FIRM_B_PASSWORD'),
+        secret('test-law-firm-c-username', 'TEST_LAW_FIRM_C_USERNAME'),
+        secret('test-law-firm-c-password', 'TEST_LAW_FIRM_C_PASSWORD')
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {

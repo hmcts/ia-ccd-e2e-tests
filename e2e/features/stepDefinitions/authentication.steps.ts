@@ -5,6 +5,8 @@ import { IdamSignInPage } from '../../pages/idam-sign-in.page';
 import { expect } from 'chai';
 import { browser } from 'protractor';
 
+const iaConfig = require('../../ia.conf');
+
 const authenticationFlow = new AuthenticationFlow();
 const ccdPage = new CcdPage();
 const idamSignInPage = new IdamSignInPage();
@@ -22,8 +24,12 @@ Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async fun
     await authenticationFlow.signInAsLawFirmA();
 });
 
-Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, async function () {
-    await authenticationFlow.signInAsLawFirmB();
+Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, async function () {
+    if (iaConfig.RunningOnAAT) {
+        await authenticationFlow.signInAsLawFirmC();
+    } else {
+        await authenticationFlow.signInAsLawFirmB();
+    }
 });
 
 Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {

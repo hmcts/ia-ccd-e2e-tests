@@ -47,6 +47,16 @@ export class AuthenticationFlow {
         await this.idamSignInPage.contentContains('Case List');
     }
 
+    async signInAsLawFirmC() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestLawFirmCUserName,
+            iaConfig.TestLawFirmCPassword
+        );
+        await this.idamSignInPage.contentContains('Case List');
+    }
+
     async signOut() {
         await browser.waitForAngularEnabled(false);
         await browser.driver.manage().deleteAllCookies();
