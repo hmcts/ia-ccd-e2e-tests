@@ -6,9 +6,14 @@ import { expect } from 'chai';
 const ccdPage = new CcdPage();
 
 Given('I create a new case', async function () {
+    await ccdPage.contentContains('Create Case');
+    await ccdPage.linkContains('Create Case');
     await ccdPage.click('Create Case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.isButtonEnabled('Start');
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdPage.doesDropdownHaveValues('Case type');
+    await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.click('Start');
 });
 

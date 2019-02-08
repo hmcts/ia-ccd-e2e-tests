@@ -92,6 +92,32 @@ export class AnyPage {
         }
     }
 
+    async doesDropdownHaveValues(match: string, shortWait = false) {
+
+        const expandedMatch = await this.valueExpander.expand(match);
+
+        try {
+
+            await browser.wait(
+                async () => {
+                    return (await element
+                        .all(by.xpath(
+                            '//label[contains(normalize-space(),"' + expandedMatch + '")]' +
+                            '/../select/option[string-length(@value) > 0]'
+                        ))
+                        .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
+                        .count()) > 0;
+                },
+                shortWait ? Wait.short : Wait.normal
+            );
+
+            return true;
+
+        } catch (error) {
+            return false;
+        }
+    }
+
     async linkContains(match: string, shortWait = false) {
 
         const expandedMatch = await this.valueExpander.expand(match);
