@@ -8,6 +8,7 @@ const ccdPage = new CcdPage();
 Given('I create a new case', async function () {
     await ccdPage.click('Create Case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
+    await ccdPage.isButtonEnabled('Start');
     await ccdPage.click('Start');
 });
 
