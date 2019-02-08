@@ -38,17 +38,6 @@ withNightlyPipeline("nodejs", product, component) {
     loadVaultSecrets(secrets)
 
     env.TEST_E2E_URL_WEB = params.URL_TO_TEST
-
-    before('functionalTest:aat') {
-        sh 'echo BEFORE functionalTest:aat'
-//        sh 'yarn e2e'
-    }
-
-    before('fullFunctionalTest') {
-        sh 'echo BEFORE fullFunctionalTest'
-//        sh 'yarn e2e'
-    }
-
     enableFullFunctionalTest()
 
 //    enableSlackNotifications('#immigrationandasylum')  // can be turned back on once the overnight functionality is working fully
