@@ -37,6 +37,10 @@ Then(/^I (?:am on|should see) the `?([^`]+)`? page$/, async function (headingTex
     expect(await ccdPage.headingContains(headingText)).to.equal(true);
 });
 
+Then(/^I see the open case$/, async function () {
+    expect(await ccdPage.linkContains('Print')).to.equal(true);
+});
+
 Then(/^I should see a notification saying `?([^`]+)`?$/, async function (message) {
     expect(await ccdPage.notificationContains(message)).to.equal(true);
 });
