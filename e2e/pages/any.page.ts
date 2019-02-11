@@ -82,7 +82,7 @@ export class AnyPage {
                         .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
                         .count()) > 0;
                 },
-                shortWait ? Wait.short : Wait.normal
+                shortWait ? Wait.minimal : Wait.normal
             );
 
             return true;

@@ -65,7 +65,7 @@ Then(/^I (?:should |)(see|not see) the `?([^`]+)`? (?:button|link|tab|label)$/, 
 });
 
 Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function (buttonText, enabledOrDisabled) {
-    expect(await ccdPage.isButtonEnabled(buttonText)).to.equal(enabledOrDisabled === 'enabled');
+    expect(await ccdPage.isButtonEnabled(buttonText, enabledOrDisabled !== 'enabled')).to.equal(enabledOrDisabled === 'enabled');
 });
 
 When(/^I click the `?([^`]+)`? (button|link|tab|label)$/, async function (linkText, clickyThingy) {
