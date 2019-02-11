@@ -15,38 +15,51 @@ Feature: Other Appeal Numbers are validated
     And I click the `Continue` button
 
   @start-appeal @alternate @RIA-635 @migrate-to-unit-tests
-  Scenario Outline: Invalid other appeal reference
+  Scenario: Invalid other appeal references
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
     And I add an item to the `Appeal number` collection
-    When within the `Appeal number` collection's first item, I type <invalidAppealReference> for the field without a label
+    When within the `Appeal number` collection's first item, I type `RT/12345/2014` for the field without a label
     And I click the `Continue` button
     Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
 
-    Examples:
-      | invalidAppealReference |
-      | RT/12345/2014          |
-      | PA/1234x/2014          |
-      | PA/123456/2014         |
-      | PA/123456/201          |
-      | PA/123456/20143        |
+    When within the `Appeal number` collection's first item, I type `PA/1234x/2014` for the field without a label
+    And I click the `Continue` button
+    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
+
+    When within the `Appeal number` collection's first item, I type `PA/123456/2014` for the field without a label
+    And I click the `Continue` button
+    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
+
+    When within the `Appeal number` collection's first item, I type `PA/123456/201` for the field without a label
+    And I click the `Continue` button
+    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
+
+    When within the `Appeal number` collection's first item, I type `PA/123456/20143` for the field without a label
+    And I click the `Continue` button
+    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
+
 
   @start-appeal @alternate @RIA-635 @migrate-to-unit-tests
-  Scenario Outline: Valid appeal reference
+  Scenario: Valid appeal references
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
     And I add an item to the `Appeal number` collection
-    When within the `Appeal number` collection's first item, I type <validAppealReference1> for the field without a label
+    When within the `Appeal number` collection's first item, I type `AA/12345/2012` for the field without a label
     And I add another item to the `Appeal number` collection
-    When within the `Appeal number` collection's second item, I type <validAppealReference2> for the field without a label
+    When within the `Appeal number` collection's second item, I type `IA/12345/2012` for the field without a label
     And I add another item to the `Appeal number` collection
-    When within the `Appeal number` collection's third item, I type <validAppealReference3> for the field without a label
+    When within the `Appeal number` collection's third item, I type `OA/12345/2012` for the field without a label
     And I add another item to the `Appeal number` collection
-    When within the `Appeal number` collection's fourth item, I type <validAppealReference4> for the field without a label
+    When within the `Appeal number` collection's fourth item, I type `VA/12345/2012` for the field without a label
     And I click the `Continue` button
     Then I am on the `Your own reference number` page
 
-    Examples:
-      | validAppealReference1 | validAppealReference2 | validAppealReference3 | validAppealReference4 |
-      | AA/12345/2012         | IA/12345/2012         | OA/12345/2012         | VA/12345/2012         |
-      | EA/12345/2016         | HU/12345/2016         | DC/12345/2016         | DA/12345/2016         |
+    Given I click the `Previous` button
+    And I am on the `Has your client appealed against any other UK immigration decisions?` page
+    When within the `Appeal number` collection's first item, I type `EA/12345/2016` for the field without a label
+    And within the `Appeal number` collection's second item, I type `HU/12345/2016` for the field without a label
+    And within the `Appeal number` collection's third item, I type `DC/12345/2016` for the field without a label
+    And within the `Appeal number` collection's fourth item, I type `DA/12345/2016` for the field without a label
+    And I click the `Continue` button
+    Then I am on the `Your own reference number` page

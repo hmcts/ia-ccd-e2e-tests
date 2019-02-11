@@ -184,6 +184,12 @@ export class Fields {
             ? instanceNumber
             : OrdinalToCardinal.convertWordToNumber(instanceNumber);
 
+        if (complexFieldLabel) {
+            await this.anyPage.contentContains(complexFieldLabel)
+        } else {
+            await this.anyPage.waitUntilLoaded();
+        }
+
         for (let i = 0; i < this.complexFieldFinders.length; i++) {
 
             const complexField =
