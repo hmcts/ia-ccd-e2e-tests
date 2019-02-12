@@ -61,6 +61,11 @@ Given('I complete the `Start appeal check your answers` page', async function ()
     await startAppealFlow.completeCheckYourAnswers(true);
 });
 
+Given(/^I skip the `?([^`]+)`? page by clicking `?([^`]+)`?$/, async function (pageName, buttonName) {
+    expect(await ccdFormPage.headingContains(pageName)).to.equal(true);
+    await ccdFormPage.click(buttonName);
+});
+
 Given('I save my initial appeal', async function () {
     await startAppealFlow.saveAppeal(true);
 });
