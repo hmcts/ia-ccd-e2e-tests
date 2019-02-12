@@ -150,8 +150,8 @@ Feature: Case progression
     And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
     And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
 
-     ### submit hearing requirements
-    
+    ### submit hearing requirements
+
     When I switch to be a `Case Officer`
     And I request hearing requirements
     And I click the `Overview` tab
@@ -159,3 +159,8 @@ Feature: Case progression
     Then I should see the image `caseOfficer_submitHearingRequirements.png`
     And I should see the text `Do this next`
     And I should see the text `Wait for the appellant to submit their hearing requirements. You don't need to do anything right now.`
+
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+    Then I should not see the image `caseOfficer_submitHearingRequirements.png`
+    And I should not see the text `Do this next`
