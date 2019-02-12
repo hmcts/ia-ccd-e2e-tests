@@ -70,6 +70,10 @@ Given('I save my initial appeal', async function () {
     await startAppealFlow.saveAppeal(true);
 });
 
+Given('I wait for any found addresses to load', async function () {
+    await ccdFormPage.doesDropdownHaveValues('Select an address');
+});
+
 Then(/^I see a list of all nationalities$/, async function () {
 
     const nationalities = await ccdFormPage.getFieldOptions(

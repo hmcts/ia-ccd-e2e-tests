@@ -6,7 +6,7 @@ export class CaseListFlow {
 
     async filterCasesByTodaysDate(clickApply = false) {
 
-        await this.ccdFormPage.waitUntilLoaded();
+        await this.ccdFormPage.contentContains('Appeal start date');
         await this.ccdFormPage.setFieldValue(
             'Appeal start date',
             '{$TODAY}'
@@ -14,7 +14,7 @@ export class CaseListFlow {
 
         if (clickApply) {
             await this.ccdFormPage.click('Apply');
-            await this.ccdFormPage.waitUntilLoaded();
+            await this.ccdFormPage.contentContains('Status');
         }
     }
 }
