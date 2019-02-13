@@ -34,22 +34,32 @@ export class CcdWriteDateField implements Field {
         const minuteElement = this.getMinuteElement();
         const secondElement = this.getSecondElement();
 
-        let value =
+        let datePart =
             await dayElement.getAttribute('value') + '-' +
             await monthElement.getAttribute('value') + '-' +
             await yearElement.getAttribute('value');
+
+        if (datePart === '--') {
+            datePart = '';
+        }
+
+        let timePart = '';
 
         if (await hourElement.isPresent()
             && await minuteElement.isPresent()
             && await secondElement.isPresent()) {
 
-            value = ' ' +
+            timePart =
                 await hourElement.getAttribute('value') + ':' +
                 await minuteElement.getAttribute('value') + ':' +
                 await secondElement.getAttribute('value');
+
+            if (timePart === '::') {
+                timePart = '';
+            }
         }
 
-        return value;
+        return (datePart + ' ' + timePart).trim();
     }
 
     public async setValue(value) {
