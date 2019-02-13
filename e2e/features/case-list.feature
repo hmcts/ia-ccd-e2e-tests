@@ -12,6 +12,7 @@ Feature: Case list
     And I should see the text `Appellant name`
     And I should see the text `Status`
     And I should see the text `Appeal start date`
+    And I wait for 10 seconds
     And I should see the `DRAFT` link
 
   @case-list @RIA-583 @RIA-902 @RIA-608
