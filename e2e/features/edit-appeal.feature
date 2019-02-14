@@ -64,6 +64,7 @@ Feature: Edit appeal application
     And I should see the text `You can return to the case to make changes.`
 
     When I click the `Close and Return to case details` button
+    And I see the open case
     And I click the `Case details` tab
     Then I should see `B123456` for the `Home Office reference number` field
     And I should see `31 Dec 2018` for the `Date on the decision letter` field

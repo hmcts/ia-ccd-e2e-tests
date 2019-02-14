@@ -11,12 +11,6 @@ export class AnyPage {
     }
 
     async get(uri: string) {
-        await browser.waitForAngularEnabled(true);
-        await browser.get(uri);
-    }
-
-    async getWithoutWaitingForAngular(uri: string) {
-        await browser.waitForAngularEnabled(false);
         await browser.get(uri);
     }
 
@@ -25,16 +19,20 @@ export class AnyPage {
         const expandedLinkText = await this.valueExpander.expand(linkText);
 
         const buttonPath = '//button[normalize-space()="' + expandedLinkText + '"]';
+        const anchorPath = '//a[normalize-space()="' + expandedLinkText + '"]';
+        const linkPath =
+            '//*[self::label or self::span]' +
+            '[text()[normalize-space()="' + expandedLinkText + '"]]';
 
         try {
             await browser.wait(
                 async () => {
                     return (await element
-                        .all(by.xpath(buttonPath))
+                        .all(by.xpath(buttonPath + ' | ' + anchorPath + ' | ' + linkPath))
                         .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
                         .count()) > 0;
                 },
-                linkText === 'Close and Return to case details' ? Wait.normal : Wait.minimal
+                linkText === 'Close and Return to case details' ? Wait.normal : Wait.short
             );
         } catch (e) {
             // do nothing and carry on ...
@@ -50,8 +48,6 @@ export class AnyPage {
             return;
         }
 
-        const anchorPath = '//a[normalize-space()="' + expandedLinkText + '"]';
-
         const anchor = await element
             .all(by.xpath(anchorPath))
             .filter(e => e.isPresent() && e.isDisplayed())
@@ -61,10 +57,6 @@ export class AnyPage {
             await anchor.click();
             return;
         }
-
-        const linkPath =
-            '//*[self::label or self::span]' +
-            '[text()[normalize-space()="' + expandedLinkText + '"]]';
 
         const link = await element
             .all(by.xpath(linkPath))
@@ -86,6 +78,32 @@ export class AnyPage {
                         .all(by.xpath(
                             '//*[self::button or self::a]' +
                             '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]'
+                        ))
+                        .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
+                        .count()) > 0;
+                },
+                shortWait ? Wait.minimal : Wait.normal
+            );
+
+            return true;
+
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async doesDropdownHaveValues(match: string, shortWait = false) {
+
+        const expandedMatch = await this.valueExpander.expand(match);
+
+        try {
+
+            await browser.wait(
+                async () => {
+                    return (await element
+                        .all(by.xpath(
+                            '//label[contains(normalize-space(),"' + expandedMatch + '")]' +
+                            '/../select/option[string-length(@value) > 0]'
                         ))
                         .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
                         .count()) > 0;
@@ -136,7 +154,7 @@ export class AnyPage {
                 async () => {
                     return (await element
                         .all(by.xpath(
-                            '//*[self::h1 or self::h2 or self::caption]' +
+                            '//*[self::h1 or self::h2 or self::h3 or self::caption]' +
                             '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]'
                         ))
                         .filter(e => e.isPresent() && e.isDisplayed())
@@ -234,5 +252,9 @@ export class AnyPage {
         } catch (error) {
             return false;
         }
+    }
+
+    async waitUntilLoaded() {
+        await browser.sleep(Wait.minimal);
     }
 }

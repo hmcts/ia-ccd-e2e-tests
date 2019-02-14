@@ -6,9 +6,22 @@ import { expect } from 'chai';
 const ccdPage = new CcdPage();
 
 Given('I create a new case', async function () {
+    await ccdPage.linkContains('Create Case');
     await ccdPage.click('Create Case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
+    await ccdPage.isButtonEnabled('Start');
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdPage.doesDropdownHaveValues('Case type');
+    await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.click('Start');
+});
+
+Then('I wait for Create Case fields to load', async function () {
+    await ccdPage.headingContains('Create Case');
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdPage.doesDropdownHaveValues('Case type');
+    await ccdPage.doesDropdownHaveValues('Event');
+    await ccdPage.isButtonEnabled('Start');
 });
 
 Then(/I wait for (\d+) seconds?$/, async function (waitDelay) {
@@ -21,6 +34,10 @@ Then(/^I should see `?([^`]+)`? in the url$/, async function (urlText) {
 
 Then(/^I (?:am on|should see) the `?([^`]+)`? page$/, async function (headingText) {
     expect(await ccdPage.headingContains(headingText)).to.equal(true);
+});
+
+Then(/^I see the open case$/, async function () {
+    expect(await ccdPage.linkContains('Print')).to.equal(true);
 });
 
 Then(/^I should see a notification saying `?([^`]+)`?$/, async function (message) {
@@ -47,7 +64,7 @@ Then(/^I (?:should |)(see|not see) the `?([^`]+)`? (?:button|link|tab|label)$/, 
 });
 
 Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function (buttonText, enabledOrDisabled) {
-    expect(await ccdPage.isButtonEnabled(buttonText)).to.equal(enabledOrDisabled === 'enabled');
+    expect(await ccdPage.isButtonEnabled(buttonText, enabledOrDisabled !== 'enabled')).to.equal(enabledOrDisabled === 'enabled');
 });
 
 When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {

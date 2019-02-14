@@ -5,6 +5,8 @@ import { IdamSignInPage } from '../../pages/idam-sign-in.page';
 import { expect } from 'chai';
 import { browser } from 'protractor';
 
+const iaConfig = require('../../ia.conf');
+
 const authenticationFlow = new AuthenticationFlow();
 const ccdPage = new CcdPage();
 const idamSignInPage = new IdamSignInPage();
@@ -12,22 +14,22 @@ const caseUrlMatcher = /^.*?\/case\/IA\/Asylum\/\d{16}/g;
 
 Given('I am not signed in', async function () {
     await authenticationFlow.signOut();
-    await idamSignInPage.waitUntilLoaded();
 });
 
 Given(/^I am signed in as a `?Case (?:Officer|Worker)`?$/, async function () {
     await authenticationFlow.signInAsCaseOfficer();
-    await ccdPage.waitUntilLoaded();
 });
 
 Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
     await authenticationFlow.signInAsLawFirmA();
-    await ccdPage.waitUntilLoaded();
 });
 
-Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, async function () {
-    await authenticationFlow.signInAsLawFirmB();
-    await ccdPage.waitUntilLoaded();
+Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, async function () {
+    if (iaConfig.RunningOnAAT) {
+        await authenticationFlow.signInAsLawFirmC();
+    } else {
+        await authenticationFlow.signInAsLawFirmB();
+    }
 });
 
 Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
@@ -36,9 +38,9 @@ Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsCaseOfficer();
     await browser.sleep(100);
-    await ccdPage.waitUntilLoaded();
+    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.waitUntilLoaded();
+    await ccdPage.contentContains('Immigration');
 });
 
 Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
@@ -47,9 +49,9 @@ Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function ()
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsLawFirmA();
     await browser.sleep(100);
-    await ccdPage.waitUntilLoaded();
+    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.waitUntilLoaded();
+    await ccdPage.contentContains('Immigration');
 });
 
 Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {

@@ -123,9 +123,4 @@ export class CcdPage extends AnyPage {
         return (await browser.driver.getCurrentUrl()).includes('ccd')
             && (await ExpectedConditions.visibilityOf($('#sign-out'))());
     }
-
-    async waitUntilLoaded() {
-        await browser.waitForAngularEnabled(true);
-        await browser.waitForAngular();
-    }
 }

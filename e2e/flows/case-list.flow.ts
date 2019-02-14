@@ -12,8 +12,9 @@ export class CaseListFlow {
         );
 
         if (clickApply) {
-            await this.ccdFormPage.click('Apply');
             await this.ccdFormPage.waitUntilLoaded();
+            await this.ccdFormPage.click('Apply');
+            await this.ccdFormPage.contentContains('Status');
         }
     }
 }

@@ -20,6 +20,7 @@ import { browser, by, ElementFinder, ExpectedConditions } from 'protractor';
 import { CreateCaseFixedListFieldFinder } from './create-case-fixed-list-field-finder';
 import { CcdWriteDocumentFieldFinder } from './ccd-write-document-field-finder';
 import { CcdWriteFixedRadioListFieldFinder } from './ccd-write-fixed-radio-list-field-finder';
+import { AnyPage } from '../pages/any.page';
 
 export class Fields {
 
@@ -63,6 +64,7 @@ export class Fields {
     ];
 
     private readonly container: ElementFinder;
+    private readonly anyPage = new AnyPage();
 
     constructor(container: ElementFinder) {
         this.container = container;
@@ -91,6 +93,16 @@ export class Fields {
     ): Promise<Field> {
 
         let container = this.container;
+
+        if (fieldLabel) {
+            await this.anyPage.contentContains(fieldLabel)
+        } else {
+            await this.anyPage.waitUntilLoaded();
+        }
+
+        if (complexFieldLabel) {
+            await this.anyPage.contentContains(complexFieldLabel)
+        }
 
         if (complexFieldLabel !== undefined) {
 
@@ -171,6 +183,12 @@ export class Fields {
         const cardinalInstanceNumber = typeof instanceNumber === 'number'
             ? instanceNumber
             : OrdinalToCardinal.convertWordToNumber(instanceNumber);
+
+        if (complexFieldLabel) {
+            await this.anyPage.contentContains(complexFieldLabel)
+        } else {
+            await this.anyPage.waitUntilLoaded();
+        }
 
         for (let i = 0; i < this.complexFieldFinders.length; i++) {
 

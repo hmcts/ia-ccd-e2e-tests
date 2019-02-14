@@ -25,9 +25,13 @@ Feature: Start initial appeal application
 
     Given I am on the `Your client's address` page
     When I select `Yes` for the `Does the appellant have a fixed address?` field
+    And I see the text `Enter a UK postcode`
     And I type `SW1A 2AA` for the `Enter a UK postcode` field
     And I click the `Find address` button
+    And I see the text `Select an address`
+    And I wait for any found addresses to load
     And I select `10 Downing Street, London` for the `Select an address` field
+    And I see the text `Building and Street`
     And I click the `Continue` button
 
     Given I am on the `What type of decision is your client appealing against?` page
@@ -88,6 +92,7 @@ Feature: Start initial appeal application
     And I should see the text `You can return to the case to make changes.`
 
     When I click the `Close and Return to case details` button
+    And I see the open case
     And I click the `Case details` tab
     Then I should see `A123456` for the `Home Office reference number` field
     And I should see `31 Oct 2018` for the `Date on the decision letter` field

@@ -35,6 +35,7 @@ Feature: Grounds of appeal
     And I complete the `Your own reference number` page
     And I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button
+    And I am on the `DRAFT` page
     And I click the `Case details` tab
 
     Then I should see the text `Removing the appellant from the UK would breach the UK's obligation in relation to persons eligible for a grant of humanitarian protection`
@@ -67,6 +68,7 @@ Feature: Grounds of appeal
     And I complete the `Your own reference number` page
     And I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button
+    And I am on the `DRAFT` page
     And I click the `Case details` tab
 
     And I should see the text `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention`

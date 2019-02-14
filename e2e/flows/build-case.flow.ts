@@ -9,6 +9,7 @@ export class BuildCaseFlow {
         await this.ccdFormPage.selectNextStep('Build your case');
         await this.ccdFormPage.click('Go');
 
+        await this.ccdFormPage.headingContains('Build your case');
         await this.ccdFormPage.setFieldValue(
             'Appeal skeleton argument',
             '{@CaseArgument.pdf}'
@@ -20,6 +21,7 @@ export class BuildCaseFlow {
         );
 
         await this.ccdFormPage.addCollectionItem('Evidence (Optional)');
+        await this.ccdFormPage.contentContains('Describe the document');
 
         await this.ccdFormPage.setFieldValue(
             'Document (Optional)',
