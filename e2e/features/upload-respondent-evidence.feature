@@ -30,14 +30,12 @@ Feature: Upload respondent evidence
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
     Then I should see the `Documents` page
-    And I should see the `Respondent documents` field
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidence.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the evidence` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
     Then I should see the `Directions` page
-    And I should see the `Directions` field
     And within the `Directions` collection's first item, I should see `You must now build your case` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `You must write a full argument` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The respondent then has 14 days to respond` in the `Explanation` field

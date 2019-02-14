@@ -6,7 +6,6 @@ export class CaseListFlow {
 
     async filterCasesByTodaysDate(clickApply = false) {
 
-        await this.ccdFormPage.contentContains('Appeal start date');
         await this.ccdFormPage.setFieldValue(
             'Appeal start date',
             '{$TODAY}'

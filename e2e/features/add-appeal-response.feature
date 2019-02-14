@@ -40,7 +40,6 @@ Feature: Add respondent response
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
     Then I should see the `Documents` page
-    And I should see the `Respondent documents` field
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -50,7 +49,6 @@ Feature: Add respondent response
 
     When I click the `Directions` tab
     Then I should see the `Directions` page
-    And I should see the `Directions` field
     And within the `Directions` collection's first item, I should see `The respondent has replied to your appeal argument and evidence. You must now review their response.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `You have 5 days to review the response.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field

@@ -6,7 +6,6 @@ import { expect } from 'chai';
 const ccdPage = new CcdPage();
 
 Given('I create a new case', async function () {
-    // await ccdPage.contentContains('Create Case');
     await ccdPage.linkContains('Create Case');
     await ccdPage.click('Create Case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
@@ -68,7 +67,7 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
     expect(await ccdPage.isButtonEnabled(buttonText, enabledOrDisabled !== 'enabled')).to.equal(enabledOrDisabled === 'enabled');
 });
 
-When(/^I click the `?([^`]+)`? (button|link|tab|label)$/, async function (linkText, clickyThingy) {
+When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
     await ccdPage.click(linkText);
 });
 

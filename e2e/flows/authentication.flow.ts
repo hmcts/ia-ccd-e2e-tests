@@ -1,11 +1,13 @@
 import { browser } from 'protractor';
 import { IdamSignInPage } from '../pages/idam-sign-in.page';
+import { AnyPage } from '../pages/any.page';
 
 const iaConfig = require('../ia.conf');
 
 export class AuthenticationFlow {
 
     private idamSignInPage = new IdamSignInPage();
+    private anyPage = new AnyPage();
 
     async signInAsCaseOfficer() {
         await this.signOut();
@@ -14,7 +16,7 @@ export class AuthenticationFlow {
             iaConfig.TestCaseOfficerUserName,
             iaConfig.TestCaseOfficerPassword
         );
-        await this.idamSignInPage.contentContains('Case List');
+        await this.anyPage.contentContains('Case List');
     }
 
     async signInAsJudiciary() {
@@ -24,7 +26,7 @@ export class AuthenticationFlow {
             iaConfig.TestJudiciaryUserName,
             iaConfig.TestJudiciaryPassword
         );
-        await this.idamSignInPage.contentContains('Case List');
+        await this.anyPage.contentContains('Case List');
     }
 
     async signInAsLawFirmA() {
@@ -34,7 +36,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmAUserName,
             iaConfig.TestLawFirmAPassword
         );
-        await this.idamSignInPage.contentContains('Case List');
+        await this.anyPage.contentContains('Case List');
     }
 
     async signInAsLawFirmB() {
@@ -44,7 +46,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmBUserName,
             iaConfig.TestLawFirmBPassword
         );
-        await this.idamSignInPage.contentContains('Case List');
+        await this.anyPage.contentContains('Case List');
     }
 
     async signInAsLawFirmC() {
@@ -54,7 +56,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmCUserName,
             iaConfig.TestLawFirmCPassword
         );
-        await this.idamSignInPage.contentContains('Case List');
+        await this.anyPage.contentContains('Case List');
     }
 
     async signOut() {
@@ -62,6 +64,6 @@ export class AuthenticationFlow {
         await browser.driver.manage().deleteAllCookies();
         await browser.get(iaConfig.CcdGatewayUrl + '/logout');
         await browser.get(iaConfig.CcdWebUrl + '/');
-        await this.idamSignInPage.waitUntilLoaded();
+        await this.anyPage.waitUntilLoaded();
     }
 }
