@@ -1,3 +1,4 @@
+import { CaseListFixedListFieldFinder } from './case-list-fixed-list-field-finder';
 import { CcdReadTableFieldFinder } from './ccd-read-table-field-finder';
 import { CcdReadListFieldFinder } from './ccd-read-list-field-finder';
 import { CcdWriteAddressFieldFinder } from './ccd-write-address-field-finder';
@@ -60,6 +61,7 @@ export class Fields {
         new CcdReadTableFieldFinder(),
         new CcdReadListFieldFinder(),
 
+        new CaseListFixedListFieldFinder(),
         new CreateCaseFixedListFieldFinder(),
     ];
 
