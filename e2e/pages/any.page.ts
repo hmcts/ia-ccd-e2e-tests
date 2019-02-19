@@ -257,11 +257,11 @@ export class AnyPage {
     }
 
     async waitUntilLoaded() {
-        if (iaConfig.RunningOnAAT) {
-            await browser.sleep(Wait.minimal);
-        } else {
+        if (iaConfig.WaitForAngular) {
             await browser.waitForAngularEnabled(true);
             await browser.waitForAngular();
+        } else {
+            await browser.sleep(Wait.minimal);
         }
     }
 }

@@ -1,8 +1,8 @@
 const iaConfig = require('../ia.conf');
 
 export enum Wait {
-    minimal = iaConfig.RunningOnAAT ? 3000 : 100,
-    short = iaConfig.RunningOnAAT ? 10000 : 1000,
-    normal = iaConfig.RunningOnAAT ? 40000 : 10000,
-    long = iaConfig.RunningOnAAT ? 120000 : 60000
+    minimal = iaConfig.WaitForAngular ? 3000 : 100,
+    short = iaConfig.WaitForAngular ? 10000 : 1000,
+    normal = iaConfig.WaitForAngular ? 40000 : 10000,
+    long = iaConfig.WaitForAngular ? 120000 : 60000
 }

@@ -17,7 +17,7 @@ export class AuthenticationFlow {
             iaConfig.TestCaseOfficerPassword
         );
         await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfNotOnAAT();
+        await this.waitForAngularIfRequired();
     }
 
     async signInAsJudiciary() {
@@ -28,7 +28,7 @@ export class AuthenticationFlow {
             iaConfig.TestJudiciaryPassword
         );
         await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfNotOnAAT();
+        await this.waitForAngularIfRequired();
     }
 
     async signInAsLawFirmA() {
@@ -39,7 +39,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmAPassword
         );
         await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfNotOnAAT();
+        await this.waitForAngularIfRequired();
     }
 
     async signInAsLawFirmB() {
@@ -50,7 +50,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmBPassword
         );
         await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfNotOnAAT();
+        await this.waitForAngularIfRequired();
     }
 
     async signInAsLawFirmC() {
@@ -61,7 +61,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmCPassword
         );
         await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfNotOnAAT();
+        await this.waitForAngularIfRequired();
     }
 
     async signOut() {
@@ -72,8 +72,8 @@ export class AuthenticationFlow {
         await this.idamSignInPage.waitUntilLoaded();
     }
 
-    async waitForAngularIfNotOnAAT() {
-        if (!iaConfig.RunningOnAAT) {
+    async waitForAngularIfRequired() {
+        if (iaConfig.WaitForAngular) {
             await browser.waitForAngularEnabled(true);
         }
     }

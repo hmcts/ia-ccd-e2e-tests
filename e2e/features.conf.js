@@ -57,7 +57,7 @@ exports.config = {
     keepAlive: false,
     tags: false,
     profile: false,
-    'fail-fast': !iaConfig.RunningOnAAT,
+    'fail-fast': iaConfig.WaitForAngular,
     'no-source': true
   },
 

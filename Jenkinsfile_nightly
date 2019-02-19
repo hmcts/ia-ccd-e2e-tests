@@ -42,6 +42,7 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_URL_WEB = params.URL_TO_TEST
     env.TEST_E2E_URL_GATEWAY = params.CCD_GATEWAY_URL
     env.TEST_E2E_NUM_BROWSERS = params.NUM_TESTS_IN_PARALLEL
+    env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     enableFullFunctionalTest()
 
     enableSlackNotifications('#ia-tech')
