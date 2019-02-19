@@ -17,6 +17,7 @@ export class AuthenticationFlow {
             iaConfig.TestCaseOfficerPassword
         );
         await this.anyPage.contentContains('Case List');
+        await this.waitForAngularIfNotOnAAT();
     }
 
     async signInAsJudiciary() {
@@ -27,6 +28,7 @@ export class AuthenticationFlow {
             iaConfig.TestJudiciaryPassword
         );
         await this.anyPage.contentContains('Case List');
+        await this.waitForAngularIfNotOnAAT();
     }
 
     async signInAsLawFirmA() {
@@ -37,6 +39,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmAPassword
         );
         await this.anyPage.contentContains('Case List');
+        await this.waitForAngularIfNotOnAAT();
     }
 
     async signInAsLawFirmB() {
@@ -47,6 +50,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmBPassword
         );
         await this.anyPage.contentContains('Case List');
+        await this.waitForAngularIfNotOnAAT();
     }
 
     async signInAsLawFirmC() {
@@ -57,6 +61,7 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmCPassword
         );
         await this.anyPage.contentContains('Case List');
+        await this.waitForAngularIfNotOnAAT();
     }
 
     async signOut() {
@@ -64,6 +69,12 @@ export class AuthenticationFlow {
         await browser.driver.manage().deleteAllCookies();
         await browser.get(iaConfig.CcdGatewayUrl + '/logout');
         await browser.get(iaConfig.CcdWebUrl + '/');
-        await this.anyPage.waitUntilLoaded();
+        await this.idamSignInPage.waitUntilLoaded();
+    }
+
+    async waitForAngularIfNotOnAAT() {
+        if (!iaConfig.RunningOnAAT) {
+            await browser.waitForAngularEnabled(true);
+        }
     }
 }

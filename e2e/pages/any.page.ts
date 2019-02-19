@@ -2,6 +2,8 @@ import { browser, by, element } from 'protractor';
 import { Wait } from '../enums/wait';
 import { ValueExpander } from '../helpers/value-expander';
 
+const iaConfig = require('../ia.conf');
+
 export class AnyPage {
 
     protected readonly valueExpander = new ValueExpander();
@@ -255,6 +257,11 @@ export class AnyPage {
     }
 
     async waitUntilLoaded() {
-        await browser.sleep(Wait.minimal);
+        if (iaConfig.RunningOnAAT) {
+            await browser.sleep(Wait.minimal);
+        } else {
+            await browser.waitForAngularEnabled(true);
+            await browser.waitForAngular();
+        }
     }
 }

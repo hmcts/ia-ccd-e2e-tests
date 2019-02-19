@@ -28,6 +28,7 @@ Feature: Upload respondent evidence
     Then I should see the text `The legal representative will now get an email`
 
     When I click the `Close and Return to case details` button
+    And I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidence.pdf` in the `Document` field
