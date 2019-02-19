@@ -36,6 +36,7 @@ Feature: Build case
     Then I should see the text `If you're not yet ready for your case to be reviewed, continue to build your case.`
 
     When I click the `Close and Return to case details` button
+    And I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     And within the `Legal representative documents` collection's first item, I should see `CaseArgument.pdf` in the `Document` field

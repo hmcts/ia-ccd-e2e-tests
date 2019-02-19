@@ -32,6 +32,7 @@ Feature: Request respondent evidence
     Then I should see the text `Wait for the respondent to complete the direction`
 
     When I click the `Close and Return to case details` button
+    And I see the open case
     And I click the `Directions` tab
     Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
@@ -59,6 +60,7 @@ Feature: Request respondent evidence
     Then I should see the text `You have sent a direction`
 
     When I click the `Close and Return to case details` button
+    And I see the open case
     And I click the `Directions` tab
     Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `Something else` for the `Explanation` field
