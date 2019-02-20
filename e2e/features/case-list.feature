@@ -74,6 +74,7 @@ Feature: Case list
     And I should see the option `IA Asylum Case` for the `Case type` field
     And I should see the `State` field
     And I should see the option `Any` for the `State` field
+    And I should not see the option `Appeal started` for the `State` field
     And I should see the option `Appeal submitted` for the `State` field
     And I should see the option `Appeal submitted out of time` for the `State` field
     And I should see the option `Awaiting respondent evidence` for the `State` field

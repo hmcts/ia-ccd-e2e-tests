@@ -8,8 +8,9 @@ Then(/^I should see an error saying `?([^`]+)`?$/, async function (errorMessage)
     expect(await ccdFormPage.fieldErrorContains(errorMessage)).to.equal(true);
 });
 
-When(/^I should see the option `?([^`]+)`? for the `?(first|second|third|)`?\s?field without a label$/,
+When(/^I should (see|not see) the option `?([^`]+)`? for the `?(first|second|third|)`?\s?field without a label$/,
     async function (
+        seeOrNotSee,
         option,
         instanceNumber
     ) {
@@ -18,11 +19,12 @@ When(/^I should see the option `?([^`]+)`? for the `?(first|second|third|)`?\s?f
             instanceNumber
         );
 
-        expect(fieldOptions.includes(option)).to.equal(true);
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
     });
 
-When(/^I should see the option `?([^`]+)`? for the `?(first|second|third|)`?\s?`?([^`]+)`? field$/,
+When(/^I should (see|not see) the option `?([^`]+)`? for the `?(first|second|third|)`?\s?`?([^`]+)`? field$/,
     async function (
+        seeOrNotSee,
         option,
         instanceNumber,
         fieldLabel
@@ -32,13 +34,14 @@ When(/^I should see the option `?([^`]+)`? for the `?(first|second|third|)`?\s?`
             instanceNumber
         );
 
-        expect(fieldOptions.includes(option)).to.equal(true);
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
     });
 
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see the option `?([^`]+)`? for the field without a label$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should (see|not see) the option `?([^`]+)`? for the field without a label$/,
     async function (
         instanceNumber,
         fieldsetLabel,
+        seeOrNotSee,
         option
     ) {
         const fieldOptions = await ccdFormPage.getFieldOptions(
@@ -47,13 +50,14 @@ When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see
             fieldsetLabel
         );
 
-        expect(fieldOptions.includes(option)).to.equal(true);
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
     });
 
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see the option `?([^`]+)`? for the `?([^`]+)`? field$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should (see|not see) the option `?([^`]+)`? for the `?([^`]+)`? field$/,
     async function (
         instanceNumber,
         fieldsetLabel,
+        seeOrNotSee,
         option,
         fieldLabel
     ) {
@@ -63,14 +67,15 @@ When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see
             fieldsetLabel
         );
 
-        expect(fieldOptions.includes(option)).to.equal(true);
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
     });
 
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see the option `?([^`]+)`? for the field without a label$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should (see|not see) the option `?([^`]+)`? for the field without a label$/,
     async function (
         instanceNumber,
         collectionLabel,
         collectionItemNumber,
+        seeOrNotSee,
         option
     ) {
         const fieldOptions = await ccdFormPage.getFieldOptions(
@@ -80,14 +85,15 @@ When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]
             collectionItemNumber
         );
 
-        expect(fieldOptions.includes(option)).to.equal(true);
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
     });
 
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see the option `?([^`]+)`? for the `?([^`]+)`? field$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should (see|not see) the option `?([^`]+)`? for the `?([^`]+)`? field$/,
     async function (
         instanceNumber,
         collectionLabel,
         collectionItemNumber,
+        seeOrNotSee,
         option,
         fieldLabel
     ) {
@@ -98,7 +104,7 @@ When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]
             collectionItemNumber
         );
 
-        expect(fieldOptions.includes(option)).to.equal(true);
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
     });
 
 When(/^I add (?:an|another) item to the `?(first|second|third|)`?\s?`?([^`]+)`? collection$/,
