@@ -1,4 +1,4 @@
-FROM node:8
+FROM hmcts.azurecr.io/hmcts/base/node/stretch-slim-lts-8
 
 RUN apt-get update \
     && apt-get install -yyq ca-certificates \
