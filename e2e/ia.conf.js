@@ -7,6 +7,7 @@ module.exports = {
   RunWithNumberOfBrowsers: process.env.TEST_E2E_NUM_BROWSERS || 1,
   UseProxy: process.env.TEST_E2E_USE_PROXY !== 'false',
   WaitForAngular: process.env.TEST_E2E_WAIT_FOR_ANGULAR !== 'false',
+  FailFast: process.env.TEST_E2E_FAIL_FAST !== 'false',
 
   TestCaseOfficerUserName: process.env.TEST_CASEOFFICER_USERNAME,
   TestCaseOfficerPassword: process.env.TEST_CASEOFFICER_PASSWORD,

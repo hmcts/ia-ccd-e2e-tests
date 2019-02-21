@@ -34,7 +34,7 @@ export class AnyPage {
                         .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
                         .count()) > 0;
                 },
-                linkText === 'Close and Return to case details' ? Wait.normal : Wait.short
+                linkText === 'Close and Return to case details' ? Wait.long : Wait.short
             );
         } catch (e) {
             // do nothing and carry on ...
