@@ -25,10 +25,10 @@ Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async fun
 });
 
 Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, async function () {
-    if (iaConfig.RunningOnAAT) {
-        await authenticationFlow.signInAsLawFirmC();
-    } else {
+    if (iaConfig.WaitForAngular) {
         await authenticationFlow.signInAsLawFirmB();
+    } else {
+        await authenticationFlow.signInAsLawFirmC();
     }
 });
 
