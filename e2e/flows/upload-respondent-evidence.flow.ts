@@ -15,6 +15,7 @@ export class UploadRespondentEvidenceFlow {
         await this.ccdFormPage.setFieldValue(
             'Document',
             '{@RespondentEvidence.pdf}',
+            'document',
             'first',
             'Upload case documents',
             'first'
@@ -22,6 +23,7 @@ export class UploadRespondentEvidenceFlow {
         await this.ccdFormPage.setFieldValue(
             'Describe the document',
             'This is the respondent evidence',
+            'text area',
             'first',
             'Upload case documents',
             'first'

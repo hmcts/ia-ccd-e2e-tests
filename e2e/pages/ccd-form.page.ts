@@ -38,6 +38,7 @@ export class CcdFormPage extends CcdPage {
         collectionItemNumber?: string | number
     ) {
         const field = await this.fields.find(
+            '',
             fieldLabel,
             instanceNumber,
             complexFieldLabel,
@@ -56,11 +57,13 @@ export class CcdFormPage extends CcdPage {
     async setFieldValue(
         fieldLabel: string,
         fieldValue: string,
+        fieldType?: string,
         instanceNumber?: string | number,
         complexFieldLabel?: string,
         collectionItemNumber?: string | number
     ) {
         const field = await this.fields.find(
+            fieldType,
             fieldLabel,
             instanceNumber,
             complexFieldLabel,

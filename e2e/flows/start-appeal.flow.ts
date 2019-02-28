@@ -27,7 +27,17 @@ export class StartAppealFlow {
 
         await this.ccdFormPage.headingContains('Home Office reference');
         await this.ccdFormPage.setFieldValue('Home Office reference number', 'A123456/001');
-        await this.ccdFormPage.setFieldValue('Date on the decision letter', '31-10-2018');
+        await this.ccdFormPage.setFieldValue('Date on the decision letter', '{$TODAY}');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(clickContinue = false) {
+
+        await this.ccdFormPage.setFieldValue('Home Office reference number', 'A123456/001');
+        await this.ccdFormPage.setFieldValue('Date on the decision letter', '01-01-2018');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -42,7 +52,7 @@ export class StartAppealFlow {
         await this.ccdFormPage.setFieldValue('Family name', 'González');
         await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
         await this.ccdFormPage.addCollectionItem('Nationality');
-        await this.ccdFormPage.setFieldValue('Nationality', 'Finland', 'first', 'Nationality', 'first');
+        await this.ccdFormPage.setFieldValue('Nationality', 'Finland', 'select list', 'first', 'Nationality', 'first');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -132,6 +142,24 @@ export class StartAppealFlow {
     async saveAppeal(clickContinue = false) {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReference(true);
+        await this.completeBasicDetails(true);
+        await this.completeClientAddress(true);
+        await this.whatTypeOfDecisionIsYourClientAppealingAgainst(true);
+        await this.completeAppealGrounds(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeReferenceNumber(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+            await this.ccdFormPage.waitUntilLoaded();
+        }
+    }
+
+    async saveOutOfTimeAppeal(clickContinue = false) {
+        await this.completeScreeningQuestions(true);
+        await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
         await this.completeBasicDetails(true);
         await this.completeClientAddress(true);
         await this.whatTypeOfDecisionIsYourClientAppealingAgainst(true);

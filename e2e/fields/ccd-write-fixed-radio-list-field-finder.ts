@@ -4,6 +4,10 @@ import { CcdWriteFixedRadioListField } from './ccd-write-fixed-radio-list-field'
 
 export class CcdWriteFixedRadioListFieldFinder implements FieldFinder {
 
+    public getFieldType() {
+        return 'radio list';
+    }
+
     public async findByLabel(
         container,
         instanceNumber: number,

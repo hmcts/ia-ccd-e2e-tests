@@ -4,6 +4,10 @@ import { by } from 'protractor';
 
 export class CcdWriteDocumentFieldFinder implements FieldFinder {
 
+    public getFieldType() {
+        return 'document';
+    }
+
     public async findByLabel(
         container,
         instanceNumber: number,

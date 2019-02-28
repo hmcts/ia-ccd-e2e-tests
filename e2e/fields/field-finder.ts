@@ -1,5 +1,7 @@
 export interface FieldFinder {
 
+    getFieldType();
+
     findByLabel(
         container,
         instanceNumber: number,

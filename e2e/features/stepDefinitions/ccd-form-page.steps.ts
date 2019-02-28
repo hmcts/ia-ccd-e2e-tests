@@ -4,6 +4,8 @@ import { expect } from 'chai';
 
 const ccdFormPage = new CcdFormPage();
 
+// tslint:disable:max-line-length
+
 Then(/^I should see an error saying `?([^`]+)`?$/, async function (errorMessage) {
     expect(await ccdFormPage.fieldErrorContains(errorMessage)).to.equal(true);
 });
@@ -124,162 +126,196 @@ When(/^I remove the `?([^\s`]+)`? item from the `?(first|second|third|)`?\s?`?([
         await ccdFormPage.removeCollectionItem(collectionLabel, collectionItemNumber, instanceNumber);
     });
 
-When(/^I clear the `?(first|second|third|)`?\s?field without a label$/,
-    async function (
-        instanceNumber
-    ) {
-        await ccdFormPage.setFieldValue('', '', instanceNumber);
-    });
-
-When(/^I clear the `?(first|second|third|)`?\s?`?([^`]+)`? field$/,
+When(/^I clear the `?(first|second|third|)`?\s?`?(text|text area|document|)`?\s?field without a label$/,
     async function (
         instanceNumber,
-        fieldLabel
-    ) {
-        await ccdFormPage.setFieldValue(fieldLabel, '', instanceNumber);
-    });
-
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I clear the field without a label$/,
-    async function (
-        instanceNumber,
-        fieldsetLabel
+        fieldType
     ) {
         await ccdFormPage.setFieldValue(
             '',
             '',
-            instanceNumber,
-            fieldsetLabel
-        );
-    });
-
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I clear the `?([^`]+)`? field$/,
-    async function (
-        instanceNumber,
-        fieldsetLabel,
-        fieldLabel
-    ) {
-        await ccdFormPage.setFieldValue(
-            fieldLabel,
-            '',
-            instanceNumber,
-            fieldsetLabel
-        );
-    });
-
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I clear the field without a label$/,
-    async function (
-        instanceNumber,
-        collectionLabel,
-        collectionItemNumber
-    ) {
-        await ccdFormPage.setFieldValue(
-            '',
-            '',
-            instanceNumber,
-            collectionLabel,
-            collectionItemNumber
-        );
-    });
-
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I clear the `?([^`]+)`? field$/,
-    async function (
-        instanceNumber,
-        collectionLabel,
-        collectionItemNumber,
-        fieldLabel
-    ) {
-        await ccdFormPage.setFieldValue(
-            fieldLabel,
-            '',
-            instanceNumber,
-            collectionLabel,
-            collectionItemNumber
-        );
-    });
-
-When(/^I (check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(first|second|third|)`?\s?field without a label$/,
-    async function (
-        fieldValue,
-        instanceNumber
-    ) {
-        await ccdFormPage.setFieldValue(
-            '',
-            fieldValue,
+            fieldType,
             instanceNumber
         );
     });
 
-When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(first|second|third|)`?\s?`?([^`]+)`? field$/,
+When(/^I clear the `?(first|second|third|)`?\s?`?([^`]+)`? `?(text|text area|document|)`?\s?field$/,
     async function (
-        fieldValue,
         instanceNumber,
-        fieldLabel
+        fieldLabel,
+        fieldType
     ) {
         await ccdFormPage.setFieldValue(
             fieldLabel,
-            fieldValue,
+            '',
+            fieldType,
             instanceNumber
         );
     });
 
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I clear the `?(text|text area|document|)`?\s?field without a label$/,
     async function (
         instanceNumber,
         fieldsetLabel,
-        fieldValue
+        fieldType
     ) {
         await ccdFormPage.setFieldValue(
             '',
-            fieldValue,
+            '',
+            fieldType,
             instanceNumber,
             fieldsetLabel
         );
     });
 
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I clear the `?([^`]+)`? `?(text|text area|document|)`?\s?field$/,
     async function (
         instanceNumber,
         fieldsetLabel,
-        fieldValue,
-        fieldLabel
+        fieldLabel,
+        fieldType
     ) {
         await ccdFormPage.setFieldValue(
             fieldLabel,
-            fieldValue,
+            '',
+            fieldType,
             instanceNumber,
             fieldsetLabel
         );
     });
 
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the field without a label$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I clear the `?(text|text area|document|)`?\s?field without a label$/,
     async function (
         instanceNumber,
         collectionLabel,
         collectionItemNumber,
-        fieldValue
+        fieldType
     ) {
         await ccdFormPage.setFieldValue(
             '',
-            fieldValue,
+            '',
+            fieldType,
             instanceNumber,
             collectionLabel,
             collectionItemNumber
         );
     });
 
-When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? field$/,
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I clear the `?([^`]+)`? `?(text|text area|document|)`?\s?field$/,
     async function (
         instanceNumber,
         collectionLabel,
         collectionItemNumber,
-        fieldValue,
-        fieldLabel
+        fieldLabel,
+        fieldType
     ) {
         await ccdFormPage.setFieldValue(
             fieldLabel,
-            fieldValue,
+            '',
+            fieldType,
             instanceNumber,
             collectionLabel,
             collectionItemNumber
         );
     });
+
+When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(first|second|third|)`?\s?`?(text|text area|document|)`?\s?field without a label$/,
+    async function (
+        fieldValue,
+        instanceNumber,
+        fieldType
+    ) {
+        await ccdFormPage.setFieldValue(
+            '',
+            fieldValue,
+            fieldType,
+            instanceNumber
+        );
+    });
+
+When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(first|second|third|)`?\s?`?([^`]+)`? `?(text|text area|document|)`?\s?field$/,
+    async function (
+        fieldValue,
+        instanceNumber,
+        fieldLabel,
+        fieldType
+    ) {
+        await ccdFormPage.setFieldValue(
+            fieldLabel,
+            fieldValue,
+            fieldType,
+            instanceNumber
+        );
+    });
+
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(text|text area|document|)`?\s?field without a label$/,
+    async function (
+        instanceNumber,
+        fieldsetLabel,
+        fieldValue,
+        fieldType
+    ) {
+        await ccdFormPage.setFieldValue(
+            '',
+            fieldValue,
+            fieldType,
+            instanceNumber,
+            fieldsetLabel
+        );
+    });
+
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? `?(text|text area|document|)`?\s?field$/,
+    async function (
+        instanceNumber,
+        fieldsetLabel,
+        fieldValue,
+        fieldLabel,
+        fieldType
+    ) {
+        await ccdFormPage.setFieldValue(
+            fieldLabel,
+            fieldValue,
+            fieldType,
+            instanceNumber,
+            fieldsetLabel
+        );
+    });
+
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(text|text area|document|)`?\s?field without a label$/,
+    async function (
+        instanceNumber,
+        collectionLabel,
+        collectionItemNumber,
+        fieldValue,
+        fieldType
+    ) {
+        await ccdFormPage.setFieldValue(
+            '',
+            fieldValue,
+            fieldType,
+            instanceNumber,
+            collectionLabel,
+            collectionItemNumber
+        );
+    });
+
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?([^`]+)`? `?(text|text area|document|)`?\s?field$/,
+    async function (
+        instanceNumber,
+        collectionLabel,
+        collectionItemNumber,
+        fieldValue,
+        fieldLabel,
+        fieldType
+    ) {
+        await ccdFormPage.setFieldValue(
+            fieldLabel,
+            fieldValue,
+            fieldType,
+            instanceNumber,
+            collectionLabel,
+            collectionItemNumber
+        );
+    });
+
+// tslint:enable:max-line-length

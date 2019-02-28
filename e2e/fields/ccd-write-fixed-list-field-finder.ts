@@ -4,6 +4,10 @@ import { by } from 'protractor';
 
 export class CcdWriteFixedListFieldFinder implements FieldFinder {
 
+    public getFieldType() {
+        return 'select list';
+    }
+
     public async findByLabel(
         container,
         instanceNumber: number,

@@ -12,11 +12,13 @@ export class AddAppealResponseFlow {
         await this.ccdFormPage.headingContains('Add appeal response');
         await this.ccdFormPage.setFieldValue(
             'Response document',
-            '{@AppealResponse.pdf}'
+            '{@AppealResponse.pdf}',
+            'document'
         );
         await this.ccdFormPage.setFieldValue(
             'Describe the document (Optional)',
-            'This is the appeal response'
+            'This is the appeal response',
+            'text area'
         );
 
         await this.ccdFormPage.addCollectionItem('Evidence (Optional)');
@@ -24,6 +26,7 @@ export class AddAppealResponseFlow {
         await this.ccdFormPage.setFieldValue(
             'Document (Optional)',
             '{@AppealResponseEvidence.pdf}',
+            'document',
             'first',
             'Evidence (Optional)',
             'first'
@@ -32,6 +35,7 @@ export class AddAppealResponseFlow {
         await this.ccdFormPage.setFieldValue(
             'Describe the document (Optional)',
             'This is the appeal response evidence',
+            'text area',
             'first',
             'Evidence (Optional)',
             'first'

@@ -4,6 +4,10 @@ import { by } from 'protractor';
 
 export class CcdWriteDateFieldFinder implements FieldFinder {
 
+    public getFieldType() {
+        return 'date';
+    }
+
     public async findByLabel(
         container,
         instanceNumber: number,

@@ -57,6 +57,7 @@ export class CcdPage extends AnyPage {
         collectionItemNumber?: string | number
     ) {
         const field = await this.fields.find(
+            '',
             fieldLabel,
             instanceNumber,
             collectionLabel,
@@ -75,6 +76,7 @@ export class CcdPage extends AnyPage {
         collectionItemNumber?: string | number
     ) {
         const field = await this.fields.find(
+            '',
             fieldLabel,
             instanceNumber,
             collectionLabel,
@@ -104,6 +106,7 @@ export class CcdPage extends AnyPage {
         collectionItemNumber?: string | number
     ) {
         const field = await this.fields.find(
+            '',
             fieldLabel,
             instanceNumber,
             collectionLabel,
