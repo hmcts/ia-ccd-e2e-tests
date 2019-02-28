@@ -12,12 +12,14 @@ export class BuildCaseFlow {
         await this.ccdFormPage.headingContains('Build your case');
         await this.ccdFormPage.setFieldValue(
             'Appeal skeleton argument',
-            '{@CaseArgument.pdf}'
+            '{@CaseArgument.pdf}',
+            'document'
         );
 
         await this.ccdFormPage.setFieldValue(
             'Describe the document (Optional)',
-            'This is the case argument'
+            'This is the case argument',
+            'text area'
         );
 
         await this.ccdFormPage.addCollectionItem('Evidence (Optional)');
@@ -26,6 +28,7 @@ export class BuildCaseFlow {
         await this.ccdFormPage.setFieldValue(
             'Document (Optional)',
             '{@CaseArgumentEvidence.pdf}',
+            'document',
             'first',
             'Evidence (Optional)',
             'first'
@@ -34,6 +37,7 @@ export class BuildCaseFlow {
         await this.ccdFormPage.setFieldValue(
             'Describe the document (Optional)',
             'The is the case argument evidence',
+            'text area',
             'first',
             'Evidence (Optional)',
             'first'

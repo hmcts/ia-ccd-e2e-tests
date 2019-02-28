@@ -88,6 +88,7 @@ export class Fields {
     }
 
     public async find(
+        fieldType: string,
         fieldLabel: string,
         instanceNumber?: string | number,
         complexFieldLabel?: string,
@@ -128,7 +129,7 @@ export class Fields {
                 throw 'Cannot find field: ' + fieldLabel + '@' + instanceNumber + ' (' + complexFieldLabel + '@' + collectionItemNumber + ')'
             }
 
-            return await this.findWithinContainer(container, fieldLabel);
+            return await this.findWithinContainer(container, fieldType, fieldLabel);
 
         } else {
 
@@ -136,7 +137,7 @@ export class Fields {
                 throw 'Cannot find field: ' + fieldLabel + '@' + instanceNumber + ')'
             }
 
-            return await this.findWithinContainer(container, fieldLabel, instanceNumber);
+            return await this.findWithinContainer(container, fieldType, fieldLabel, instanceNumber);
         }
     }
 
@@ -236,6 +237,7 @@ export class Fields {
 
     private async findWithinContainer(
         container: ElementFinder,
+        fieldType: string,
         fieldLabel: string,
         instanceNumber?: string | number
     ): Promise<Field> {
@@ -245,6 +247,12 @@ export class Fields {
             : OrdinalToCardinal.convertWordToNumber(instanceNumber);
 
         for (let i = 0; i < this.fieldFinders.length; i++) {
+
+            if (!!fieldType) {
+                if (await this.fieldFinders[i].getFieldType() !== fieldType) {
+                    continue;
+                }
+            }
 
             let field;
 

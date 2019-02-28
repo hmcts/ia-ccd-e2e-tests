@@ -70,6 +70,10 @@ Given('I save my initial appeal', async function () {
     await startAppealFlow.saveAppeal(true);
 });
 
+Given('I save my initial appeal with out of time decision letter', async function () {
+    await startAppealFlow.saveOutOfTimeAppeal(true);
+});
+
 Given('I wait for any found addresses to load', async function () {
     await ccdFormPage.doesDropdownHaveValues('Select an address');
 });

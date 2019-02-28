@@ -4,6 +4,10 @@ import { by } from 'protractor';
 
 export class CcdReadTableFieldFinder implements FieldFinder {
 
+    public getFieldType() {
+        return '';
+    }
+
     public async findByLabel(
         container,
         instanceNumber: number,

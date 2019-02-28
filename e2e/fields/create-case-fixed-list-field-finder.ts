@@ -4,6 +4,10 @@ import { $$, by } from 'protractor';
 
 export class CreateCaseFixedListFieldFinder implements FieldFinder {
 
+    public getFieldType() {
+        return 'select list';
+    }
+
     public async findByLabel(
         container,
         instanceNumber: number,

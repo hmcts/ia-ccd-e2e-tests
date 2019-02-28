@@ -4,6 +4,10 @@ import { by } from 'protractor';
 
 export class CcdWriteYesNoFieldFinder implements FieldFinder {
 
+    public getFieldType() {
+        return 'yes or no';
+    }
+
     public async findByLabel(
         container,
         instanceNumber: number,
