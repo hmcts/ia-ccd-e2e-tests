@@ -7,6 +7,6 @@ Feature: Creating a case shows imported jurisdiction and case type
     Then I should see the `Create Case` page
     And I wait for Create Case fields to load
     Then I should see `Immigration & Asylum` for the `Jurisdiction` field
-    Then I should see `IA Asylum Case` for the `Case type` field
+    Then I should see `IA Asylum Case` in the `Case type` field
     Then I should see `Start your appeal` for the `Event` field
     Then I should see the `Start` button

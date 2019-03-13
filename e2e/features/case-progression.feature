@@ -13,7 +13,7 @@ Feature: Case progression
 
     When I click the `Overview` tab
 
-    And I should not see the image `legalRep_appealSubmitted.png`
+    Then I should not see the image `legalRep_appealSubmitted.png`
 
     And I should see the image `legalRep_appealStarted.png`
     And I should see the text `Do this next`
@@ -37,8 +37,8 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `legalRep_appealStarted.png`
-    Then I should not see the image `caseOfficer_appealSubmitted.png`
-    Then I should not see the image `legalRep_awaitingRespondentEvidence.png`
+    And I should not see the image `caseOfficer_appealSubmitted.png`
+    And I should not see the image `legalRep_awaitingRespondentEvidence.png`
 
     And I should see the image `legalRep_appealSubmitted.png`
     And I should see the text `Do this next`
@@ -51,7 +51,7 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `legalRep_appealSubmitted.png`
-    Then I should not see the image `caseOfficer_awaitingRespondentEvidence.png`
+    And I should not see the image `caseOfficer_awaitingRespondentEvidence.png`
 
     And I should see the image `caseOfficer_appealSubmitted.png`
     And I should see the text `Do this next`
@@ -68,8 +68,8 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `caseOfficer_appealSubmitted.png`
-    Then I should not see the image `legalRep_awaitingRespondentEvidence.png`
-    Then I should not see the image `caseOfficer_caseBuilding.png`
+    And I should not see the image `legalRep_awaitingRespondentEvidence.png`
+    And I should not see the image `caseOfficer_caseBuilding.png`
 
     And I should see the image `caseOfficer_awaitingRespondentEvidence.png`
     And I should see the text `Do this next`
@@ -85,8 +85,8 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `legalRep_appealSubmitted.png`
-    Then I should not see the image `caseOfficer_awaitingRespondentEvidence.png`
-    Then I should not see the image `legalRep_caseBuilding.png`
+    And I should not see the image `caseOfficer_awaitingRespondentEvidence.png`
+    And I should not see the image `legalRep_caseBuilding.png`
 
     And I should see the image `legalRep_awaitingRespondentEvidence.png`
     And I should see the text `Do this next`
@@ -105,8 +105,10 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `caseOfficer_awaitingRespondentEvidence.png`
-    Then I should not see the image `legalRep_caseBuilding.png`
-    Then I should not see the image `caseOfficer_caseUnderReview.png`
+    And I should not see the image `legalRep_caseBuilding.png`
+    And I should not see the image `caseOfficer_caseUnderReview.png`
+    And I should not see the `Request respondent review` link
+    And I should not see the `Request case edit` link
 
     And I should see the image `caseOfficer_caseBuilding.png`
     And I should see the text `Do this next`
@@ -122,8 +124,8 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `legalRep_awaitingRespondentEvidence.png`
-    Then I should not see the image `caseOfficer_caseBuilding.png`
-    Then I should not see the image `legalRep_caseUnderReview.png`
+    And I should not see the image `caseOfficer_caseBuilding.png`
+    And I should not see the image `legalRep_caseUnderReview.png`
 
     And I should see the image `legalRep_caseBuilding.png`
     And I should see the text `Do this next`
@@ -141,11 +143,11 @@ Feature: Case progression
     When I build my case
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_awaitingRespondentEvidence.png`
+    And I should not see the image `legalRep_awaitingRespondentEvidence.png`
     Then I should not see the image `caseOfficer_caseBuilding.png`
-    Then I should not see the image `legalRep_caseUnderReview.png`
+    And I should not see the image `legalRep_caseUnderReview.png`
 
-    Then I should see the image `legalRep_caseBuilding.png`
+    And I should see the image `legalRep_caseBuilding.png`
     And I should see the text `Do this next`
     And I should see the text `If you're not yet ready for your case to be reviewed, continue to build your case`
     And I should see the text `If you're ready for your case to be reviewed, submit your case`
@@ -155,6 +157,7 @@ Feature: Case progression
     And I click the `Cancel` link
 
     When I click the `Overview` tab
+
     And I click the `submit your case` link
     Then I am on the `Submit your case` page
     And I click the `Cancel` link
@@ -167,8 +170,10 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `legalRep_caseBuilding.png`
-    Then I should not see the image `caseOfficer_caseUnderReview.png`
-    Then I should not see the image `legalRep_respondentReview.png`
+    And I should not see the image `caseOfficer_caseUnderReview.png`
+    And I should not see the image `legalRep_respondentReview.png`
+    And I should not see the `Request respondent review` link
+    And I should not see the `Request case edit` link
 
     And I should see the image `legalRep_caseUnderReview.png`
     And I should see the text `Do this next`
@@ -181,16 +186,23 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `caseOfficer_caseBuilding.png`
-    Then I should not see the image `legalRep_caseUnderReview.png`
-    Then I should not see the image `caseOfficer_respondentReview.png`
+    And I should not see the image `legalRep_caseUnderReview.png`
+    And I should not see the image `caseOfficer_respondentReview.png`
 
     And I should see the image `caseOfficer_caseUnderReview.png`
     And I should see the text `Do this next`
     And I should see the text `The appellant has submitted their built case`
     And I should see the text `send it to the respondent for their review`
+    And I should see the text `If the appellant needs to make any changes, you can direct them to edit the case`
 
     When I click the `Request respondent review` link
     Then I am on the `Request respondent review` page
+    And I click the `Cancel` link
+
+    When I click the `Overview` tab
+
+    When I click the `Request case edit` link
+    Then I am on the `Request case edit` page
     And I click the `Cancel` link
 
     ### respondent review, no appeal response
@@ -199,9 +211,9 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `caseOfficer_caseUnderReview.png`
-    Then I should not see the image `legalRep_respondentReview.png`
-    Then I should not see the image `caseOfficer_respondentReview_appealResponseAvailable.png`
-    Then I should not see the image `caseOfficer_submitHearingRequirements.png`
+    And I should not see the image `legalRep_respondentReview.png`
+    And I should not see the image `caseOfficer_respondentReview_appealResponseAvailable.png`
+    And I should not see the image `caseOfficer_submitHearingRequirements.png`
 
     And I should see the image `caseOfficer_respondentReview.png`
     And I should see the text `Do this next`
@@ -217,8 +229,8 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `legalRep_caseUnderReview.png`
-    Then I should not see the image `caseOfficer_respondentReview.png`
-    Then I should not see the image `legalRep_submitHearingRequirements.png`
+    And I should not see the image `caseOfficer_respondentReview.png`
+    And I should not see the image `legalRep_submitHearingRequirements.png`
 
     And I should see the image `legalRep_respondentReview.png`
     And I should see the text `Do this next`
@@ -235,8 +247,8 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `caseOfficer_respondentReview.png`
-    Then I should not see the image `legalRep_respondentReview.png`
-    Then I should not see the image `caseOfficer_submitHearingRequirements.png`
+    And I should not see the image `legalRep_respondentReview.png`
+    And I should not see the image `caseOfficer_submitHearingRequirements.png`
 
     And I should see the image `caseOfficer_respondentReview_appealResponseAvailable.png`
     And I should see the text `Do this next`
@@ -249,8 +261,8 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should not see the image `legalRep_caseUnderReview.png`
-    Then I should not see the image `caseOfficer_respondentReview.png`
-    Then I should not see the image `legalRep_submitHearingRequirements.png`
+    And I should not see the image `caseOfficer_respondentReview.png`
+    And I should not see the image `legalRep_submitHearingRequirements.png`
 
     And I should see the image `legalRep_respondentReview.png`
     And I should see the text `Do this next`
