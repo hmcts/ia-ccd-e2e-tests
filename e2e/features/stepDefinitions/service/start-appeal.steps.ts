@@ -88,6 +88,6 @@ Then(/^I see a list of all nationalities$/, async function () {
     );
 
     expect(nationalities).to.have.lengthOf(251);
-    expect(nationalities[1]).to.equal('Afghanistan');
-    expect(nationalities[(nationalities.length - 1)]).to.equal('Zimbabwe');
+    expect(nationalities.includes('Afghanistan')).to.equal(true);
+    expect(nationalities.includes('Zimbabwe')).to.equal(true);
 });
