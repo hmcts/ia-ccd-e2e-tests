@@ -11,7 +11,7 @@ export class CcdWriteCollectionFinder implements ComplexFieldFinder {
         return await container
             .all(by.xpath(
                 '//ccd-write-collection-field' +
-                '//h3[normalize-space()="' + complexFieldLabel + '"]' +
+                '//h2[normalize-space()="' + complexFieldLabel + '"]' +
                 '/ancestor::ccd-write-collection-field[position()=1]'
             ))
             .filter(e => e.isDisplayed())
