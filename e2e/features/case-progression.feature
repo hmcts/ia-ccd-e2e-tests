@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-944 @RIA-653 @RIA-985
+  @case-progression @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412
   Scenario: Case progression information is displayed for each case state (contextalised to Case Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -19,6 +19,9 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `You still need to submit your appeal`
     And I should see the text `You can also review and edit your appeal`
+
+    And I should see the option `Edit appeal` for the `Next step` field
+    And I should see the option `Submit your appeal` for the `Next step` field
 
     When I click the `Submit your appeal` link
     Then I am on the `Submit your appeal` page
@@ -45,6 +48,8 @@ Feature: Case progression
     And I should see the text `You have submitted your appeal`
     And I should see the text `You don't need to do anything else right now`
 
+    And I should not see the `Next step` field
+
     # CO:
 
     When I switch to be a `Case Officer`
@@ -57,6 +62,10 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `You must review the appeal in the documents tab`
     And I should see the text `tell the respondent to supply their evidence`
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Request respondent evidence` for the `Next step` field
 
     When I click the `Request respondent evidence` link
     Then I am on the `Request respondent evidence` page
@@ -75,6 +84,12 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `Upload the respondent's evidence as soon as you receive it`
 
+    And I should not see the option `Build your case` for the `Next step` field
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Upload respondent evidence` for the `Next step` field
+
     When I click the `Upload respondent evidence` link
     Then I am on the `Upload respondent evidence` page
     And I click the `Cancel` link
@@ -91,6 +106,13 @@ Feature: Case progression
     And I should see the image `legalRep_awaitingRespondentEvidence.png`
     And I should see the text `Do this next`
     And I should see the text `You'll get an email when the respondent evidence is available in the documents tab`
+
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `Upload respondent evidence` for the `Next step` field
+    And I should not see the option `Submit your case` for the `Next step` field
+
+    And I should see the option `Build your case` for the `Next step` field
 
     When I click the `Build your case` link
     Then I am on the `Build your case` page
@@ -114,6 +136,13 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `Wait for the appellant to submit their built case`
 
+    And I should not see the option `Build your case` for the `Next step` field
+    And I should not see the option `Submit your case` for the `Next step` field
+    And I should not see the option `Upload respondent evidence` for the `Next step` field
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+
     When I click the `Change the direction due date` link
     Then I am on the `Change the direction due date` page
     And I click the `Cancel` link
@@ -131,6 +160,12 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `The respondent evidence is now available in the documents tab`
     And I should not see the text `submit your case`
+
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+
+    And I should see the option `Build your case` for the `Next step` field
+    And I should see the option `Submit your case` for the `Next step` field
 
     When I click the `Build your case` link
     Then I am on the `Build your case` page
@@ -151,6 +186,12 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `If you're not yet ready for your case to be reviewed, continue to build your case`
     And I should see the text `If you're ready for your case to be reviewed, submit your case`
+
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+
+    And I should see the option `Build your case` for the `Next step` field
+    And I should see the option `Submit your case` for the `Next step` field
 
     When I click the `build your case` link
     Then I am on the `Build your case` page
@@ -180,6 +221,11 @@ Feature: Case progression
     And I should see the text `Your case is now under review`
     And I should see the text `You'll get an email telling you what happens next`
 
+    And I should not see the option `Build your case` for the `Next step` field
+    And I should not see the option `Submit your case` for the `Next step` field
+
+    And I should see the option `Upload additional evidence` for the `Next step` field
+
     # CO:
 
     When I switch to be a `Case Officer`
@@ -194,6 +240,13 @@ Feature: Case progression
     And I should see the text `The appellant has submitted their built case`
     And I should see the text `send it to the respondent for their review`
     And I should see the text `If the appellant needs to make any changes, you can direct them to edit the case`
+
+    And I should not see the option `Upload additional evidence` for the `Next step` field
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Request case edit` for the `Next step` field
+    And I should see the option `Request respondent review` for the `Next step` field
 
     When I click the `Request respondent review` link
     Then I am on the `Request respondent review` page
@@ -219,6 +272,15 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `Upload the Home Office's appeal response as soon as you receive it`
 
+    And I should not see the option `Request case edit` for the `Next step` field
+    And I should not see the option `Request respondent review` for the `Next step` field
+    And I should not see the option `Upload additional evidence` for the `Next step` field
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Add appeal response` for the `Next step` field
+    And I should see the option `Request hearing requirements` for the `Next step` field
+
     When I click the `Add appeal response` link
     Then I am on the `Add appeal response` page
     And I click the `Cancel` link
@@ -238,6 +300,13 @@ Feature: Case progression
     And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
     And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
 
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `Add appeal response` for the `Next step` field
+    And I should not see the option `Request hearing requirements` for the `Next step` field
+
+    And I should see the option `Upload additional evidence` for the `Next step` field
+
     ### respondent review, appeal response added
 
     # CO:
@@ -255,6 +324,13 @@ Feature: Case progression
     And I should see the text `The legal rep has been instructed to review the Home Office response`
     And I should see the text `If they don't respond within 5 days, the case proceeds to hearing`
 
+    And I should not see the option `Upload additional evidence` for the `Next step` field
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Add appeal response` for the `Next step` field
+    And I should see the option `Request hearing requirements` for the `Next step` field
+
     # LR:
 
     When I switch to be a `Legal Rep`
@@ -270,17 +346,56 @@ Feature: Case progression
     And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
     And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
 
-    ### submit hearing requirements
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `Add appeal response` for the `Next step` field
+    And I should not see the option `Request hearing requirements` for the `Next step` field
+
+    And I should see the option `Upload additional evidence` for the `Next step` field
+
+    ### listing
+
+    # CO:
 
     When I switch to be a `Case Officer`
     And I request hearing requirements
     And I click the `Overview` tab
-    Then I should not see the image `legalRep_submitHearingRequirements.png`
-    Then I should see the image `caseOfficer_submitHearingRequirements.png`
-    And I should see the text `Do this next`
-    And I should see the text `Wait for the appellant to submit their hearing requirements. You don't need to do anything right now.`
+
+    And I should not see the option `Add appeal response` for the `Next step` field
+    And I should not see the option `Request hearing requirements` for the `Next step` field
+    And I should not see the option `Upload additional evidence` for the `Next step` field
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `List the case` for the `Next step` field
+
+    # LR:
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-    Then I should not see the image `caseOfficer_submitHearingRequirements.png`
-    And I should not see the text `Do this next`
+
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `List the case` for the `Next step` field
+
+    And I should see the option `Upload additional evidence` for the `Next step` field
+
+    ### prepare for hearing
+
+    # CO:
+
+    When I switch to be a `Case Officer`
+    And I list the case
+    And I click the `Overview` tab
+
+    And I should not see the option `List the case` for the `Next step` field
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+
+    # LR:
+
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+
+    And I should not see the `Next step` field
