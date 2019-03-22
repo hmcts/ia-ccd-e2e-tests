@@ -59,10 +59,20 @@ export class StartAppealFlow {
         }
     }
 
-    async completeClientAddress(clickContinue = false) {
+    async completeClientAddress(clickContinue = false, hasFixedAddress = false) {
 
         await this.ccdFormPage.headingContains('Your client\'s address');
-        await this.ccdFormPage.setFieldValue('Does the appellant have a fixed address?', 'No');
+
+        if (!hasFixedAddress) {
+            await this.ccdFormPage.setFieldValue('Does the appellant have a fixed address?', 'No');
+        } else {
+            await this.ccdFormPage.setFieldValue('Does the appellant have a fixed address?', 'Yes');
+            await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'M1 4AH');
+            await this.ccdFormPage.click('Find address');
+            await this.ccdFormPage.doesDropdownHaveValues('Select an address');
+            await this.ccdFormPage.setFieldValue('Select an address', 'The Exchange, Piccadilly Plaza, Manchester');
+            await this.ccdFormPage.click('Continue');
+        }
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -139,11 +149,11 @@ export class StartAppealFlow {
         }
     }
 
-    async saveAppeal(clickContinue = false) {
+    async saveAppeal(clickContinue = false, hasFixedAddress = false) {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReference(true);
         await this.completeBasicDetails(true);
-        await this.completeClientAddress(true);
+        await this.completeClientAddress(true, hasFixedAddress);
         await this.whatTypeOfDecisionIsYourClientAppealingAgainst(true);
         await this.completeAppealGrounds(true);
         await this.completeNewMatters(true);
