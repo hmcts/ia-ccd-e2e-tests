@@ -361,6 +361,15 @@ Feature: Case progression
     And I request hearing requirements
     And I click the `Overview` tab
 
+    Then I should not see the image `caseOfficer_respondentReview_appealResponseAvailable.png`
+    And I should not see the image `legalRep_listing.png`
+    And I should not see the image `caseOfficer_prepareForHearing.png`
+
+    And I should see the image `caseOfficer_listing.png`
+    And I should see the text `Do this next`
+    And I should see the text `The appellant has submitted their hearing requirements`
+    And I should see the text `You should now list the case`
+
     And I should not see the option `Add appeal response` for the `Next step` field
     And I should not see the option `Request hearing requirements` for the `Next step` field
     And I should not see the option `Upload additional evidence` for the `Next step` field
@@ -369,10 +378,18 @@ Feature: Case progression
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `List the case` for the `Next step` field
 
+    When I click the `List the case` link
+    Then I am on the `List the case` page
+    And I click the `Cancel` link
+
     # LR:
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
+
+    Then I should not see the image `legalRep_respondentReview.png`
+    And I should not see the image `caseOfficer_listing.png`
+    And I should not see the image `legalRep_prepareForHearing.png`
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -388,6 +405,10 @@ Feature: Case progression
     And I list the case
     And I click the `Overview` tab
 
+    Then I should not see the image `caseOfficer_listing.png`
+    And I should not see the image `legalRep_prepareForHearing.png`
+    And I should not see the image `caseOfficer_finalBundling.png`
+
     And I should not see the option `List the case` for the `Next step` field
 
     And I should see the option `Send direction` for the `Next step` field
@@ -397,5 +418,9 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
+
+    Then I should not see the image `legalRep_listing.png`
+    And I should not see the image `caseOfficer_prepareForHearing.png`
+    And I should not see the image `legalRep_finalBundling.png`
 
     And I should not see the `Next step` field
