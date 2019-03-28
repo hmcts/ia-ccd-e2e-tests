@@ -30,3 +30,67 @@ Feature: Case list
     And I should see the text `Status`
     And I should see the text `Appeal start date`
     And I should not see the `DRAFT` link
+
+  @case-list @RIA-609
+  Scenario: Case list contains correct filters for Legal Rep
+
+    Given I am signed in as a `Legal Rep`
+    When I go to the `Case List`
+    And I should see the option `Immigration & Asylum` for the `Jurisdiction` field
+    And I should see the `Jurisdiction` field
+    And I should see the `Case type` field
+    And I should see the option `IA Asylum Case` for the `Case type` field
+    And I should see the `State` field
+    And I should see the option `Any` for the `State` field
+    And I should see the option `Appeal started` for the `State` field
+    And I should see the option `Appeal submitted` for the `State` field
+    And I should see the option `Appeal submitted out of time` for the `State` field
+    And I should see the option `Awaiting respondent evidence` for the `State` field
+    And I should see the option `Case building` for the `State` field
+    And I should see the option `Case under review` for the `State` field
+    And I should see the option `Respondent review` for the `State` field
+    And I should see the option `Submit hearing requirements` for the `State` field
+    And I should see the option `Listing` for the `State` field
+    And I should see the option `Prepare for hearing` for the `State` field
+    And I should see the option `Final bundling` for the `State` field
+    And I should see the option `Pre hearing` for the `State` field
+    And I should see the option `Hearing and outcome` for the `State` field
+    And I should see the option `Decided` for the `State` field
+    And I should see the `Hearing centre` field
+    And I should see the option `Manchester` for the `Hearing centre` field
+    And I should see the option `Taylor House` for the `Hearing centre` field
+    And I should see the `Reference number` field
+    And I should see the `Appeal start date` field
+    And I should see the `Appellant name` field
+
+  @case-list @RIA-609
+  Scenario: Case list contains correct filters for Case Officer
+
+    Given I am signed in as a `Case Officer`
+    When I go to the `Case List`
+    And I should see the option `Immigration & Asylum` for the `Jurisdiction` field
+    And I should see the `Jurisdiction` field
+    And I should see the `Case type` field
+    And I should see the option `IA Asylum Case` for the `Case type` field
+    And I should see the `State` field
+    And I should see the option `Any` for the `State` field
+    And I should not see the option `Appeal started` for the `State` field
+    And I should see the option `Appeal submitted` for the `State` field
+    And I should see the option `Appeal submitted out of time` for the `State` field
+    And I should see the option `Awaiting respondent evidence` for the `State` field
+    And I should see the option `Case building` for the `State` field
+    And I should see the option `Case under review` for the `State` field
+    And I should see the option `Respondent review` for the `State` field
+    And I should see the option `Submit hearing requirements` for the `State` field
+    And I should see the option `Listing` for the `State` field
+    And I should see the option `Prepare for hearing` for the `State` field
+    And I should see the option `Final bundling` for the `State` field
+    And I should see the option `Pre hearing` for the `State` field
+    And I should see the option `Hearing and outcome` for the `State` field
+    And I should see the option `Decided` for the `State` field
+    And I should see the `Hearing centre` field
+    And I should see the option `Manchester` for the `Hearing centre` field
+    And I should see the option `Taylor House` for the `Hearing centre` field
+    And I should see the `Reference number` field
+    And I should see the `Appeal start date` field
+    And I should see the `Appellant name` field

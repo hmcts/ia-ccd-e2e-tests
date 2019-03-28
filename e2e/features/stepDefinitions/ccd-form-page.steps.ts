@@ -8,6 +8,105 @@ Then(/^I should see an error saying `?([^`]+)`?$/, async function (errorMessage)
     expect(await ccdFormPage.fieldErrorContains(errorMessage)).to.equal(true);
 });
 
+When(/^I should (see|not see) the option `?([^`]+)`? for the `?(first|second|third|)`?\s?field without a label$/,
+    async function (
+        seeOrNotSee,
+        option,
+        instanceNumber
+    ) {
+        const fieldOptions = await ccdFormPage.getFieldOptions(
+            '',
+            instanceNumber
+        );
+
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
+    });
+
+When(/^I should (see|not see) the option `?([^`]+)`? for the `?(first|second|third|)`?\s?`?([^`]+)`? field$/,
+    async function (
+        seeOrNotSee,
+        option,
+        instanceNumber,
+        fieldLabel
+    ) {
+        const fieldOptions = await ccdFormPage.getFieldOptions(
+            fieldLabel,
+            instanceNumber
+        );
+
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
+    });
+
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should (see|not see) the option `?([^`]+)`? for the field without a label$/,
+    async function (
+        instanceNumber,
+        fieldsetLabel,
+        seeOrNotSee,
+        option
+    ) {
+        const fieldOptions = await ccdFormPage.getFieldOptions(
+            '',
+            instanceNumber,
+            fieldsetLabel
+        );
+
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
+    });
+
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should (see|not see) the option `?([^`]+)`? for the `?([^`]+)`? field$/,
+    async function (
+        instanceNumber,
+        fieldsetLabel,
+        seeOrNotSee,
+        option,
+        fieldLabel
+    ) {
+        const fieldOptions = await ccdFormPage.getFieldOptions(
+            fieldLabel,
+            instanceNumber,
+            fieldsetLabel
+        );
+
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
+    });
+
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should (see|not see) the option `?([^`]+)`? for the field without a label$/,
+    async function (
+        instanceNumber,
+        collectionLabel,
+        collectionItemNumber,
+        seeOrNotSee,
+        option
+    ) {
+        const fieldOptions = await ccdFormPage.getFieldOptions(
+            '',
+            instanceNumber,
+            collectionLabel,
+            collectionItemNumber
+        );
+
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
+    });
+
+When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should (see|not see) the option `?([^`]+)`? for the `?([^`]+)`? field$/,
+    async function (
+        instanceNumber,
+        collectionLabel,
+        collectionItemNumber,
+        seeOrNotSee,
+        option,
+        fieldLabel
+    ) {
+        const fieldOptions = await ccdFormPage.getFieldOptions(
+            fieldLabel,
+            instanceNumber,
+            collectionLabel,
+            collectionItemNumber
+        );
+
+        expect(fieldOptions.includes(option)).to.equal(seeOrNotSee === 'see');
+    });
+
 When(/^I add (?:an|another) item to the `?(first|second|third|)`?\s?`?([^`]+)`? collection$/,
     async function (
         instanceNumber,
