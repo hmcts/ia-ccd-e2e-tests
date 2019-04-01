@@ -1,22 +1,28 @@
 import { CaseListFlow } from '../../../flows/case-list.flow';
-import { CcdPage } from '../../../pages/ccd.page';
+import { CcdFormPage } from '../../../pages/ccd-form.page';
 import { When } from 'cucumber';
+import { expect } from 'chai';
 
 const caseListFlow = new CaseListFlow();
-const ccdPage = new CcdPage();
+const ccdFormPage = new CcdFormPage();
 
 When(/^I open `?([^`]+)`?$/, async function (uri) {
-    await ccdPage.get(uri);
+    await ccdFormPage.get(uri);
 });
 
 When('I go to the `Case List`', async function () {
-    await ccdPage.get('/list/case');
+    await ccdFormPage.get('/list/case');
 });
 
 When('I attempt to go to the `Case List`', async function () {
-    await ccdPage.get('/list/case');
+    await ccdFormPage.get('/list/case');
 });
 
 When('I filter the cases by todays date', async function () {
     await caseListFlow.filterCasesByTodaysDate(true);
+});
+
+When('I should see the option `IA Asylum Case` prefix for the `Case type` field', async function () {
+    const caseTypes = await ccdFormPage.getFieldOptions('Case type');
+    expect(caseTypes.some(caseType => caseType.startsWith('IA Asylum Case'))).to.equal(true);
 });
