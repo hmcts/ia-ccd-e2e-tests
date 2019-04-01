@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412
+  @case-progression @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364
   Scenario: Case progression information is displayed for each case state (contextalised to Case Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -410,9 +410,11 @@ Feature: Case progression
     And I should not see the image `caseOfficer_finalBundling.png`
 
     And I should not see the option `List the case` for the `Next step` field
+    And I should not see the option `Upload additional evidence` for the `Next step` field
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Create case summary` for the `Next step` field
 
     # LR:
 
@@ -422,5 +424,31 @@ Feature: Case progression
     Then I should not see the image `legalRep_listing.png`
     And I should not see the image `caseOfficer_prepareForHearing.png`
     And I should not see the image `legalRep_finalBundling.png`
+
+    And I should not see the `Next step` field
+
+    ### final bundling
+
+    # CO:
+
+    When I switch to be a `Case Officer`
+    And I create case summary
+    And I click the `Overview` tab
+
+    And I should not see the image `legalRep_finalBundling.png`
+    And I should not see the image `caseOfficer_finalBundling.png`
+
+    And I should not see the option `Create case summary` for the `Next step` field
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+
+    # LR:
+
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+
+    And I should not see the image `legalRep_finalBundling.png`
+    And I should not see the image `caseOfficer_finalBundling.png`
 
     And I should not see the `Next step` field
