@@ -13,12 +13,14 @@ Feature: Case progression
 
     When I click the `Overview` tab
 
-    Then I should not see the image `legalRep_appealSubmitted.png`
+    Then I should only see the `legalRep_appealStarted` case progress image
 
-    And I should see the image `legalRep_appealStarted.png`
     And I should see the text `Do this next`
     And I should see the text `You still need to submit your appeal`
     And I should see the text `You can also review and edit your appeal`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should see the option `Edit appeal` for the `Next step` field
     And I should see the option `Submit your appeal` for the `Next step` field
@@ -39,14 +41,14 @@ Feature: Case progression
     When I submit my appeal
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_appealStarted.png`
-    And I should not see the image `caseOfficer_appealSubmitted.png`
-    And I should not see the image `legalRep_awaitingRespondentEvidence.png`
+    Then I should only see the `legalRep_appealSubmitted` case progress image
 
-    And I should see the image `legalRep_appealSubmitted.png`
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal`
     And I should see the text `You don't need to do anything else right now`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the `Next step` field
 
@@ -55,13 +57,14 @@ Feature: Case progression
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_appealSubmitted.png`
-    And I should not see the image `caseOfficer_awaitingRespondentEvidence.png`
+    Then I should only see the `caseOfficer_appealSubmitted` case progress image
 
-    And I should see the image `caseOfficer_appealSubmitted.png`
     And I should see the text `Do this next`
     And I should see the text `You must review the appeal in the documents tab`
     And I should see the text `tell the respondent to supply their evidence`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
@@ -76,13 +79,13 @@ Feature: Case progression
     When I request respondent evidence
     And I click the `Overview` tab
 
-    Then I should not see the image `caseOfficer_appealSubmitted.png`
-    And I should not see the image `legalRep_awaitingRespondentEvidence.png`
-    And I should not see the image `caseOfficer_caseBuilding.png`
+    Then I should only see the `caseOfficer_awaitingRespondentEvidence` case progress image
 
-    And I should see the image `caseOfficer_awaitingRespondentEvidence.png`
     And I should see the text `Do this next`
     And I should see the text `Upload the respondent's evidence as soon as you receive it`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Build your case` for the `Next step` field
 
@@ -99,13 +102,13 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_appealSubmitted.png`
-    And I should not see the image `caseOfficer_awaitingRespondentEvidence.png`
-    And I should not see the image `legalRep_caseBuilding.png`
+    Then I should only see the `legalRep_awaitingRespondentEvidence` case progress image
 
-    And I should see the image `legalRep_awaitingRespondentEvidence.png`
     And I should see the text `Do this next`
     And I should see the text `You'll get an email when the respondent evidence is available in the documents tab`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -126,15 +129,16 @@ Feature: Case progression
     And I upload respondent evidence
     And I click the `Overview` tab
 
-    Then I should not see the image `caseOfficer_awaitingRespondentEvidence.png`
-    And I should not see the image `legalRep_caseBuilding.png`
-    And I should not see the image `caseOfficer_caseUnderReview.png`
+    Then I should only see the `caseOfficer_caseBuilding` case progress image
+
     And I should not see the `Request respondent review` link
     And I should not see the `Request case edit` link
 
-    And I should see the image `caseOfficer_caseBuilding.png`
     And I should see the text `Do this next`
     And I should see the text `Wait for the appellant to submit their built case`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Build your case` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
@@ -152,14 +156,14 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_awaitingRespondentEvidence.png`
-    And I should not see the image `caseOfficer_caseBuilding.png`
-    And I should not see the image `legalRep_caseUnderReview.png`
+    Then I should only see the `legalRep_caseBuilding` case progress image
 
-    And I should see the image `legalRep_caseBuilding.png`
     And I should see the text `Do this next`
     And I should see the text `The respondent evidence is now available in the documents tab`
     And I should not see the text `submit your case`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -178,14 +182,14 @@ Feature: Case progression
     When I build my case
     And I click the `Overview` tab
 
-    And I should not see the image `legalRep_awaitingRespondentEvidence.png`
-    Then I should not see the image `caseOfficer_caseBuilding.png`
-    And I should not see the image `legalRep_caseUnderReview.png`
+    Then I should only see the `legalRep_caseBuilding` case progress image
 
-    And I should see the image `legalRep_caseBuilding.png`
     And I should see the text `Do this next`
     And I should see the text `If you're not yet ready for your case to be reviewed, continue to build your case`
     And I should see the text `If you're ready for your case to be reviewed, submit your case`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -210,16 +214,17 @@ Feature: Case progression
     When I submit my case
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_caseBuilding.png`
-    And I should not see the image `caseOfficer_caseUnderReview.png`
-    And I should not see the image `legalRep_respondentReview.png`
-    And I should not see the `Request respondent review` link
-    And I should not see the `Request case edit` link
+    Then I should only see the `legalRep_caseUnderReview` case progress image
 
-    And I should see the image `legalRep_caseUnderReview.png`
     And I should see the text `Do this next`
     And I should see the text `Your case is now under review`
     And I should see the text `You'll get an email telling you what happens next`
+
+    And I should not see the `Request respondent review` link
+    And I should not see the `Request case edit` link
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Build your case` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
@@ -231,15 +236,15 @@ Feature: Case progression
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
 
-    Then I should not see the image `caseOfficer_caseBuilding.png`
-    And I should not see the image `legalRep_caseUnderReview.png`
-    And I should not see the image `caseOfficer_respondentReview.png`
+    Then I should only see the `caseOfficer_caseUnderReview` case progress image
 
-    And I should see the image `caseOfficer_caseUnderReview.png`
     And I should see the text `Do this next`
     And I should see the text `The appellant has submitted their built case`
     And I should see the text `send it to the respondent for their review`
     And I should see the text `If the appellant needs to make any changes, you can direct them to edit the case`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Upload additional evidence` for the `Next step` field
 
@@ -263,14 +268,13 @@ Feature: Case progression
     When I request respondent review
     And I click the `Overview` tab
 
-    Then I should not see the image `caseOfficer_caseUnderReview.png`
-    And I should not see the image `legalRep_respondentReview.png`
-    And I should not see the image `caseOfficer_respondentReview_appealResponseAvailable.png`
-    And I should not see the image `caseOfficer_submitHearingRequirements.png`
+    Then I should only see the `caseOfficer_respondentReview` case progress image
 
-    And I should see the image `caseOfficer_respondentReview.png`
     And I should see the text `Do this next`
     And I should see the text `Upload the Home Office's appeal response as soon as you receive it`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Request case edit` for the `Next step` field
     And I should not see the option `Request respondent review` for the `Next step` field
@@ -290,15 +294,15 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_caseUnderReview.png`
-    And I should not see the image `caseOfficer_respondentReview.png`
-    And I should not see the image `legalRep_submitHearingRequirements.png`
+    Then I should only see the `legalRep_respondentReview` case progress image
 
-    And I should see the image `legalRep_respondentReview.png`
     And I should see the text `Do this next`
     And I should see the text `The case has now been sent to the respondent for review`
     And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
     And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -315,14 +319,14 @@ Feature: Case progression
     And I add the appeal response
     And I click the `Overview` tab
 
-    Then I should not see the image `caseOfficer_respondentReview.png`
-    And I should not see the image `legalRep_respondentReview.png`
-    And I should not see the image `caseOfficer_submitHearingRequirements.png`
+    Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
 
-    And I should see the image `caseOfficer_respondentReview_appealResponseAvailable.png`
     And I should see the text `Do this next`
     And I should see the text `The legal rep has been instructed to review the Home Office response`
     And I should see the text `If they don't respond within 5 days, the case proceeds to hearing`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Upload additional evidence` for the `Next step` field
 
@@ -336,15 +340,15 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_caseUnderReview.png`
-    And I should not see the image `caseOfficer_respondentReview.png`
-    And I should not see the image `legalRep_submitHearingRequirements.png`
+    Then I should only see the `legalRep_respondentReview` case progress image
 
-    And I should see the image `legalRep_respondentReview.png`
     And I should see the text `Do this next`
     And I should see the text `The case has now been sent to the respondent for review`
     And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
     And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -361,14 +365,14 @@ Feature: Case progression
     And I request hearing requirements
     And I click the `Overview` tab
 
-    Then I should not see the image `caseOfficer_respondentReview_appealResponseAvailable.png`
-    And I should not see the image `legalRep_listing.png`
-    And I should not see the image `caseOfficer_prepareForHearing.png`
+    Then I should only see the `caseOfficer_listing` case progress image
 
-    And I should see the image `caseOfficer_listing.png`
     And I should see the text `Do this next`
     And I should see the text `The appellant has submitted their hearing requirements`
     And I should see the text `You should now list the case`
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Add appeal response` for the `Next step` field
     And I should not see the option `Request hearing requirements` for the `Next step` field
@@ -387,9 +391,10 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_respondentReview.png`
-    And I should not see the image `caseOfficer_listing.png`
-    And I should not see the image `legalRep_prepareForHearing.png`
+    Then I should not see any case progress images
+
+    And I should see the case details
+    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -405,9 +410,13 @@ Feature: Case progression
     And I list the case
     And I click the `Overview` tab
 
-    Then I should not see the image `caseOfficer_listing.png`
-    And I should not see the image `legalRep_prepareForHearing.png`
-    And I should not see the image `caseOfficer_finalBundling.png`
+    Then I should only see the `caseOfficer_prepareForHearing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `You must create a case summary for the judge to use at the hearing`
+
+    And I should see the case details
+    And I should see the hearing details
 
     And I should not see the option `List the case` for the `Next step` field
     And I should not see the option `Upload additional evidence` for the `Next step` field
@@ -416,14 +425,19 @@ Feature: Case progression
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Create case summary` for the `Next step` field
 
+    When I click the `Create case summary` link
+    Then I am on the `Create case summary` page
+    And I click the `Cancel` link
+
     # LR:
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see the image `legalRep_listing.png`
-    And I should not see the image `caseOfficer_prepareForHearing.png`
-    And I should not see the image `legalRep_finalBundling.png`
+    Then I should not see any case progress images
+
+    And I should see the case details
+    And I should see the hearing details
 
     And I should not see the `Next step` field
 
@@ -435,8 +449,10 @@ Feature: Case progression
     And I create case summary
     And I click the `Overview` tab
 
-    And I should not see the image `legalRep_finalBundling.png`
-    And I should not see the image `caseOfficer_finalBundling.png`
+    Then I should not see any case progress images
+
+    And I should see the case details
+    And I should see the hearing details
 
     And I should not see the option `Create case summary` for the `Next step` field
 
@@ -448,7 +464,9 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    And I should not see the image `legalRep_finalBundling.png`
-    And I should not see the image `caseOfficer_finalBundling.png`
+    Then I should not see any case progress images
+
+    And I should see the case details
+    And I should see the hearing details
 
     And I should not see the `Next step` field

@@ -2,6 +2,7 @@ import { CcdPage } from '../../pages/ccd.page';
 import { Given, Then, When } from 'cucumber';
 import { browser } from 'protractor';
 import { expect } from 'chai';
+import { Wait } from '../../enums/wait';
 
 const ccdPage = new CcdPage();
 
@@ -54,8 +55,8 @@ Then(/^I (?:should |)(see|not see) the image `?([^`]+)`?$/, async function (seeO
 });
 
 Then(/^I (?:should |)(see|not see) the text `?([^`]+)`?$/, async function (seeOrNotSee, match) {
-    const shortWait = (seeOrNotSee === 'not see');
-    expect(await ccdPage.contentContains(match, shortWait)).to.equal(seeOrNotSee === 'see');
+    const wait = (seeOrNotSee === 'not see') ? Wait.short : Wait.normal;
+    expect(await ccdPage.contentContains(match, wait)).to.equal(seeOrNotSee === 'see');
 });
 
 Then(/^I (?:should |)(see|not see) the `?([^`]+)`? (?:button|link|tab|label)$/, async function (seeOrNotSee, linkText) {

@@ -16,6 +16,14 @@ export class AnyPage {
         await browser.get(uri);
     }
 
+    async getDisplayedImageSources() {
+
+        return await element
+            .all(by.xpath('//img'))
+            .filter(e => e.isPresent() && e.isDisplayed())
+            .map(async (img) => (await img.getAttribute('src')).trim());
+    }
+
     async click(linkText: string) {
 
         const expandedLinkText = await this.valueExpander.expand(linkText);
@@ -172,7 +180,7 @@ export class AnyPage {
         }
     }
 
-    async contentContains(match: string, shortWait = false) {
+    async contentContains(match: string, wait: Wait = Wait.normal) {
 
         const expandedMatch = await this.valueExpander.expand(match);
 
@@ -203,7 +211,7 @@ export class AnyPage {
                         .filter(e => e.isPresent() && e.isDisplayed())
                         .count()) > 0;
                 },
-                shortWait ? Wait.short : Wait.normal
+                wait
             );
 
             return true;
