@@ -12,6 +12,11 @@ export class ListCaseFlow {
         await this.ccdFormPage.headingContains('List the case');
 
         await this.ccdFormPage.setFieldValue(
+            'Hearing centre',
+            'Taylor House'
+        );
+
+        await this.ccdFormPage.setFieldValue(
             'Length of hearing',
             '6 hours'
         );
