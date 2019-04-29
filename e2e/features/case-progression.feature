@@ -460,6 +460,10 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
 
+    When I click the `Generate hearing bundle` link
+    Then I am on the `Generate hearing bundle` page
+    And I click the `Cancel` link
+
     # LR:
 
     When I switch to be a `Legal Rep`
