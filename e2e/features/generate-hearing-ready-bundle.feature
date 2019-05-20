@@ -24,8 +24,8 @@ Feature: Generate hearing ready bundle
     When I click the `Documents` tab
     Then I should see the `Documents` page
 
-    When I select the `Generate hearing bundle` Next step
-    Then I should see the `Generate hearing bundle` page
+    When I select the `Generate hearing ready bundle` Next step
+    Then I should see the `Generate hearing ready bundle` page
     And I should see the `Generate` button
 
     When I click the `Generate` button

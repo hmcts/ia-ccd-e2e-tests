@@ -449,13 +449,14 @@ Feature: Case progression
     And I create case summary
     And I click the `Overview` tab
 
-    Then I should not see any case progress images
+    Then I should only see the `caseOfficer_finalBundling` case progress image
 
     And I should see the case details
     And I should see the hearing details
 
     And I should not see the option `Create case summary` for the `Next step` field
 
+    And I should see the option `Generate hearing ready bundle` for the `Next step` field
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
 
