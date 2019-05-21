@@ -27,29 +27,29 @@ Feature: Start decision and reasons
     Then I should see the text `Start decision and reasons`
     And I should see the text `Write a brief introduction to the case`
 
-    When I type `some introduction` for the `Introduction` field
+    When I type `some introduction` for the `Introduction (Optional)` field
     And I click the `Continue` button
     Then I should see the text `Add the appellant's case summary`
 
-    When I type `some case summary` for the `Appellant's case summary` field
+    When I type `some case summary` for the `Appellant's case summary (Optional)` field
     And I click the `Continue` button
     Then I should see the text `Do both parties agree the immigration history?`
 
     When I select `Yes` for the `Do both parties agree the immigration history?` field
     Then I see the text `Agreed immigration history`
-    And I should not see the text `Give the respondent's account of the immigration history`
-    And I should not see the text `Give the areas of disagreement in relation to immigration history`
+    And I should not see the text `Give the respondent's account of the immigration history (Optional)`
+    And I should not see the text `Give the areas of disagreement in relation to immigration history (Optional)`
 
-    When I type `some agreed immigration history` for the `Agreed immigration history` field
+    When I type `some agreed immigration history` for the `Agreed immigration history (Optional)` field
     And I click the `Continue` button
     Then I see the text `Do both parties agree the schedule of issues?`
 
     When I select `Yes` for the `Do both parties agree the schedule of issues?` field
     Then I see the text `Go to the documents tab and find the appeal skeleton argument for this case. This should contain the schedule of issues written by the appellant's legal representative. You can copy and paste the schedule of issues into the box below.`
-    And I see the text `The appellant's schedule of issues as stated in the appeal skeleton argument.`
-    And I should not see the text `Describe any refinement or additions to the appellent's schedule of issues.`
+    And I see the text `The appellant's schedule of issues (Optional)`
+    And I should not see the text `Describe any refinement or additions to the appellent's schedule of issues (Optional)`
 
-    When I type `some schedule of issues` for the `The appellant's schedule of issues as stated in the appeal skeleton argument.` field
+    When I type `some schedule of issues` for the `The appellant's schedule of issues (Optional)` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `some introduction` in the `Introduction` field
@@ -57,9 +57,9 @@ Feature: Start decision and reasons
     And I should see `Yes` in the `Do both parties agree the immigration history?` field
     And I should see `some agreed immigration history` in the `Agreed immigration history` field
     And I should see `Yes` in the `Do both parties agree the schedule of issues?` field
-    And I should see `some schedule of issues` in the `The appellant's schedule of issues as stated in the appeal skeleton argument.` field
+    And I should see `some schedule of issues` in the `The appellant's schedule of issues` field
 
-    And I should not see the `Describe any refinement or additions to the appellent's schedule of issues.` field
+    And I should not see the `Describe any refinement or additions to the appellent's schedule of issues` field
     And I should not see the `Give the respondent's account of the immigration history` field
     And I should not see the `Give the areas of disagreement in relation to immigration history` field
 
@@ -76,9 +76,9 @@ Feature: Start decision and reasons
     And I should see `Yes` in the `Do both parties agree the immigration history?` field
     And I should see `some agreed immigration history` in the `Agreed immigration history` field
     And I should see `Yes` in the `Do both parties agree the schedule of issues?` field
-    And I should see `some schedule of issues` in the `The appellant's schedule of issues as stated in the appeal skeleton argument.` field
+    And I should see `some schedule of issues` in the `The appellant's schedule of issues` field
 
-    And I should not see the `Describe any refinement or additions to the appellent's schedule of issues.` field
+    And I should not see the `Describe any refinement or additions to the appellent's schedule of issues` field
     And I should not see the `Give the respondent's account of the immigration history` field
     And I should not see the `Give the areas of disagreement in relation to immigration history` field
 
@@ -92,32 +92,32 @@ Feature: Start decision and reasons
     Then I should see the text `Start decision and reasons`
     And I should see the text `Write a brief introduction to the case`
 
-    When I type `some introduction` for the `Introduction` field
+    When I type `some introduction` for the `Introduction (Optional)` field
     And I click the `Continue` button
     Then I should see the text `Add the appellant's case summary`
 
-    When I type `some case summary` for the `Appellant's case summary` field
+    When I type `some case summary` for the `Appellant's case summary (Optional)` field
     And I click the `Continue` button
     Then I should see the text `Do both parties agree the immigration history?`
 
     When I select `No` for the `Do both parties agree the immigration history?` field
-    And I should see the text `Give the respondent's account of the immigration history`
-    And I should see the text `Give the areas of disagreement in relation to immigration history`
+    And I should see the text `Give the respondent's account of the immigration history (Optional)`
+    And I should see the text `Give the areas of disagreement in relation to immigration history (Optional)`
     And I should not see the text `Agreed immigration history`
 
-    When I type `some respondents account of immigration history` for the `Give the respondent's account of the immigration history` field
-    And I type `some areas of disagreement` for the `Give the areas of disagreement in relation to immigration history` field
+    When I type `some respondents account of immigration history` for the `Give the respondent's account of the immigration history (Optional)` field
+    And I type `some areas of disagreement` for the `Give the areas of disagreement in relation to immigration history (Optional)` field
     And I click the `Continue` button
     Then I see the text `Do both parties agree the schedule of issues?`
 
     When I select `No` for the `Do both parties agree the schedule of issues?` field
-    And I see the text `Any discussion of the schedule of issues is likely to be found in the document tab. You should check the appeal skeleton argument and the Home Office's response.`
-    And I see the text `The appellant's schedule of issues as stated in the appeal skeleton argument.`
-    And I see the text `Describe any refinement or additions to the appellent's schedule of issues.`
+    And I see the text `Any discussion of the schedule of issues is likely to be found in the document tab. You should check the appeal skeleton argument and the Home Office's response and include the relevant information in the boxes below.`
+    And I see the text `The appellant's schedule of issues as stated in the appeal skeleton argument (Optional)`
+    And I see the text `Describe any refinement or additions to the appellent's schedule of issues (Optional)`
     And I should not see the text `Go to the documents tab and find the appeal skeleton argument for this case. This should contain the schedule of issues written by the appellant's legal representative. You can copy and paste the schedule of issues into the box below.`
 
-    When I type `some schedule of issues` for the `The appellant's schedule of issues as stated in the appeal skeleton argument.` field
-    And I type `some refinement or additions` for the `Describe any refinement or additions to the appellent's schedule of issues.` field
+    When I type `some schedule of issues` for the `The appellant's schedule of issues as stated in the appeal skeleton argument (Optional)` field
+    And I type `some refinement or additions` for the `Describe any refinement or additions to the appellent's schedule of issues (Optional)` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `some introduction` in the `Introduction` field
@@ -128,8 +128,8 @@ Feature: Start decision and reasons
     And I should see `some areas of disagreement` in the `Give the areas of disagreement in relation to immigration history` field
 
     And I should see `No` in the `Do both parties agree the schedule of issues?` field
-    And I should see `some schedule of issues` in the `The appellant's schedule of issues as stated in the appeal skeleton argument.` field
-    And I should see `some refinement or additions` in the `Describe any refinement or additions to the appellent's schedule of issues.` field
+    And I should see `some schedule of issues` in the `The appellant's schedule of issues as stated in the appeal skeleton argument` field
+    And I should see `some refinement or additions` in the `Describe any refinement or additions to the appellent's schedule of issues` field
 
     And I should not see the `Agreed immigration history` field
 
@@ -149,8 +149,8 @@ Feature: Start decision and reasons
     And I should see `some areas of disagreement` in the `Give the areas of disagreement in relation to immigration history` field
 
     And I should see `No` in the `Do both parties agree the schedule of issues?` field
-    And I should see `some schedule of issues` in the `The appellant's schedule of issues as stated in the appeal skeleton argument.` field
-    And I should see `some refinement or additions` in the `Describe any refinement or additions to the appellent's schedule of issues.` field
+    And I should see `some schedule of issues` in the `The appellant's schedule of issues as stated in the appeal skeleton argument` field
+    And I should see `some refinement or additions` in the `Describe any refinement or additions to the appellent's schedule of issues` field
 
     And I should not see the `Agreed immigration history` field
 
