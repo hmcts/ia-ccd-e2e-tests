@@ -1,7 +1,7 @@
 Feature: Case progression
 
   @case-progression @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364
-  Scenario: Case progression information is displayed for each case state (contextalised to Case Officer or Legal Rep)
+  Scenario: Case progression information is displayed for each case state (contextualised to Case Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
     And I create a new case
