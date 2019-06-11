@@ -505,3 +505,34 @@ Feature: Case progression
     And I should see the hearing details
 
     And I should not see the `Next step` field
+
+    # start decision and reasons
+
+    When I switch to be a `Case Officer`
+    And I start decision and reasons
+    And I click the `Overview` tab
+
+    Then I should only see the `caseOfficer_decision` case progress image
+    And I should see the case details
+    And I should see the hearing details
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Generate decision and reasons` for the `Next step` field
+
+    When I click the `Generate decision and reasons` link
+    Then I am on the `Generate decision and reasons` page
+    And I click the `Cancel` link
+
+    # LR:
+
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+
+    Then I should not see any case progress images
+
+    And I should see the case details
+    And I should see the hearing details
+    And I should not see the `Next step` field
+
+
+
