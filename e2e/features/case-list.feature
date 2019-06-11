@@ -53,7 +53,7 @@ Feature: Case list
     And I should see the option `Prepare for hearing` for the `State` field
     And I should see the option `Final bundling` for the `State` field
     And I should see the option `Pre hearing` for the `State` field
-    And I should see the option `Hearing and outcome` for the `State` field
+    And I should see the option `Decision` for the `State` field
     And I should see the option `Decided` for the `State` field
     And I should see the `Hearing centre` field
     And I should see the option `Manchester` for the `Hearing centre` field
@@ -84,7 +84,7 @@ Feature: Case list
     And I should see the option `Prepare for hearing` for the `State` field
     And I should see the option `Final bundling` for the `State` field
     And I should see the option `Pre hearing` for the `State` field
-    And I should see the option `Hearing and outcome` for the `State` field
+    And I should see the option `Decision` for the `State` field
     And I should see the option `Decided` for the `State` field
     And I should see the `Hearing centre` field
     And I should see the option `Manchester` for the `Hearing centre` field
