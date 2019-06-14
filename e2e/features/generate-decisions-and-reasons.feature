@@ -23,8 +23,13 @@ Feature: Generate decision and reasons
 
 
 
-  @generate-decision-and-reasons @RIA-1152 @RIA-1153
+  @generate-decision-and-reasons @RIA-1152 @RIA-1153 @RIA-1540 @RIA-1544
   Scenario: Start decision and reasons
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `caseOfficer_decision.png`
+    And I should see the text `Do this next`
+    Then I should see the `Generate decision and reasons` link
     When I select the `Generate decision and reasons` Next step
     Then I should see the text `Generate decision and reasons`
     And I should see the text `Are you giving an anonymity direction?`
@@ -51,6 +56,8 @@ Feature: Generate decision and reasons
     Then I should see the `Documents` page
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-decision-and-reasons-draft.docx` in the `Document` field
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-
-
-
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `caseOfficer_decision.png`
+    And I should see the text `Do this next`
+    Then I should see the `Send the decision and reason document` link
