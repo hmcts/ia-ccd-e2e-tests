@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -485,6 +485,8 @@ Feature: Case progression
     And I generate the hearing bundle
     And I click the `Overview` tab
 
+    Then I should only see the `caseOfficer_preHearing` case progress image
+
     And I should see the case details
     And I should see the hearing details
 
@@ -493,6 +495,10 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Start decision and reasons` for the `Next step` field
+
+    When I click the `Start decision and reasons` link
+    Then I am on the `Start decision and reasons` page
+    And I click the `Cancel` link
 
     # LR:
 
