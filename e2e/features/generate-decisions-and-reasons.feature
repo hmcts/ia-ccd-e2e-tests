@@ -42,7 +42,7 @@ Feature: Generate decision and reasons
     And I should see `Atticus Finch` in the `Legal representative for the respondent` field
 
     When I click the `Generate` button
-    Then I should see the text `You have generated the decisions and reasons document`
+    Then I should see the text `You have generated the decision and reasons document`
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Generate decision and reasons`
