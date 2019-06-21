@@ -506,7 +506,7 @@ Feature: Case progression
 
     And I should not see the `Next step` field
 
-    # start decision and reasons
+    # Generate decision and reasons
 
     When I switch to be a `Case Officer`
     And I start decision and reasons
