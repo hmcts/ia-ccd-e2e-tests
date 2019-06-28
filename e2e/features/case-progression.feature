@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1154
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -512,7 +512,9 @@ Feature: Case progression
 
     And I should not see the `Next step` field
 
-    # start decision and reasons
+    # Generate decision and reasons
+
+    # CO:
 
     When I switch to be a `Case Officer`
     And I start decision and reasons
@@ -536,6 +538,58 @@ Feature: Case progression
 
     Then I should not see any case progress images
 
+    And I should see the case details
+    And I should see the hearing details
+    And I should not see the `Next step` field
+
+     # Send decision and reasons
+
+    # CO:
+
+    When I switch to be a `Case Officer`
+    And I generate decision and reasons
+    And I click the `Overview` tab
+
+    Then I should only see the `caseOfficer_decision` case progress image
+    And I should see the case details
+    And I should see the hearing details
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Complete decision and reasons` for the `Next step` field
+
+    When I click the `Send decision and reasons` link
+    Then I am on the `Complete decision and reasons` page
+    And I click the `Cancel` link
+
+    # LR:
+
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+
+    Then I should not see any case progress images
+    And I should see the case details
+    And I should see the hearing details
+    And I should not see the `Next step` field
+
+    # Decided
+
+  # CO:
+
+    When I switch to be a `Case Officer`
+    And I send decision and reasons
+    And I click the `Overview` tab
+
+    Then I should only see the `caseOfficer_decided` case progress image
+    And I should see the case details
+    And I should see the hearing details
+    And I should not see the `Next step` field
+
+    # LR:
+
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+
+    Then I should only see the `legalRep_decided` case progress image
     And I should see the case details
     And I should see the hearing details
     And I should not see the `Next step` field
