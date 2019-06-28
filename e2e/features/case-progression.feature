@@ -456,12 +456,12 @@ Feature: Case progression
 
     And I should not see the option `Create case summary` for the `Next step` field
 
-    And I should see the option `Generate hearing ready bundle` for the `Next step` field
+    And I should see the option `Generate hearing bundle` for the `Next step` field
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
 
     When I click the `Generate hearing bundle` link
-    Then I am on the `Generate hearing ready bundle` page
+    Then I am on the `Generate hearing bundle` page
     And I click the `Cancel` link
 
     # LR:
@@ -490,7 +490,7 @@ Feature: Case progression
     And I should see the case details
     And I should see the hearing details
 
-    And I should not see the option `Generate hearing ready bundle` for the `Next step` field
+    And I should not see the option `Generate hearing bundle` for the `Next step` field
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
