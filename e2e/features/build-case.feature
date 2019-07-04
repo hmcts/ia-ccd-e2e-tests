@@ -10,13 +10,17 @@ Feature: Build case
     And I upload respondent evidence
     And I switch to be a `Legal Rep`
 
-  @create-direction @RIA-480 @RIA-600
+  @create-direction @RIA-480 @RIA-600 @RIA-927
   Scenario: Upload Case argument and evidence
 
     When I select the `Build your case` Next step
     Then I am on the `Build your case` page
+    And the `Continue` button is disabled
+    And I should see the text `You must upload your appeal skeleton argument to submit your case`
+
     When I upload `{@CaseArgument.pdf}` for the `Appeal skeleton argument` field
-    And I type `This is the case argument` for the `Describe the document (Optional)` field
+    Then the `Continue` button is enabled
+    When I type `This is the case argument` for the `Describe the document (Optional)` field
     And I add an item to the `Evidence (Optional)` collection
     And within the `Evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
     And within the `Evidence (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
