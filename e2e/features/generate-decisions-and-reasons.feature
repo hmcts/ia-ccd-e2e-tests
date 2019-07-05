@@ -60,7 +60,7 @@ Feature: Generate decision and reasons
     And I should see the `Overview` page
     And I should see the image `caseOfficer_decision.png`
     And I should see the text `Do this next`
-    Then I should see the `Send the decision and reasons` link
+    Then I should see the `Send decision and reasons` link
 
 
 
