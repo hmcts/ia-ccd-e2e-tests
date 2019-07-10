@@ -24,7 +24,7 @@ export class AnyPage {
             .map(async (img) => (await img.getAttribute('src')).trim());
     }
 
-    async click(linkText: string) {
+    async click(linkText: string, xpathIndex = 0) {
 
         const expandedLinkText = await this.valueExpander.expand(linkText);
 
@@ -51,7 +51,7 @@ export class AnyPage {
         const button = await element
             .all(by.xpath(buttonPath))
             .filter(e => e.isPresent() && e.isDisplayed())
-            .first();
+            .get(xpathIndex);
 
         if (await button.isPresent()) {
             await button.click();
@@ -61,7 +61,7 @@ export class AnyPage {
         const anchor = await element
             .all(by.xpath(anchorPath))
             .filter(e => e.isPresent() && e.isDisplayed())
-            .first();
+            .get(xpathIndex);
 
         if (await anchor.isPresent()) {
             await anchor.click();
@@ -71,7 +71,7 @@ export class AnyPage {
         const link = await element
             .all(by.xpath(linkPath))
             .filter(e => e.isPresent() && e.isDisplayed())
-            .first();
+            .get(xpathIndex);
 
         await link.click();
     }

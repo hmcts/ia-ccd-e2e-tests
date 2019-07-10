@@ -3,6 +3,7 @@ import { Given, Then, When } from 'cucumber';
 import { browser } from 'protractor';
 import { expect } from 'chai';
 import { Wait } from '../../enums/wait';
+import { OrdinalToCardinal } from '../../helpers/ordinal-to-cardinal';
 
 const ccdPage = new CcdPage();
 
@@ -70,6 +71,12 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
 
 When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
     await ccdPage.click(linkText);
+});
+
+When(/^I click the `?(first|second|third|)`?\s`?([^`]+)`? (?:button|link|tab|label)$/, async function (instanceNumber, linkText) {
+
+    const xpathIndex = OrdinalToCardinal.convertWordToNumber(instanceNumber) - 1;
+    await ccdPage.click(linkText, xpathIndex);
 });
 
 Then(/^I should (see|not see) the `?(first|second|third|)`?\s?(?:answer|field) without a label$/,
