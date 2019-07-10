@@ -17,6 +17,7 @@ Feature: User authentication
     Examples:
       | persona      | username       |
       | Case Officer | Case Officer   |
+      | Admin        | Admin          |
       | Legal Rep    | A Legal Rep    |
 
   Scenario: Should only show cases related to that Legal Representative
