@@ -1,4 +1,4 @@
-Feature: Generate hearing ready bundle
+Feature: Generate hearing bundle
 
 
   Background:
@@ -19,13 +19,13 @@ Feature: Generate hearing ready bundle
     And I list the case
     And I create case summary
 
-  @generate-hearing-ready-bundle @RIA-941
-  Scenario: Generate hearing ready bundle
+  @generate-hearing-bundle @RIA-941
+  Scenario: Generate hearing bundle
     When I click the `Documents` tab
     Then I should see the `Documents` page
 
-    When I select the `Generate hearing ready bundle` Next step
-    Then I should see the `Generate hearing ready bundle` page
+    When I select the `Generate hearing bundle` Next step
+    Then I should see the `Generate hearing bundle` page
     And I should see the `Generate` button
 
     When I click the `Generate` button

@@ -70,3 +70,13 @@ Then(/^I should not see any case progress images$/, async function () {
 
     expect(caseProgressionImageSources.length).to.equal(0);
 });
+
+Then(/^I should see the `?([^\s`]+)`? image$/, async function (imageName) {
+
+    const imageSources =
+        (await ccdPage.getDisplayedImageSources())
+            .map(src => (src + ''))
+            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_'));
+
+    expect(imageSources.some(src => src.includes('/' + imageName))).to.equal(true);
+});
