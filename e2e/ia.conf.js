@@ -20,6 +20,8 @@ module.exports = {
   TestLawFirmBUserName: process.env.TEST_LAW_FIRM_B_USERNAME,
   TestLawFirmBPassword: process.env.TEST_LAW_FIRM_B_PASSWORD,
   TestLawFirmCUserName: process.env.TEST_LAW_FIRM_C_USERNAME,
-  TestLawFirmCPassword: process.env.TEST_LAW_FIRM_C_PASSWORD
+  TestLawFirmCPassword: process.env.TEST_LAW_FIRM_C_PASSWORD,
+  TestAdminUserName: process.env.TEST_ADMIN_USERNAME,
+  TestAdminPassword: process.env.TEST_ADMIN_PASSWORD
 
 };
