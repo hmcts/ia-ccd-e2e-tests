@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1154
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1154 @RIA-575
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -69,6 +69,7 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Request respondent evidence` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `Request respondent evidence` link
     Then I am on the `Request respondent evidence` page
@@ -92,6 +93,7 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Upload respondent evidence` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `Upload respondent evidence` link
     Then I am on the `Upload respondent evidence` page
@@ -114,6 +116,7 @@ Feature: Case progression
     And I should not see the option `Change the direction due date` for the `Next step` field
     And I should not see the option `Upload respondent evidence` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
 
     And I should see the option `Build your case` for the `Next step` field
 
@@ -143,6 +146,7 @@ Feature: Case progression
     And I should not see the option `Build your case` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
     And I should not see the option `Upload respondent evidence` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
@@ -167,6 +171,7 @@ Feature: Case progression
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
 
     And I should see the option `Build your case` for the `Next step` field
     And I should see the option `Submit your case` for the `Next step` field
@@ -193,6 +198,7 @@ Feature: Case progression
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
 
     And I should see the option `Build your case` for the `Next step` field
     And I should see the option `Submit your case` for the `Next step` field
@@ -228,6 +234,7 @@ Feature: Case progression
 
     And I should not see the option `Build your case` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
 
     And I should see the option `Upload additional evidence` for the `Next step` field
 
@@ -252,6 +259,7 @@ Feature: Case progression
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Request case edit` for the `Next step` field
     And I should see the option `Request respondent review` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `Request respondent review` link
     Then I am on the `Request respondent review` page
@@ -284,6 +292,7 @@ Feature: Case progression
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Add appeal response` for the `Next step` field
     And I should see the option `Request hearing requirements` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `Add appeal response` link
     Then I am on the `Add appeal response` page
@@ -308,6 +317,7 @@ Feature: Case progression
     And I should not see the option `Change the direction due date` for the `Next step` field
     And I should not see the option `Add appeal response` for the `Next step` field
     And I should not see the option `Request hearing requirements` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
 
     And I should see the option `Upload additional evidence` for the `Next step` field
 
@@ -334,6 +344,7 @@ Feature: Case progression
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Add appeal response` for the `Next step` field
     And I should see the option `Request hearing requirements` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     # LR:
 
@@ -354,6 +365,7 @@ Feature: Case progression
     And I should not see the option `Change the direction due date` for the `Next step` field
     And I should not see the option `Add appeal response` for the `Next step` field
     And I should not see the option `Request hearing requirements` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
 
     And I should see the option `Upload additional evidence` for the `Next step` field
 
@@ -381,6 +393,7 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `List the case` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `List the case` link
     Then I am on the `List the case` page
@@ -399,6 +412,7 @@ Feature: Case progression
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
     And I should not see the option `List the case` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
 
     And I should see the option `Upload additional evidence` for the `Next step` field
 
@@ -424,6 +438,7 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Create case summary` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `Create case summary` link
     Then I am on the `Create case summary` page
@@ -459,6 +474,7 @@ Feature: Case progression
     And I should see the option `Generate hearing bundle` for the `Next step` field
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `Generate hearing bundle` link
     Then I am on the `Generate hearing bundle` page
@@ -495,6 +511,7 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Start decision and reasons` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `Start decision and reasons` link
     Then I am on the `Start decision and reasons` page
@@ -526,6 +543,7 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Generate decision and reasons` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `Generate decision and reasons` link
     Then I am on the `Generate decision and reasons` page
@@ -556,6 +574,7 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Complete decision and reasons` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     When I click the `Send decision and reasons` link
     Then I am on the `Complete decision and reasons` page
@@ -582,7 +601,7 @@ Feature: Case progression
     Then I should only see the `caseOfficer_decided` case progress image
     And I should see the case details
     And I should see the hearing details
-    And I should not see the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
 
     # LR:
 
