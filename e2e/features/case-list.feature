@@ -34,7 +34,7 @@ Feature: Case list
   @case-list @RIA-1611
   Scenario: Case list contains correct columns for Admin
 
-    Given I am signed in as a `Admin`
+    Given I am signed in as a `Admin Officer`
     Then I should see the text `Reference number`
     And I should see the text `Appellant name`
     And I should see the text `Status`
@@ -105,7 +105,7 @@ Feature: Case list
   @case-list @RIA-1611
   Scenario: Case list contains correct filters for Admin
 
-    Given I am signed in as a `Admin`
+    Given I am signed in as a `Admin Officer`
     When I go to the `Case List`
     And I should see the option `Immigration & Asylum` for the `Jurisdiction` field
     And I should see the `Jurisdiction` field
