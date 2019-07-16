@@ -20,8 +20,8 @@ Given(/^I am signed in as a `?Case (?:Officer|Worker)`?$/, async function () {
     await authenticationFlow.signInAsCaseOfficer();
 });
 
-Given(/^I am signed in as a `?(?:Admin)`?$/, async function () {
-    await authenticationFlow.signInAsAdmin();
+Given(/^I am signed in as a `?(?:Admin Officer)`?$/, async function () {
+    await authenticationFlow.signInAsAdminOfficer();
 });
 
 Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
@@ -47,11 +47,11 @@ Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     await ccdPage.contentContains('Immigration');
 });
 
-Given(/^I switch to be a `?(?:Admin)`?$/, async function () {
+Given(/^I switch to be a `?(?:Admin Officer)`?$/, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-    await authenticationFlow.signInAsAdmin();
+    await authenticationFlow.signInAsAdminOfficer();
     await browser.sleep(100);
     await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
