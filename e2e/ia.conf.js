@@ -11,6 +11,8 @@ module.exports = {
 
   TestCaseOfficerUserName: process.env.TEST_CASEOFFICER_USERNAME,
   TestCaseOfficerPassword: process.env.TEST_CASEOFFICER_PASSWORD,
+  TestAdminOfficerUserName: process.env.TEST_ADMINOFFICER_USERNAME,
+  TestAdminOfficerPassword: process.env.TEST_ADMINOFFICER_PASSWORD,
   TestJudiciaryUserName: process.env.TEST_JUDICIARY_USERNAME,
   TestJudiciaryPassword: process.env.TEST_JUDICIARY_PASSWORD,
   TestLawFirmAUserName: process.env.TEST_LAW_FIRM_A_USERNAME,
@@ -18,8 +20,6 @@ module.exports = {
   TestLawFirmBUserName: process.env.TEST_LAW_FIRM_B_USERNAME,
   TestLawFirmBPassword: process.env.TEST_LAW_FIRM_B_PASSWORD,
   TestLawFirmCUserName: process.env.TEST_LAW_FIRM_C_USERNAME,
-  TestLawFirmCPassword: process.env.TEST_LAW_FIRM_C_PASSWORD,
-  TestAdminUserName: process.env.TEST_ADMIN_USERNAME,
-  TestAdminPassword: process.env.TEST_ADMIN_PASSWORD
+  TestLawFirmCPassword: process.env.TEST_LAW_FIRM_C_PASSWORD
 
 };

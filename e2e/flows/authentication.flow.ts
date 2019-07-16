@@ -20,12 +20,12 @@ export class AuthenticationFlow {
         await this.waitForAngularIfRequired();
     }
 
-    async signInAsAdmin() {
+    async signInAsAdminOfficer() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
-            iaConfig.TestAdminUserName,
-            iaConfig.TestAdminPassword
+            iaConfig.TestAdminOfficerUserName,
+            iaConfig.TestAdminOfficerPassword
         );
         await this.anyPage.contentContains('Case List');
         await this.waitForAngularIfRequired();

@@ -66,6 +66,9 @@ export TEST_E2E_USE_PROXY=false
 export TEST_CASEOFFICER_USERNAME=ia-caseofficer@example.com
 export TEST_CASEOFFICER_PASSWORD=password
 
+export TEST_ADMINOFFICER_USERNAME=ia-adminofficer@example.com
+export TEST_ADMINFFICER_PASSWORD=password
+
 export TEST_JUDICIARY_USERNAME=ia-judiciary@example.com
 export TEST_JUDICIARY_PASSWORD=password
 
