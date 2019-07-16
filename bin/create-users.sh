@@ -57,13 +57,13 @@ if [[ -z "${IA_SYSTEM_PASSWORD}" ]]; then
     exit 1
 fi
 
-if [[ -z "${TEST_ADMIN_USERNAME}" ]]; then
-    echo "ERROR: TEST_ADMIN_USERNAME must be defined in the environment" 1>&2
+if [[ -z "${TEST_ADMINOFFICER_USERNAME}" ]]; then
+    echo "ERROR: TEST_ADMINOFFICER_USERNAME must be defined in the environment" 1>&2
     exit 1
 fi
 
-if [[ -z "${TEST_ADMIN_PASSWORD}" ]]; then
-    echo "ERROR: TEST_ADMIN_PASSWORD must be defined in the environment" 1>&2
+if [[ -z "${TEST_ADMINOFFICER_PASSWORD}" ]]; then
+    echo "ERROR: TEST_ADMINOFFICER_PASSWORD must be defined in the environment" 1>&2
     exit 1
 fi
 
@@ -96,7 +96,7 @@ psql -h 127.0.0.1 -p 5000 -U postgres -d idam -c \
      ('caseworker-ia-judiciary', 'IA Judiciary'),
      ('caseworker-ia-legalrep-solicitor', 'IA Legal Rep'),
      ('caseworker-ia-system', 'IA System'),
-     ('caseworker-ia-admin', 'IA Admin')
+     ('caseworker-ia-admofficer', 'Admin Officer')
      ON CONFLICT DO NOTHING"
 
 curl \
@@ -162,12 +162,12 @@ curl \
 curl \
   http://localhost:4501/testing-support/accounts \
   -H "Content-Type: application/json" \
-  -d '{"email":"'"${TEST_ADMIN_USERNAME}"'",
-       "forename":"Case",
-       "surname":"Admin",
-       "password":"'"${TEST_ADMIN_PASSWORD}"'",
+  -d '{"email":"'"${TEST_ADMINOFFICER_USERNAME}"'",
+       "forename":"Admin",
+       "surname":"Officer",
+       "password":"'"${TEST_ADMINOFFICER_PASSWORD}"'",
        "levelOfAccess":1,
-       "roles":["caseworker-ia", "caseworker-ia-admin"],
+       "roles":["caseworker-ia", "caseworker-ia-admofficer"],
        "userGroup": {"code": "caseworker"}
       }'
 
@@ -204,4 +204,4 @@ curl --silent -XPUT \
   -H "Authorization: Bearer ${USER_TOKEN}" \
   -H "ServiceAuthorization: Bearer ${SERVICE_TOKEN}" \
   -H "Content-Type: application/json" \
-  -d '{"role":"caseworker-ia-admin","security_classification":"PUBLIC"}'
+  -d '{"role":"caseworker-ia-admofficer","security_classification":"PUBLIC"}'
