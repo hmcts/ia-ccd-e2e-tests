@@ -58,12 +58,12 @@ if [[ -z "${IA_SYSTEM_PASSWORD}" ]]; then
 fi
 
 if [[ -z "${TEST_ADMINOFFICER_USERNAME}" ]]; then
-    echo "ERROR: TEST_ADMIN_USERNAME must be defined in the environment" 1>&2
+    echo "ERROR: TEST_ADMINOFFICER_USERNAME must be defined in the environment" 1>&2
     exit 1
 fi
 
 if [[ -z "${TEST_ADMINOFFICER_PASSWORD}" ]]; then
-    echo "ERROR: TEST_ADMIN_PASSWORD must be defined in the environment" 1>&2
+    echo "ERROR: TEST_ADMINOFFICER_PASSWORD must be defined in the environment" 1>&2
     exit 1
 fi
 

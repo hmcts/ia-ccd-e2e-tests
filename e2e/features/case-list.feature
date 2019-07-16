@@ -32,7 +32,7 @@ Feature: Case list
     And I should not see the `DRAFT` link
 
   @case-list @RIA-1611
-  Scenario: Case list contains correct columns for Admin
+  Scenario: Case list contains correct columns for Admin Officer
 
     Given I am signed in as a `Admin Officer`
     Then I should see the text `Reference number`
@@ -103,7 +103,7 @@ Feature: Case list
     And I should see the `Appellant name` field
 
   @case-list @RIA-1611
-  Scenario: Case list contains correct filters for Admin
+  Scenario: Case list contains correct filters for Admin Officer
 
     Given I am signed in as a `Admin Officer`
     When I go to the `Case List`
