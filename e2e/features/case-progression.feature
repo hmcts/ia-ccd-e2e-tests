@@ -1,7 +1,7 @@
 Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
-  Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Legal Rep or Admin)
+  Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
     And I create a new case
@@ -402,9 +402,9 @@ Feature: Case progression
 
     And I should see the option `Upload additional evidence` for the `Next step` field
 
-    # ADMIN:
+    # AO:
 
-    When I switch to be a `Admin`
+    When I switch to be a `Admin Officer`
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_listing` case progress image
