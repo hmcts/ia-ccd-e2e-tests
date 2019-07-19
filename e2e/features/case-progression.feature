@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -380,8 +380,10 @@ Feature: Case progression
     Then I should only see the `caseOfficer_listing` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The appellant has submitted their hearing requirements`
-    And I should see the text `You should now list the case`
+    And I should see the text `The legal representative will send you the completed hearing requirements document by email.`
+    And I should see the text `Add any comments or edits, and then sign the document to confirm the agreed hearing requirements.`
+    And I should see the text `Email the completed hearing requirements document to IACReformlisting@justice.gov.uk so that the case can be listed.`
+    And I should see the text `You’ll be notified when the case is listed and be able to view the hearing notice in the documents tab.`
 
     And I should see the case details
     And I should not see the hearing details
@@ -392,12 +394,8 @@ Feature: Case progression
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
-    And I should see the option `List the case` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
-
-    When I click the `List the case` link
-    Then I am on the `List the case` page
-    And I click the `Cancel` link
+    And I should not see the option `List the case` for the `Next step` field
 
     # LR:
 
@@ -436,29 +434,24 @@ Feature: Case progression
     And I should not see the option `Change the direction due date` for the `Next step` field
     And I should see the option `List the case` for the `Next step` field
 
-    When I click the `List the case` link
-    Then I am on the `List the case` page
-    And I click the `Cancel` link
-
     ### prepare for hearing
 
-    # CO:
-
-    When I switch to be a `Case Officer`
-    And I list the case
+    When I list the case
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_prepareForHearing` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `You must create a case summary for the judge to use at the hearing`
+    And I should see the text `The hearing notice will be sent to all parties.`
+    And I should see the text `You don’t need to do any more on this case.`
 
     And I should see the case details
     And I should see the hearing details
 
-    And I should not see the option `List the case` for the `Next step` field
-    And I should not see the option `Upload additional evidence` for the `Next step` field
+    # CO
 
+    When I switch to be a `Case Officer`
+    And I click the `Overview` tab
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Create case summary` for the `Next step` field

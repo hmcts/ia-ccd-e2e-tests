@@ -10,7 +10,10 @@ export class ListCaseFlow {
         await this.ccdFormPage.click('Go');
 
         await this.ccdFormPage.headingContains('List the case');
-
+        await this.ccdFormPage.setFieldValue(
+            'Listing reference (from ARIA)',
+            'LP/12345/2019'
+        );
         await this.ccdFormPage.setFieldValue(
             'Hearing centre',
             'Taylor House'

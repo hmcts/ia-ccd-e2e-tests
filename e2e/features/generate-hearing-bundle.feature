@@ -16,7 +16,9 @@ Feature: Generate hearing bundle
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
+    And I switch to be a `Admin Officer`
     And I list the case
+    And I switch to be a `Case Officer`
     And I create case summary
 
   @generate-hearing-bundle @RIA-941

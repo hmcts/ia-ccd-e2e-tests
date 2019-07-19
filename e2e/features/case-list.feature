@@ -37,7 +37,6 @@ Feature: Case list
     Given I am signed in as a `Admin Officer`
     Then I should see the text `Reference number`
     And I should see the text `Appellant name`
-    And I should see the text `Status`
     And I should see the text `Appeal start date`
 
   @case-list @RIA-609
