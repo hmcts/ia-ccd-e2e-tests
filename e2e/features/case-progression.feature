@@ -456,6 +456,7 @@ Feature: Case progression
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Create case summary` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
+    And I should see the option `Edit case listing` for the `Next step` field
 
     When I click the `Create case summary` link
     Then I am on the `Create case summary` page
@@ -492,6 +493,7 @@ Feature: Case progression
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
+    And I should see the option `Edit case listing` for the `Next step` field
 
     When I click the `Generate hearing bundle` link
     Then I am on the `Generate hearing bundle` page
@@ -529,6 +531,7 @@ Feature: Case progression
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Start decision and reasons` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
+    And I should see the option `Edit case listing` for the `Next step` field
 
     When I click the `Start decision and reasons` link
     Then I am on the `Start decision and reasons` page
@@ -561,6 +564,7 @@ Feature: Case progression
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Generate decision and reasons` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
+    And I should see the option `Edit case listing` for the `Next step` field
 
     When I click the `Generate decision and reasons` link
     Then I am on the `Generate decision and reasons` page
@@ -592,6 +596,7 @@ Feature: Case progression
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Complete decision and reasons` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
+    And I should see the option `Edit case listing` for the `Next step` field
 
     When I click the `Send decision and reasons` link
     Then I am on the `Complete decision and reasons` page
