@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561 @RIA-1560
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -457,11 +457,20 @@ Feature: Case progression
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
+
+    Then I should only see the `caseOfficer_prepareForHearing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `You must create a case summary for the judge to use at the hearing`
+
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
     And I should see the option `Create case summary` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Edit case listing` for the `Next step` field
+
+    And I should see the case details
+    And I should see the hearing details
 
     When I click the `Create case summary` link
     Then I am on the `Create case summary` page
