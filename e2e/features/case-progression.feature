@@ -472,6 +472,9 @@ Feature: Case progression
     And I should see the case details
     And I should see the hearing details
 
+    And I should see the case details
+    And I should see the hearing details
+
     When I click the `Create case summary` link
     Then I am on the `Create case summary` page
     And I click the `Cancel` link
