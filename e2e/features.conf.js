@@ -58,6 +58,7 @@ exports.config = {
     tags: false,
     profile: false,
     'fail-fast': iaConfig.FailFast,
+    'nightly-tag': iaConfig.NightlyTag,
     'no-source': true
   },
 
