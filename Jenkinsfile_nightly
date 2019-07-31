@@ -6,7 +6,7 @@ properties([
                 string(name: 'URL_TO_TEST', defaultValue: 'https://www-ccd.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
                 string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
                 string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '5', description: 'The number of tests to run in parallel'),
-                string(name: 'NIGHTLY_TAG',defaultValue: '--cucumberOpts.tags=@nightly-test',description: 'Tag for nightly build')
+                string(name: 'NIGHTLY_TAG', defaultValue: '--cucumberOpts.tags=@nightly-test', description: 'Tag for nightly build')
         ])
 ])
 
@@ -45,7 +45,7 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_NUM_BROWSERS = params.NUM_TESTS_IN_PARALLEL
     env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     env.TEST_E2E_FAIL_FAST = 'false'
-    env.TEST_E2E_ANNOTATION= params.NIGHTLY_TAG
+    env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
     enableFullFunctionalTest()
 
     enableSlackNotifications('#ia-tech')
