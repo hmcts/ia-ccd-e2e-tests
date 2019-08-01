@@ -10,6 +10,10 @@ Then(/^I should see an error saying `?([^`]+)`?$/, async function (errorMessage)
     expect(await ccdFormPage.fieldErrorContains(errorMessage)).to.equal(true);
 });
 
+Then(/^I should see an error in summary saying `?([^`]+)`?$/, async function (errorMessage) {
+    expect(await ccdFormPage.summaryErrorContains(errorMessage)).to.equal(true);
+});
+
 When(/^I should (see|not see) the option `?([^`]+)`? for the `?(first|second|third|)`?\s?field without a label$/,
     async function (
         seeOrNotSee,
