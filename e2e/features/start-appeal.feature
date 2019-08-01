@@ -116,7 +116,7 @@ Feature: Start initial appeal application
     And I should see `CASE001` for the `If you prefer to use your own reference number for this case, you can enter it here.` field
 
   @start-appeal @happy-path
-  Scenario: Start initial appeal application with appellant address
+  Scenario: Start initial appeal application with legal rep address
 
     Given I am signed in as a `Legal Rep`
     And I create a new case
