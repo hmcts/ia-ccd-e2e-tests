@@ -63,7 +63,9 @@ export class StartAppealFlow {
 
         await this.ccdFormPage.headingContains('Your client\'s address');
 
-        if (!hasFixedAddress) {
+        // if (!hasFixedAddress) {
+        // TODO: uncomment when postcode service fixed
+        if (true) {
             await this.ccdFormPage.setFieldValue('Does the appellant have a fixed address?', 'No');
         } else {
             await this.ccdFormPage.setFieldValue('Does the appellant have a fixed address?', 'Yes');
