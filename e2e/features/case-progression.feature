@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -659,7 +659,7 @@ Feature: Case progression
 
     # Decided
 
-  # CO:
+    # CO:
 
     When I switch to be a `Case Officer`
     And I send decision and reasons
@@ -681,5 +681,35 @@ Feature: Case progression
     And I should see the hearing details
     And I should not see the `Next step` field
 
+    # AO:
 
+    When I switch to be a `Admin Officer`
+    And I click the `Overview` tab
+    And I should see the `Overview` page
 
+    When I click the `Record attendees and duration` link
+    Then I am on the `Record attendees and duration` page
+
+    When I type `Judge Judy` for the `The judge` field
+    And I type `Frank` for the `The appellant (Optional)` field
+    And I type `Geoff` for the `The appellant's legal representative (Optional)` field
+    And I type `Sebastian` for the `The Home Office representative (Optional)` field
+    And I type `2` for the `Hours` field
+    And I type `30` for the `Minutes` field
+    And I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `Judge Judy` for the `The judge` field
+    And I should see `Frank` for the `The appellant` field
+    And I should see `Geoff` for the `The appellant's legal representative` field
+    And I should see `Sebastian` for the `The Home Office representative` field
+    And I should see `2` for the `Hours` field
+    And I should see `30` for the `Minutes` field
+
+    When I click the `Save details` button
+    Then I should see the text `You have recorded the attendees and duration of the hearing`
+    And I should see the text `What happens next`
+    And I should see the text `The judge will record the decision and reasons.`
+    And I should see the text `You don't need to do anything more with this case.`
+
+    When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Record attendees and duration`
