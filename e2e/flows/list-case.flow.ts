@@ -11,7 +11,7 @@ export class ListCaseFlow {
 
         await this.ccdFormPage.headingContains('List the case');
         await this.ccdFormPage.setFieldValue(
-            'Listing reference (from ARIA)',
+            'Listing reference',
             'LP/12345/2019'
         );
         await this.ccdFormPage.setFieldValue(

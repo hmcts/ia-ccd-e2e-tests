@@ -36,7 +36,7 @@ Feature: List case
     And I should see the option `5 hours 30 minutes` for the `Length of hearing` field
     And I should see the option `6 hours` for the `Length of hearing` field
 
-    When I type `LP/12345/2019` for the `Listing reference (from ARIA)` field
+    When I type `LP/12345/2019` for the `Listing reference` field
     And I select `6 hours` for the `Length of hearing` field
     And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Hearing date and time` field
     And I click the `Continue` button
@@ -160,7 +160,7 @@ Feature: List case
     When I select the `List the case` Next step
     Then I am on the `List the case` page
 
-    When I type `LP/12345/2019` for the `Listing reference (from ARIA)` field
+    When I type `LP/12345/2019` for the `Listing reference` field
     And I select `6 hours` for the `Length of hearing` field
     And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Hearing date and time` field
     And I click the `Continue` button
