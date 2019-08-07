@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1560 @RIA-1284 @RIA-1609
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -472,6 +472,9 @@ Feature: Case progression
     And I should see the case details
     And I should see the hearing details
 
+    And I should see the case details
+    And I should see the hearing details
+
     When I click the `Create case summary` link
     Then I am on the `Create case summary` page
     And I click the `Cancel` link
@@ -481,12 +484,21 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see any case progress images
+    Then I should only see the `legalRep_listed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed`
+    And I should see the text `Go to the documents tab to see the hearing notice, which includes the hearing details`
+    And I should see the text `The case officer will prepare the hearing bundle`
+    And I should see the text `You'll receive a notification when it is available to view in the documents tab`
 
     And I should see the case details
     And I should see the hearing details
 
     And I should not see the `Next step` field
+
+    When I click the `Go to the documents tab` link
+    Then I am on the `Documents` page
 
     ### final bundling
 
