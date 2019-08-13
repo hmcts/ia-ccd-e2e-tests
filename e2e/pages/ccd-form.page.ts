@@ -9,6 +9,12 @@ export class CcdFormPage extends CcdPage {
         return (await $('.error-message').getText()).includes(match);
     }
 
+    async summaryErrorContains(match: string) {
+
+        await browser.wait(ExpectedConditions.visibilityOf($('.error-summary-list')));
+        return (await $('.error-summary-list').getText()).includes(match);
+    }
+
     async addCollectionItem(
         complexFieldLabel: string,
         instanceNumber?: string | number
