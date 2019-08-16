@@ -50,6 +50,29 @@ Then(/^I should (see|not see) the hearing details$/, async function (seeOrNotSee
     }
 });
 
+Then(/^I should (see|not see) the ended appeal details$/, async function (seeOrNotSee) {
+
+    const isDisplayed = (seeOrNotSee === 'see');
+
+    expect(await ccdPage.headingContains('Ended appeal details', !isDisplayed)).to.equal(isDisplayed);
+
+    if (isDisplayed) {
+
+        expect(await ccdPage.isFieldValueDisplayed('Outcome of the appeal', 'Struck out')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Reasons for this outcome', 'some end appeal reason')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Approved by', 'Judge')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Name of approver', 'John Doe')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Outcome date', '{$TODAY|DD MMM YYYY}')).to.equal(true);
+
+    } else {
+        expect(await ccdPage.contentContains('Outcome of the appeal', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Reasons for this outcome', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Approved by', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Name of approver', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Outcome date', Wait.instant)).to.equal(false);
+    }
+});
+
 Then(/^I should only see the `?([^\s`]+)`? case progress image$/, async function (imageName) {
 
     const caseProgressionImageSources =
