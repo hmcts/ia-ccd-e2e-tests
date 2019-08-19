@@ -15,7 +15,8 @@ properties([
 def product = "ia"
 def component = "ccd-e2e-tests"
 
-List<LinkedHashMap<String, Object>> secrets = [
+def secrets = [
+    'ia-${env}': [
 
         secret('test-caseofficer-username', 'TEST_CASEOFFICER_USERNAME'),
         secret('test-caseofficer-password', 'TEST_CASEOFFICER_PASSWORD'),
@@ -24,7 +25,10 @@ List<LinkedHashMap<String, Object>> secrets = [
         secret('test-law-firm-b-username', 'TEST_LAW_FIRM_B_USERNAME'),
         secret('test-law-firm-b-password', 'TEST_LAW_FIRM_B_PASSWORD'),
         secret('test-law-firm-c-username', 'TEST_LAW_FIRM_C_USERNAME'),
-        secret('test-law-firm-c-password', 'TEST_LAW_FIRM_C_PASSWORD')
+        secret('test-law-firm-c-password', 'TEST_LAW_FIRM_C_PASSWORD'),
+        secret('test-adminofficer-username', 'TEST_ADMINOFFICER_USERNAME'),
+        secret('test-adminofficer-password', 'TEST_ADMINOFFICER_PASSWORD')
+    ]
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
@@ -37,7 +41,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 }
 
 withNightlyPipeline("nodejs", product, component) {
-    setVaultName('ia')
+
     loadVaultSecrets(secrets)
 
     env.TEST_E2E_URL_WEB = params.URL_TO_TEST
