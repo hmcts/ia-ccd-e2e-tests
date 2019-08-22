@@ -10,13 +10,8 @@ export class StartAppealFlow {
         await this.ccdFormPage.contentContains('My client is at least 18 years old');
         await this.ccdFormPage.click('My client is at least 18 years old');
         await this.ccdFormPage.click('My client is not currently in detention');
-        await this.ccdFormPage.click('My client isn\'t appealing with other people as part of a linked appeal');
-        await this.ccdFormPage.click(
-            'My client is located in one of these postcodes: ' +
-            'BN, CB, CM, HP, IP, ME, N, NR, RH, SE, TN, W, L, LA, M, OL, PR, SK, WA, WN'
-        );
+        await this.ccdFormPage.click('My client isn\'t appealing with other people as part of a family appeal');
         await this.ccdFormPage.click('My client is presently in the UK');
-        await this.ccdFormPage.click('My client is not stateless');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
