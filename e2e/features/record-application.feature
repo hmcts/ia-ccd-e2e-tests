@@ -58,7 +58,7 @@ Feature: Record application
     And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
     And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
 
-  @record-application-time-extension-and-withdraw @RIA-1485
+  @record-application-time-extension-and-withdraw @RIA-1485 @RIA-1562
   Scenario: Record granted time extension application and later withdraw
 
     When I select the `Record an application` Next step
@@ -148,6 +148,46 @@ Feature: Record application
 
     When I click the `Overview` tab
     Then I should see the text `The application decision has been recorded and is now available in the applications tab. You must now end the appeal.`
+
+    # Launch end-appeal
+    When I click the `end the appeal` link
+    Then I am on the `End the appeal` page
+    And I should see the text `This appeal has ended. Record the outcome and reasons below.`
+    And the `Continue` button is disabled
+
+    When I select `Struck out` for the `Outcome of the appeal` field
+    And I type `some end appeal reason` for the `Reasons for this outcome` field
+
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+
+    Then I am on the `End the appeal` page
+    And I should see the text `Record who approved this outcome.`
+    And the `Continue` button is disabled
+
+    When I select `Judge` for the `Approved by` field
+    And I type `John Doe` for the `Name of approver` field
+
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Struck out` for the `Outcome of the appeal` answer
+    And I should see `some end appeal reason` for the `Reasons for this outcome` answer
+    And I should see `Judge` for the `Approved by` answer
+    And I should see `John Doe` for the `Name of approver` answer
+
+    When I click the `End appeal` button
+
+    Then I should see the text `You have ended the appeal`
+    And I should see the text `What happens next`
+    And I should see the text `A notification has been sent to all parties.`
+
+    When I click the `Close and Return to case details` button
+
+    Then I should see an alert confirming the case `has been updated with event: End the appeal`
 
   @record-application-transfer-and-edit @RIA-1485
   Scenario: Record granted transfer application and edit listing
