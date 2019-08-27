@@ -149,6 +149,11 @@ Feature: Record application
     When I click the `Overview` tab
     Then I should see the text `The application decision has been recorded and is now available in the applications tab. You must now end the appeal.`
 
+
+    # End-appeal launch
+    When I click the `end the appeal` link
+    Then I am on the `End the appeal` page
+
   @record-application-transfer-and-edit @RIA-1485
   Scenario: Record granted transfer application and edit listing
 
