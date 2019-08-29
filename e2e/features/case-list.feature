@@ -39,7 +39,7 @@ Feature: Case list
     And I should see the text `Appellant name`
     And I should see the text `Appeal start date`
 
-  @case-list @RIA-609
+  @case-list @RIA-609 @RIA-1380
   Scenario: Case list contains correct filters for Legal Rep
 
     Given I am signed in as a `Legal Rep`
@@ -66,11 +66,13 @@ Feature: Case list
     And I should see the `Hearing centre` field
     And I should see the option `Manchester` for the `Hearing centre` field
     And I should see the option `Taylor House` for the `Hearing centre` field
+    And I should see the option `Newport` for the `Hearing centre` field
+    And I should see the option `Bradford` for the `Hearing centre` field
     And I should see the `Reference number` field
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
 
-  @case-list @RIA-609
+  @case-list @RIA-609 @RIA-1380
   Scenario: Case list contains correct filters for Case Officer
 
     Given I am signed in as a `Case Officer`
@@ -97,11 +99,13 @@ Feature: Case list
     And I should see the `Hearing centre` field
     And I should see the option `Manchester` for the `Hearing centre` field
     And I should see the option `Taylor House` for the `Hearing centre` field
+    And I should see the option `Newport` for the `Hearing centre` field
+    And I should see the option `Bradford` for the `Hearing centre` field
     And I should see the `Reference number` field
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
 
-  @case-list @RIA-1611
+  @case-list @RIA-1611 @RIA-1380
   Scenario: Case list contains correct filters for Admin Officer
 
     Given I am signed in as a `Admin Officer`
@@ -119,6 +123,8 @@ Feature: Case list
     And I should see the `Hearing centre` field
     And I should see the option `Manchester` for the `Hearing centre` field
     And I should see the option `Taylor House` for the `Hearing centre` field
+    And I should see the option `Newport` for the `Hearing centre` field
+    And I should see the option `Bradford` for the `Hearing centre` field
     And I should see the `Reference number` field
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field

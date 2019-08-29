@@ -19,13 +19,15 @@ Feature: Edit case listing
     And I list the case
     And I switch to be a `Case Officer`
 
-  @edit-case-listing @RIA-362
+  @edit-case-listing @RIA-362 @RIA-1380
   Scenario: Edit the case listing
 
     When I select the `Edit case listing` Next step
     Then I am on the `Edit case listing` page
     And I should see the option `Manchester` for the `Hearing centre` field
     And I should see the option `Taylor House` for the `Hearing centre` field
+    And I should see the option `Newport` for the `Hearing centre` field
+    And I should see the option `Bradford` for the `Hearing centre` field
     And I should see the option `30 minutes` for the `Length of hearing` field
     And I should see the option `1 hour` for the `Length of hearing` field
     And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
@@ -63,7 +65,6 @@ Feature: Edit case listing
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
-    And I see the open case
 
     When I click the `Overview` tab
     Then I should see the `Overview` page
