@@ -546,13 +546,16 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see any case progress images
-
+    Then I should only see the `legalRep_listed` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed. Go to the documents tab to see the Hearing notice, which includes the hearing details.`
+    And I should see the text `Go to the documents`
     And I should see the case details
     And I should see the hearing details
-
     And I should not see the `Next step` field
 
+    When I click the `Go to the documents tab` link
+    Then I am on the `Documents` page
 
     # Start decision and reasons
 
