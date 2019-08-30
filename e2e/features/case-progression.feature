@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -626,8 +626,9 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see any case progress images
-
+    Then I should only see the `legalRep_decision` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
     And I should see the case details
     And I should see the hearing details
     And I should not see the `Next step` field
@@ -659,7 +660,9 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see any case progress images
+    Then I should only see the `legalRep_decision` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
     And I should see the case details
     And I should see the hearing details
     And I should not see the `Next step` field
