@@ -24,6 +24,22 @@ Given(/^I am signed in as a `?(?:Admin Officer)`?$/, async function () {
     await authenticationFlow.signInAsAdminOfficer();
 });
 
+Given(/^I am signed in as a `?(?:Home Office APC)`?$/, async function () {
+    await authenticationFlow.signInAsHomeOfficeApc();
+});
+
+Given(/^I am signed in as a `?(?:Home Office LART)`?$/, async function () {
+    await authenticationFlow.signInAsHomeOfficeLart();
+});
+
+Given(/^I am signed in as a `?(?:Home Office POU)`?$/, async function () {
+    await authenticationFlow.signInAsHomeOfficePou();
+});
+
+Given(/^I am signed in as a `?(?:Home Office Generic)`?$/, async function () {
+    await authenticationFlow.signInAsHomeOfficeGeneric();
+});
+
 Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
     await authenticationFlow.signInAsLawFirmA();
 });
@@ -63,6 +79,50 @@ Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function ()
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsLawFirmA();
+    await browser.sleep(100);
+    await ccdPage.contentContains('Immigration');
+    await ccdPage.get(caseUrl);
+    await ccdPage.contentContains('Immigration');
+});
+
+Given(/^I switch to be a `?(?:Home Office APC)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsHomeOfficeApc();
+    await browser.sleep(100);
+    await ccdPage.contentContains('Immigration');
+    await ccdPage.get(caseUrl);
+    await ccdPage.contentContains('Immigration');
+});
+
+Given(/^I switch to be a `?(?:Home Office LART)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsHomeOfficeLart();
+    await browser.sleep(100);
+    await ccdPage.contentContains('Immigration');
+    await ccdPage.get(caseUrl);
+    await ccdPage.contentContains('Immigration');
+});
+
+Given(/^I switch to be a `?(?:Home Office POU)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsHomeOfficePou();
+    await browser.sleep(100);
+    await ccdPage.contentContains('Immigration');
+    await ccdPage.get(caseUrl);
+    await ccdPage.contentContains('Immigration');
+});
+
+Given(/^I switch to be a `?(?:Home Office Generic)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsHomeOfficeGeneric();
     await browser.sleep(100);
     await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);

@@ -69,6 +69,18 @@ export TEST_CASEOFFICER_PASSWORD=password
 export TEST_ADMINOFFICER_USERNAME=ia-adminofficer@example.com
 export TEST_ADMINOFFICER_PASSWORD=password
 
+export TEST_HOMEOFFICE_APC_USERNAME=ia-respondentapc@example.com
+export TEST_HOMEOFFICE_APC_PASSWORD=password
+
+export TEST_HOMEOFFICE_LART_USERNAME=ia-respondentlart@example.com
+export TEST_HOMEOFFICE_LART_PASSWORD=password
+
+export TEST_HOMEOFFICE_POU_USERNAME=ia-respondentpou@example.com
+export TEST_HOMEOFFICE_POU_PASSWORD=password
+
+export TEST_HOMEOFFICE_GENERIC_USERNAME=ia-respondentgen@example.com
+export TEST_HOMEOFFICE_GENERIC_PASSWORD=password
+
 export TEST_JUDICIARY_USERNAME=ia-judiciary@example.com
 export TEST_JUDICIARY_PASSWORD=password
 

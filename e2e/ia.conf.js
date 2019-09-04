@@ -24,6 +24,14 @@ module.exports = {
   TestLawFirmCUserName: process.env.TEST_LAW_FIRM_C_USERNAME,
   TestLawFirmCPassword: process.env.TEST_LAW_FIRM_C_PASSWORD,
   TestAdminUserName: process.env.TEST_ADMIN_USERNAME,
-  TestAdminPassword: process.env.TEST_ADMIN_PASSWORD
+  TestAdminPassword: process.env.TEST_ADMIN_PASSWORD,
+  TestHomeOfficeApcUserName: process.env.TEST_HOMEOFFICE_APC_USERNAME,
+  TestHomeOfficeApcPassword: process.env.TEST_HOMEOFFICE_APC_PASSWORD,
+  TestHomeOfficeLartUserName: process.env.TEST_HOMEOFFICE_LART_USERNAME,
+  TestHomeOfficeLartPassword: process.env.TEST_HOMEOFFICE_LART_PASSWORD,
+  TestHomeOfficePouUserName: process.env.TEST_HOMEOFFICE_POU_USERNAME,
+  TestHomeOfficePouPassword: process.env.TEST_HOMEOFFICE_POU_PASSWORD,
+  TestHomeOfficeGenericUserName: process.env.TEST_HOMEOFFICE_GENERIC_USERNAME,
+  TestHomeOfficeGenericPassword: process.env.TEST_HOMEOFFICE_GENERIC_PASSWORD
 
 };
