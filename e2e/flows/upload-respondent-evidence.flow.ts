@@ -41,7 +41,7 @@ export class UploadRespondentEvidenceFlow {
     // Use this to upload the document by Home Office user
     async uploadHomeOfficeBundle(clickContinue = false) {
 
-        await this.ccdFormPage.selectNextStep('Upload respondent evidence');
+        await this.ccdFormPage.selectNextStep('Upload Home Office bundle');
         await this.ccdFormPage.click('Go');
 
         await this.ccdFormPage.headingContains('Upload Home Office bundle');
@@ -57,7 +57,7 @@ export class UploadRespondentEvidenceFlow {
         );
         await this.ccdFormPage.setFieldValue(
             'Describe the document',
-            'This is the respondent evidence',
+            'This is the Home Office Bundle',
             'text area',
             'first',
             'Upload Home Office bundle',

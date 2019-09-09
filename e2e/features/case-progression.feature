@@ -1,7 +1,8 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1356
-  Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer or Legal Rep)
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
+  @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707
+  Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
     And I create a new case
@@ -81,10 +82,11 @@ Feature: Case progression
     When I request respondent evidence
     And I click the `Overview` tab
 
-    Then I should only see the `caseOfficer_awaitingRespondentEvidence` case progress image
+    Then I should only see the `caseOfficer_awaitingRespondentEvidence_preUpload` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `Upload the respondent's evidence as soon as you receive it`
+    And I should see the text `Await the respondent's evidence`
+    And I should not see the `Upload respondent evidence` link
 
     And I should see the case details
     And I should not see the hearing details
@@ -96,10 +98,6 @@ Feature: Case progression
     And I should see the option `Upload respondent evidence` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
-
-    When I click the `Upload respondent evidence` link
-    Then I am on the `Upload respondent evidence` page
-    And I click the `Cancel` link
 
     # LR:
 
@@ -127,6 +125,36 @@ Feature: Case progression
     Then I am on the `Build your case` page
     And I click the `Cancel` link
 
+    # HO APC:
+
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+
+    Then I should only see the `homeOffice_uploadBundle` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `An appeal against the Home Office decision in this case has been submitted. You can view the appeal form in the documents tab`
+    And I should see the text `If you accept that there is a right of appeal you should upload the Home Office bundle`
+    And I should see the text `If you consider the appeal is not valid, you should contact the Tribunal and the appellant with your reasons`
+
+    And I should see the case details
+    And I should not see the hearing details
+
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Upload Home Office bundle` for the `Next step` field
+    And I should not see the option `Submit your case` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
+    And I should not see the option `Record an application` for the `Next step` field
+    And I should not see the option `Build your case` for the `Next step` field
+
+    When I click the `upload the Home Office bundle` link
+    Then I am on the `Upload Home Office bundle` page
+    And I click the `Cancel` link
+
+    When I click the `documents tab` link
+    Then I am on the `Documents` page
+
     ### case building, not ready to submit
 
     # CO:
@@ -145,13 +173,11 @@ Feature: Case progression
 
     And I should see the case details
     And I should not see the hearing details
-
     And I should not see the option `Build your case` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
     And I should not see the option `Upload respondent evidence` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
-
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
 
