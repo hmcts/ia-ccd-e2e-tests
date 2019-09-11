@@ -18,3 +18,7 @@ Then(/^I upload respondent evidence$/, async function () {
 Then(/^I upload additional evidence$/, async function () {
     await uploadAdditionalEvidenceFlow.uploadAdditionalEvidence(true);
 });
+
+Then(/^I upload Home Office bundle$/, async function () {
+    await uploadRespondentEvidenceFlow.uploadHomeOfficeBundle(true);
+});

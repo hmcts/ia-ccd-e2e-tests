@@ -37,4 +37,40 @@ export class UploadRespondentEvidenceFlow {
             await this.ccdFormPage.waitUntilLoaded();
         }
     }
+
+    // Use this to upload the document by Home Office user
+    async uploadHomeOfficeBundle(clickContinue = false) {
+
+        await this.ccdFormPage.selectNextStep('Upload respondent evidence');
+        await this.ccdFormPage.click('Go');
+
+        await this.ccdFormPage.headingContains('Upload Home Office bundle');
+        await this.ccdFormPage.addCollectionItem('Upload Home Office bundle');
+        await this.ccdFormPage.contentContains('Describe the document');
+        await this.ccdFormPage.setFieldValue(
+            'Document',
+            '{@RespondentEvidence.pdf}',
+            'document',
+            'first',
+            'Upload Home Office bundle',
+            'first'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Describe the document',
+            'This is the respondent evidence',
+            'text area',
+            'first',
+            'Upload Home Office bundle',
+            'first'
+        );
+
+        await this.ccdFormPage.click('Continue');
+        await this.ccdFormPage.click('Upload');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+            await this.ccdFormPage.waitUntilLoaded();
+        }
+    }
+
 }
