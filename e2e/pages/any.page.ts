@@ -195,6 +195,7 @@ export class AnyPage {
             'self::p or ' +
             'self::div                       [contains(text(), "' + expandedMatch + '")] or ' +  // avoid text in child nodes
             'self::ccd-read-date-field       [contains(text(), "' + expandedMatch + '")] or ' +  // for more generic containers
+            'self::dt                        [contains(text(), "' + expandedMatch + '")] or ' +  // added recently
             'self::ccd-read-fixed-list-field [contains(text(), "' + expandedMatch + '")] or ' +  // ..
             'self::ng-component              [contains(text(), "' + expandedMatch + '")] or ' +  // ..
             'self::span                      [contains(text(), "' + expandedMatch + '")] or ' +  // ..
