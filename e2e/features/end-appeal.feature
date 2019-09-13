@@ -7,7 +7,7 @@ Feature: End appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @end-appeal @RIA-823
+  @end-appeal @RIA-823 @RIA-1766
   Scenario: End appeal
 
     When I select the `End the appeal` Next step
@@ -52,7 +52,21 @@ Feature: End appeal
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
+    And I should not see the `Upload additional evidence` link
+    And I should not see the `Add additional evidence as an addendum` link
     And I should see the `Tribunal documents` field
     And within the `Tribunal documents` collection's first item, I should see `-Gonzlez-NoticeOfEndedAppeal.PDF` in the `Document` field
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    When I click the `Directions` tab
+    Then I should see the `Directions` page
+    And I should not see the `Send a new direction` link
+    And I should not see the `Change the direction due date` link
+
+    When I click the `Case notes` tab
+    Then I should see the `Case notes` page
+    And I should not see the `Add case note` link
+
+    When I click the `Applications` tab
+    Then I should see the `Applications` page
+    And I should not see the `Record an application` link
