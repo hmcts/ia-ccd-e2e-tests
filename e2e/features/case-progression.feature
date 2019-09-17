@@ -167,6 +167,88 @@ Feature: Case progression
     And I should see the text `What happens next`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review.`
 
+    # CO - notify Respondent to amend the HO bundle
+
+    When I switch to be a `Case Officer`
+    And I click the `Overview` tab
+
+    Then I should see the text `If it complies with the procedure rules and practice directions, direct the legal representative to build their case.`
+    Then I should see the text `If it does not comply, direct the respondent to make the appropriate changes.`
+
+    And I click the `direct the respondent to make the appropriate changes` link
+    Then I am on the `Send direction` page
+    When I type `Amend the evidence` for the `Explain the direction you are issuing` field
+    And I select `Respondent` for the `Who are you giving the direction to?` field
+    And I type `31-12-2019` for the `By what date must they comply?` field
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Amend the evidence` for the `Explain the direction you are issuing` answer
+    And I should see `Respondent` for the `Who are you giving the direction to?` answer
+    And I should see `31 Dec 2019` for the `By what date must they comply?` answer
+
+    When I click the `Send direction` button
+    Then I should see the text `You have sent a direction`
+    Then I should see the text `What happens next`
+    Then I should see the text `You can see the status of the direction in the directions tab`
+
+    When I click the `directions tab` link
+    Then I should see the `Directions` field
+    And within the `Directions` collection's first item, I should see `Amend the evidence` for the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
+    And within the `Directions` collection's first item, I should see `31 Dec 2019` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+
+
+    # HO - APC user amend HO bundle
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+
+    Then I should only see the `homeOffice_uploadBundle` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `An appeal against the Home Office decision in this case has been submitted. You can view the appeal form in the documents tab`
+    And I should see the text `If you accept that there is a right of appeal you should upload the Home Office bundle`
+    And I should see the text `If you consider the appeal is not valid, you should contact the Tribunal and the appellant with your reasons`
+
+    And I should see the case details
+    And I should not see the hearing details
+
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Upload Home Office bundle` for the `Next step` field
+    And I should not see the option `Submit your case` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
+    And I should not see the option `Record an application` for the `Next step` field
+    And I should not see the option `Build your case` for the `Next step` field
+
+    When I click the `upload the Home Office bundle` link
+    Then I am on the `Upload Home Office bundle` page
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I type `This is the updated evidence` for the `Describe the document` field
+
+    When I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
+    And I should see `This is the updated evidence` in the `Describe the document` field
+
+#    And I click the `Cancel` link
+    When I click the `Upload` button
+    Then I should see the text `You've uploaded the Home Office bundle`
+    And I should see the text `What happens next`
+    And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review.`
+
+    When I click the `Close and Return to case details` button
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And within the `Respondent documents` collection's first item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
+    And within the `Respondent documents` collection's first item, I should see `This is the updated evidence` in the `Description` field
+    And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And within the `Respondent documents` collection's second item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Respondent documents` collection's second item, I should see `This is the respondent evidence` in the `Description` field
+    And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
     ### case building, not ready to submit
 
     # CO - notify appellant to build the case
@@ -790,9 +872,12 @@ Feature: Case progression
     And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidence.pdf` in the `Document` field
     And within the `Respondent documents` collection's second item, I should see `This is the appeal response evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `Respondent documents` collection's third item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Respondent documents` collection's third item, I should see `This is the respondent evidence` in the `Description` field
+    And within the `Respondent documents` collection's third item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
+    And within the `Respondent documents` collection's third item, I should see `This is the updated evidence` in the `Description` field
     And within the `Respondent documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's fourth item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Respondent documents` collection's fourth item, I should see `This is the respondent evidence` in the `Description` field
+    And within the `Respondent documents` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-Decision-and-reasons-FINAL.pdf` in the `Document` field
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Decision and reason documents` collection's second item, I should see `-Gonzlez-Decision-and-reasons-Cover-letter.PDF` in the `Document` field
@@ -805,9 +890,9 @@ Feature: Case progression
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
-    And within the `Directions` collection's fifth item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
-    And within the `Directions` collection's fifth item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
-    And within the `Directions` collection's fifth item, I should see `You have 14 days to supply` in the `Explanation` field
-    And within the `Directions` collection's fifth item, I should see `Respondent` for the `Parties` field
-    And within the `Directions` collection's fifth item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
-    And within the `Directions` collection's fifth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's sixth item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
+    And within the `Directions` collection's sixth item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
+    And within the `Directions` collection's sixth item, I should see `You have 14 days to supply` in the `Explanation` field
+    And within the `Directions` collection's sixth item, I should see `Respondent` for the `Parties` field
+    And within the `Directions` collection's sixth item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's sixth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
