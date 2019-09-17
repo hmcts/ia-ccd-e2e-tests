@@ -65,7 +65,7 @@ export class StartAppealFlow {
             await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'M1 4AH');
             await this.ccdFormPage.click('Find address');
             await this.ccdFormPage.doesDropdownHaveValues('Select an address');
-            await this.ccdFormPage.setFieldValue('Select an address', 'The Exchange, Piccadilly Plaza, Manchester');
+            await this.ccdFormPage.setFieldValue('Select an address', 'Quality Save, The Exchange, Piccadilly Plaza, Manchester');
             await this.ccdFormPage.click('Continue');
         }
 

@@ -1,6 +1,6 @@
 Feature: List case
 
-  @list-case @RIA-412 @RIA-1571 @postcode
+  @list-case @RIA-412 @RIA-1571 @postcode @RIA-1380
   Scenario: Listing the case produces a hearing notice (default manchester hearing centre)
 
     Given I am signed in as a `Legal Rep`
@@ -23,6 +23,8 @@ Feature: List case
     Then I am on the `List the case` page
     And I should see the option `Manchester` for the `Hearing centre` field
     And I should see the option `Taylor House` for the `Hearing centre` field
+    And I should see the option `Newport` for the `Hearing centre` field
+    And I should see the option `Bradford` for the `Hearing centre` field
     And I should see the option `30 minutes` for the `Length of hearing` field
     And I should see the option `1 hour` for the `Length of hearing` field
     And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
@@ -61,7 +63,6 @@ Feature: List case
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: List the case`
-    And I see the open case
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
@@ -69,7 +70,7 @@ Feature: List case
     And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @list-case @RIA-412 @RIA-1571
+  @list-case @RIA-412 @RIA-1571 @RIA-1380
   Scenario: Listing the case produces a hearing notice
 
     Given I am signed in as a `Legal Rep`
@@ -92,6 +93,8 @@ Feature: List case
     Then I am on the `List the case` page
     And I should see the option `Manchester` for the `Hearing centre` field
     And I should see the option `Taylor House` for the `Hearing centre` field
+    And I should see the option `Newport` for the `Hearing centre` field
+    And I should see the option `Bradford` for the `Hearing centre` field
     And I should see the option `30 minutes` for the `Length of hearing` field
     And I should see the option `1 hour` for the `Length of hearing` field
     And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
@@ -130,7 +133,6 @@ Feature: List case
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: List the case`
-    And I see the open case
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
