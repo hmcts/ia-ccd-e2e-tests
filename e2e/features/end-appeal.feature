@@ -7,7 +7,7 @@ Feature: End appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @end-appeal @RIA-823 @RIA-1766
+  @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766
   Scenario: End appeal
 
     When I select the `End the appeal` Next step
@@ -73,9 +73,22 @@ Feature: End appeal
     And I should not see the hearing details
     And I should see the case details
 
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+
+    And I should see the ended appeal details
+    And I should not see the hearing details
+    And I should see the case details
 
 
-  @end-appeal-after-listing @RIA-1677
+
+
+  @end-appeal-after-listing @RIA-1677 @RIA-1678
   Scenario: End appeal after listing
 
     When I request respondent evidence
@@ -151,3 +164,16 @@ Feature: End appeal
     And I should see the ended appeal details
     And I should see the hearing details
     And I should see the case details
+
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+
+    And I should see the ended appeal details
+    And I should see the hearing details
+    And I should see the case details
+    
