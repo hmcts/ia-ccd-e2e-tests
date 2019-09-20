@@ -189,7 +189,7 @@ Feature: Record application
 
     Then I should see an alert confirming the case `has been updated with event: End the appeal`
 
-  @record-application-transfer-and-edit @RIA-1485
+  @record-application-transfer-and-edit @RIA-1485 @RIA-1654
   Scenario: Record granted transfer application and edit listing
 
     And I request respondent evidence
@@ -236,16 +236,18 @@ Feature: Record application
     When I click the `Record application` button
     Then I should see the text `You have recorded an application`
     And I should see the text `What happens next`
-    And I should see the text `The application decision has been recorded and is now available in the applications tab. This case must be relisted in ARIA. Once you have a new hearing date, you must then edit case listing. A new hearing notice will be issued.`
+    And I should see the text `The application decision has been recorded and is now available in the applications tab. Contact the listing team to relist the case. Once the case has been relisted, a new hearing notice will be issued.`
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     When I click the `Overview` tab
-    Then I should see the text `The application decision has been recorded and is now available in the applications tab. This case must be relisted in ARIA. Once you have a new hearing date, you must then edit case listing. A new hearing notice will be issued.`
+    Then I should see the text `The application decision has been recorded and is now available in the applications tab. Contact the listing team to relist the case. Once the case has been relisted, a new hearing notice will be issued.`
 
     # edit listing
-    When I click the `edit case listing` link
+    When I switch to be a `Admin Officer`
+    And I select the `Edit case listing` Next step
+
     Then I am on the `Edit case listing` page
 
     When I select `6 hours` for the `Length of hearing` field
@@ -260,6 +262,13 @@ Feature: Record application
     And I click the `Continue` button
     And I click the `List case` button
     And I click the `Close and Return to case details` button
+    And I click the `Overview` tab
+
+    Then I should only see the `caseOfficer_prepareForHearing` case progress image
+    And  I should see the text `The hearing notice will be sent to all parties.`
+    And  I should see the text `You don’t need to do any more on this case.`
+
+    When I switch to be a `Case Officer`
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_prepareForHearing` case progress image

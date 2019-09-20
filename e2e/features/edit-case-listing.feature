@@ -17,12 +17,13 @@ Feature: Edit case listing
     And I request hearing requirements
     And I switch to be a `Admin Officer`
     And I list the case
-    And I switch to be a `Case Officer`
 
-  @edit-case-listing @RIA-362 @RIA-1380
-  Scenario: Edit the case listing
+  @edit-case-listing @RIA-362 @RIA-1380 @RIA-1654
+  Scenario Outline: Edit the case listing
 
-    When I select the `Edit case listing` Next step
+    When I switch to be a <username>
+    And I select the `Edit case listing` Next step
+
     Then I am on the `Edit case listing` page
     And I should see the option `Manchester` for the `Hearing centre` field
     And I should see the option `Taylor House` for the `Hearing centre` field
@@ -80,5 +81,10 @@ Feature: Edit case listing
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Hearing documents` collection's second item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Hearing documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    Examples:
+    | username      |
+    | Case Officer  |
+    | Admin Officer |
 
 
