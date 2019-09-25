@@ -31,6 +31,12 @@ export class CcdPage extends AnyPage {
         }
     }
 
+    async clickLinkText(linkText: string) {
+        const expandedLinkText = await this.valueExpander.expand(linkText);
+        element(by.xpath('//a[normalize-space()="' + expandedLinkText + '"]'))
+            .click();
+    }
+
     async selectNextStep(nextStep: string) {
 
         const nextStepPath =

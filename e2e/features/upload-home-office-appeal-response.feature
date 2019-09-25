@@ -143,3 +143,42 @@ Feature: Upload appeal response - Home Office user
     And within the `Respondent documents` collection's second item, I should see `This is the evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+
+
+  @add-home-office-response-link @RIA-1714
+  Scenario Outline: add the Home Office's response from overview tab
+
+    When I switch to be a `Case Officer`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_respondentReviewStarted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The respondent is reviewing the case, you'll be notified when their response has been uploaded.`
+
+    # ho APC
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_respondentReview` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab.`
+
+    # ho POU
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_respondentReview` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab.`
+
+
+    # ho - apc & generic
+    When I switch to be a <homeLartAndGeneric>
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_respondentReview` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
+    And I upload the appeal response
+
+
+    Examples:
+      | homeLartAndGeneric   |
+      | Home Office LART     |
+      | Home Office Generic  |
