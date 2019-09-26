@@ -31,6 +31,50 @@ export class AuthenticationFlow {
         await this.waitForAngularIfRequired();
     }
 
+    async signInAsHomeOfficeApc() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestHomeOfficeApcUserName,
+            iaConfig.TestHomeOfficeApcPassword
+        );
+        await this.anyPage.contentContains('Case List');
+        await this.waitForAngularIfRequired();
+    }
+
+    async signInAsHomeOfficeLart() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestHomeOfficeLartUserName,
+            iaConfig.TestHomeOfficeLartPassword
+        );
+        await this.anyPage.contentContains('Case List');
+        await this.waitForAngularIfRequired();
+    }
+
+    async signInAsHomeOfficePou() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestHomeOfficePouUserName,
+            iaConfig.TestHomeOfficePouPassword
+        );
+        await this.anyPage.contentContains('Case List');
+        await this.waitForAngularIfRequired();
+    }
+
+    async signInAsHomeOfficeGeneric() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestHomeOfficeGenericUserName,
+            iaConfig.TestHomeOfficeGenericPassword
+        );
+        await this.anyPage.contentContains('Case List');
+        await this.waitForAngularIfRequired();
+    }
+
     async signInAsJudiciary() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
