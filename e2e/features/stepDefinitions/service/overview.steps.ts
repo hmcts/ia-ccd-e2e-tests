@@ -57,7 +57,6 @@ Then(/^I should (see|not see) the ended appeal details$/, async function (seeOrN
     expect(await ccdPage.headingContains('Ended appeal details', !isDisplayed)).to.equal(isDisplayed);
 
     if (isDisplayed) {
-
         expect(await ccdPage.isFieldValueDisplayed('Outcome of the appeal', 'Struck out')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Reasons for this outcome', 'some end appeal reason')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Approved by', 'Judge')).to.equal(true);
