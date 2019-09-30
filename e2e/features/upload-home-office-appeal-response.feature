@@ -145,7 +145,7 @@ Feature: Upload appeal response - Home Office user
 
 
 
-  @add-home-office-response-link @RIA-1714
+  @add-home-office-pre-upload-response-link @RIA-1714
   Scenario Outline: add the Home Office's response from overview tab
 
     When I switch to be a `Case Officer`
@@ -170,15 +170,77 @@ Feature: Upload appeal response - Home Office user
 
 
     # ho - apc & generic
-    When I switch to be a <homeLartAndGeneric>
+    When I switch to be a <homeOfficeLartAndGeneric>
     And I click the `Overview` tab
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
     And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
     And I upload the appeal response
 
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_appealResponseUploaded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Tribunal will:`
+    And I should see the text `check that the Home Office response complies with the Procedure Rules and Practice Direction`
+    And I should see the text `inform you of any issues`
+    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
+
+
+
 
     Examples:
-      | homeLartAndGeneric   |
+      | homeOfficeLartAndGeneric   |
       | Home Office LART     |
       | Home Office Generic  |
+
+
+  @add-home-office-post-upload-response-link @RIA-1803
+  Scenario Outline: add the Home Office's response from overview tab
+
+    When I switch to be a `Case Officer`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_respondentReviewStarted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The respondent is reviewing the case, you'll be notified when their response has been uploaded.`
+
+    # ho APC
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_respondentReview` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab.`
+
+    # ho POU
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_respondentReview` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab.`
+
+
+    # ho - apc & generic
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_respondentReview` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
+    And I upload the appeal response
+
+    When I switch to be a <homeOfficeLartApcPOU>
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_appealResponseUploaded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Tribunal will:`
+    And I should see the text `check that the Home Office response complies with the Procedure Rules and Practice Direction`
+    And I should see the text `inform you of any issues`
+    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
+
+
+    Examples:
+      | homeOfficeLartApcPOU   |
+      | Home Office LART     |
+      | Home Office APC      |
+      | Home Office POU      |
+
