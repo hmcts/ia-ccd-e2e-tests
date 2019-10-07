@@ -12,6 +12,7 @@ Feature: Generate hearing bundle
     And I switch to be a `Legal Rep`
     And I build my case
     And I submit my case
+    And I upload additional evidence
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
@@ -21,7 +22,7 @@ Feature: Generate hearing bundle
     And I switch to be a `Case Officer`
     And I create case summary
 
-  @generate-hearing-bundle @RIA-941
+  @generate-hearing-bundle @RIA-941 @RIA-1846
   Scenario: Generate hearing bundle
     When I click the `Documents` tab
     Then I should see the `Documents` page
@@ -36,7 +37,6 @@ Feature: Generate hearing bundle
     Then I should see the text `You can view the hearing bundle in the documents tab. All parties have been notified that the hearing bundle is now available.`
 
     When I click the `Close and Return to case details` button
-    And I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
