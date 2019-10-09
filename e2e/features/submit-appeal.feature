@@ -31,6 +31,6 @@ Feature: Submit appeal application
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
     And I see the open case
 
-    When I click the `Case details` tab
+    When I click the `Appellant` tab
     Then the `Reference number` field should be 13 characters long
     And I should see `Taylor House` for the `Hearing centre` field

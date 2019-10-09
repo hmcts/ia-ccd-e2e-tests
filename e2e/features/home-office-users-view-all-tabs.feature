@@ -26,6 +26,7 @@ Feature: All home office users overview appeal case-details documents directions
 
   @Home-office-users-view-tabs @RIA-1356
   Scenario Outline: Home office users should see the tabs
+
     When I switch to be a <homeOfficeUser>
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
@@ -41,15 +42,13 @@ Feature: All home office users overview appeal case-details documents directions
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
     And I should see `The refusal of a protection claim` in the `Type of appeal` field
 
-    When I click the `Case details` tab
-    Then the `Reference number` field should be 13 characters long
-    And I should see `A123456` in the `Home Office reference number` field
-    And I should see `{$TODAY|D MMM YYYY}` in the `Date on the decision letter` field
-    And I should see `José` in the `Given names` field
-    And I should see `González` in the `Family name` field
-    And I should see `The refusal of a protection claim` in the `Type of appeal` field
-    And I should see `some-ref` in the `If you prefer to use your own reference number for this case, you can enter it here.` field
-    And I should see `Taylor House` in the `Hearing centre` field
+    When I click the `Appellant` tab
+    Then I should see the appellant's details
+    And I should see the legal representative's details
+
+    When I click the `Overview` tab
+    Then I should see the case details
+    And I should see the legal representative details
 
     When I click the `Documents` tab
     Then I should see the `Documents` page

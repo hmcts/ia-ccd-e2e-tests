@@ -20,8 +20,8 @@ export class StartAppealFlow {
 
     async completeHomeOfficeReference(clickContinue = false) {
 
-        await this.ccdFormPage.headingContains('Home Office details');
-        await this.ccdFormPage.setFieldValue('Enter the Home Office reference number', 'A123456/001');
+        await this.ccdFormPage.headingContains('Home Office reference');
+        await this.ccdFormPage.setFieldValue('Home Office reference', 'A123456/001');
         await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '{$TODAY}');
 
         if (clickContinue) {
@@ -31,8 +31,8 @@ export class StartAppealFlow {
 
     async completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(clickContinue = false) {
 
-        await this.ccdFormPage.setFieldValue('Home Office reference number', 'A123456/001');
-        await this.ccdFormPage.setFieldValue('Date on the decision letter', '01-01-2018');
+        await this.ccdFormPage.setFieldValue('Home Office reference', 'A123456/001');
+        await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '01-01-2018');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -103,7 +103,7 @@ export class StartAppealFlow {
             'Yes'
         );
         await this.ccdFormPage.setFieldValue(
-            'Explain what the new matters are and why they are relevant to this appeal.',
+            'Explain these new matters and their relevance to the appeal',
             'Birth of a child'
         );
 
@@ -133,6 +133,18 @@ export class StartAppealFlow {
         }
     }
 
+    async completeLegalRepresentativeDetails(clickContinue = false) {
+
+        await this.ccdFormPage.headingContains('Legal representative details');
+        await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
+        await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
+        await this.ccdFormPage.setFieldValue('Own reference', 'ia-legal-fenn');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeCheckYourAnswers(clickContinue = false) {
 
         await this.ccdFormPage.headingContains('Check your answers');
@@ -151,7 +163,7 @@ export class StartAppealFlow {
         await this.completeAppealGrounds(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
-        await this.completeReferenceNumber(true);
+        await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -169,7 +181,7 @@ export class StartAppealFlow {
         await this.completeAppealGrounds(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
-        await this.completeReferenceNumber(true);
+        await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
