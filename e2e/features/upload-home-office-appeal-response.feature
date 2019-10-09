@@ -37,12 +37,27 @@ Feature: Upload appeal response - Home Office user
     #    Home Office APC
     When I switch to be a `Home Office APC`
     Then I should see the text `Next step`
+    And I should see the option `Upload additional evidence` for the `Next step` field
     And I should not see the option `Upload the appeal response` for the `Next step` field
+    And I should not see the option `Add appeal response` for the `Next step` field
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `List the case` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
+    And I should not see the option `Record an application` for the `Next step` field
+
 
     #    Home Office POU
     When I switch to be a `Home Office POU`
     Then I should see the text `Next step`
+    And I should see the option `Upload additional evidence` for the `Next step` field
     And I should not see the option `Upload the appeal response` for the `Next step` field
+    And I should not see the option `Add appeal response` for the `Next step` field
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `List the case` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
+    And I should not see the option `Record an application` for the `Next step` field
 
     #    Home Office Generic
     When I switch to be a `Home Office Generic`
