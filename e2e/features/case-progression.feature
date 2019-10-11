@@ -1,6 +1,6 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568 @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1356
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer or Legal Rep)
 
     Given I am signed in as a `Legal Rep`
@@ -713,3 +713,79 @@ Feature: Case progression
 
     Then I should only see the `caseOfficer_decided` case progress image
     And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
+
+
+  # HO APC
+    When I switch to be a `Home Office APC`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `AppealResponse.pdf` in the `Response document` field
+    And I should see `This is the appeal response` in the first `Description` field
+    And within the first `Evidence` collection's first item, I should see `AppealResponseEvidence.pdf` in the `Document` field
+    And within the first `Evidence` collection's first item, I should see `This is the appeal response evidence` in the `Describe the document` field
+    And I should see `This is the case argument` in the second `Description` field
+    And within the second `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
+    And within the second `Evidence` collection's first item, I should see `The is the case argument evidence` in the `Describe the document` field
+    And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
+    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+    And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
+    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+
+    When I click the `Case details` tab
+    Then the `Reference number` field should be 13 characters long
+    And I should see `A123456` in the `Home Office reference number` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Date on the decision letter` field
+    And I should see `José` in the `Given names` field
+    And I should see `González` in the `Family name` field
+    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+    And I should see `some-ref` in the `If you prefer to use your own reference number for this case, you can enter it here.` field
+    And I should see `Taylor House` in the `Hearing centre` field
+
+    When I click the `Documents` tab
+    Then I should see the `Documents` page
+    And I should see the `Hearing documents` field
+    And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
+    And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Hearing documents` collection's second item, I should see `CaseSummary.pdf` in the `Document` field
+    And within the `Hearing documents` collection's second item, I should see `This is the case summary` in the `Description` field
+    And within the `Hearing documents` collection's third item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
+    And within the `Hearing documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should see the `Legal representative documents` field
+    And within the `Legal representative documents` collection's first item, I should see `-González-appeal-skeleton-argument.PDF` in the `Document` field
+    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Legal representative documents` collection's second item, I should see `CaseArgument.pdf` in the `Document` field
+    And within the `Legal representative documents` collection's second item, I should see `This is the case argument` in the `Description` field
+    And within the `Legal representative documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Legal representative documents` collection's third item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
+    And within the `Legal representative documents` collection's third item, I should see `The is the case argument evidence` in the `Description` field
+    And within the `Legal representative documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Legal representative documents` collection's fourth item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
+    And within the `Legal representative documents` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
+    And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
+    And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidence.pdf` in the `Document` field
+    And within the `Respondent documents` collection's second item, I should see `This is the appeal response evidence` in the `Description` field
+    And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's third item, I should see `RespondentEvidence.pdf` in the `Document` field
+    And within the `Respondent documents` collection's third item, I should see `This is the respondent evidence` in the `Description` field
+    And within the `Respondent documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-Decision-and-reasons-FINAL.pdf` in the `Document` field
+    And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Decision and reason documents` collection's second item, I should see `-Gonzlez-Decision-and-reasons-Cover-letter.PDF` in the `Document` field
+    And within the `Decision and reason documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    When I click the `Directions` tab
+    Then I should see the `Directions` page
+    And within the `Directions` collection's first item, I should see `Your appeal is going to a hearing. Login to submit your hearing requirements on the overview tab.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not supply your hearing requirements within 5 days, we may not be able to accommodate your needs for the hearing.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's fifth item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `You have 14 days to supply` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `Respondent` for the `Parties` field
+    And within the `Directions` collection's fifth item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's fifth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
