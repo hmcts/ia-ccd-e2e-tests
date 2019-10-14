@@ -1,7 +1,8 @@
 Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
-  @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1709 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
+  @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
+  @RIA-1810
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -317,6 +318,7 @@ Feature: Case progression
     Then I am on the `Change the direction due date` page
     And I click the `Cancel` link
 
+
     # LR:
 
     When I switch to be a `Legal Rep`
@@ -429,19 +431,24 @@ Feature: Case progression
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
 
-    When I click the `Request respondent review` link
-    Then I am on the `Request respondent review` page
-    And I click the `Cancel` link
-
-    When I click the `Overview` tab
-
     When I click the `Request case edit` link
     Then I am on the `Request case edit` page
     And I click the `Cancel` link
 
+    When I click the `Overview` tab
+    When I click the `Request respondent review` link
+    Then I am on the `Request respondent review` page
+    And I click the `Continue` button
+    And I click the `Send direction` button
+
+    And I should see the text `You have sent a direction`
+    And I should see the text `What happens next`
+    And I should see the text `Wait for the respondent to complete the direction. You must upload the response as soon as you receive it.`
+    And I click the `Close and Return to case details` button
+
     ### respondent review, no appeal response
 
-    When I request respondent review
+#    When I request respondent review
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_respondentReviewStarted` case progress image
@@ -489,29 +496,57 @@ Feature: Case progression
 
     ### respondent review, appeal response added
 
-    # HO:
+    # Home Office Lart - upload appeal response
 
-    And I switch to be a `Home Office Generic`
-    Then I click the `Overview` tab
-    And I should only see the `homeOffice_respondentReview` case progress image
+    When I switch to be a `Home Office LART`
+    Then I should see the option `Upload the appeal response` for the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
+
+    When I click the `Overview` tab
+    Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
-    And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab.`
+    And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab`
     And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
-    And I upload the appeal response
 
-    And I click the `Overview` tab
-    Then I should only see the `homeOffice_appealResponseUploaded` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `The Tribunal will:`
-    And I should see the text `check that the Home Office response complies with the Procedure Rules and Practice Direction`
-    And I should see the text `inform you of any issues`
-    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
-    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
+    And I click the `add the Home Office's response` link
+    And I am on the `Upload the appeal response` page
+
+    When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    And I type `This is the appeal response` for the `Describe the document (Optional)` field
+    And I add an item to the `Add any additional evidence here (Optional)` collection
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
+
+    When I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `AppealResponse.pdf` in the `Upload the appeal response` field
+    And I should see `This is the appeal response` in the `Describe the document` field
+    And within the `Add any additional evidence here` collection's first item, I should see `Evidence1.pdf` for the `Document` field
+    And within the `Add any additional evidence here` collection's first item, I should see `This is the evidence` in the `Describe the document` field
+
+    When I click the `Upload` button
+    Then I should see the text `You've uploaded the appeal response`
+    Then I should see the text `What happens next`
+    Then I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+
+    When I click the `Close and Return to case details` button
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
+    And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
+    And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's second item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Respondent documents` collection's second item, I should see `This is the evidence` in the `Description` field
+    And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
 
     # CO:
 
     And I switch to be a `Case Officer`
-    Then I click the `Overview` tab
+    And I click the `Overview` tab
+
+    Then I should only see the `caseOfficer_respondentReview_submittedResponse` case progress image
+
     And I should see the text `Do this next`
     And I should see the text `Check the response uploaded by the respondent`
     And I should see the text `If it complies with the Procedure Rules and Practice Directions, direct the appellant to review the Home Office response`
@@ -531,6 +566,80 @@ Feature: Case progression
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
     And I should see the option `End the appeal` for the `Next step` field
+
+    When I click the `direct the respondent to make the appropriate changes` link
+    Then I am on the `Amend appeal response` page
+    And I type `Do the thing` for the `Explain the direction you are issuing` field
+    And I should see `Respondent` for the `Who are you giving the direction to?` field
+    And I type `15-10-2019` for the `By what date must they comply?` field
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Do the thing` for the `Explain the direction you are issuing` answer
+    And I should see `Respondent` for the `Who are you giving the direction to?` answer
+    And I should see `15 Oct 2019` for the `By what date must they comply?` answer
+
+    When I click the `Send direction` button
+    Then I should see the text `You have sent a direction`
+    And I should see the text `What happens next`
+    Then I should see the text `You can see the status of the direction in the directions tab`
+
+    When I click the `Close and Return to case details` button
+    Then I should only see the `caseOfficer_respondentReview_amendResponse` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The respondent has been directed to make changes with their response`
+    And I should see the text `You'll be notified when the revised response has been uploaded`
+
+    And I should see the case details
+    And I should not see the hearing details
+
+
+    # HO:
+
+    And I switch to be a `Home Office LART`
+    Then I click the `Overview` tab
+    Then I should only see the `homeOffice_respondentReview` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab`
+    And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
+#    And I upload the appeal response
+
+    And I click the `add the Home Office's response` link
+    And I am on the `Upload the appeal response` page
+
+    When I upload `{@AppealResponseUpdated.pdf}` for the `Upload the appeal response` field
+    And I type `This is the updated appeal response` for the `Describe the document (Optional)` field
+    And I add an item to the `Add any additional evidence here (Optional)` collection
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@AppealResponseEvidenceUpdated.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the updated evidence` for the `Describe the document (Optional)` field
+
+    When I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `AppealResponseUpdated.pdf` in the `Upload the appeal response` field
+    And I should see `This is the updated appeal response` in the `Describe the document` field
+    And within the `Add any additional evidence here` collection's first item, I should see `AppealResponseEvidenceUpdated.pdf` for the `Document` field
+    And within the `Add any additional evidence here` collection's first item, I should see `This is the updated evidence` in the `Describe the document` field
+
+    When I click the `Upload` button
+    Then I should see the text `You've uploaded the appeal response`
+    Then I should see the text `What happens next`
+    Then I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+
+    When I click the `Close and Return to case details` button
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And within the `Respondent documents` collection's first item, I should see `AppealResponseUpdated.pdf` in the `Document` field
+    And within the `Respondent documents` collection's first item, I should see `This is the updated appeal response` in the `Description` field
+    And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidenceUpdated.pdf` in the `Document` field
+    And within the `Respondent documents` collection's second item, I should see `This is the updated evidence` in the `Description` field
+    And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+
+    # CO Direct Appellant to review HO Appeal Response
+    When I switch to be a `Case Officer`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_respondentReview_submittedResponse` case progress image
 
     When I click the `direct the appellant to review the Home Office response` link
     Then I am on the `Review Home Office response` page
@@ -1269,13 +1378,15 @@ Feature: Case progression
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
-    And I should see `AppealResponse.pdf` in the `Upload the appeal response` field
-    And I should see `This is the appeal response` in the first `Describe the document` field
-    And within the first `Add any additional evidence here` collection's first item, I should see `AppealResponseEvidence.pdf` in the `Document` field
-    And I should see `CaseArgument.pdf` in the `Appeal skeleton argument` field
-    And I should see `This is the case argument` in the `Description` field
+    And I should see `AppealResponseUpdated.pdf` in the `Upload the appeal response` field
+    And I should see `This is the updated appeal response` in the first `Describe the document` field
+    And within the first `Add any additional evidence here` collection's first item, I should see `AppealResponseEvidenceUpdated.pdf` in the `Document` field
+    And within the first `Add any additional evidence here` collection's first item, I should see `This is the updated evidence` in the `Describe the document` field
+    And I should see `This is the case argument` in the first `Description` field
     And within the first `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
     And within the first `Evidence` collection's first item, I should see `The is the case argument evidence` in the `Describe the document` field
+    And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
+    And I should see `The refusal of a protection claim` in the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
     And I should see `The refusal of a protection claim` in the `Type of appeal` field
 
@@ -1310,10 +1421,11 @@ Feature: Case progression
     And within the `Legal representative documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Legal representative documents` collection's fourth item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
     And within the `Legal representative documents` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
-    And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
+    And within the `Respondent documents` collection's first item, I should see `AppealResponseUpdated.pdf` in the `Document` field
+    And within the `Respondent documents` collection's first item, I should see `This is the updated appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidence.pdf` in the `Document` field
+    And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidenceUpdated.pdf` in the `Document` field
+    And within the `Respondent documents` collection's second item, I should see `This is the updated evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Respondent documents` collection's third item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's third item, I should see `This is the updated evidence` in the `Description` field
@@ -1333,9 +1445,9 @@ Feature: Case progression
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
-    And within the `Directions` collection's sixth item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
-    And within the `Directions` collection's sixth item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
-    And within the `Directions` collection's sixth item, I should see `You have 14 days to supply` in the `Explanation` field
-    And within the `Directions` collection's sixth item, I should see `Respondent` for the `Parties` field
-    And within the `Directions` collection's sixth item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
-    And within the `Directions` collection's sixth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's seventh item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `You have 14 days to supply` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `Respondent` for the `Parties` field
+    And within the `Directions` collection's seventh item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's seventh item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

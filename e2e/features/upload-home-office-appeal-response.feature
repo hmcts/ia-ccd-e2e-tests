@@ -14,7 +14,7 @@ Feature: Upload appeal response - Home Office user
     And I switch to be a `Case Officer`
     And I request respondent review
 
-  @RIA-1309
+  @RIA-1309 @RIA-1810 @amend-appeal-response
   Scenario: Uploading appeal response adds documents
 
     When I select the `Add appeal response` Next step
@@ -36,32 +36,20 @@ Feature: Upload appeal response - Home Office user
 
     #    Home Office APC
     When I switch to be a `Home Office APC`
-    Then I should see the text `Next step`
+    Then I should not see the option `Upload the appeal response` for the `Next step` field
     And I should see the option `Upload additional evidence` for the `Next step` field
-    And I should not see the option `Upload the appeal response` for the `Next step` field
-    And I should not see the option `Add appeal response` for the `Next step` field
-    And I should not see the option `Send direction` for the `Next step` field
-    And I should not see the option `Change the direction due date` for the `Next step` field
-    And I should not see the option `List the case` for the `Next step` field
-    And I should not see the option `Add case note` for the `Next step` field
-    And I should not see the option `Record an application` for the `Next step` field
 
 
     #    Home Office POU
     When I switch to be a `Home Office POU`
-    Then I should see the text `Next step`
+    Then I should not see the option `Upload the appeal response` for the `Next step` field
     And I should see the option `Upload additional evidence` for the `Next step` field
-    And I should not see the option `Upload the appeal response` for the `Next step` field
-    And I should not see the option `Add appeal response` for the `Next step` field
-    And I should not see the option `Send direction` for the `Next step` field
-    And I should not see the option `Change the direction due date` for the `Next step` field
-    And I should not see the option `List the case` for the `Next step` field
-    And I should not see the option `Add case note` for the `Next step` field
-    And I should not see the option `Record an application` for the `Next step` field
+
 
     #    Home Office Generic
     When I switch to be a `Home Office Generic`
     Then I should see the option `Upload the appeal response` for the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     And I select the `Upload the appeal response` Next step
     Then I am on the `Upload the appeal response` page
@@ -83,6 +71,7 @@ Feature: Upload appeal response - Home Office user
     #    Home Office LART
     When I switch to be a `Home Office LART`
     Then I should see the option `Upload the appeal response` for the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
     And I select the `Upload the appeal response` Next step
     Then I am on the `Upload the appeal response` page
 
@@ -158,7 +147,41 @@ Feature: Upload appeal response - Home Office user
     And within the `Respondent documents` collection's second item, I should see `This is the evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    #  Home Office appeal response amend request and upload amended documents.
+    #    Home Office LART
+    When I switch to be a `Home Office LART`
+    Then I should see the option `Upload the appeal response` for the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
+    And I select the `Upload the appeal response` Next step
+    Then I am on the `Upload the appeal response` page
 
+    When I upload `{@AppealResponseUpdated.pdf}` for the `Upload the appeal response` field
+    And I type `This is the updated appeal response` for the `Describe the document (Optional)` field
+    And I add an item to the `Add any additional evidence here (Optional)` collection
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@AppealResponseEvidenceUpdated.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the updated evidence` for the `Describe the document (Optional)` field
+
+    When I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `AppealResponseUpdated.pdf` in the `Upload the appeal response` field
+    And I should see `This is the updated appeal response` in the `Describe the document` field
+    And within the `Add any additional evidence here` collection's first item, I should see `AppealResponseEvidenceUpdated.pdf` for the `Document` field
+    And within the `Add any additional evidence here` collection's first item, I should see `This is the updated evidence` in the `Describe the document` field
+
+    When I click the `Upload` button
+    Then I should see the text `You've uploaded the appeal response`
+    Then I should see the text `What happens next`
+    Then I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+
+    When I click the `Close and Return to case details` button
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And within the `Respondent documents` collection's first item, I should see `AppealResponseUpdated.pdf` in the `Document` field
+    And within the `Respondent documents` collection's first item, I should see `This is the updated appeal response` in the `Description` field
+    And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidenceUpdated.pdf` in the `Document` field
+    And within the `Respondent documents` collection's second item, I should see `This is the updated evidence` in the `Description` field
+    And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
   @add-home-office-pre-upload-response-link @RIA-1714
   Scenario Outline: add the Home Office's response from overview tab
@@ -239,6 +262,7 @@ Feature: Upload appeal response - Home Office user
     And I click the `Overview` tab
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
+
     And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
     And I upload the appeal response
 
