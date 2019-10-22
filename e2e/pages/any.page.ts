@@ -193,6 +193,7 @@ export class AnyPage {
             'self::caption or ' +
             'self::label or ' +
             'self::p or ' +
+            'self::li                        [contains(text(), "' + expandedMatch + '")] or ' +  // for bulleted text
             'self::div                       [contains(text(), "' + expandedMatch + '")] or ' +  // avoid text in child nodes
             'self::ccd-read-date-field       [contains(text(), "' + expandedMatch + '")] or ' +  // for more generic containers
             'self::dt                        [contains(text(), "' + expandedMatch + '")] or ' +  // added recently

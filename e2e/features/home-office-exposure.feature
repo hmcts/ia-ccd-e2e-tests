@@ -9,12 +9,11 @@ Feature: Different Home Office roles have different functionality
     And I switch to be a `Case Officer`
     And I request respondent evidence
 
-  @RIA-1707 @home-office-exposure
+  @RIA-1707 @RIA-1798 @home-office-exposure
   Scenario: Home office functionality
 
 
     # HO LART:
-
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
 
@@ -31,7 +30,6 @@ Feature: Different Home Office roles have different functionality
     Then I am on the `Documents` page
 
     # HO POU:
-
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
 
@@ -48,7 +46,6 @@ Feature: Different Home Office roles have different functionality
     Then I am on the `Documents` page
 
     # HO GENERIC:
-
     When I switch to be a `Home Office Generic`
     And I click the `Overview` tab
 
@@ -78,7 +75,6 @@ Feature: Different Home Office roles have different functionality
     Then I am on the `Documents` page
 
     # HO APC:
-
     Given I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
@@ -123,3 +119,41 @@ Feature: Different Home Office roles have different functionality
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidence.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the evidence` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_awaitAppealSkeletonArgument` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Tribunal will:`
+    And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+
+    # HO LART:
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_awaitAppealSkeletonArgument` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Tribunal will:`
+    And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+
+    # HO POU:
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_awaitAppealSkeletonArgument` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Tribunal will:`
+    And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+
+    # HO GENERIC:
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_awaitAppealSkeletonArgument` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Tribunal will:`
+    And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
