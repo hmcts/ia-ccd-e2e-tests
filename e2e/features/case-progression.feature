@@ -1,7 +1,7 @@
 Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
-  @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707
+  @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -83,9 +83,8 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_awaitingRespondentEvidence_preUpload` case progress image
-
     And I should see the text `Do this next`
-    And I should see the text `Await the respondent's evidence`
+    And I should see the text `Await the respondent's evidence.`
     And I should not see the `Upload respondent evidence` link
 
     And I should see the case details
@@ -125,7 +124,7 @@ Feature: Case progression
     Then I am on the `Build your case` page
     And I click the `Cancel` link
 
-    # HO APC:
+    # HO APC - Upload respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -152,38 +151,35 @@ Feature: Case progression
     Then I am on the `Upload Home Office bundle` page
     And I click the `Cancel` link
 
-    When I click the `documents tab` link
-    Then I am on the `Documents` page
+    When I click the `upload the Home Office bundle` link
+    And I am on the `Upload Home Office bundle` page
+    Then I add an item to the `Upload Home Office bundle` collection
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
+
+    When I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And within the `Upload Home Office bundle` collection's first item, I should see `Evidence1.pdf` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I should see `This is the respondent evidence` in the `Describe the document` field
+
+    When I click the `Upload` button
+    Then I should see the text `You've uploaded the Home Office bundle`
+    And I should see the text `What happens next`
+    And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review.`
 
     ### case building, not ready to submit
 
-    # CO:
+    # CO - notify appellant to build the case
 
     When I switch to be a `Case Officer`
-    And I upload respondent evidence
     And I click the `Overview` tab
-
-    Then I should only see the `caseOfficer_caseBuilding` case progress image
-
-    And I should not see the `Request respondent review` link
-    And I should not see the `Request case edit` link
-
-    And I should see the text `Do this next`
-    And I should see the text `Wait for the appellant to submit their built case`
-
-    And I should see the case details
-    And I should not see the hearing details
-    And I should not see the option `Build your case` for the `Next step` field
-    And I should not see the option `Submit your case` for the `Next step` field
-    And I should not see the option `Upload respondent evidence` for the `Next step` field
-    And I should see the option `Add case note` for the `Next step` field
-    And I should see the option `Record an application` for the `Next step` field
-    And I should see the option `Send direction` for the `Next step` field
-    And I should see the option `Change the direction due date` for the `Next step` field
-
-    When I click the `Change the direction due date` link
-    Then I am on the `Change the direction due date` page
-    And I click the `Cancel` link
+    Then I should see the text `If it complies with the procedure rules and practice directions, direct the legal representative to build their case.`
+    And I click the `direct the legal representative to build their case` link
+    And I click the `Continue` button
+    And I click the `Send direction` button
+    Then I should see the text `You have sent a direction`
+    And I should see the text `What happens next`
+    And I should see the text `Legal representative will be notified by email.`
 
     # LR:
 
@@ -794,7 +790,7 @@ Feature: Case progression
     And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidence.pdf` in the `Document` field
     And within the `Respondent documents` collection's second item, I should see `This is the appeal response evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `Respondent documents` collection's third item, I should see `RespondentEvidence.pdf` in the `Document` field
+    And within the `Respondent documents` collection's third item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Respondent documents` collection's third item, I should see `This is the respondent evidence` in the `Description` field
     And within the `Respondent documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-Decision-and-reasons-FINAL.pdf` in the `Document` field
