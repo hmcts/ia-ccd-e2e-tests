@@ -1,7 +1,7 @@
 Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
-  @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789
+  @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1357
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -124,7 +124,7 @@ Feature: Case progression
     Then I am on the `Build your case` page
     And I click the `Cancel` link
 
-    # HO APC - Upload respondent evidence
+    # HO APC - upload respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -149,11 +149,7 @@ Feature: Case progression
 
     When I click the `upload the Home Office bundle` link
     Then I am on the `Upload Home Office bundle` page
-    And I click the `Cancel` link
-
-    When I click the `upload the Home Office bundle` link
-    And I am on the `Upload Home Office bundle` page
-    Then I add an item to the `Upload Home Office bundle` collection
+    And I add an item to the `Upload Home Office bundle` collection
     And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
 
@@ -166,6 +162,17 @@ Feature: Case progression
     Then I should see the text `You've uploaded the Home Office bundle`
     And I should see the text `What happens next`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review.`
+    And  I click the `Close and Return to case details` button
+
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_awaitAppealSkeletonArgument` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Tribunal will:`
+    And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+
+    ### direct legal rep to build case
 
     # CO - notify Respondent to amend the HO bundle
 
@@ -199,8 +206,8 @@ Feature: Case progression
     And within the `Directions` collection's first item, I should see `31 Dec 2019` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-
     # HO - APC user amend HO bundle
+
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
@@ -232,7 +239,6 @@ Feature: Case progression
     And I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
     And I should see `This is the updated evidence` in the `Describe the document` field
 
-#    And I click the `Cancel` link
     When I click the `Upload` button
     Then I should see the text `You've uploaded the Home Office bundle`
     And I should see the text `What happens next`
@@ -253,15 +259,63 @@ Feature: Case progression
 
     # CO - notify appellant to build the case
 
-    When I switch to be a `Case Officer`
+    And I switch to be a `Case Officer`
     And I click the `Overview` tab
-    Then I should see the text `If it complies with the procedure rules and practice directions, direct the legal representative to build their case.`
+
+    Then I should only see the `caseOfficer_awaitingRespondentEvidence_postUpload` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `If it complies with the procedure rules and practice directions, direct the legal representative to build their case`
+    And I should see the text `If it does not comply, direct the respondent to make the appropriate changes`
+
+    And I should see the case details
+    And I should not see the hearing details
+
+    And I should not see the option `Build your case` for the `Next step` field
+    And I should not see the option `Submit your case` for the `Next step` field
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Request respondent evidence` for the `Next step` field
+    And I should see the option `Upload respondent evidence` for the `Next step` field
+    And I should see the option `Request case building` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
+    And I should see the option `Record an application` for the `Next step` field
+    And I should see the option `End the appeal` for the `Next step` field
+
     And I click the `direct the legal representative to build their case` link
     And I click the `Continue` button
     And I click the `Send direction` button
     Then I should see the text `You have sent a direction`
     And I should see the text `What happens next`
     And I should see the text `Legal representative will be notified by email.`
+    And I click the `Close and Return to case details` button
+
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_caseBuilding` case progress image
+
+    And I should not see the `Request respondent review` link
+    And I should not see the `Request case edit` link
+
+    And I should see the text `Do this next`
+    And I should see the text `Wait for the appellant to submit their built case. If they ask for a time extension, you can respond by changing the due date on the direction`
+    And I should see the `Change the direction due date` link
+
+    And I should see the case details
+    And I should not see the hearing details
+
+    And I should not see the option `Build your case` for the `Next step` field
+    And I should not see the option `Submit your case` for the `Next step` field
+    And I should not see the option `Upload respondent evidence` for the `Next step` field
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Add additional evidence` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
+    And I should see the option `Record an application` for the `Next step` field
+    And I should see the option `End the appeal` for the `Next step` field
+
+    When I click the `Change the direction due date` link
+    Then I am on the `Change the direction due date` page
+    And I click the `Cancel` link
 
     # LR:
 
@@ -271,7 +325,8 @@ Feature: Case progression
     Then I should only see the `legalRep_caseBuilding` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The respondent evidence is now available in the documents tab`
+    And I should see the text `The respondent evidence is now available in the documents tab. You now need to build your case`
+    And I should see the `Build your case` link
     And I should not see the text `submit your case`
 
     And I should see the case details
@@ -281,6 +336,7 @@ Feature: Case progression
     And I should not see the option `Change the direction due date` for the `Next step` field
     And I should not see the option `Add case note` for the `Next step` field
     And I should not see the option `Record an application` for the `Next step` field
+    And I should not see the option `End the appeal` for the `Next step` field
 
     And I should see the option `Build your case` for the `Next step` field
     And I should see the option `Submit your case` for the `Next step` field
@@ -661,7 +717,7 @@ Feature: Case progression
     When I click the `Go to the documents tab` link
     Then I am on the `Documents` page
 
-    # Start decision and reasons
+    ### start decision and reasons
 
     # CO:
 
@@ -703,7 +759,7 @@ Feature: Case progression
     When I click the `Go to the documents tab` link
     Then I am on the `Documents` page
 
-    # Generate decision and reasons
+    ### generate decision and reasons
 
     # CO:
 
@@ -737,7 +793,7 @@ Feature: Case progression
     And I should see the hearing details
     And I should not see the `Next step` field
 
-     # Send decision and reasons
+    ### send decision and reasons
 
     # CO:
 
@@ -771,7 +827,7 @@ Feature: Case progression
     And I should see the hearing details
     And I should not see the `Next step` field
 
-    # Decided
+    # decided
 
     # CO:
 
@@ -800,6 +856,7 @@ Feature: Case progression
     And I should not see the `Next step` field
 
     # AO
+
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
 
@@ -818,8 +875,8 @@ Feature: Case progression
     Then I should only see the `caseOfficer_decided` case progress image
     And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
 
-
   # HO APC
+
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
