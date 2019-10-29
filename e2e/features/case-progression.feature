@@ -480,31 +480,25 @@ Feature: Case progression
 
     And I should see the option `Upload additional evidence` for the `Next step` field
 
-    ### respondent review, appeal response added
+    ### respondent review, upload appeal response
 
-    # CO:
+    # HO:
 
-    And I switch to be a `Case Officer`
-    And I add the appeal response
-    And I click the `Overview` tab
-
-    Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
-
+    And I switch to be a `Home Office Generic`
+    Then I click the `Overview` tab
+    Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
-    And I should see the text `The legal rep has been instructed to review the Home Office response`
-    And I should see the text `If they don't respond within 5 days, the case proceeds to hearing`
+    And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
+    And I upload the appeal response
 
-    And I should see the case details
-    And I should not see the hearing details
-
-    And I should not see the option `Upload additional evidence` for the `Next step` field
-
-    And I should see the option `Send direction` for the `Next step` field
-    And I should see the option `Change the direction due date` for the `Next step` field
-    And I should see the option `Add appeal response` for the `Next step` field
-    And I should see the option `Request hearing requirements` for the `Next step` field
-    And I should see the option `Add case note` for the `Next step` field
-    And I should see the option `Record an application` for the `Next step` field
+    And I click the `Overview` tab
+    Then I should only see the `homeOffice_appealResponseUploaded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Tribunal will:`
+    And I should see the text `check that the Home Office response complies with the Procedure Rules and Practice Direction`
+    And I should see the text `inform you of any issues`
+    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
 
     # LR:
 
@@ -527,7 +521,6 @@ Feature: Case progression
     And I should not see the option `Request hearing requirements` for the `Next step` field
     And I should not see the option `Add case note` for the `Next step` field
     And I should not see the option `Record an application` for the `Next step` field
-
     And I should see the option `Upload additional evidence` for the `Next step` field
 
     ### listing
@@ -535,11 +528,12 @@ Feature: Case progression
     # CO:
 
     When I switch to be a `Case Officer`
+    And I should see the text `Do this next`
+    And I should see the text `The legal rep has been instructed to review the Home Office response. If they don't respond within 5 days, the case proceeds to hearing.`
+
     And I request hearing requirements
-    And I click the `Overview` tab
-
-    Then I should only see the `caseOfficer_listing` case progress image
-
+    Then I click the `Overview` tab
+    And I should only see the `caseOfficer_listing` case progress image
     And I should see the text `Do this next`
     And I should see the text `The legal representative will send you the completed hearing requirements document by email.`
     And I should see the text `Add any comments or edits, and then sign the document to confirm the agreed hearing requirements.`
@@ -869,15 +863,13 @@ Feature: Case progression
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
-    And I should see `AppealResponse.pdf` in the `Response document` field
-    And I should see `This is the appeal response` in the first `Description` field
-    And within the first `Evidence` collection's first item, I should see `AppealResponseEvidence.pdf` in the `Document` field
-    And within the first `Evidence` collection's first item, I should see `This is the appeal response evidence` in the `Describe the document` field
-    And I should see `This is the case argument` in the second `Description` field
-    And within the second `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
-    And within the second `Evidence` collection's first item, I should see `The is the case argument evidence` in the `Describe the document` field
-    And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
-    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+    And I should see `AppealResponse.pdf` in the `Upload the appeal response` field
+    And I should see `This is the appeal response` in the first `Describe the document` field
+    And within the first `Add any additional evidence here` collection's first item, I should see `AppealResponseEvidence.pdf` in the `Document` field
+    And I should see `CaseArgument.pdf` in the `Appeal skeleton argument` field
+    And I should see `This is the case argument` in the `Description` field
+    And within the first `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
+    And within the first `Evidence` collection's first item, I should see `The is the case argument evidence` in the `Describe the document` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
     And I should see `The refusal of a protection claim` in the `Type of appeal` field
 
@@ -916,7 +908,6 @@ Feature: Case progression
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidence.pdf` in the `Document` field
-    And within the `Respondent documents` collection's second item, I should see `This is the appeal response evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Respondent documents` collection's third item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's third item, I should see `This is the updated evidence` in the `Description` field
@@ -936,9 +927,9 @@ Feature: Case progression
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
-    And within the `Directions` collection's sixth item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
-    And within the `Directions` collection's sixth item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
-    And within the `Directions` collection's sixth item, I should see `You have 14 days to supply` in the `Explanation` field
-    And within the `Directions` collection's sixth item, I should see `Respondent` for the `Parties` field
-    And within the `Directions` collection's sixth item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
-    And within the `Directions` collection's sixth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's fifth item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `You have 14 days to supply` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `Respondent` for the `Parties` field
+    And within the `Directions` collection's fifth item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's fifth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
