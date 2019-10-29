@@ -36,11 +36,13 @@ Feature: Upload appeal response - Home Office user
 
     #    Home Office APC
     When I switch to be a `Home Office APC`
-    Then I should not see the text `Next step`
+    Then I should see the text `Next step`
+    And I should not see the option `Upload the appeal response` for the `Next step` field
 
     #    Home Office POU
     When I switch to be a `Home Office POU`
-    Then I should not see the text `Next step`
+    Then I should see the text `Next step`
+    And I should not see the option `Upload the appeal response` for the `Next step` field
 
     #    Home Office Generic
     When I switch to be a `Home Office Generic`
