@@ -62,7 +62,7 @@ Then(/^I should (see|not see) the ended appeal details$/, async function (seeOrN
         expect(await ccdPage.isFieldValueDisplayed('Reasons for this outcome', 'some end appeal reason')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Approved by', 'Judge')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Name of approver', 'John Doe')).to.equal(true);
-        expect(await ccdPage.isFieldValueDisplayed('Outcome date', '{$TODAY|DD MMM YYYY}')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Outcome date', '{$TODAY|D MMM YYYY}')).to.equal(true);
 
     } else {
         expect(await ccdPage.contentContains('Outcome of the appeal', Wait.instant)).to.equal(false);
@@ -78,7 +78,7 @@ Then(/^I should only see the `?([^\s`]+)`? case progress image$/, async function
     const caseProgressionImageSources =
         (await ccdPage.getDisplayedImageSources())
             .map(src => (src + ''))
-            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_'));
+            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_'));
 
     expect(caseProgressionImageSources.some(src => src.includes('/' + imageName))).to.equal(true);
     expect(caseProgressionImageSources.length).to.equal(1);
