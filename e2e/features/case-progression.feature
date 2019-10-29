@@ -444,10 +444,10 @@ Feature: Case progression
     When I request respondent review
     And I click the `Overview` tab
 
-    Then I should only see the `caseOfficer_respondentReview` case progress image
+    Then I should only see the `caseOfficer_respondentReviewStarted` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `Upload the Home Office's appeal response as soon as you receive it`
+    And I should see the text `The respondent is reviewing the case, you'll be notified when their response has been uploaded.`
 
     And I should see the case details
     And I should not see the hearing details
@@ -455,17 +455,6 @@ Feature: Case progression
     And I should not see the option `Request case edit` for the `Next step` field
     And I should not see the option `Request respondent review` for the `Next step` field
     And I should not see the option `Upload additional evidence` for the `Next step` field
-
-    And I should see the option `Send direction` for the `Next step` field
-    And I should see the option `Change the direction due date` for the `Next step` field
-    And I should see the option `Add appeal response` for the `Next step` field
-    And I should see the option `Request hearing requirements` for the `Next step` field
-    And I should see the option `Add case note` for the `Next step` field
-    And I should see the option `Record an application` for the `Next step` field
-
-    When I click the `Add appeal response` link
-    Then I am on the `Add appeal response` page
-    And I click the `Cancel` link
 
     # LR:
 
