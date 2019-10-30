@@ -18,9 +18,7 @@ export class UploadAppealResponseFlow {
             'text area'
         );
 
-        await this.ccdFormPage.addCollectionItem('Any additional evidence here (Optional)');
-
-        await this.ccdFormPage.click('Add new');
+        await this.ccdFormPage.addCollectionItem('Add any additional evidence here (Optional)');
 
         await this.ccdFormPage.setFieldValue(
             'Document (Optional)',
