@@ -25,7 +25,7 @@ Feature: Generate decision and reasons
 
 
 
-  @generate-decision-and-reasons @RIA-1152 @RIA-1153 @RIA-1540 @RIA-1544
+  @generate-decision-and-reasons @RIA-1152 @RIA-1153 @RIA-1540 @RIA-1544 @RIA-2037
   Scenario: Start decision and reasons
     And I click the `Overview` tab
     And I should see the `Overview` page
@@ -64,5 +64,50 @@ Feature: Generate decision and reasons
     And I should see the text `Do this next`
     Then I should see the `Send decision and reasons` link
 
+    Then I switch to be a `Home Office APC`
+    And I click the `Case details` tab
+    And the `Reference number` field should be 13 characters long
+    And I should see `A123456` in the `Home Office reference number` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Date on the decision letter` field
+    And I should see `José` in the `Given names` field
+    And I should see `González` in the `Family name` field
+    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+    And I should see `some-ref` in the `If you prefer to use your own reference number for this case, you can enter it here.` field
+    And I should see `Taylor House` in the `Hearing centre` field
+    And I should not see the decision fields
 
+    Then I switch to be a `Home Office LART`
+    And I click the `Case details` tab
+    And the `Reference number` field should be 13 characters long
+    And I should see `A123456` in the `Home Office reference number` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Date on the decision letter` field
+    And I should see `José` in the `Given names` field
+    And I should see `González` in the `Family name` field
+    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+    And I should see `some-ref` in the `If you prefer to use your own reference number for this case, you can enter it here.` field
+    And I should see `Taylor House` in the `Hearing centre` field
+    And I should not see the decision fields
 
+    Then I switch to be a `Home Office POU`
+    And I click the `Case details` tab
+    And the `Reference number` field should be 13 characters long
+    And I should see `A123456` in the `Home Office reference number` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Date on the decision letter` field
+    And I should see `José` in the `Given names` field
+    And I should see `González` in the `Family name` field
+    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+    And I should see `some-ref` in the `If you prefer to use your own reference number for this case, you can enter it here.` field
+    And I should see `Taylor House` in the `Hearing centre` field
+    And I should not see the decision fields
+
+    Then I switch to be a `Home Office Generic`
+    And I click the `Case details` tab
+    And the `Reference number` field should be 13 characters long
+    And I should see `A123456` in the `Home Office reference number` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Date on the decision letter` field
+    And I should see `José` in the `Given names` field
+    And I should see `González` in the `Family name` field
+    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+    And I should see `some-ref` in the `If you prefer to use your own reference number for this case, you can enter it here.` field
+    And I should see `Taylor House` in the `Hearing centre` field
+    And I should not see the decision fields

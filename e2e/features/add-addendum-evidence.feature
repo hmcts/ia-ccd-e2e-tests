@@ -16,12 +16,14 @@ Feature: Add addendum evidence
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
+    And I switch to be a `Admin Officer`
     And I list the case
+    And I switch to be a `Case Officer`
     And I create case summary
     And I generate the hearing bundle
     And I start decision and reasons
 
-  @add-addendum-evidence @RIA-1603
+  @add-addendum-evidence @RIA-1603 @RIA-2037
   Scenario Outline: Add addendum evidence
     When I click the `Documents` tab
     Then I should see the `Documents` page
@@ -71,6 +73,52 @@ Feature: Add addendum evidence
 
     # Admin
     When I switch to be a `Admin Officer`
+    And I click the `Documents` tab
+
+    Then I should see the `Documents` page
+    And I should not see the `Add additional evidence as an addendum` link
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    # HO APC
+    When I switch to be a `Home Office APC`
+    And I click the `Documents` tab
+
+    Then I should see the `Documents` page
+    And I should not see the `Add additional evidence as an addendum` link
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    # HO LART
+    When I switch to be a `Home Office LART`
+    And I click the `Documents` tab
+
+    Then I should see the `Documents` page
+    And I should not see the `Add additional evidence as an addendum` link
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+
+    # HO POU
+    When I switch to be a `Home Office POU`
+    And I click the `Documents` tab
+
+    Then I should see the `Documents` page
+    And I should not see the `Add additional evidence as an addendum` link
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+
+    # HO POU
+    When I switch to be a `Home Office Generic`
     And I click the `Documents` tab
 
     Then I should see the `Documents` page
