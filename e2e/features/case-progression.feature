@@ -21,8 +21,8 @@ Feature: Case progression
     And I should see the text `You still need to submit your appeal`
     And I should see the text `You can also review and edit your appeal`
 
-    And I should see the case details
     And I should not see the hearing details
+    And I should see the case details
 
     And I should see the option `Edit appeal` for the `Next step` field
     And I should see the option `Submit your appeal` for the `Next step` field
@@ -49,9 +49,9 @@ Feature: Case progression
     And I should see the text `You have submitted your appeal`
     And I should see the text `You don't need to do anything else right now`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the `Next step` field
 
@@ -66,9 +66,9 @@ Feature: Case progression
     And I should see the text `You must review the appeal in the documents tab`
     And I should see the text `tell the respondent to supply their evidence`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
@@ -90,9 +90,9 @@ Feature: Case progression
     And I should see the text `Await the respondent's evidence.`
     And I should not see the `Upload respondent evidence` link
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Build your case` for the `Next step` field
 
@@ -112,9 +112,9 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `You'll get an email when the respondent evidence is available in the documents tab`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -141,9 +141,9 @@ Feature: Case progression
     And I should see the text `If you accept that there is a right of appeal you should upload the Home Office bundle`
     And I should see the text `If you consider the appeal is not valid, you should contact the Tribunal and the appellant with your reasons`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -224,9 +224,9 @@ Feature: Case progression
     And I should see the text `If you accept that there is a right of appeal you should upload the Home Office bundle`
     And I should see the text `If you consider the appeal is not valid, you should contact the Tribunal and the appellant with your reasons`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -275,9 +275,9 @@ Feature: Case progression
     And I should see the text `If it complies with the procedure rules and practice directions, direct the legal representative to build their case`
     And I should see the text `If it does not comply, direct the respondent to make the appropriate changes`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Build your case` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
@@ -308,9 +308,9 @@ Feature: Case progression
     And I should see the text `Wait for the appellant to submit their built case. If they ask for a time extension, you can respond by changing the due date on the direction`
     And I should see the `Change the direction due date` link
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Build your case` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
@@ -326,7 +326,6 @@ Feature: Case progression
     Then I am on the `Change the direction due date` page
     And I click the `Cancel` link
 
-
     # LR:
 
     When I switch to be a `Legal Rep`
@@ -339,9 +338,9 @@ Feature: Case progression
     And I should see the `Build your case` link
     And I should not see the text `submit your case`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -369,9 +368,9 @@ Feature: Case progression
     And I should see the text `If you're not yet ready for your case to be reviewed, continue to build your case`
     And I should see the text `If you're ready for your case to be reviewed, submit your case`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -407,9 +406,9 @@ Feature: Case progression
     And I should not see the `Request respondent review` link
     And I should not see the `Request case edit` link
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Build your case` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
@@ -430,9 +429,9 @@ Feature: Case progression
     And I should see the text `send it to the respondent for their review`
     And I should see the text `If the appellant needs to make any changes, you can direct them to edit the case`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Upload additional evidence` for the `Next step` field
 
@@ -460,7 +459,6 @@ Feature: Case progression
 
     ### respondent review, no appeal response
 
-#    When I request respondent review
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_respondentReviewStarted` case progress image
@@ -468,9 +466,9 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `The respondent is reviewing the case, you'll be notified when their response has been uploaded`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Request case edit` for the `Next step` field
     And I should not see the option `Request respondent review` for the `Next step` field
@@ -495,9 +493,9 @@ Feature: Case progression
     And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
     And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -553,7 +551,6 @@ Feature: Case progression
     And within the `Respondent documents` collection's second item, I should see `This is the evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-
     # CO:
 
     And I switch to be a `Case Officer`
@@ -566,9 +563,9 @@ Feature: Case progression
     And I should see the text `If it complies with the Procedure Rules and Practice Directions, direct the appellant to review the Home Office response`
     And I should see the text `If it does not comply, direct the respondent to make the appropriate changes`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Upload additional evidence` for the `Next step` field
 
@@ -605,8 +602,9 @@ Feature: Case progression
     And I should see the text `The respondent has been directed to make changes with their response`
     And I should see the text `You'll be notified when the revised response has been uploaded`
 
-    And I should see the case details
     And I should not see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
 
 
     # HO:
@@ -617,7 +615,6 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab`
     And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
-#    And I upload the appeal response
 
     And I click the `add the Home Office's response` link
     And I am on the `Upload the appeal response` page
@@ -683,9 +680,9 @@ Feature: Case progression
     And I should see the text `The appellant has been instructed to review the Home Office response`
     And I should see the text `If they don't respond within 5 days, the case proceeds to hearing`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     Then I click the `Directions` tab
     And I should see the `Directions` page
@@ -709,9 +706,9 @@ Feature: Case progression
     And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
     And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -738,9 +735,9 @@ Feature: Case progression
     And I should see the text `Email the completed hearing requirements document to IACReformlisting@justice.gov.uk so that the case can be listed.`
     And I should see the text `You’ll be notified when the case is listed and be able to view the hearing notice in the documents tab.`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Add appeal response` for the `Next step` field
     And I should not see the option `Request hearing requirements` for the `Next step` field
@@ -764,9 +761,9 @@ Feature: Case progression
     And I should see the text `Once the requirements have been agreed with the Tribunal,`
     And I should see the text `the case will be listed and you will receive a notification with the hearing notice`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -789,56 +786,9 @@ Feature: Case progression
     And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
     And I should see the text `All parties will be notified when the Hearing Notice is ready.`
 
-    And I should see the case details
     And I should not see the hearing details
-
-    # Home Office LART
-    When I switch to be a `Home Office LART`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_listing` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
-    And I should see the text `inform you of any issues`
-    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
-    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
-
     And I should see the case details
-    And I should not see the hearing details
-
-    # Home Office POU
-    When I switch to be a `Home Office POU`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_listing` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
-    And I should see the text `inform you of any issues`
-    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
-    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
-
-    And I should see the case details
-    And I should not see the hearing details
-
-    # Home Office Generic
-    When I switch to be a `Home Office Generic`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_listing` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
-    And I should see the text `inform you of any issues`
-    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
-    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
-
-    And I should see the case details
-    And I should not see the hearing details
+    And I should see the legal representative details
 
     # AO:
 
@@ -850,9 +800,9 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `You can list the case when the case officer sends you the agreed hearing requirements.`
 
+    And I should not see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the hearing details
 
     And I should not see the option `Add appeal response` for the `Next step` field
     And I should not see the option `Request hearing requirements` for the `Next step` field
@@ -872,9 +822,9 @@ Feature: Case progression
     And I should see the text `The hearing notice will be sent to all parties.`
     And I should see the text `You don’t need to do any more on this case.`
 
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
 
     # CO
 
@@ -893,9 +843,9 @@ Feature: Case progression
     And I should see the option `Edit case listing` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
 
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
 
     When I click the `Create case summary` link
     Then I am on the `Create case summary` page
@@ -914,9 +864,9 @@ Feature: Case progression
     And I should see the text `The case officer will prepare the hearing bundle`
     And I should see the text `You'll receive a notification when it is available to view in the documents tab`
 
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
 
     And I should not see the `Next step` field
 
@@ -934,50 +884,9 @@ Feature: Case progression
     And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
-    And I should see the case details
     And I should see the hearing details
-
-    # Home Office LART
-    When I switch to be a `Home Office LART`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_listed` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
-    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
-
     And I should see the case details
-    And I should see the hearing details
-
-    # Home Office POU
-    When I switch to be a `Home Office POU`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_listed` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
-    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
-
-    And I should see the case details
-    And I should see the hearing details
-
-    # Home Office Generic
-    When I switch to be a `Home Office Generic`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_listed` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
-    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
-
-    And I should see the case details
-    And I should see the hearing details
+    And I should see the legal representative details
 
     ### final bundling
 
@@ -1017,50 +926,9 @@ Feature: Case progression
     And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
-    And I should see the case details
     And I should see the hearing details
-
-    # Home Office LART
-    When I switch to be a `Home Office LART`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_listed` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
-    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
-
     And I should see the case details
-    And I should see the hearing details
-
-    # Home Office POU
-    When I switch to be a `Home Office POU`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_listed` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
-    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
-
-    And I should see the case details
-    And I should see the hearing details
-
-    # Home Office Generic
-    When I switch to be a `Home Office Generic`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_listed` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
-    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
-
-    And I should see the case details
-    And I should see the hearing details
+    And I should see the legal representative details
 
     # LR:
 
@@ -1089,9 +957,9 @@ Feature: Case progression
 
     Then I should only see the `caseOfficer_preHearing` case progress image
 
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
 
     And I should not see the option `Generate hearing bundle` for the `Next step` field
 
@@ -1115,9 +983,9 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `You can now view the hearing bundle in the documents tab.`
     And I should see the text `Go to the documents`
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
     And I should not see the `Next step` field
 
     When I click the `Go to the documents tab` link
@@ -1133,47 +1001,9 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `The hearing bundle is ready to view in the documents tab`
 
-    And I should see the case details
     And I should see the hearing details
-
-    # Home Office LART
-    When I switch to be a `Home Office LART`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_preHearing` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The hearing bundle is ready to view in the documents tab`
-
     And I should see the case details
-    And I should see the hearing details
-
-    # Home Office POU
-    When I switch to be a `Home Office POU`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_preHearing` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The hearing bundle is ready to view in the documents tab`
-
-    And I should see the case details
-    And I should see the hearing details
-
-    # Home Office Generic
-    When I switch to be a `Home Office Generic`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_preHearing` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The hearing bundle is ready to view in the documents tab`
-
-    And I should see the case details
-    And I should see the hearing details
+    And I should see the legal representative details
 
     # Generate decision and reasons
 
@@ -1184,9 +1014,9 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_decision` case progress image
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
@@ -1207,9 +1037,9 @@ Feature: Case progression
     Then I should only see the `legalRep_decision` case progress image
     And I should see the text `Do this next`
     And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
     And I should not see the `Next step` field
 
     ### send decision and reasons
@@ -1221,9 +1051,9 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_decision` case progress image
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
@@ -1244,9 +1074,9 @@ Feature: Case progression
     Then I should only see the `legalRep_decision` case progress image
     And I should see the text `Do this next`
     And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
     And I should not see the `Next step` field
 
     # Home Office APC
@@ -1259,59 +1089,9 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `The Judge is writing up the Decision and Reasons document, you'll be notified when this is ready to view.`
 
-    And I should see the case details
     And I should see the hearing details
-
-    And I click the `Appellant` tab
-    And I should see the appellant's details
-    And I should not see the decision fields
-
-    # Home Office LART
-    When I switch to be a `Home Office LART`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_decision` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The Judge is writing up the Decision and Reasons document, you'll be notified when this is ready to view.`
-
     And I should see the case details
-    And I should see the hearing details
-
-    And I click the `Appellant` tab
-    And I should see the appellant's details
-    And I should not see the decision fields
-
-    # Home Office POU
-    When I switch to be a `Home Office POU`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_decision` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The Judge is writing up the Decision and Reasons document, you'll be notified when this is ready to view.`
-
-    And I should see the case details
-    And I should see the hearing details
-
-    And I click the `Appellant` tab
-    And I should see the appellant's details
-    And I should not see the decision fields
-
-    # Home Office Generic
-    When I switch to be a `Home Office Generic`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `homeOffice_decision` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The Judge is writing up the Decision and Reasons document, you'll be notified when this is ready to view.`
-
-    And I should see the case details
-    And I should see the hearing details
+    And I should see the legal representative details
 
     And I click the `Appellant` tab
     And I should see the appellant's details
@@ -1327,9 +1107,9 @@ Feature: Case progression
 
     Then I should only see the `caseOfficer_decided` case progress image
     And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
 
@@ -1346,9 +1126,9 @@ Feature: Case progression
     And I should see the text `The case has been decided. You can now view the decision and reasons in the documents tab.`
     And I should see the text `Either party can appeal the decision by making an application to the Upper Tribunal. If you decide to appeal, you must do this within 14 days of the judge’s signature on the decision.`
     And I should see the text `To submit an appeal, you will need to complete form IAFT-4: First-tier Tribunal Application for Permission to Appeal to Upper Tribunal.`
+    And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should see the hearing details
     And I should not see the `Next step` field
 
     And I click the `Appellant` tab
@@ -1365,59 +1145,9 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
 
-    And I should see the case details
     And I should see the hearing details
-
-    And I click the `Appellant` tab
-    And I should see the appellant's details
-    And I should not see the decision fields
-
-    # Home Office LART
-    When I switch to be a `Home Office LART`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `appeal_allowed` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
-
     And I should see the case details
-    And I should see the hearing details
-
-    And I click the `Appellant` tab
-    And I should see the appellant's details
-    And I should not see the decision fields
-
-    # Home Office POU
-    When I switch to be a `Home Office POU`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `appeal_allowed` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
-
-    And I should see the case details
-    And I should see the hearing details
-
-    And I click the `Appellant` tab
-    And I should see the appellant's details
-    And I should not see the decision fields
-
-    # Home Office Generic
-    When I switch to be a `Home Office Generic`
-    And I click the `Overview` tab
-
-    Then I should see the `Overview` page
-    And I should only see the `appeal_allowed` case progress image
-
-    And I should see the text `Do this next`
-    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
-
-    And I should see the case details
-    And I should see the hearing details
+    And I should see the legal representative details
 
     And I click the `Appellant` tab
     And I should see the appellant's details

@@ -8,7 +8,7 @@ Feature: Upload respondent evidence
     And I switch to be a `Case Officer`
     And I request respondent evidence
 
-  @create-direction @RIA-700 @RIA-592
+  @regression @create-direction @RIA-700 @RIA-592
   Scenario: Uploading respondent evidence adds documents and a new direction
 
     When I select the `Upload respondent evidence` Next step
@@ -28,7 +28,7 @@ Feature: Upload respondent evidence
     Then I should see the text `The legal representative will now get an email`
 
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidence.pdf` in the `Document` field
@@ -56,12 +56,12 @@ Feature: Upload respondent evidence
     When I click the `Continue` button
     When I click the `Upload` button
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
 
     When I select the `Add additional evidence` Next step
     Then I am on the `Add additional evidence` page
     When I click the `Continue` button
-    And I see the open case
+    #And I see the open case
 
     When I select the `Upload respondent evidence` Next step
     Then I am on the `Upload respondent evidence` page
@@ -72,7 +72,7 @@ Feature: Upload respondent evidence
     When I click the `Continue` button
     When I click the `Upload` button
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
 
     And I click the `Documents` tab
     Then I should see the `Documents` page

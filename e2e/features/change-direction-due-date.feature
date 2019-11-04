@@ -7,7 +7,7 @@ Feature: Send direction action
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @send-direction @RIA-602
+  @regression @send-direction @RIA-602
   Scenario: Change a direction due date
 
     Then I should not see the `Change the direction due date` link

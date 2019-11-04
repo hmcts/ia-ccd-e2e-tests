@@ -1,12 +1,13 @@
 Feature: Appeal submission PDF
 
-  @overview-tab @RIA-769 @toggled-off
-  Scenario: Appeal submission PDF is in documents tab
-
+  Background:
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
+
+  @overview-tab @RIA-769 @toggled-off
+  Scenario: Appeal submission PDF is in documents tab
 
     When I click the `Documents` tab
     Then I should see the `Documents` page

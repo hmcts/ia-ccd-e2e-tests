@@ -1,6 +1,6 @@
 Feature: Create case summary
 
-  @case-summary @RIA-364
+  @regression @case-summary @RIA-364
   Scenario: Case Officer creates case summary
 
     Given I am signed in as a `Legal Rep`
@@ -38,7 +38,7 @@ Feature: Create case summary
     Then I should see the text `Generate the hearing ready bundle if you are ready to do so.`
 
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     And within the `Hearing documents` collection's first item, I should see `CaseSummary.pdf` in the `Document` field

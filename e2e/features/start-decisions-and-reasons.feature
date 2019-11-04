@@ -23,7 +23,7 @@ Feature: Start decision and reasons
     And I generate the hearing bundle
 
 
-  @start-decision-and-reasons-yes-path @RIA-574
+  @regression @start-decision-and-reasons-yes-path @RIA-574 @nightly-test
   Scenario: Start decision and reasons
     When I select the `Start decision and reasons` Next step
     Then I should see the text `Start decision and reasons`
@@ -67,28 +67,23 @@ Feature: Start decision and reasons
 
     When I click the `Save` button
     Then I should see the text `You have started the decision and reasons process`
-    Then I should see the text `The judge can now download and complete the decision and reasons document.`
+    And I should see the text `The judge can now download and complete the decision and reasons document.`
+    And I click the `Close and Return to case details` button
+    #Then I see the open case
 
-    When I click the `Close and Return to case details` button
-    Then I see the open case
+    When I click the `Appellant` tab
+    Then I should not see the decision fields
 
-    When I click the `Case details` tab
-    Then I should see `some introduction` in the `Introduction` field
-    And I should see `some case summary` in the `Appellant's case summary` field
-    And I should see `Yes` in the `Do both parties agree the immigration history?` field
-    And I should see `some agreed immigration history` in the `Agreed immigration history` field
-    And I should see `Yes` in the `Do both parties agree the schedule of issues?` field
-    And I should see `some schedule of issues` in the `The appellant's schedule of issues` field
-
-    And I should not see the `Areas of disagreement between the parties concerning the appellant's schedule of issues` field
-    And I should not see the `Give the respondent's account of the immigration history` field
-    And I should not see the `Give the areas of disagreement in relation to immigration history` field
+    When I click the `Appeal` tab
+    Then I should not see the decision fields
 
     When I click the `Overview` tab
     Then I should see the image `caseOfficer_decision.png`
+    And I should not see the decision fields
 
 
-  @start-decision-and-reasons-no-path @RIA-574
+
+  @regression @start-decision-and-reasons-no-path @RIA-574 @nightly-test
   Scenario: Start decision and reasons
     When I select the `Start decision and reasons` Next step
     Then I should see the text `Start decision and reasons`
@@ -138,24 +133,17 @@ Feature: Start decision and reasons
     When I click the `Save` button
     Then I should see the text `You have started the decision and reasons process`
     And I should see the text `The judge can now download and complete the decision and reasons document.`
+    And I click the `Close and Return to case details` button
+    #Then I see the open case
 
-    When I click the `Close and Return to case details` button
-    Then I see the open case
+    When I click the `Appellant` tab
+    Then I should not see the decision fields
 
-    When I click the `Case details` tab
-    Then I should see `some introduction` in the `Introduction` field
-    And I should see `some case summary` in the `Appellant's case summary` field
-
-    And I should see `No` in the `Do both parties agree the immigration history?` field
-    And I should see `some respondents account of immigration history` in the `Give the respondent's account of the immigration history` field
-    And I should see `some areas of disagreement` in the `Give the areas of disagreement in relation to immigration history` field
-
-    And I should see `No` in the `Do both parties agree the schedule of issues?` field
-    And I should see `some schedule of issues` in the `The appellant's schedule of issues as stated in the appeal skeleton argument` field
-    And I should see `some refinement or additions` in the `Areas of disagreement between the parties concerning the appellant's schedule of issues` field
-
-    And I should not see the `Agreed immigration history` field
+    When I click the `Appeal` tab
+    Then I should not see the decision fields
 
     When I click the `Overview` tab
     Then I should see the image `caseOfficer_decision.png`
+    And I should not see the decision fields
+
 

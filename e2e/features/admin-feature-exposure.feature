@@ -17,7 +17,7 @@ Feature: Admin officer has reduced functionality
     And I add the appeal response
     And I request hearing requirements
 
-  @RIA-1627
+  @regression @RIA-1627
   Scenario: Admin officer has reduced functionality
 
     Given I switch to be a `Admin Officer`

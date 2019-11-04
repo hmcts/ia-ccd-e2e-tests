@@ -12,7 +12,7 @@ Feature: Generate skeleton bundle
     And I switch to be a `Legal Rep`
     And I build my case
 
-  @generate-skeleton-bundle @RIA-481
+  @regression @generate-skeleton-bundle @RIA-481
   Scenario: Generate skeleton bundle
     When I select the `Submit your case` Next step
     And I am on the `Submit your case` page

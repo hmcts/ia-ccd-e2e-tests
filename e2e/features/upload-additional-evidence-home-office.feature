@@ -11,7 +11,7 @@ Feature: Upload additional evidence Home Office
     And I switch to be a `Legal Rep`
     And I build my case
 
-  @upload-additional-evidence-home-office @RIA-1278
+  @regression @upload-additional-evidence-home-office @RIA-1278
   Scenario Outline: Upload additional evidence Home Office to the case
 
     When I switch to be a <homeOfficeUser>

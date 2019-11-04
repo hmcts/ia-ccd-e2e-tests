@@ -7,7 +7,7 @@ Feature: Request respondent evidence
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @create-direction @RIA-892
+  @regression @create-direction @RIA-892
   Scenario: Request respondent evidence
 
     When I select the `Request respondent evidence` Next step
@@ -32,7 +32,7 @@ Feature: Request respondent evidence
     Then I should see the text `Wait for the respondent to complete the direction`
 
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
     And I click the `Directions` tab
     Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
@@ -42,7 +42,7 @@ Feature: Request respondent evidence
     And within the `Directions` collection's first item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-  @create-direction @RIA-892
+  @regression @create-direction @RIA-892
   Scenario: Request respondent evidence with changes to default values
 
     When I select the `Request respondent evidence` Next step
@@ -60,7 +60,7 @@ Feature: Request respondent evidence
     Then I should see the text `You have sent a direction`
 
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
     And I click the `Directions` tab
     Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `Something else` for the `Explanation` field

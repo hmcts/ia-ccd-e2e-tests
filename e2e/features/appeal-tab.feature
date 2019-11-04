@@ -1,6 +1,6 @@
 Feature: Appeal tab
 
-  @send-direction @RIA-832
+  @regression @send-direction @RIA-832
   Scenario: Appeal tab
 
     Given I am signed in as a `Legal Rep`

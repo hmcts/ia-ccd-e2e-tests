@@ -4,9 +4,9 @@ Feature: Nationalities
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I complete the `Tell us about your client` page
-    And I complete the `Home Office reference` page
+    And I complete the `Home office details` page
 
-  @start-appeal @alternate @RIA-585 @migrate-to-unit-tests
+  @regression @start-appeal @alternate @RIA-585 @migrate-to-unit-tests
   Scenario: The Nationalities list contains all ISO countries
 
     Given I am on the `Basic details` page

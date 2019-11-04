@@ -7,7 +7,7 @@ Feature: Add a case note
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @add-case-note @RIA-575
+  @regression @add-case-note @RIA-575
   Scenario: Add a case note with document
 
     When I select the `Add case note` Next step
@@ -48,7 +48,7 @@ Feature: Add a case note
     Then I am on the `Add case note` page
 
 
-  @add-case-note @RIA-575
+  @regression @add-case-note @RIA-575
   Scenario: Add a case note without document
 
     When I select the `Add case note` Next step
@@ -85,7 +85,7 @@ Feature: Add a case note
     When I click the `Add case note` link
     Then I am on the `Add case note` page
 
-  @add-subsequent-case-note @RIA-575
+  @regression @add-subsequent-case-note @RIA-575
   Scenario: Add a case note without document
 
     Given I select the `Add case note` Next step

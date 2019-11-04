@@ -4,10 +4,10 @@ Feature: Address details are validated
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I complete the `Tell us about your client` page
-    And I complete the `Home Office reference` page
+    And I complete the `Home office details` page
     And I complete the `Basic details` page
 
-  @start-appeal @alternate @RIA-732
+  @regression @start-appeal @alternate @RIA-732
   Scenario: Legal rep indicates there is no fixed address for the appellant
 
     Given I am on the `Your client's address` page
@@ -21,7 +21,7 @@ Feature: Address details are validated
     Then I should see the text `We will use the address of your legal practice.`
     And the `Continue` button is enabled
 
-  @start-appeal @alternate @RIA-672
+  @regression @start-appeal @alternate @RIA-672
   Scenario: Empty Building and street field is not allowed
 
     Given I am on the `Your client's address` page

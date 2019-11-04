@@ -4,11 +4,11 @@ Feature: Grounds of appeal
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I complete the `Tell us about your client` page
-    And I complete the `Home Office reference` page
+    And I complete the `Home office details` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
 
-  @start-appeal @RIA-230
+  @regression @start-appeal @RIA-230
   Scenario: Grounds of appeal are captured for protection type cases
 
     Given I am on the `What type of decision is your client appealing against?` page
@@ -32,17 +32,17 @@ Feature: Grounds of appeal
 
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
-    And I complete the `Your own reference number` page
+    And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button
     And I am on the `DRAFT` page
-    And I click the `Case details` tab
+    And I click the `Appeal` tab
 
     Then I should see the text `Removing the appellant from the UK would breach the UK's obligation in relation to persons eligible for a grant of humanitarian protection`
     And I should see the text `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention`
     And I should see the text `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998`
 
-  @start-appeal @RIA-236
+  @regression @start-appeal @RIA-236
   Scenario: Grounds of appeal are captured for revocation type cases
 
     Given I am on the `What type of decision is your client appealing against?` page
@@ -65,11 +65,11 @@ Feature: Grounds of appeal
 
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
-    And I complete the `Your own reference number` page
+    And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button
     And I am on the `DRAFT` page
-    And I click the `Case details` tab
+    And I click the `Appeal` tab
 
     And I should see the text `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention`
     And I should see the text `Revocation of the appellant's protection status breaches the United Kingdom's obligations in relation to persons eligible for humanitarian protection`

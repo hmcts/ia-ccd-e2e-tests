@@ -22,7 +22,7 @@ Feature: Generate hearing bundle
     And I switch to be a `Case Officer`
     And I create case summary
 
-  @generate-hearing-bundle @RIA-941 @RIA-1846
+  @regression @generate-hearing-bundle @RIA-941 @RIA-1846
   Scenario: Generate hearing bundle
     When I click the `Documents` tab
     Then I should see the `Documents` page

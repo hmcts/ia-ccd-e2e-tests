@@ -18,7 +18,7 @@ Feature: Edit case listing
     And I switch to be a `Admin Officer`
     And I list the case
 
-  @edit-case-listing @RIA-362 @RIA-1380 @RIA-1654
+  @regression @edit-case-listing @RIA-362 @RIA-1380 @RIA-1654
   Scenario Outline: Edit the case listing
 
     When I switch to be a <username>
