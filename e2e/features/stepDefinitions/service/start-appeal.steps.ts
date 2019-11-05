@@ -52,8 +52,8 @@ Given('I complete the `Has your client appealed against any other UK immigration
 });
 
 Given('I complete the `Your own reference number` page', async function () {
-    expect(await ccdFormPage.headingContains('Your own reference number')).to.equal(true);
-    await startAppealFlow.completeReferenceNumber(true);
+    expect(await ccdFormPage.headingContains('Legal representative details')).to.equal(true);
+    await startAppealFlow.completeLegalRepresentativeDetails(true);
 });
 
 Given('I complete the `Start appeal check your answers` page', async function () {

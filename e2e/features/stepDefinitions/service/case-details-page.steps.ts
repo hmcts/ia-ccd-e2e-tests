@@ -15,8 +15,6 @@ Then(/^I select the `?([^`]+)`? Next step$/, async function (nextStep) {
 });
 
 Then(/^I should not see the decision fields$/, async function () {
-    expect(await ccdPage.isFieldValueDisplayed('Hearing centre', 'Taylor House')).to.equal(true);
-
     expect(await ccdPage.contentContains('Introduction', Wait.instant)).to.equal(false);
     expect(await ccdPage.contentContains('Appellant\'s case summary', Wait.instant)).to.equal(false);
     expect(await ccdPage.contentContains('Do both parties agree the immigration history?', Wait.instant)).to.equal(false);
