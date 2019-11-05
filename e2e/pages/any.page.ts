@@ -16,12 +16,26 @@ export class AnyPage {
         await browser.get(uri);
     }
 
-    async getDisplayedImageSources() {
+    async getDisplayedImageSources(wait = Wait.normal) {
+        try {
+            await browser.wait(
+                async () => {
+                    return (await element
+                            .all(by.xpath('//img'))
+                            .filter(e => e.isPresent() && e.isDisplayed())
+                            .count()) > 0;
+                },
+                wait
+            );
 
-        return await element
-            .all(by.xpath('//img'))
-            .filter(e => e.isPresent() && e.isDisplayed())
-            .map(async (img) => (await img.getAttribute('src')).trim());
+            return await element
+                .all(by.xpath('//img'))
+                .filter(e => e.isPresent() && e.isDisplayed())
+                .map(async (img) => (await img.getAttribute('src')).trim());
+
+        } catch (error) {
+            return []
+        }
     }
 
     async click(linkText: string, xpathIndex = 0) {
@@ -236,7 +250,7 @@ export class AnyPage {
                         .filter(e => e.isPresent() && e.isDisplayed())
                         .count()) > 0;
                 },
-                shortWait ? Wait.short : Wait.normal
+                Wait.normal
             );
 
             return true;

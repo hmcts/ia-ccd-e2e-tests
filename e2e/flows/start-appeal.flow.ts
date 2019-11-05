@@ -20,9 +20,9 @@ export class StartAppealFlow {
 
     async completeHomeOfficeReference(clickContinue = false) {
 
-        await this.ccdFormPage.headingContains('Home Office reference');
-        await this.ccdFormPage.setFieldValue('Home Office reference number', 'A123456/001');
-        await this.ccdFormPage.setFieldValue('Date on the decision letter', '{$TODAY}');
+        await this.ccdFormPage.headingContains('Home Office details');
+        await this.ccdFormPage.setFieldValue('Enter the Home Office reference number', 'A123456/001');
+        await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '{$TODAY}');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -124,12 +124,10 @@ export class StartAppealFlow {
 
     async completeReferenceNumber(clickContinue = false) {
 
-        await this.ccdFormPage.headingContains('Your own reference number');
-        await this.ccdFormPage.setFieldValue(
-            'If you prefer to use your own reference number for this case, you can enter it here. (Optional)',
-            'some-ref'
-        );
-
+        await this.ccdFormPage.headingContains('Legal representative details');
+        await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
+        await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
+        await this.ccdFormPage.setFieldValue('Own reference', 'some-ref');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }

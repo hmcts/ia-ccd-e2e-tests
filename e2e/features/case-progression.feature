@@ -1,7 +1,7 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
-  @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
+  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1277 @RIA-1534 @RIA-1568
+  @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1709 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
   @RIA-1810
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
@@ -1234,12 +1234,12 @@ Feature: Case progression
 
     And I click the `Case details` tab
     And the `Reference number` field should be 13 characters long
-    And I should see `A123456` in the `Home Office reference number` field
-    And I should see `{$TODAY|D MMM YYYY}` in the `Date on the decision letter` field
+    And I should see `A123456` in the `Enter the Home Office reference number` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Enter the date the decision letter was sent` field
     And I should see `José` in the `Given names` field
     And I should see `González` in the `Family name` field
     And I should see `The refusal of a protection claim` in the `Type of appeal` field
-    And I should see `some-ref` in the `If you prefer to use your own reference number for this case, you can enter it here.` field
+    And I should see `some-ref` in the `Own reference` field
     And I should see `Taylor House` in the `Hearing centre` field
     And I should not see the decision fields
 
@@ -1403,12 +1403,14 @@ Feature: Case progression
 
     When I click the `Case details` tab
     Then the `Reference number` field should be 13 characters long
-    And I should see `A123456` in the `Home Office reference number` field
-    And I should see `{$TODAY|D MMM YYYY}` in the `Date on the decision letter` field
+    And I should see `A123456` in the `Enter the Home Office reference number` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Enter the date the decision letter was sent` field
     And I should see `José` in the `Given names` field
     And I should see `González` in the `Family name` field
     And I should see `The refusal of a protection claim` in the `Type of appeal` field
-    And I should see `some-ref` in the `If you prefer to use your own reference number for this case, you can enter it here.` field
+    And I should see `IA Legal Services` in the `Company` field
+    And I should see `Stephen Fenn` in the `Name` field
+    And I should see `some-ref` in the `Own reference` field
     And I should see `Taylor House` in the `Hearing centre` field
 
     When I click the `Documents` tab
