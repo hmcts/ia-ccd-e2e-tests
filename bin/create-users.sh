@@ -325,3 +325,10 @@ curl --silent -XPUT \
   -H "ServiceAuthorization: Bearer ${SERVICE_TOKEN}" \
   -H "Content-Type: application/json" \
   -d '{"role":"caseworker-ia-respondentofficer","security_classification":"PUBLIC"}'
+
+curl --silent -XPUT \
+  http://localhost:4451/api/user-role \
+  -H "Authorization: Bearer ${USER_TOKEN}" \
+  -H "ServiceAuthorization: Bearer ${SERVICE_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{"role":"citizen","security_classification":"PUBLIC"}'
