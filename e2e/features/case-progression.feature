@@ -868,7 +868,7 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
-    And I should not see the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     When I click the `Go to the documents tab` link
     Then I am on the `Documents` page
@@ -969,6 +969,7 @@ Feature: Case progression
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Edit case listing` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     When I click the `Start decision and reasons` link
     Then I am on the `Start decision and reasons` page
@@ -986,7 +987,7 @@ Feature: Case progression
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     When I click the `Go to the documents tab` link
     Then I am on the `Documents` page
@@ -1024,6 +1025,7 @@ Feature: Case progression
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Edit case listing` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     When I click the `Generate decision and reasons` link
     Then I am on the `Generate decision and reasons` page
@@ -1040,7 +1042,7 @@ Feature: Case progression
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     ### send decision and reasons
 
@@ -1061,6 +1063,7 @@ Feature: Case progression
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Edit case listing` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     When I click the `Send decision and reasons` link
     Then I am on the `Complete decision and reasons` page
@@ -1077,7 +1080,7 @@ Feature: Case progression
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     # Home Office APC
     When I switch to be a `Home Office APC`
@@ -1112,6 +1115,7 @@ Feature: Case progression
     And I should see the legal representative details
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     And I click the `Appellant` tab
     And I should see the appellant's details
@@ -1129,7 +1133,7 @@ Feature: Case progression
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I should not see the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     And I click the `Appellant` tab
     And I should see the appellant's details
