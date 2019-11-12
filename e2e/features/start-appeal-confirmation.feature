@@ -4,17 +4,17 @@ Feature: Start appeal shows confirmation when saved
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I complete the `Tell us about your client` page
-    And I complete the `Home Office reference` page
+    And I complete the `Home office details` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
     And I complete the `What type of decision is your client appealing against?` page
     And I complete the `On which grounds will you build your appeal?` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
-    And I complete the `Your own reference number` page
+    And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
 
-  @start-appeal @alternate
+  @regression @start-appeal @alternate @start-appeal-confirmation
   Scenario: Confirmation page is displayed when saved
 
     Then I should see the text `Appeal saved`

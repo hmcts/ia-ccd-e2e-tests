@@ -24,7 +24,7 @@ Feature: All home office users overview appeal case-details documents directions
     And I start decision and reasons
     And I generate decision and reasons
 
-  @Home-office-users-view-tabs @RIA-1356
+  @regression @home-office-users-view-tabs @RIA-1356
   Scenario Outline: Home office users should see the tabs
 
     When I switch to be a <homeOfficeUser>
@@ -47,6 +47,7 @@ Feature: All home office users overview appeal case-details documents directions
     And I should see the legal representative's details
 
     When I click the `Overview` tab
+    And I should see the hearing details
     Then I should see the case details
     And I should see the legal representative details
 

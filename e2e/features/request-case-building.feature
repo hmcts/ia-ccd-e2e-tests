@@ -9,7 +9,7 @@ Feature: Request case edit
     And I request respondent evidence
     And I switch to be a `Home Office APC`
 
-  @request-case-building @RIA-1789
+  @regression @request-case-building @RIA-1789
   Scenario: Send direction to appellant for building their case
 
     When I click the `Overview` tab

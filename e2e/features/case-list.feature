@@ -1,6 +1,6 @@
 Feature: Case list
 
-  @case-list @RIA-583 @RIA-902 @RIA-608
+  @regression @case-list @RIA-583 @RIA-902 @RIA-608
   Scenario: Case list contains correct columns for Legal Rep
 
     Given I am signed in as a `Legal Rep`
@@ -15,7 +15,7 @@ Feature: Case list
     And I wait for 10 seconds
     And I should see the `DRAFT` link
 
-  @case-list @RIA-583 @RIA-902 @RIA-608
+  @regression @case-list @RIA-583 @RIA-902 @RIA-608
   Scenario: Case list contains correct columns for Case Officer
 
     Given I am signed in as a `Legal Rep`
@@ -31,7 +31,7 @@ Feature: Case list
     And I should see the text `Appeal start date`
     And I should not see the `DRAFT` link
 
-  @case-list @RIA-1611
+  @regression @case-list @RIA-1611
   Scenario: Case list contains correct columns for Admin Officer
 
     Given I am signed in as a `Admin Officer`
@@ -39,7 +39,7 @@ Feature: Case list
     And I should see the text `Appellant name`
     And I should see the text `Appeal start date`
 
-  @case-list @RIA-609 @RIA-1380
+  @regression @case-list @RIA-609 @RIA-1380
   Scenario: Case list contains correct filters for Legal Rep
 
     Given I am signed in as a `Legal Rep`
@@ -72,7 +72,7 @@ Feature: Case list
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
 
-  @case-list @RIA-609 @RIA-1380
+  @regression @case-list @RIA-609 @RIA-1380
   Scenario: Case list contains correct filters for Case Officer
 
     Given I am signed in as a `Case Officer`
@@ -105,7 +105,7 @@ Feature: Case list
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
 
-  @case-list @RIA-1611 @RIA-1380
+  @regression @case-list @RIA-1611 @RIA-1380
   Scenario: Case list contains correct filters for Admin Officer
 
     Given I am signed in as a `Admin Officer`

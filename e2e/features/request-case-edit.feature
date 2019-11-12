@@ -13,7 +13,7 @@ Feature: Request case edit
     And I submit my case
     And I switch to be a `Case Officer`
 
-  @edit-case @RIA-611
+  @regression @edit-case @RIA-611
   Scenario: Request case edit
 
     When I click the `Overview` tab

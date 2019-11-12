@@ -6,7 +6,7 @@ Feature: Submit appeal application
     And I save my initial appeal
     And I submit my appeal
 
-  @submit-appeal-new-appellant-tab @RIA-1771
+  @regression @submit-appeal-new-appellant-tab @RIA-1771
   Scenario: Submit an appeal application (new overview, appeal and appellant tabs)
 
     ### appeal submitted

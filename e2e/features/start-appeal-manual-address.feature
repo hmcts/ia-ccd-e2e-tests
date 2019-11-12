@@ -4,10 +4,10 @@ Feature: Address details are entered manually without using postcode lookup
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I complete the `Tell us about your client` page
-    And I complete the `Home Office reference` page
+    And I complete the `Home office details` page
     And I complete the `Basic details` page
 
-  @start-appeal @alternate @alternate @RIA-691
+  @regression @start-appeal @alternate @alternate @RIA-691
   Scenario: Start initial appeal application with a manually entered address
 
     Given I am on the `Your client's address` page
@@ -23,12 +23,12 @@ Feature: Address details are entered manually without using postcode lookup
     And I complete the `On which grounds will you build your appeal?` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
-    And I complete the `Your own reference number` page
+    And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button
     And I am on the `DRAFT` page
 
-    When I click the `Case details` tab
+    When I click the `Appellant` tab
     Then I should see `Yes` for the `Does the appellant have a fixed address?` field
     And within the `Address` fieldset, I should see `11 Downing Street` for the `Building and Street` field
     And within the `Address` fieldset, I should see `London` for the `Town or City` field

@@ -5,7 +5,7 @@ Feature: Submit appeal application
     And I create a new case
     And I save my initial appeal with out of time decision letter
 
-  @submit-appeal-with-document-and-reason @RIA-369
+  @regression @submit-appeal-with-document-and-reason @RIA-369
   Scenario: Submit an out of time appeal application
 
     When I select the `Submit your appeal` Next step
@@ -24,12 +24,12 @@ Feature: Submit appeal application
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
-    When I click the `Case details` tab
+    When I click the `Appeal` tab
     And I should see `Yes` for the `Was the appeal submission late?` field
-    And I should see `I was on holiday` for the `Reason for late appeal submission` field
+    And I should see `I was on holiday` for the `Reasons for late appeal submission` field
     And I should see `SupportForLateSubmission.pdf` for the `Late submission supporting document` field
 
-  @submit-appeal-with-document-but-no-reason @RIA-369
+  @regression @submit-appeal-with-document-but-no-reason @RIA-369
   Scenario: Submit an out of time appeal application
 
     When I select the `Submit your appeal` Next step
@@ -47,11 +47,11 @@ Feature: Submit appeal application
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
-    When I click the `Case details` tab
+    When I click the `Appeal` tab
     And I should see `Yes` for the `Was the appeal submission late?` field
     And I should see `SupportForLateSubmission.pdf` for the `Late submission supporting document` field
 
-  @submit-appeal-with-reason-but-no-document @RIA-369
+  @regression @submit-appeal-with-reason-but-no-document @RIA-369
   Scenario: Submit an out of time appeal application
 
     When I select the `Submit your appeal` Next step
@@ -69,11 +69,11 @@ Feature: Submit appeal application
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
-    When I click the `Case details` tab
+    When I click the `Appeal` tab
     And I should see `Yes` for the `Was the appeal submission late?` field
-    And I should see `I was on holiday` for the `Reason for late appeal submission` field
+    And I should see `I was on holiday` for the `Reasons for late appeal submission` field
 
-  @submit-appeal-with-no-reason-and-no-document @RIA-986
+  @regression @submit-appeal-with-no-reason-and-no-document @RIA-986
   Scenario: Submit an out of time appeal application
 
     When I select the `Submit your appeal` Next step
@@ -95,5 +95,5 @@ Feature: Submit appeal application
     Then I should see the `caseOfficer_outOfTimeBox` image
     And I should see the `caseOfficer_appealSubmitted` image
 
-    When I click the `Case details` tab
+    When I click the `Appeal` tab
     Then I should see `Yes` for the `Was the appeal submission late?` field

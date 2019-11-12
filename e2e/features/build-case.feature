@@ -10,7 +10,7 @@ Feature: Build case
     And I upload respondent evidence
     And I switch to be a `Legal Rep`
 
-  @create-direction @RIA-480 @RIA-600 @RIA-927
+  @regression @create-direction @RIA-480 @RIA-600 @RIA-927
   Scenario: Upload Case argument and evidence
 
     When I select the `Build your case` Next step
@@ -40,7 +40,7 @@ Feature: Build case
     Then I should see the text `If you're not yet ready for your case to be reviewed, continue to build your case.`
 
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     And within the `Legal representative documents` collection's first item, I should see `CaseArgument.pdf` in the `Document` field

@@ -14,7 +14,7 @@ Feature: Add respondent response
     And I switch to be a `Case Officer`
     And I request respondent review
 
-  @create-direction @RIA-697 @RIA-237
+  @regression @create-direction @RIA-697 @RIA-237
   Scenario: Uploading respondent response adds documents and a new direction
 
     When I select the `Add appeal response` Next step
@@ -38,7 +38,7 @@ Feature: Add respondent response
     Then I should see the text `The legal representative will now get an email directing them to review the response.`
 
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field

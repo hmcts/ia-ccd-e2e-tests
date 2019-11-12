@@ -23,7 +23,7 @@ Feature: Add addendum evidence
     And I generate the hearing bundle
     And I start decision and reasons
 
-  @add-addendum-evidence @RIA-1603 @RIA-2037
+  @regression @add-addendum-evidence @RIA-1603 @RIA-2037
   Scenario Outline: Add addendum evidence
     When I click the `Documents` tab
     Then I should see the `Documents` page

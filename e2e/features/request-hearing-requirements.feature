@@ -15,7 +15,7 @@ Feature: Request hearing requirements
     And I request respondent review
     And I add the appeal response
 
-  @create-direction @RIA-385
+  @regression @create-direction @RIA-385
   Scenario: Request respondent review
 
     When I select the `Request hearing requirements` Next step

@@ -14,7 +14,7 @@ Feature: Upload appeal response - Home Office user
     And I switch to be a `Case Officer`
     And I request respondent review
 
-  @RIA-1309 @RIA-1810 @amend-appeal-response
+  @regression @RIA-1309 @RIA-1810 @amend-appeal-response
   Scenario: Uploading appeal response adds documents
 
     When I select the `Add appeal response` Next step
@@ -183,7 +183,7 @@ Feature: Upload appeal response - Home Office user
     And within the `Respondent documents` collection's second item, I should see `This is the updated evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @add-home-office-pre-upload-response-link @RIA-1714
+  @regression @add-home-office-pre-upload-response-link @RIA-1714
   Scenario Outline: add the Home Office's response from overview tab
 
     When I switch to be a `Case Officer`
@@ -233,7 +233,7 @@ Feature: Upload appeal response - Home Office user
       | Home Office Generic  |
 
 
-  @add-home-office-post-upload-response-link @RIA-1803
+  @regression @add-home-office-post-upload-response-link @RIA-1803
   Scenario Outline: add the Home Office's response from overview tab
 
     When I switch to be a `Case Officer`

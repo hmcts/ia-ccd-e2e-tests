@@ -11,8 +11,8 @@ Given('I complete the `Tell us about your client` page', async function () {
     await startAppealFlow.completeScreeningQuestions(true);
 });
 
-Given('I complete the `Home Office reference` page', async function () {
-    expect(await ccdFormPage.headingContains('Home Office reference')).to.equal(true);
+Given('I complete the `Home office details` page', async function () {
+    expect(await ccdFormPage.headingContains('Home office details')).to.equal(true);
     await startAppealFlow.completeHomeOfficeReference(true);
 });
 
@@ -51,7 +51,7 @@ Given('I complete the `Has your client appealed against any other UK immigration
     await startAppealFlow.completeOtherAppeals(true);
 });
 
-Given('I complete the `Your own reference number` page', async function () {
+Given('I complete the `Legal representative details` page', async function () {
     expect(await ccdFormPage.headingContains('Legal representative details')).to.equal(true);
     await startAppealFlow.completeLegalRepresentativeDetails(true);
 });

@@ -9,7 +9,7 @@ Feature: Upload Home Office bundle
     And I switch to be a `Case Officer`
     And I request respondent evidence
 
-  @RIA-1308 @upload-home-office-bundle @RIA-1799
+  @regression @RIA-1308 @upload-home-office-bundle @RIA-1799
   Scenario: Only Home Office Generic and APC users can see and upload the Home Office bundle
 
     #    Home Office LART

@@ -11,12 +11,12 @@ Feature: Submit case
     And I switch to be a `Legal Rep`
     And I build my case
 
-  @upload-additional-evidence @RIA-706
+  @regression @upload-additional-evidence @RIA-706
   Scenario: Upload additional evidence to the case
 
     ### link in Documents tab to Upload additional evidence not visible yet
 
-    Given I see the open case
+    #Given I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     Then I should not see the `Upload additional evidence` link
@@ -48,7 +48,7 @@ Feature: Submit case
     Then I should see the text `The document is now available in the documents tab.`
 
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     And within the `Additional evidence from appellant` collection's first item, I should see `Evidence1.pdf` in the `Document` field
@@ -58,7 +58,7 @@ Feature: Submit case
     ### link in Documents tab to Upload additional evidence not visible to Case Officer
 
     Given I switch to be a `Case Officer`
-    And I see the open case
+    #And I see the open case
     When I click the `Documents` tab
     Then I should see the `Documents` page
     And I should not see the `Upload additional evidence` link
@@ -112,7 +112,7 @@ Feature: Submit case
     ### additional evidence is visible to Legal Rep
 
     When I click the `Close and Return to case details` button
-    And I see the open case
+    #And I see the open case
     And I click the `Documents` tab
     Then I should see the `Documents` page
     And I should see the `Upload additional evidence` link
@@ -135,7 +135,7 @@ Feature: Submit case
     ### additional evidence is visible to Case Officer
 
     When I switch to be a `Case Officer`
-    And I see the open case
+    #And I see the open case
     When I click the `Documents` tab
     Then I should see the `Documents` page
     And I should not see the `Upload additional evidence` link

@@ -1,10 +1,18 @@
 Feature: Other Appeal Numbers are validated
 
+    ###############################################################
+    ############### THIS FEATURE DOES NOT WORK ####################
+    ###############################################################
+
+    ###############################################################
+    ### This is a bug logged in ServiceNow: Incident INC0484123 ###
+    ###############################################################
+
   Background:
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I complete the `Tell us about your client` page
-    And I complete the `Home Office reference` page
+    And I complete the `Home office details` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
     And I complete the `What type of decision is your client appealing against?` page
@@ -53,7 +61,7 @@ Feature: Other Appeal Numbers are validated
     And I add another item to the `Appeal number` collection
     When within the `Appeal number` collection's fourth item, I type `VA/12345/2012` for the field without a label
     And I click the `Continue` button
-    Then I am on the `Your own reference number` page
+    Then I am on the `Legal representative details` page
 
     Given I click the `Previous` button
     And I am on the `Has your client appealed against any other UK immigration decisions?` page
@@ -62,4 +70,4 @@ Feature: Other Appeal Numbers are validated
     And within the `Appeal number` collection's third item, I type `DC/12345/2016` for the field without a label
     And within the `Appeal number` collection's fourth item, I type `DA/12345/2016` for the field without a label
     And I click the `Continue` button
-    Then I am on the `Your own reference number` page
+    Then I am on the `Legal representative details` page

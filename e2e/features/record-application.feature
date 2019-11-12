@@ -7,7 +7,7 @@ Feature: Record application
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @record-application-refused @RIA-1485
+  @regression @record-application-refused @RIA-1485
   Scenario: Record refused application
 
     When I select the `Record an application` Next step
@@ -58,7 +58,7 @@ Feature: Record application
     And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
     And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
 
-  @record-application-time-extension-and-withdraw @RIA-1485 @RIA-1562
+  @regression @record-application-time-extension-and-withdraw @RIA-1485 @RIA-1562
   Scenario: Record granted time extension application and later withdraw
 
     When I select the `Record an application` Next step
@@ -189,7 +189,7 @@ Feature: Record application
 
     Then I should see an alert confirming the case `has been updated with event: End the appeal`
 
-  @record-application-transfer-and-edit @RIA-1485 @RIA-1654
+  @regression @record-application-transfer-and-edit @RIA-1485 @RIA-1654
   Scenario: Record granted transfer application and edit listing
 
     And I request respondent evidence
@@ -286,7 +286,7 @@ Feature: Record application
     And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
     And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
 
-  @record-application-error @RIA-1485
+  @regression @record-application-error @RIA-1485
   Scenario Outline: Record application in wrong state
 
     When I select the `Record an application` Next step

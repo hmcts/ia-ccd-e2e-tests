@@ -5,7 +5,7 @@ Feature: Submit appeal application
     And I create a new case
     And I save my initial appeal
 
-  @submit-appeal @RIA-515
+  @regression @submit-appeal @RIA-515
   Scenario: Submit an appeal application
 
     When I select the `Submit your appeal` Next step
@@ -29,8 +29,16 @@ Feature: Submit appeal application
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
-    And I see the open case
+    #And I see the open case
 
     When I click the `Appellant` tab
-    Then the `Reference number` field should be 13 characters long
-    And I should see `Taylor House` for the `Hearing centre` field
+    Then I should see the appellant's details
+    And I should see the legal representative's details
+
+    When I click the `Appeal` tab
+    Then I should see the appeal details
+    And I should see the submission details
+
+    When I click the `Overview` tab
+    Then I should see the case details
+    And I should see the legal representative details

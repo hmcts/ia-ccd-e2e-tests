@@ -9,7 +9,7 @@ Feature: Different Home Office roles have different functionality
     And I switch to be a `Case Officer`
     And I request respondent evidence
 
-  @RIA-1707 @RIA-1798 @RIA-1357 @home-office-exposure
+  @regression @home-office-exposure @RIA-1707 @RIA-1798 @RIA-1357 @nightly-test
   Scenario: Home office functionality
 
 
@@ -24,6 +24,7 @@ Feature: Different Home Office roles have different functionality
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
     And I should not see the `Next step` field
 
     When I click the `documents tab` link
@@ -40,6 +41,7 @@ Feature: Different Home Office roles have different functionality
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
     And I should not see the `Next step` field
 
     When I click the `documents tab` link
@@ -58,6 +60,7 @@ Feature: Different Home Office roles have different functionality
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -87,6 +90,7 @@ Feature: Different Home Office roles have different functionality
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
 
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
@@ -272,3 +276,426 @@ Feature: Different Home Office roles have different functionality
     And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
     And I should see the text `inform you of any issues`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+
+    #####################################
+    ### Moved out of case progression ###
+    #####################################
+
+    And I switch to be a `Case Officer`
+    And I request respondent review
+    And I add the appeal response
+    And I request hearing requirements
+
+    # Home Office APC
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
+
+    And I should not see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office LART
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
+
+    And I should not see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office POU
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
+
+    And I should not see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office Generic
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
+
+    And I should not see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+
+    And I switch to be a `Admin Officer`
+    And I list the case
+
+
+    # Home Office APC
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office LART
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office POU
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office Generic
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+
+    And I switch to be a `Case Officer`
+    And I create case summary
+
+
+    # Home Office APC
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office LART
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office POU
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office Generic
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_listed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+
+    And I switch to be a `Case Officer`
+    And I generate the hearing bundle
+
+
+    # Home Office APC
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_preHearing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The hearing bundle is ready to view in the documents tab`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office LART
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_preHearing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The hearing bundle is ready to view in the documents tab`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office POU
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_preHearing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The hearing bundle is ready to view in the documents tab`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # Home Office Generic
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_preHearing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The hearing bundle is ready to view in the documents tab`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+
+    When I switch to be a `Case Officer`
+    And I start decision and reasons
+    And I generate decision and reasons
+
+
+    # Home Office APC
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_decision` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The Judge is writing up the Decision and Reasons document, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I click the `Appellant` tab
+    And I should see the appellant's details
+    And I should not see the decision fields
+
+    # Home Office LART
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_decision` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The Judge is writing up the Decision and Reasons document, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I click the `Appellant` tab
+    And I should see the appellant's details
+    And I should not see the decision fields
+
+    # Home Office POU
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_decision` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The Judge is writing up the Decision and Reasons document, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I click the `Appellant` tab
+    And I should see the appellant's details
+    And I should not see the decision fields
+
+    # Home Office Generic
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `homeOffice_decision` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The Judge is writing up the Decision and Reasons document, you'll be notified when this is ready to view.`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I click the `Appellant` tab
+    And I should see the appellant's details
+    And I should not see the decision fields
+
+
+    When I switch to be a `Case Officer`
+    And I send decision and reasons
+
+
+    # Home Office APC
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `appeal_allowed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I click the `Appellant` tab
+    And I should see the appellant's details
+    And I should not see the decision fields
+
+    # Home Office LART
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `appeal_allowed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I click the `Appellant` tab
+    And I should see the appellant's details
+    And I should not see the decision fields
+
+    # Home Office POU
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `appeal_allowed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I click the `Appellant` tab
+    And I should see the appellant's details
+    And I should not see the decision fields
+
+    # Home Office Generic
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+
+    Then I should see the `Overview` page
+    And I should only see the `appeal_allowed` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
+
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I click the `Appellant` tab
+    And I should see the appellant's details
+    And I should not see the decision fields

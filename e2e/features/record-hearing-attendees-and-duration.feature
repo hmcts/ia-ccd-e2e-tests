@@ -26,7 +26,7 @@ Feature: Record hearing attendees and duration
     And I click the `Overview` tab
     And I should see the `Overview` page
 
-  @RIA-572
+  @regression @record-hearing-attendees @RIA-572
   Scenario: Record hearing attendees and duration
 
     When I click the `Record attendees and duration` link

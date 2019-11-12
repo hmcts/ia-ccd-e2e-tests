@@ -7,7 +7,7 @@ Feature: End appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486
+  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486
   Scenario Outline: End appeal after submit appeal
 
     Then I end the appeal
@@ -53,7 +53,7 @@ Feature: End appeal
       | Home Office Generic   |
 
 
-  @end-appeal-after-listing @RIA-1677 @RIA-1678 @RIA-1486
+  @regression @end-appeal-after-listing @RIA-1677 @RIA-1678 @RIA-1486
   Scenario Outline: End appeal after listing
 
     When I request respondent evidence

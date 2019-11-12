@@ -7,7 +7,7 @@ Feature: Send direction action
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @send-direction @RIA-694
+  @regression @send-direction @RIA-694
   Scenario: Send a direction
 
     When I select the `Send direction` Next step

@@ -17,7 +17,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I request hearing requirements
 
 
-  @home-office-all-overview-tabs @RIA-1709
+  @regression @home-office-all-overview-tabs @RIA-1709
   Scenario: All Home Office users see listing overview tab
 
     # listing
@@ -34,6 +34,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
 
     # LART
     When I switch to be a `Home Office LART`
@@ -48,6 +49,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
 
     # POU
     When I switch to be a `Home Office POU`
@@ -62,6 +64,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
 
     # Generic
     When I switch to be a `Home Office Generic`
@@ -76,6 +79,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
 
 
     # listed (AO)
@@ -93,6 +97,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # LART
     When I switch to be a `Home Office LART`
@@ -105,6 +110,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # POU
     When I switch to be a `Home Office POU`
@@ -117,6 +123,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # Generic
     When I switch to be a `Home Office Generic`
@@ -129,6 +136,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
 
     # preHearing (CO)
@@ -147,6 +155,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # LART
     When I switch to be a `Home Office LART`
@@ -159,6 +168,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # POU
     When I switch to be a `Home Office POU`
@@ -171,6 +181,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # Generic
     When I switch to be a `Home Office Generic`
@@ -183,6 +194,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
 
     # Generate hearing bundle (CO)
@@ -199,6 +211,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # LART
     When I switch to be a `Home Office LART`
@@ -210,6 +223,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # POU
     When I switch to be a `Home Office POU`
@@ -221,6 +235,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # Generic
     When I switch to be a `Home Office Generic`
@@ -232,6 +247,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
 
     # decision (CO)
@@ -248,6 +264,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # LART
     When I switch to be a `Home Office LART`
@@ -259,6 +276,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # POU
     When I switch to be a `Home Office POU`
@@ -270,6 +288,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # Generic
     When I switch to be a `Home Office Generic`
@@ -281,6 +300,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # Decided (CO)
     When I switch to be a `Case Officer`
@@ -297,6 +317,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # LART
     When I switch to be a `Home Office LART`
@@ -308,6 +329,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # POU
     When I switch to be a `Home Office POU`
@@ -319,6 +341,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
     # Generic
     When I switch to be a `Home Office Generic`
@@ -330,5 +353,6 @@ Feature: Home Office all overview tabs from listing to decision state
 
     And I should see the case details
     And I should see the hearing details
+    And I should see the legal representative details
 
 

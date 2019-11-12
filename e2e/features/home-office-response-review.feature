@@ -16,7 +16,7 @@ Feature: Home Office appeal response under review
     And I request respondent review
     And I add the appeal response
 
-  @RIA-1794 @home-office-response-review
+  @regression @home-office-response-review @RIA-1794
   Scenario: Case officer directs the appellant to review the Home office appeal response
 
 
@@ -29,6 +29,7 @@ Feature: Home Office appeal response under review
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change the direction due date` for the `Next step` field
@@ -69,6 +70,7 @@ Feature: Home Office appeal response under review
 
     And I should see the case details
     And I should not see the hearing details
+    And I should see the legal representative details
 
     Then I click the `Directions` tab
     And I should see the `Directions` page
