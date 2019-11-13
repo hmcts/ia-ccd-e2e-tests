@@ -15,6 +15,8 @@ Feature: Home Office all overview tabs from listing to decision state
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
+    And I switch to be a `Legal Rep`
+    And I submit hearing requirements
 
 
   @regression @home-office-all-overview-tabs @RIA-1709

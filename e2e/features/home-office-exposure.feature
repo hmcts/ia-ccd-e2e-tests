@@ -246,6 +246,7 @@ Feature: Different Home Office roles have different functionality
     And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
     And I should see the text `inform you of any issues`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+    And I should not see the option `Request respondent review` for the `Next step` field
 
     # HO LART:
     When I switch to be a `Home Office LART`
@@ -256,6 +257,7 @@ Feature: Different Home Office roles have different functionality
     And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
     And I should see the text `inform you of any issues`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+    And I should not see the option `Request respondent review` for the `Next step` field
 
     # HO POU:
     When I switch to be a `Home Office POU`
@@ -266,6 +268,7 @@ Feature: Different Home Office roles have different functionality
     And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
     And I should see the text `inform you of any issues`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+    And I should not see the option `Request respondent review` for the `Next step` field
 
     # HO GENERIC:
     When I switch to be a `Home Office Generic`
@@ -276,6 +279,7 @@ Feature: Different Home Office roles have different functionality
     And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
     And I should see the text `inform you of any issues`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+    And I should not see the option `Request respondent review` for the `Next step` field
 
     #####################################
     ### Moved out of case progression ###
@@ -285,6 +289,8 @@ Feature: Different Home Office roles have different functionality
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
+    And I switch to be a `Legal Rep`
+    And I submit hearing requirements
 
     # Home Office APC
     When I switch to be a `Home Office APC`
@@ -354,10 +360,8 @@ Feature: Different Home Office roles have different functionality
     And I should see the case details
     And I should see the legal representative details
 
-
     And I switch to be a `Admin Officer`
     And I list the case
-
 
     # Home Office APC
     When I switch to be a `Home Office APC`

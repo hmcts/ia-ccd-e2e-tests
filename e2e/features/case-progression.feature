@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2087
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -427,6 +427,29 @@ Feature: Case progression
 
     And I should see the option `Upload additional evidence` for the `Next step` field
 
+    # HO:
+
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+
+    Then I should only see the `homeOffice_awaitAppealSkeletonArgument` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The Tribunal will:`
+    And I should see the text `check that the bundle complies with the Procedural Rules and Practice Directions`
+    And I should see the text `inform you of any issues`
+    And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review`
+
+    And I should not see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I should not see the option `Build your case` for the `Next step` field
+    And I should not see the option `Submit your case` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
+    And I should not see the option `Record an application` for the `Next step` field
+    And I should not see the option `Request respondent review` for the `Next step` field
+    And I should see the option `Upload additional evidence` for the `Next step` field
+
     # CO:
 
     When I switch to be a `Case Officer`
@@ -512,6 +535,7 @@ Feature: Case progression
     And I should not see the option `Add appeal response` for the `Next step` field
     And I should not see the option `Request hearing requirements` for the `Next step` field
     And I should not see the option `Add case note` for the `Next step` field
+    And I should not see the option `Request respondent review` for the `Next step` field
     And I should not see the option `Record an application` for the `Next step` field
 
     And I should see the option `Upload additional evidence` for the `Next step` field
@@ -622,7 +646,6 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
-
     # HO:
 
     And I switch to be a `Home Office LART`
@@ -671,7 +694,6 @@ Feature: Case progression
     And within the `Respondent documents` collection's fourth item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Respondent documents` collection's fourth item, I should see `This is the evidence` in the `Description` field
     And within the `Respondent documents` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-
 
     # CO Direct Appellant to review HO Appeal Response
     When I switch to be a `Case Officer`
@@ -725,7 +747,6 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should only see the `legalRep_respondentReview` case progress image
-
     And I should see the text `Do this next`
     And I should see the text `The case has now been sent to the respondent for review`
     And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
@@ -743,17 +764,205 @@ Feature: Case progression
     And I should not see the option `Record an application` for the `Next step` field
     And I should see the option `Upload additional evidence` for the `Next step` field
 
+    # Home Office APC
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+
+    Then I should only see the `homeOffice_appealResponseUploaded` case progress image
+    And I should see the text `Do this next`
+    #And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
+    #And I should see the text `inform you of any issues`
+    And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
+    And I should see the text `All parties will be notified when the Hearing Notice is ready.`
+
+    And I should not see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    # CO:
+
+    When I switch to be a `Case Officer`
+    And I request hearing requirements
+    Then I click the `Overview` tab
+    And I should only see the `caseOfficer_submitHearingRequirements` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `Wait for the appellant to submit their hearing requirements. You don't need to do anything right now.`
+
+    And I should not see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    And I should not see the option `Add appeal response` for the `Next step` field
+    And I should not see the option `Request hearing requirements` for the `Next step` field
+    And I should not see the option `Upload additional evidence` for the `Next step` field
+
+    And I should see the option `Send direction` for the `Next step` field
+    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Add case note` for the `Next step` field
+    And I should not see the option `List the case` for the `Next step` field
+    And I should see the option `Record an application` for the `Next step` field
+
+    ### submit hearing requirements
+
+    # LR:
+
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+
+    Then I should not see any case progress images
+    And I should not see the text `Do this next`
+    And I should see the case details
+    And I should not see the hearing details
+    And I should see the legal representative details
+
+    And I should see the option `Upload additional evidence` for the `Next step` field
+    And I should see the option `Submit hearing requirements` for the `Next step` field
+    And I should not see the option `Send direction` for the `Next step` field
+    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `List the case` for the `Next step` field
+    And I should not see the option `Add case note` for the `Next step` field
+    And I should not see the option `Record an application` for the `Next step` field
+
+    When I click the `Appeal` tab
+    Then I should see the appeal details
+    And I should see the submission details
+
+    When I click the `Appellant` tab
+    Then I should see the appellant's details
+    And I should see the legal representative's details
+
+    When I select the `Submit hearing requirements` Next step
+    Then I should see the text `Submit hearing requirements`
+    And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
+    And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
+
+    When I click the `Continue` button
+    Then I select `Yes` for the `Will the appellant attend the hearing?` field
+
+    When I click the `Continue` button
+    Then I select `Yes` for the `Will the appellant give oral evidence at the hearing?` field
+
+    When I click the `Continue` button
+    And I select `Yes` for the `Will any witnesses attend the hearing?` field
+    Then I see the text `Witness details`
+    And the `Continue` button is disabled
+
+    When I click the `Add new` button
+    And I type `Jenny Button` for the `Name` field
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    And I select `Yes` for the `Do you need interpreter services at the hearing?` field
+    Then I see the text `Interpreter details`
+    And the `Continue` button is disabled
+
+    When I click the `Add new` button
+    And I select `Zulu` for the `Language` field
+    And I type `Kwabe` for the `Dialect` field
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    Then I select `Yes` for the `Do you need a hearing room with step-free access?` field
+
+    When I click the `Continue` button
+    Then I select `Yes` for the `Do you need a hearing loop?` field
+
+    When I click the `Continue` button
+    Then I should see the text `Additional requests`
+    And I should see the text `You can request additional adjustments based on the appellant's personal circumstances. The Tribunal will review the information you provide and decide whether a request can be granted.`
+
+    When I click the `Continue` button
+    And I select `Yes` for the `Does the appellant have any physical or mental health issues that may impact them during the hearing?` field
+    Then the `Continue` button is disabled
+    When I type `The appellant is deaf in one ear` for the `Explain in detail how any physical or mental health issues may affect them during the hearing.` field
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    And I select `Yes` for the `Has the appellant had any past experiences that may impact them during the hearing?` field
+    Then the `Continue` button is disabled
+    When I type `The appellant is fearful of the law` for the `Explain in detail how any past experiences may affect them during the hearing.` field
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    And I select `Yes` for the `Do you have multimedia evidence?` field
+    Then the `Continue` button is disabled
+    When I type `The appellant has a video recording on a memory stick which needs to be played on a computer` for the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    And I select `Yes` for the `Does the appellant need a single-sex court?` field
+
+    When I click the `Continue` button
+    And I select `All female` for the `What type of court do they need?` field
+    Then the `Continue` button is disabled
+    When I type `The appellant is fearful of men` for the `Explain in detail why the appellant needs a single-sex court.` field
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    And I select `Yes` for the `Does the appellant need an in camera court?` field
+    Then the `Continue` button is disabled
+    When I type `The appellant is afraid of the general public` for the `Explain in detail why the appellant needs a private hearing.` field
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    And I select `Yes` for the `Is there anything else you would like to request?` field
+    Then the `Continue` button is disabled
+    When I type `The appellant would like fresh orange juice and doughnuts` for the `Provide details of any additional requests and why they are necessary.` field
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    Then I should see the text `Hearing dates to avoid`
+    And I should see the text `Tell us if there are any dates that the appellant or their on-day representation cannot attend a hearing. You must explain why the case cannot be heard on these dates.`
+    And I should see the text `Dates to avoid (Optional)`
+    When I click the `Add new` button
+    Then I type `31-12-2019` for the `Date (Optional)` field
+    Then I type `New Year's Eve` for the `Reason (Optional)` field
+
+    When I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `Yes` in the `Will the appellant attend the hearing?` field
+    And I should see `Yes` in the `Will the appellant give oral evidence at the hearing?` field
+    And I should see `Yes` in the `Will any witnesses attend the hearing?` field
+    And I should see `Jenny Button` in the `Witness details` field
+    And I should see `Yes` in the `Do you need interpreter services at the hearing?` field
+    And I should see `Zulu` in the `Language` field
+    And I should see `Kwabe` in the `Dialect` field
+    And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
+    And I should see `Yes` in the `Do you need a hearing loop?` field
+    And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them during the hearing?` field
+    And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them during the hearing.` field
+    And I should see `Yes` in the `Has the appellant had any past experiences that may impact them during the hearing?` field
+    And I should see `The appellant is fearful of the law` in the `Explain in detail how any past experiences may affect them during the hearing.` field
+    And I should see `Yes` in the `Do you have multimedia evidence?` field
+    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
+    And I should see `Yes` in the `Does the appellant need a single-sex court?` field
+    And I should see `All female` in the `What type of court do they need?` field
+    And I should see `The appellant is fearful of men` in the `Explain in detail why the appellant needs a single-sex court.` field
+    And I should see `Yes` in the `Does the appellant need an in camera court?` field
+    And I should see `The appellant is afraid of the general public` in the `Explain in detail why the appellant needs a private hearing.` field
+    And I should see `Yes` in the `Is there anything else you would like to request?` field
+    And I should see `The appellant would like fresh orange juice and doughnuts` in the `Provide details of any additional requests and why they are necessary.` field
+    And I should see the `Dates to avoid` field
+    And I should see `31 Dec 2019` in the `Date` field
+    And I should see `New Year's Eve` in the `Reason` field
+
+    When I click the `Submit` button
+    Then I should see the text `You've submitted your hearing requirements`
+    And I should see the text `What happens next`
+    And I should see the text `The Tribunal will review your hearing requirements and any additional requests for adjustments.`
+    And I should see the text `We'll notify you when the hearing is listed. You'll then be able to review the hearing requirements.`
+
+    When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
+
     ### listing
 
     # CO:
 
     When I switch to be a `Case Officer`
-    And I should see the text `Do this next`
-    And I should see the text `The appellant has been instructed to review the Home Office response. If they don't respond within 5 days, the case proceeds to hearing.`
+    And I click the `Overview` tab
 
-    And I request hearing requirements
-    Then I click the `Overview` tab
-    And I should only see the `caseOfficer_listing` case progress image
+    Then I should only see the `caseOfficer_listing` case progress image
     And I should see the text `Do this next`
     And I should see the text `The legal representative will send you the completed hearing requirements document by email.`
     And I should see the text `Add any comments or edits, and then sign the document to confirm the agreed hearing requirements.`
@@ -780,7 +989,6 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should only see the `legalRep_listing` case progress image
-
     And I should see the text `Do this next`
     And I should see the text `The case officer is reviewing the hearing requirements`
     And I should see the text `Once the requirements have been agreed with the Tribunal,`
@@ -804,7 +1012,6 @@ Feature: Case progression
 
     Then I should see the `Overview` page
     And I should only see the `homeOffice_listing` case progress image
-
     And I should see the text `Do this next`
     And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
     And I should see the text `inform you of any issues`
