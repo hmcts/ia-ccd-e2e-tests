@@ -10,7 +10,7 @@ Feature: Build case
     And I upload respondent evidence
     And I switch to be a `Legal Rep`
 
-  @regression @create-direction @RIA-480 @RIA-600 @RIA-927
+  @regression @create-direction @RIA-480 @RIA-600 @RIA-927 @nightly-test
   Scenario: Upload Case argument and evidence
 
     When I select the `Build your case` Next step

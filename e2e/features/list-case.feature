@@ -1,6 +1,6 @@
 Feature: List case
 
-  @regression @list-case @RIA-412 @RIA-1571 @postcode @RIA-1380 @nightly-test
+  @regression @list-case @RIA-412 @RIA-1571 @postcode @RIA-1380
   Scenario: Listing the case produces a hearing notice (default manchester hearing centre)
 
     Given I am signed in as a `Legal Rep`
@@ -70,7 +70,7 @@ Feature: List case
     And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @regression @list-case @RIA-412 @RIA-1571 @RIA-1380 @nightly-test
+  @regression @list-case @RIA-412 @RIA-1571 @RIA-1380
   Scenario: Listing the case produces a hearing notice
 
     Given I am signed in as a `Legal Rep`
@@ -140,7 +140,7 @@ Feature: List case
     And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @regression @list-case @RIA-412 @RIA-1571 @nightly-test
+  @regression @list-case @RIA-412 @RIA-1571
   Scenario: Listing the case produces a hearing notice (default taylor house hearing centre)
 
     Given I am signed in as a `Legal Rep`

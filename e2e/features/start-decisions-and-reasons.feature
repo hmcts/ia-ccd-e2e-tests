@@ -23,7 +23,7 @@ Feature: Start decision and reasons
     And I generate the hearing bundle
 
 
-  @regression @start-decision-and-reasons-yes-path @RIA-574 @nightly-test
+  @regression @start-decision-and-reasons-yes-path @RIA-574
   Scenario: Start decision and reasons
     When I select the `Start decision and reasons` Next step
     Then I should see the text `Start decision and reasons`
@@ -83,7 +83,7 @@ Feature: Start decision and reasons
 
 
 
-  @regression @start-decision-and-reasons-no-path @RIA-574 @nightly-test
+  @regression @start-decision-and-reasons-no-path @RIA-574
   Scenario: Start decision and reasons
     When I select the `Start decision and reasons` Next step
     Then I should see the text `Start decision and reasons`

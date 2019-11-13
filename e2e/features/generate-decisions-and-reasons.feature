@@ -25,7 +25,7 @@ Feature: Generate decision and reasons
 
 
 
-  @regression @generate-decision-and-reasons @RIA-1152 @RIA-1153 @RIA-1540 @RIA-1544 @RIA-2037 @nightly-test
+  @regression @generate-decision-and-reasons @RIA-1152 @RIA-1153 @RIA-1540 @RIA-1544 @RIA-2037
   Scenario: Start decision and reasons
     And I click the `Overview` tab
     And I should see the `Overview` page

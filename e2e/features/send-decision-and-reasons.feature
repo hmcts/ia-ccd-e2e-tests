@@ -24,7 +24,7 @@ Feature: Send decision and reasons
     And I start decision and reasons
     And I generate decision and reasons
 
-  @regression @send-decision-and-reasons-allowed @RIA-1154 @nightly-test
+  @regression @send-decision-and-reasons-allowed @RIA-1154
   Scenario: Send decision and reasons with Allowed status
     When I click the `Overview` tab
     And I click the `Send decision and reasons` link
@@ -61,7 +61,7 @@ Feature: Send decision and reasons
     And within the `Decision and reason documents` collection's second item, I should see `-Gonzlez-Decision-and-reasons-Cover-letter.PDF` in the `Document` field
     And within the `Decision and reason documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @regression @send-decision-and-reasons-dismissed @RIA-1154 @nightly-test
+  @regression @send-decision-and-reasons-dismissed @RIA-1154
   Scenario: Send decision and reasons with Dismissed status
     When I click the `Overview` tab
     And I click the `Send decision and reasons` link

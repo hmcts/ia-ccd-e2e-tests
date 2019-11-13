@@ -9,7 +9,7 @@ Feature: Different Home Office roles have different functionality
     And I switch to be a `Case Officer`
     And I request respondent evidence
 
-  @regression @home-office-exposure @RIA-1707 @RIA-1798 @RIA-1357 @nightly-test
+  @regression @home-office-exposure @RIA-1707 @RIA-1798 @RIA-1357
   Scenario: Home office functionality
 
 
