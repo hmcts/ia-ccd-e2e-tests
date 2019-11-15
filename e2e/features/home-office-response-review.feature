@@ -65,8 +65,8 @@ Feature: Home Office appeal response under review
     When I click the `Close and Return to case details` button
     Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
     And I should see the text `Do this next`
-    And I should see the text `The appellant has been instructed to review the Home Office response`
-    And I should see the text `If they don't respond within 5 days, the case proceeds to hearing`
+    And I should see the text `The appellant has been directed to review the Home Office response`
+    And I should see the text `If they do not respond within 5 working day of the direction, the case automatically proceeds to a hearing`
 
     And I should see the case details
     And I should not see the hearing details
@@ -81,3 +81,24 @@ Feature: Home Office appeal response under review
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
+
+    When I switch to be a `Admin Officer`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The appellant will review the Home Office response`
+
+    And I should see the case details
+    And I should not see the hearing details
+    And I should see the legal representative details
+
+    Then I click the `Directions` tab
+    And I should see the `Directions` page
+    And within the `Directions` collection's first item, I should see `The respondent has replied to your appeal argument and evidence. You must now review their response` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you would like to respond, you must email the Tribunal caseworker within 5 days` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not respond within 5 days, the case will automatically go to hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
+
