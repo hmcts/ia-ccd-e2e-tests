@@ -32,7 +32,7 @@ Feature: Home Office appeal response under review
     And I should see the legal representative details
 
     And I should see the option `Send direction` for the `Next step` field
-    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Change a direction due date` for the `Next step` field
     And I should see the option `Add appeal response` for the `Next step` field
     And I should see the option `Review Home Office response` for the `Next step` field
     And I should see the option `Amend appeal response` for the `Next step` field

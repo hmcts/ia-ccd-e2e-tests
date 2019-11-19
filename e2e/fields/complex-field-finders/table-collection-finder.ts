@@ -10,7 +10,7 @@ export class TableCollectionFinder implements ComplexFieldFinder {
     ) {
         return await container
             .all(by.xpath(
-                '//tr[.//th[normalize-space()="' + complexFieldLabel + '" and not(.//ccd-markdown)]]'
+                '//th[normalize-space()="' + complexFieldLabel + '" and not(.//ccd-markdown)]/..'
             ))
             .filter(e => e.isDisplayed())
             .get(instanceNumber - 1);

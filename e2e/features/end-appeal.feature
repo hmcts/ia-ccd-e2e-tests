@@ -23,7 +23,7 @@ Feature: End appeal
     When I click the `Directions` tab
     Then I should see the `Directions` page
     And I should not see the `Send a new direction` link
-    And I should not see the `Change the direction due date` link
+    And I should not see the `Change a direction due date` link
     When I click the `Overview` tab
 
     Then I should only see the `caseOfficer_appealEnded` case progress image

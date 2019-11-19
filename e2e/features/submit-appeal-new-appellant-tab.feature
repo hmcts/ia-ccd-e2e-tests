@@ -54,7 +54,7 @@ Feature: Submit appeal application
     And I should not see the hearing details
 
     And I should see the option `Send direction` for the `Next step` field
-    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Change a direction due date` for the `Next step` field
     And I should see the option `Request respondent evidence` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field

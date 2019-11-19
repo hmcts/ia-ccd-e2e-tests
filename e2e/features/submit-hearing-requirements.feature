@@ -37,7 +37,7 @@ Feature: Submit hearing requirements
     And I should see the option `Upload additional evidence` for the `Next step` field
     And I should see the option `Submit hearing requirements` for the `Next step` field
     And I should not see the option `Send direction` for the `Next step` field
-    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `Change a direction due date` for the `Next step` field
     And I should not see the option `List the case` for the `Next step` field
     And I should not see the option `Add case note` for the `Next step` field
     And I should not see the option `Record an application` for the `Next step` field
