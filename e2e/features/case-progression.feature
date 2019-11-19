@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771
+  @RIA-1810 @RIA-1771 @RIA-2177
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -532,6 +532,8 @@ Feature: Case progression
 
     And I click the `add the Home Office's response` link
     And I am on the `Upload the appeal response` page
+    And I should see the text `Already uploaded files:`
+    And I should see the text `- None`
 
     When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
@@ -560,6 +562,10 @@ Feature: Case progression
     And within the `Respondent documents` collection's second item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Respondent documents` collection's second item, I should see `This is the evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    When I select the `Upload the appeal response` Next step
+    Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
+    And I should see the text `You cannot upload more documents until your response has been reviewed`
 
     # CO:
 
@@ -628,6 +634,9 @@ Feature: Case progression
 
     And I click the `add the Home Office's response` link
     And I am on the `Upload the appeal response` page
+    And I should see the text `Already uploaded files:`
+    And I should see the text `- AppealResponse.pdf`
+    And I should see the text `- Evidence1.pdf`
 
     When I upload `{@AppealResponseUpdated.pdf}` for the `Upload the appeal response` field
     And I type `This is the updated appeal response` for the `Describe the document (Optional)` field
@@ -656,6 +665,12 @@ Feature: Case progression
     And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidenceUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's second item, I should see `This is the updated evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's third item, I should see `AppealResponse.pdf` in the `Document` field
+    And within the `Respondent documents` collection's third item, I should see `This is the appeal response` in the `Description` field
+    And within the `Respondent documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's fourth item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Respondent documents` collection's fourth item, I should see `This is the evidence` in the `Description` field
+    And within the `Respondent documents` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
 
     # CO Direct Appellant to review HO Appeal Response
@@ -1196,17 +1211,13 @@ Feature: Case progression
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
-    And I should see `AppealResponseUpdated.pdf` in the `Upload the appeal response` field
-    And I should see `This is the updated appeal response` in the first `Describe the document` field
-    And within the first `Add any additional evidence here` collection's first item, I should see `AppealResponseEvidenceUpdated.pdf` in the `Document` field
-    And within the first `Add any additional evidence here` collection's first item, I should see `This is the updated evidence` in the `Describe the document` field
+    And I should see `CaseArgument.pdf` in the first `Appeal skeleton argument` field
     And I should see `This is the case argument` in the first `Description` field
     And within the first `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
     And within the first `Evidence` collection's first item, I should see `The is the case argument evidence` in the `Describe the document` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
     And I should see `The refusal of a protection claim` in the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
-    And I should see `The refusal of a protection claim` in the `Type of appeal` field
 
     When I click the `Appellant` tab
     Then the `Appeal reference` field should be 13 characters long
@@ -1250,12 +1261,18 @@ Feature: Case progression
     And within the `Respondent documents` collection's second item, I should see `AppealResponseEvidenceUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's second item, I should see `This is the updated evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `Respondent documents` collection's third item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
-    And within the `Respondent documents` collection's third item, I should see `This is the updated evidence` in the `Description` field
+    And within the `Respondent documents` collection's third item, I should see `AppealResponse.pdf` in the `Document` field
+    And within the `Respondent documents` collection's third item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Respondent documents` collection's fourth item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Respondent documents` collection's fourth item, I should see `This is the respondent evidence` in the `Description` field
+    And within the `Respondent documents` collection's fourth item, I should see `This is the evidence` in the `Description` field
     And within the `Respondent documents` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's fifth item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
+    And within the `Respondent documents` collection's fifth item, I should see `This is the updated evidence` in the `Description` field
+    And within the `Respondent documents` collection's fifth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Respondent documents` collection's sixth item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Respondent documents` collection's sixth item, I should see `This is the respondent evidence` in the `Description` field
+    And within the `Respondent documents` collection's sixth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-Decision-and-reasons-FINAL.pdf` in the `Document` field
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Decision and reason documents` collection's second item, I should see `-Gonzlez-Decision-and-reasons-Cover-letter.PDF` in the `Document` field
