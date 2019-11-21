@@ -8,11 +8,14 @@ Feature: Upload respondent evidence
     And I switch to be a `Case Officer`
     And I request respondent evidence
 
-  @regression @create-direction @RIA-700 @RIA-592
+  @regression @create-direction @RIA-700 @RIA-592 @RIA-2034
   Scenario: Uploading respondent evidence adds documents and a new direction
 
     When I select the `Upload respondent evidence` Next step
     Then I am on the `Upload respondent evidence` page
+    And I should see the text `Already uploaded files:`
+    And I should see the text `- None`
+
     When I add an item to the `Upload case documents` collection
     And within the `Upload case documents` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` field
     And within the `Upload case documents` collection's first item, I type `This is the evidence` for the `Describe the document` field

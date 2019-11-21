@@ -155,6 +155,9 @@ Feature: Case progression
 
     When I click the `upload the Home Office bundle` link
     Then I am on the `Upload Home Office bundle` page
+    And I should see the text `Already uploaded files:`
+    And I should see the text `- None`
+
     And I add an item to the `Upload Home Office bundle` collection
     And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
@@ -238,6 +241,9 @@ Feature: Case progression
 
     When I click the `upload the Home Office bundle` link
     Then I am on the `Upload Home Office bundle` page
+    And I should see the text `Already uploaded files:`
+    And I should see the text `- Evidence1.pdf`
+    And I click the `Add new` button
     And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Document` field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the updated evidence` for the `Describe the document` field
 
@@ -261,6 +267,10 @@ Feature: Case progression
     And within the `Respondent documents` collection's second item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Respondent documents` collection's second item, I should see `This is the respondent evidence` in the `Description` field
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    When I select the `Upload Home Office bundle` Next step
+    Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
+    And I should see the text `You cannot upload more documents until the evidence bundle has been reviewed`
 
     ### case building, not ready to submit
 
