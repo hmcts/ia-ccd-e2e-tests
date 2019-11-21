@@ -92,6 +92,22 @@ Then(/^I should (see|not see) the ended appeal details$/, async function (seeOrN
     }
 });
 
+Then(/^I should (see|not see) the appeal removed from the online service details$/, async function (seeOrNotSee) {
+
+    const isDisplayed = (seeOrNotSee === 'see');
+
+    expect(await ccdPage.headingContains('Appeal removed from the online service', !isDisplayed)).to.equal(isDisplayed);
+
+    if (isDisplayed) {
+        expect(await ccdPage.isFieldValueDisplayed('Reasons for removal', 'some appeal removal reason')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Removal date', '{$TODAY|D MMM YYYY}')).to.equal(true);
+
+    } else {
+        expect(await ccdPage.isFieldValueDisplayed('Reason for removal', 'some appeal removal reason')).to.equal(false);
+        expect(await ccdPage.isFieldValueDisplayed('Removal date', '{$TODAY|D MMM YYYY}')).to.equal(false);
+    }
+});
+
 Then(/^I should only see the `?([^\s`]+)`? case progress image$/, async function (imageName) {
 
     const caseProgressionImageSources =
