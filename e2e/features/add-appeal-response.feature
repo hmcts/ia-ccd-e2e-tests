@@ -19,6 +19,9 @@ Feature: Add respondent response
 
     When I select the `Add appeal response` Next step
     Then I am on the `Add appeal response` page
+    And I should see the text `Already uploaded files:`
+    And I should see the text `- None`
+
     When I upload `{@AppealResponse.pdf}` for the `Response document` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Evidence (Optional)` collection
