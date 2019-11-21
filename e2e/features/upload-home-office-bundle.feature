@@ -90,6 +90,3 @@ Feature: Upload Home Office bundle
     And within the `Respondent documents` collection's first item, I should see `This is the updated evidence` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    And within the `Respondent documents` collection's second item, I should see `RespondentEvidence.pdf` in the `Document` field
-    And within the `Respondent documents` collection's second item, I should see `This is the evidence` in the `Description` field
-    And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
