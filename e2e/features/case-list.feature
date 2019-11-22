@@ -68,6 +68,10 @@ Feature: Case list
     And I should see the option `Taylor House` for the `Hearing centre` field
     And I should see the option `Newport` for the `Hearing centre` field
     And I should see the option `Bradford` for the `Hearing centre` field
+    And I should see the option `North Shields` for the `Hearing centre` field
+    And I should see the option `Birmingham` for the `Hearing centre` field
+    And I should see the option `Hatton Cross` for the `Hearing centre` field
+    And I should see the option `Glasgow` for the `Hearing centre` field
     And I should see the `Reference number` field
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
@@ -101,6 +105,10 @@ Feature: Case list
     And I should see the option `Taylor House` for the `Hearing centre` field
     And I should see the option `Newport` for the `Hearing centre` field
     And I should see the option `Bradford` for the `Hearing centre` field
+    And I should see the option `North Shields` for the `Hearing centre` field
+    And I should see the option `Birmingham` for the `Hearing centre` field
+    And I should see the option `Hatton Cross` for the `Hearing centre` field
+    And I should see the option `Glasgow` for the `Hearing centre` field
     And I should see the `Reference number` field
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
@@ -125,6 +133,10 @@ Feature: Case list
     And I should see the option `Taylor House` for the `Hearing centre` field
     And I should see the option `Newport` for the `Hearing centre` field
     And I should see the option `Bradford` for the `Hearing centre` field
+    And I should see the option `North Shields` for the `Hearing centre` field
+    And I should see the option `Birmingham` for the `Hearing centre` field
+    And I should see the option `Hatton Cross` for the `Hearing centre` field
+    And I should see the option `Glasgow` for the `Hearing centre` field
     And I should see the `Reference number` field
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
