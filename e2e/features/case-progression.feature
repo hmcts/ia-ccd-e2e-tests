@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2087
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -817,8 +817,9 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see any case progress images
-    And I should not see the text `Do this next`
+    Then I should only see the `legalRep_submitHearingRequirements` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The appeal is now going to a hearing. You need to submit the appellant's hearing requirements.`
     And I should see the case details
     And I should not see the hearing details
     And I should see the legal representative details
@@ -843,9 +844,11 @@ Feature: Case progression
     Then I should see the text `Submit hearing requirements`
     And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
     And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
+    And I click the `Cancel` link
 
-    When I click the `Continue` button
-    Then I select `Yes` for the `Will the appellant attend the hearing?` field
+    When I click the `submit the appellant's hearing requirements` link
+    Then I click the `Continue` button
+    And I select `Yes` for the `Will the appellant attend the hearing?` field
 
     When I click the `Continue` button
     Then I select `Yes` for the `Will the appellant give oral evidence at the hearing?` field
