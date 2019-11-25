@@ -29,6 +29,10 @@ Feature: Edit case listing
     And I should see the option `Taylor House` for the `Hearing centre` field
     And I should see the option `Newport` for the `Hearing centre` field
     And I should see the option `Bradford` for the `Hearing centre` field
+    And I should see the option `North Shields` for the `Hearing centre` field
+    And I should see the option `Birmingham` for the `Hearing centre` field
+    And I should see the option `Hatton Cross` for the `Hearing centre` field
+    And I should see the option `Glasgow` for the `Hearing centre` field
     And I should see the option `30 minutes` for the `Length of hearing` field
     And I should see the option `1 hour` for the `Length of hearing` field
     And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
