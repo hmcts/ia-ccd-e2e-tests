@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -988,6 +988,10 @@ Feature: Case progression
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
+    When I click the `Hearing` tab
+    Then I should see the hearing requirements yes path
+
+
     ### listing
 
     # CO:
@@ -1015,6 +1019,10 @@ Feature: Case progression
     And I should see the option `Add case note` for the `Next step` field
     And I should not see the option `List the case` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
+
+    When I click the `Hearing` tab
+    Then I should see the hearing requirements yes path
+
 
     # LR:
 
@@ -1076,6 +1084,9 @@ Feature: Case progression
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
     And I should see the option `List the case` for the `Next step` field
+
+    When I click the `Hearing` tab
+    Then I should see the hearing requirements yes path
 
     ### prepare for hearing
 
