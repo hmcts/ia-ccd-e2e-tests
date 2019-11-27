@@ -810,6 +810,7 @@ Feature: Case progression
     And I should see the text `inform you of any issues`
     And I should see the text `Providing there are no issues, the response will be shared with the appellant.`
     And I should see the text `All parties will be notified when the Hearing Notice is ready.`
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     And I should not see the hearing details
     And I should see the case details
@@ -908,6 +909,7 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     And I should see the hearing details
     And I should see the case details
@@ -1026,6 +1028,7 @@ Feature: Case progression
 
     And I should see the text `Do this next`
     And I should see the text `The hearing bundle is ready to view in the documents tab`
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     And I should see the hearing details
     And I should see the case details
@@ -1116,6 +1119,7 @@ Feature: Case progression
 
     And I should see the text `Do this next`
     And I should see the text `The Judge is writing up the Decision and Reasons document, you'll be notified when this is ready to view.`
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     And I should see the hearing details
     And I should see the case details
@@ -1173,6 +1177,7 @@ Feature: Case progression
 
     And I should see the text `Do this next`
     And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
+    And I should see the option `Upload additional evidence` for the `Next step` field
 
     And I should see the hearing details
     And I should see the case details
