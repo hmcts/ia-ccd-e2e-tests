@@ -785,8 +785,8 @@ Feature: Case progression
     And I request hearing requirements
     Then I click the `Overview` tab
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `Wait for the appellant to submit their hearing requirements. You don't need to do anything right now.`
+    And I should see the text `What happens next`
+    And I should see the text `The appellant has been directed to submit their hearing requirements.`
 
     And I should not see the hearing details
     And I should see the case details
@@ -801,6 +801,14 @@ Feature: Case progression
     And I should see the option `Add case note` for the `Next step` field
     And I should not see the option `List the case` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
+
+    # Admin Officer
+    When I switch to be a `Admin Officer`
+    And I click the `Overview` tab
+    Then I should see the `Overview` page
+    And I should only see the `caseOfficer_submitHearingRequirements` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `The appellant will submit their hearing requirements.`
 
     ### submit hearing requirements
 
