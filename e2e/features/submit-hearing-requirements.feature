@@ -20,8 +20,9 @@ Feature: Submit hearing requirements
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should not see any case progress images
-    And I should not see the text `Do this next`
+    Then I should only see the `legalRep_submitHearingRequirements` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The appeal is now going to a hearing. You need to submit the appellant's hearing requirements.`
     And I should see the case details
     And I should not see the hearing details
     And I should see the legal representative details
@@ -46,11 +47,16 @@ Feature: Submit hearing requirements
     Then I should see the text `Submit hearing requirements`
     And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
     And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
+    And I click the `Cancel` link
 
 
-  @submit-hearing-requirements-no-path @RIA-436-2087
+  @submit-hearing-requirements-no-path @RIA-436-2087 @RIA-2049
   Scenario: Submit hearing requirements with 'No' options selected
 
+    Then I click the `submit the appellant's hearing requirements` link
+    Then I should see the text `Submit hearing requirements`
+    And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
+    And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
     When I click the `Continue` button
     Then I select `No` for the `Will the appellant attend the hearing?` field
