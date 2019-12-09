@@ -128,6 +128,17 @@ Feature: Submit hearing requirements
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
+    When I click the `Hearing` tab
+    Then I should see the hearing requirements no path
+
+    When I switch to be a `Case Officer`
+    And I click the `Hearing` tab
+    Then I should see the hearing requirements no path
+
+    When I switch to be a `Admin Officer`
+    And I click the `Hearing` tab
+    Then I should see the hearing requirements no path
+
 
 
   @submit-hearing-requirements-yes-path @RIA-436-2087
@@ -252,3 +263,14 @@ Feature: Submit hearing requirements
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
+
+    When I click the `Hearing` tab
+    Then I should see the hearing requirements yes path
+
+    When I switch to be a `Case Officer`
+    And I click the `Hearing` tab
+    Then I should see the hearing requirements yes path
+
+    When I switch to be a `Admin Officer`
+    And I click the `Hearing` tab
+    Then I should see the hearing requirements yes path
