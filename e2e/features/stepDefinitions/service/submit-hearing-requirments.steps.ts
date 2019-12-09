@@ -1,14 +1,20 @@
-import { SubmitHearingRequirementsFlow } from '../../../flows/submit-hearing-requirements.flow';
+import { SubmitHearingRequirementsNoPathFlow } from '../../../flows/submit-hearing-requirements-no-path.flow';
 import { Then } from 'cucumber';
 import { expect } from 'chai';
 import { Wait } from '../../../enums/wait';
 import { CcdPage } from '../../../pages/ccd.page';
+import { SubmitHearingRequirementsYesFlow } from '../../../flows/submit-hearing-requirements-yes-path.flow';
 
-const submitHearingRequirementsFlow = new SubmitHearingRequirementsFlow();
+const submitHearingRequirementsNoFlow = new SubmitHearingRequirementsNoPathFlow();
+const submitHearingRequirementsYesFlow = new SubmitHearingRequirementsYesFlow();
 const ccdPage = new CcdPage();
 
-Then(/^I submit hearing requirements$/, async function () {
-    await submitHearingRequirementsFlow.submitHearingRequirements(true);
+Then(/^I submit hearing requirements with all no$/, async function () {
+    await submitHearingRequirementsNoFlow.submitHearingRequirements(true);
+});
+
+Then(/^I submit hearing requirements with all yes$/, async function () {
+    await submitHearingRequirementsYesFlow.submitHearingRequirements(true);
 });
 
 Then(/^I should (see|not see) the hearing requirements (yes|no) path$/, async function (seeOrNotSee, yesOrNo) {

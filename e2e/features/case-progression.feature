@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2047 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2022 @RIA-597 @RIA-587
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -998,6 +998,69 @@ Feature: Case progression
     When I click the `Documents` tab
     Then I should see the `Documents` page
     And I should not see the `Hearing documents` field
+
+    ### record agreed hearing requirements
+
+    # CO:
+
+    When I switch to be a `Case Officer`
+    Then I click the `Overview` tab
+    And I should only see the `caseOfficer_reviewHearingRequirements.png` case progress image
+    And I should see the text `You can view the hearing requirements and any requests for additional adjustments in the Hearing tab.`
+    And I should see the text `You should contact the appellant if you need more information.`
+    And I should see the text `You should then review and submit the hearing requirements and any additional adjustments.`
+
+    And I click the review and submit link
+    Then I should see the `Hearing requirements` page
+
+    And I should see `Yes` in the `Will the appellant attend the hearing?` field
+    And I should see `Yes` in the `Will the appellant give oral evidence at the hearing?` field
+    And I should see `Yes` in the `Will any witnesses attend the hearing?` field
+    And I should see `Jenny Button` in the `Witness details` field
+    And I should see `Yes` in the `Do you need interpreter services at the hearing?` field
+    And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
+    And I should see `Yes` in the `Do you need a hearing loop?` field
+    Then I select `6 hours` for the `Length of hearing` field
+    And I click the `Continue` button
+    And I should see the text `Additional adjustments`
+    And I should see the text `Check if the appellant has requested any additional adjustments and record your response in the relevant field.
+    And I should see the text `Do not enter the reason the appellant made the request.`
+    And I should see the text `The respondent will be able to see this information and must not be informed of the appellant's personal circumstances.`
+    And I should see the text `Adjustment request`
+    And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them during the hearing?` field
+    And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them during the hearing.` field
+    And I should see the text `Tribunal response`
+    And I type `Adjustments to accommodate vulnerabilities will be reviewed` for the `Adjustments to accommodate vulnerabilities` field
+    And I click the `Continue` button
+    And I should see `Yes` in the `Do you have multimedia evidence?` field
+    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
+    And I should see the text `Tribunal response`
+    And I type `Multimedia equipment requirement will be reviewed` for the `Multimedia equipment` field
+    And I click the `Continue` button
+    And I should see `Yes` in the `Does the appellant need a single-sex court?` field
+    And I should see `All female` in the `What type of court do they need?` field
+    And I should see `The appellant is fearful of men` in the `Explain in detail why the appellant needs a single-sex court.` field
+    And I type `Single sex court requirement will be reviewed` for the `Single-sex court` field
+    And I click the `Continue` button
+    And I should see `Yes` in the `Does the appellant need an in camera court?` field
+    And I should see `The appellant is afraid of the general public` in the `Explain in detail why the appellant needs a private hearing.` field
+    And I type `Private hearing requirement will be reviewed` for the `In camera court` field
+    And I click the `Continue` button
+    And I should see `Yes` in the `Is there anything else you would like to request?` field
+    And I should see `The appellant would like fresh orange juice and doughnuts` in the `Provide details of any additional requests and why they are necessary.` field
+    And I type `Additional adjustments requirement will be reviewed` for the `Other adjustments` field
+    And I click the `Continue` button
+
+    When I click the `Submit` button
+    Then I should see the text `You've recorded the agreed hearing adjustments`
+    And I should see the text `What happens next`
+    And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
+    When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
+
+    When I select the `Hearing requirements` Next step
+    Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
+    And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
     ### listing
 
