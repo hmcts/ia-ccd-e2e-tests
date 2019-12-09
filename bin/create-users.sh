@@ -107,6 +107,17 @@ if [[ -z "${TEST_HOMEOFFICE_GENERIC_PASSWORD}" ]]; then
     exit 1
 fi
 
+
+if [[ -z "${TEST_CITIZEN_USERNAME}" ]]; then
+    echo "ERROR: TEST_CITIZEN_USERNAME must be defined in the environment" 1>&2
+    exit 1
+fi
+
+if [[ -z "${TEST_CITIZEN_PASSWORD}" ]]; then
+    echo "ERROR: TEST_CITIZEN_PASSWORD must be defined in the environment" 1>&2
+    exit 1
+fi
+
 CCD_DEFINITION_STORE_API_IS_RUNNING=false
 (exec 6<>/dev/tcp/127.0.0.1/4451) &>/dev/null && CCD_DEFINITION_STORE_API_IS_RUNNING=true || echo "ERROR: CCD Definition Store API is not running" 1>&2
 exec 6>&- # close output connection
@@ -262,6 +273,19 @@ curl \
        "roles":["caseworker-ia", "caseworker-ia-respondentofficer"],
        "userGroup": {"code": "caseworker"}
       }'
+
+curl \
+  http://localhost:4501/testing-support/accounts \
+  -H "Content-Type: application/json" \
+  -d '{"email":"'"${TEST_CITIZEN_USERNAME}"'",
+       "forename":"Citizen",
+       "surname":"User",
+       "password":"'"${TEST_CITIZEN_PASSWORD}"'",
+       "levelOfAccess":1,
+       "roles":["citizen"],
+       "userGroup": {"code": "citizens"}
+      }'
+
 
 curl --silent -XPUT \
   http://localhost:4451/api/user-role \
