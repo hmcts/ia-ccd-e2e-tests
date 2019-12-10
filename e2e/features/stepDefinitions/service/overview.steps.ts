@@ -21,7 +21,12 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
         expect(await ccdPage.isFieldValueDisplayed('Date of birth', '31 Dec 1999')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationality', 'first')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'The refusal of a protection claim')).to.equal(true);
-        expect(await ccdPage.isFieldValueDisplayed('Home Office reference', 'A123456')).to.equal(true);
+
+        const homeOfficeNumberShort = await ccdPage.isFieldValueCorrectLength('Home Office reference', 7);
+        const homeOfficeNumberLong = await ccdPage.isFieldValueCorrectLength('Home Office reference', 11);
+
+        expect(homeOfficeNumberShort || homeOfficeNumberLong).to.equal(true);
+        expect(await ccdPage.contentContains('A123456',  Wait.instant)).to.equal(true);
 
     } else {
         expect(await ccdPage.contentContains('Appeal reference', Wait.instant)).to.equal(false);
