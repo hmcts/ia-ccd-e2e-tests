@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -1082,10 +1082,8 @@ Feature: Case progression
 
     Then I should only see the `caseOfficer_listing` case progress image
     And I should see the text `Do this next`
-    And I should see the text `The legal representative will send you the completed hearing requirements document by email.`
-    And I should see the text `Add any comments or edits, and then sign the document to confirm the agreed hearing requirements.`
-    And I should see the text `Email the completed hearing requirements document to IACReformlisting@justice.gov.uk so that the case can be listed.`
-    And I should see the text `You’ll be notified when the case is listed and be able to view the hearing notice in the documents tab.`
+    And I should see the text `The agreed hearing requirements and adjustments have been recorded.`
+    And I should see the text `The listing team will now list the case.`
 
     And I should not see the hearing details
     And I should see the case details
