@@ -15,6 +15,7 @@ Feature: Submit hearing requirements
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
+    And I request appellant review
     And I request hearing requirements
 
     Then I click the `Directions` tab
@@ -287,12 +288,14 @@ Feature: Submit hearing requirements
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Hearing requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And I should see the hearing requirements yes path
+
+    When I click the `Hearing` tab
+    Then I should see the hearing requirements yes path for nonHoUsers
 
     When I switch to be a `Case Officer`
     And I click the `Hearing` tab
-    Then I should see the hearing requirements yes path
+    Then I should see the hearing requirements yes path for nonHoUsers
 
     When I switch to be a `Admin Officer`
     And I click the `Hearing` tab
-    Then I should see the hearing requirements yes path
+    Then I should see the hearing requirements yes path for nonHoUsers
