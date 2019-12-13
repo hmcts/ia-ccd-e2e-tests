@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2047 @RIA-2049 @RIA-2087 @RIA-1899
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -1536,11 +1536,15 @@ Feature: Case progression
 
     When I click the `Directions` tab
     Then I should see the `Directions` page
-    And within the `Directions` collection's first item, I should see `Your appeal is going to a hearing. Login to submit your hearing requirements on the overview tab.` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not supply your hearing requirements within 5 days, we may not be able to accommodate your needs for the hearing.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's second item, I should see `The respondent has replied to your appeal argument and evidence. You must now review their response.` in the `Explanation` field
+    And within the `Directions` collection's second item, I should see `If you would like to respond, you must email the Tribunal caseworker within 5 days.` in the `Explanation` field
+    And within the `Directions` collection's second item, I should see `Legal representative` for the `Parties` field
+    And within the `Directions` collection's second item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
     And within the `Directions` collection's seventh item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `You have 14 days to supply` in the `Explanation` field

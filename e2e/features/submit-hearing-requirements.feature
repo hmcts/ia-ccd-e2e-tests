@@ -17,6 +17,13 @@ Feature: Submit hearing requirements
     And I add the appeal response
     And I request hearing requirements
 
+    Then I click the `Directions` tab
+    And I should see the `Directions` page
+    And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
@@ -50,7 +57,7 @@ Feature: Submit hearing requirements
     And I click the `Cancel` link
 
 
-  @submit-hearing-requirements-no-path @RIA-436-2087 @RIA-2049
+  @submit-hearing-requirements-no-path @RIA-436-2087 @RIA-2049 @RIA-2047
   Scenario: Submit hearing requirements with 'No' options selected
 
     Then I click the `submit the appellant's hearing requirements` link
