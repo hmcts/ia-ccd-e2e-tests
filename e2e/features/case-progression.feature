@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -533,12 +533,13 @@ Feature: Case progression
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
     And I should not see the option `Add appeal response` for the `Next step` field
-    And I should not see the option `Request hearing requirements` for the `Next step` field
+
     And I should not see the option `Add case note` for the `Next step` field
     And I should not see the option `Request respondent review` for the `Next step` field
     And I should not see the option `Record an application` for the `Next step` field
 
     And I should see the option `Upload additional evidence` for the `Next step` field
+    And I should see the option `Request hearing requirements` for the `Next step` field
 
     ### respondent review, appeal response added
 
@@ -768,11 +769,12 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should only see the `legalRep_respondentReview` case progress image
+    Then I should only see the `legalRep_respondentReview_appeal_response` case progress image
     And I should see the text `Do this next`
-    And I should see the text `The case has now been sent to the respondent for review`
-    And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
-    And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
+    And I should see the text `The Home Office is proceeding with the case and you've been directed to review their response in the Documents tab.`
+    And I should see the text `If you want to respond to the Home Office, you should contact The Tribunal within 5 working days or the case will automatically proceed to a hearing.`
+    And I should see the text `If you want to continue the appeal without responding, you can proceed to a hearing.`
+    And I should see the text `If not, you should apply to the Tribunal to withdraw the appeal.`
 
     And I should not see the hearing details
     And I should see the case details
@@ -781,9 +783,9 @@ Feature: Case progression
     And I should not see the option `Send direction` for the `Next step` field
     And I should not see the option `Change the direction due date` for the `Next step` field
     And I should not see the option `Add appeal response` for the `Next step` field
-    And I should not see the option `Request hearing requirements` for the `Next step` field
     And I should not see the option `Add case note` for the `Next step` field
     And I should not see the option `Record an application` for the `Next step` field
+    And I should see the option `Request hearing requirements` for the `Next step` field
     And I should see the option `Upload additional evidence` for the `Next step` field
 
     # Home Office APC
