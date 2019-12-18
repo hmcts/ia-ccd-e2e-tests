@@ -26,7 +26,7 @@ Feature: Admin officer has reduced functionality
 
     When I click the `Directions` tab
     Then I should not see the `Send new direction` link
-    And I should not see the `Change the direction due date` link
+    And I should not see the `Change a direction due date` link
 
     When I click the `Documents` tab
     Then I should not see the `Upload additional evidence` link

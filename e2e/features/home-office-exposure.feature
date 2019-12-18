@@ -63,7 +63,7 @@ Feature: Different Home Office roles have different functionality
     And I should see the legal representative details
 
     And I should not see the option `Send direction` for the `Next step` field
-    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `Change a direction due date` for the `Next step` field
     And I should see the option `Upload Home Office bundle` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
     And I should not see the option `Add case note` for the `Next step` field
@@ -93,7 +93,7 @@ Feature: Different Home Office roles have different functionality
     And I should see the legal representative details
 
     And I should not see the option `Send direction` for the `Next step` field
-    And I should not see the option `Change the direction due date` for the `Next step` field
+    And I should not see the option `Change a direction due date` for the `Next step` field
     And I should see the option `Upload Home Office bundle` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
     And I should not see the option `Add case note` for the `Next step` field
@@ -178,7 +178,7 @@ Feature: Different Home Office roles have different functionality
     And I should not see the option `Build your case` for the `Next step` field
     And I should not see the option `Submit your case` for the `Next step` field
     And I should see the option `Send direction` for the `Next step` field
-    And I should see the option `Change the direction due date` for the `Next step` field
+    And I should see the option `Change a direction due date` for the `Next step` field
     And I should see the option `Request respondent evidence` for the `Next step` field
     And I should see the option `Upload respondent evidence` for the `Next step` field
     And I should see the option `Request case building` for the `Next step` field

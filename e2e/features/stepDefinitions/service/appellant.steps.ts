@@ -21,7 +21,7 @@ Then(/^I should (see|not see) the appellant's details$/, async function (seeOrNo
         expect(await ccdPage.isFieldValueDisplayed('Given names', 'José')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Family name', 'González')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Date of birth', '31 Dec 1999')).to.equal(true);
-        expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationality', 'first')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationalities', 'first')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Does the appellant have a fixed address?', 'No')).to.equal(true);
 
     } else {
