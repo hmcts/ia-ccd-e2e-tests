@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -1064,6 +1064,10 @@ Feature: Case progression
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
+    When I click the `Hearing` tab
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments yes path
+
     ### listing
 
     # CO:
@@ -1093,7 +1097,8 @@ Feature: Case progression
     And I should see the option `Record an application` for the `Next step` field
 
     When I click the `Hearing` tab
-    Then I should see the hearing requirements yes path
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments yes path
 
 
     # LR:
@@ -1158,7 +1163,8 @@ Feature: Case progression
     And I should see the option `List the case` for the `Next step` field
 
     When I click the `Hearing` tab
-    Then I should see the hearing requirements yes path
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments yes path
 
     ### prepare for hearing
 

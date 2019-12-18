@@ -18,7 +18,7 @@ Feature: Record agreed hearing requirements
     And I request hearing requirements
     And I switch to be a `Legal Rep`
 
-  @record-agreed-hearing-requirements-no-path @RIA-2022
+  @record-agreed-hearing-requirements-no-path @RIA-2022 @RIA-2051
   Scenario: Record hearing requirements with all NO options
 
     And I submit hearing requirements with all no
@@ -86,7 +86,21 @@ Feature: Record agreed hearing requirements
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
-  @record-agreed-hearing-requirements-yes-path @RIA-2022
+    When I click the `Hearing` tab
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments no path
+
+    When I switch to be a `Legal Rep`
+    And I click the `Hearing` tab
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments no path
+
+    When I switch to be a `Admin Officer`
+    And I click the `Hearing` tab
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments no path
+
+  @record-agreed-hearing-requirements-yes-path @RIA-2022 @RIA-2051
   Scenario: Record hearing requirements with all YES options
 
     And I submit hearing requirements with all yes
@@ -149,9 +163,16 @@ Feature: Record agreed hearing requirements
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
+    When I click the `Hearing` tab
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments yes path
 
+    When I switch to be a `Legal Rep`
+    And I click the `Hearing` tab
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments yes path
 
-
-
-
-
+    When I switch to be a `Admin Officer`
+    And I click the `Hearing` tab
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments yes path
