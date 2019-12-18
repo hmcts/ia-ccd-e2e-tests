@@ -59,6 +59,8 @@ Then(/^I should (see|not see) the hearing requirements (yes|no) path$/, async fu
                 )).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Date', '31 Dec 2019')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Reason', 'New Year\'s Eve')).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Document', '-Gonzlez-hearing-requirements.PDF', false)).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Date uploaded', '{$TODAY|D MMM YYYY}')).to.equal(true);
         } else {
             expect(await ccdPage.isFieldValueDisplayed('Will the appellant give oral evidence at the hearing?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Will the appellant attend the hearing?', 'No')).to.equal(true);
@@ -75,6 +77,8 @@ Then(/^I should (see|not see) the hearing requirements (yes|no) path$/, async fu
             expect(await ccdPage.isFieldValueDisplayed('Does the appellant need a single-sex court?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Does the appellant need an in camera court?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Is there anything else you would like to request?', 'No')).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Document', '-Gonzlez-hearing-requirements.PDF', false)).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Date uploaded', '{$TODAY|D MMM YYYY}')).to.equal(true);
         }
 
     } else {
