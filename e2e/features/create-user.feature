@@ -22,16 +22,11 @@ Feature: Create user
     And I add the appeal response
     And I request hearing requirements
 
-    #### New functionality
-
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements
-
-    #### End new functionality
-
-    And I switch to be a `Admin Officer`
-    And I list the case
-    And I switch to be a `Case Officer`
+    #And I switch to be a `Legal Rep`
+    #And I submit hearing requirements
+    #And I switch to be a `Admin Officer`
+    #And I list the case
+    #And I switch to be a `Case Officer`
     #And I create case summary
     #And I generate the hearing bundle
     #And I start decision and reasons
