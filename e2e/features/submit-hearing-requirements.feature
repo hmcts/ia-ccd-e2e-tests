@@ -63,7 +63,7 @@ Feature: Submit hearing requirements
     And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
 
-  @submit-hearing-requirements-no-path @RIA-436-2087 @RIA-2049 @RIA-2047 @RIA-1899 @RIA-587
+  @submit-hearing-requirements-no-path @RIA-436-2087 @RIA-2049 @RIA-2047 @RIA-1899 @RIA-587 @RIA-2304
   Scenario: Submit hearing requirements with 'No' options selected
 
 
@@ -108,9 +108,7 @@ Feature: Submit hearing requirements
     Then I select `No` for the `Is there anything else you would like to request?` field
 
     When I click the `Continue` button
-    Then I should see the text `Hearing dates to avoid`
-    And I should see the text `Tell us if there are any dates that the appellant or their on-day representation cannot attend a hearing. You must explain why the case cannot be heard on these dates.`
-    And I should see the text `Dates to avoid (Optional)`
+    Then I select `No` for the `Are there any dates that the appellant or their on-day representation cannot attend a hearing?` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -126,7 +124,7 @@ Feature: Submit hearing requirements
     And I should see `No` in the `Does the appellant need a single-sex court?` field
     And I should see `No` in the `Does the appellant need an in camera court?` field
     And I should see `No` in the `Is there anything else you would like to request?` field
-    And I should see the `Dates to avoid` field
+    And I should see `No` in the `Are there any dates that the appellant or their on-day representation cannot attend a hearing?` field
 
     When I click the `Submit` button
     Then I should see the text `You've submitted your hearing requirements`
@@ -146,18 +144,18 @@ Feature: Submit hearing requirements
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Hearing requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And I should see the hearing requirements no path
+    And I should see the hearing requirements no path for nonHoUsers
 
     When I switch to be a `Case Officer`
     And I click the `Hearing` tab
-    Then I should see the hearing requirements no path
+    Then I should see the hearing requirements no path for nonHoUsers
 
     When I switch to be a `Admin Officer`
     And I click the `Hearing` tab
-    Then I should see the hearing requirements no path
+    Then I should see the hearing requirements no path for nonHoUsers
 
 
-  @submit-hearing-requirements-yes-path @RIA-436-2087 @RIA-1899 @RIA-587
+  @submit-hearing-requirements-yes-path @RIA-436-2087 @RIA-1899 @RIA-587 @RIA-2304
   Scenario: Submit hearing requirements with 'Yes' options selected
 
     When I click the `Continue` button
@@ -236,11 +234,13 @@ Feature: Submit hearing requirements
 
     When I click the `Continue` button
     Then I should see the text `Hearing dates to avoid`
-    And I should see the text `Tell us if there are any dates that the appellant or their on-day representation cannot attend a hearing. You must explain why the case cannot be heard on these dates.`
-    And I should see the text `Dates to avoid (Optional)`
+
+    When I select `Yes` for the `Are there any dates that the appellant or their on-day representation cannot attend a hearing?` field
+    Then I should see the text `Tell us which dates and explain why the case cannot be heard on these dates.`
+    And I should see the text `Dates to avoid`
     When I click the `Add new` button
-    Then I type `31-12-2019` for the `Date (Optional)` field
-    Then I type `New Year's Eve` for the `Reason (Optional)` field
+    Then I type `31-12-2019` for the `Date` field
+    Then I type `New Year's Eve` for the `Reason` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
