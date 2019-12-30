@@ -129,7 +129,13 @@ Feature: List case and edit case listing after Submit hearing requirements journ
     Then I should see the hearing requirements yes path for nonHoUsers
 
     When I click the `Overview` tab
-    And I click the `List the case` link
+    Then I should only see the `caseOfficer_listing` case progress image
+
+    And I should see the text `Do this next`
+    And I should see the text `The agreed hearing requirements and dates to avoid are available to view in the Hearing tab.`
+    And I should see the text `When the case has been listed in Aria, you should list the case here.`
+    And I click the `list the case here` link
+
     Then I am on the `List the case` page
     And I should see the option `Manchester` for the `Hearing centre` field
     And I should see the option `Taylor House` for the `Hearing centre` field

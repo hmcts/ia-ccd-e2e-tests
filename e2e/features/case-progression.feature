@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277 @RIA-2343
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -1113,7 +1113,7 @@ Feature: Case progression
     And I should see the text `Do this next`
     And I should see the text `The case officer is reviewing the hearing requirements`
     And I should see the text `Once the requirements have been agreed with the Tribunal,`
-    And I should see the text `the case will be listed and you will receive a notification with the hearing notice`
+    And I should see the text `the case will be listed and you will receive a notification with the hearing notice.`
 
     And I should not see the hearing details
     And I should see the case details
@@ -1156,7 +1156,8 @@ Feature: Case progression
     Then I should only see the `caseOfficer_listing` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `You can list the case when the case officer sends you the agreed hearing requirements.`
+    And I should see the text `The agreed hearing requirements and dates to avoid are available to view in the Hearing tab.`
+    And I should see the text `When the case has been listed in Aria, you should list the case here.`
 
     And I should not see the hearing details
     And I should see the case details
@@ -1169,7 +1170,7 @@ Feature: Case progression
     And I should not see the option `Change a direction due date` for the `Next step` field
     And I should see the option `List the case` for the `Next step` field
 
-    When I click the `Hearing` tab
+    When I click the `Hearing tab` link
     Then I should not see the requests for additional adjustments
     Then I should see the agreed additional adjustments yes path
 
@@ -1180,7 +1181,7 @@ Feature: Case progression
 
     #    When I list the case
     When I click the `Overview` tab
-    And I click the `List the case` link
+    And I click the `list the case here` link
     Then I am on the `List the case` page
 
     And I type `LP/12345/2019` for the `Listing reference` field
