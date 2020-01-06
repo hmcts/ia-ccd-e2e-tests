@@ -19,7 +19,7 @@ Feature: Record agreed hearing requirements
     And I request hearing requirements
     And I switch to be a `Legal Rep`
 
-  @record-agreed-hearing-requirements-no-path @RIA-2022 @RIA-2051
+  @record-agreed-hearing-requirements-no-path @RIA-2022 @RIA-2051 @RIA-2277
   Scenario: Record hearing requirements with all NO options
 
     And I submit hearing requirements with all no
@@ -82,6 +82,12 @@ Feature: Record agreed hearing requirements
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_listing.png` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The agreed hearing requirements and adjustments have been recorded.`
+    And I should see the text `The listing team will now list the case.`
+
 
     When I select the `Hearing requirements` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
@@ -101,7 +107,7 @@ Feature: Record agreed hearing requirements
     Then I should not see the requests for additional adjustments
     Then I should see the agreed additional adjustments no path
 
-  @record-agreed-hearing-requirements-yes-path @RIA-2022 @RIA-2051
+  @record-agreed-hearing-requirements-yes-path @RIA-2022 @RIA-2051 @RIA-2277
   Scenario: Record hearing requirements with all YES options
 
     And I submit hearing requirements with all yes
@@ -159,6 +165,12 @@ Feature: Record agreed hearing requirements
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
+
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_listing.png` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The agreed hearing requirements and adjustments have been recorded.`
+    And I should see the text `The listing team will now list the case.`
 
     When I select the `Hearing requirements` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
