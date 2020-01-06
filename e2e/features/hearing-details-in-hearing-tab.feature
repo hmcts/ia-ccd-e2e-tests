@@ -27,8 +27,8 @@ Feature: List case and edit case listing after Submit hearing requirements journ
     And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
 
-  @RIA-2011 @list-case-after-submit-hearing-req
-  Scenario: Submit hearing requirements with 'Yes' options selected
+  @RIA-2052
+  Scenario: Hearing tab with hearing details when Submit hearing requirements with 'Yes' options selected
 
     When I click the `Continue` button
     Then I select `Yes` for the `Will the appellant attend the hearing?` field
@@ -123,6 +123,16 @@ Feature: List case and edit case listing after Submit hearing requirements journ
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
+    And I click the `Hearing` tab
+    Then I should see the hearing requirements yes path for nonHoUsers
+
+    When I switch to be a `Case Officer`
+    And I click the `Hearing` tab
+    Then I should see the hearing requirements yes path for nonHoUsers
+
+    When I switch to be a `Home Office APC`
+    And I click the `Hearing` tab
+    Then I should see the hearing requirements yes path for hoUsers
 
     When I switch to be a `Admin Officer`
     And I click the `Hearing` tab
@@ -169,23 +179,83 @@ Feature: List case and edit case listing after Submit hearing requirements journ
     And I should see the text `You don't need to do any more on this case.`
     And I click the `Close and Return to case details` button
 
-    # edit case listing
-    When I select the `Edit case listing` Next step
-    Then I am on the `Edit case listing` page
-    And I select `Manchester` for the `Hearing centre` field
-    And I select `3 hours` for the `Length of hearing` field
-    And I select `{$TODAY+14|DD-MM-YYYY} 12:30:00` for the `Hearing date and time` field
-    And I click the `Continue` button
+    And I click the `Hearing` tab
+    And I should see `LP/12345/2019` for the `Listing reference` field
+    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `Taylor House` for the `Hearing centre` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    And I should not see the `Hearing documents` field
+    And I click the `Documents` tab
+    And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
 
-    Then I am on the `Check your answers` page
-    And I should see `Manchester` for the `Hearing centre` field
-    And I should see `3 hours` for the `Length of hearing` field
-    And I should see `{$TODAY+14|D MMM YYYY}, 12:30:00 PM` for the `Hearing date and time` field
-    When I click the `List case` button
-    Then I should see the text `The case has been re-listed`
-    And I should see the text `What happens next`
-    And I should see the text `A new hearing notice has been generated. All parties will be notified by email.`
-    And I click the `Close and Return to case details` button
+    When I switch to be a `Home Office APC`
+    And I click the `Hearing` tab
+    And I should see `LP/12345/2019` for the `Listing reference` field
+    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `Taylor House` for the `Hearing centre` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    Then I should see the hearing requirements yes path for hoUsers
+    And I should not see the `Hearing documents` field
+    And I click the `Documents` tab
+    And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
+
+    When I switch to be a `Home Office LART`
+    And I click the `Hearing` tab
+    And I should see `LP/12345/2019` for the `Listing reference` field
+    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `Taylor House` for the `Hearing centre` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    Then I should see the hearing requirements yes path for hoUsers
+    And I should not see the `Hearing documents` field
+    And I click the `Documents` tab
+    And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
+
+    When I switch to be a `Home Office POU`
+    And I click the `Hearing` tab
+    And I should see `LP/12345/2019` for the `Listing reference` field
+    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `Taylor House` for the `Hearing centre` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    Then I should see the hearing requirements yes path for hoUsers
+    And I should not see the `Hearing documents` field
+    And I click the `Documents` tab
+    And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
+
+    When I switch to be a `Home Office Generic`
+    And I click the `Hearing` tab
+    And I should see `LP/12345/2019` for the `Listing reference` field
+    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `Taylor House` for the `Hearing centre` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    Then I should see the hearing requirements yes path for hoUsers
+    And I should not see the `Hearing documents` field
+    And I click the `Documents` tab
+    And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
+
+
+
+
+#    # edit case listings
+#    When I select the `Edit case listing` Next step
+#    Then I am on the `Edit case listing` page
+#    And I select `Manchester` for the `Hearing centre` field
+#    And I select `3 hours` for the `Length of hearing` field
+#    And I select `{$TODAY+14|DD-MM-YYYY} 12:30:00` for the `Hearing date and time` field
+#    And I click the `Continue` button
+#
+#    Then I am on the `Check your answers` page
+#    And I should see `Manchester` for the `Hearing centre` field
+#    And I should see `3 hours` for the `Length of hearing` field
+#    And I should see `{$TODAY+14|D MMM YYYY}, 12:30:00 PM` for the `Hearing date and time` field
+#    When I click the `List case` button
+#    Then I should see the text `The case has been re-listed`
+#    And I should see the text `What happens next`
+#    And I should see the text `A new hearing notice has been generated. All parties will be notified by email.`
+#    And I click the `Close and Return to case details` button
+#
+#    And I click the `Hearing` tab
+#    Then I should see the hearing requirements yes path
+
 
 
 

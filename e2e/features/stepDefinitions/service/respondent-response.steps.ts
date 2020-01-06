@@ -11,6 +11,10 @@ Then(/^I request respondent review$/, async function () {
     await requestRespondentReviewFlow.requestRespondentReview(true);
 });
 
+Then(/^I request appellant review$/, async function () {
+    await requestRespondentReviewFlow.requestAppellantReview(true);
+});
+
 Then(/^I add the appeal response$/, async function () {
     await addAppealResponseFlow.addAppealResponse(true);
 });

@@ -2,7 +2,7 @@ Feature: Case progression
 
   @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
-  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011
+  @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -374,7 +374,7 @@ Feature: Case progression
 
     Then I should only see the `legalRep_caseBuilding` case progress image
 
-    And I should see the text `Do this next`
+    And I should see the text `Do this next
     And I should see the text `If you're not yet ready for your case to be reviewed, continue to build your case`
     And I should see the text `If you're ready for your case to be reviewed, submit your case`
 
@@ -995,11 +995,16 @@ Feature: Case progression
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Hearing requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    Then I should see the hearing requirements yes path
+    Then I should see the hearing requirements yes path for nonHoUsers
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
     And I should not see the `Hearing documents` field
+
+    When I switch to be a `Home Office APC`
+    Then I click the `Hearing` tab
+    Then I should see the hearing requirements yes path for hoUsers
+    And  I should not see the text `-Gonzlez-hearing-requirements.PDF`
 
     ### record agreed hearing requirements
 
@@ -1141,6 +1146,10 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
+    When I click the `Hearing` tab
+    Then I should see the hearing requirements yes path for hoUsers
+
+
     # AO:
 
     When I switch to be a `Admin Officer`
@@ -1205,6 +1214,20 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
+    When I click the `Hearing` tab
+    Then I should not see the requests for additional adjustments
+    Then I should see the agreed additional adjustments yes path
+
+    And I should see `LP/12345/2019` for the `Listing reference` field
+    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `Taylor House` for the `Hearing centre` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    And I should not see the `Hearing documents` field
+    And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+
+    When I click the `Documents` tab
+    And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
+
     # CO
 
     When I switch to be a `Case Officer`
@@ -1267,6 +1290,9 @@ Feature: Case progression
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
+    And I click the `Hearing` tab
+    And I should see the hearing requirements yes path for hoUsers
+
 
     ### final bundling
 

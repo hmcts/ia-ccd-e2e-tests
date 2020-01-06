@@ -18,4 +18,19 @@ export class RequestRespondentReviewFlow {
             await this.ccdFormPage.waitUntilLoaded();
         }
     }
+
+    async requestAppellantReview(clickContinue = false) {
+
+        await this.ccdFormPage.linkContains('direct the appellant to review the Home Office response');
+        await this.ccdFormPage.click('direct the appellant to review the Home Office response');
+
+        await this.ccdFormPage.headingContains('Review Home Office response');
+        await this.ccdFormPage.click('Continue');
+        await this.ccdFormPage.click('Send direction');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+            await this.ccdFormPage.waitUntilLoaded();
+        }
+    }
 }
