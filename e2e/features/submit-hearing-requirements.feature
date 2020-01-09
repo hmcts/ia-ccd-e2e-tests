@@ -144,15 +144,27 @@ Feature: Submit hearing requirements
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Hearing requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And I should see the hearing requirements no path for nonHoUsers
+    And I should see the requests for additional adjustments no path
+    And I should not see the agreed additional adjustments yes path
+    And I should see the hearing requirements no path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`
 
     When I switch to be a `Case Officer`
     And I click the `Hearing` tab
-    Then I should see the hearing requirements no path for nonHoUsers
+    And I should see the requests for additional adjustments no path
+    And I should not see the agreed additional adjustments yes path
+    And I should see the hearing requirements no path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`
 
     When I switch to be a `Admin Officer`
     And I click the `Hearing` tab
-    Then I should see the hearing requirements no path for nonHoUsers
+    And I should see the requests for additional adjustments no path
+    And I should not see the agreed additional adjustments yes path
+    And I should see the hearing requirements no path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`
 
 
   @submit-hearing-requirements-yes-path @RIA-436-2087 @RIA-1899 @RIA-587 @RIA-2304
@@ -290,12 +302,25 @@ Feature: Submit hearing requirements
     And within the `Hearing requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Hearing` tab
-    Then I should see the hearing requirements yes path for nonHoUsers
+    Then I should see the requests for additional adjustments yes path
+    And I should not see the agreed additional adjustments yes path
+    And I should see the hearing requirements yes path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`
+
 
     When I switch to be a `Case Officer`
-    And I click the `Hearing` tab
-    Then I should see the hearing requirements yes path for nonHoUsers
+    Then I click the `Hearing` tab
+    And I should see the requests for additional adjustments yes path
+    And I should not see the agreed additional adjustments yes path
+    And I should see the hearing requirements yes path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`
 
     When I switch to be a `Admin Officer`
-    And I click the `Hearing` tab
-    Then I should see the hearing requirements yes path for nonHoUsers
+    Then I click the `Hearing` tab
+    And I should see the requests for additional adjustments yes path
+    And I should not see the agreed additional adjustments yes path
+    And I should see the hearing requirements yes path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`

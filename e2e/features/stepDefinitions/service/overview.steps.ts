@@ -118,7 +118,7 @@ Then(/^I should only see the `?([^\s`]+)`? case progress image$/, async function
     const caseProgressionImageSources =
         (await ccdPage.getDisplayedImageSources())
             .map(src => (src + ''))
-            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_'));
+            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_'));
 
     expect(caseProgressionImageSources.some(src => src.includes('/' + imageName))).to.equal(true);
     expect(caseProgressionImageSources.length).to.equal(1);
@@ -129,7 +129,7 @@ Then(/^I should not see any case progress images$/, async function () {
     const caseProgressionImageSources =
         (await ccdPage.getDisplayedImageSources())
             .map(src => (src + ''))
-            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_'));
+            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_'));
 
     expect(caseProgressionImageSources.length).to.equal(0);
 });
@@ -139,7 +139,7 @@ Then(/^I should see the `?([^\s`]+)`? image$/, async function (imageName) {
     const imageSources =
         (await ccdPage.getDisplayedImageSources())
             .map(src => (src + ''))
-            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_'));
+            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_'));
 
     expect(imageSources.some(src => src.includes('/' + imageName))).to.equal(true);
 });

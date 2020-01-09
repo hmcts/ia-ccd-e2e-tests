@@ -94,17 +94,17 @@ Feature: Record agreed hearing requirements
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
     When I click the `Hearing` tab
-    Then I should not see the requests for additional adjustments
+    Then I should not see the requests for additional adjustments no path
     Then I should see the agreed additional adjustments no path
 
     When I switch to be a `Legal Rep`
     And I click the `Hearing` tab
-    Then I should not see the requests for additional adjustments
+    Then I should not see the requests for additional adjustments no path
     Then I should see the agreed additional adjustments no path
 
     When I switch to be a `Admin Officer`
     And I click the `Hearing` tab
-    Then I should not see the requests for additional adjustments
+    Then I should not see the requests for additional adjustments no path
     Then I should see the agreed additional adjustments no path
 
   @record-agreed-hearing-requirements-yes-path @RIA-2022 @RIA-2051 @RIA-2277
@@ -177,15 +177,15 @@ Feature: Record agreed hearing requirements
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
     When I click the `Hearing` tab
-    Then I should not see the requests for additional adjustments
-    Then I should see the agreed additional adjustments yes path
+    Then I should not see the requests for additional adjustments yes path
+    And I should see the agreed additional adjustments yes path
 
     When I switch to be a `Legal Rep`
     And I click the `Hearing` tab
-    Then I should not see the requests for additional adjustments
+    Then I should not see the requests for additional adjustments yes path
     Then I should see the agreed additional adjustments yes path
 
     When I switch to be a `Admin Officer`
     And I click the `Hearing` tab
-    Then I should not see the requests for additional adjustments
-    Then I should see the agreed additional adjustments yes path
+    Then I should not see the requests for additional adjustments yes path
+    And I should see the agreed additional adjustments yes path

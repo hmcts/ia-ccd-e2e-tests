@@ -73,8 +73,9 @@ Feature: Case Officer: List case without hearing requirements
     When I click the `Hearing` tab
     Then I should see the `Hearing` page
     And I should see `6 hours` for the `Length of hearing` field
-    And I should not see the requests for additional adjustments
-    And I should not see the hearing requirements yes path for nonHoUsers
+    And I should not see the requests for additional adjustments yes path
+    And I should not see the agreed additional adjustments yes path
+    And I should not see the hearing requirements yes path
     And I should not see the text `Record of hearing details`
     And I should not see the text `Hearing requirements and requests`
 
@@ -91,11 +92,12 @@ Feature: Case Officer: List case without hearing requirements
     And I should see the case details
     And I should see the legal representative details
 
-    And I click the `Hearing` tab
+    When I click the `Hearing` tab
     Then I should see the `Hearing` page
     And I should see `6 hours` for the `Length of hearing` field
-    And I should not see the requests for additional adjustments
-    And I should not see the hearing requirements yes path for nonHoUsers
+    And I should not see the requests for additional adjustments yes path
+    And I should not see the agreed additional adjustments yes path
+    And I should not see the hearing requirements yes path
     And I should not see the text `Record of hearing details`
     And I should not see the text `Hearing requirements and requests`
 
@@ -124,10 +126,11 @@ Feature: Case Officer: List case without hearing requirements
     And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
     And I click the `Cancel` link
 
-    And I click the `Hearing` tab
+    When I click the `Hearing` tab
     Then I should see the `Hearing` page
     And I should see `6 hours` for the `Length of hearing` field
-    And I should not see the requests for additional adjustments
-    And I should not see the hearing requirements yes path for nonHoUsers
+    And I should not see the requests for additional adjustments yes path
+    And I should not see the agreed additional adjustments yes path
+    And I should not see the hearing requirements yes path
     And I should not see the text `Record of hearing details`
     And I should not see the text `Hearing requirements and requests`
