@@ -1605,7 +1605,7 @@ Feature: Case progression
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
 
     When I click the `Appellant` tab
-    Then the `Appeal reference` field should be 13 characters long
+    Then the `Appeal reference` field should be 19 characters long
     And I should see `Mr` in the `Title` field
     And I should see `José` in the `Given names` field
     And I should see `González` in the `Family name` field

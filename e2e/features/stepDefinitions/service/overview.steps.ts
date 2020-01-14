@@ -14,7 +14,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
     if (isDisplayed) {
 
         const referenceNumberIsDraft = await ccdPage.isFieldValueDisplayed('Appeal reference', 'DRAFT');
-        const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 13);
+        const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 19);
 
         expect(referenceNumberIsDraft || referenceNumberIsCorrectLength).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Appellant', 'José González')).to.equal(true);
