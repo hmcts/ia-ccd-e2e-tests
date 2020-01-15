@@ -189,6 +189,19 @@ Feature: Record application
 
     Then I should see an alert confirming the case `has been updated with event: End the appeal`
 
+    When I click the `Applications` tab
+
+    Then I should see the `Applications` field
+    And within the `Applications` collection's first item, I should see `test.doc` for the `Application email` field
+    And within the `Applications` collection's first item, I should see `The respondent` for the `Application from` field
+    And within the `Applications` collection's first item, I should see `Withdraw` for the `Type of application` field
+    And within the `Applications` collection's first item, I should see `some application reason` for the `Reason of application` field
+    And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
+    And within the `Applications` collection's first item, I should see `Granted` for the `Decision` field
+    And within the `Applications` collection's first item, I should see `some application decision reason` for the `Reason of decision` field
+    And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
+    And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
+
   @regression @record-application-transfer-and-edit @RIA-1485 @RIA-1654
   Scenario: Record granted transfer application and edit listing
 
