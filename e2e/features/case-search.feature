@@ -5,9 +5,15 @@ Feature: Case search
 
     Given I am signed in as a `Legal Rep`
     And I create a new case
-    And I save my initial appeal
+    And I save my initial appeal with `88 Greville Road, Cambridge` address and `CB1 3QL` postcode
     When I click the `Search` link
-    And I filter the cases by todays date
+    Then I should see the `HMCTS reference` field
+    And I should see the `Appellant name` field
+    And I should see the `Date of birth` field
+    And I should see the `Post code` field
+    And I should see the `Legal representative reference` field
+    And I should see the `Home Office reference` field
+    When I filter the cases by `CB1 3QL` postcode
     Then I should see the text `HMCTS reference`
     And I should see the text `Appellant name`
     And I should see the text `Status`
@@ -20,11 +26,19 @@ Feature: Case search
 
     Given I am signed in as a `Legal Rep`
     And I create a new case
-    And I save my initial appeal
+    And I save my initial appeal with `88 Greville Road, Cambridge` address and `CB1 3QL` postcode
     And I submit my appeal
     And I switch to be a `Case Officer`
+
     When I click the `Search` link
-    And I filter the cases by todays date
+    Then I should see the `HMCTS reference` field
+    And I should see the `Appellant name` field
+    And I should see the `Date of birth` field
+    And I should see the `Post code` field
+    And I should see the `Legal representative reference` field
+    And I should see the `Home Office reference` field
+
+    When  I filter the cases by `CB1 3QL` postcode
     Then I should see the text `HMCTS reference`
     And I should see the text `Appellant name`
     And I should see the text `Status`
@@ -35,9 +49,12 @@ Feature: Case search
   Scenario: Case search contains correct columns for Admin Officer
 
     Given I am signed in as a `Admin Officer`
-    Then I should see the text `HMCTS reference`
-    And I should see the text `Appellant name`
-    And I should see the text `Appeal start date`
+    Then I should see the `HMCTS reference` field
+    And I should see the `Appellant name` field
+    And I should see the `Date of birth` field
+    And I should see the `Post code` field
+    And I should see the `Legal representative reference` field
+    And I should see the `Home Office reference` field
 
   @case-search @RIA-1478
   Scenario: Case search contains correct filters for Legal Rep
@@ -57,9 +74,12 @@ Feature: Case search
     And I should see the option `Birmingham` for the `Hearing centre` field
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the `HMCTS reference` field
-    And I should see the `Appeal start date` field
+    Then I should see the `HMCTS reference` field
     And I should see the `Appellant name` field
+    And I should see the `Date of birth` field
+    And I should see the `Post code` field
+    And I should see the `Legal representative reference` field
+    And I should see the `Home Office reference` field
 
   @case-search @RIA-1478
   Scenario: Case search contains correct filters for Case Officer
@@ -79,9 +99,12 @@ Feature: Case search
     And I should see the option `Birmingham` for the `Hearing centre` field
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the `HMCTS reference` field
-    And I should see the `Appeal start date` field
+    Then I should see the `HMCTS reference` field
     And I should see the `Appellant name` field
+    And I should see the `Date of birth` field
+    And I should see the `Post code` field
+    And I should see the `Legal representative reference` field
+    And I should see the `Home Office reference` field
 
   @case-search @RIA-1478
   Scenario: Case search contains correct filters for Admin Officer
@@ -101,9 +124,12 @@ Feature: Case search
     And I should see the option `Birmingham` for the `Hearing centre` field
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the `HMCTS reference` field
-    And I should see the `Appeal start date` field
+    Then I should see the `HMCTS reference` field
     And I should see the `Appellant name` field
+    And I should see the `Date of birth` field
+    And I should see the `Post code` field
+    And I should see the `Legal representative reference` field
+    And I should see the `Home Office reference` field
 
   @case-search @RIA-1478
   Scenario: Case search contains correct filters for Home Office user

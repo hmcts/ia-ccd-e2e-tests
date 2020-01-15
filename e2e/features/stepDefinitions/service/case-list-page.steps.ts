@@ -22,6 +22,10 @@ When('I filter the cases by todays date', async function () {
     await caseListFlow.filterCasesByTodaysDate(true);
 });
 
+When(/^I filter the cases by `?([^`]+)`? postcode$/, async function (postcode) {
+    await caseListFlow.filterCasesByPostcode(postcode, true);
+});
+
 When('I should see the option `IA Asylum Case` prefix for the `Case type` field', async function () {
     const caseTypes = await ccdFormPage.getFieldOptions('Case type');
     expect(caseTypes.some(caseType => caseType.startsWith('IA Asylum Case'))).to.equal(true);
