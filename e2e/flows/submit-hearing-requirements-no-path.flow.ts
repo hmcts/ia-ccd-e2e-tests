@@ -86,6 +86,11 @@ export class SubmitHearingRequirementsNoPathFlow {
         );
         await this.ccdFormPage.click('Continue');
 
+        await this.ccdFormPage.setFieldValue(
+            'Are there any dates that the appellant or their on-day representation cannot attend a hearing?',
+            'No'
+        );
+
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.click('Submit');
 

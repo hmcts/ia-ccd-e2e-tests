@@ -135,13 +135,18 @@ export class SubmitHearingRequirementsYesFlow {
         );
         await this.ccdFormPage.click('Continue');
 
+        await this.ccdFormPage.setFieldValue(
+            'Are there any dates that the appellant or their on-day representation cannot attend a hearing?',
+            'Yes'
+        );
+
         await this.ccdFormPage.click('Add new');
         await this.ccdFormPage.setFieldValue(
-            'Date (Optional)',
+            'Date',
             '31-12-2019'
         );
         await this.ccdFormPage.setFieldValue(
-            'Reason (Optional)',
+            'Reason',
             'New year\'s eve',
             'text area'
         );

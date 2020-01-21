@@ -1019,7 +1019,12 @@ Feature: Case progression
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Hearing requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    Then I should see the hearing requirements yes path for nonHoUsers
+    And I should see the hearing requirements yes path
+    And I should see the requests for additional adjustments yes path
+    And I should not see the agreed additional adjustments yes path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`
+
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
@@ -1027,8 +1032,34 @@ Feature: Case progression
 
     When I switch to be a `Home Office APC`
     Then I click the `Hearing` tab
-    Then I should see the hearing requirements yes path for hoUsers
-    And  I should not see the text `-Gonzlez-hearing-requirements.PDF`
+    And I should see the hearing requirements yes path
+    And I should not see the requests for additional adjustments yes path
+    And I should not see the agreed additional adjustments yes path
+    And I should not see the text `Record of hearing details`
+    And I should not see the text `Hearing requirements and requests`
+    And I should not see the text `-Gonzlez-hearing-requirements.PDF`
+
+    ### validate list case
+
+    # Admin Officer
+    When I switch to be a `Admin Officer`
+
+    And I click the `Hearing` tab
+    And I should not see the agreed additional adjustments yes path
+    And I should see the requests for additional adjustments yes path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`
+
+    When I click the `Overview` tab
+    Then I should only see the `adminOfficer_listing_submittedRequirements` case progress image
+
+    And I should see the text `What happens next`
+    And I should see the text `The Tribunal Caseworker will agree what adjustments the Tribunal will make.`
+
+    When I select the `List the case` Next step
+    Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
+    And I should see the text `You've made an invalid request. You cannot list the case until the hearing requirements have been reviewed.`
+
 
     ### record agreed hearing requirements
 
@@ -1094,8 +1125,8 @@ Feature: Case progression
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
     When I click the `Hearing` tab
-    Then I should not see the requests for additional adjustments
-    Then I should see the agreed additional adjustments yes path
+    Then I should not see the requests for additional adjustments yes path
+    And I should see the agreed additional adjustments yes path
 
     ### listing
 
@@ -1124,9 +1155,11 @@ Feature: Case progression
     And I should see the option `Record an application` for the `Next step` field
 
     When I click the `Hearing` tab
-    Then I should not see the requests for additional adjustments
-    Then I should see the agreed additional adjustments yes path
-
+    Then I should see the hearing requirements yes path
+    And I should not see the requests for additional adjustments yes path
+    And I should see the agreed additional adjustments yes path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`
 
     # LR:
 
@@ -1169,7 +1202,12 @@ Feature: Case progression
     And I should see the legal representative details
 
     When I click the `Hearing` tab
-    Then I should see the hearing requirements yes path for hoUsers
+    Then I should see the hearing requirements yes path
+    And I should not see the requests for additional adjustments yes path
+    And I should see the agreed additional adjustments yes path
+    And I should not see the text `Record of hearing details`
+    And I should not see the text `Hearing requirements and requests`
+
 
 
     # AO:
@@ -1195,7 +1233,7 @@ Feature: Case progression
     And I should see the option `List the case` for the `Next step` field
 
     When I click the `Hearing tab` link
-    Then I should not see the requests for additional adjustments
+    Then I should not see the requests for additional adjustments yes path
     Then I should see the agreed additional adjustments yes path
 
     ### prepare for hearing
@@ -1238,8 +1276,11 @@ Feature: Case progression
     And I should see the legal representative details
 
     When I click the `Hearing` tab
-    Then I should not see the requests for additional adjustments
+    Then I should see the hearing requirements yes path
+    Then I should not see the requests for additional adjustments yes path
     Then I should see the agreed additional adjustments yes path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`
 
     And I should see `LP/12345/2019` for the `Listing reference` field
     And I should see `6 hours` for the `Length of hearing` field
@@ -1314,7 +1355,11 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
     And I click the `Hearing` tab
-    And I should see the hearing requirements yes path for hoUsers
+    Then I should see the hearing requirements yes path
+    And I should not see the requests for additional adjustments yes path
+    And I should see the agreed additional adjustments yes path
+    And I should not see the text `Record of hearing details`
+    And I should not see the text `Hearing requirements and requests`
 
 
     ### final bundling
