@@ -8,8 +8,8 @@ import { OrdinalToCardinal } from '../../helpers/ordinal-to-cardinal';
 const ccdPage = new CcdPage();
 
 Given('I create a new case', async function () {
-    await ccdPage.linkContains('Create Case');
-    await ccdPage.click('Create Case');
+    await ccdPage.linkContains('Create case');
+    await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.isButtonEnabled('Start');
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
