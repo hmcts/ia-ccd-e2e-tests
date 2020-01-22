@@ -22,7 +22,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I record agreed hearing requirements yes path
 
 
-  @regression @home-office-all-overview-tabs @RIA-1709
+  @regression @home-office-all-overview-tabs @RIA-1709 @RIA-2236
   Scenario: All Home Office users see listing overview tab
 
     # listing
@@ -97,7 +97,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the case details
@@ -110,7 +110,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the case details
@@ -123,7 +123,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the case details
@@ -136,7 +136,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the case details
@@ -155,7 +155,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the case details
@@ -168,7 +168,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the case details
@@ -181,7 +181,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the case details
@@ -194,7 +194,7 @@ Feature: Home Office all overview tabs from listing to decision state
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the case details

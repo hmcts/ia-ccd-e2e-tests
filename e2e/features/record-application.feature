@@ -7,7 +7,7 @@ Feature: Record application
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @regression @record-application-refused @RIA-1485 @RIA-1500
+  @regression @record-application-refused @RIA-1485 @RIA-1500 @RIA-2236
   Scenario: Record refused application
 
     When I select the `Record an application` Next step
@@ -283,8 +283,8 @@ Feature: Record application
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_prepareForHearing` case progress image
-    And  I should see the text `The hearing notice will be sent to all parties.`
-    And  I should see the text `You don’t need to do any more on this case.`
+    And  I should see the text `What happens next`
+    And  I should see the text `The Notice of Hearing will be sent to all parties.`
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
