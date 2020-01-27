@@ -17,7 +17,9 @@ Feature: Record hearing attendees and duration
     And I request appellant review
     And I request hearing requirements
     And I switch to be a `Legal Rep`
-    And I submit hearing requirements
+    And I submit hearing requirements with all yes
+    And I switch to be a `Case Officer`
+    And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
     And I list the case
     And I switch to be a `Case Officer`

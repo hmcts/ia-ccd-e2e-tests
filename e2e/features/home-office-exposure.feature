@@ -291,7 +291,9 @@ Feature: Different Home Office roles have different functionality
     And I request appellant review
     And I request hearing requirements
     And I switch to be a `Legal Rep`
-    And I submit hearing requirements
+    And I submit hearing requirements with all yes
+    And I switch to be a `Case Officer`
+    And I record agreed hearing requirements yes path
 
     # Home Office APC
     When I switch to be a `Home Office APC`

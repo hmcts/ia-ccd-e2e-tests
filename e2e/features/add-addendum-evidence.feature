@@ -18,7 +18,9 @@ Feature: Add addendum evidence
     And I request appellant review
     And I request hearing requirements
     And I switch to be a `Legal Rep`
-    And I submit hearing requirements
+    And I submit hearing requirements with all yes
+    And I switch to be a `Case Officer`
+    And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
     And I list the case
     And I switch to be a `Case Officer`
@@ -68,7 +70,6 @@ Feature: Add addendum evidence
     And I click the `Documents` tab
 
     Then I should see the `Documents` page
-    And I should not see the `Add additional evidence as an addendum` link
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -90,7 +91,6 @@ Feature: Add addendum evidence
     And I click the `Documents` tab
 
     Then I should see the `Documents` page
-    And I should not see the `Add additional evidence as an addendum` link
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -101,7 +101,6 @@ Feature: Add addendum evidence
     And I click the `Documents` tab
 
     Then I should see the `Documents` page
-    And I should not see the `Add additional evidence as an addendum` link
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -113,7 +112,6 @@ Feature: Add addendum evidence
     And I click the `Documents` tab
 
     Then I should see the `Documents` page
-    And I should not see the `Add additional evidence as an addendum` link
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -125,7 +123,6 @@ Feature: Add addendum evidence
     And I click the `Documents` tab
 
     Then I should see the `Documents` page
-    And I should not see the `Add additional evidence as an addendum` link
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field

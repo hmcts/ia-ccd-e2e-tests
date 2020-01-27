@@ -18,7 +18,9 @@ Feature: All home office users overview appeal case-details documents directions
     And I request appellant review
     And I request hearing requirements
     And I switch to be a `Legal Rep`
-    And I submit hearing requirements
+    And I submit hearing requirements with all yes
+    And I switch to be a `Case Officer`
+    And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
     And I list the case
     And I switch to be a `Case Officer`
@@ -33,13 +35,8 @@ Feature: All home office users overview appeal case-details documents directions
     When I switch to be a <homeOfficeUser>
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
-    And I should see `AppealResponse.pdf` in the `Response document` field
-    And I should see `This is the appeal response` in the first `Description` field
-    And within the first `Evidence` collection's first item, I should see `AppealResponseEvidence.pdf` in the `Document` field
-    And within the first `Evidence` collection's first item, I should see `This is the appeal response evidence` in the `Describe the document` field
-    And I should see `This is the case argument` in the second `Description` field
-    And within the second `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
-    And within the second `Evidence` collection's first item, I should see `The is the case argument evidence` in the `Describe the document` field
+    And within the first `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
+    And within the first `Evidence` collection's first item, I should see `The is the case argument evidence` in the `Describe the document` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
     And I should see `The refusal of a protection claim` in the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
@@ -87,16 +84,16 @@ Feature: All home office users overview appeal case-details documents directions
 
     When I click the `Directions` tab
     Then I should see the `Directions` page
-    And within the `Directions` collection's first item, I should see `Your appeal is going to a hearing. Login to submit your hearing requirements on the overview tab.` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not supply your hearing requirements within 5 days, we may not be able to accommodate your needs for the hearing.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Visit the online service and use the reference given in this email to find the case. You'll be able to submit the hearing requirements using the Overview tab.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
-    And within the `Directions` collection's fifth item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
-    And within the `Directions` collection's fifth item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
-    And within the `Directions` collection's fifth item, I should see `You have 14 days to supply` in the `Explanation` field
-    And within the `Directions` collection's fifth item, I should see `Respondent` for the `Parties` field
-    And within the `Directions` collection's fifth item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's fifth item, I should see `You must now build your case by uploading your appeal argument and evidence.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `Your argument must explain why you believe the respondent's decision is wrong. You must provide all the information for the Home Office to conduct a thorough review of their decision at this stage.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `Once you have uploaded your appeal argument and all evidence, submit your case. The case officer will then review everything you've added. If your case looks ready, the case officer will send it to the respondent for their review. The respondent then has 14 days to respond.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `Legal representative` for the `Parties` field
+    And within the `Directions` collection's fifth item, I should see `{$TODAY+28|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's fifth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
 
