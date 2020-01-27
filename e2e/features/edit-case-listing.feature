@@ -17,7 +17,9 @@ Feature: Edit case listing
     And I request appellant review
     And I request hearing requirements
     And I switch to be a `Legal Rep`
-    And I submit hearing requirements
+    And I submit hearing requirements with all yes
+    And I switch to be a `Case Officer`
+    And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
     And I list the case
 
@@ -52,13 +54,6 @@ Feature: Edit case listing
     When I select `3 hours` for the `Length of hearing` field
     And I select `Manchester` for the `Hearing centre` field
     And I select `{$TODAY+14|DD-MM-YYYY} 11:30:00` for the `Hearing date and time` field
-    And I click the `Continue` button
-
-    When I type `Personal vulnerabilities...` for the `Adjustments to accommodate vulnerabilities (Optional)` field
-    And I type `Multimedia equipment...` for the `Multimedia equipment (Optional)` field
-    And I type `Single sex court...` for the `Single-sex court (Optional)` field
-    And I type `In camera court...` for the `In camera court (Optional)` field
-    And I type `Other requests...` for the `Other adjustments (Optional)` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page

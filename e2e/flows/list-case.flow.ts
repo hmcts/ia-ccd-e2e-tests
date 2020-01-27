@@ -30,7 +30,6 @@ export class ListCaseFlow {
         );
 
         await this.ccdFormPage.click('Continue');
-        await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.click('List case');
 
         if (clickContinue) {

@@ -1238,31 +1238,7 @@ Feature: Case progression
 
     ### prepare for hearing
 
-    # The below step is used in other feature files and until they all are updated commenting the step and
-    # adding explicit steps to list a case
-
-    #    When I list the case
-    When I click the `Overview` tab
-    And I click the `list the case here` link
-    Then I am on the `List the case` page
-
-    And I type `LP/12345/2019` for the `Listing reference` field
-    And I select `Taylor House` for the `Hearing centre` field
-    And I select `6 hours` for the `Length of hearing` field
-    And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Hearing date and time` field
-    And I click the `Continue` button
-
-    Then I am on the `Check your answers` page
-    And I should see `Taylor House` for the `Hearing centre` field
-    And I should see `6 hours` for the `Length of hearing` field
-    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
-
-    When I click the `List case` button
-    Then I should see the text `You have listed the case`
-    And I should see the text `What happens next`
-    And I should see the text `The hearing notice will be sent to all parties.`
-    And I should see the text `You don't need to do any more on this case.`
-    And I click the `Close and Return to case details` button
+    When I list the case
 
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_prepareForHearing` case progress image

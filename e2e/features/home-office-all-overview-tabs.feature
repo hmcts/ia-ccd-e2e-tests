@@ -17,7 +17,9 @@ Feature: Home Office all overview tabs from listing to decision state
     And I request appellant review
     And I request hearing requirements
     And I switch to be a `Legal Rep`
-    And I submit hearing requirements
+    And I submit hearing requirements with all yes
+    And I switch to be a `Case Officer`
+    And I record agreed hearing requirements yes path
 
 
   @regression @home-office-all-overview-tabs @RIA-1709
