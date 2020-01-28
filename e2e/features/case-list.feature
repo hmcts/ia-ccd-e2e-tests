@@ -8,10 +8,10 @@ Feature: Case list
     And I save my initial appeal
     When I click the `Case List` link
     And I filter the cases by todays date
-    Then I should see the text `Reference number`
+    Then I should see the text `HMCTS reference`
     And I should see the text `Appellant name`
     And I should see the text `Status`
-    And I should see the text `Appeal start date`
+    And I should see the text `Hearing date`
     And I wait for 10 seconds
     And I should see the `DRAFT` link
 
@@ -25,17 +25,17 @@ Feature: Case list
     And I switch to be a `Case Officer`
     When I click the `Case List` link
     And I filter the cases by todays date
-    Then I should see the text `Reference number`
+    Then I should see the text `HMCTS reference`
     And I should see the text `Appellant name`
     And I should see the text `Status`
-    And I should see the text `Appeal start date`
+    And I should see the text `Hearing date`
     And I should not see the `DRAFT` link
 
   @regression @case-list @RIA-1611
   Scenario: Case list contains correct columns for Admin Officer
 
     Given I am signed in as a `Admin Officer`
-    Then I should see the text `Reference number`
+    Then I should see the text `HMCTS reference`
     And I should see the text `Appellant name`
     And I should see the text `Appeal start date`
 
@@ -72,7 +72,7 @@ Feature: Case list
     And I should see the option `Birmingham` for the `Hearing centre` field
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the `Reference number` field
+    And I should see the `HMCTS reference` field
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
 
@@ -109,7 +109,7 @@ Feature: Case list
     And I should see the option `Birmingham` for the `Hearing centre` field
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the `Reference number` field
+    And I should see the `HMCTS reference` field
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
 
@@ -137,6 +137,6 @@ Feature: Case list
     And I should see the option `Birmingham` for the `Hearing centre` field
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the `Reference number` field
+    And I should see the `HMCTS reference` field
     And I should see the `Appeal start date` field
     And I should see the `Appellant name` field
