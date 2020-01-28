@@ -17,4 +17,19 @@ export class CaseListFlow {
             await this.ccdFormPage.contentContains('Status');
         }
     }
+
+    async filterCasesByPostcode(postcode, clickApply = false) {
+
+        await this.ccdFormPage.setFieldValue(
+            'Post code',
+            postcode
+        );
+
+        if (clickApply) {
+            await this.ccdFormPage.waitUntilLoaded();
+            await this.ccdFormPage.click('Apply');
+            await this.ccdFormPage.contentContains('Status');
+        }
+    }
+
 }
