@@ -64,9 +64,9 @@ Feature: Home Office appeal response under review
 
     When I click the `Close and Return to case details` button
     Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `The appellant has been directed to review the Home Office response`
-    And I should see the text `If they do not respond within 5 working day of the direction, the case automatically proceeds to a hearing`
+    And I should see the text `What happens next`
+    And I should see the text `The appellant has been directed to review the Home Office response.`
+    And I should see the text `If they do not respond within 5 working days of the direction, the case automatically proceeds to a hearing.`
 
     And I should see the case details
     And I should not see the hearing details
@@ -85,8 +85,8 @@ Feature: Home Office appeal response under review
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `The appellant will review the Home Office response`
+    And I should see the text `What happens next`
+    And I should see the text `The appellant has been directed to review the Home Office response.`
 
     And I should see the case details
     And I should not see the hearing details

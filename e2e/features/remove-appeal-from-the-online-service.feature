@@ -41,7 +41,7 @@ Feature: Move appeal offline
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealRemoved` case progress image
     And I should see the text `What happens next`
-    And I should see the text `This case will now proceed offline.`
+    And I should see the text `The case will proceed offline.`
     And I should see the appeal removed from the online service details
     And I should see the case details
     And I should see the legal representative details
@@ -87,6 +87,15 @@ Feature: Move appeal offline
     Then I should only see the `caseOfficer_appealRemoved` case progress image
     And I should see the text `What happens next`
     And I should see the text `This case will now proceed offline. The Tribunal will contact you to explain the next steps.`
+    And I should see the appeal removed from the online service details
+    And I should see the case details
+    And I should see the legal representative details
+
+    When I switch to be a `Judge`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealRemoved` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `The case will proceed offline.`
     And I should see the appeal removed from the online service details
     And I should see the case details
     And I should see the legal representative details
