@@ -22,7 +22,7 @@ Feature: Record grant update hearing requirements
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
-    And I list the case with hearing requirements
+    And I list the case
 
   @record-grant-update-hearing-requirements @RIA-2373
   Scenario: record grant update hearing requirements
