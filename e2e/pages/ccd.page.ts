@@ -49,7 +49,7 @@ export class CcdPage extends AnyPage {
                     .all(by.xpath(nextStepPath))
                     .isPresent();
             },
-            Wait.normal,
+            Wait.long,
             'Next steps did not show in time'
         );
 
