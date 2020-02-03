@@ -13,7 +13,7 @@ Feature: Move appeal offline
     And I submit my case
     And I switch to be a `Case Officer`
 
-  @regression @move-appeal @RIA-1147
+  @regression @move-appeal @RIA-1147 @RIA-1500
   Scenario: Remove appeal from the online service
 
     When I remove the appeal from online service
@@ -33,6 +33,9 @@ Feature: Move appeal offline
 
     When I click the `Case notes` tab
     Then I should not see the `Add case note` link
+
+    When I click the `Applications` tab
+    Then I should not see the `Record an application` link
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
