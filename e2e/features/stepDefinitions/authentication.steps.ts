@@ -10,7 +10,7 @@ const iaConfig = require('../../ia.conf');
 const authenticationFlow = new AuthenticationFlow();
 const ccdPage = new CcdPage();
 const idamSignInPage = new IdamSignInPage();
-const caseUrlMatcher = /^.*?\/case\/IA\/Asylum\/\d{16}/g;
+const caseUrlMatcher = /^.*?\/cases\/case-details\/\d{16}/g;
 
 Given('I am not signed in', async function () {
     await authenticationFlow.signOut();

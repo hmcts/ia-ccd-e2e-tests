@@ -7,7 +7,7 @@ Feature: Record application
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @regression @record-application-refused @RIA-1485
+  @regression @record-application-refused @RIA-1485 @RIA-1500
   Scenario: Record refused application
 
     When I select the `Record an application` Next step
@@ -48,6 +48,7 @@ Feature: Record application
 
     When I click the `Applications` tab
     Then I should see the `Applications` field
+    And I should see the `Record an application` link
     And within the `Applications` collection's first item, I should see `test.doc` for the `Application email` field
     And within the `Applications` collection's first item, I should see `The legal representative` for the `Application from` field
     And within the `Applications` collection's first item, I should see `Withdraw` for the `Type of application` field
@@ -58,8 +59,10 @@ Feature: Record application
     And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
     And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
 
-  @regression @record-application-time-extension-and-withdraw @RIA-1485 @RIA-1562
+  @regression @record-application-time-extension-and-withdraw @RIA-1485 @RIA-1562 @RIA-1500
   Scenario: Record granted time extension application and later withdraw
+
+    And I request respondent evidence
 
     When I select the `Record an application` Next step
     Then I am on the `Record an application` page
@@ -92,17 +95,17 @@ Feature: Record application
     When I click the `Record application` button
     Then I should see the text `You have recorded an application`
     And I should see the text `What happens next`
-    And I should see the text `The application decision has been recorded and is now available in the applications tab. You must change the direction due date to send an updated direction. You will need to find the direction in the list of directions and only edit the due date.`
+    And I should see the text `You must now change the direction due date. You can also view the application decision in the Applications tab.`
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     When I click the `Overview` tab
-    Then I should see the text `The application decision has been recorded and is now available in the applications tab. You must change the direction due date to send an updated direction. You will need to find the direction in the list of directions and only edit the due date.`
+    Then I should see the text `You must now change the direction due date. You can also view the application decision in the Applications tab.`
 
     When I click the `Applications` tab
-
     Then I should see the `Applications` field
+    And I should see the `Record an application` link
     And within the `Applications` collection's first item, I should see `test.doc` for the `Application email` field
     And within the `Applications` collection's first item, I should see `The legal representative` for the `Application from` field
     And within the `Applications` collection's first item, I should see `Time extension` for the `Type of application` field
@@ -202,32 +205,36 @@ Feature: Record application
     And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
     And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
 
-  @regression @record-application-transfer-and-edit @RIA-1485 @RIA-1654
+  @regression @record-application-transfer-and-edit @RIA-1485 @RIA-1654 @RIA-1500
   Scenario: Record granted transfer application and edit listing
 
     And I request respondent evidence
     And I upload respondent evidence
+
     And I switch to be a `Legal Rep`
     And I build my case
     And I submit my case
+
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request appellant review
     And I request hearing requirements
+
     And I switch to be a `Legal Rep`
     And I submit hearing requirements with all yes
+
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
+
     And I switch to be a `Admin Officer`
     And I list the case
-    And I switch to be a `Case Officer`
 
+    And I switch to be a `Case Officer`
     When I select the `Record an application` Next step
     Then I am on the `Record an application` page
     And I should see the text `The appellant or the respondent has made an application. Record the reasons and the outcome of the application. If the application has been granted, you may need to edit listing, edit direction due date or end the appeal.`
     And I should see the text `Attach a copy of the application email and any other communication.`
-
     And the `Continue` button is disabled
 
     When I add an item to the `Application email` collection
@@ -238,7 +245,6 @@ Feature: Record application
     And I select `{$TODAY-5|DD-MM-YYYY}` for the `Date application was made` field
     And I click the `Granted` label
     And I type `some application decision reason` for the `Reasons for decision` field
-
     Then the `Continue` button is enabled
 
     When I click the `Continue` button
@@ -288,6 +294,7 @@ Feature: Record application
 
     When I click the `Applications` tab
     Then I should see the `Applications` field
+    And I should see the `Record an application` link
     And within the `Applications` collection's first item, I should see `test.doc` for the `Application email` field
     And within the `Applications` collection's first item, I should see `The legal representative` for the `Application from` field
     And within the `Applications` collection's first item, I should see `Transfer` for the `Type of application` field

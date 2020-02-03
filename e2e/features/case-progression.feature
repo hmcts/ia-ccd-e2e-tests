@@ -53,7 +53,7 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
-    And I should not see the `Next step` field
+    And I should see the `Next step` field
 
     # CO:
 
@@ -1392,7 +1392,7 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
     And I should see the hearing details
-    And I should not see the `Next step` field
+    And I should see the `Next step` field
 
     When I click the `Go to the documents tab` link
     Then I am on the `Documents` page
