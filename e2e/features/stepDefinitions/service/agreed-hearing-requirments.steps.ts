@@ -12,7 +12,15 @@ Then(/^I record agreed hearing requirements yes path$/, async function () {
     await recordAgreedRequirementsFlow.recordAgreedRequirementsYesPath(true);
 });
 
+Then(/^I record updated hearing requirements yes path$/, async function () {
+    await recordAgreedRequirementsFlow.recordUpdatedHearingRequirementsYesPath(true);
+});
+
 Then(/^I record agreed hearing requirements no path$/, async function () {
+    await recordAgreedRequirementsFlow.recordAgreedRequirementsNoPath(true);
+});
+
+Then(/^I record updated hearing requirements no path$/, async function () {
     await recordAgreedRequirementsFlow.recordAgreedRequirementsNoPath(true);
 });
 

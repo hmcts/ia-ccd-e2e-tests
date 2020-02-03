@@ -10,3 +10,7 @@ Then(/^I list the case$/, async function () {
 Then(/^I list the case with hearing requirements$/, async function () {
     await listCaseFlow.listTheCase(true);
 });
+
+Then(/^I relist the case with length of hearing as `?([^`]+)`? hours$/, async function (lengthOfHearingInHours) {
+    await listCaseFlow.reListTheCase(true, lengthOfHearingInHours);
+});

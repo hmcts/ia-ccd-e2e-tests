@@ -29,7 +29,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Go');
 
         if (isYesPath) {
-            await this.hearingRequirementsYesPath();
+            await this.updateHearingRequirementsYesPath();
         } else {
             await this.hearingRequirementsNoPath();
         }
@@ -182,6 +182,128 @@ export class SubmitHearingRequirementsFlow {
             'Reason',
             'New year\'s eve',
             'text area'
+        );
+
+        await this.ccdFormPage.click('Continue');
+
+    }
+
+    async updateHearingRequirementsYesPath() {
+
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Will the appellant attend the hearing?',
+            'Yes'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Will the appellant give oral evidence at the hearing?',
+            'Yes'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Will any witnesses attend the hearing?',
+            'Yes'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Do you need interpreter services at the hearing?',
+            'Yes'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Do you need a hearing room with step-free access?',
+            'Yes'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Do you need a hearing loop?',
+            'Yes'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Does the appellant have any physical or mental health issues that may impact them during the hearing?',
+            'Yes'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Explain in detail how any physical or mental health issues may affect them during the hearing.',
+            'The appellant is deaf in one ear - updated',
+            'text area'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Has the appellant had any past experiences that may impact them during the hearing?',
+            'Yes'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Explain in detail how any past experiences may affect them during the hearing.',
+            'The appellant is fearful of the law - updated',
+            'text area'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Do you have multimedia evidence?',
+            'Yes'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you\'ll need to play it.',
+            'The appellant has a video recording on a memory stick which needs to be played on a computer - updated',
+            'text area'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Does the appellant need a single-sex court?',
+            'Yes'
+        );
+        await this.ccdFormPage.click('Continue');
+        await this.ccdFormPage.setFieldValue(
+            'What type of court do they need?',
+            'All female'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Explain in detail why the appellant needs a single-sex court.',
+            'The appellant is fearful of men - updated',
+            'text area'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Does the appellant need an in camera court?',
+            'Yes'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Explain in detail why the appellant needs a private hearing.',
+            'The appellant is afraid of the general public - updated',
+            'text area'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Is there anything else you would like to request?',
+            'Yes'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Provide details of any additional requests and why they are necessary.',
+            'The appellant would like fresh orange juice and doughnuts - updated',
+            'text area'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Are there any dates that the appellant or their on-day representation cannot attend a hearing?',
+            'Yes'
         );
 
         await this.ccdFormPage.click('Continue');
