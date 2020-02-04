@@ -8,11 +8,8 @@ export class RecordAgreedRequirementsFlow {
 
         await this.ccdFormPage.click('review and submit');
 
-        await this.ccdFormPage.headingContains('Move appeal offline');
-        await this.ccdFormPage.contentContains('You should only remove an appeal when you\'re sure it cannot continue through the online service');
-        await this.ccdFormPage.click('Continue');
-
-        await this.ccdFormPage.headingContains('Move appeal offline');
+        await this.ccdFormPage.headingContains('Hearing requirements');
+        await this.ccdFormPage.contentContains('Review the appellant\'s hearing requirements and select length of hearing.');
         await this.ccdFormPage.setFieldValue(
             'Length of hearing',
             '6 hours'
