@@ -11,7 +11,7 @@ module.exports = {
   FailFast: process.env.TEST_E2E_FAIL_FAST !== 'false',
   NightlyTag: process.env.TEST_E2E_ANNOTATION || '--cucumberOpts.tags=@nightly-test',
   IdamClientSecret: process.env.IDAM_SECRET,
-  IdamApiUrl: process.env.IDAM_API_URL || 'http://idam-api.aat.platform.hmcts.net',
+  IdamApiUrl: process.env.IDAM_URL || 'http://idam-api.aat.platform.hmcts.net',
   s2sUrl: process.env.S2S_URL || 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal',
 
 
