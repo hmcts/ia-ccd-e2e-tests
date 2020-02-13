@@ -2,6 +2,7 @@ module.exports = {
 
   CcdGatewayUrl: process.env.TEST_E2E_URL_GATEWAY || 'https://gateway-ccd.aat.platform.hmcts.net',
   CcdWebUrl: process.env.TEST_E2E_URL_WEB || 'https://www-ccd.aat.platform.hmcts.net',
+  CcdApiUrl: process.env.TEST_E2E_CCD_API_URL || 'http://ccd-data-store-api-aat.service.core-compute-aat.internal',
   UseHeadlessBrowser: process.env.TEST_E2E_HEADLESS !== 'false',
   ProxyUrl: process.env.TEST_E2E_URL_PROXY || 'http://proxyout.reform.hmcts.net:8080',
   RunWithNumberOfBrowsers: process.env.TEST_E2E_NUM_BROWSERS || 1,
@@ -9,6 +10,9 @@ module.exports = {
   WaitForAngular: process.env.TEST_E2E_WAIT_FOR_ANGULAR !== 'false',
   FailFast: process.env.TEST_E2E_FAIL_FAST !== 'false',
   NightlyTag: process.env.TEST_E2E_ANNOTATION || '--cucumberOpts.tags=@nightly-test',
+  IdamClientSecret: process.env.IDAM_SECRET,
+  IdamApiUrl: process.env.IDAM_URL || 'http://idam-api.aat.platform.hmcts.net',
+  s2sUrl: process.env.S2S_URL || 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal',
 
 
   TestCaseOfficerUserName: process.env.TEST_CASEOFFICER_USERNAME,
