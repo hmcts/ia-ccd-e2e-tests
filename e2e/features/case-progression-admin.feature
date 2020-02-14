@@ -184,7 +184,7 @@ Feature: Case progression - Admin Officer
     And I should see the text `Record the attendees and duration of the hearing.`
 
     And I switch to be a `Case Officer`
-    And I generate decision and reasons
+    And I prepare decision and reasons
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab

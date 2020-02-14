@@ -1,4 +1,4 @@
-Feature: Generate decision and reasons
+Feature: Prepare decision and reasons
 
 
   Background:
@@ -30,15 +30,15 @@ Feature: Generate decision and reasons
 
 
 
-  @regression @generate-decision-and-reasons @RIA-1152 @RIA-1153 @RIA-1540 @RIA-1544 @RIA-2037
-  Scenario: Start decision and reasons
+  @regression @prepare-decision-and-reasons @RIA-1152 @RIA-1153 @RIA-1540 @RIA-1544 @RIA-2037 @RIA-1280
+  Scenario: Prepare decision and reasons
     And I click the `Overview` tab
     And I should see the `Overview` page
     And I should see the image `caseOfficer_decision.png`
     And I should see the text `Do this next`
     Then I should see the `Generate decision and reasons` link
-    When I select the `Generate decision and reasons` Next step
-    Then I should see the text `Generate decision and reasons`
+    When I select the `Prepare Decision and Reasons` Next step
+    Then I should see the text `Prepare Decision and Reasons`
     And I should see the text `Are you giving an anonymity direction?`
 
     When I select `Yes` for the `Anonymity direction` field
@@ -54,10 +54,10 @@ Feature: Generate decision and reasons
     And I should see `Atticus Finch` in the `Legal representative for the respondent` field
 
     When I click the `Generate` button
-    Then I should see the text `You have generated the decision and reasons document`
+    Then I should see the text `The Decision and Reasons document is ready to download`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Generate decision and reasons`
+    Then I should see an alert confirming the case `has been updated with event: Prepare Decision and Reasons`
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
@@ -124,3 +124,76 @@ Feature: Generate decision and reasons
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
+
+  @prepare-decision-and-reasons-judge @RIA-1280
+  Scenario: Prepare decision and reasons - Judge
+    Then I switch to be a `Judge`
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `caseOfficer_decision.png`
+    And I should see the text `Do this next`
+    Then I should see the `Prepare the Decision and Reasons document` link
+    When I select the `Prepare Decision and Reasons` Next step
+    Then I should see the text `Prepare Decision and Reasons`
+    And I should see the text `Are you giving an anonymity direction?`
+
+    When I select `Yes` for the `Anonymity direction` field
+    And I click the `Continue` button
+    Then I see the text `Give the names of the legal representatives in this case`
+
+    When I type `Perry Mason` for the `Legal representative for the appellant` field
+    And I type `Atticus Finch` for the `Legal representative for the respondent` field
+    And I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `Yes` in the `Anonymity direction` field
+    And I should see `Perry Mason` in the `Legal representative for the appellant` field
+    And I should see `Atticus Finch` in the `Legal representative for the respondent` field
+
+    When I click the `Generate` button
+    Then I should see the text `The Decision and Reasons document is ready to download`
+    Then I should see the text `What happens next`
+    Then I should see the text `Go to the documents tab to download the Decision and Reasons document.`
+
+    When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Prepare Decision and Reasons`
+
+    When I click the `Documents` tab
+    Then I should see the `Documents` page
+    And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-decision-and-reasons-draft.docx` in the `Document` field
+    And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `caseOfficer_decision.png`
+    And I should see the text `What happens next`
+
+    Then I switch to be a `Admin Officer`
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-decision-and-reasons-draft.docx` in the `Document` field
+    And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    Then I switch to be a `Case Officer`
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-decision-and-reasons-draft.docx` in the `Document` field
+    And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    Then I switch to be a `Home Office Generic`
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And I should not see the text `Decision and reason documents`
+
+    Then I switch to be a `Home Office POU`
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And I should not see the text `Decision and reason documents`
+
+    Then I switch to be a `Home Office APC`
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And I should not see the text `Decision and reason documents`
+
+    Then I switch to be a `Home Office LART`
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And I should not see the text `Decision and reason documents`

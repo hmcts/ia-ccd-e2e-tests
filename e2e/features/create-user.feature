@@ -31,7 +31,7 @@ Feature: Create user
     #And I create case summary
     #And I generate the hearing bundle
     #And I start decision and reasons
-    #And I generate decision and reasons
+    #And I prepare decision and reasons
     #And I send decision and reasons
 
 

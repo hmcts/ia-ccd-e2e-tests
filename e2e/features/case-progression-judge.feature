@@ -187,7 +187,7 @@ Feature: Case progression - Judge
 
     # change it within RIA-1280
     And I switch to be a `Case Officer`
-    And I generate decision and reasons
+    And I prepare decision and reasons
 
     When I switch to be a `Judge`
     And I click the `Overview` tab
