@@ -9,7 +9,7 @@ Feature: Different Home Office roles have different functionality
     And I switch to be a `Case Officer`
     And I request respondent evidence
 
-  @regression @home-office-exposure @RIA-1707 @RIA-1798 @RIA-1357
+  @regression @home-office-exposure @RIA-1707 @RIA-1798 @RIA-1357 @RIA-2236
   Scenario: Home office functionality
 
 
@@ -374,7 +374,7 @@ Feature: Different Home Office roles have different functionality
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the hearing details
@@ -389,7 +389,7 @@ Feature: Different Home Office roles have different functionality
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the hearing details
@@ -404,7 +404,7 @@ Feature: Different Home Office roles have different functionality
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the hearing details
@@ -419,7 +419,7 @@ Feature: Different Home Office roles have different functionality
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the hearing details
@@ -439,7 +439,7 @@ Feature: Different Home Office roles have different functionality
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the hearing details
@@ -454,7 +454,7 @@ Feature: Different Home Office roles have different functionality
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the hearing details
@@ -469,7 +469,7 @@ Feature: Different Home Office roles have different functionality
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the hearing details
@@ -484,7 +484,7 @@ Feature: Different Home Office roles have different functionality
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
-    And I should see the text `The case has now been listed and the Hearing Notice is ready to view in the documents tab.`
+    And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
     And I should see the text `The Tribunal will generate the hearing bundle, you'll be notified when this is ready to view.`
 
     And I should see the hearing details
