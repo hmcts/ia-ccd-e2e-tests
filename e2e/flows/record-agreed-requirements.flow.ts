@@ -4,12 +4,11 @@ export class RecordAgreedRequirementsFlow {
 
     private ccdFormPage = new CcdFormPage();
 
-    async recordAgreedRequirements(clickContinue = false) {
+    async recordAgreedRequirementsYesPath(clickContinue = false) {
 
-        await this.ccdFormPage.click('review and submit');
+        await this.ccdFormPage.selectNextStep('Hearing requirements');
+        await this.ccdFormPage.click('Go');
 
-        await this.ccdFormPage.headingContains('Hearing requirements');
-        await this.ccdFormPage.contentContains('Review the appellant\'s hearing requirements and select length of hearing.');
         await this.ccdFormPage.setFieldValue(
             'Length of hearing',
             '6 hours'
@@ -53,6 +52,36 @@ export class RecordAgreedRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.headingContains('Check your answers');
+        await this.ccdFormPage.click('Submit');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+            await this.ccdFormPage.waitUntilLoaded();
+        }
+    }
+
+    async recordAgreedRequirementsNoPath(clickContinue = false) {
+
+        await this.ccdFormPage.selectNextStep('Hearing requirements');
+        await this.ccdFormPage.click('Go');
+
+        await this.ccdFormPage.setFieldValue(
+            'Length of hearing',
+            '6 hours'
+        );
+
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.click('Continue');
+
         await this.ccdFormPage.click('Submit');
 
         if (clickContinue) {

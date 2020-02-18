@@ -58,7 +58,7 @@ Feature: Record grant update hearing requirements
     When I click the `Record application` button
     Then I should see the text `You have recorded an application`
     And I should see the text `What happens next`
-    And I should see the text `You must now update the hearing requirements based on the new information provided in the application. The application decision is available to view in the Application tab.`
+    And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now update the hearing requirements based on the new information provided in the application.`
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Record an application`
@@ -80,3 +80,62 @@ Feature: Record grant update hearing requirements
     And within the `Applications` collection's first item, I should see `some application decision reason` for the `Reason of decision` field
     And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
     And within the `Applications` collection's first item, I should see `In progress` for the `Status` field
+
+  @record-application-and-update-hearing-requirements @RIA-2031
+  Scenario: record application and update hearing requirements
+
+    When I switch to be a `Case Officer`
+    And I click the `Overview` tab
+    And I click the `Applications` tab
+    And I click the `Record an application` link
+    And I add an item to the `Application email` collection
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And I click the `The legal representative` label
+    And I select `Update hearing requirements` for the `Type of application` field
+    And I type `update hearing requirements reason` for the `Reason for application` field
+    And I select `{$TODAY-3|DD-MM-YYYY}` for the `Date application was made` field
+    And I click the `Granted` label
+    And I type `some application decision reason` for the `Reasons for decision` field
+    And I click the `Continue` button
+    And I click the `Record application` button
+    And I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Record an application`
+
+    And I click the `Overview` tab
+    And I should only see the `caseOfficer_updateHearingRequirements` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `In order for the case to proceed you must now update the hearing requirements.`
+
+    When I click the `Applications` tab
+    Then I should see the `Applications` field
+    And I should see the `Record an application` link
+    And within the `Applications` collection's first item, I should see `test.doc` for the `Application email` field
+    And within the `Applications` collection's first item, I should see `The legal representative` for the `Application from` field
+    And within the `Applications` collection's first item, I should see `Update hearing requirements` for the `Type of application` field
+    And within the `Applications` collection's first item, I should see `update hearing requirements reason` for the `Reason of application` field
+    And within the `Applications` collection's first item, I should see `{$TODAY-3|D MMM YYYY}` for the `Date application was made` field
+    And within the `Applications` collection's first item, I should see `Granted` for the `Decision` field
+    And within the `Applications` collection's first item, I should see `some application decision reason` for the `Reason of decision` field
+    And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
+    And within the `Applications` collection's first item, I should see `In progress` for the `Status` field
+
+    When I update hearing requirements with all no
+
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_updateHearingAdjustments` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
+
+    When I click the `Applications` tab
+
+    Then I should see the `Applications` field
+    And I should see the `Record an application` link
+    And within the `Applications` collection's first item, I should see `test.doc` for the `Application email` field
+    And within the `Applications` collection's first item, I should see `The legal representative` for the `Application from` field
+    And within the `Applications` collection's first item, I should see `Update hearing requirements` for the `Type of application` field
+    And within the `Applications` collection's first item, I should see `update hearing requirements reason` for the `Reason of application` field
+    And within the `Applications` collection's first item, I should see `{$TODAY-3|D MMM YYYY}` for the `Date application was made` field
+    And within the `Applications` collection's first item, I should see `Granted` for the `Decision` field
+    And within the `Applications` collection's first item, I should see `some application decision reason` for the `Reason of decision` field
+    And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
+    And within the `Applications` collection's first item, I should see `Completed` for the `Status` field

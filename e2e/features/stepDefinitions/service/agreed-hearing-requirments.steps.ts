@@ -9,7 +9,11 @@ const ccdPage = new CcdPage();
 const recordAgreedRequirementsFlow  = new RecordAgreedRequirementsFlow();
 
 Then(/^I record agreed hearing requirements yes path$/, async function () {
-    await recordAgreedRequirementsFlow.recordAgreedRequirements(true);
+    await recordAgreedRequirementsFlow.recordAgreedRequirementsYesPath(true);
+});
+
+Then(/^I record agreed hearing requirements no path$/, async function () {
+    await recordAgreedRequirementsFlow.recordAgreedRequirementsNoPath(true);
 });
 
 Then(/^I should (see|not see) the requests for additional adjustments (yes|no) path$/, async function (seeOrNotSee, yesOrNo) {
