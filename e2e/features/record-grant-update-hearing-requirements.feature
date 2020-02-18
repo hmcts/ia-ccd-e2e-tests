@@ -22,7 +22,7 @@ Feature: Record grant update hearing requirements
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
-    And I list the case with hearing requirements
+    And I list the case
 
   @record-grant-update-hearing-requirements @RIA-2373
   Scenario: record grant update hearing requirements
@@ -58,7 +58,7 @@ Feature: Record grant update hearing requirements
     When I click the `Record application` button
     Then I should see the text `You have recorded an application`
     And I should see the text `What happens next`
-    And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now update the hearing requirements based on the new information provided in the application.`
+    And I should see the text `You must now update the hearing requirements based on the new information provided in the application. The application decision is available to view in the Application tab.`
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Record an application`
