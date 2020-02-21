@@ -9,9 +9,7 @@ export class UploadRespondentEvidenceFlow {
         await this.ccdFormPage.selectNextStep('Upload respondent evidence');
         await this.ccdFormPage.click('Go');
 
-        await this.ccdFormPage.headingContains('Upload respondent evidence');
         await this.ccdFormPage.addCollectionItem('Upload case documents');
-        await this.ccdFormPage.contentContains('Describe the document');
         await this.ccdFormPage.setFieldValue(
             'Document',
             '{@RespondentEvidence.pdf}',
@@ -34,7 +32,6 @@ export class UploadRespondentEvidenceFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.waitUntilLoaded();
         }
     }
 
@@ -44,9 +41,7 @@ export class UploadRespondentEvidenceFlow {
         await this.ccdFormPage.selectNextStep('Upload Home Office bundle');
         await this.ccdFormPage.click('Go');
 
-        await this.ccdFormPage.headingContains('Upload Home Office bundle');
         await this.ccdFormPage.addCollectionItem('Upload Home Office bundle');
-        await this.ccdFormPage.contentContains('Describe the document');
         await this.ccdFormPage.setFieldValue(
             'Document',
             '{@RespondentEvidence.pdf}',
@@ -69,7 +64,6 @@ export class UploadRespondentEvidenceFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.waitUntilLoaded();
         }
     }
 

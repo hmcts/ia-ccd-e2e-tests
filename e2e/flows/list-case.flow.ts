@@ -9,7 +9,6 @@ export class ListCaseFlow {
         await this.ccdFormPage.selectNextStep('List the case');
         await this.ccdFormPage.click('Go');
 
-        await this.ccdFormPage.headingContains('List the case');
         await this.ccdFormPage.setFieldValue(
             'Listing reference',
             'LP/12345/2019'
@@ -34,7 +33,6 @@ export class ListCaseFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.contentContains('You have listed the case');
         }
     }
 }

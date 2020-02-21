@@ -58,9 +58,7 @@ Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsCaseOfficer();
     await browser.sleep(100);
-    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.contentContains('Immigration');
 });
 
 Given(/^I switch to be a `?(?:Admin Officer)`?$/, async function () {
@@ -69,9 +67,7 @@ Given(/^I switch to be a `?(?:Admin Officer)`?$/, async function () {
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsAdminOfficer();
     await browser.sleep(100);
-    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.contentContains('Immigration');
 });
 
 Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
@@ -80,9 +76,7 @@ Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function ()
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsLawFirmA();
     await browser.sleep(100);
-    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.contentContains('Immigration');
 });
 
 Given(/^I switch to be a `?(?:Home Office APC)`?$/, async function () {
@@ -91,9 +85,7 @@ Given(/^I switch to be a `?(?:Home Office APC)`?$/, async function () {
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsHomeOfficeApc();
     await browser.sleep(100);
-    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.contentContains('Immigration');
 });
 
 Given(/^I switch to be a `?(?:Home Office LART)`?$/, async function () {
@@ -102,9 +94,7 @@ Given(/^I switch to be a `?(?:Home Office LART)`?$/, async function () {
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsHomeOfficeLart();
     await browser.sleep(100);
-    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.contentContains('Immigration');
 });
 
 Given(/^I switch to be a `?(?:Home Office POU)`?$/, async function () {
@@ -113,9 +103,7 @@ Given(/^I switch to be a `?(?:Home Office POU)`?$/, async function () {
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsHomeOfficePou();
     await browser.sleep(100);
-    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.contentContains('Immigration');
 });
 
 Given(/^I switch to be a `?(?:Home Office Generic)`?$/, async function () {
@@ -124,9 +112,7 @@ Given(/^I switch to be a `?(?:Home Office Generic)`?$/, async function () {
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsHomeOfficeGeneric();
     await browser.sleep(100);
-    await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.contentContains('Immigration');
 });
 
 Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {

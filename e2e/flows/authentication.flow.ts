@@ -1,13 +1,11 @@
 import { browser } from 'protractor';
 import { IdamSignInPage } from '../pages/idam-sign-in.page';
-import { AnyPage } from '../pages/any.page';
 
 const iaConfig = require('../ia.conf');
 
 export class AuthenticationFlow {
 
     private idamSignInPage = new IdamSignInPage();
-    private anyPage = new AnyPage();
 
     async signInAsCaseOfficer() {
         await this.signOut();
@@ -16,8 +14,6 @@ export class AuthenticationFlow {
             iaConfig.TestCaseOfficerUserName,
             iaConfig.TestCaseOfficerPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signInAsAdminOfficer() {
@@ -27,8 +23,6 @@ export class AuthenticationFlow {
             iaConfig.TestAdminOfficerUserName,
             iaConfig.TestAdminOfficerPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signInAsHomeOfficeApc() {
@@ -38,8 +32,6 @@ export class AuthenticationFlow {
             iaConfig.TestHomeOfficeApcUserName,
             iaConfig.TestHomeOfficeApcPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signInAsHomeOfficeLart() {
@@ -49,8 +41,6 @@ export class AuthenticationFlow {
             iaConfig.TestHomeOfficeLartUserName,
             iaConfig.TestHomeOfficeLartPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signInAsHomeOfficePou() {
@@ -60,8 +50,6 @@ export class AuthenticationFlow {
             iaConfig.TestHomeOfficePouUserName,
             iaConfig.TestHomeOfficePouPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signInAsHomeOfficeGeneric() {
@@ -71,8 +59,6 @@ export class AuthenticationFlow {
             iaConfig.TestHomeOfficeGenericUserName,
             iaConfig.TestHomeOfficeGenericPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signInAsJudiciary() {
@@ -82,8 +68,6 @@ export class AuthenticationFlow {
             iaConfig.TestJudiciaryUserName,
             iaConfig.TestJudiciaryPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signInAsLawFirmA() {
@@ -93,8 +77,6 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmAUserName,
             iaConfig.TestLawFirmAPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signInAsLawFirmB() {
@@ -104,8 +86,6 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmBUserName,
             iaConfig.TestLawFirmBPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signInAsLawFirmC() {
@@ -115,8 +95,6 @@ export class AuthenticationFlow {
             iaConfig.TestLawFirmCUserName,
             iaConfig.TestLawFirmCPassword
         );
-        await this.anyPage.contentContains('Case List');
-        await this.waitForAngularIfRequired();
     }
 
     async signOut() {
@@ -127,9 +105,4 @@ export class AuthenticationFlow {
         await this.idamSignInPage.waitUntilLoaded();
     }
 
-    async waitForAngularIfRequired() {
-        if (iaConfig.WaitForAngular) {
-            await browser.waitForAngularEnabled(true);
-        }
-    }
 }

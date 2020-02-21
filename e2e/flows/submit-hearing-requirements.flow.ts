@@ -20,7 +20,6 @@ export class SubmitHearingRequirementsFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.contentContains('You\'ve submitted your hearing requirements');
         }
     }
 
@@ -28,8 +27,6 @@ export class SubmitHearingRequirementsFlow {
 
         await this.ccdFormPage.selectNextStep('Update hearing requirements');
         await this.ccdFormPage.click('Go');
-
-        await this.ccdFormPage.headingContains('Update hearing requirements');
 
         if (isYesPath) {
             await this.hearingRequirementsYesPath();
@@ -41,7 +38,6 @@ export class SubmitHearingRequirementsFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.contentContains('You\'ve updated the hearing requirements');
         }
     }
 

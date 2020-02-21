@@ -99,8 +99,6 @@ export class Fields {
 
         if (fieldLabel) {
             await this.anyPage.contentContains(fieldLabel)
-        } else {
-            await this.anyPage.waitUntilLoaded();
         }
 
         if (complexFieldLabel) {
@@ -189,8 +187,6 @@ export class Fields {
 
         if (complexFieldLabel) {
             await this.anyPage.contentContains(complexFieldLabel)
-        } else {
-            await this.anyPage.waitUntilLoaded();
         }
 
         for (let i = 0; i < this.complexFieldFinders.length; i++) {

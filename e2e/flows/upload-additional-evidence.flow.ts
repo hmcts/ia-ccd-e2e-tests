@@ -8,9 +8,7 @@ export class UploadAdditionalEvidenceFlow {
 
         await this.ccdFormPage.selectNextStep('Upload additional evidence');
         await this.ccdFormPage.click('Go');
-        await this.ccdFormPage.headingContains('Upload additional evidence');
         await this.ccdFormPage.addCollectionItem('Upload documents');
-        await this.ccdFormPage.contentContains('Explain why you are submitting this evidence after the appeal skeleton argument.');
         await this.ccdFormPage.setFieldValue(
             'Document',
             '{@AdditionalEvidence1.pdf}',
@@ -32,7 +30,6 @@ export class UploadAdditionalEvidenceFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.waitUntilLoaded();
         }
     }
 }
