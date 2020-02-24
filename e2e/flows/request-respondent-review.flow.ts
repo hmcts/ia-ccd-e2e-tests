@@ -15,7 +15,6 @@ export class RequestRespondentReviewFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.waitUntilLoaded();
         }
     }
 
@@ -30,7 +29,6 @@ export class RequestRespondentReviewFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.waitUntilLoaded();
         }
     }
 }

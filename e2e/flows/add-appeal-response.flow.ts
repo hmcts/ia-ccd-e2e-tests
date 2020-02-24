@@ -46,7 +46,6 @@ export class AddAppealResponseFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.waitUntilLoaded();
         }
     }
 }

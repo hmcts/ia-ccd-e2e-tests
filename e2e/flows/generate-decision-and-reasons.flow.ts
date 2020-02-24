@@ -24,7 +24,5 @@ export class GenerateDecisionAndReasonsFlow {
         await this.ccdFormPage.click('Generate');
 
         await this.ccdFormPage.click('Close and Return to case details');
-        await this.ccdFormPage.waitUntilLoaded();
-
     }
 }
