@@ -143,3 +143,19 @@ Then(/^I should see the `?([^\s`]+)`? image$/, async function (imageName) {
 
     expect(imageSources.some(src => src.includes('/' + imageName))).to.equal(true);
 });
+
+Then(/^I see the 'Appellant in person' tag$/, async function () {
+    const imageSources =
+      (await ccdPage.getDisplayedImageSources())
+        .map(src => (src + ''));
+
+    expect(imageSources.some(src => src.includes('/journey_type_appellant_in_person.png'))).to.equal(true);
+});
+
+Then(/^I see the 'Legally Represented' tag$/, async function () {
+    const imageSources =
+      (await ccdPage.getDisplayedImageSources())
+        .map(src => (src + ''));
+
+    expect(imageSources.some(src => src.includes('/journey_type_legally_represented.png'))).to.equal(true);
+});
