@@ -152,10 +152,14 @@ Then(/^I see the 'Appellant in person' tag$/, async function () {
     expect(imageSources.some(src => src.includes('/journey_type_appellant_in_person.png'))).to.equal(true);
 });
 
-Then(/^I see the 'Legally Represented' tag$/, async function () {
+Then(/^I should (see|not see) `Legally Represented` tag$/, async function (seeOrNotSee) {
+    const isDisplayed = (seeOrNotSee === 'see');
     const imageSources =
       (await ccdPage.getDisplayedImageSources())
         .map(src => (src + ''));
-
-    expect(imageSources.some(src => src.includes('/journey_type_legally_represented.png'))).to.equal(true);
+    if (isDisplayed) {
+        expect(imageSources.some(src => src.includes('/journey_type_legally_represented.png'))).to.equal(true);
+    } else {
+        expect(imageSources.some(src => src.includes('/journey_type_legally_represented.png'))).to.equal(false);
+    }
 });
