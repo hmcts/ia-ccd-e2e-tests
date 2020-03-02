@@ -92,7 +92,7 @@ Feature: Admin Officer - Edit case listing after review update hearing requireme
     And I should see the text `The Tribunal Caseworker will generate a hearing bundle for all parties to use at the hearing.`
 
 
-    ### Pre Hearing
+    ### Pre hearing
     When I switch to be a `Case Officer`
     And I generate the hearing bundle
     And I click the `Overview` tab
