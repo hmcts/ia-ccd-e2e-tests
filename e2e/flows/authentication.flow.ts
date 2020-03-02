@@ -97,6 +97,15 @@ export class AuthenticationFlow {
         );
     }
 
+    async signInAsJudge() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestJudgeUserName,
+            iaConfig.TestJudgePassword
+        );
+    }
+
     async signOut() {
         await browser.waitForAngularEnabled(false);
         await browser.driver.manage().deleteAllCookies();

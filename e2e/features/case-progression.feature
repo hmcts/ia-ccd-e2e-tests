@@ -1,9 +1,10 @@
 Feature: Case progression
 
-  @case-progression @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
+  @case-progression @case-progression-core @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
   @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277 @RIA-2343 @RIA-2304 @RIA-2041
   @RIA-2236
+  @RIA-1360
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -85,8 +86,8 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_awaitingRespondentEvidence_preUpload` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `Await the respondent's evidence.`
+    And I should see the text `What happens next`
+    And I should see the text `The Home Office will prepare their bundle.`
     And I should not see the `Upload respondent evidence` link
 
     And I should not see the hearing details
@@ -723,9 +724,9 @@ Feature: Case progression
 
     When I click the `Close and Return to case details` button
     Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `The appellant has been directed to review the Home Office response`
-    And I should see the text `If they do not respond within 5 working day of the direction, the case automatically proceeds to a hearing`
+    And I should see the text `What happens next`
+    And I should see the text `The appellant has been directed to review the Home Office response.`
+    And I should see the text `If they do not respond within 5 working days of the direction, the case automatically proceeds to a hearing.`
 
     And I should not see the hearing details
     And I should see the case details
@@ -746,8 +747,8 @@ Feature: Case progression
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `The appellant will review the Home Office response`
+    And I should see the text `What happens next`
+    And I should see the text `The appellant has been directed to review the Home Office response.`
 
     And I should see the case details
     And I should not see the hearing details
@@ -1490,11 +1491,79 @@ Feature: Case progression
     And I should see the legal representative details
     And I should see the option `Upload additional evidence` for the `Next step` field
 
+    ### add case note
+    When I switch to be a `Case Officer`
+    When I select the `Add case note` Next step
+    Then I am on the `Add case note` page
+    And I should see the text `Add your case note below`
+    And the `Continue` button is disabled
+
+    When I type `some case note subject` for the `Subject` field
+    Then the `Continue` button is disabled
+
+    When I type `some case note description` for the `Case note` field
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `some case note subject` in the `Subject` field
+    And I should see `some case note description` in the `Case note` field
+
+    When I click the `Save note` button
+    Then I should see the text `You have added a case note`
+    Then I should see the text `What happens next`
+    Then I should see the text `You can review this note in the case notes tab.`
+
+    When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Add case note`
+
+    When I click the `Case notes` tab
+    Then I should see the `Case notes` field
+
+    ### record application
+    When I select the `Record an application` Next step
+    Then I am on the `Record an application` page
+    And I should see the text `The appellant or the respondent has made an application. Record the reasons and the outcome of the application. If the application has been granted, you may need to edit listing, edit direction due date or end the appeal.`
+    And I should see the text `Attach a copy of the application email and any other communication.`
+
+    And the `Continue` button is disabled
+
+    When I add an item to the `Application email` collection
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And I click the `The legal representative` label
+    And I select `Transfer` for the `Type of application` field
+    And I type `some application reason` for the `Reason for application` field
+    And I select `{$TODAY-5|DD-MM-YYYY}` for the `Date application was made` field
+    And I click the `Refused` label
+    And I type `some application decision reason` for the `Reasons for decision` field
+
+    Then the `Continue` button is enabled
+
+    When I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `test.doc` in the `Application email` field
+    And I should see `The legal representative` in the `Application from` field
+    And I should see `Transfer` in the `Type of application` field
+    And I should see `some application reason` in the `Reason for application` field
+    And I should see `{$TODAY-5|D MMM YYYY}` in the `Date application was made` field
+    And I should see `Refused` in the `Application decision` field
+    And I should see `some application decision reason` in the `Reasons for decision` field
+
+    When I click the `Record application` button
+    Then I should see the text `You have recorded an application`
+    And I should see the text `What happens next`
+    And I should see the text `The application decision has been recorded and is now available in the applications tab. A notification will be sent to both parties, informing them that an application was requested and refused. The case will progress as usual.`
+
+    When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Record an application`
+
+    When I click the `Applications` tab
+    Then I should see the `Applications` field
+
     ### send decision and reasons
 
     # CO:
 
-    When I switch to be a `Case Officer`
     And I generate decision and reasons
     And I click the `Overview` tab
 
@@ -1718,3 +1787,50 @@ Feature: Case progression
     And within the `Directions` collection's seventh item, I should see `Respondent` for the `Parties` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+
+    # Judge read-only
+    When I switch to be a `Judge`
+
+    When I click the `Overview` tab
+    Then I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+
+    When I click the `Appeal` tab
+    Then I should see the appeal details
+    And I should see the submission details
+
+    When I click the `Appellant` tab
+    Then I should see the appellant's details
+
+    When I click the `Documents` tab
+    Then I should see the `Documents` page
+    And I should see the `Hearing documents` field
+    And I should see the `Legal representative documents` field
+    And I should see the `Respondent documents` field
+
+    When I click the `Directions` tab
+    Then I should see the `Directions` page
+    And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+    And within the `Directions` collection's seventh item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `You have 14 days to supply` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `Respondent` for the `Parties` field
+    And within the `Directions` collection's seventh item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's seventh item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+
+    When I click the `Case notes` tab
+    Then I should see the `Case notes` field
+
+    When I click the `Applications` tab
+    Then I should see the `Applications` field
+
+    When I click the `Hearing` tab
+    Then I should see the hearing requirements yes path
+    And I should not see the requests for additional adjustments yes path
+    And I should see the agreed additional adjustments yes path
+    And I should see the text `Record of hearing details`
+    And I should see the text `Hearing requirements and requests`

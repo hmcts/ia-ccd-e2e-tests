@@ -8,7 +8,7 @@ Feature: End appeal
     And I switch to be a `Case Officer`
 
   @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486
-  Scenario Outline: End appeal after submit appeal
+  Scenario: End appeal after submit appeal
 
     Then I end the appeal
 
@@ -28,14 +28,14 @@ Feature: End appeal
 
     Then I should only see the `caseOfficer_appealEnded` case progress image
 
-    And I should see the text `Do this next`
-    And I should see the text `There is no further action to take, unless either party asks for the decision to be reviewed by a judge.`
+    And I should see the text `What happens next`
+    And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
 
     And I should see the ended appeal details
     And I should not see the hearing details
     And I should see the case details
 
-    When I switch to be a <IAUser>
+    When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
     And I should see the text `Do this next`
@@ -44,17 +44,60 @@ Feature: End appeal
     And I should not see the hearing details
     And I should see the case details
 
-    Examples:
-      | IAUser                |
-      | Legal Rep             |
-      | Home Office APC       |
-      | Home Office LART      |
-      | Home Office POU       |
-      | Home Office Generic   |
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should not see the hearing details
+    And I should see the case details
 
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should not see the hearing details
+    And I should see the case details
+
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should not see the hearing details
+    And I should see the case details
+
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should not see the hearing details
+    And I should see the case details
+
+    When I switch to be a `Admin Officer`
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should not see the hearing details
+    And I should see the case details
+
+    When I switch to be a `Judge`
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should not see the hearing details
+    And I should see the case details
 
   @regression @end-appeal-after-listing @RIA-1677 @RIA-1678 @RIA-1486
-  Scenario Outline: End appeal after listing
+  Scenario: End appeal after listing
 
     When I request respondent evidence
     And I upload respondent evidence
@@ -85,14 +128,14 @@ Feature: End appeal
 
     Then I should only see the `caseOfficer_appealEnded` case progress image
 
-    And I should see the text `Do this next`
-    And I should see the text `There is no further action to take, unless either party asks for the decision to be reviewed by a judge.`
+    And I should see the text `What happens next`
+    And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
 
     And I should see the ended appeal details
     And I should see the hearing details
     And I should see the case details
 
-    When I switch to be a <IAUser>
+    When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
     And I should see the text `Do this next`
@@ -101,11 +144,57 @@ Feature: End appeal
     And I should see the hearing details
     And I should see the case details
 
-    Examples:
-      | IAUser                |
-      | Legal Rep             |
-      | Home Office APC       |
-      | Home Office LART      |
-      | Home Office POU       |
-      | Home Office Generic   |
+    When I switch to be a `Home Office APC`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should see the hearing details
+    And I should see the case details
+
+    When I switch to be a `Home Office LART`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should see the hearing details
+    And I should see the case details
+
+    When I switch to be a `Home Office POU`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should see the hearing details
+    And I should see the case details
+
+    When I switch to be a `Home Office Generic`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should see the hearing details
+    And I should see the case details
+
+    When I switch to be a `Admin Officer`
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should see the hearing details
+    And I should see the case details
+
+    When I switch to be a `Judge`
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
+    And I should see the ended appeal details
+    And I should see the hearing details
+    And I should see the case details
+
+
 

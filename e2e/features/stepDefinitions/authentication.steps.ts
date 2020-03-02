@@ -40,6 +40,10 @@ Given(/^I am signed in as a `?(?:Home Office Generic)`?$/, async function () {
     await authenticationFlow.signInAsHomeOfficeGeneric();
 });
 
+Given(/^I am signed in as a `?(?:Judge)`?$/, async function () {
+    await authenticationFlow.signInAsJudge();
+});
+
 Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
     await authenticationFlow.signInAsLawFirmA();
 });
@@ -113,6 +117,17 @@ Given(/^I switch to be a `?(?:Home Office Generic)`?$/, async function () {
     await authenticationFlow.signInAsHomeOfficeGeneric();
     await browser.sleep(100);
     await ccdPage.get(caseUrl);
+});
+
+Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsJudge();
+    await browser.sleep(100);
+    await ccdPage.contentContains('Immigration');
+    await ccdPage.get(caseUrl);
+    await ccdPage.contentContains('Immigration');
 });
 
 Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {

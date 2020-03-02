@@ -23,6 +23,7 @@ Feature: User authentication
       | Home Office LART    | Home Office Lart      |
       | Home Office POU     | Home Office Pou       |
       | Home Office Generic | Home Office Generic   |
+      | Judge               | Judge                 |
 
   Scenario: Should only show cases related to that Legal Representative
 
