@@ -3,7 +3,7 @@ Feature: Case progression
   @case-progression @case-progression-core @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
   @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277 @RIA-2343 @RIA-2304 @RIA-2041
-  @RIA-2236
+  @RIA-2236 @RIA-2736
   @RIA-1360
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
@@ -44,7 +44,7 @@ Feature: Case progression
 
     When I submit my appeal
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_appealSubmitted` case progress image
 
     And I should see the text `Do this next`
@@ -59,6 +59,7 @@ Feature: Case progression
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
+    And I should see `Legally Represented` tag
 
     Then I should only see the `caseOfficer_appealSubmitted` case progress image
 
@@ -84,7 +85,7 @@ Feature: Case progression
 
     When I request respondent evidence
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_awaitingRespondentEvidence_preUpload` case progress image
     And I should see the text `What happens next`
     And I should see the text `The Home Office will prepare their bundle.`
@@ -106,7 +107,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_awaitingRespondentEvidence` case progress image
 
     And I should see the text `Do this next`
@@ -133,7 +134,7 @@ Feature: Case progression
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `homeOffice_uploadBundle` case progress image
 
     And I should see the text `Do this next`
@@ -187,7 +188,7 @@ Feature: Case progression
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should see the text `If it complies with the procedure rules and practice directions, direct the legal representative to build their case.`
     Then I should see the text `If it does not comply, direct the respondent to make the appropriate changes.`
 
@@ -219,7 +220,7 @@ Feature: Case progression
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `homeOffice_uploadBundle` case progress image
 
     And I should see the text `Do this next`
@@ -278,7 +279,7 @@ Feature: Case progression
 
     And I switch to be a `Case Officer`
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_awaitingRespondentEvidence_postUpload` case progress image
 
     And I should see the text `Do this next`
@@ -309,6 +310,7 @@ Feature: Case progression
     And I click the `Close and Return to case details` button
 
     And I click the `Overview` tab
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_caseBuilding` case progress image
 
     And I should not see the `Request respondent review` link
@@ -340,7 +342,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_caseBuilding` case progress image
 
     And I should see the text `Do this next`
@@ -371,7 +373,7 @@ Feature: Case progression
 
     When I build my case
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_caseBuilding` case progress image
 
     And I should see the text `Do this next
@@ -406,7 +408,7 @@ Feature: Case progression
 
     When I submit my case
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_caseUnderReview` case progress image
 
     And I should see the text `Do this next`
@@ -431,7 +433,7 @@ Feature: Case progression
 
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `homeOffice_awaitAppealSkeletonArgument` case progress image
     And I should see the text `Do this next`
     And I should see the text `The Tribunal will:`
@@ -454,7 +456,7 @@ Feature: Case progression
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_caseUnderReview` case progress image
 
     And I should see the text `Do this next`
@@ -493,7 +495,7 @@ Feature: Case progression
     ### respondent review, no appeal response
 
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_respondentReviewStarted` case progress image
 
     And I should see the text `Do this next`
@@ -518,7 +520,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_respondentReview` case progress image
 
     And I should see the text `Do this next`
@@ -550,6 +552,7 @@ Feature: Case progression
     And I should see the option `Upload additional evidence` for the `Next step` field
 
     When I click the `Overview` tab
+    And I should not see `Legally Represented` tag
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
     And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab`
@@ -596,7 +599,7 @@ Feature: Case progression
 
     And I switch to be a `Case Officer`
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_respondentReview_submittedResponse` case progress image
 
     And I should see the text `Do this next`
@@ -651,6 +654,7 @@ Feature: Case progression
 
     And I switch to be a `Home Office LART`
     Then I click the `Overview` tab
+    And I should not see `Legally Represented` tag
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
     And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab`
@@ -699,6 +703,7 @@ Feature: Case progression
     # CO Direct Appellant to review HO Appeal Response
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_respondentReview_submittedResponse` case progress image
 
     When I click the `direct the appellant to review the Home Office response` link
@@ -746,6 +751,7 @@ Feature: Case progression
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to review the Home Office response.`
@@ -768,7 +774,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_respondentReview_appeal_response` case progress image
     And I should see the text `Do this next`
     And I should see the text `The Home Office is proceeding with the case and you've been directed to review their response in the Documents tab.`
@@ -791,7 +797,7 @@ Feature: Case progression
     # Home Office APC
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `homeOffice_appealResponseUploaded` case progress image
     And I should see the text `Do this next`
     #And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
@@ -808,6 +814,7 @@ Feature: Case progression
     When I switch to be a `Case Officer`
     And I request hearing requirements
     Then I click the `Overview` tab
+    And I should see `Legally Represented` tag
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to submit their hearing requirements.`
@@ -852,6 +859,7 @@ Feature: Case progression
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
     Then I should see the `Overview` page
+    And I should see `Legally Represented` tag
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant will submit their hearing requirements.`
@@ -862,7 +870,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_submitHearingRequirements` case progress image
     And I should see the text `Do this next`
     And I should see the text `The appeal is now going to a hearing. You need to submit the appellant's hearing requirements.`
@@ -1051,6 +1059,7 @@ Feature: Case progression
     And I should see the text `Hearing requirements and requests`
 
     When I click the `Overview` tab
+    And I should see `Legally Represented` tag
     Then I should only see the `adminOfficer_listing_submittedRequirements` case progress image
 
     And I should see the text `What happens next`
@@ -1067,6 +1076,7 @@ Feature: Case progression
 
     When I switch to be a `Case Officer`
     Then I click the `Overview` tab
+    And  I should see `Legally Represented` tag
     And I should only see the `caseOfficer_reviewHearingRequirements.png` case progress image
     And I should see the text `You can view the hearing requirements and any requests for additional adjustments in the Hearing tab.`
     And I should see the text `You should contact the appellant if you need more information.`
@@ -1134,7 +1144,7 @@ Feature: Case progression
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_listing` case progress image
     And I should see the text `Do this next`
     And I should see the text `The agreed hearing requirements and adjustments have been recorded.`
@@ -1165,7 +1175,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_listing` case progress image
     And I should see the text `Do this next`
     And I should see the text `The case officer is reviewing the hearing requirements`
@@ -1189,6 +1199,7 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should see the `Overview` page
+    And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_listing` case progress image
     And I should see the text `Do this next`
     And I should see the text `check that the Home Office response complies with the Procedural Rules and Practice Directions`
@@ -1214,7 +1225,7 @@ Feature: Case progression
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_listing` case progress image
 
     And I should see the text `Do this next`
@@ -1241,6 +1252,7 @@ Feature: Case progression
     When I list the case
 
     And I click the `Overview` tab
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_prepareForHearing` case progress image
 
     And I should see the text `What happens next`
@@ -1271,7 +1283,7 @@ Feature: Case progression
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_prepareForHearing` case progress image
 
     And I should see the text `Do this next`
@@ -1296,7 +1308,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_listed` case progress image
 
     And I should see the text `Do this next`
@@ -1317,6 +1329,7 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should see the `Overview` page
+    And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -1342,7 +1355,7 @@ Feature: Case progression
     When I switch to be a `Case Officer`
     And I create case summary
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_finalBundling` case progress image
 
     And I should see the case details
@@ -1367,6 +1380,7 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should see the `Overview` page
+    And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -1381,7 +1395,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_listed` case progress image
     And I should see the text `Do this next`
     And I should see the text `The case has now been listed. Go to the documents tab to see the Hearing notice, which includes the hearing details.`
@@ -1400,7 +1414,7 @@ Feature: Case progression
     When I switch to be a `Case Officer`
     And I generate the hearing bundle
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_preHearing` case progress image
 
     And I should see the hearing details
@@ -1425,7 +1439,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_preHearing` case progress image
     And I should see the text `Do this next`
     And I should see the text `You can now view the hearing bundle in the documents tab.`
@@ -1443,6 +1457,7 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should see the `Overview` page
+    And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_preHearing` case progress image
 
     And I should see the text `Do this next`
@@ -1460,7 +1475,7 @@ Feature: Case progression
     When I switch to be a `Case Officer`
     And I start decision and reasons
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_decision` case progress image
     And I should see the hearing details
     And I should see the case details
@@ -1482,7 +1497,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_decision` case progress image
     And I should see the text `Do this next`
     And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
@@ -1566,7 +1581,7 @@ Feature: Case progression
 
     And I generate decision and reasons
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_decision` case progress image
     And I should see the hearing details
     And I should see the case details
@@ -1588,7 +1603,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_decision` case progress image
     And I should see the text `Do this next`
     And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
@@ -1602,6 +1617,7 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should see the `Overview` page
+    And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_decision` case progress image
 
     And I should see the text `Do this next`
@@ -1623,7 +1639,7 @@ Feature: Case progression
     When I switch to be a `Case Officer`
     And I send decision and reasons
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_decided` case progress image
     And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
     And I should see the hearing details
@@ -1641,7 +1657,7 @@ Feature: Case progression
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-
+    And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_decided` case progress image
     And I should see the text `The case has been decided. You can now view the decision and reasons in the documents tab.`
     And I should see the text `Either party can appeal the decision by making an application to the Upper Tribunal. If you decide to appeal, you must do this within 14 days of the judge’s signature on the decision.`
@@ -1660,6 +1676,7 @@ Feature: Case progression
     And I click the `Overview` tab
 
     Then I should see the `Overview` page
+    And I should not see `Legally Represented` tag
     And I should only see the `appeal_allowed` case progress image
 
     And I should see the text `Do this next`
@@ -1678,7 +1695,7 @@ Feature: Case progression
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-
+    And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_decided` case progress image
     And I should see the text `Record the attendees and duration of the hearing.`
 
