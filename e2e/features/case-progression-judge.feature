@@ -1,6 +1,6 @@
 Feature: Case progression - Judge
 
-  @case-progression @case-progression-judge @RIA-1360
+  @case-progression @case-progression-judge @RIA-1360 @RIA-1939
   Scenario: Case progression information is displayed for each case state for Judge
 
     Given I am signed in as a `Legal Rep`
@@ -181,30 +181,54 @@ Feature: Case progression - Judge
 
     Then I should only see the `caseOfficer_decision` case progress image
 
-    # implement within RIA-1280
-    #And I should see the text `What happens next`
-    #And I should see the text `some info`
+    And I should see the text `Do this next`
+    And I should see the text `Prepare the Decision and Reasons document`
+    And I click the `Prepare the Decision and Reasons document` link
+    And I am on the `Prepare Decision and Reasons` page
 
-    # change it within RIA-1280
     And I switch to be a `Case Officer`
+    And I click the `Overview` tab
+    And I should see the text `What happens next`
+    And I should see the text `The judge will complete the Decision and Reasons document and upload it to the service.`
+    And I should see the text `Both parties will be notified when it's available to view and download from the Documents tab.`
     And I prepare decision and reasons
-
-    When I switch to be a `Judge`
     And I click the `Overview` tab
-
     Then I should only see the `caseOfficer_decision` case progress image
-
-    # implement within RIA-1280
-    #And I should see the text `What happens next`
-    #And I should see the text `some info`
-
-    # change it within RIA-1280
-    And I switch to be a `Case Officer`
-    And I send decision and reasons
+    And I should see the text `What happens next`
+    And I should see the text `The judge will complete the Decision and Reasons document and upload it to the service.`
+    And I should see the text `Both parties will be notified when it's available to view and download from the Documents tab.`
 
     When I switch to be a `Judge`
     And I click the `Overview` tab
+    Then I should only see the `caseOfficer_decision` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `Go to the Documents tab to download and complete the Decision and Reasons document.`
+    And I should see the text `You should then upload and send the completed document.`
 
+    And I click the `upload and send` link
+    And I am on the `Complete decision and reasons` page
+    And I click the `Cancel` link
+    And I send decision and reasons
+    And I click the `Overview` tab
     Then I should only see the `appeal_allowed` case progress image
     And I should see the text `What happens next`
     And I should see the text `No further action required.`
+
+    And I switch to be a `Admin Officer`
+    And I click the `Overview` tab
+    Then I should only see the `appeal_allowed` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `Record the attendees and duration of the hearing`
+    And I should see the text `Record attendees and duration`
+
+    And I switch to be a `Case Officer`
+    And I click the `Overview` tab
+    Then I should only see the `appeal_allowed` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
+
+    And I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+    Then I should only see the `appeal_allowed` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The case has been decided. You can now view the decision and reasons in the documents tab.`

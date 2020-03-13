@@ -3,7 +3,7 @@ Feature: Case progression
   @case-progression @case-progression-core @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
   @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277 @RIA-2343 @RIA-2304 @RIA-2041
-  @RIA-2236 @RIA-2736 @RIA-1360 @RIA-1280
+  @RIA-2236 @RIA-2736 @RIA-1360 @RIA-1280 @RIA-1939
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -1488,7 +1488,11 @@ Feature: Case progression
     And I should see the option `Record an application` for the `Next step` field
     And I should see the option `Upload additional evidence` for the `Next step` field
 
-    When I click the `Generate decision and reasons` link
+    And I should see the text `What happens next`
+    And I should see the text `The judge will complete the Decision and Reasons document and upload it to the service.`
+    And I should see the text `Both parties will be notified when it's available to view and download from the Documents tab.`
+
+    When I select the `Prepare Decision and Reasons` Next step
     Then I am on the `Prepare Decision and Reasons` page
     And I click the `Cancel` link
 
@@ -1594,10 +1598,16 @@ Feature: Case progression
     ### send decision and reasons
 
     # CO:
-
+    And I click the `Overview` tab
+    And I should see the text `What happens next`
+    And I should see the text `The judge will complete the Decision and Reasons document and upload it to the service.`
+    And I should see the text `Both parties will be notified when it's available to view and download from the Documents tab.`
     And I prepare decision and reasons
     And I click the `Overview` tab
-    And I should see `Legally Represented` tag
+    And I should see the text `What happens next`
+    And I should see the text `The judge will complete the Decision and Reasons document and upload it to the service.`
+    And I should see the text `Both parties will be notified when it's available to view and download from the Documents tab.`
+
     Then I should only see the `caseOfficer_decision` case progress image
     And I should see the hearing details
     And I should see the case details
@@ -1611,7 +1621,7 @@ Feature: Case progression
     And I should see the option `Record an application` for the `Next step` field
     And I should see the option `Upload additional evidence` for the `Next step` field
 
-    When I click the `Send decision and reasons` link
+    When I select the `Complete decision and reasons` Next step
     Then I am on the `Complete decision and reasons` page
     And I click the `Cancel` link
 
@@ -1656,7 +1666,7 @@ Feature: Case progression
     And I send decision and reasons
     And I click the `Overview` tab
     And I should see `Legally Represented` tag
-    Then I should only see the `caseOfficer_decided` case progress image
+    Then I should only see the `appeal_allowed` case progress image
     And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
     And I should see the hearing details
     And I should see the case details
@@ -1712,7 +1722,7 @@ Feature: Case progression
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
     And I should see `Legally Represented` tag
-    Then I should only see the `caseOfficer_decided` case progress image
+    Then I should only see the `appeal_allowed` case progress image
     And I should see the text `Record the attendees and duration of the hearing.`
 
     When I click the `Record attendees and duration` link
@@ -1724,7 +1734,7 @@ Feature: Case progression
     And I click the `Close and Return to case details` button
     And I click the `Overview` tab
 
-    Then I should only see the `caseOfficer_decided` case progress image
+    Then I should only see the `appeal_allowed` case progress image
     And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
 
     And I click the `Appellant` tab

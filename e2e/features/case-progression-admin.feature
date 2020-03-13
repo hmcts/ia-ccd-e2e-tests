@@ -1,6 +1,6 @@
 Feature: Case progression - Admin Officer
 
-  @case-progression @case-progression-admin @RIA-1360
+  @case-progression @case-progression-admin @RIA-1360 @RIA-1939
   Scenario: Case progression information is displayed for each case state for Admin Officer
 
     Given I am signed in as a `Legal Rep`
@@ -193,14 +193,13 @@ Feature: Case progression - Admin Officer
     And I should see the text `Do this next`
     And I should see the text `Record the attendees and duration of the hearing.`
 
-    And I switch to be a `Case Officer`
+    And I switch to be a `Admin Officer`
     And I send decision and reasons
-
-    When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-
-    Then I should only see the `caseOfficer_decided` case progress image
-    And I should see the text `Record the attendees and duration of the hearing.`
+    Then I should only see the `appeal_allowed` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `Record the attendees and duration of the hearing`
+    And I should see the text `Record attendees and duration`
 
     When I click the `Record attendees and duration` link
     And I type `Judge Judy` for the `The judge` field
@@ -211,5 +210,5 @@ Feature: Case progression - Admin Officer
     And I click the `Close and Return to case details` button
     And I click the `Overview` tab
 
-    Then I should only see the `caseOfficer_decided` case progress image
+    Then I should only see the `appeal_allowed` case progress image
     And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`

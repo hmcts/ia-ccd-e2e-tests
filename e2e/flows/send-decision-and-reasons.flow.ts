@@ -8,6 +8,7 @@ export class SendDecisionAndReasonsFlow {
         await this.ccdFormPage.selectNextStep('Complete decision and reasons');
         await this.ccdFormPage.click('Go');
 
+        await this.ccdFormPage.headingContains('Complete decision and reasons');
         await this.ccdFormPage.setFieldValue('Decision', 'Allowed');
         await this.ccdFormPage.click('Continue');
 
