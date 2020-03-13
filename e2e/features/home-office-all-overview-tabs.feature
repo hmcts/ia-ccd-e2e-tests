@@ -309,7 +309,7 @@ Feature: Home Office all overview tabs from listing to decision state
 
     # Decided (CO)
     When I switch to be a `Case Officer`
-    And I generate decision and reasons
+    And I prepare decision and reasons
     And I send decision and reasons
 
     # APC

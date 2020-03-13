@@ -27,7 +27,7 @@ Feature: All home office users overview appeal case-details documents directions
     And I create case summary
     And I generate the hearing bundle
     And I start decision and reasons
-    And I generate decision and reasons
+    And I prepare decision and reasons
 
   @regression @home-office-users-view-tabs @RIA-1356
   Scenario Outline: Home office users should see the tabs

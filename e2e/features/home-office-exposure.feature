@@ -555,7 +555,7 @@ Feature: Different Home Office roles have different functionality
 
     When I switch to be a `Case Officer`
     And I start decision and reasons
-    And I generate decision and reasons
+    And I prepare decision and reasons
 
 
     # Home Office APC

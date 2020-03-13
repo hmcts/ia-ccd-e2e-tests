@@ -27,7 +27,7 @@ Feature: Send decision and reasons
     And I create case summary
     And I generate the hearing bundle
     And I start decision and reasons
-    And I generate decision and reasons
+    And I prepare decision and reasons
 
   @regression @send-decision-and-reasons-allowed @RIA-1154
   Scenario: Send decision and reasons with Allowed status

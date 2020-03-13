@@ -3,8 +3,7 @@ Feature: Case progression
   @case-progression @case-progression-core @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
   @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277 @RIA-2343 @RIA-2304 @RIA-2041
-  @RIA-2236 @RIA-2736
-  @RIA-1360
+  @RIA-2236 @RIA-2736 @RIA-1360 @RIA-1280
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -1468,7 +1467,7 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
-    # Generate decision and reasons
+    # Prepare decision and reasons
 
     # CO:
 
@@ -1483,14 +1482,31 @@ Feature: Case progression
 
     And I should see the option `Send direction` for the `Next step` field
     And I should see the option `Change a direction due date` for the `Next step` field
-    And I should see the option `Generate decision and reasons` for the `Next step` field
+    And I should see the option `Prepare Decision and Reasons` for the `Next step` field
     And I should see the option `Add case note` for the `Next step` field
     And I should see the option `Edit case listing` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
     And I should see the option `Upload additional evidence` for the `Next step` field
 
     When I click the `Generate decision and reasons` link
-    Then I am on the `Generate decision and reasons` page
+    Then I am on the `Prepare Decision and Reasons` page
+    And I click the `Cancel` link
+
+    # Judge:
+    When I switch to be a `Judge`
+    And I click the `Overview` tab
+
+    Then I should only see the `caseOfficer_decision` case progress image
+    And I should see the hearing details
+    And I should see the case details
+    And I should see the legal representative details
+    And I should see the text `Do this next`
+    Then I should see the `Prepare the Decision and Reasons document` link
+
+    And I should see the option `Prepare Decision and Reasons` for the `Next step` field
+
+    When I click the `Prepare the Decision and Reasons document` link
+    Then I am on the `Prepare Decision and Reasons` page
     And I click the `Cancel` link
 
     # LR:
@@ -1579,7 +1595,7 @@ Feature: Case progression
 
     # CO:
 
-    And I generate decision and reasons
+    And I prepare decision and reasons
     And I click the `Overview` tab
     And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_decision` case progress image

@@ -26,7 +26,7 @@ Feature: Record hearing attendees and duration
     And I create case summary
     And I generate the hearing bundle
     And I start decision and reasons
-    And I generate decision and reasons
+    And I prepare decision and reasons
     And I switch to be a `Admin Officer`
     And I click the `Overview` tab
     And I should see the `Overview` page
