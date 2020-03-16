@@ -31,7 +31,7 @@ Feature: Record hearing attendees and duration
     And I click the `Overview` tab
     And I should see the `Overview` page
 
-  @regression @record-hearing-attendees @RIA-572
+  @regression @record-hearing-attendees @RIA-572 @RIA-1903
   Scenario: Record hearing attendees and duration
 
     When I click the `Record attendees and duration` link
@@ -60,3 +60,12 @@ Feature: Record hearing attendees and duration
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Record attendees and duration`
+    And I click the `Hearing` tab
+    And I should see the `Hearing` page
+    And I should see the `Hearing attendance` field
+    And I should see `Judge Judy` for the `The judge` field
+    And I should see `Frank` for the `The appellant` field
+    And I should see `Geoff` for the `The appellant's legal representative` field
+    And I should see `Sebastian` for the `The Home Office representative` field
+    And I should see `2` for the `Hours` field
+    And I should see `30` for the `Minutes` field
