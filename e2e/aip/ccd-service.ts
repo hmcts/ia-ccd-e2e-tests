@@ -7,7 +7,8 @@ const caseType = 'Asylum';
 
 const Events = {
   EDIT_APPEAL: { id: 'editAppeal', summary: 'Update appeal case AIP', description: 'Update appeal case AIP' },
-  SUBMIT_APPEAL: { id: 'submitAppeal', summary: 'Submit Appeal case AIP', description: 'Submit Appeal case AIP' }
+  SUBMIT_APPEAL: { id: 'submitAppeal', summary: 'Submit Appeal case AIP', description: 'Submit Appeal case AIP' },
+  SUBMIT_REASONS_FOR_APPEAL: { id: 'submitReasonsForAppeal', summary: 'Submits Reasons for appeal case AIP', description: 'Submits Reasons for appeal case AIP' }
 };
 
 interface SecurityHeaders {
@@ -29,6 +30,7 @@ interface CaseData {
   subscriptions: SubscriptionCollection[];
   submissionOutOfTime: 'Yes' | 'No';
   applicationOutOfTimeExplanation: string;
+  reasonsForAppealDecision: string;
 }
 
 interface Nationality {
@@ -174,6 +176,14 @@ class CcdService {
     options.body = event;
 
     return rp.post(options);
+  }
+
+  loadCasesForUser(userId: string, headers: SecurityHeaders): Promise<CcdCaseDetails[]> {
+    return rp.get(this.createOptions(
+      userId,
+      headers,
+      `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases`)
+    );
   }
 
   async updateAppeal(event, userId: string, updatedCase: CcdCaseDetails, headers: SecurityHeaders): Promise<CcdCaseDetails> {
