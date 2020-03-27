@@ -83,12 +83,12 @@ Feature: FTPA Respondent application to the Upper Tribunal
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
-    And within the `FTPA Respondent documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
 
     ## CO
@@ -103,12 +103,12 @@ Feature: FTPA Respondent application to the Upper Tribunal
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
-    And within the `FTPA Respondent documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
 
     ## Admin Officer
@@ -128,12 +128,12 @@ Feature: FTPA Respondent application to the Upper Tribunal
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
-    And within the `FTPA Respondent documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     ## Judge
     When I switch to be a `Judge`
@@ -143,12 +143,12 @@ Feature: FTPA Respondent application to the Upper Tribunal
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
-    And within the `FTPA Respondent documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
 
     ## Legal Representative
@@ -162,9 +162,9 @@ Feature: FTPA Respondent application to the Upper Tribunal
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
-    And I should not see the text `FTPA Respondent documents`
+    And I should not see the text `FTPA Home Office documents`
     And I click the `FTPA` tab
-    And I should not see the text `Respondent: application for permission to appeal`
+    And I should not see the text `Home Office: Application for permission to appeal`
 
     ## Home Office APC
     When I switch to be a `Home Office APC`
@@ -179,12 +179,12 @@ Feature: FTPA Respondent application to the Upper Tribunal
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
-    And within the `FTPA Respondent documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     ## Home Office Generic
     When I switch to be a `Home Office Generic`
@@ -199,12 +199,12 @@ Feature: FTPA Respondent application to the Upper Tribunal
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
-    And within the `FTPA Respondent documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     ## Home Office LART
     When I switch to be a `Home Office LART`
@@ -219,10 +219,10 @@ Feature: FTPA Respondent application to the Upper Tribunal
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
-    And within the `FTPA Respondent documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
-    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
-    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `FTPARespondentGrounds.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Home Office documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Home Office documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
