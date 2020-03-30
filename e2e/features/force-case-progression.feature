@@ -11,10 +11,10 @@ Feature: Force case progression
   @RIA-2774
   Scenario: Awaiting respondent evidence to Case building
 
-    When I select the `Request case building` Next step
-    Then I am on the `Request case building` page
+    When I select the `Force request case building` Next step
+    Then I am on the `Force request case building` page
     When I click the `Continue` button
-    Then I am on the `Request case building` page
+    Then I am on the `Force request case building` page
     Then I should see the text `Reasons to force the case progression`
     And the `Continue` button is disabled
     When I type `some reasons to force the case progression` for the `Reasons to force the case progression` field
