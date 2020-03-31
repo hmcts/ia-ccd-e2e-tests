@@ -1689,12 +1689,14 @@ Feature: Case progression
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
     And I should see the text `You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
     Then I should see the `apply for permission to appeal` link
-    And I click the `apply for permission to appeal` link
-    Then I should see the text `Apply for permission to appeal`
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
     And I should see the option `Upload additional evidence` for the `Next step` field
+
+    And I click the `apply for permission to appeal` link
+    Then I should see the text `Apply for permission to appeal`
+    And I click the `Cancel` link
 
     And I click the `Appellant` tab
     And I should see the appellant's details
@@ -1708,7 +1710,7 @@ Feature: Case progression
     And I should not see `Legally Represented` tag
     And I should only see the `appeal_allowed` case progress image
 
-    And I should see the text `Do this next`
+    And I should see the text `What happens next`
     And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
     And I should see the option `Upload additional evidence` for the `Next step` field
 
@@ -1719,6 +1721,18 @@ Feature: Case progression
     And I click the `Appellant` tab
     And I should see the appellant's details
     And I should not see the decision fields
+
+    # Home Office POU
+    When I switch to be a `Home Office POU`
+    And I should see the `Overview` page
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `What happens next`
+    And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
+    And I should see the text `You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
+    Then I should see the `apply for permission to appeal` link
+    And I click the `apply for permission to appeal` link
+    Then I should see the text `Apply for permission to appeal`
+    And I click the `Cancel` link
 
     # AO
 
