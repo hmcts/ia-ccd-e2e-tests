@@ -230,5 +230,9 @@ Feature: Case progression - Judge
     And I switch to be a `Legal Rep`
     And I click the `Overview` tab
     Then I should only see the `appeal_allowed` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `The case has been decided. You can now view the decision and reasons in the documents tab.`
+    And I should see the text `What happens next`
+    And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
+    And I should see the text `You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
+    Then I should see the `apply for permission to appeal` link
+    And I click the `apply for permission to appeal` link
+    Then I should see the text `Apply for permission to appeal`

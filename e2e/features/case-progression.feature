@@ -1684,10 +1684,13 @@ Feature: Case progression
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_decided` case progress image
-    And I should see the text `The case has been decided. You can now view the decision and reasons in the documents tab.`
-    And I should see the text `Either party can appeal the decision by making an application to the Upper Tribunal. If you decide to appeal, you must do this within 14 days of the judge’s signature on the decision.`
-    And I should see the text `To submit an appeal, you will need to complete form IAFT-4: First-tier Tribunal Application for Permission to Appeal to Upper Tribunal.`
+    Then I should only see the `appeal_allowed` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
+    And I should see the text `You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
+    Then I should see the `apply for permission to appeal` link
+    And I click the `apply for permission to appeal` link
+    Then I should see the text `Apply for permission to appeal`
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
