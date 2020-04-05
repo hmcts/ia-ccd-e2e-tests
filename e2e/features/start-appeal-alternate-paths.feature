@@ -16,13 +16,19 @@ Feature: Start an appeal application alternate paths
     When I select `No` for the `Does the appellant have a fixed address?` field
     And I click the `Continue` button
 
-    # Start an appeal application with protection status revoked
-    Given I am on the `What type of decision is your client appealing against?` page
-    When I select `The revocation of a protection status` for the `Decision type` field
+     # Start an appeal application with mobile phone number
+    Given I am on the `The appellant's contact preference` page
+    When I select `Text message` for the `Communication Preference` field
+    And I type `07930111111` for the `Mobile phone number` field
     And I click the `Continue` button
 
-    Given I am on the `On which grounds will you build your appeal?` page
-    When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` label
+    # Start an appeal application with protection status revoked
+    Given I am on the `Type of appeal` page
+    When I select `Revocation of a protection status` for the `Type of appeal` field
+    And I click the `Continue` button
+
+    Given I am on the `The grounds of your appeal` page
+    When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations in relation to persons eligible for humanitarian protection` label
     And I click the `Continue` button
 
     # Start an appeal application with no new matters
@@ -43,7 +49,7 @@ Feature: Start an appeal application alternate paths
     And I should not see the `If you prefer to use your own reference number for this case, you can enter it here.` field
 
     When I click the `Appeal` tab
-    Then I should see `The revocation of a protection status` for the `Type of appeal` field
+    Then I should see `Revocation of a protection status` for the `Type of appeal` field
     And I should see `No` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
 
 
@@ -55,8 +61,9 @@ Feature: Start an appeal application alternate paths
     And I complete the `Home office details` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
-    And I complete the `What type of decision is your client appealing against?` page
-    And I complete the `On which grounds will you build your appeal?` page
+    And I complete the `The appellant's contact preference` page
+    And I complete the `Type of appeal` page
+    And I complete the `The grounds of your appeal` page
     And I complete the `New matters` page
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
@@ -75,8 +82,9 @@ Feature: Start an appeal application alternate paths
     And I skip the `Home office details` page by clicking `Continue`
     And I skip the `Basic details` page by clicking `Continue`
     And I skip the `Your client's address` page by clicking `Continue`
-    And I skip the `What type of decision is your client appealing against?` page by clicking `Continue`
-    And I skip the `On which grounds will you build your appeal?` page by clicking `Continue`
+    And I skip the `The appellant's contact preference` page by clicking `Continue`
+    And I skip the `Type of appeal` page by clicking `Continue`
+    And I skip the `The grounds of your appeal` page by clicking `Continue`
     And I skip the `New matters` page by clicking `Continue`
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
@@ -94,8 +102,9 @@ Feature: Start an appeal application alternate paths
     And I skip the `Home office details` page by clicking `Continue`
     And I skip the `Basic details` page by clicking `Continue`
     And I skip the `Your client's address` page by clicking `Continue`
-    And I skip the `What type of decision is your client appealing against?` page by clicking `Continue`
-    And I skip the `On which grounds will you build your appeal?` page by clicking `Continue`
+    And I skip the `The appellant's contact preference` page by clicking `Continue`
+    And I skip the `Type of appeal` page by clicking `Continue`
+    And I skip the `The grounds of your appeal` page by clicking `Continue`
     And I skip the `New matters` page by clicking `Continue`
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
