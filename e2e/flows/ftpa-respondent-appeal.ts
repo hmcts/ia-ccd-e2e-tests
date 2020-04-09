@@ -1,6 +1,6 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
 
-export class ApplyForPermissionToAppealFlow {
+export class FtpaRespondentAppealFlow {
 
     private ccdFormPage = new CcdFormPage();
 
@@ -22,7 +22,7 @@ export class ApplyForPermissionToAppealFlow {
 
         await this.ccdFormPage.setFieldValue(
             'Describe the document',
-            'The is the ftpa appeal grounds',
+            'This is the FTPA Respondent grounds',
             'text area',
             'first',
             'Grounds of the application',
@@ -32,8 +32,8 @@ export class ApplyForPermissionToAppealFlow {
         await this.ccdFormPage.addCollectionItem('Supporting evidence (Optional)');
 
         await this.ccdFormPage.setFieldValue(
-            'Document',
-            '{@FTPASupportingEvidence.pdf}',
+            'Document (Optional)',
+            '{@FTPARespondentEvidence.pdf}',
             'document',
             'first',
             'Supporting evidence',
@@ -41,8 +41,8 @@ export class ApplyForPermissionToAppealFlow {
         );
 
         await this.ccdFormPage.setFieldValue(
-            'Describe the document',
-            'The is the ftpa appeal supporting evidence',
+            'Describe the document (Optional)',
+            'This is the FTPA Respondent evidence',
             'text area',
             'first',
             'Supporting evidence',

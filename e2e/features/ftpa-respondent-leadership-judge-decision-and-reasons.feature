@@ -29,7 +29,7 @@ Feature: Leadership judge record the respondent decision and reasons
     And I prepare decision and reasons
     And I send decision and reasons
     And I switch to be a `Home Office POU`
-    And I apply for ftpa permission to appeal
+    And I apply for respondent FTPA
 
   @ftpa-respondent-leadership-judge-decision-granted @ftpa-respondent-leadership-judge-decision  @RIA-1434
   Scenario: FTPA respondent leadership judge decision - Granted
@@ -78,13 +78,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
@@ -94,13 +105,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
@@ -110,13 +132,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
@@ -126,13 +159,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Home Office Generic`
     And I click the `FTPA` tab
@@ -142,13 +186,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Legal Rep`
     And I click the `FTPA` tab
@@ -158,13 +213,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
   @ftpa-respondent-leadership-judge-decision-partially-granted @ftpa-respondent-leadership-judge-decision @RIA-1434
   Scenario: FTPA respondent leadership judge decision - Partially granted
@@ -213,13 +279,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
@@ -229,13 +306,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
@@ -245,13 +333,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
@@ -261,13 +360,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Home Office Generic`
     And I click the `FTPA` tab
@@ -277,13 +387,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Legal Rep`
     And I click the `FTPA` tab
@@ -293,13 +414,24 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And I should see the text `Tribunal Notes`
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should see the text `Respondent: Tribunal Notes`
     And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
   @ftpa-respondent-leadership-judge-decision-refused @ftpa-respondent-leadership-judge-decision @RIA-1434
   Scenario: FTPA respondent leadership judge decision - refused
@@ -335,11 +467,22 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
+    And I should not see the text `Respondent: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
@@ -349,11 +492,22 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
@@ -363,11 +517,22 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
@@ -377,11 +542,22 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Home Office Generic`
     And I click the `FTPA` tab
@@ -391,24 +567,40 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Legal Rep`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
+    And I should not see the text `Respondent: Decision on permission to appeal`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
-    And I should not see the `Decision date` field
+    And I should not see the text `Respondent: application for permission to appeal`
+    And I should not see the `Grounds of the application` field
+    And I should not see the `Supporting evidence` field
+    And I should not see the text `Respondent: Tribunal Notes`
 
     Then I click the `Documents` tab
-    And I should not see the `FTPA Appellant Decision and Reasons documents` field
+    And I should not see the `FTPA Respondent Decision and Reasons documents` field
+    And I should not see the `FTPA Respondent documents` field
 
 
-  @ftpa-respondent-leadership-judge-not-admitted @ftpa-respondent-leadership-judge-decision @RIA-1434
+  @ftpa-respondent-leadership-judge-decision-not-admitted @ftpa-respondent-leadership-judge-decision @RIA-1434
   Scenario: FTPA respondent leadership judge decision - Not admitted
     When I switch to be a Judge
     And I select the `Leadership judge FTPA decision` Next step
@@ -442,11 +634,22 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
@@ -456,11 +659,22 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
@@ -470,11 +684,22 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
@@ -484,11 +709,22 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Home Office Generic`
     And I click the `FTPA` tab
@@ -498,18 +734,74 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+    And I should see the text `Respondent: application for permission to appeal`
+    And within the `Grounds of the application` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
+    And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
 
     Then I click the `Documents` tab
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `FTPAAppealGrounds.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Description` field
+    And within the `FTPA Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `This is the FTPA Respondent evidence` in the `Description` field
+    And within the `FTPA Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Legal Rep`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
+    And I should not see the text `Respondent: Decision on permission to appeal`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
-    And I should not see the `Decision date` field
+    And I should not see the text `Respondent: application for permission to appeal`
+    And I should not see the `Grounds of the application` field
+    And I should not see the `Supporting evidence` field
+    And I should not see the text `Respondent: Tribunal Notes`
 
     Then I click the `Documents` tab
-    And I should not see the `FTPA Appellant Decision and Reasons documents` field
+    And I should not see the `FTPA Respondent Decision and Reasons documents` field
+    And I should not see the `FTPA Respondent documents` field
+
+    And I apply for appellant FTPA
+    Then I switch to be a Judge
+    And I select the `Leadership judge FTPA decision` Next step
+    And I am on the `Leadership judge FTPA decision` page
+    And I select Appellant for the applicant type
+
+    And I click the `Continue` button
+    And I select `Permission granted` for the `The outcome of the application` field
+    And I add an item to the `FTPA Decision and Reasons document` collection
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
+
+    When I click the `Continue` button
+    And I should see the text `Notes for the Upper Tribunal`
+    And I should see the text `Do not issue any case specific directions to the parties regarding the onward conduct`
+    And I should see the text `of the appeal in the Upper Tribunal. The Upper Tribunal will prepare and issue`
+    And I should see the text `standard directions in every case. You should refer the file to the Principal Resident`
+    And I should see the text `Judge of UTIAC if you believe further directions should be issued in advance of the`
+    And I should see the text `initial Upper Tribunal Hearing.`
+    And I click the `There is a point of special difficulty or importance` label
+    And I type `This is information to the upper tribunal` for the `Provide any information that may be helpful to the Upper Tribunal judge (Optional)` field
+
+    When I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `Appellant` in the `Who made the application?` field
+    And I should see `Permission granted` in the `The outcome of the application` field
+    And I should see `There is a point of special difficulty or importance` in the `Tick any applicable points` field
+    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` for the `Describe the document` field
+
+    When I click the `Submit` button
+    Then I should see the text `You've recorded the First-tier permission to appeal decision`
+    And I should see the text `What happens next`
+    And I should see the text `Both parties have been notified of the decision. The Upper Tribunal has also been`
+    And I should see the text `notified, and will now proceed with the case.`
+
+    When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
