@@ -1,6 +1,6 @@
 Feature: Journey type tag
 
-  @aip-case-progression @testing
+  @aip-case-progression
   Scenario: A Case officer sees Appellant in person tag on overview page
     Given An appellant has submitted an appeal
     And I am signed in as a `Case Officer`

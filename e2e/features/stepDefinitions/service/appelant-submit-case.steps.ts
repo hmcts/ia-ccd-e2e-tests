@@ -1,8 +1,9 @@
-import { Given } from 'cucumber';
+import { Given, Then } from 'cucumber';
 import { getS2sToken } from '../../../aip/s2s';
 import { CcdService, Events } from '../../../aip/ccd-service';
 import { createUser, getUserId, getUserToken } from '../../../aip/idam-service';
 import { CcdPage } from '../../../pages/ccd.page';
+import { expect } from 'chai';
 const iaConfig = require('../../../ia.conf');
 
 const ccdPage = new CcdPage();
@@ -19,9 +20,25 @@ Given(/^An appellant has submitted an appeal$/, async function () {
   await ccdService.updateAppeal(Events.SUBMIT_APPEAL, userId, caseDetails, securityHeaders);
 
   this.caseDetails = caseDetails;
+  this.userId = userId;
+  this.securityHeaders = securityHeaders;
 });
 
 Given(/^I am viewing the appellant's case$/, async function () {
   await ccdPage.get(`${ccdUrl}/case/IA/Asylum/${this.caseDetails.id}`);
   await ccdPage.contentContains('Immigration');
+});
+
+Given(/^the appellant submits their reasons for appeal$/, async function () {
+  const ccdService = new CcdService();
+
+  const ccdCaseDetails = await ccdService.loadCasesForUser(this.userId, this.securityHeaders);
+  const usersCase = ccdCaseDetails[0];
+  usersCase.case_data.reasonsForAppealDecision = 'a reason for appeal';
+
+  await ccdService.updateAppeal(Events.SUBMIT_REASONS_FOR_APPEAL, this.userId, usersCase, this.securityHeaders);
+});
+
+Then(/^I should see the appellants reasons for appeal$/, async function () {
+  expect(await ccdPage.isFieldValueDisplayed('Appeal Reasons', 'a reason for appeal')).to.equal(true);
 });
