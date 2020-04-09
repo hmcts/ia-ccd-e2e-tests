@@ -191,8 +191,7 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
     And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
     And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
-    And I should see the text `Home Office: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And I should not see the text `Home Office: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Home Office Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -227,8 +226,7 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
     And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
     And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
-    And I should see the text `Home Office: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And I should not see the text `Home Office: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Home Office Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -263,8 +261,7 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
     And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
     And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
-    And I should see the text `Home Office: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And I should not see the text `Home Office: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Home Office Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -445,8 +442,7 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
     And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
     And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
-    And I should see the text `Home Office: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And I should not see the text `Home Office: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Home Office Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -481,8 +477,7 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
     And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
     And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
-    And I should see the text `Home Office: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And I should not see the text `Home Office: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Home Office Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -517,8 +512,7 @@ Feature: Leadership judge record the respondent decision and reasons
     And within the `Grounds of the application` collection's first item, I should see `This is the FTPA Respondent grounds` in the `Describe the document` field
     And within the `Supporting evidence` collection's first item, I should see `FTPARespondentEvidence.pdf` in the `Document` field
     And within the `Supporting evidence` collection's first item, I should see `This is the FTPA Respondent evidence` in the `Describe the document` field
-    And I should see the text `Home Office: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And I should not see the text `Home Office: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Home Office Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
