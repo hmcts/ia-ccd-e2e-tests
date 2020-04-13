@@ -1,5 +1,7 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
 
+const isSaveAndContinueEnabled = require('../ia.conf').isSaveAndContinueEnabled === 'true';
+
 export class BuildCaseFlow {
 
     private ccdFormPage = new CcdFormPage();
@@ -40,10 +42,12 @@ export class BuildCaseFlow {
             'Evidence (Optional)',
             'first'
         );
-
         await this.ccdFormPage.click('Continue');
-        await this.ccdFormPage.click('Upload');
-
+        let buttonName = 'Submit Case';
+        if (isSaveAndContinueEnabled) {
+          buttonName = 'Upload';
+        }
+        await this.ccdFormPage.click(buttonName);
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
         }

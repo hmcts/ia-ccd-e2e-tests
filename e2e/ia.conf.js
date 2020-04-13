@@ -38,5 +38,7 @@ module.exports = {
   TestHomeOfficeGenericUserName: process.env.TEST_HOMEOFFICE_GENERIC_USERNAME,
   TestHomeOfficeGenericPassword: process.env.TEST_HOMEOFFICE_GENERIC_PASSWORD,
   TestJudgeUserName: process.env.TEST_JUDGE_X_USERNAME,
-  TestJudgePassword: process.env.TEST_JUDGE_X_PASSWORD
+  TestJudgePassword: process.env.TEST_JUDGE_X_PASSWORD,
+
+  isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false
 };
