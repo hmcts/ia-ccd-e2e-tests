@@ -71,7 +71,7 @@ Given(/^I skip the `?([^`]+)`? page by clicking `?([^`]+)`?$/, async function (p
     await ccdFormPage.click(buttonName);
 });
 
-Given('I save my initial appeal', async function () {
+Given('I save my initial appeal', { timeout: 180 * 2 * 1000 }, async function () {
     await startAppealFlow.saveAppeal(true);
 });
 
