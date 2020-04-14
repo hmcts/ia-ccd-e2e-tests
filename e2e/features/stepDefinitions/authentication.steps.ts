@@ -12,43 +12,43 @@ const ccdPage = new CcdPage();
 const idamSignInPage = new IdamSignInPage();
 const caseUrlMatcher = /^.*?\/cases\/case-details\/\d{16}/g;
 
-Given('I am not signed in', async function () {
+Given('I am not signed in', { timeout: 180 * 2 * 1000 }, async function () {
     await authenticationFlow.signOut();
 });
 
-Given(/^I am signed in as a `?Case (?:Officer|Worker)`?$/, async function () {
+Given(/^I am signed in as a `?Case (?:Officer|Worker)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await authenticationFlow.signInAsCaseOfficer();
 });
 
-Given(/^I am signed in as a `?(?:Admin Officer)`?$/, async function () {
+Given(/^I am signed in as a `?(?:Admin Officer)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await authenticationFlow.signInAsAdminOfficer();
 });
 
-Given(/^I am signed in as a `?(?:Home Office APC)`?$/, async function () {
+Given(/^I am signed in as a `?(?:Home Office APC)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await authenticationFlow.signInAsHomeOfficeApc();
 });
 
-Given(/^I am signed in as a `?(?:Home Office LART)`?$/, async function () {
+Given(/^I am signed in as a `?(?:Home Office LART)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await authenticationFlow.signInAsHomeOfficeLart();
 });
 
-Given(/^I am signed in as a `?(?:Home Office POU)`?$/, async function () {
+Given(/^I am signed in as a `?(?:Home Office POU)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await authenticationFlow.signInAsHomeOfficePou();
 });
 
-Given(/^I am signed in as a `?(?:Home Office Generic)`?$/, async function () {
+Given(/^I am signed in as a `?(?:Home Office Generic)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await authenticationFlow.signInAsHomeOfficeGeneric();
 });
 
-Given(/^I am signed in as a `?(?:Judge)`?$/, async function () {
+Given(/^I am signed in as a `?(?:Judge)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await authenticationFlow.signInAsJudge();
 });
 
-Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
+Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await authenticationFlow.signInAsLawFirmA();
 });
 
-Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, async function () {
+Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, { timeout: 180 * 2 * 1000 }, async function () {
     if (iaConfig.WaitForAngular) {
         await authenticationFlow.signInAsLawFirmB();
     } else {
@@ -56,7 +56,7 @@ Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? wit
     }
 });
 
-Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
+Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
@@ -65,7 +65,7 @@ Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
-Given(/^I switch to be a `?(?:Admin Officer)`?$/, async function () {
+Given(/^I switch to be a `?(?:Admin Officer)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
@@ -74,7 +74,7 @@ Given(/^I switch to be a `?(?:Admin Officer)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
-Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
+Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
@@ -83,7 +83,7 @@ Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function ()
     await ccdPage.get(caseUrl);
 });
 
-Given(/^I switch to be a `?(?:Home Office APC)`?$/, async function () {
+Given(/^I switch to be a `?(?:Home Office APC)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
@@ -92,7 +92,7 @@ Given(/^I switch to be a `?(?:Home Office APC)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
-Given(/^I switch to be a `?(?:Home Office LART)`?$/, async function () {
+Given(/^I switch to be a `?(?:Home Office LART)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
@@ -101,7 +101,7 @@ Given(/^I switch to be a `?(?:Home Office LART)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
-Given(/^I switch to be a `?(?:Home Office POU)`?$/, async function () {
+Given(/^I switch to be a `?(?:Home Office POU)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
@@ -110,7 +110,7 @@ Given(/^I switch to be a `?(?:Home Office POU)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
-Given(/^I switch to be a `?(?:Home Office Generic)`?$/, async function () {
+Given(/^I switch to be a `?(?:Home Office Generic)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
@@ -119,7 +119,7 @@ Given(/^I switch to be a `?(?:Home Office Generic)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
-Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
+Given(/^I switch to be a `?(?:Judge)`?$/, { timeout: 180 * 2 * 1000 }, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
@@ -130,7 +130,7 @@ Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
     await ccdPage.contentContains('Immigration');
 });
 
-Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {
+Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, { timeout: 180 * 2 * 1000 }, async function () {
     await idamSignInPage.waitUntilLoaded();
     expect(await ccdPage.isLoaded()).to.equal(false);
     expect(await idamSignInPage.isLoaded()).to.equal(true);
