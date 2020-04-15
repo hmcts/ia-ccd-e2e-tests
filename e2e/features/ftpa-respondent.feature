@@ -114,12 +114,12 @@ Feature: FTPA Respondent application to the Upper Tribunal
     ## Admin Officer
     When I switch to be a `Admin Officer`
     And I should see the `Overview` page
-    And I should see the image `appeal_allowed.png`
+    And I should see the image `ftpaInProgress.png`
     And I should see the text `Do this next`
-    And I should see the text `Record the attendees and duration of the hearing.`
-    Then I should see the `Record attendees and duration` link
-    And I click the `Record attendees and duration` link
-    And I should see the `Record attendees and duration` page
+    And I should see the text `Assign the application to a judge then record the judge's name.`
+    Then I should see the `record the judge's name` link
+    And I click the `record the judge's name` link
+    And I should see the `Record allocated Judge` page
     And I click the `Cancel` link
 
     When I click the `FTPA` tab
