@@ -193,8 +193,10 @@ Feature: Case progression - Admin Officer
     And I should see the text `Do this next`
     And I should see the text `Record the attendees and duration of the hearing.`
 
-    And I switch to be a `Admin Officer`
+    When I switch to be a `Case Officer`
     And I send decision and reasons
+
+    When I switch to be a `Admin Officer`
     And I click the `Overview` tab
     Then I should only see the `appeal_allowed` case progress image
     And I should see the text `Do this next`
@@ -212,3 +214,14 @@ Feature: Case progression - Admin Officer
 
     Then I should only see the `appeal_allowed` case progress image
     And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
+
+    When I switch to be a `Legal Rep`
+    And I submit FTPA appeal
+
+    When I switch to be a `Admin Officer`
+    And I click the `Overview` tab
+
+    Then I should see the image `ftpaInProgress.png`
+    And I should see the text `Do this next`
+    And I should see the text `Assign the application to a judge then record the judge's name.`
+    And I should see the `record the judge's name` link
