@@ -163,7 +163,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `Documents` page
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
-    And I should not see the text `Appellant: application for permission to appeal`
+    And I should not see the text `Appellant: Application for permission to appeal`
 
     ## Home Office LART
     When I switch to be a `Home Office LART`
@@ -177,7 +177,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `Documents` page
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
-    And I should not see the text `Appellant: application for permission to appeal`
+    And I should not see the text `Appellant: Application for permission to appeal`
 
     ## Home Office Generic
     When I switch to be a `Home Office Generic`
@@ -193,7 +193,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `Documents` page
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
-    And I should not see the text `Appellant: application for permission to appeal`
+    And I should not see the text `Appellant: Application for permission to appeal`
 
     ## Home Office POU
     When I switch to be a `Home Office POU`
