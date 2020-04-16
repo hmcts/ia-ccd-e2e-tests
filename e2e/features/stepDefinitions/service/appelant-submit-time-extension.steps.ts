@@ -48,3 +48,25 @@ When(/^I refuse the time extension$/, async function () {
 
   await ccdPage.click('Continue');
 });
+
+When(/^I approve the time extension$/, async function () {
+  const ccdFormPage = new CcdFormPage();
+
+  await ccdFormPage.setFieldValue(
+      'Decision',
+      'Application granted'
+  );
+  await ccdFormPage.setFieldValue(
+      'Reason for decision',
+      'decision reason',
+      'text area'
+  );
+
+  await ccdFormPage.setFieldValue(
+      'Due Date',
+      '{$TODAY}',
+      'Date'
+  );
+
+  await ccdPage.click('Continue');
+});
