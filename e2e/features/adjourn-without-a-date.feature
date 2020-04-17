@@ -1,6 +1,6 @@
 Feature: Adjourn hearing without a date
 
-  @RIA-2957 @david
+  @RIA-2957
   Scenario: Case Officer adjourns hearing without a date
 
     Given I am signed in as a `Legal Rep`
