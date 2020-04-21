@@ -75,7 +75,7 @@ Feature: Grounds of appeal
     And I should see the text `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention`
     And I should see the text `Revocation of the appellant's protection status breaches the United Kingdom's obligations in relation to persons eligible for humanitarian protection`
 
-  @regression @start-appeal @RIA-2733
+  @regression @start-appeal @RIA-2733 @RIA-2693
   Scenario: Grounds of appeal are captured for deprivation of citizenship type cases
 
     Given I am on the `Type of appeal` page
@@ -101,16 +101,26 @@ Feature: Grounds of appeal
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
-    And I click the `Close and Return to case details` button
-    And I am on the `DRAFT` page
-    And I click the `Appeal` tab
+    And I click the `Submit your appeal` link
+    Then I am on the `Submit your appeal` page
+    And I click the `I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.` label
+    And I click the `Continue` button
 
+    Then I click the `Submit` button
+    And I should see the text `What happens next`
+    And I should see the text `You will receive an email confirming that this appeal has been submitted successfully.`
+    And I click the `Close and Return to case details` button
+
+    When I click the `Appeal` tab
     Then I should see the text `Deprivation would have a disproportionate effect`
     And I should see the text `The decision is unlawful because discretion should have been exercised differently`
     And I should see the text `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998`
 
+    When I click the `Documents` tab
+    And I should see the `Documents` page
+    And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
 
-  @regression @start-appeal @RIA-2733
+  @regression @start-appeal @RIA-2733 @RIA-2693
   Scenario: Grounds of appeal are captured for EEA refusal type cases
 
     Given I am on the `Type of appeal` page
@@ -134,13 +144,24 @@ Feature: Grounds of appeal
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
-    And I click the `Close and Return to case details` button
-    And I am on the `DRAFT` page
-    And I click the `Appeal` tab
+    And I click the `Submit your appeal` link
+    Then I am on the `Submit your appeal` page
+    And I click the `I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.` label
+    And I click the `Continue` button
 
+    Then I click the `Submit` button
+    And I should see the text `What happens next`
+    And I should see the text `You will receive an email confirming that this appeal has been submitted successfully.`
+    And I click the `Close and Return to case details` button
+
+    And I click the `Appeal` tab
     And I should see the text `The decision breaches the appellant's rights under the EEA regulations / EU settlement scheme(in respect of entry to or residence in the United Kingdom)`
 
-  @regression @start-appeal @RIA-2733
+    When I click the `Documents` tab
+    And I should see the `Documents` page
+    And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
+
+  @regression @start-appeal @RIA-2733 @RIA-2693
   Scenario: Grounds of appeal are captured for human rights refusal type cases
 
     Given I am on the `Type of appeal` page
@@ -164,8 +185,19 @@ Feature: Grounds of appeal
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
-    And I click the `Close and Return to case details` button
-    And I am on the `DRAFT` page
-    And I click the `Appeal` tab
+    And I click the `Submit your appeal` link
+    Then I am on the `Submit your appeal` page
+    And I click the `I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.` label
+    And I click the `Continue` button
 
+    Then I click the `Submit` button
+    And I should see the text `What happens next`
+    And I should see the text `You will receive an email confirming that this appeal has been submitted successfully.`
+    And I click the `Close and Return to case details` button
+
+    And I click the `Appeal` tab
     And I should see the text `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998`
+
+    When I click the `Documents` tab
+    And I should see the `Documents` page
+    And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
