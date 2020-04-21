@@ -1,8 +1,6 @@
 Feature: Adjourn hearing without a date
 
-  @RIA-2957
-  Scenario: Case Officer adjourns hearing without a date
-
+  Background:
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I save my initial appeal
@@ -25,6 +23,9 @@ Feature: Adjourn hearing without a date
     And I switch to be a `Admin Officer`
     And I list the case
 
+
+  @RIA-2957 @RIA-2970
+  Scenario: Case Officer adjourns hearing without a date
     When I select the `Adjourn hearing without a date` Next step
     Then I am on the `Adjourn hearing without a date` page
     And I should see the text `Reasons for adjournment`
@@ -53,6 +54,10 @@ Feature: Adjourn hearing without a date
     Then I should see the `Hearing` page
     And I should see `Adjourned` for the `Hearing date and time` field
     And I should see `some reasons for adjournment` for the `Reasons for adjournment` field
+
+    When I click the `Documents` tab
+    Then within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
+    And within the `Hearing documents` collection's second item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
 
 
     
