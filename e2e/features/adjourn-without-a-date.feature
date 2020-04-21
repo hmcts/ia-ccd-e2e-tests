@@ -1,8 +1,6 @@
 Feature: Adjourn hearing without a date
 
-  @RIA-2957
-  Scenario: Case Officer adjourns hearing without a date
-
+  Background:
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I save my initial appeal
@@ -26,7 +24,7 @@ Feature: Adjourn hearing without a date
     And I list the case
 
 
-  @RIA-2957
+  @RIA-2957 @RIA-2970
   Scenario: Case Officer adjourns hearing without a date
     When I select the `Adjourn hearing without a date` Next step
     Then I am on the `Adjourn hearing without a date` page
