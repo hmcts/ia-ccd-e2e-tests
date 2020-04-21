@@ -8,7 +8,8 @@ const caseType = 'Asylum';
 const Events = {
   EDIT_APPEAL: { id: 'editAppeal', summary: 'Update appeal case AIP', description: 'Update appeal case AIP' },
   SUBMIT_APPEAL: { id: 'submitAppeal', summary: 'Submit Appeal case AIP', description: 'Submit Appeal case AIP' },
-  SUBMIT_REASONS_FOR_APPEAL: { id: 'submitReasonsForAppeal', summary: 'Submits Reasons for appeal case AIP', description: 'Submits Reasons for appeal case AIP' }
+  SUBMIT_REASONS_FOR_APPEAL: { id: 'submitReasonsForAppeal', summary: 'Submits Reasons for appeal case AIP', description: 'Submits Reasons for appeal case AIP' },
+  SUBMIT_TIME_EXTENSION: { id: 'submitTimeExtension', summary: 'Submit time extension AIP', description: 'Submit time extensions for case AIP' }
 };
 
 interface SecurityHeaders {
@@ -31,6 +32,8 @@ interface CaseData {
   submissionOutOfTime: 'Yes' | 'No';
   applicationOutOfTimeExplanation: string;
   reasonsForAppealDecision: string;
+  timeExtensions: TimeExtensionCollection[];
+  reviewTimeExtensionRequired?: 'Yes' | 'No';
 }
 
 interface Nationality {
@@ -83,6 +86,30 @@ interface SubmitEventData {
   data: Partial<CaseData>;
   event_token: string;
   ignore_warning: boolean;
+}
+
+interface TimeExtensionCollection {
+  id?: number;
+  value: TimeExtension;
+}
+
+interface TimeExtension {
+  reason: string;
+  evidence?: SupportingEvidenceCollection[];
+  status: string;
+  state: string;
+  requestedDate?: string;
+}
+
+interface SupportingEvidenceCollection {
+  id?: number;
+  value: SupportingDocument;
+}
+
+interface SupportingDocument {
+  document_url: string;
+  document_filename: string;
+  document_binary_url: string;
 }
 
 class CcdService {

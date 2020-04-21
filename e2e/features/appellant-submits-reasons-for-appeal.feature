@@ -1,6 +1,6 @@
 Feature: Submit reasons for appeal
 
-  @aip-case-progression @testing
+  @aip-case-progression
   Scenario: A Case officer can view and request the respondent views the reasons for appeal
     Given An appellant has submitted an appeal
     And I am signed in as a `Case Officer`
