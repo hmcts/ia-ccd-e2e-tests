@@ -1,12 +1,6 @@
 Feature: Adjourn hearing without a date
 
-<<<<<<< HEAD
   Background:
-=======
-  @RIA-2957
-  Scenario: Case Officer adjourns hearing without a date
-
->>>>>>> remove tag
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I save my initial appeal
