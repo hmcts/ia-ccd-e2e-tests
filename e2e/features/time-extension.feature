@@ -1,6 +1,6 @@
 Feature: Review time extension
 
-  @aip-case-progression @testing
+  @aip-case-progression
   Scenario: A Case officer can review an appellants time extension
     Given An appellant has submitted an appeal
     And I am signed in as a `Case Officer`
@@ -41,5 +41,6 @@ Feature: Review time extension
 
     When I click the `Submit` button
     Then I should see the text `has been updated with event: Review time extension`
+    And I should see `31 Dec 2018` for the `By what date must they comply?` answer
 
 
