@@ -29,7 +29,7 @@ Feature: All home office users overview appeal case-details documents directions
     And I start decision and reasons
     And I prepare decision and reasons
 
-  @regression @home-office-users-view-tabs @RIA-1356
+  @regression @home-office-users-view-tabs @RIA-1356 @RIA-2694
   Scenario Outline: Home office users should see the tabs
 
     When I switch to be a <homeOfficeUser>
@@ -85,15 +85,36 @@ Feature: All home office users overview appeal case-details documents directions
     When I click the `Directions` tab
     Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `Visit the online service and use the reference given in this email to find the case. You'll be able to submit the hearing requirements using the Overview tab.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. You'll be able to submit the hearing requirements using the Overview tab.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
-    And within the `Directions` collection's fifth item, I should see `You must now build your case by uploading your appeal argument and evidence.` in the `Explanation` field
-    And within the `Directions` collection's fifth item, I should see `Your argument must explain why you believe the respondent's decision is wrong. You must provide all the information for the Home Office to conduct a thorough review of their decision at this stage.` in the `Explanation` field
-    And within the `Directions` collection's fifth item, I should see `Once you have uploaded your appeal argument and all evidence, submit your case. The case officer will then review everything you've added. If your case looks ready, the case officer will send it to the respondent for their review. The respondent then has 14 days to respond.` in the `Explanation` field
+
+    And within the `Directions` collection's fourth item, I should see `You have 14 days to review the Appeal Skeleton Argument and evidence. You must explain whether the appellant makes a valid case for overturning the original decision.` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `You must respond to the Tribunal and tell them:` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `- whether you oppose all or parts of the appellant's case` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `- what your grounds are for opposing the case` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `- which of the issues are agreed or not agreed` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `- whether there are any further issues you wish to raise` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `- whether you are prepared to withdraw to grant` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `- whether the appeal can be resolved without a hearing` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `If you do not respond in time the Tribunal will decide how the case should proceed.` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `Respondent` for the `Parties` field
+    And within the `Directions` collection's fourth item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
+
+    And within the `Directions` collection's fifth item, I should see `You must now build your case to enable the respondent to conduct a thorough review of their decision.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `You have 28 days after the respondent’s bundle is provided, or 42 days after the Notice of Appeal, whichever is the later, to upload your Appeal Skeleton Argument and evidence.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `Your Appeal Skeleton Argument must be set out in three distinct parts to include:` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `- a concise summary of the appellant’s case` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `- a schedule of issues` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `- why those issues should be resolved in the appellant’s favour, by reference to the evidence you have (or plan to have) and any legal authorities you rely upon` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `Once you've uploaded your Appeal Skeleton Argument and evidence, you should submit your case. The Tribunal Caseworker will review everything you've added.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `If your case looks ready, the Tribunal will send it to the respondent to review.` in the `Explanation` field
     And within the `Directions` collection's fifth item, I should see `Legal representative` for the `Parties` field
-    And within the `Directions` collection's fifth item, I should see `{$TODAY+28|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's fifth item, I should see `{$TODAY+42|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's fifth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
 

@@ -9,7 +9,7 @@ Feature: Request case edit
     And I request respondent evidence
     And I switch to be a `Home Office APC`
 
-  @regression @request-case-building @RIA-1789
+  @regression @request-case-building @RIA-1789 @RIA-2694
   Scenario: Send direction to appellant for building their case
 
     When I click the `Overview` tab
@@ -37,15 +37,15 @@ Feature: Request case edit
 
     And I click the `direct the legal representative to build their case` link
     Then I am on the `Request case building` page
-    And I should see `You must now build your case by uploading your Appeal Skeleton Argument and evidence. You have 28 days from the date of this email to complete this.` in the `Explain the direction you are issuing` field
+    And I should see `You must now build your case to enable the respondent to conduct a thorough review of their decision.` in the `Explain the direction you are issuing` field
     And I should see `Legal representative` for the `Who are you giving the direction to?` field
-    And I should see `{$TODAY+28}` for the `By what date must they comply?` field
+    And I should see `{$TODAY+42}` for the `By what date must they comply?` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `You must now build your case by uploading your Appeal Skeleton Argument and evidence.` in the `Explain the direction you are issuing` field
+    And I should see `You must now build your case to enable the respondent to conduct a thorough review of their decision.` in the `Explain the direction you are issuing` field
     And I should see `Legal representative` for the `Who are you giving the direction to?` field
-    And I should see `{$TODAY+28|D MMM YYYY}` for the `By what date must they comply?` field
+    And I should see `{$TODAY+42|D MMM YYYY}` for the `By what date must they comply?` field
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
@@ -55,9 +55,9 @@ Feature: Request case edit
     When I click the `Close and Return to case details` button
     Then I click the `Directions` tab
     And I should see the `Directions` page
-    And within the `Directions` collection's first item, I should see `You must now build your case by uploading your Appeal Skeleton Argument and evidence.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You must now build your case to enable the respondent to conduct a thorough review of their decision.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
-    And within the `Directions` collection's first item, I should see `{$TODAY+28|D MMM YYYY} in the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+42|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
 
     When I switch to be a `Legal Rep`

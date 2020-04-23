@@ -14,7 +14,7 @@ Feature: Add respondent response
     And I switch to be a `Case Officer`
     And I request respondent review
 
-  @regression @create-direction @RIA-697 @RIA-237
+  @regression @create-direction @RIA-697 @RIA-237 @RIA-2694
   Scenario: Uploading respondent response adds documents and a new direction
 
     When I select the `Add appeal response` Next step
@@ -53,8 +53,8 @@ Feature: Add respondent response
 
     When I click the `Directions` tab
     Then I should see the `Directions` page
-    And within the `Directions` collection's first item, I should see `The respondent has replied to your appeal argument and evidence. You must now review their response.` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `You have 5 days to review the response.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You have 5 days to review the Home Office response.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
