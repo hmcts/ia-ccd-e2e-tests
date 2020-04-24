@@ -12,7 +12,7 @@ Feature: Overview tab
     And the `Appeal reference` field should be 13 characters long
 #    the check below is blocked by CCD bug: https://tools.hmcts.net/jira/browse/RIA-980
 #    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field
-    And I should see `The refusal of a protection claim` for the `Type of appeal` field
+    And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `José González` for the `Appellant` field
     And within the `Appellant nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `31 Dec 1999` for the `Date of birth` field
@@ -23,7 +23,7 @@ Feature: Overview tab
     And the `Appeal reference` field should be 13 characters long
 #    the check below is blocked by CCD bug: https://tools.hmcts.net/jira/browse/RIA-980
 #    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field
-    And I should see `The refusal of a protection claim` for the `Type of appeal` field
+    And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `José González` for the `Appellant` field
     And within the `Appellant nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `31 Dec 1999` for the `Date of birth` field

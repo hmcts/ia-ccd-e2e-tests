@@ -22,12 +22,17 @@ Feature: Edit appeal application
     Given I am on the `Your client's address` page
     And I click the `Continue` button
 
-    Given I am on the `What type of decision is your client appealing against?` page
-    When I select `The revocation of a protection status` for the `Decision type` field
+    Given I am on the `The appellant's contact preference` page
+    When I select `Text message` for the `Communication Preference` field
+    And I type `07930111111` for the `Mobile phone number` field
     And I click the `Continue` button
 
-    Given I am on the `On which grounds will you build your appeal?` page
-    When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` label
+    Given I am on the `Type of appeal` page
+    When I select `Revocation of a protection status` for the `Type of appeal` field
+    And I click the `Continue` button
+
+    Given I am on the `The grounds of your appeal` page
+    When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations in relation to persons eligible for humanitarian protection` label
     And I click the `Continue` button
 
     Given I am on the `New matters` page
@@ -48,7 +53,9 @@ Feature: Edit appeal application
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
     And I should see `No` for the `Does the appellant have a fixed address?` answer
-    And I should see `The revocation of a protection status` for the `Decision type` answer
+    And I should see `Text message` for the `Communication Preference` answer
+    And I should see `07930111111` for the `Mobile phone number` answer
+    And I should see `Refusal of protection claim` for the `Type of appeal` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer
@@ -72,8 +79,10 @@ Feature: Edit appeal application
     And I should see `José` for the `Given names` field
     And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` field
+    #And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `No` for the `Does the appellant have a fixed address?` field
+    And I should see `Text message` for the `Communication Preference` field
+    And I should see `07930111111` for the `Mobile phone number` field
     And I should see `Stephen Fenn` for the `Name` field
     And I should see `IA Legal Services` for the `Company` field
     And I should see `ia-legal-fenn` for the `Legal representative reference` field
@@ -86,8 +95,8 @@ Feature: Edit appeal application
     And I should see `DRAFT` for the `Appeal reference` field
     And I should see `José González` for the `Appellant` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` field
-    And I should see `The revocation of a protection status` for the `Type of appeal` field
+    #And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` field
+    And I should see `Revocation of a protection status` for the `Type of appeal` field
     ### Possible Bug ###
     ### Why do we not see the full B123445/999 reference number after submit or edit ###
     And I should see `B123456` for the `Home Office reference` field
@@ -99,7 +108,7 @@ Feature: Edit appeal application
     When I click the `Appeal` tab
     Then I should see `DRAFT` for the `Appeal reference` field
     And I should see `José González` for the `Appellant` field
-    And I should see `The revocation of a protection status` for the `Type of appeal` field
+    And I should see `Refusal of protection claim` for the `Type of appeal` field
     #And I should see `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
