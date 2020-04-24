@@ -9,8 +9,7 @@ Feature: Start an appeal application screening questions
 
     Given I am on the `Tell us about your client` page
     And the `Continue` button is disabled
-    When I click the `My client is at least 18 years old` label
-    And I click the `My client is not currently in detention` label
+    When I click the `My client is not currently in detention` label
     And I click the `My client isn't appealing with other people as part of a family appeal` label
     Then the `Continue` button is disabled
     And I click the `My client is presently in the UK` label
