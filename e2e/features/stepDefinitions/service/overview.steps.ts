@@ -139,7 +139,8 @@ Then(/^I should see the `?([^\s`]+)`? image$/, async function (imageName) {
     const imageSources =
         (await ccdPage.getDisplayedImageSources())
             .map(src => (src + ''))
-            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_'));
+            .filter(src => src.includes('/caseOfficer_') || src.includes('/legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_')
+                || src.includes('/caseFlag'));
 
     expect(imageSources.some(src => src.includes('/' + imageName))).to.equal(true);
 });
