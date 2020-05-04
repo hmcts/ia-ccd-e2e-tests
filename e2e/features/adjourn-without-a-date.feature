@@ -24,7 +24,7 @@ Feature: Adjourn hearing without a date
     And I list the case
 
 
-  @RIA-2957 @RIA-2970
+  @RIA-2957 @RIA-2970 @RIA-2958
   Scenario: Case Officer adjourns hearing without a date
     When I select the `Adjourn hearing without a date` Next step
     Then I am on the `Adjourn hearing without a date` page
@@ -59,7 +59,38 @@ Feature: Adjourn hearing without a date
     Then within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Hearing documents` collection's second item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
 
+    When I switch to be a `Admin Officer`
+    Then I should only see the `caseOfficer_hearing_adjourned` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
+    And I should see `Adjourned` for the `Hearing date and time` field
 
-    
+    When I switch to be a `Legal Rep`
+    Then I should only see the `caseOfficer_hearing_adjourned` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
+    And I should see `Adjourned` for the `Hearing date and time` field
 
-    
+    When I switch to be a `Home Office APC`
+    Then I should only see the `caseOfficer_hearing_adjourned` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
+    And I should see `Adjourned` for the `Hearing date and time` field
+
+    When I switch to be a `Home Office LART`
+    Then I should only see the `caseOfficer_hearing_adjourned` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
+    And I should see `Adjourned` for the `Hearing date and time` field
+
+    When I switch to be a `Home Office POU`
+    Then I should only see the `caseOfficer_hearing_adjourned` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
+    And I should see `Adjourned` for the `Hearing date and time` field
+
+    When I switch to be a `Judge`
+    Then I should only see the `caseOfficer_hearing_adjourned` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
+    And I should see `Adjourned` for the `Hearing date and time` field
