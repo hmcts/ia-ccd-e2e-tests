@@ -1,6 +1,6 @@
 Feature: Submit reasons for appeal
 
-  @aip-case-progression
+  @aip-case-progression @testing
   Scenario: A Case officer can view and request the respondent views the reasons for appeal
     Given An appellant has submitted an appeal
     And I am signed in as a `Case Officer`
@@ -30,24 +30,24 @@ Feature: Submit reasons for appeal
     And I should see the text `If you don't think it is ready, you should direct the appellant to answer clarifying questions or attend a case management appointment.`
 
     When I click the `directions tab` link
-    Then I should see the `Direct the appellant to answer clarifying questions` link
-    When I click the `Direct the appellant to answer clarifying questions` link
-    Then I should see the text `Direct the appellant to answer clarifying questions`
-    When I add an item to the `Questions` collection
-    And within the `Questions` collection's first item, I type `Question 1` for the `Question` field
+    Then I should see the `Direct the appellant to submit requirements for a case management appointment` link
+    When I click the `Direct the appellant to submit requirements for a case management appointment` link
+    Then I should see the text `Direct the appellant to submit requirements for a case management appointment`
+    When I type `Reasons for CMA` for the `Reasons for appointment` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `{$TODAY+28|D MMM YYYY}` for the `By what date must they comply?` answer
-    When I click the `Submit` button
-    Then I should see the text `The appellant will be directed to answer the questions. You will be notified when they are ready to review.`
+    And I should see `Reasons for CMA` for the `Reasons for appointment` answer
+    And I should see `{$TODAY+7|D MMM YYYY}` for the `By what date must they comply?` answer
+    When I click the `Send direction` button
+    Then I should see the text `The appellant will be directed to submit requirements for a case management appointment. You will be notified when they are ready to review.`
     When I click the `Close and Return to case details` button
-    Then I should see the text `The appellant has been directed to answer clarifying questions. You will be notified when their answers are ready to review.`
+    Then I should see the text `The appellant will be directed to submit requirements for a case management appointment. You will be notified when they are ready to review.`
 
     When I click the `Directions` tab
     Then I should see the `Directions` field
-    And within the `Directions` collection's first item, I should see `You need to answer some questions about your appeal.` for the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You need to attend a case management appointment. This is a meeting with a Tribunal Caseworker to talk about your appeal. A Home Office representative may also be at the meeting.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Reasons for CMA` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Appellant` for the `Parties` field
-    And within the `Directions` collection's first item, I should see `{$TODAY+28|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+7|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
-    And within the `Directions` collection's first item, I should see `Question 1` in the `Question` field
 
