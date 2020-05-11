@@ -115,12 +115,12 @@ Feature: FTPA Appellant application to the Upper Tribunal
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_allowed.png`
+    And I should see the image `ftpaInProgress.png`
     And I should see the text `Do this next`
-    And I should see the text `Record the attendees and duration of the hearing.`
-    Then I should see the `Record attendees and duration` link
-    And I click the `Record attendees and duration` link
-    And I should see the `Record attendees and duration` page
+    And I should see the text `Assign the application to a judge then record the judge's name.`
+    Then I should see the `record the judge's name` link
+    And I click the `record the judge's name` link
+    And I should see the `Record allocated Judge` page
     And I click the `Cancel` link
 
     When I click the `FTPA` tab
@@ -163,7 +163,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `Documents` page
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
-    And I should not see the text `Appellant: application for permission to appeal`
+    And I should not see the text `Appellant: Application for permission to appeal`
 
     ## Home Office LART
     When I switch to be a `Home Office LART`
@@ -177,7 +177,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `Documents` page
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
-    And I should not see the text `Appellant: application for permission to appeal`
+    And I should not see the text `Appellant: Application for permission to appeal`
 
     ## Home Office Generic
     When I switch to be a `Home Office Generic`
@@ -193,7 +193,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `Documents` page
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
-    And I should not see the text `Appellant: application for permission to appeal`
+    And I should not see the text `Appellant: Application for permission to appeal`
 
     ## Home Office POU
     When I switch to be a `Home Office POU`

@@ -18,7 +18,7 @@ Then(/^I should (see|not see) the appeal details$/, async function (seeOrNotSee)
 
         expect(referenceNumberIsDraft || referenceNumberIsCorrectLength).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Appellant', 'José González')).to.equal(true);
-        expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'The refusal of a protection claim')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'Refusal of protection claim')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Grounds of appeal', 'Removing the appellant from the UK would breach the UK\'s obligation under the Refugee Convention')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Explain these new matters and their relevance to the appeal', 'Birth of a child')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Previous appeals', 'No')).to.equal(true);

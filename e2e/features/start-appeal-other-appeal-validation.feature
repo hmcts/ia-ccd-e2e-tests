@@ -15,8 +15,9 @@ Feature: Other Appeal Numbers are validated
     And I complete the `Home office details` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
-    And I complete the `What type of decision is your client appealing against?` page
-    And I complete the `On which grounds will you build your appeal?` page
+    And I complete the `The appellant's contact preference` page
+    And I complete the `Type of appeal` page
+    And I complete the `The grounds of your appeal` page
     And I complete the `New matters` page
     And I am on the `Has your client appealed against any other UK immigration decisions?` page
     And I select `Yes` for the `Other appeals` field

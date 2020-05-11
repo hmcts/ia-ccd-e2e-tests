@@ -31,13 +31,18 @@ Given('I complete the `Your client\'s address` page', async function () {
     await startAppealFlow.completeClientAddress(true);
 });
 
-Given('I complete the `What type of decision is your client appealing against?` page', async function () {
-    expect(await ccdFormPage.headingContains('What type of decision is your client appealing against?')).to.equal(true);
-    await startAppealFlow.whatTypeOfDecisionIsYourClientAppealingAgainst(true);
+Given('I complete the `The appellant\'s contact preference` page', async function () {
+    expect(await ccdFormPage.headingContains('The appellant\'s contact preference')).to.equal(true);
+    await startAppealFlow.completeContactPreference(true);
 });
 
-Given('I complete the `On which grounds will you build your appeal?` page', async function () {
-    expect(await ccdFormPage.headingContains('On which grounds will you build your appeal?')).to.equal(true);
+Given('I complete the `Type of appeal` page', async function () {
+    expect(await ccdFormPage.headingContains('Type of appeal')).to.equal(true);
+    await startAppealFlow.completeAppealType(true);
+});
+
+Given('I complete the `The grounds of your appeal` page', async function () {
+    expect(await ccdFormPage.headingContains('The grounds of your appeal')).to.equal(true);
     await startAppealFlow.completeAppealGrounds(true);
 });
 

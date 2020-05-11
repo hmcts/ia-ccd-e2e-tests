@@ -6,7 +6,6 @@ export class StartAppealFlow {
 
     async completeScreeningQuestions(clickContinue = false) {
 
-        await this.ccdFormPage.click('My client is at least 18 years old');
         await this.ccdFormPage.click('My client is not currently in detention');
         await this.ccdFormPage.click('My client isn\'t appealing with other people as part of a family appeal');
         await this.ccdFormPage.click('My client is presently in the UK');
@@ -68,9 +67,18 @@ export class StartAppealFlow {
         }
     }
 
-    async whatTypeOfDecisionIsYourClientAppealingAgainst(clickContinue = false) {
+    async completeContactPreference(clickContinue = false) {
 
-        await this.ccdFormPage.setFieldValue('Decision type', 'The refusal of a protection claim');
+        await this.ccdFormPage.setFieldValue('Communication Preference', 'Text message');
+        await this.ccdFormPage.setFieldValue('Mobile phone number', '07977111111');
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeAppealType(clickContinue = false) {
+
+        await this.ccdFormPage.setFieldValue('Type of appeal', 'Refusal of protection claim');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -145,7 +153,8 @@ export class StartAppealFlow {
         await this.completeHomeOfficeReference(true);
         await this.completeBasicDetails(true);
         await this.completeClientAddress(true, hasFixedAddress, address, postcode);
-        await this.whatTypeOfDecisionIsYourClientAppealingAgainst(true);
+        await this.completeContactPreference(true);
+        await this.completeAppealType(true);
         await this.completeAppealGrounds(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -162,7 +171,8 @@ export class StartAppealFlow {
         await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
         await this.completeBasicDetails(true);
         await this.completeClientAddress(true);
-        await this.whatTypeOfDecisionIsYourClientAppealingAgainst(true);
+        await this.completeContactPreference(true);
+        await this.completeAppealType(true);
         await this.completeAppealGrounds(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
