@@ -288,4 +288,8 @@ export class AnyPage {
             await browser.sleep(Wait.minimal);
         }
     }
+
+    async refresh() {
+        browser.refresh();
+    }
 }

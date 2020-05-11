@@ -9,7 +9,8 @@ const Events = {
   EDIT_APPEAL: { id: 'editAppeal', summary: 'Update appeal case AIP', description: 'Update appeal case AIP' },
   SUBMIT_APPEAL: { id: 'submitAppeal', summary: 'Submit Appeal case AIP', description: 'Submit Appeal case AIP' },
   SUBMIT_REASONS_FOR_APPEAL: { id: 'submitReasonsForAppeal', summary: 'Submits Reasons for appeal case AIP', description: 'Submits Reasons for appeal case AIP' },
-  SUBMIT_TIME_EXTENSION: { id: 'submitTimeExtension', summary: 'Submit time extension AIP', description: 'Submit time extensions for case AIP' }
+  SUBMIT_TIME_EXTENSION: { id: 'submitTimeExtension', summary: 'Submit time extension AIP', description: 'Submit time extensions for case AIP' },
+  SUBMIT_CLARIFYING_QUESTION_ANSWERS: { id: 'submitClarifyingQuestionAnswers', summary: 'Submit clarifying question answers', description: 'Submit clarifying question answers' }
 };
 
 interface SecurityHeaders {
@@ -34,6 +35,7 @@ interface CaseData {
   reasonsForAppealDecision: string;
   timeExtensions: TimeExtensionCollection[];
   reviewTimeExtensionRequired?: 'Yes' | 'No';
+  clarifyingQuestionsAnswers?: ClarifyingQuestion[];
 }
 
 interface Nationality {
@@ -110,6 +112,14 @@ interface SupportingDocument {
   document_url: string;
   document_filename: string;
   document_binary_url: string;
+}
+
+interface ClarifyingQuestion {
+  id: string;
+  value: {
+    question: string;
+    answer?: string;
+  }
 }
 
 class CcdService {

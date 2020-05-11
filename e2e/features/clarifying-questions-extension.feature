@@ -51,3 +51,11 @@ Feature: Submit reasons for appeal
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
     And within the `Directions` collection's first item, I should see `Question 1` in the `Question` field
 
+    When the appellant submits clarifying answers
+    And I click the `Appeal` tab
+    And I refresh the page
+    Then I should see the `Clarifying Questions and Answers` field
+    And within the `Clarifying Questions and Answers` collection's first item, I should see `Question 1` for the `Question` field
+    And within the `Clarifying Questions and Answers` collection's first item, I should see `Answer 1` for the `Answer` field
+
+
