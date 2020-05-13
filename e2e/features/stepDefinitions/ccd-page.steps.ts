@@ -79,6 +79,10 @@ When(/^I click the `?(first|second|third|)`?\s`?([^`]+)`? (?:button|link|tab|lab
     await ccdPage.click(linkText, xpathIndex);
 });
 
+When(/^I refresh the page$/, async function() {
+    await ccdPage.refresh();
+});
+
 Then(/^I should (see|not see) the `?(first|second|third|)`?\s?(?:answer|field) without a label$/,
     async function (
         seeOrNotSee,
