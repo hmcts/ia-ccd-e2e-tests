@@ -8,7 +8,7 @@ Feature: Upload respondent evidence
     And I switch to be a `Case Officer`
     And I request respondent evidence
 
-  @regression @create-direction @RIA-700 @RIA-592 @RIA-2034
+  @regression @create-direction @RIA-700 @RIA-592 @RIA-2034 @RIA-2694
   Scenario: Uploading respondent evidence adds documents and a new direction
 
     When I select the `Upload respondent evidence` Next step
@@ -40,11 +40,16 @@ Feature: Upload respondent evidence
 
     When I click the `Directions` tab
     Then I should see the `Directions` page
-    And within the `Directions` collection's first item, I should see `You must now build your case` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `You must write a full argument` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `The respondent then has 14 days to respond` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You must now build your case to enable the respondent to conduct a thorough review of their decision` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You have 28 days after the respondent’s bundle is provided, or 42 days after the Notice of Appeal, whichever is the later, to upload your Appeal Skeleton Argument and evidence` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Your Appeal Skeleton Argument must be set out in three distinct parts to include:` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `- a concise summary of the appellant’s case` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `- a schedule of issues` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `- why those issues should be resolved in the appellant’s favour, by reference to the evidence you have (or plan to have) and any legal authorities you rely upon` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Once you've uploaded your Appeal Skeleton Argument and evidence, you should submit your case. The Tribunal Caseworker will review everything you've added` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If your case looks ready, the Tribunal will send it to the respondent to review` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
-    And within the `Directions` collection's first item, I should see `{$TODAY+28|D MMM YYYY}` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+42|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
   @RIA-1287

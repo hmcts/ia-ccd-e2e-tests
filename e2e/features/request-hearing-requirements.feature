@@ -14,8 +14,9 @@ Feature: Request hearing requirements
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
+    And I request appellant review
 
-  @regression @create-direction @RIA-385 @RIA-1784
+  @regression @create-direction @RIA-385 @RIA-1784 @RIA-2694
   Scenario: Request hearing requirements
 
     When I select the `Request hearing requirements` Next step
@@ -31,9 +32,10 @@ Feature: Request hearing requirements
 
     When I click the `Directions` tab
     Then I should see the `Directions` page
-    And within the `Directions` collection's first item, I should see `Your appeal is going to a hearing.` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `The case officer will review your hearing requirements and try to accommodate them.` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not supply your hearing requirements within 5 days` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. You'll be able to submit the hearing requirements using the Overview tab.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

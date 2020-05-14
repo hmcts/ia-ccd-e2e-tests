@@ -13,25 +13,38 @@ Feature: Request respondent evidence
     And I submit my case
     And I switch to be a `Case Officer`
 
-  @regression @create-direction @RIA-435
+  @regression @create-direction @RIA-435 @RIA-2694
   Scenario: Request respondent review
 
     When I select the `Request respondent review` Next step
     Then I am on the `Request respondent review` page
-    And I should see `You must now review this case.` in the `Explain the direction you are issuing` field
-    And I should see `You have 14 days to review` in the `Explain the direction you are issuing` field
-    And I should see `You must explain whether the appellant's appeal argument makes a valid case` in the `Explain the direction you are issuing` field
+    And I should see `You have 14 days to review the Appeal Skeleton Argument and evidence` in the `Explain the direction you are issuing` field
+    And I should see `You must explain whether the appellant makes a valid case for overturning the original decision` in the `Explain the direction you are issuing` field
+    And I should see `You must respond to the Tribunal and tell them:` in the `Explain the direction you are issuing` field
+    And I should see `- whether you oppose all or parts of the appellant's case` in the `Explain the direction you are issuing` field
+    And I should see `- what your grounds are for opposing the case` in the `Explain the direction you are issuing` field
+    And I should see `- which of the issues are agreed or not agreed` in the `Explain the direction you are issuing` field
+    And I should see `- whether there are any further issues you wish to raise` in the `Explain the direction you are issuing` field
+    And I should see `- whether you are prepared to withdraw to grant` in the `Explain the direction you are issuing` field
+    And I should see `- whether the appeal can be resolved without a hearing` in the `Explain the direction you are issuing` field
+    And I should see `If you do not respond in time the Tribunal will decide how the case should proceed` in the `Explain the direction you are issuing` field
     And I should see `Respondent` for the `Who are you giving the direction to?` field
     And I should see `{$TODAY+14}` for the `By what date must they comply?` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `You must now review this case.` in the `Explain the direction you are issuing` field
-    And I should see `You have 14 days to review` in the `Explain the direction you are issuing` field
-    And I should see `You must explain whether the appellant's appeal argument makes a valid case` in the `Explain the direction you are issuing` field
+    And I should see `You have 14 days to review the Appeal Skeleton Argument and evidence` in the `Explain the direction you are issuing` field
+    And I should see `You must explain whether the appellant makes a valid case for overturning the original decision` in the `Explain the direction you are issuing` field
+    And I should see `You must respond to the Tribunal and tell them:` in the `Explain the direction you are issuing` field
+    And I should see `- whether you oppose all or parts of the appellant's case` in the `Explain the direction you are issuing` field
+    And I should see `- what your grounds are for opposing the case` in the `Explain the direction you are issuing` field
+    And I should see `- which of the issues are agreed or not agreed` in the `Explain the direction you are issuing` field
+    And I should see `- whether there are any further issues you wish to raise` in the `Explain the direction you are issuing` field
+    And I should see `- whether you are prepared to withdraw to grant` in the `Explain the direction you are issuing` field
+    And I should see `- whether the appeal can be resolved without a hearing` in the `Explain the direction you are issuing` field
+    And I should see `If you do not respond in time the Tribunal will decide how the case should proceed` in the `Explain the direction you are issuing` field
     And I should see `Respondent` for the `Who are you giving the direction to?` field
     And I should see `{$TODAY+14|D MMM YYYY}` for the `By what date must they comply?` field
-
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
     Then I should see the text `What happens next`
@@ -41,9 +54,16 @@ Feature: Request respondent evidence
     #And I see the open case
     And I click the `Directions` tab
     Then I should see the `Directions` page
-    And within the `Directions` collection's first item, I should see `You must now review this case.` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `You have 14 days to review` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `You must explain whether the appellant's appeal argument makes a valid case` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You have 14 days to review the Appeal Skeleton Argument and evidence` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You must explain whether the appellant makes a valid case for overturning the original decision` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You must respond to the Tribunal and tell them:` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `- whether you oppose all or parts of the appellant's case` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `- what your grounds are for opposing the case` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `- which of the issues are agreed or not agreed` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `- whether there are any further issues you wish to raise` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `- whether you are prepared to withdraw to grant` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `- whether the appeal can be resolved without a hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not respond in time the Tribunal will decide how the case should proceed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
