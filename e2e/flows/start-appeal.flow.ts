@@ -6,10 +6,10 @@ export class StartAppealFlow {
 
     async completeScreeningQuestions(clickContinue = false) {
 
-      await this.ccdFormPage.click('My client is living in the UK');
-      await this.ccdFormPage.click('My client is not in detention');
-      await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
-      await this.ccdFormPage.click('My client is not appealing with anyone else as part of a linked or grouped appeal');
+        await this.ccdFormPage.click('My client is living in the UK');
+        await this.ccdFormPage.click('My client is not in detention');
+        await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
+        await this.ccdFormPage.click('My client is not appealing with anyone else as part of a linked or grouped appeal');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
