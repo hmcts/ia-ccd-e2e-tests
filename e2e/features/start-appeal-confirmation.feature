@@ -15,7 +15,7 @@ Feature: Start appeal shows confirmation when saved
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
 
-  @regression @start-appeal @alternate @start-appeal-confirmation
+  @regression @start-appeal @alternate @start-appeal-confirmation @wip
   Scenario: Confirmation page is displayed when saved
 
     Then I should see the text `Appeal saved`
