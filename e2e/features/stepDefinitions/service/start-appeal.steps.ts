@@ -75,6 +75,14 @@ Given('I save my initial appeal', async function () {
     await startAppealFlow.saveAppeal(true);
 });
 
+Given('I save my initial appeal no fee with DeprivationCitizenship', async function () {
+    await startAppealFlow.saveAppealWithDeprivationCitizenship(true);
+});
+
+Given('I save my initial appeal no fee with RevocationProtection', async function () {
+    await startAppealFlow.saveAppealWithRevocationProtection(true);
+});
+
 Given('I save my initial appeal with out of time decision letter', async function () {
     await startAppealFlow.saveOutOfTimeAppeal(true);
 });

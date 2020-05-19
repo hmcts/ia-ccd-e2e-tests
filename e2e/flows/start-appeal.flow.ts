@@ -86,9 +86,45 @@ export class StartAppealFlow {
         }
     }
 
+    async completeAppealTypeDeprivation(clickContinue = false) {
+
+        await this.ccdFormPage.setFieldValue('Type of appeal', 'Deprivation of citizenship');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeAppealTypeRevocationProtection(clickContinue = false) {
+
+        await this.ccdFormPage.setFieldValue('Type of appeal', 'Revocation of a protection status');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeAppealGrounds(clickContinue = false) {
 
         await this.ccdFormPage.click('Removing the appellant from the UK would breach the UK\'s obligation under the Refugee Convention');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeAppealGroundsDeprivation(clickContinue = false) {
+
+        await this.ccdFormPage.click('The decision is unlawful because discretion should have been exercised differently');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeAppealGroundsRevocationProtection(clickContinue = false) {
+
+        await this.ccdFormPage.click('Revocation of the appellant\'s protection status breaches the United Kingdom\'s obligations in relation to persons eligible for humanitarian protection');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -157,6 +193,42 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeAppealType(true);
         await this.completeAppealGrounds(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async saveAppealWithDeprivationCitizenship(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeScreeningQuestions(true);
+        await this.completeHomeOfficeReference(true);
+        await this.completeBasicDetails(true);
+        await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+        await this.completeContactPreference(true);
+        await this.completeAppealTypeDeprivation(true);
+        await this.completeAppealGroundsDeprivation(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async saveAppealWithRevocationProtection(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeScreeningQuestions(true);
+        await this.completeHomeOfficeReference(true);
+        await this.completeBasicDetails(true);
+        await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+        await this.completeContactPreference(true);
+        await this.completeAppealTypeRevocationProtection(true);
+        await this.completeAppealGroundsRevocationProtection(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);

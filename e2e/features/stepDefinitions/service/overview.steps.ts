@@ -39,6 +39,46 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
     }
 });
 
+Then(/^I should (see|not see) the case details with (DeprivationCitizenship|RevocationProtection) type$/, async function (seeOrNotSee, DeprivationOrRevocation) {
+
+    const isDisplayed = (seeOrNotSee === 'see');
+
+    expect(await ccdPage.headingContains('Case details', !isDisplayed)).to.equal(isDisplayed);
+
+    if (isDisplayed) {
+
+        const referenceNumberIsDraft = await ccdPage.isFieldValueDisplayed('Appeal reference', 'DRAFT');
+        const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 13);
+
+        expect(referenceNumberIsDraft || referenceNumberIsCorrectLength).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Appellant', 'José González')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Date of birth', '31 Dec 1999')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationalities', 'first')).to.equal(true);
+
+        if (DeprivationOrRevocation === 'DeprivationCitizenship') {
+            expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'Deprivation of citizenship')).to.equal(true);
+        } else if (DeprivationOrRevocation === 'RevocationProtection') {
+            expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'Revocation of a protection status')).to.equal(true);
+        } else {
+            expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'Refusal of protection claim')).to.equal(true);
+        }
+        const homeOfficeNumberShort = await ccdPage.isFieldValueCorrectLength('Home Office reference', 7);
+        const homeOfficeNumberLong = await ccdPage.isFieldValueCorrectLength('Home Office reference', 11);
+
+        expect(homeOfficeNumberShort || homeOfficeNumberLong).to.equal(true);
+        expect(await ccdPage.contentContains('A123456',  Wait.instant)).to.equal(true);
+
+    } else {
+        expect(await ccdPage.contentContains('Appeal reference', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Appellant', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Date of birth', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Nationality', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Type of appeal', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Hearing centre', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Home Office reference', Wait.instant)).to.equal(false);
+    }
+});
+
 Then(/^I should (see|not see) the legal representative details$/, async function (seeOrNotSee) {
 
     const isDisplayed = (seeOrNotSee === 'see');
