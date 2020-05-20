@@ -47,7 +47,7 @@ Feature: Case list
     And I should see the `Legal representative reference` field
     And I should see the `Home Office reference` field
 
-  @regression @case-list @RIA-609 @RIA-1380 @wip
+  @regression @case-list @RIA-609 @RIA-1380
   Scenario: Case list contains correct filters for Legal Rep
 
     Given I am signed in as a `Legal Rep`

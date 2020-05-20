@@ -1,6 +1,6 @@
 Feature: Creating a case shows imported jurisdiction and case type
 
-  @regression @create-case @wip
+  @regression @create-case
   Scenario: Creating a case shows imported jurisdiction and case type
     Given I am signed in as a `Legal Rep`
     When I click the `Create case` link
