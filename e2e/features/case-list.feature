@@ -47,7 +47,7 @@ Feature: Case list
     And I should see the `Legal representative reference` field
     And I should see the `Home Office reference` field
 
-  @regression @case-list @RIA-609 @RIA-1380
+  @regression @case-list @RIA-609 @RIA-1380 @wip
   Scenario: Case list contains correct filters for Legal Rep
 
     Given I am signed in as a `Legal Rep`
@@ -86,10 +86,7 @@ Feature: Case list
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
     And I should see the `Home Office reference` field
-    And I should see the text `Status`
-    And I should see the text `Hearing date`
     And I should see the text `Appellant name`
-    #And I should not see the `DRAFT` link #Commented as it may not work for execuition where there are already DRAFT cases in the System
 
   @regression @case-list @RIA-609 @RIA-1380
   Scenario: Case list contains correct filters for Case Officer
