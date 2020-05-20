@@ -55,7 +55,7 @@ Feature: Case list
     And I should see the option `Immigration & Asylum` for the `Jurisdiction` field
     And I should see the `Jurisdiction` field
     And I should see the `Case type` field
-    And I should see the option `IA Asylum Case` prefix for the `Case type` field
+    And I should see the option `Appeal` prefix for the `Case type` field
     And I should see the `State` field
     And I should see the option `Any` for the `State` field
     And I should see the option `Appeal started` for the `State` field
@@ -99,7 +99,7 @@ Feature: Case list
     And I should see the option `Immigration & Asylum` for the `Jurisdiction` field
     And I should see the `Jurisdiction` field
     And I should see the `Case type` field
-    And I should see the option `IA Asylum Case` prefix for the `Case type` field
+    And I should see the option `Appeal` prefix for the `Case type` field
     And I should see the `State` field
     And I should see the option `Any` for the `State` field
     And I should not see the option `Appeal started` for the `State` field
@@ -139,7 +139,7 @@ Feature: Case list
     And I should see the option `Immigration & Asylum` for the `Jurisdiction` field
     And I should see the `Jurisdiction` field
     And I should see the `Case type` field
-    And I should see the option `IA Asylum Case` prefix for the `Case type` field
+    And I should see the option `Appeal` prefix for the `Case type` field
     And I should see the `State` field
     And I should see the option `Any` for the `State` field
     And I should see the option `Listing` for the `State` field
