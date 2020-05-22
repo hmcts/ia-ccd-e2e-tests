@@ -124,20 +124,20 @@ Feature: Grounds of appeal
   Scenario: Grounds of appeal are captured for EEA refusal type cases
 
     Given I am on the `Type of appeal` page
-    When I select `Refusal of application under the EEA regulations / EU settlement scheme` for the `Type of appeal` field
+    When I select `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I click the `Continue` button
 
     Given I am on the `The grounds of your appeal` page
     And I should not see the text `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998`
     And the `Continue` button is disabled
 
-    When I click the `The decision breaches the appellant's rights under the EEA regulations / EU settlement scheme(in respect of entry to or residence in the United Kingdom)` label
+    When I click the `The decision breaches the appellant's rights under the EEA regulations` label
     Then the `Continue` button is enabled
 
-    When I click the `The decision breaches the appellant's rights under the EEA regulations / EU settlement scheme(in respect of entry to or residence in the United Kingdom)` label
+    When I click the `The decision breaches the appellant's rights under the EEA regulations` label
     Then the `Continue` button is disabled
 
-    When I click the `The decision breaches the appellant's rights under the EEA regulations / EU settlement scheme(in respect of entry to or residence in the United Kingdom)` label
+    When I click the `The decision breaches the appellant's rights under the EEA regulations` label
     And I click the `Continue` button
 
     And I complete the `New matters` page
@@ -155,7 +155,7 @@ Feature: Grounds of appeal
     And I click the `Close and Return to case details` button
 
     And I click the `Appeal` tab
-    And I should see the text `The decision breaches the appellant's rights under the EEA regulations / EU settlement scheme(in respect of entry to or residence in the United Kingdom)`
+    And I should see the text `The decision breaches the appellant's rights under the EEA regulations`
 
     When I click the `Documents` tab
     And I should see the `Documents` page
