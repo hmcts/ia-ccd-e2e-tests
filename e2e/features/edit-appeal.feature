@@ -150,7 +150,7 @@ Feature: Edit appeal application
     And I should see `some application decision reason` in the `Reasons for decision` field
 
     When I click the `Record application` button
-    Then I should see the text `You have recorded an application`
+    Then I should see the text `You've recorded an application`
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is available in the applications tab. You must now edit the appeal details based on the new information provided in the application.`
 
@@ -291,7 +291,7 @@ Feature: Edit appeal application
     And I should see `some application decision reason` in the `Reasons for decision` field
 
     When I click the `Record application` button
-    Then I should see the text `You have recorded an application`
+    Then I should see the text `You've recorded an application`
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is available in the applications tab. You must now edit the appeal details based on the new information provided in the application.`
 
