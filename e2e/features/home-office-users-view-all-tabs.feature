@@ -92,7 +92,7 @@ Feature: All home office users overview appeal case-details documents directions
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-    And within the `Directions` collection's fourth item, I should see `You have 14 days to review the Appeal Skeleton Argument and evidence. You must explain whether the appellant makes a valid case for overturning the original decision.` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `You have 14 days to review the appellant's argument and evidence. You must explain whether the appellant makes a valid case for overturning the original decision.` in the `Explanation` field
     And within the `Directions` collection's fourth item, I should see `You must respond to the Tribunal and tell them:` in the `Explanation` field
     And within the `Directions` collection's fourth item, I should see `- whether you oppose all or parts of the appellant's case` in the `Explanation` field
     And within the `Directions` collection's fourth item, I should see `- what your grounds are for opposing the case` in the `Explanation` field

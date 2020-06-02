@@ -18,8 +18,8 @@ Feature: Request respondent evidence
 
     When I select the `Request respondent review` Next step
     Then I am on the `Request respondent review` page
-    And I should see `You have 14 days to review the Appeal Skeleton Argument and evidence` in the `Explain the direction you are issuing` field
-    And I should see `You must explain whether the appellant makes a valid case for overturning the original decision` in the `Explain the direction you are issuing` field
+    And within the `Directions` collection's fourth item, I should see `You have 14 days to review the appellant's argument and evidence.` in the `Explanation` field
+    And within the `Directions` collection's fourth item, I should see `You must explain whether the appellant makes a valid case for overturning the original decision.` in the `Explanation` field
     And I should see `You must respond to the Tribunal and tell them:` in the `Explain the direction you are issuing` field
     And I should see `- whether you oppose all or parts of the appellant's case` in the `Explain the direction you are issuing` field
     And I should see `- what your grounds are for opposing the case` in the `Explain the direction you are issuing` field
@@ -33,7 +33,7 @@ Feature: Request respondent evidence
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `You have 14 days to review the Appeal Skeleton Argument and evidence` in the `Explain the direction you are issuing` field
+    And I should see `You have 14 days to review the appellant's argument and evidence` in the `Explain the direction you are issuing` field
     And I should see `You must explain whether the appellant makes a valid case for overturning the original decision` in the `Explain the direction you are issuing` field
     And I should see `You must respond to the Tribunal and tell them:` in the `Explain the direction you are issuing` field
     And I should see `- whether you oppose all or parts of the appellant's case` in the `Explain the direction you are issuing` field
@@ -54,7 +54,7 @@ Feature: Request respondent evidence
     #And I see the open case
     And I click the `Directions` tab
     Then I should see the `Directions` page
-    And within the `Directions` collection's first item, I should see `You have 14 days to review the Appeal Skeleton Argument and evidence` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `You have 14 days to review the appellant's argument and evidence` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `You must explain whether the appellant makes a valid case for overturning the original decision` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `You must respond to the Tribunal and tell them:` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `- whether you oppose all or parts of the appellant's case` in the `Explanation` field
