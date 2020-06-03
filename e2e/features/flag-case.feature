@@ -7,21 +7,19 @@ Feature: Flag a case
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @regression @flag-case @RIA-1742
-  Scenario: Flag a case with a single flag and additional information
-
     When I select the `Flag the case` Next step
-
     Then I am on the `Flag the case` page
     And I should see the text `This flag will only be visible to the Tribunal.`
     And the `Continue` button is disabled
 
     When I select `Complex case` from the `Type of flag` field
-    And I type `Oh no! This case turned out to be rather complex!` for the `Additional information (Optional)` field
+    Then I click the `Continue` button
+    And I should see the text `Additional information (Optional)`
     Then the `Continue` button is enabled
 
-    When I click the `Continue` button
-    Then I am on the `Check your answers` page
+    When I type `Oh no! This case turned out to be rather complex!` for the `Additional information (Optional)` field
+    Then I click the `Continue` button
+    And I am on the `Check your answers` page
     And I should see `Complex case` in the `Type of flag` field
     And I should see `Oh no! This case turned out to be rather complex!` in the `Additional information` field
 
@@ -39,6 +37,23 @@ Feature: Flag a case
     And I should see the `caseFlagComplexCase.png` image
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
 
+
+  @RIA-3298 @wip
+  Scenario: Additional information dialog is populated empty for non-existing flags
+    
+    When I select the `Flag the case` Next step
+    Then I am on the `Flag the case` page
+
+    When I select `Complex case` from the `Type of flag` field
+    Then I click the `Continue` button
+    And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information (Optional)` field
+
+    When I click the `Previous` button
+    Then I select `Potentially violent person` from the `Type of flag` field
+    And I click the `Continue` button
+    And the `Additional information (Optional)` field should be empty
+
+  
   @regression @flag-case @RIA-1742
   Scenario: Flag a case with multiple flags and additional information
 
