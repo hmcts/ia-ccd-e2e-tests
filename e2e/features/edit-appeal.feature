@@ -191,12 +191,7 @@ Feature: Edit appeal application
     Given I am on the `Your client's address` page
     And I click the `Continue` button
 
-    Given I am on the `Type of appeal` page
-    When I select `Revocation of a protection status` for the `Decision type` field
-    And I click the `Continue` button
-
-    Given I am on the `The grounds of your appeal` page
-    When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` label
+    Given I am on the `The appellant's contact preference` page
     And I click the `Continue` button
 
     Given I am on the `New matters` page
@@ -217,7 +212,6 @@ Feature: Edit appeal application
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
     And I should see `No` for the `Does the appellant have a fixed address?` answer
-    And I should see `Revocation of a protection status` for the `Decision type` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer
@@ -234,8 +228,6 @@ Feature: Edit appeal application
     When I click the `Close and Return to case details` button
     Then I should only see the `caseOfficer_awaitingRespondentEvidence` case progress image
     And I should see an alert confirming the case `has been updated with event: Edit appeal`
-    And I should see `RP/` in the `Appeal reference` field
-    And I should see `Revocation of a protection status` for the `Type of appeal` field
 
     When I click the `Applications` tab
     Then I should see the `Applications` field
@@ -256,7 +248,7 @@ Feature: Edit appeal application
     And within the `Legal representative documents` collection's first item, I should see `-Smith-appeal-form.PDF` in the `Document` field
     And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @regression @edit-appeal-after-submit-out-of-time @RIA-1359
+  @regression @edit-appeal-after-submit-out-of-time @RIA-1359 @wip
   Scenario: Edit submitted appeal when submitted out of time
 
     When I submit my appeal
@@ -332,12 +324,7 @@ Feature: Edit appeal application
     Given I am on the `Your client's address` page
     And I click the `Continue` button
 
-    Given I am on the `Type of appeal` page
-    When I select `Revocation of a protection status` for the `Decision type` field
-    And I click the `Continue` button
-
-    Given I am on the `The grounds of your appeal` page
-    When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` label
+    Given I am on the `The appellant's contact preference` page
     And I click the `Continue` button
 
     Given I am on the `New matters` page
@@ -361,7 +348,6 @@ Feature: Edit appeal application
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
     And I should see `No` for the `Does the appellant have a fixed address?` answer
-    And I should see `Revocation of a protection status` for the `Decision type` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer
@@ -378,8 +364,6 @@ Feature: Edit appeal application
     When I click the `Close and Return to case details` button
     Then I should only see the `caseOfficer_awaitingRespondentEvidence` case progress image
     And I should see an alert confirming the case `has been updated with event: Edit appeal`
-    And I should see `RP/` in the `Appeal reference` field
-    And I should see `Revocation of a protection status` for the `Type of appeal` field
 
     When I click the `Applications` tab
     Then I should see the `Applications` field
