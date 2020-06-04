@@ -31,6 +31,11 @@ Given('I complete the `Basic details` page', async function () {
     await startAppealFlow.completeBasicDetails(true);
 });
 
+Given('I complete the `Tell us about your client\'s nationality` page', async function () {
+    expect(await ccdFormPage.headingContains('Tell us about your client\'s nationality')).to.equal(true);
+    await startAppealFlow.completeNationality(true);
+});
+
 Given('I complete the `Your client\'s address` page', async function () {
     expect(await ccdFormPage.headingContains('Your client\'s address')).to.equal(true);
     await startAppealFlow.completeClientAddress(true);
@@ -110,7 +115,8 @@ Then(/^I see a list of all nationalities$/, async function () {
         'first'
     );
 
-    expect(nationalities).to.have.lengthOf(251);
+    expect(nationalities).to.have.lengthOf(252);
     expect(nationalities.includes('Afghanistan')).to.equal(true);
+    expect(nationalities.includes('Stateless')).to.equal(true);
     expect(nationalities.includes('Zimbabwe')).to.equal(true);
 });

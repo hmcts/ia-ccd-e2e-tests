@@ -74,6 +74,14 @@ export class StartAppealFlow {
         await this.ccdFormPage.setFieldValue('Given names', 'José');
         await this.ccdFormPage.setFieldValue('Family name', 'González');
         await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeNationality(clickContinue = false) {
+        await this.ccdFormPage.setFieldValue('Nationality', 'Has a nationality');
         await this.ccdFormPage.addCollectionItem('Nationality');
         await this.ccdFormPage.setFieldValue('Nationality', 'Finland', 'select list', 'first', 'Nationality', 'first');
 
@@ -253,6 +261,7 @@ export class StartAppealFlow {
         await this.completeHomeOfficeReference(true);
         await this.completeUploadNoticeDecision(true);
         await this.completeBasicDetails(true);
+        await this.completeNationality(true);
         await this.completeClientAddress(true, hasFixedAddress, address, postcode);
         await this.completeContactPreference(true);
         await this.completeAppealType(true);
@@ -290,6 +299,7 @@ export class StartAppealFlow {
         await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
         await this.completeUploadNoticeDecision(true)
         await this.completeBasicDetails(true);
+        await this.completeNationality(true);
         await this.completeClientAddress(true);
         await this.completeContactPreference(true);
         await this.completeAppealType(true);

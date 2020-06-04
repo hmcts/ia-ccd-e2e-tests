@@ -7,6 +7,7 @@ Feature: Address details are validated
     And I complete the `Home office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
+    And I complete the `Tell us about your client's nationality` page
 
   @regression @start-appeal @alternate @RIA-732
   Scenario: Legal rep indicates there is no fixed address for the appellant
