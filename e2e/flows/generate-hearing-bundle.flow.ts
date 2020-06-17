@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class HearingBundleFlow {
 
@@ -12,5 +13,8 @@ export class HearingBundleFlow {
         await this.ccdFormPage.click('Generate');
 
         await this.ccdFormPage.click('Close and Return to case details');
+
+        await browser.sleep(10 * 1000);
+        await  this.ccdFormPage.refresh();
     }
 }

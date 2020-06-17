@@ -1420,10 +1420,6 @@ Feature: Case progression path when save and continue is enabled
     And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_preHearing` case progress image
 
-    And I should see the hearing details
-    And I should see the case details
-    And I should see the legal representative details
-
     And I should not see the option `Generate hearing bundle` for the `Next step` field
 
     And I should see the option `Send direction` for the `Next step` field
@@ -1433,6 +1429,11 @@ Feature: Case progression path when save and continue is enabled
     And I should see the option `Edit case listing` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
     And I should see the option `Upload additional evidence` for the `Next step` field
+
+    And I click the `Documents` tab
+    Then I should see the `Documents` page
+    And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.pdf` in the `Document` field
+    And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Start decision and reasons` link
     Then I am on the `Start decision and reasons` page
@@ -1802,7 +1803,7 @@ Feature: Case progression path when save and continue is enabled
     When I click the `Documents` tab
     Then I should see the `Documents` page
     And I should see the `Hearing documents` field
-    And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
+    And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.pdf` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Hearing documents` collection's second item, I should see `CaseSummary.pdf` in the `Document` field
     And within the `Hearing documents` collection's second item, I should see `This is the case summary` in the `Description` field

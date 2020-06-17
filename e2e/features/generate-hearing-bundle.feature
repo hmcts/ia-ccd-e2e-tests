@@ -27,7 +27,7 @@ Feature: Generate hearing bundle
     And I switch to be a `Case Officer`
     And I create case summary
 
-  @regression @generate-hearing-bundle @RIA-941 @RIA-1846
+  @regression @generate-hearing-bundle @RIA-941 @RIA-1846 @RIA-3116
   Scenario: Generate hearing bundle
     When I click the `Documents` tab
     Then I should see the `Documents` page
@@ -37,12 +37,24 @@ Feature: Generate hearing bundle
     And I should see the `Generate` button
 
     When I click the `Generate` button
-    Then I should see the text `You have generated the hearing bundle`
+    Then I should see the text `The hearing bundle is being generated`
     Then I should see the text `What happens next`
-    Then I should see the text `You can view the hearing bundle in the documents tab. All parties have been notified that the hearing bundle is now available.`
+    Then I should see the text `You will soon be able to view the hearing bundle in the documents tab.`
+    Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
+    Then I should see the text `If the bundle fails to generate, you will be notified and will need to generate the bundle again.`
 
     When I click the `Close and Return to case details` button
+    Then I should see the `Overview` page
+    Then I should see the text `The hearing bundle is being generated. You will soon be able to view the hearing bundle in the documents tab.`
+    Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
+    Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`
+
+    And I wait for 10 seconds
+    And I switch to be a `Legal Rep`
+
+    When I switch to be a `Case Officer`
     And I click the `Documents` tab
     Then I should see the `Documents` page
-    And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
+    And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.pdf` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
