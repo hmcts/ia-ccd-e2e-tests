@@ -58,8 +58,3 @@ Feature: Adjourn hearing without a date
     When I click the `Documents` tab
     Then within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Hearing documents` collection's second item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
-
-
-    
-
-    
