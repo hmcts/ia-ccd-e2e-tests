@@ -33,8 +33,7 @@ Feature: Adjourn hearing without a date
 
     When I type `some reasons for adjournment` for the `Reasons for adjournment` field
     And I click the `Continue` button
-    Then I am on the `Adjourn hearing without a date` page
-    And I should see the text `Check your answers`
+    Then I should see the text `Check your answers`
     And I should see the text `Reasons for adjournment`
     And I should see the text `some reasons for adjournment`
 
@@ -123,8 +122,7 @@ Feature: Adjourn hearing without a date
 
     When I type `some reasons for adjournment` for the `Reasons for adjournment` field
     And I click the `Continue` button
-    Then I am on the `Adjourn hearing without a date` page
-    And I should see the text `Check your answers`
+    Then I should see the text `Check your answers`
     And I should see the text `Reasons for adjournment`
     And I should see the text `some reasons for adjournment`
 
@@ -213,8 +211,7 @@ Feature: Adjourn hearing without a date
 
     When I type `some reasons for adjournment` for the `Reasons for adjournment` field
     And I click the `Continue` button
-    Then I am on the `Adjourn hearing without a date` page
-    And I should see the text `Check your answers`
+    Then I should see the text `Check your answers`
     And I should see the text `Reasons for adjournment`
     And I should see the text `some reasons for adjournment`
 
@@ -303,8 +300,7 @@ Feature: Adjourn hearing without a date
 
     When I type `some reasons for adjournment` for the `Reasons for adjournment` field
     And I click the `Continue` button
-    Then I am on the `Adjourn hearing without a date` page
-    And I should see the text `Check your answers`
+    Then I should see the text `Check your answers`
     And I should see the text `Reasons for adjournment`
     And I should see the text `some reasons for adjournment`
 
