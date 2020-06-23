@@ -10,9 +10,9 @@ Feature: Link and Unlink appeal
   @RIA-3291
   Scenario: Link and unlink an appeal
 
-    When I select the `Link this appeal` Next step
+    When I select the `Link the appeal` Next step
 
-    Then I am on the `Link this appeal` page
+    Then I am on the `Link the appeal` page
     And I should see the text `Reason for link`
     And the `Continue` button is disabled
 
@@ -26,23 +26,23 @@ Feature: Link and Unlink appeal
     When I click the `Link appeal` button
     Then I should see the text `You have linked this appeal`
     And I should see the text `What happens next`
-    And I should see the text `This appeal will now be considered as part of a set of linked appeals. You must update the linked appeal spreadsheet to reflect this change.`
+    And I should see the text `The appeal will now be considered as part of a set of linked appeals. You must update the linked appeal spreadsheet to reflect this change.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Link this appeal`
+    Then I should see an alert confirming the case `has been updated with event: Link the appeal`
 
     When I click the `Overview` tab
     Then I should see `Familial` for the `Linked appeal` field
 
-    When I select the `Unlink this appeal` Next step
-    Then I am on the `Unlink this appeal` page
+    When I select the `Unlink the appeal` Next step
+    Then I am on the `Unlink the appeal` page
     And the `Unlink appeal` button is enabled
 
     When I click the `Unlink appeal` button
     Then I should see the text `This is no longer a linked appeal`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Unlink this appeal`
+    Then I should see an alert confirming the case `has been updated with event: Unlink the appeal`
 
     When I click the `Overview` tab
     Then I should not see the `Linked appeal` field
@@ -50,7 +50,7 @@ Feature: Link and Unlink appeal
   @RIA-3291
   Scenario: Unlink an appeal that is not already linked
 
-    When I select the `Unlink this appeal` Next step
+    When I select the `Unlink the appeal` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `This appeal is not linked and so cannot be unlinked`
 
