@@ -37,14 +37,13 @@ Feature: Link and Unlink appeal
     When I select the `Unlink the appeal` Next step
     Then I am on the `Unlink the appeal` page
     And the `Continue` button is enabled
-    # And I should see the text `Familial`
 
     When I click the `Continue` button
     Then I am on the `Unlink the appeal` page
     And the `Unlink appeal` button is enabled
 
     When I click the `Unlink appeal` button
-    Then I should see the text `This is no longer a linked appeal`
+    Then I should see the text `You have unlinked this appeal`
     And I should see the text `What happens next`
     And I should see the text `This appeal is now unlinked and will proceed as usual. You must update the linked appeal spreadsheet to reflect this change.`
 
