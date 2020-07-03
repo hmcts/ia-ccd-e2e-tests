@@ -7,7 +7,7 @@ import { OrdinalToCardinal } from '../../helpers/ordinal-to-cardinal';
 
 const ccdPage = new CcdPage();
 
-Given('I create a new case', { timeout: 180 * 2 * 1000 }, async function () {
+Given('I create a new case', async function () {
     await ccdPage.linkContains('Create case');
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
