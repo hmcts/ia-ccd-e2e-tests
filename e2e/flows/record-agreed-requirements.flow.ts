@@ -17,8 +17,8 @@ export class RecordAgreedRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Adjustments to accommodate vulnerabilities',
-            'Adjustments to accommodate vulnerabilities will be reviewed'
+            'Physical or mental health conditions',
+            'Physical or mental health conditions will be reviewed'
         );
 
         await this.ccdFormPage.click('Continue');
@@ -71,8 +71,8 @@ export class RecordAgreedRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Adjustments to accommodate vulnerabilities',
-            'Adjustments to accommodate vulnerabilities will be reviewed - updated'
+            'Physical or mental health conditions',
+            'Physical or mental health conditions will be reviewed - updated'
         );
 
         await this.ccdFormPage.click('Continue');
