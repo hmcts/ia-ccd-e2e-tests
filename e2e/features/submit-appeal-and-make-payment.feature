@@ -1,0 +1,308 @@
+Feature: Make a payment after appeal submitted state (successful and failed payments)
+
+  Background:
+    Given I am signed in as a `Legal Rep`
+    And I create a new case
+
+  @successful-payment-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
+  Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087535)
+
+    And I save my initial PA appeal type with hearing fee
+    And I submit my appeal
+
+    When I select the `Make a payment` Next step
+    Then I should see the `Make a payment` page
+    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `Can’t see your Payment by Account number?`
+    And I should see the `MyHMCTSsupport@justice.gov.uk` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+
+    When I click the `Pay now` button
+    Then I should see the text `You have paid for the appeal`
+    And I should see the text `What happens next`
+    And I should see the text `You will receive a notification to confirm the payment has been made.`
+    And I should see the text `Payment successful`
+    And I should see the text `Payment reference number`
+    And I should see the text `Payment by Account number`
+    And I should see the text `PBA0087535`
+    And I should see the text `Fee`
+    And I should see the text `£140`
+    And I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Make a payment`
+
+    And I click the `Appeal` tab
+    And I should see the `Appeal` page
+    Then I should see `Refusal of protection claim` for the `Type of appeal` field
+    And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see the text `Payment reference number`
+
+    When I click the `Overview` tab
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Admin Officer`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Judge`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office APC`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office LART`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office POU`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office Generic`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+  @successful-payment-for-PA-appeal-type-without-hearing-fee @RIA-3163-PA @RIA-3163
+  Scenario: Make a successful payment for PA appeal type without hearing fee after appeal submitted state (PBA0087535)
+
+    And I save my initial PA appeal type without hearing fee
+    And I submit my appeal
+
+    When I select the `Make a payment` Next step
+    Then I should see the `Make a payment` page
+    And I should see the text `The fee for an appeal without a hearing is £80`
+    And I should see the text `Can’t see your Payment by Account number?`
+    And I should see the `MyHMCTSsupport@justice.gov.uk` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+
+    When I click the `Pay now` button
+    Then I should see the text `You have paid for the appeal`
+    And I should see the text `What happens next`
+    And I should see the text `You will receive a notification to confirm the payment has been made.`
+    And I should see the text `Payment successful`
+    And I should see the text `Payment reference number`
+    And I should see the text `Payment by Account number`
+    And I should see the text `PBA0087535`
+    And I should see the text `Fee`
+    And I should see the text `£80`
+    And I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Make a payment`
+
+    When I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Refusal of protection claim` for the `Type of appeal` field
+    And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see the text `Payment reference number`
+
+    When I click the `Overview` tab
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Admin Officer`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Judge`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office APC`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office LART`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office POU`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office Generic`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+
+
+  @failed-payment-account-deleted-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
+  Scenario: Failed payment for PA appeal type with hearing fee after appeal submitted state - account deleted (PBA0087240)
+
+    And I save my initial PA appeal type with hearing fee
+    And I submit my appeal
+
+    When I select the `Make a payment` Next step
+    Then I should see the `Make a payment` page
+    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `Can’t see your Payment by Account number?`
+    And I should see the `MyHMCTSsupport@justice.gov.uk` link
+    And I select `PBA0087240` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+
+    When I click the `Pay now` button
+    Then I should see the image `paymentFailed.png`
+    And I should see the text `Do this next`
+    And I should see the text `Call 01633 652 125 (option 3) or email MiddleOffice.DDServices@liberata.com to try to resolve the payment issue.`
+    And I should see the text `Payment failed`
+    And I should see the text `Payment reference number`
+    And I should see the text `RC-1590-6786-1063-9996`
+    And I should see the text `Payment by account number`
+    And I should see the text `PBA0087240`
+    And I should see the text `Fee`
+    And I should see the text `£140`
+    And I should see the text `Reason for failed payment`
+    And I should see the text `Your account is deleted`
+    And I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Make a payment`
+
+    And I click the `Appeal` tab
+    And I should see the `Appeal` page
+    Then I should see `Refusal of protection claim` for the `Type of appeal` field
+    And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see the text `Payment reference number`
+
+    When I click the `Overview` tab
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Admin Officer`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Judge`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office APC`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office LART`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office POU`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office Generic`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+  @failed-payment-account-on-hold-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
+  Scenario: Failed payment for PA appeal type with hearing fee after appeal submitted state - account on hold (PBA0087442)
+
+    And I save my initial PA appeal type with hearing fee
+    And I submit my appeal
+
+    When I select the `Make a payment` Next step
+    Then I should see the `Make a payment` page
+    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `Can’t see your Payment by Account number?`
+    And I should see the `MyHMCTSsupport@justice.gov.uk` link
+    And I select `PBA0087442` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+
+    When I click the `Pay now` button
+    Then I should see the image `paymentFailed.png`
+    And I should see the text `Do this next`
+    And I should see the text `Call 01633 652 125 (option 3) or email MiddleOffice.DDServices@liberata.com to try to resolve the payment issue.`
+    And I should see the text `Payment failed`
+    And I should see the text `Payment reference number`
+    And I should see the text `RC-1590-6786-1063-9996`
+    And I should see the text `Payment by account number`
+    And I should see the text `PBA0087442`
+    And I should see the text `Fee`
+    And I should see the text `£140`
+    And I should see the text `Reason for failed payment`
+    And I should see the text `Your account is on hold`
+    And I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Make a payment`
+
+    And I click the `Appeal` tab
+    And I should see the `Appeal` page
+    Then I should see `Refusal of protection claim` for the `Type of appeal` field
+    And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see the text `Payment reference number`
+
+    When I click the `Overview` tab
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Admin Officer`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Judge`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office APC`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office LART`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office POU`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+    When I switch to be a `Home Office Generic`
+    And I click the `Appeal` tab
+    Then I should see the `Appeal` page
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field

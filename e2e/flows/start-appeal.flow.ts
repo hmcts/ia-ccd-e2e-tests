@@ -45,6 +45,19 @@ export class StartAppealFlow {
         }
     }
 
+    async completeUploadNoticeDecisionNoUpload(clickContinue = false) {
+
+        await this.ccdFormPage.setFieldValue(
+            'Reason you cannot provide the Notice of Decision (Optional)',
+            'I do not have this document',
+            'text area'
+        );
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(clickContinue = false) {
 
         await this.ccdFormPage.setFieldValue('Home Office reference', 'A123456/001');
@@ -105,10 +118,43 @@ export class StartAppealFlow {
         }
     }
 
+    async completeGivenAppealType(clickContinue = false, appealType) {
+
+        if (appealType === 'EA') {
+            await this.ccdFormPage.setFieldValue('Type of appeal', 'Refusal of application under the EEA regulations');
+        }
+        if (appealType === 'HU') {
+            await this.ccdFormPage.setFieldValue('Type of appeal', 'Refusal of a human rights claim');
+        }
+        if (appealType === 'PA') {
+            await this.ccdFormPage.setFieldValue('Type of appeal', 'Refusal of protection claim');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeAppealGrounds(clickContinue = false) {
 
         await this.ccdFormPage.click('Removing the appellant from the UK would breach the UK\'s obligation under the Refugee Convention');
 
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completedGivenAppealGrounds(clickContinue = false, appealType) {
+
+        if (appealType === 'EA') {
+            await this.ccdFormPage.click('The decision breaches the appellant\'s rights under the EEA regulations');
+        }
+        if (appealType === 'HU') {
+            await this.ccdFormPage.click('Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998');
+        }
+        if (appealType === 'PA') {
+            await this.ccdFormPage.click('Removing the appellant from the UK would breach the UK\'s obligation under the Refugee Convention');
+        }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -173,6 +219,28 @@ export class StartAppealFlow {
         }
     }
 
+    async completeGivenFee(clickContinue = false, feeType) {
+
+        if (feeType === 'without') {
+            await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision without a hearing. The fee for this type of appeal is £80');
+        } else {
+            await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision with a hearing. The fee for this type of appeal is £140');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeHowToPay(clickContinue = false) {
+
+        await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal using Payment by Account');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeCheckYourAnswers(clickContinue = false) {
 
         if (clickContinue) {
@@ -200,6 +268,23 @@ export class StartAppealFlow {
         }
     }
 
+    async saveInitialAppealWithFee(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeClientDetails(false);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, feeType);
+        await this.completeHowToPay(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
     async saveOutOfTimeAppeal(clickContinue = false) {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
@@ -209,7 +294,7 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeAppealType(true);
         await this.completeAppealGrounds(true);
-      await this.completeDeportationOrder(true);
+        await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
@@ -218,5 +303,14 @@ export class StartAppealFlow {
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
         }
+    }
+
+    async completeClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeScreeningQuestions(true);
+        await this.completeHomeOfficeReference(true);
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.completeBasicDetails(true);
+        await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+        await this.completeContactPreference(true);
     }
 }
