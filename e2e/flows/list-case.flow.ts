@@ -19,12 +19,12 @@ export class ListCaseFlow {
         );
 
         await this.ccdFormPage.setFieldValue(
-            'Length of hearing',
+            'Length of appointment',
             '6 hours'
         );
 
         await this.ccdFormPage.setFieldValue(
-            'Hearing date and time',
+            'Appointment date and time',
             '{$TODAY+14|DD-MM-YYYY} 10:30:00'
         );
 
@@ -48,12 +48,12 @@ export class ListCaseFlow {
         );
 
         await this.ccdFormPage.setFieldValue(
-            'Length of hearing',
+            'Length of appointment',
             lengthOfHearingInHours.concat(' hours')
         );
 
         await this.ccdFormPage.setFieldValue(
-            'Hearing date and time',
+            'Appointment date and time',
             '{$TODAY+14|DD-MM-YYYY} 10:30:00'
         );
 

@@ -10,7 +10,7 @@ export class RecordAgreedRequirementsFlow {
         await this.ccdFormPage.click('Go');
 
         await this.ccdFormPage.setFieldValue(
-            'Length of hearing',
+            'Length of appointment',
             '6 hours'
         );
 
@@ -64,7 +64,7 @@ export class RecordAgreedRequirementsFlow {
         await this.ccdFormPage.click('Go');
 
         await this.ccdFormPage.setFieldValue(
-            'Length of hearing',
+            'Length of appointment',
             '6 hours'
         );
 
@@ -120,7 +120,7 @@ export class RecordAgreedRequirementsFlow {
         await this.ccdFormPage.click('Go');
 
         await this.ccdFormPage.setFieldValue(
-            'Length of hearing',
+            'Length of appointment',
             '6 hours'
         );
 

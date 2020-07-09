@@ -91,7 +91,7 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I should see `Yes` in the `Do you need interpreter services at the hearing?` field
     And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
     And I should see `Yes` in the `Do you need a hearing loop?` field
-    Then I select `5 hours` for the `Length of hearing` field
+    Then I select `5 hours` for the `Length of appointment` field
     And I click the `Continue` button
     And I should see the text `Additional adjustments`
     And I should see the text `Check if the appellant has requested any additional adjustments and record your response in the relevant field.

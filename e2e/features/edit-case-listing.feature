@@ -38,28 +38,28 @@ Feature: Edit case listing
     And I should see the option `Birmingham` for the `Hearing centre` field
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the option `30 minutes` for the `Length of hearing` field
-    And I should see the option `1 hour` for the `Length of hearing` field
-    And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
-    And I should see the option `2 hours` for the `Length of hearing` field
-    And I should see the option `2 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `3 hours` for the `Length of hearing` field
-    And I should see the option `3 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `4 hours` for the `Length of hearing` field
-    And I should see the option `4 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `5 hours` for the `Length of hearing` field
-    And I should see the option `5 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `6 hours` for the `Length of hearing` field
+    And I should see the option `30 minutes` for the `Length of appointment` field
+    And I should see the option `1 hour` for the `Length of appointment` field
+    And I should see the option `1 hour 30 minutes` for the `Length of appointment` field
+    And I should see the option `2 hours` for the `Length of appointment` field
+    And I should see the option `2 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `3 hours` for the `Length of appointment` field
+    And I should see the option `3 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `4 hours` for the `Length of appointment` field
+    And I should see the option `4 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `5 hours` for the `Length of appointment` field
+    And I should see the option `5 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `6 hours` for the `Length of appointment` field
 
-    When I select `3 hours` for the `Length of hearing` field
+    When I select `3 hours` for the `Length of appointment` field
     And I select `Manchester` for the `Hearing centre` field
-    And I select `{$TODAY+14|DD-MM-YYYY} 11:30:00` for the `Hearing date and time` field
+    And I select `{$TODAY+14|DD-MM-YYYY} 11:30:00` for the `Appointment date and time` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Manchester` for the `Hearing centre` field
-    And I should see `3 hours` for the `Length of hearing` field
-    And I should see `{$TODAY+14|D MMM YYYY}, 11:30:00 AM` for the `Hearing date and time` field
+    And I should see `3 hours` for the `Length of appointment` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 11:30:00 AM` for the `Appointment date and time` field
 
     When I click the `List case` button
     Then I should see the text `The case has been re-listed`
@@ -73,7 +73,7 @@ Feature: Edit case listing
     Then I should see the `Overview` page
     And I should see the `Hearing details` field
     And I should see `Manchester` for the `Hearing centre` field
-    And I should see `3 hours` for the `Length of hearing` field
+    And I should see `3 hours` for the `Length of appointment` field
     And I should see the text `11:30:00 AM`
 
     When I click the `Documents` tab

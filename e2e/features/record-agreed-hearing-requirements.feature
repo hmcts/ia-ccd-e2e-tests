@@ -40,21 +40,21 @@ Feature: Record agreed hearing requirements
     And I should see `No` in the `Do you need interpreter services at the hearing?` field
     And I should see `No` in the `Do you need a hearing room with step-free access?` field
     And I should see `No` in the `Do you need a hearing loop?` field
-    And I should see the option `30 minutes` for the `Length of hearing` field
-    And I should see the option `1 hour` for the `Length of hearing` field
-    And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
-    And I should see the option `2 hours` for the `Length of hearing` field
-    And I should see the option `2 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `3 hours` for the `Length of hearing` field
-    And I should see the option `3 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `4 hours` for the `Length of hearing` field
-    And I should see the option `4 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `5 hours` for the `Length of hearing` field
-    And I should see the option `5 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `6 hours` for the `Length of hearing` field
+    And I should see the option `30 minutes` for the `Length of appointment` field
+    And I should see the option `1 hour` for the `Length of appointment` field
+    And I should see the option `1 hour 30 minutes` for the `Length of appointment` field
+    And I should see the option `2 hours` for the `Length of appointment` field
+    And I should see the option `2 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `3 hours` for the `Length of appointment` field
+    And I should see the option `3 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `4 hours` for the `Length of appointment` field
+    And I should see the option `4 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `5 hours` for the `Length of appointment` field
+    And I should see the option `5 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `6 hours` for the `Length of appointment` field
     And I should see the text `Continue to see requests for additional adjustments.`
 
-    Then I select `6 hours` for the `Length of hearing` field
+    Then I select `6 hours` for the `Length of appointment` field
     And I click the `Continue` button
     And I should see the text `Additional adjustments`
     And I should see the text `Check if the appellant has requested any additional adjustments and record your response in the relevant field.
@@ -73,7 +73,7 @@ Feature: Record agreed hearing requirements
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
-    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `6 hours` for the `Length of appointment` field
 
     When I click the `Submit` button
     Then I should see the text `You've recorded the agreed hearing adjustments`
@@ -128,7 +128,7 @@ Feature: Record agreed hearing requirements
     And I should see `Yes` in the `Do you need interpreter services at the hearing?` field
     And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
     And I should see `Yes` in the `Do you need a hearing loop?` field
-    Then I select `6 hours` for the `Length of hearing` field
+    Then I select `6 hours` for the `Length of appointment` field
     And I click the `Continue` button
     And I should see the text `Additional adjustments`
     And I should see the text `Check if the appellant has requested any additional adjustments and record your response in the relevant field.

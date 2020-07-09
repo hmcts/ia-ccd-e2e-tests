@@ -39,23 +39,23 @@ Feature: Case Officer: List case without hearing requirements
 
     When I select the `List without requirements` Next step
     Then I should see the text `List without requirements`
-    And I should see the option `30 minutes` for the `Length of hearing` field
-    And I should see the option `1 hour` for the `Length of hearing` field
-    And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
-    And I should see the option `2 hours` for the `Length of hearing` field
-    And I should see the option `2 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `3 hours` for the `Length of hearing` field
-    And I should see the option `3 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `4 hours` for the `Length of hearing` field
-    And I should see the option `4 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `5 hours` for the `Length of hearing` field
-    And I should see the option `5 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `6 hours` for the `Length of hearing` field
-    And I select `6 hours` for the `Length of hearing` field
+    And I should see the option `30 minutes` for the `Length of appointment` field
+    And I should see the option `1 hour` for the `Length of appointment` field
+    And I should see the option `1 hour 30 minutes` for the `Length of appointment` field
+    And I should see the option `2 hours` for the `Length of appointment` field
+    And I should see the option `2 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `3 hours` for the `Length of appointment` field
+    And I should see the option `3 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `4 hours` for the `Length of appointment` field
+    And I should see the option `4 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `5 hours` for the `Length of appointment` field
+    And I should see the option `5 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `6 hours` for the `Length of appointment` field
+    And I select `6 hours` for the `Length of appointment` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `6 hours` for the `Length of appointment` field
 
     When I click the `Submit` button
     Then I should see the text `You've recorded the agreed hearing adjustments`
@@ -72,7 +72,7 @@ Feature: Case Officer: List case without hearing requirements
 
     When I click the `Hearing` tab
     Then I should see the `Hearing` page
-    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `6 hours` for the `Length of appointment` field
     And I should not see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
     And I should not see the hearing requirements yes path
@@ -94,7 +94,7 @@ Feature: Case Officer: List case without hearing requirements
 
     When I click the `Hearing` tab
     Then I should see the `Hearing` page
-    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `6 hours` for the `Length of appointment` field
     And I should not see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
     And I should not see the hearing requirements yes path
@@ -113,22 +113,22 @@ Feature: Case Officer: List case without hearing requirements
 
     And I click the `list the case here` link
     Then I am on the `List the case` page
-    And I should see `6 hours` in the `Length of hearing` field
+    And I should see `6 hours` in the `Length of appointment` field
     When I type `LP/12345/2019` for the `Listing reference` field
-    And I select `5 hours` for the `Length of hearing` field
-    And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Hearing date and time` field
+    And I select `5 hours` for the `Length of appointment` field
+    And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Appointment date and time` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `LP/12345/2019` for the `Listing reference` field
     And I should see `Taylor House` for the `Hearing centre` field
-    And I should see `5 hours` for the `Length of hearing` field
-    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    And I should see `5 hours` for the `Length of appointment` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Appointment date and time` field
     And I click the `Cancel` link
 
     When I click the `Hearing` tab
     Then I should see the `Hearing` page
-    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `6 hours` for the `Length of appointment` field
     And I should not see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
     And I should not see the hearing requirements yes path
