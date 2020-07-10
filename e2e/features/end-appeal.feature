@@ -51,6 +51,16 @@ Feature: End appeal
     And I should not see the hearing details
     And I should see the case details
 
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the `Tell us what you think about the appeals service` link
+    And I should see the ended appeal details
+    And I should not see the hearing details
+    And I should see the case details
+
     When I switch to be a `<IAUser>`
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -62,7 +72,6 @@ Feature: End appeal
 
     Examples:
       | IAUser                |
-      | Legal Rep             |
       | Home Office APC       |
       | Home Office LART      |
       | Home Office POU       |
@@ -114,6 +123,16 @@ Feature: End appeal
     And I should not see the hearing details
     And I should see the case details
 
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the `Tell us what you think about the appeals service` link
+    And I should see the ended appeal details
+    And I should not see the hearing details
+    And I should see the case details
+
     When I switch to be a <IAUser>
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -125,7 +144,6 @@ Feature: End appeal
 
     Examples:
       | IAUser                |
-      | Legal Rep             |
       | Home Office APC       |
       | Home Office LART      |
       | Home Office POU       |
@@ -187,6 +205,16 @@ Feature: End appeal
     And I should see the hearing details
     And I should see the case details
 
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the `Tell us what you think about the appeals service` link
+    And I should see the ended appeal details
+    And I should see the hearing details
+    And I should see the case details
+
     When I switch to be a <IAUser>
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -198,7 +226,6 @@ Feature: End appeal
 
     Examples:
       | IAUser                |
-      | Legal Rep             |
       | Home Office APC       |
       | Home Office LART      |
       | Home Office POU       |
@@ -260,6 +287,16 @@ Feature: End appeal
     And I should see the hearing details
     And I should see the case details
 
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+    Then I should only see the `caseOfficer_appealEnded` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    And I should see the `Tell us what you think about the appeals service` link
+    And I should see the ended appeal details
+    And I should see the hearing details
+    And I should see the case details
+
     When I switch to be a <IAUser>
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -271,7 +308,6 @@ Feature: End appeal
 
     Examples:
       | IAUser                |
-      | Legal Rep             |
       | Home Office APC       |
       | Home Office LART      |
       | Home Office POU       |
