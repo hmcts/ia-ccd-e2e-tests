@@ -19,7 +19,7 @@ export class SubmitCaseFlow {
           await this.ccdFormPage.click('Close and Return to case details');
         }
       } else {
-        Logger.log(`INFO: 'Submit your case' next step flow is ignored because the Save and Continue feature is disabled`);
+        Logger.log(`INFO: 'Submit your case' step is ignored because the Save and Continue feature is disabled`);
       }
     }
 }
