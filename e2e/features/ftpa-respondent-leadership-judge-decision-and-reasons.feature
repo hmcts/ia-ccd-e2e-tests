@@ -9,7 +9,7 @@ Feature: Leadership judge record the respondent decision and reasons
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Rep`
-    And I build my case
+#    And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review

@@ -135,7 +135,7 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I should see the text `You must create a case summary for the judge to use at the hearing.`
     And I should see the text `Create case summary`
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments yes path
     And I should see `Physical or mental health conditions will be reviewed - updated` in the `Physical or mental health conditions` field
     And I should see `Multimedia equipment requirement will be reviewed - updated` in the `Multimedia equipment` field

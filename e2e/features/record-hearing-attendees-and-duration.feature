@@ -60,7 +60,7 @@ Feature: Record hearing attendees and duration
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Record attendees and duration`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     And I should see the `Hearing` page
     And I should see the `Hearing attendance` field
     And I should see `Judge Judy` for the `The judge` field

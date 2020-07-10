@@ -1024,7 +1024,7 @@ Feature: Case progression
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
@@ -1041,7 +1041,7 @@ Feature: Case progression
     And I should not see the `Hearing documents` field
 
     When I switch to be a `Home Office APC`
-    Then I click the `Hearing` tab
+    Then I click the `Hearing and appointment` tab
     And I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
@@ -1054,7 +1054,7 @@ Feature: Case progression
     # Admin Officer
     When I switch to be a `Admin Officer`
 
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     And I should not see the agreed additional adjustments yes path
     And I should see the requests for additional adjustments yes path
     And I should see the text `Record of hearing details`
@@ -1136,7 +1136,7 @@ Feature: Case progression
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
 
@@ -1166,7 +1166,7 @@ Feature: Case progression
     And I should not see the option `List the case` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
@@ -1214,7 +1214,7 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
@@ -1264,7 +1264,7 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the hearing requirements yes path
     Then I should not see the requests for additional adjustments yes path
     Then I should see the agreed additional adjustments yes path
@@ -1342,7 +1342,7 @@ Feature: Case progression
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
@@ -1761,7 +1761,7 @@ Feature: Case progression
     And I should see the appellant's details
     And I should not see the decision fields
 
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     And I should see the `Hearing` page
     And I should see the `Hearing attendance` field
     And I should see `Judge Judy` for the `The judge` field
@@ -1898,7 +1898,7 @@ Feature: Case progression
     When I click the `Applications` tab
     Then I should see the `Applications` field
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path

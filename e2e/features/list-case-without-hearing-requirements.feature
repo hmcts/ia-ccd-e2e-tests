@@ -70,7 +70,7 @@ Feature: Case Officer: List case without hearing requirements
     And I should see the text `The listing team will now list the case.`
     And I should not see the option `List without requirements` for the `Next step` field
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see `6 hours` for the `Length of appointment` field
     And I should not see the requests for additional adjustments yes path
@@ -92,7 +92,7 @@ Feature: Case Officer: List case without hearing requirements
     And I should see the case details
     And I should see the legal representative details
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see `6 hours` for the `Length of appointment` field
     And I should not see the requests for additional adjustments yes path
@@ -126,7 +126,7 @@ Feature: Case Officer: List case without hearing requirements
     And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Appointment date and time` field
     And I click the `Cancel` link
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see `6 hours` for the `Length of appointment` field
     And I should not see the requests for additional adjustments yes path
