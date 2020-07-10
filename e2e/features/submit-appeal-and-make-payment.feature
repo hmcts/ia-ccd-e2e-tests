@@ -9,8 +9,23 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I save my initial EA appeal type with hearing fee
     And I submit my appeal
+    And I click the `Close and Return to case details` button
 
-    When I select the `Make a payment` Next step
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You still have a fee to pay. If you do not make a payment by {$TODAY+14|D MMM YYYY}, the Tribunal will take no further action on your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I should see the `Overview` page
+    Then I should only see the `caseOfficer_appealSubmitted` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `This appeal is awaiting payment. You will be notified when the payment is made. You don't need to do anything until then.`
+
+    When I switch to be a `Legal Rep`
+    And I click the `Overview` tab
+    And I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
     And I should see the text `The fee for this type of appeal with a hearing is £140.00`
     And I type `PBA0066906` for the `Enter your Payment by Account reference number` field
@@ -42,8 +57,22 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I save my initial EA appeal type without hearing fee
     And I submit my appeal
+    And I click the `Close and Return to case details` button
 
-    When I select the `Make a payment` Next step
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You still have a fee to pay. If you do not make a payment by {$TODAY+14|D MMM YYYY}, the Tribunal will take no further action on your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I should see the `Overview` page
+    Then I should only see the `caseOfficer_appealSubmitted` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `This appeal is awaiting payment. You will be notified when the payment is made. You don't need to do anything until then.`
+
+    When I switch to be a `Legal Rep`
+    And I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
     And I should see the text `The fee for this type of appeal without a hearing is £80.00`
     And I type `PBA0066906` for the `Enter your Payment by Account reference number` field
@@ -75,8 +104,22 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I save my initial EA appeal type with hearing fee
     And I submit my appeal
+    And I click the `Close and Return to case details` button
 
-    When I select the `Make a payment` Next step
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You still have a fee to pay. If you do not make a payment by {$TODAY+14|D MMM YYYY}, the Tribunal will take no further action on your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I should see the `Overview` page
+    Then I should only see the `caseOfficer_appealSubmitted` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `This appeal is awaiting payment. You will be notified when the payment is made. You don't need to do anything until then.`
+
+    When I switch to be a `Legal Rep`
+    And I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
     And I should see the text `The fee for this type of appeal with a hearing is £140.00`
     And I type `PBA0079489` for the `Enter your Payment by Account reference number` field
@@ -97,6 +140,12 @@ Feature: Leadership judge record the appellant decision and reasons
     And I should see the text `Your account is deleted`
     And I click the `Close and Return to case details` button
 
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You still have a fee to pay. If you do not make a payment by {$TODAY+14|D MMM YYYY}, the Tribunal will take no further action on your appeal.`
+
     And I click the `Appeal` tab
     And I should see the `Appeal` page
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
@@ -110,7 +159,21 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I save my initial HU appeal type with hearing fee
     And I submit my appeal
+    And I click the `Close and Return to case details` button
 
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You still have a fee to pay. If you do not make a payment by {$TODAY+14|D MMM YYYY}, the Tribunal will take no further action on your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I should see the `Overview` page
+    Then I should only see the `caseOfficer_appealSubmitted` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `This appeal is awaiting payment. You will be notified when the payment is made. You don't need to do anything until then.`
+
+    When I switch to be a `Legal Rep`
     When I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
     And I should see the text `The fee for this type of appeal with a hearing is £140.00`
@@ -143,8 +206,22 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I save my initial HU appeal type without hearing fee
     And I submit my appeal
+    And I click the `Close and Return to case details` button
 
-    When I select the `Make a payment` Next step
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You still have a fee to pay. If you do not make a payment by {$TODAY+14|D MMM YYYY}, the Tribunal will take no further action on your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I should see the `Overview` page
+    Then I should only see the `caseOfficer_appealSubmitted` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `This appeal is awaiting payment. You will be notified when the payment is made. You don't need to do anything until then.`
+
+    When I switch to be a `Legal Rep`
+    And I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
     And I should see the text `The fee for this type of appeal without a hearing is £80.00`
     And I type `PBA0066906` for the `Enter your Payment by Account reference number` field
@@ -176,8 +253,22 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I save my initial HU appeal type with hearing fee
     And I submit my appeal
+    And I click the `Close and Return to case details` button
 
-    When I select the `Make a payment` Next step
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You still have a fee to pay. If you do not make a payment by {$TODAY+14|D MMM YYYY}, the Tribunal will take no further action on your appeal.`
+
+    When I switch to be a `Case Officer`
+    And I should see the `Overview` page
+    Then I should only see the `caseOfficer_appealSubmitted` case progress image
+    And I should see the text `What happens next`
+    And I should see the text `This appeal is awaiting payment. You will be notified when the payment is made. You don't need to do anything until then.`
+
+    When I switch to be a `Legal Rep`
+    And I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
     And I should see the text `The fee for this type of appeal with a hearing is £140.00`
     And I type `PBA0079489` for the `Enter your Payment by Account reference number` field
@@ -197,6 +288,12 @@ Feature: Leadership judge record the appellant decision and reasons
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is deleted`
     And I click the `Close and Return to case details` button
+
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    Then I should only see the `legalRep_appealSubmitted` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You still have a fee to pay. If you do not make a payment by {$TODAY+14|D MMM YYYY}, the Tribunal will take no further action on your appeal.`
 
     And I click the `Appeal` tab
     And I should see the `Appeal` page
