@@ -34,28 +34,28 @@ Feature: List case
     And I should see the option `Birmingham` for the `Hearing centre` field
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the option `30 minutes` for the `Length of hearing` field
-    And I should see the option `1 hour` for the `Length of hearing` field
-    And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
-    And I should see the option `2 hours` for the `Length of hearing` field
-    And I should see the option `2 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `3 hours` for the `Length of hearing` field
-    And I should see the option `3 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `4 hours` for the `Length of hearing` field
-    And I should see the option `4 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `5 hours` for the `Length of hearing` field
-    And I should see the option `5 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `6 hours` for the `Length of hearing` field
+    And I should see the option `30 minutes` for the `Length of appointment` field
+    And I should see the option `1 hour` for the `Length of appointment` field
+    And I should see the option `1 hour 30 minutes` for the `Length of appointment` field
+    And I should see the option `2 hours` for the `Length of appointment` field
+    And I should see the option `2 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `3 hours` for the `Length of appointment` field
+    And I should see the option `3 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `4 hours` for the `Length of appointment` field
+    And I should see the option `4 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `5 hours` for the `Length of appointment` field
+    And I should see the option `5 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `6 hours` for the `Length of appointment` field
 
     When I type `LP/12345/2019` for the `Listing reference` field
-    And I select `6 hours` for the `Length of hearing` field
-    And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Hearing date and time` field
+    And I select `6 hours` for the `Length of appointment` field
+    And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Appointment date and time` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see <hearingCentre> for the `Hearing centre` field
-    And I should see `6 hours` for the `Length of hearing` field
-    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    And I should see `6 hours` for the `Length of appointment` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Appointment date and time` field
 
     When I click the `List case` button
     Then I should see the text `You have listed the case`
@@ -117,28 +117,28 @@ Feature: List case
     And I should see the option `Birmingham` for the `Hearing centre` field
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the option `30 minutes` for the `Length of hearing` field
-    And I should see the option `1 hour` for the `Length of hearing` field
-    And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
-    And I should see the option `2 hours` for the `Length of hearing` field
-    And I should see the option `2 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `3 hours` for the `Length of hearing` field
-    And I should see the option `3 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `4 hours` for the `Length of hearing` field
-    And I should see the option `4 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `5 hours` for the `Length of hearing` field
-    And I should see the option `5 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `6 hours` for the `Length of hearing` field
+    And I should see the option `30 minutes` for the `Length of appointment` field
+    And I should see the option `1 hour` for the `Length of appointment` field
+    And I should see the option `1 hour 30 minutes` for the `Length of appointment` field
+    And I should see the option `2 hours` for the `Length of appointment` field
+    And I should see the option `2 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `3 hours` for the `Length of appointment` field
+    And I should see the option `3 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `4 hours` for the `Length of appointment` field
+    And I should see the option `4 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `5 hours` for the `Length of appointment` field
+    And I should see the option `5 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `6 hours` for the `Length of appointment` field
 
     When I type `LP/12345/2019` for the `Listing reference` field
-    And I select `6 hours` for the `Length of hearing` field
-    And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Hearing date and time` field
+    And I select `6 hours` for the `Length of appointment` field
+    And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Appointment date and time` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Taylor House` for the `Hearing centre` field
-    And I should see `6 hours` for the `Length of hearing` field
-    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    And I should see `6 hours` for the `Length of appointment` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Appointment date and time` field
 
     When I click the `List case` button
     Then I should see the text `You have listed the case`

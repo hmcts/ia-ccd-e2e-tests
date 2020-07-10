@@ -274,9 +274,9 @@ Feature: Record application
 
     Then I am on the `Edit case listing` page
 
-    When I select `6 hours` for the `Length of hearing` field
+    When I select `6 hours` for the `Length of appointment` field
     And I select `Manchester` for the `Hearing centre` field
-    And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Hearing date and time` field
+    And I select `{$TODAY+14|DD-MM-YYYY} 10:30:00` for the `Appointment date and time` field
     And I click the `Continue` button
     And I click the `List case` button
     And I click the `Close and Return to case details` button

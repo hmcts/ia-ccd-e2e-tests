@@ -48,11 +48,11 @@ Feature: Adjourn hearing without a date
     And I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
     And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
-    And I should see `Adjourned` for the `Hearing date and time` field
+    And I should see `Adjourned` for the `Appointment date and time` field
 
     When I click the `Hearing tab` link
     Then I should see the `Hearing` page
-    And I should see `Adjourned` for the `Hearing date and time` field
+    And I should see `Adjourned` for the `Appointment date and time` field
     And I should see `some reasons for adjournment` for the `Reasons for adjournment` field
 
     When I click the `Documents` tab
@@ -64,39 +64,39 @@ Feature: Adjourn hearing without a date
     And I should see the text `Do this next`
     And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
     And I should see the text `When the appeal is ready to go to hearing click here`
-    And I should see `Adjourned` for the `Hearing date and time` field
+    And I should see `Adjourned` for the `Appointment date and time` field
 
     When I switch to be a `Legal Rep`
     Then I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
     And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
     And I should see the text `When the appeal is ready to go to hearing the Tribunal will relist the case. You don't need to do anything right now.`
-    And I should see `Adjourned` for the `Hearing date and time` field
+    And I should see `Adjourned` for the `Appointment date and time` field
 
     When I switch to be a `Home Office APC`
     Then I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
     And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
     And I should see the text `When the appeal is ready to go to hearing the Tribunal will relist the case. You don't need to do anything right now.`
-    And I should see `Adjourned` for the `Hearing date and time` field
+    And I should see `Adjourned` for the `Appointment date and time` field
 
     When I switch to be a `Home Office LART`
     Then I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
     And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
     And I should see the text `When the appeal is ready to go to hearing the Tribunal will relist the case. You don't need to do anything right now.`
-    And I should see `Adjourned` for the `Hearing date and time` field
+    And I should see `Adjourned` for the `Appointment date and time` field
 
     When I switch to be a `Home Office POU`
     Then I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
     And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
     And I should see the text `When the appeal is ready to go to hearing the Tribunal will relist the case. You don't need to do anything right now.`
-    And I should see `Adjourned` for the `Hearing date and time` field
+    And I should see `Adjourned` for the `Appointment date and time` field
 
     When I switch to be a `Judge`
     Then I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
     And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the Hearing tab`
     And I should not see the text `When the appeal is ready to go to hearing click here`
-    And I should see `Adjourned` for the `Hearing date and time` field
+    And I should see `Adjourned` for the `Appointment date and time` field

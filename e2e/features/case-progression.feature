@@ -838,23 +838,23 @@ Feature: Case progression
 
     When I select the `List without requirements` Next step
     Then I should see the text `List without requirements`
-    And I should see the option `30 minutes` for the `Length of hearing` field
-    And I should see the option `1 hour` for the `Length of hearing` field
-    And I should see the option `1 hour 30 minutes` for the `Length of hearing` field
-    And I should see the option `2 hours` for the `Length of hearing` field
-    And I should see the option `2 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `3 hours` for the `Length of hearing` field
-    And I should see the option `3 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `4 hours` for the `Length of hearing` field
-    And I should see the option `4 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `5 hours` for the `Length of hearing` field
-    And I should see the option `5 hours 30 minutes` for the `Length of hearing` field
-    And I should see the option `6 hours` for the `Length of hearing` field
-    And I select `6 hours` for the `Length of hearing` field
+    And I should see the option `30 minutes` for the `Length of appointment` field
+    And I should see the option `1 hour` for the `Length of appointment` field
+    And I should see the option `1 hour 30 minutes` for the `Length of appointment` field
+    And I should see the option `2 hours` for the `Length of appointment` field
+    And I should see the option `2 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `3 hours` for the `Length of appointment` field
+    And I should see the option `3 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `4 hours` for the `Length of appointment` field
+    And I should see the option `4 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `5 hours` for the `Length of appointment` field
+    And I should see the option `5 hours 30 minutes` for the `Length of appointment` field
+    And I should see the option `6 hours` for the `Length of appointment` field
+    And I select `6 hours` for the `Length of appointment` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `6 hours` for the `Length of appointment` field
     And I click the `Cancel` link
 
     # Admin Officer
@@ -1094,7 +1094,7 @@ Feature: Case progression
     And I should see `Yes` in the `Do you need interpreter services at the hearing?` field
     And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
     And I should see `Yes` in the `Do you need a hearing loop?` field
-    Then I select `6 hours` for the `Length of hearing` field
+    Then I select `6 hours` for the `Length of appointment` field
     And I click the `Continue` button
     And I should see the text `Additional adjustments`
     And I should see the text `Check if the appellant has requested any additional adjustments and record your response in the relevant field.
@@ -1104,7 +1104,7 @@ Feature: Case progression
     And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them during the hearing?` field
     And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them during the hearing.` field
     And I should see the text `Tribunal response`
-    And I type `Adjustments to accommodate vulnerabilities will be reviewed` for the `Adjustments to accommodate vulnerabilities` field
+    And I type `Physical or mental health conditions will be reviewed` for the `Physical or mental health conditions` field
     And I click the `Continue` button
     And I should see `Yes` in the `Do you have multimedia evidence?` field
     And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
@@ -1272,9 +1272,9 @@ Feature: Case progression
     And I should see the text `Hearing requirements and requests`
 
     And I should see `LP/12345/2019` for the `Listing reference` field
-    And I should see `6 hours` for the `Length of hearing` field
+    And I should see `6 hours` for the `Length of appointment` field
     And I should see `Taylor House` for the `Hearing centre` field
-    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Hearing date and time` field
+    And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Appointment date and time` field
     And I should not see the `Hearing documents` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
 

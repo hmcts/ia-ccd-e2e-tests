@@ -66,12 +66,12 @@ Then(/^I should (see|not see) the hearing details$/, async function (seeOrNotSee
 
     if (isDisplayed) {
 
-        expect(await ccdPage.isFieldValueDisplayed('Length of hearing', '6 hours')).to.equal(true);
-        expect(await ccdPage.isFieldValueDisplayed('Hearing date and time', '{$TODAY+14|D MMM YYYY}, 10:30:00 AM')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Length of appointment', '6 hours')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Appointment date and time', '{$TODAY+14|D MMM YYYY}, 10:30:00 AM')).to.equal(true);
 
     } else {
-        expect(await ccdPage.contentContains('Length of hearing', Wait.instant)).to.equal(false);
-        expect(await ccdPage.contentContains('Hearing date and time', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Length of appointment', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Appointment date and time', Wait.instant)).to.equal(false);
     }
 });
 
