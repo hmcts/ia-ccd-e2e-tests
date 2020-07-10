@@ -23,7 +23,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
   @RIA-2052 @hearing-requirements-hearing-tab
   Scenario: Hearing tab with hearing details when Submit hearing requirements with 'Yes' options selected
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     Then I should see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
@@ -31,7 +31,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
     And I should see the text `Hearing requirements and requests`
 
     When I switch to be a `Case Officer`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     Then I should see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
@@ -40,7 +40,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # HO APC
     When I switch to be a `Home Office APC`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should not see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
@@ -49,7 +49,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # HO LART
     When I switch to be a `Home Office LART`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should not see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
@@ -58,7 +58,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # HO POU
     When I switch to be a `Home Office POU`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should not see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
@@ -67,7 +67,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # HO Generic
     When I switch to be a `Home Office Generic`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     And I should not see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
     And I should not see the text `Record of hearing details`
@@ -75,7 +75,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # Admin Officer
     When I switch to be a `Admin Officer`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     Then I should see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
@@ -88,7 +88,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
 
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     Then I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
@@ -97,7 +97,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # AO
     When I switch to be a `Admin Officer`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
@@ -145,7 +145,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
     And I should see the text `You don't need to do any more on this case.`
     And I click the `Close and Return to case details` button
 
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     And I should see `LP/12345/2019` for the `Listing reference` field
     And I should see `6 hours` for the `Length of appointment` field
     And I should see `Taylor House` for the `Hearing centre` field
@@ -161,7 +161,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # HO APC
     When I switch to be a `Home Office APC`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see `LP/12345/2019` for the `Listing reference` field
     And I should see `6 hours` for the `Length of appointment` field
@@ -178,7 +178,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # HO LART
     When I switch to be a `Home Office LART`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see `LP/12345/2019` for the `Listing reference` field
     And I should see `6 hours` for the `Length of appointment` field
@@ -195,7 +195,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # HO POU
     When I switch to be a `Home Office POU`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see `LP/12345/2019` for the `Listing reference` field
     And I should see `6 hours` for the `Length of appointment` field
@@ -212,7 +212,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
 
     # HO Generic
     When I switch to be a `Home Office Generic`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see `LP/12345/2019` for the `Listing reference` field
     And I should see `6 hours` for the `Length of appointment` field

@@ -24,7 +24,7 @@ Feature: Validation for list case without agreed hearing requirements
   Scenario: Validation for list case without agreed requirements
 
     When I switch to be a `Admin Officer`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     And I should see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
     And I should see the text `Record of hearing details`

@@ -93,17 +93,17 @@ Feature: Record agreed hearing requirements
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments no path
     Then I should see the agreed additional adjustments no path
 
     When I switch to be a `Legal Rep`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments no path
     Then I should see the agreed additional adjustments no path
 
     When I switch to be a `Admin Officer`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments no path
     Then I should see the agreed additional adjustments no path
 
@@ -176,16 +176,16 @@ Feature: Record agreed hearing requirements
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
 
     When I switch to be a `Legal Rep`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments yes path
     Then I should see the agreed additional adjustments yes path
 
     When I switch to be a `Admin Officer`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path

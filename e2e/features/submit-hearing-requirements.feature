@@ -139,7 +139,7 @@ Feature: Submit hearing requirements
     Then I should see the `Documents` page
     And I should not see the `Hearing documents` field
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
@@ -151,7 +151,7 @@ Feature: Submit hearing requirements
     And I should see the text `Hearing requirements and requests`
 
     When I switch to be a `Case Officer`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     And I should see the requests for additional adjustments no path
     And I should not see the agreed additional adjustments yes path
     And I should see the hearing requirements no path
@@ -159,7 +159,7 @@ Feature: Submit hearing requirements
     And I should see the text `Hearing requirements and requests`
 
     When I switch to be a `Admin Officer`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     And I should see the requests for additional adjustments no path
     And I should not see the agreed additional adjustments yes path
     And I should see the hearing requirements no path
@@ -295,13 +295,13 @@ Feature: Submit hearing requirements
     Then I should see the `Documents` page
     And I should not see the `Hearing documents` field
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Hearing requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
     And I should see the hearing requirements yes path
@@ -310,7 +310,7 @@ Feature: Submit hearing requirements
 
 
     When I switch to be a `Case Officer`
-    Then I click the `Hearing` tab
+    Then I click the `Hearing and appointment` tab
     And I should see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
     And I should see the hearing requirements yes path
@@ -318,7 +318,7 @@ Feature: Submit hearing requirements
     And I should see the text `Hearing requirements and requests`
 
     When I switch to be a `Admin Officer`
-    Then I click the `Hearing` tab
+    Then I click the `Hearing and appointment` tab
     And I should see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
     And I should see the hearing requirements yes path

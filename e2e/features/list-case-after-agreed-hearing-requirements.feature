@@ -26,7 +26,7 @@ Feature: List case and edit case listing after agreed hearing requirements stage
   Scenario: Submit hearing requirements with 'Yes' options selected
 
     When I switch to be a `Admin Officer`
-    And I click the `Hearing` tab
+    And I click the `Hearing and appointment` tab
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
     And I should see the text `Record of hearing details`

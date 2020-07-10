@@ -103,7 +103,7 @@ Feature: Update hearing requirements
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Update hearing requirements`
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
@@ -253,7 +253,7 @@ Feature: Update hearing requirements
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Update hearing requirements`
 
-    When I click the `Hearing` tab
+    When I click the `Hearing and appointment` tab
     Then I should see the `Hearing` page
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
