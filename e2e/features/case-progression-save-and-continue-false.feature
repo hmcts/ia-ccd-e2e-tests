@@ -1,6 +1,6 @@
-Feature: Case progression
+Feature: Case progression path when case and continue is disabled 
 
-  @case-progression @case-progression-core @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
+  @case-progression @case-progression-core-save-and-continue-true @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
   @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277 @RIA-2343 @RIA-2304 @RIA-2041
   @RIA-2236 @RIA-2736 @RIA-1360 @RIA-1280 @RIA-1939 @RIA-1903 @RIA-2694
@@ -366,46 +366,11 @@ Feature: Case progression
     Then I am on the `Build your case` page
     And I click the `Cancel` link
 
-    ### case building, ready to submit
+    ### case building, ready to submit, case under review
 
     # LR:
 
     When I build my case
-    And I click the `Overview` tab
-    And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_caseBuilding` case progress image
-
-    And I should see the text `Do this next
-    And I should see the text `If you're not yet ready for your case to be reviewed, continue to build your case`
-    And I should see the text `If you're ready for your case to be reviewed, submit your case`
-
-    And I should not see the hearing details
-    And I should see the case details
-    And I should see the legal representative details
-
-    And I should not see the option `Send direction` for the `Next step` field
-    And I should not see the option `Change a direction due date` for the `Next step` field
-    And I should not see the option `Add case note` for the `Next step` field
-    And I should not see the option `Record an application` for the `Next step` field
-
-    And I should see the option `Build your case` for the `Next step` field
-    And I should see the option `Submit your case` for the `Next step` field
-
-    When I click the `build your case` link
-    Then I am on the `Build your case` page
-    And I click the `Cancel` link
-
-    When I click the `Overview` tab
-
-    And I click the `submit your case` link
-    Then I am on the `Submit your case` page
-    And I click the `Cancel` link
-
-    ### case under review
-
-    # LR:
-
-    When I submit my case
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
     Then I should only see the `legalRep_caseUnderReview` case progress image
@@ -1024,7 +989,7 @@ Feature: Case progression
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
-    When I click the `Hearing and appointment` tab
+    When I click the `Hearing` tab
     Then I should see the `Hearing` page
     And I should see the `Hearing requirements and requests` field
     And within the `Hearing requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
@@ -1041,7 +1006,7 @@ Feature: Case progression
     And I should not see the `Hearing documents` field
 
     When I switch to be a `Home Office APC`
-    Then I click the `Hearing and appointment` tab
+    Then I click the `Hearing` tab
     And I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should not see the agreed additional adjustments yes path
@@ -1054,7 +1019,7 @@ Feature: Case progression
     # Admin Officer
     When I switch to be a `Admin Officer`
 
-    And I click the `Hearing and appointment` tab
+    And I click the `Hearing` tab
     And I should not see the agreed additional adjustments yes path
     And I should see the requests for additional adjustments yes path
     And I should see the text `Record of hearing details`
@@ -1136,7 +1101,7 @@ Feature: Case progression
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `You've made an invalid request. The hearing requirements have already been reviewed.`
 
-    When I click the `Hearing and appointment` tab
+    When I click the `Hearing` tab
     Then I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
 
@@ -1166,7 +1131,7 @@ Feature: Case progression
     And I should not see the option `List the case` for the `Next step` field
     And I should see the option `Record an application` for the `Next step` field
 
-    When I click the `Hearing and appointment` tab
+    When I click the `Hearing` tab
     Then I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
@@ -1214,7 +1179,7 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
-    When I click the `Hearing and appointment` tab
+    When I click the `Hearing` tab
     Then I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
@@ -1264,7 +1229,7 @@ Feature: Case progression
     And I should see the case details
     And I should see the legal representative details
 
-    When I click the `Hearing and appointment` tab
+    When I click the `Hearing` tab
     Then I should see the hearing requirements yes path
     Then I should not see the requests for additional adjustments yes path
     Then I should see the agreed additional adjustments yes path
@@ -1342,7 +1307,7 @@ Feature: Case progression
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
-    And I click the `Hearing and appointment` tab
+    And I click the `Hearing` tab
     Then I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
@@ -1761,7 +1726,7 @@ Feature: Case progression
     And I should see the appellant's details
     And I should not see the decision fields
 
-    And I click the `Hearing and appointment` tab
+    And I click the `Hearing` tab
     And I should see the `Hearing` page
     And I should see the `Hearing attendance` field
     And I should see `Judge Judy` for the `The judge` field
@@ -1898,7 +1863,7 @@ Feature: Case progression
     When I click the `Applications` tab
     Then I should see the `Applications` field
 
-    When I click the `Hearing and appointment` tab
+    When I click the `Hearing` tab
     Then I should see the hearing requirements yes path
     And I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
