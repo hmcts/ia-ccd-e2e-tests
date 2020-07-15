@@ -138,7 +138,7 @@ Feature: Record agreed hearing requirements
     And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them during the hearing?` field
     And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them during the hearing.` field
     And I should see the text `Tribunal response`
-    And I type `Physical or mental health conditions will be reviewed` for the `Physical or mental health conditions` field
+    And I type `Physical or mental health conditions will be reviewed` for the `Adjustments to accommodate vulnerabilities` field
     And I click the `Continue` button
     And I should see `Yes` in the `Do you have multimedia evidence?` field
     And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field

@@ -89,21 +89,21 @@ Then(/^I should (see|not see) the agreed additional adjustments (yes|no) path$/,
 
     if (isDisplayed) {
         if (isYesPath) {
-            expect(await ccdPage.isFieldValueDisplayed('Physical or mental health conditions', 'Physical or mental health conditions will be reviewed')).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Adjustments to accommodate vulnerabilities', 'Physical or mental health conditions will be reviewed')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Multimedia equipment', 'Multimedia equipment requirement will be reviewed')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Single-sex court', 'Single sex court requirement will be reviewed')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('In camera court', 'Private hearing requirement will be reviewed')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Other adjustments', 'Additional adjustments requirement will be reviewed')).to.equal(true);
 
         } else {
-            expect(await ccdPage.contentContains('Physical or mental health conditions', Wait.instant)).to.equal(false);
+            expect(await ccdPage.contentContains('Adjustments to accommodate vulnerabilities', Wait.instant)).to.equal(false);
             expect(await ccdPage.contentContains('Multimedia equipment', Wait.instant)).to.equal(false);
             expect(await ccdPage.contentContains('Single-sex court', Wait.instant)).to.equal(false);
             expect(await ccdPage.contentContains('In camera court', Wait.instant)).to.equal(false);
             expect(await ccdPage.contentContains('Other adjustments', Wait.instant)).to.equal(false);
         }
     } else {
-        expect(await ccdPage.contentContains('Physical or mental health conditions', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Adjustments to accommodate vulnerabilities', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Multimedia equipment', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Single-sex court', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('In camera court', Wait.instant)).to.equal(false);
