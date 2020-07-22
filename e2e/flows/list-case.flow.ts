@@ -19,12 +19,12 @@ export class ListCaseFlow {
         );
 
         await this.ccdFormPage.setFieldValue(
-            'Length of appointment',
+            'Length',
             '6 hours'
         );
 
         await this.ccdFormPage.setFieldValue(
-            'Appointment date and time',
+            'Date and time',
             '{$TODAY+14|DD-MM-YYYY} 10:30:00'
         );
 
