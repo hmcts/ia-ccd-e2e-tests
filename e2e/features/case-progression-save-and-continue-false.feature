@@ -1714,6 +1714,7 @@ Feature: Case progression path when case and continue is disabled
     And I type `Judge Judy` for the `The judge` field
     And I type `2` for the `Hours` field
     And I type `30` for the `Minutes` field
+    And I select `All participants at the jearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     And I click the `Save details` button
     And I click the `Close and Return to case details` button

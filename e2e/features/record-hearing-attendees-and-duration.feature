@@ -43,6 +43,7 @@ Feature: Record hearing attendees and duration
     And I type `Sebastian` for the `The Home Office representative (Optional)` field
     And I type `2` for the `Hours` field
     And I type `30` for the `Minutes` field
+    And I select `All participants at the jearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `Judge Judy` for the `The judge` field
