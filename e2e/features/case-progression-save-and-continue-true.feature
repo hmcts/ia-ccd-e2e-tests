@@ -1693,6 +1693,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
     And I should see the text `You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
     Then I should see the `apply for permission to appeal` link
+    Then I should see the `Tell us what you think about the appeals service` link
     And I should see the hearing details
     And I should see the case details
     And I should see the legal representative details
