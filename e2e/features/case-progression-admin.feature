@@ -1,6 +1,6 @@
 Feature: Case progression - Admin Officer
 
-  @case-progression @case-progression-admin @RIA-1360 @RIA-1939 @wip
+  @case-progression @case-progression-admin @RIA-1360 @RIA-1939
   Scenario: Case progression information is displayed for each case state for Admin Officer
 
     Given I am signed in as a `Legal Rep`
