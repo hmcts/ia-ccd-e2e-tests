@@ -42,6 +42,7 @@ export class SubmitHearingRequirementsFlow {
     }
 
     async hearingRequirementsYesPath() {
+
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(

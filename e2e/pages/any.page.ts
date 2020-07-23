@@ -47,6 +47,7 @@ export class AnyPage {
         const linkPath =
             '//*[self::label or self::span]' +
             '[text()[normalize-space()="' + expandedLinkText + '"]]';
+
         try {
             await browser.wait(
                 async () => {
