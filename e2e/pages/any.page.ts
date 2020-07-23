@@ -47,7 +47,6 @@ export class AnyPage {
         const linkPath =
             '//*[self::label or self::span]' +
             '[text()[normalize-space()="' + expandedLinkText + '"]]';
-        await browser.waitForAngular();
         try {
             await browser.wait(
                 async () => {

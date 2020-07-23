@@ -2,7 +2,6 @@ import { CcdFormPage } from '../../../pages/ccd-form.page';
 import { StartAppealFlow } from '../../../flows/start-appeal.flow';
 import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
-import { browser } from 'protractor';
 
 const ccdFormPage = new CcdFormPage();
 const startAppealFlow = new StartAppealFlow();
@@ -73,7 +72,6 @@ Given(/^I skip the `?([^`]+)`? page by clicking `?([^`]+)`?$/, async function (p
 });
 
 Given('I save my initial appeal', async function () {
-    await browser.waitForAngular();
     await startAppealFlow.saveAppeal(true);
 });
 

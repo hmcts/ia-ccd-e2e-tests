@@ -1,5 +1,4 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
 
 export class SubmitHearingRequirementsFlow {
 
@@ -43,7 +42,6 @@ export class SubmitHearingRequirementsFlow {
     }
 
     async hearingRequirementsYesPath() {
-        await browser.waitForAngular();
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
