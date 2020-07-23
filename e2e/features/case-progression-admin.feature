@@ -58,15 +58,16 @@ Feature: Case progression - Admin Officer
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
 
-    Then I should only see the `caseOfficer_caseBuilding` case progress image
-    And I should see the text `What happens next`
-    And I should see the text `The appellant will build their case.`
+    # Commented out because the Save and Continue flag is false by default.
+    # Then I should only see the `caseOfficer_caseBuilding` case progress image
+    # And I should see the text `What happens next`
+    # And I should see the text `The appellant will build their case.`
 
-    And I switch to be a `Legal Rep`
-    And I submit my case
+    # And I switch to be a `Legal Rep`
+    # And I submit my case
 
-    When I switch to be a `Admin Officer`
-    And I click the `Overview` tab
+    # When I switch to be a `Admin Officer`
+    # And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_caseUnderReview` case progress image
     And I should see the text `What happens next`
@@ -207,6 +208,7 @@ Feature: Case progression - Admin Officer
     And I type `Judge Judy` for the `The judge` field
     And I type `2` for the `Hours` field
     And I type `30` for the `Minutes` field
+    And I select `All participants at the jearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     And I click the `Save details` button
     And I click the `Close and Return to case details` button
