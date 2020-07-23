@@ -70,6 +70,7 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
 });
 
 When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
+    await browser.waitForAngular();    
     await ccdPage.click(linkText);
 });
 

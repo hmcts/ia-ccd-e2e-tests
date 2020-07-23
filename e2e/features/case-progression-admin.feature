@@ -208,21 +208,22 @@ Feature: Case progression - Admin Officer
     And I type `Judge Judy` for the `The judge` field
     And I type `2` for the `Hours` field
     And I type `30` for the `Minutes` field
+    And I select `All participants at the jearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     And I click the `Save details` button
     And I click the `Close and Return to case details` button
     And I click the `Overview` tab
 
-    # Then I should only see the `appeal_allowed` case progress image
-    # And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
+    Then I should only see the `appeal_allowed` case progress image
+    And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
 
-    # When I switch to be a `Legal Rep`
-    # And I submit FTPA appeal
+    When I switch to be a `Legal Rep`
+    And I submit FTPA appeal
 
-    # When I switch to be a `Admin Officer`
-    # And I click the `Overview` tab
+    When I switch to be a `Admin Officer`
+    And I click the `Overview` tab
 
-    # Then I should see the image `ftpaInProgress.png`
-    # And I should see the text `Do this next`
-    # And I should see the text `Assign the application to a judge then record the judge's name.`
-    # And I should see the `record the judge's name` link
+    Then I should see the image `ftpaInProgress.png`
+    And I should see the text `Do this next`
+    And I should see the text `Assign the application to a judge then record the judge's name.`
+    And I should see the `record the judge's name` link
