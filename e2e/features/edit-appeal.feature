@@ -5,7 +5,7 @@ Feature: Edit appeal application
     And I create a new case
     And I save my initial appeal
 
-  @regression @edit-appeal @RIA-653 @RIA-3334-edit
+  @regression @edit-appeal @RIA-653 @RIA-3334
   Scenario: Edit a draft appeal
 
     When I select the `Edit appeal` Next step
