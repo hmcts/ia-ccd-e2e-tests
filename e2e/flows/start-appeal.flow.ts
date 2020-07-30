@@ -161,7 +161,7 @@ export class StartAppealFlow {
         }
     }
 
-  async saveAppeal(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+  async  saveAppeal(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReference(true);
         await this.completeBasicDetails(true);
@@ -169,8 +169,8 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeAppealType(true);
         await this.completeAppealGrounds(true);
-        await this.completeNewMatters(true);
         await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
@@ -188,8 +188,8 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeAppealType(true);
         await this.completeAppealGrounds(true);
+      await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
-        await this.completeDeportationOrder(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);

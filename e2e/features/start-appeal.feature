@@ -47,6 +47,10 @@ Feature: Start initial appeal application
     When I click the `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` label
     And I click the `Continue` button
 
+    Given I am on the `Deportation order` page
+    When I select `Yes` for the `Has a deportation order been made against the appellant?` field
+    And I click the `Continue` button
+
     Given I am on the `New matters` page
     When I select `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I type `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
@@ -107,6 +111,7 @@ Feature: Start initial appeal application
     And I should see the text `Submit your appeal when you are ready.`
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case to make changes.`
+    And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
     When I click the `Close and Return to case details` button
     #And I see the open case
@@ -138,6 +143,7 @@ Feature: Start initial appeal application
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
     And I should see `Yes, but I don't have an appeal number` for the `Previous appeals` field
     And I should see `31 Oct 2018` for the `Home Office decision letter sent` field
+    And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealStarted` case progress image
