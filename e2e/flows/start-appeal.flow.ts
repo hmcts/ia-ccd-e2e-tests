@@ -26,6 +26,25 @@ export class StartAppealFlow {
         }
     }
 
+    async completeUploadNoticeDecision(clickContinue = false) {
+
+      await this.ccdFormPage.setFieldValue(
+        'Notice of Decision (Optional)',
+        '{@test.doc}',
+        'document'
+      );
+
+      await this.ccdFormPage.setFieldValue(
+        'Reason you cannot provide the Notice of Decision (Optional)',
+        'Some optional reasons',
+        'text area'
+      );
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(clickContinue = false) {
 
         await this.ccdFormPage.setFieldValue('Home Office reference', 'A123456/001');
@@ -152,6 +171,7 @@ export class StartAppealFlow {
     async saveAppeal(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReference(true);
+        await this.completeUploadNoticeDecision(true);
         await this.completeBasicDetails(true);
         await this.completeClientAddress(true, hasFixedAddress, address, postcode);
         await this.completeContactPreference(true);
@@ -170,6 +190,7 @@ export class StartAppealFlow {
     async saveOutOfTimeAppeal(clickContinue = false) {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
+        await this.completeUploadNoticeDecision(true)
         await this.completeBasicDetails(true);
         await this.completeClientAddress(true);
         await this.completeContactPreference(true);

@@ -5,6 +5,7 @@ Feature: Start appeal shows confirmation when saved
     And I create a new case
     And I complete the `Tell us about your client` page
     And I complete the `Home office details` page
+    And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
     And I complete the `The appellant's contact preference` page
@@ -15,15 +16,14 @@ Feature: Start appeal shows confirmation when saved
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
 
-  @regression @start-appeal @alternate @start-appeal-confirmation
+  @regression @start-appeal @alternate @start-appeal-confirmation @1925
   Scenario: Confirmation page is displayed when saved
 
-    Then I should see the text `Appeal saved`
+    Then I should see the text `Your appeal details have been saved`
     And I should see the text `You still need to submit it`
-    And I should see the text `Ready to submit?`
-    And I should see the text `Submit your appeal when you are ready.`
+    And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
-    And I should see the text `You can return to the case to make changes.`
+    And I should see the text `You can return to the case details to make changes.`
 
     When I click the Submit your appeal link
     Then I am on the Submit your appeal page
