@@ -729,7 +729,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
+    And I should see the image `appeal_allowed.png`
     And I should see the text `No further action required.`
     And I should see `Permission refused` for the `The outcome of the application` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -764,7 +764,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
+    And I should see the image `appeal_allowed.png`
     And I should see the text `No further action required.`
     And I should see `Permission refused` for the `The outcome of the application` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -799,7 +799,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
+    And I should see the image `appeal_allowed.png`
     And I should see the text `No further action required.`
     And I should see `Permission refused` for the `The outcome of the application` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -849,8 +849,8 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed.`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
 
@@ -871,8 +871,8 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed.`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
 
@@ -893,8 +893,8 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed.`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
 
@@ -915,8 +915,8 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
 
@@ -975,7 +975,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
+    And I should see the image `appeal_allowed.png`
     And I should see the text `No further action required.`
     And I should see `Application not admitted` for the `The outcome of the application` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -1010,7 +1010,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
+    And I should see the image `appeal_allowed.png`
     And I should see the text `No further action required.`
     And I should see `Application not admitted` for the `The outcome of the application` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -1045,7 +1045,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
+    And I should see the image `appeal_allowed.png`
     And I should see the text `No further action required.`
     And I should see `Application not admitted` for the `The outcome of the application` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -1095,8 +1095,8 @@ Feature: Leadership judge record the appellant decision and reasons
 
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed.`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab.`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
 
@@ -1117,8 +1117,8 @@ Feature: Leadership judge record the appellant decision and reasons
 
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed.`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `The appeal has been allowed. The Decision and Reasons document is available in the documents tab.`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
 
@@ -1139,8 +1139,8 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
 
@@ -1161,22 +1161,8 @@ Feature: Leadership judge record the appellant decision and reasons
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
-    And I should not see the `The outcome of the application` field
-    And I should not see the `FTPA Decision and Reasons document` field
-
-    When I switch to be a `Home Office APC`
-    And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed.`
-    And I should not see the `The outcome of the application` field
-    And I should not see the `FTPA Decision and Reasons document` field
-
-    When I switch to be a `Home Office LART`
-    And I should see the `Overview` page
-    And I should see the image `appeal_dismissed.png`
-    And I should see the text `The appeal has been dismissed.`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
 
