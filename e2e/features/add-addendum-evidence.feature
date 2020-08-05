@@ -26,6 +26,8 @@ Feature: Add addendum evidence
     And I switch to be a `Case Officer`
     And I create case summary
     And I generate the hearing bundle
+    And I wait for 10 seconds
+    And I reload the Case Overview Page
     And I start decision and reasons
 
   @regression @add-addendum-evidence @RIA-1603 @RIA-2037

@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class SubmitHearingRequirementsFlow {
 
@@ -174,6 +175,7 @@ export class SubmitHearingRequirementsFlow {
         );
 
         await this.ccdFormPage.click('Add new');
+        await browser.sleep(500);
         await this.ccdFormPage.setFieldValue(
             'Date',
             '31-12-2019'

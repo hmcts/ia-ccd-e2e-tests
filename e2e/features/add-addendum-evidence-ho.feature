@@ -22,6 +22,8 @@ Feature: Add addendum evidence by Home Office
     And I switch to be a `Case Officer`
     And I create case summary
     And I generate the hearing bundle
+    And I wait for 10 seconds
+    And I reload the Case Overview Page
     And I start decision and reasons
 
   @add-addendum-evidence-ho @RIA-1935

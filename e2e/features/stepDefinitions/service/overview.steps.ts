@@ -2,8 +2,16 @@ import { CcdPage } from '../../../pages/ccd.page';
 import { Then } from 'cucumber';
 import { Wait } from '../../../enums/wait';
 import { expect } from 'chai';
+import { browser } from 'protractor';
 
 const ccdPage = new CcdPage();
+
+Then(/^I reload the Case Overview Page$/, async function () {
+    await browser.sleep(500);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    await browser.sleep(500);
+    await ccdPage.get(currentUrl);
+});
 
 Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
 
