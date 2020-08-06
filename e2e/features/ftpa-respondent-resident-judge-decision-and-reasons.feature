@@ -31,7 +31,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
 
-  @ftpa-respondent-resident-judge-decision-granted @ftpa-respondent-resident-judge-decision @RIA-2527
+  @ftpa-respondent-resident-judge-decision-granted @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571
   Scenario: FTPA respondent resident judge decision - Granted
     When I switch to be a Judge
     And I select the `Resident judge FTPA decision` Next step
@@ -100,6 +100,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `No further action required.`
+    And I should see `Permission granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -117,6 +126,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `No further action required.`
+    And I should see `Permission granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Legal Rep`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -133,6 +151,14 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    Then I click the `Overview` tab
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `The Upper Tribunal will review the application and make a decision.`
+    And I should see `Permission granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
@@ -151,6 +177,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `Send all information and documents related to this case to the Upper Tribunal.`
+    And I should see `Permission granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -167,6 +202,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `The Upper Tribunal will review the application and make a decision.`
+    And I should see `Permission granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Legal Rep`
     And I click the `FTPA` tab
@@ -185,7 +229,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @ftpa-respondent-resident-judge-decision-partially-granted @ftpa-respondent-resident-judge-decision @RIA-2527
+  @ftpa-respondent-resident-judge-decision-partially-granted @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571
   Scenario: FTPA respondent resident judge decision - Partially granted
     When I switch to be a Judge
     And I select the `Resident judge FTPA decision` Next step
@@ -254,6 +298,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `No further action required.`
+    And I should see `Permission partially granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -271,6 +324,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `No further action required.`
+    And I should see `Permission partially granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Legal Rep`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -287,6 +349,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `The Upper Tribunal will review the application and make a decision.`
+    And I should see `Permission partially granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
@@ -305,6 +376,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `Send all information and documents related to this case to the Upper Tribunal.`
+    And I should see `Permission partially granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -321,6 +401,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `ftpaGranted.png`
+    And I should see the text `The Upper Tribunal will review the application and make a decision.`
+    And I should see `Permission partially granted` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Legal Rep`
     And I click the `FTPA` tab
@@ -340,7 +429,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
 
-  @ftpa-respondent-resident-judge-decision-refused @ftpa-respondent-resident-judge-decision @RIA-2527
+  @ftpa-respondent-resident-judge-decision-refused @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571
   Scenario: FTPA respondent resident judge decision - refused
     When I switch to be a Judge
     And I select the `Resident judge FTPA decision` Next step
@@ -387,6 +476,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_dismissed.png`
+    And I should see the text `No further action required.`
+    And I should see `Permission refused` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -399,6 +497,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_dismissed.png`
+    And I should see the text `No further action required.`
+    And I should see `Permission refused` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
@@ -413,6 +520,15 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_dismissed.png`
+    And I should see the text `The application for permission to appeal to the Upper Tribunal was refused. You can apply to the Upper Tribunal directly.`
+    And I should see `Permission refused` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -426,8 +542,50 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_dismissed.png`
+    And I should see the text `No further action required.`
+    And I should see `Permission refused` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-  @ftpa-respondent-resident-judge-decision-reheard-rule-35 @ftpa-respondent-resident-judge-decision @RIA-2527
+    When I switch to be a `Home Office Generic`
+    And I should see the `Overview` page
+    And I should see the image `appeal_dismissed.png`
+    And I should see the text `The application for permission to appeal to the Upper Tribunal was refused. You can apply to the Upper Tribunal directly.`
+    And I should see `Permission refused` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
+    When I switch to be a `Home Office APC`
+    And I should see the image `appeal_dismissed.png`
+    And I should see the text `The application for permission to appeal to the Upper Tribunal was refused. You can apply to the Upper Tribunal directly.`
+    And I should see `Permission refused` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
+    When I switch to be a `Home Office LART`
+    And I should see the `Overview` page
+    And I should see the image `appeal_dismissed.png`
+    And I should see the text `The application for permission to appeal to the Upper Tribunal was refused. You can apply to the Upper Tribunal directly.`
+    And I should see `Permission refused` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
+    When I switch to be a `Legal Rep`
+    And I should see the `Overview` page
+    And I should see the image `appeal_dismissed.png`
+    And I should see the text `The appeal has been dismissed. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
+    And I should not see the `The outcome of the application` field
+    And I should not see the `FTPA Decision and Reasons document` field
+
+
+  @ftpa-respondent-resident-judge-decision-reheard-rule-35 @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571
   Scenario: FTPA respondent resident judge decision - reheard-rule-35
     When I switch to be a Judge
     And I select the `Resident judge FTPA decision` Next step
@@ -482,6 +640,16 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_reheard.png`
+    And I should see the text `What happens next`
+    And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
+    And I should see `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -497,6 +665,16 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_reheard.png`
+    And I should see the text `Do this next`
+    And I should see the text `Check the FTPA tab and follow any instructions the judge has made to the Tribunal. Once you've done this you should record the length of hearing`
+    And I should see `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -511,6 +689,16 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_reheard.png`
+    And I should see the text `What happens next`
+    And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
+    And I should see `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
@@ -542,7 +730,17 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @ftpa-respondent-resident-judge-decision-reheard-rule-32 @ftpa-respondent-resident-judge-decision @RIA-2527
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_reheard.png`
+    And I should see the text `What happens next`
+    And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
+    And I should see `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
+  @ftpa-respondent-resident-judge-decision-reheard-rule-32 @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571
   Scenario: FTPA respondent resident judge decision - reheard-rule-32
     When I switch to be a Judge
     And I select the `Resident judge FTPA decision` Next step
@@ -586,6 +784,16 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_reheard.png`
+    And I should see the text `What happens next`
+    And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
+    And I should see `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -599,6 +807,16 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_reheard.png`
+    And I should see the text `Do this next`
+    And I should see the text `Check the FTPA tab and follow any instructions the judge has made to the Tribunal. Once you've done this you should record the length of hearing`
+    And I should see `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -611,6 +829,16 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_reheard.png`
+    And I should see the text `What happens next`
+    And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
+    And I should see `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
@@ -638,8 +866,19 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_reheard.png`
+    And I should see the text `What happens next`
+    And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
+    And I should see `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-  @ftpa-respondent-resident-judge-decision-remade-rule-32 @ftpa-respondent-resident-judge-decision @RIA-2527
+
+
+  @ftpa-respondent-resident-judge-decision-remade-rule-32 @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571
   Scenario: FTPA respondent resident judge decision - remade-rule-32
     When I switch to be a Judge
     And I select the `Resident judge FTPA decision` Next step
@@ -682,6 +921,17 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `What happens next`
+    And I should see the text `No further action required.`
+    And I should see `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
+    And I should see `Allowed` for the `New decision of appeal` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Case Officer`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -694,6 +944,17 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `What happens next`
+    And I should see the text `No further action required.`
+    And I should see `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
+    And I should see `Allowed` for the `New decision of appeal` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Home Office POU`
     And I click the `FTPA` tab
@@ -708,6 +969,47 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `What happens next`
+    And I should see the text `The decision was set aside and remade under rule 32 following an application for permission to appeal to the Upper Tribunal. You can apply to the Upper Tribunal directly.`
+    And I should see `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
+    And I should see `Allowed` for the `New decision of appeal` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
+    When I switch to be a `Home Office LART`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `What happens next`
+    And I should see the text `The decision was set aside and remade under rule 32 following an application for permission to appeal to the Upper Tribunal. You can apply to the Upper Tribunal directly.`
+    And I should see `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
+    And I should see `Allowed` for the `New decision of appeal` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
+    When I switch to be a `Home Office APC`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `What happens next`
+    And I should see the text `The decision was set aside and remade under rule 32 following an application for permission to appeal to the Upper Tribunal. You can apply to the Upper Tribunal directly.`
+    And I should see `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
+    And I should see `Allowed` for the `New decision of appeal` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
+    When I switch to be a `Home Office Generic`
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `What happens next`
+    And I should see the text `The decision was set aside and remade under rule 32 following an application for permission to appeal to the Upper Tribunal. You can apply to the Upper Tribunal directly.`
+    And I should see `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
+    And I should see `Allowed` for the `New decision of appeal` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
+
     When I switch to be a `Admin Officer`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -720,3 +1022,14 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    And I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the image `appeal_allowed.png`
+    And I should see the text `What happens next`
+    And I should see the text `No further action required.`
+    And I should see `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
+    And I should see `Allowed` for the `New decision of appeal` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
+    And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
