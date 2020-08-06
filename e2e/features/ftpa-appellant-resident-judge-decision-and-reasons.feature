@@ -154,10 +154,9 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And within the `Notice communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
-    And within the `Notice communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
-    And I should see the text `Appellant: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And within the `Notice of communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
+    And within the `Notice of communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
+    And I should not see the text `Appellant: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Appellant Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -218,10 +217,9 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And within the `Notice communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
-    And within the `Notice communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
-    And I should see the text `Appellant: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And within the `Notice of communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
+    And within the `Notice of communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
+    And I should not see the text `Appellant: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Appellant Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -249,10 +247,9 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And within the `Notice communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
-    And within the `Notice communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
-    And I should see the text `Appellant: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And within the `Notice of communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
+    And within the `Notice of communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
+    And I should not see the text `Appellant: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Appellant Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -280,10 +277,9 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And within the `Notice communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
-    And within the `Notice communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
-    And I should see the text `Appellant: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And within the `Notice of communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
+    And within the `Notice of communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
+    And I should not see the text `Appellant: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Appellant Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -311,10 +307,9 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And within the `Notice communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
-    And within the `Notice communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
-    And I should see the text `Appellant: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And within the `Notice of communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
+    And within the `Notice of communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
+    And I should not see the text `Appellant: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Appellant Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -459,10 +454,9 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And within the `Notice communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
-    And within the `Notice communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
-    And I should see the text `Appellant: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And within the `Notice of communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
+    And within the `Notice of communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
+    And I should not see the text `Appellant: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Appellant Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -523,10 +517,9 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
-    And within the `Notice communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
-    And within the `Notice communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
-    And I should see the text `Appellant: Tribunal Notes`
-    And I should see `This is information to the upper tribunal` in the `Provide any information that may be helpful to the Upper Tribunal judge` field
+    And within the `Notice of communication` collection's first item, I should see `FTPANoticeOfCommunication.pdf` in the `Document` field
+    And within the `Notice of communication` collection's first item, I should see `This is the ftpa notice of communication` in the `Describe the document` field
+    And I should not see the text `Appellant: Tribunal Notes`
 
     Then I click the `Documents` tab
     And within the `FTPA Appellant Decision and Reasons documents` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
@@ -877,7 +870,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `Do this next`
-    And I should see the text `Check the FTPA tab and follow any instructions the judge has made to the Tribunal. Once you've done this you should record the length of hearing`
+    And I should see the text `Check the FTPA tab and follow any instructions the judge has made to the Tribunal. Once you've done this you should record the length of the hearing`
     And I should see `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
@@ -1105,7 +1098,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `Do this next`
-    And I should see the text `Check the FTPA tab and follow any instructions the judge has made to the Tribunal. Once you've done this you should record the length of hearing`
+    And I should see the text `Check the FTPA tab and follow any instructions the judge has made to the Tribunal. Once you've done this you should record the length of the hearing`
     And I should see `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `FTPADecisionAndReasons.pdf` in the `Document` field
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
