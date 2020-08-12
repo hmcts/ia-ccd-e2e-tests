@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class FtpaRespondentAppealFlow {
 
@@ -48,7 +49,7 @@ export class FtpaRespondentAppealFlow {
             'Supporting evidence',
             'first'
         );
-
+        await browser.sleep(100);
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.click('Submit');
 
