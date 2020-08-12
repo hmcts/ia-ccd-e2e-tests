@@ -6,3 +6,7 @@ const sendDecisionAndReasonsFlow = new SendDecisionAndReasonsFlow();
 Then(/^I send decision and reasons$/, async function () {
     await sendDecisionAndReasonsFlow.sendDecisionAndReasons();
 });
+
+Then(/^I send decision and reasons with dismissed outcome$/, async function () {
+    await sendDecisionAndReasonsFlow.sendDecisionAndReasonsDismissed();
+});

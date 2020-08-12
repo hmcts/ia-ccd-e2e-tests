@@ -21,4 +21,22 @@ export class SendDecisionAndReasonsFlow {
 
         await this.ccdFormPage.click('Close and Return to case details');
     }
+
+    async sendDecisionAndReasonsDismissed() {
+        await this.ccdFormPage.selectNextStep('Complete decision and reasons');
+        await this.ccdFormPage.click('Go');
+
+        await this.ccdFormPage.headingContains('Complete decision and reasons');
+        await this.ccdFormPage.setFieldValue('Decision', 'Dismissed on all grounds');
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue('Decision and reasons', '{@test.docx}');
+        await this.ccdFormPage.click('I confirm this document is signed with today\'s date.');
+        await this.ccdFormPage.click('Ensure that the fee award is consistent with your decision.');
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.click('Upload');
+
+        await this.ccdFormPage.click('Close and Return to case details');
+    }
 }
