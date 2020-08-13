@@ -9,6 +9,7 @@ Feature: Start an appeal application alternate paths
 
     Given I complete the `Tell us about your client` page
     And I complete the `Home office details` page
+    And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
 
     # Start an appeal application without a fixed address
@@ -59,6 +60,7 @@ Feature: Start an appeal application alternate paths
 
     Given I complete the `Tell us about your client` page
     And I complete the `Home office details` page
+    And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
     And I complete the `Your client's address` page
     And I complete the `The appellant's contact preference` page

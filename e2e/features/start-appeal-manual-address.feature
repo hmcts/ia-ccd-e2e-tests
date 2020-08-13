@@ -5,6 +5,7 @@ Feature: Address details are entered manually without using postcode lookup
     And I create a new case
     And I complete the `Tell us about your client` page
     And I complete the `Home office details` page
+    And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
 
   @regression @start-appeal @alternate @alternate @RIA-691

@@ -16,6 +16,11 @@ Given('I complete the `Home office details` page', async function () {
     await startAppealFlow.completeHomeOfficeReference(true);
 });
 
+Given('I complete the `Upload the Notice of Decision` page', async function () {
+  expect(await ccdFormPage.headingContains('Upload the Notice of Decision')).to.equal(true);
+  await startAppealFlow.completeUploadNoticeDecision(true);
+});
+
 Given('I complete the `Basic details` form', async function () {
     expect(await ccdFormPage.headingContains('Basic details')).to.equal(true);
     await startAppealFlow.completeBasicDetails(false);
