@@ -249,6 +249,19 @@ export class StartAppealFlow {
         }
     }
 
+    async completeHowToPayOffline(clickContinue = false, appealType) {
+
+        if (appealType === 'PA') {
+            await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal by card');
+        } else {
+            await this.ccdFormPage.click('Pay by card');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeCheckYourAnswers(clickContinue = false) {
 
         if (clickContinue) {
@@ -294,6 +307,23 @@ export class StartAppealFlow {
         }
     }
 
+    async saveInitialAppealWithFeePayOffline(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeClientDetails(false);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, feeType);
+        await this.completeHowToPayOffline(true, appealType);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
     async saveOutOfTimeAppeal(clickContinue = false) {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
@@ -320,6 +350,7 @@ export class StartAppealFlow {
         await this.completeHomeOfficeReference(true);
         await this.completeUploadNoticeDecisionNoUpload(true);
         await this.completeBasicDetails(true);
+        await this.completeNationality(true);
         await this.completeClientAddress(true, hasFixedAddress, address, postcode);
         await this.completeContactPreference(true);
     }
