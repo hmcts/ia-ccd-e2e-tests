@@ -1,6 +1,6 @@
 Feature: Start initial appeal application
 
-  @regression @start-appeal @happy-path @postcode
+@regression @start-appeal @happy-path @postcode @RIA-3334
   Scenario: Start initial appeal application
 
     Given I am signed in as a `Legal Rep`
@@ -45,6 +45,10 @@ Feature: Start initial appeal application
 
     Given I am on the `The grounds of your appeal` page
     When I click the `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` label
+    And I click the `Continue` button
+
+    Given I am on the `Deportation order` page
+    When I select `Yes` for the `Has a deportation order been made against the appellant?` field
     And I click the `Continue` button
 
     Given I am on the `New matters` page
@@ -100,13 +104,15 @@ Feature: Start initial appeal application
     And I should see `IA Legal Services` for the `Company` answer
     And I should see `Stephen Fenn` for the `Name` answer
     And I should see `ia-legal-fenn` for the `Own reference` answer
+    And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
+
     When I click the `Save and continue` button
-    Then I should see the text `Appeal saved`
+    Then I should see the text `Your appeal details have been saved`
     And I should see the text `You still need to submit it`
-    And I should see the text `Ready to submit?`
-    And I should see the text `Submit your appeal when you are ready.`
+    And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
-    And I should see the text `You can return to the case to make changes.`
+    And I should see the text `You can return to the case details to make changes.`
+    
 
     When I click the `Close and Return to case details` button
     #And I see the open case
@@ -116,8 +122,8 @@ Feature: Start initial appeal application
     And I should see `José` for the `Given names` field
     And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` field
-    And within the `Nationality` collection's second item, I should see `Iceland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's second item, I should see `Iceland` for the `Nationality` field
     And I should see `Yes` for the `Does the appellant have a fixed address?` field
     And within the `Address` fieldset, I should see `Prime Minister & First Lord Of The Treasury` for the `Building and Street` field
     And within the `Address` fieldset, I should see `10 Downing Street` for the `Address Line 2` field
@@ -132,12 +138,13 @@ Feature: Start initial appeal application
 
     When I click the `Appeal` tab
     Then I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant` field
+    And I should see `José González` for the `Appellant name` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
     And I should see `Yes, but I don't have an appeal number` for the `Previous appeals` field
     And I should see `31 Oct 2018` for the `Home Office decision letter sent` field
+    And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealStarted` case progress image
@@ -145,9 +152,9 @@ Feature: Start initial appeal application
     And I should see the `Submit your appeal` link
     And I should see the `Edit appeal` link
     And I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant` field
+    And I should see `José González` for the `Appellant name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `A123456/001` for the `Home Office reference` field
     And I should see `IA Legal Services` for the `Company` field
@@ -155,7 +162,7 @@ Feature: Start initial appeal application
 
 
 
-  @regression @start-appeal @happy-path
+  @regression @start-appeal @happy-path @RIA-3334
   Scenario: Start initial appeal application with legal rep address
 
     Given I am signed in as a `Legal Rep`
@@ -193,6 +200,10 @@ Feature: Start initial appeal application
 
     Given I am on the `The grounds of your appeal` page
     When I click the `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` label
+    And I click the `Continue` button
+
+    Given I am on the `Deportation order` page
+    When I select `Yes` for the `Has a deportation order been made against the appellant?` field
     And I click the `Continue` button
 
     Given I am on the `New matters` page
@@ -243,13 +254,14 @@ Feature: Start initial appeal application
     And I should see `IA Legal Services` for the `Company` answer
     And I should see `Stephen Fenn` for the `Name` answer
     And I should see `ia-legal-fenn` for the `Own reference` answer
+    And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
+    
     When I click the `Save and continue` button
-    Then I should see the text `Appeal saved`
+    Then I should see the text `Your appeal details have been saved`
     And I should see the text `You still need to submit it`
-    And I should see the text `Ready to submit?`
-    And I should see the text `Submit your appeal when you are ready.`
+    And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
-    And I should see the text `You can return to the case to make changes.`
+    And I should see the text `You can return to the case details to make changes.`
 
     When I click the `Close and Return to case details` button
     #And I see the open case
@@ -259,8 +271,8 @@ Feature: Start initial appeal application
     And I should see `José` for the `Given names` field
     And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` field
-    And within the `Nationality` collection's second item, I should see `Iceland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's second item, I should see `Iceland` for the `Nationality` field
     And I should see `No` for the `Does the appellant have a fixed address?` field
     And I should see `Text message` for the `Communication Preference` field
     And I should see `07930111111` for the `Mobile phone number` field
@@ -270,12 +282,13 @@ Feature: Start initial appeal application
 
     When I click the `Appeal` tab
     Then I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant` field
+    And I should see `José González` for the `Appellant name` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
     And I should see `Yes, but I don't have an appeal number` for the `Previous appeals` field
     And I should see `31 Oct 2018` for the `Home Office decision letter sent` field
+    And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealStarted` case progress image
@@ -283,9 +296,9 @@ Feature: Start initial appeal application
     And I should see the `Submit your appeal` link
     And I should see the `Edit appeal` link
     And I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant` field
+    And I should see `José González` for the `Appellant name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `A123456/001` for the `Home Office reference` field
     And I should see `IA Legal Services` for the `Company` field

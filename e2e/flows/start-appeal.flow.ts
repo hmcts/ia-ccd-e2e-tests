@@ -131,6 +131,18 @@ export class StartAppealFlow {
         }
     }
 
+    async completeDeportationOrder(clickContinue = false) {
+
+      await this.ccdFormPage.setFieldValue(
+        'Has a deportation order been made against the appellant?',
+        'Yes'
+      );
+
+      if (clickContinue) {
+        await this.ccdFormPage.click('Continue');
+      }
+    }
+
     async completeOtherAppeals(clickContinue = false) {
 
         await this.ccdFormPage.setFieldValue('Other appeals', 'No');
@@ -168,7 +180,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveAppeal(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+  async  saveAppeal(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReference(true);
         await this.completeUploadNoticeDecision(true);
@@ -177,6 +189,7 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeAppealType(true);
         await this.completeAppealGrounds(true);
+        await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
@@ -196,6 +209,7 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeAppealType(true);
         await this.completeAppealGrounds(true);
+      await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);

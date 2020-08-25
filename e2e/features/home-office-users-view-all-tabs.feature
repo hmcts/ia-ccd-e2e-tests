@@ -38,9 +38,9 @@ Feature: All home office users overview appeal case-details documents directions
     And within the first `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
     And within the first `Evidence` collection's first item, I should see `The is the case argument evidence` in the `Describe the document` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
-    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+    And I should see `Refusal of protection claim` in the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
-    And I should see `The refusal of a protection claim` in the `Type of appeal` field
+    And I should see `Refusal of protection claim` in the `Type of appeal` field
 
     When I click the `Appellant` tab
     Then I should see the appellant's details

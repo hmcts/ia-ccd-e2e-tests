@@ -56,6 +56,11 @@ Given('I complete the `New matters` page', async function () {
     await startAppealFlow.completeNewMatters(true);
 });
 
+Given('I complete the `Deportation order` page', async function () {
+  expect(await ccdFormPage.headingContains('Deportation order')).to.equal(true);
+    await startAppealFlow.completeDeportationOrder(true);
+});
+
 Given('I complete the `Has your client appealed against any other UK immigration decisions?` page', async function () {
     expect(await ccdFormPage.headingContains('Has your client appealed against any other UK immigration decisions?')).to.equal(true);
     await startAppealFlow.completeOtherAppeals(true);

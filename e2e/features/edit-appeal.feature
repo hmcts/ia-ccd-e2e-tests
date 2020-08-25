@@ -5,7 +5,7 @@ Feature: Edit appeal application
     And I create a new case
     And I save my initial appeal
 
-  @regression @edit-appeal @RIA-653
+  @regression @edit-appeal @RIA-653 @RIA-3334
   Scenario: Edit a draft appeal
 
     When I select the `Edit appeal` Next step
@@ -28,11 +28,14 @@ Feature: Edit appeal application
     And I click the `Continue` button
 
     Given I am on the `Type of appeal` page
-    When I select `Revocation of a protection status` for the `Type of appeal` field
+    When I select `Revocation of a protection status` for the `Decision type` field
     And I click the `Continue` button
 
     Given I am on the `The grounds of your appeal` page
     When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations in relation to persons eligible for humanitarian protection` label
+    And I click the `Continue` button
+
+    Given I am on the `Deportation order` page
     And I click the `Continue` button
 
     Given I am on the `New matters` page
@@ -55,8 +58,9 @@ Feature: Edit appeal application
     And I should see `No` for the `Does the appellant have a fixed address?` answer
     And I should see `Text message` for the `Communication Preference` answer
     And I should see `07930111111` for the `Mobile phone number` answer
-    And I should see `Refusal of protection claim` for the `Type of appeal` answer
+    And I should see `Revocation of a protection status` for the `Decision type` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
+    And I should see `Yes` for the `Has a deportation order been made against the appellant?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer
     And I should see `IA Legal Services` for the `Company` answer
@@ -64,12 +68,11 @@ Feature: Edit appeal application
     And I should see `ia-legal-fenn` for the `Own reference` answer
 
     When I click the `Save and continue` button
-    Then I should see the text `Appeal saved`
+    Then I should see the text `Your appeal details have been saved`
     And I should see the text `You still need to submit it`
-    And I should see the text `Ready to submit?`
-    And I should see the text `Submit your appeal when you are ready.`
+    And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
-    And I should see the text `You can return to the case to make changes.`
+    And I should see the text `You can return to the case details to make changes.`
 
     When I click the `Close and Return to case details` button
     #And I see the open case
@@ -93,10 +96,10 @@ Feature: Edit appeal application
     And I should see the `Submit your appeal` link
     And I should see the `Edit appeal` link
     And I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant` field
+    And I should see `José González` for the `Appellant name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
     #And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
-    And I should see `The revocation of a protection status` for the `Type of appeal` field
+    And I should see `Revocation of a protection status` for the `Type of appeal` field
     ### Possible Bug ###
     ### Why do we not see the full B123445/999 reference number after submit or edit ###
     And I should see `B123456/999` for the `Home Office reference` field
@@ -107,13 +110,14 @@ Feature: Edit appeal application
 
     When I click the `Appeal` tab
     Then I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant` field
-    And I should see `Refusal of protection claim` for the `Type of appeal` field
+    And I should see `José González` for the `Appellant name` field
+    And I should see `Revocation of a protection status` for the `Type of appeal` field
     #And I should see `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
     And I should see `No` for the `Previous appeals` field
     And I should see `31 Dec 2018` for the `Home Office decision letter sent` field
+    And I should see `Yes` for the `Has a deportation order been made against the appellant?` field 
 
   @regression @edit-appeal-after-submit-in-time @RIA-1359
   Scenario: Edit submitted appeal when submitted in time
@@ -194,6 +198,9 @@ Feature: Edit appeal application
     Given I am on the `The appellant's contact preference` page
     And I click the `Continue` button
 
+    Given I am on the `Deportation order` page
+    And I click the `Continue` button
+    
     Given I am on the `New matters` page
     And I click the `Continue` button
 
@@ -327,6 +334,9 @@ Feature: Edit appeal application
     Given I am on the `The appellant's contact preference` page
     And I click the `Continue` button
 
+    Given I am on the `Deportation order` page
+    And I click the `Continue` button
+    
     Given I am on the `New matters` page
     And I click the `Continue` button
 
