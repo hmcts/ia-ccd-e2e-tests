@@ -56,6 +56,10 @@ Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? wit
     }
 });
 
+Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| A)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserA();
+});
+
 Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
@@ -128,6 +132,15 @@ Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
     await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
     await ccdPage.contentContains('Immigration');
+});
+
+Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| B)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsLawFirmOrgUserB();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
 });
 
 Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {
