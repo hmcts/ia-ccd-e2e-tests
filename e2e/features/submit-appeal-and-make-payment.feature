@@ -306,3 +306,33 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+
+  @pay-later-avoid-pay-twice @RIA-3409
+  Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087535)
+
+    And I save my initial PA appeal type with hearing fee
+    And I submit my appeal
+
+    When I select the `Make a payment` Next step
+    Then I should see the `Make a payment` page
+    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `Can’t see your Payment by Account number?`
+    And I should see the `MyHMCTSsupport@justice.gov.uk` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+
+    When I click the `Pay now` button
+    Then I should see the text `You have paid for the appeal`
+    And I should see the text `What happens next`
+    And I should see the text `You will receive a notification to confirm the payment has been made.`
+    And I should see the text `Payment successful`
+    And I should see the text `Payment reference number`
+    And I should see the text `Payment by Account number`
+    And I should see the text `PBA0087535`
+    And I should see the text `Fee`
+    And I should see the text `£140`
+    And I click the `Close and Return to case details` button
+
+    When I select the `Make a payment` Next step
+    Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
+    And I should see the text `You have already paid for this appeal.`
