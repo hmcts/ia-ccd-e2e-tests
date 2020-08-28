@@ -54,7 +54,7 @@ Feature: Flag a case
     And the `Additional information (Optional)` field should be empty
 
   
-  @regression @flag-case @RIA-1742
+  @regression @flag-case @RIA-1742 @nightly-test
   Scenario: Flag a case with multiple flags and additional information
 
     When I select the `Flag the case` Next step
@@ -89,7 +89,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-1742
+  @regression @flag-case @RIA-1742 @nightly-test
   Scenario: Flag a case with multiple flags and only single additional information
 
     When I select the `Flag the case` Next step
@@ -122,7 +122,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should not see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @remove-flag @RIA-2513
+  @regression @flag-case @remove-flag @RIA-2513 @nightly-test
   Scenario: Remove flag from a case
 
     When I select the `Remove a flag` Next step

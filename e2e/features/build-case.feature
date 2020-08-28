@@ -29,7 +29,7 @@ Feature: Build case
     And within the `Evidence` collection's first item, I should see `Evidence1.pdf` for the `Document` field
     And within the `Evidence` collection's first item, I should see `This is the evidence` in the `Describe the document` field
 
-@OnlyIfSaveAndContinueIsEnabled @regression @create-direction @RIA-480 @RIA-600 @RIA-927 @nightly-test
+@OnlyIfSaveAndContinueIsEnabled @regression @create-direction @RIA-480 @RIA-600 @RIA-927
   Scenario: Save and continue is enabled
     When I click the `Upload` button
     Then I should see the text `Upload saved`
@@ -52,7 +52,7 @@ Feature: Build case
     And within the `Legal representative documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
 
-  @RIA-2918 @nightly-test
+  @RIA-2918
   Scenario: Save and continue is disabled
     When I click the `Submit Case` button
     Then I should see the text `You have submitted your case`

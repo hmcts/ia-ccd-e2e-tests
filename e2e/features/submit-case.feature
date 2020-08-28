@@ -11,7 +11,7 @@ Feature: Submit case
     And I switch to be a `Legal Rep`
     And I build my case
 
-@regression @submit-case @RIA-517 @nightly-test @OnlyIfSaveAndContinueIsEnabled
+@regression @submit-case @RIA-517 @OnlyIfSaveAndContinueIsEnabled
   Scenario: Upload Case argument and evidence
 
     When I select the `Submit your case` Next step

@@ -83,7 +83,7 @@ Feature: List case
       | Hatton Cross  | 15 Brook Gardens, Emsworth                               | PO10 7JY |
       | Glasgow       | 4 Glenesk Avenue, Montrose                               | DD10 9AQ |
 
-  @regression @list-case @RIA-412 @RIA-1571 @RIA-1380 @nightly-test
+  @regression @list-case @RIA-412 @RIA-1571 @RIA-1380
   Scenario: Listing the case produces a hearing notice
 
     Given I am signed in as a `Legal Rep`

@@ -1,5 +1,6 @@
 import { CcdPage } from './ccd.page';
 import { $, browser, ExpectedConditions } from 'protractor';
+import { Wait } from '../enums/wait';
 
 export class CcdFormPage extends CcdPage {
 
@@ -83,6 +84,9 @@ export class CcdFormPage extends CcdPage {
 
         } else {
             throw 'Cannot find field with label: ' + fieldLabel;
+        }
+        if (fieldType === 'document') {
+            await browser.sleep(Wait.short);
         }
     }
 }

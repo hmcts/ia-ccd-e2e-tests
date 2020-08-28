@@ -49,7 +49,7 @@ export class FtpaRespondentAppealFlow {
             'Supporting evidence',
             'first'
         );
-        await browser.sleep(100);
+        await browser.sleep(1000);
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.click('Submit');
 
