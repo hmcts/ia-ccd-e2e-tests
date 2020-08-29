@@ -85,6 +85,10 @@ Given('I save my initial appeal', async function () {
     await startAppealFlow.saveAppeal(true);
 });
 
+Given(/^I save my initial `?([^\s`]+)`? appeal type `?([^\s`]+)`? hearing fee$/, async function (appealType, feeType) {
+    await startAppealFlow.saveInitialAppealWithFee(true, appealType, feeType);
+});
+
 Given('I save my initial appeal with out of time decision letter', async function () {
     await startAppealFlow.saveOutOfTimeAppeal(true);
 });
