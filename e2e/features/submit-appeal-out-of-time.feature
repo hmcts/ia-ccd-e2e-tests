@@ -16,6 +16,10 @@ Feature: Submit appeal application
     And I type `I was on holiday` for the `You can upload a document or fill out the box below. (Optional)` field
     And I upload `{@SupportForLateSubmission.pdf}` for the document field without a label
     And I click the `Continue` button
+    And I should see the text `Make a payment`
+    And I should see the text `The fee for this type of appeal with a hearing is`
+    And I click the `Submit the appeal now and pay within 14 days` label
+    And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
     And I click the `Submit` button
@@ -39,6 +43,10 @@ Feature: Submit appeal application
     And I should see the text `Explain why you believe your late appeal should be allowed to proceed.`
     And I upload `{@SupportForLateSubmission.pdf}` for the document field without a label
     And I click the `Continue` button
+    And I should see the text `Make a payment`
+    And I should see the text `The fee for this type of appeal with a hearing is`
+    And I click the `Submit the appeal now and pay within 14 days` label
+    And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
     And I click the `Submit` button
@@ -61,6 +69,10 @@ Feature: Submit appeal application
     And I should see the text `Explain why you believe your late appeal should be allowed to proceed.`
     And I type `I was on holiday` for the `You can upload a document or fill out the box below. (Optional)` field
     And I click the `Continue` button
+    And I should see the text `Make a payment`
+    And I should see the text `The fee for this type of appeal with a hearing is`
+    And I click the `Submit the appeal now and pay within 14 days` label
+    And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
     And I click the `Submit` button
@@ -82,6 +94,10 @@ Feature: Submit appeal application
     And I should see the text `You can ask for permission to appeal outside of the deadline.`
     And I should see the text `Explain why you believe your late appeal should be allowed to proceed.`
     And I type `I was on holiday` for the `You can upload a document or fill out the box below. (Optional)` field
+    And I click the `Continue` button
+    And I should see the text `Make a payment`
+    And I should see the text `The fee for this type of appeal with a hearing is`
+    And I click the `Submit the appeal now and pay within 14 days` label
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
