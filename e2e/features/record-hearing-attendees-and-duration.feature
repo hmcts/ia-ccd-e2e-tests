@@ -31,7 +31,7 @@ Feature: Record hearing attendees and duration
     And I click the `Overview` tab
     And I should see the `Overview` page
 
-  @regression @record-hearing-attendees @RIA-572 @RIA-1903
+  @regression @record-hearing-attendees @RIA-572 @RIA-1903 @RIA-3297
   Scenario: Record hearing attendees and duration
 
     When I click the `Record attendees and duration` link
@@ -40,23 +40,22 @@ Feature: Record hearing attendees and duration
     When I type `Judge Judy` for the `The judge` field
     And I type `Frank` for the `The appellant (Optional)` field
     And I type `Geoff` for the `The appellant's legal representative (Optional)` field
-    And I type `Sebastian` for the `The Home Office representative (Optional)` field
+    And I type `Sebastian` for the `Home Office representative (Optional)` field
     And I type `2` for the `Hours` field
     And I type `30` for the `Minutes` field
-    And I select `All participants at the jearing centre` for the `How was the hearing conducted?` field
+    And I select `All participants at the hearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `Judge Judy` for the `The judge` field
     And I should see `Frank` for the `The appellant` field
     And I should see `Geoff` for the `The appellant's legal representative` field
-    And I should see `Sebastian` for the `The Home Office representative` field
+    And I should see `Sebastian` for the `Home Office representative` field
     And I should see `2` for the `Hours` field
     And I should see `30` for the `Minutes` field
 
     When I click the `Save details` button
     Then I should see the text `You have recorded the attendees and duration of the hearing`
     And I should see the text `What happens next`
-    And I should see the text `The judge will record the decision and reasons.`
     And I should see the text `You don't need to do anything more with this case.`
 
     When I click the `Close and Return to case details` button
@@ -67,6 +66,6 @@ Feature: Record hearing attendees and duration
     And I should see `Judge Judy` for the `The judge` field
     And I should see `Frank` for the `The appellant` field
     And I should see `Geoff` for the `The appellant's legal representative` field
-    And I should see `Sebastian` for the `The Home Office representative` field
+    And I should see `Sebastian` for the `Home Office representative` field
     And I should see `2` for the `Hours` field
     And I should see `30` for the `Minutes` field
