@@ -1,5 +1,4 @@
-Feature: Add addendum evidence by Legal Rep
-
+Feature: Add addendum evidence by Admin Officer
 
   Background:
     Given I am signed in as a `Legal Rep`
@@ -17,6 +16,10 @@ Feature: Add addendum evidence by Legal Rep
     And I add the appeal response
     And I request appellant review
     And I request hearing requirements
+    And I switch to be a `Legal Rep`
+    And I submit hearing requirements with all yes
+    And I switch to be a `Case Officer`
+    And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
     And I list the case
     And I switch to be a `Case Officer`
@@ -26,21 +29,22 @@ Feature: Add addendum evidence by Legal Rep
     And I reload the Case Overview Page
     And I start decision and reasons
 
-  @add-addendum-evidence-legal-rep @RIA-1845
-  Scenario: Add addendum evidence by Legal Rep
-
-    When I switch to be a `Legal Rep`
+  @add-addendum-evidence-admin-officer @RIA-3366
+  Scenario Outline: Add addendum evidence by Admin Officer
+    When I switch to be a `Admin Officer`
     And I click the `Documents` tab
 
     Then I should see the `Documents` page
     And I should see the `Add additional evidence as an addendum` link
 
     When I click the `Add additional evidence as an addendum` link
+
     Then I should see the `Upload additional evidence` page
     And I should see the text `Add the evidence and the context. This evidence will not be included in the hearing bundle, it will be added as an addendum.`
     And I should see the text `You’ll need to explain why this evidence is being submitted after the hearing bundle has been produced.`
 
-    When I add an item to the `Evidence` collection
+    When I click the <supplier> label
+    And I add an item to the `Evidence` collection
     And within the `Evidence` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
     And within the `Evidence` collection's first item, I type `some description` for the `Why it was late` field
 
@@ -49,6 +53,7 @@ Feature: Add addendum evidence by Legal Rep
     Then I should see the `Upload additional evidence` page
     And I should see the text `Check your answers`
     And I should see the text `Check the information below carefully.`
+    And I should see the text <supplier>
     And I should see the `Evidence1.pdf` link
 
     When I click the `Upload` button
@@ -58,9 +63,20 @@ Feature: Add addendum evidence by Legal Rep
     Then I should see an alert confirming the case `has been updated with event: Upload additional evidence`
 
     When I click the `Documents` tab
+
     Then I should see the `Documents` page
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+
+    # Legal Rep
+    When I switch to be a `Legal Rep`
+    And I click the `Documents` tab
+
+    Then I should see the `Documents` page
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
@@ -70,7 +86,7 @@ Feature: Add addendum evidence by Legal Rep
 
     Then I should see the `Documents` page
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
@@ -80,49 +96,11 @@ Feature: Add addendum evidence by Legal Rep
 
     Then I should see the `Documents` page
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
+    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    # HO APC
-    When I switch to be a `Home Office APC`
-    And I click the `Documents` tab
-
-    Then I should see the `Documents` page
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-
-    # HO LART
-    When I switch to be a `Home Office LART`
-    And I click the `Documents` tab
-
-    Then I should see the `Documents` page
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-
-
-    # HO POU
-    When I switch to be a `Home Office POU`
-    And I click the `Documents` tab
-
-    Then I should see the `Documents` page
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-
-
-    # HO GEN
-    When I switch to be a `Home Office Generic`
-    And I click the `Documents` tab
-
-    Then I should see the `Documents` page
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
-    And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-
+    Examples:
+      | supplier        |
+      | The appellant   |
+      | The respondent  |
