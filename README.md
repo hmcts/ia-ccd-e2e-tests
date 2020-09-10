@@ -36,6 +36,12 @@ $ yarn install
 $ yarn e2e
  ```
 
+### To run scenarios or features in parallel browser sessions:
+```bash
+TEST_E2E_NUM_BROWSERS=2 TEST_E2E_HEADLESS=false yarn run localTestParallelScenarios "--cucumberOpts.tags=@share-a-case or @RIA-585"
+
+TEST_E2E_NUM_BROWSERS=2 TEST_E2E_HEADLESS=false yarn run localTestParallelScenarios "--cucumberOpts.tags=@share-a-case or @RIA-585"
+```
 ## Running the tests locally using docker
 
 Tests can be executed against an instance of CCD running locally using docker.
