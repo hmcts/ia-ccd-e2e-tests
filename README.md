@@ -40,7 +40,7 @@ $ yarn e2e
 ```bash
 TEST_E2E_NUM_BROWSERS=2 TEST_E2E_HEADLESS=false yarn run localTestParallelScenarios "--cucumberOpts.tags=@share-a-case or @RIA-585"
 
-TEST_E2E_NUM_BROWSERS=2 TEST_E2E_HEADLESS=false yarn run localTestParallelScenarios "--cucumberOpts.tags=@share-a-case or @RIA-585"
+TEST_E2E_NUM_BROWSERS=2 TEST_E2E_HEADLESS=false yarn run localTestParallelFeatures "--cucumberOpts.tags=@share-a-case or @RIA-585"
 ```
 ## Running the tests locally using docker
 
