@@ -21,6 +21,7 @@ Feature: Pay offline by card
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Case Officer`
@@ -28,6 +29,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Admin Officer`
@@ -35,6 +37,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Judge`
@@ -42,6 +45,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Home Office APC`
@@ -49,6 +53,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Home Office LART`
@@ -56,6 +61,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Home Office POU`
@@ -63,6 +69,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Home Office Generic`
@@ -70,6 +77,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
 
@@ -90,6 +98,7 @@ Feature: Pay offline by card
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Case Officer`
@@ -97,6 +106,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Admin Officer`
@@ -104,6 +114,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Judge`
@@ -111,6 +122,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Home Office APC`
@@ -118,6 +130,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Home Office LART`
@@ -125,6 +138,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Home Office POU`
@@ -132,6 +146,7 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 
     When I switch to be a `Home Office Generic`
@@ -139,4 +154,5 @@ Feature: Pay offline by card
     Then I should see the `Appeal` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
