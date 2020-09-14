@@ -6,8 +6,10 @@
     "postinstall": "webdriver-manager update",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "e2e": "yarn localTest",
-    "test:fullfunctional": "protractor ./e2e/features.conf.js --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
+    "test:fullfunctional": "protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTest": "protractor ./e2e/features.conf.js --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
+    "localTestParallelScenarios": "protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
+    "localTestParallelFeatures": "protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "test:nsp": "nsp check"
   },
   "pre-commit": [
