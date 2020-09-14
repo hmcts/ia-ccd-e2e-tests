@@ -7,6 +7,7 @@ Feature: Address details are entered manually without using postcode lookup
     And I complete the `Home office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
+    And I complete the `Tell us about your client's nationality` page
 
   @regression @start-appeal @alternate @alternate @RIA-691
   Scenario: Start initial appeal application with a manually entered address

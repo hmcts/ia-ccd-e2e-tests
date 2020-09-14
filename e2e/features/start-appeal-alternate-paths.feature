@@ -11,6 +11,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Home office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
+    And I complete the `Tell us about your client's nationality` page
 
     # Start an appeal application without a fixed address
     Given I am on the `Your client's address` page
@@ -62,6 +63,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `Home office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
+    And I complete the `Tell us about your client's nationality` page
     And I complete the `Your client's address` page
     And I complete the `The appellant's contact preference` page
     And I complete the `Type of appeal` page

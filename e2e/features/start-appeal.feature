@@ -17,6 +17,10 @@ Feature: Start initial appeal application
     And I type `José` for the `Given names` field
     And I type `González` for the `Family name` field
     And I type `31-12-1999` for the `Date of birth` field
+    And I click the `Continue` button
+
+    Given I am on the `Tell us about your client's nationality` page
+    When I select `Has a nationality` for the `Nationality` field
     And I add an item to the `Nationality` collection
     And within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
     And I add another item to the `Nationality` collection
@@ -112,7 +116,7 @@ Feature: Start initial appeal application
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
-    
+
 
     When I click the `Close and Return to case details` button
     #And I see the open case
@@ -255,7 +259,7 @@ Feature: Start initial appeal application
     And I should see `Stephen Fenn` for the `Name` answer
     And I should see `ia-legal-fenn` for the `Own reference` answer
     And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
-    
+
     When I click the `Save and continue` button
     Then I should see the text `Your appeal details have been saved`
     And I should see the text `You still need to submit it`
