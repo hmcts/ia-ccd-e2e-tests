@@ -14,7 +14,6 @@ Feature: Leadership judge record the appellant decision and reasons
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
-    And I request appellant review
     And I request hearing requirements
     And I switch to be a `Legal Rep`
     And I submit hearing requirements with all yes

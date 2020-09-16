@@ -14,7 +14,6 @@ Feature: Request hearing requirements
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
-    And I request appellant review
 
   @regression @create-direction @RIA-385 @RIA-1784 @RIA-2694
   Scenario: Request hearing requirements

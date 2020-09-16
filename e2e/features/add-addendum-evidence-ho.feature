@@ -15,7 +15,6 @@ Feature: Add addendum evidence by Home Office
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
-    And I request appellant review
     And I request hearing requirements
     And I switch to be a `Admin Officer`
     And I list the case
