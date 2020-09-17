@@ -7,7 +7,7 @@ Feature: Record application
     And I submit my appeal
     And I switch to be a `Case Officer`
 
-  @regression @record-application-refused @RIA-1485 @RIA-1500 @RIA-2236
+  @regression @record-application-refused @RIA-1485 @RIA-1500 @RIA-2236  @RIA-3553
   Scenario: Record refused application
 
     When I select the `Record an application` Next step
@@ -39,7 +39,7 @@ Feature: Record application
     And I should see `some application decision reason` in the `Reasons for decision` field
 
     When I click the `Record application` button
-    Then I should see the text `You have recorded an application`
+    Then I should see the text `You've recorded an application`
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. A notification will be sent to both parties, informing them that an application was requested and refused. The case will progress as usual.`
 
@@ -59,7 +59,7 @@ Feature: Record application
     And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
     And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
 
-  @regression @record-application-time-extension-and-withdraw @RIA-1485 @RIA-1562 @RIA-1500
+  @regression @record-application-time-extension-and-withdraw @RIA-1485 @RIA-1562 @RIA-1500 @RIA-3553
   Scenario: Record granted time extension application and later withdraw
 
     And I request respondent evidence
@@ -93,7 +93,7 @@ Feature: Record application
     And I should see `some application decision reason` in the `Reasons for decision` field
 
     When I click the `Record application` button
-    Then I should see the text `You have recorded an application`
+    Then I should see the text `You've recorded an application`
     And I should see the text `What happens next`
     And I should see the text `You must now change the direction due date. You can also view the application decision in the Applications tab.`
 
@@ -142,7 +142,7 @@ Feature: Record application
     And I should see `some application decision reason` in the `Reasons for decision` field
 
     When I click the `Record application` button
-    Then I should see the text `You have recorded an application`
+    Then I should see the text `You've recorded an application`
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now end the appeal.`
 
@@ -257,7 +257,7 @@ Feature: Record application
     And I should see `some application decision reason` in the `Reasons for decision` field
 
     When I click the `Record application` button
-    Then I should see the text `You have recorded an application`
+    Then I should see the text `You've recorded an application`
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. Contact the listing team to relist the case. Once the case has been relisted, a new hearing notice will be issued.`
 
@@ -304,7 +304,7 @@ Feature: Record application
     And within the `Applications` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
     And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
 
-  @regression @record-application-error @RIA-1485
+  @regression @record-application-error @RIA-1485 @RIA-3553
   Scenario Outline: Record application in wrong state
 
     When I select the `Record an application` Next step
