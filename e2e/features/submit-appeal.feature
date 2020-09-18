@@ -42,16 +42,3 @@ Feature: Submit appeal application
     When I click the `Overview` tab
     Then I should see the case details
     And I should see the legal representative details
-
-  @ho-validation @RIA-3271
-  Scenario: Home office validation tab for appeal submitted
-
-    And I submit my appeal
-    And I switch to be a `Case Officer`
-    When I click the `Overview` tab
-    Then I should see the text `You must review the appeal data and cross reference it with Home Office data in the Validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
-    When I click the `Validation` tab
-    Then I should see the text `Appeal validation`
-    And I should see the text `Review the appeal application form data and cross reference it with Home Office data. If the appeal looks valid, you must tell the respondent to supply their evidence.`
-    And I should see the text `Request respondent evidence`
-    And I should see the text `The first column of information is sourced from the appeal application form, the second column of information is from Home Office records`

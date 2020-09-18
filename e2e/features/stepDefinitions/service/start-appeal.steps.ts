@@ -147,6 +147,10 @@ Given('I wait for any found addresses to load', async function () {
     await ccdFormPage.doesDropdownHaveValues('Select an address');
 });
 
+Given(/^I save my initial appeal with Home Office reference `?([^\s`]+)`?$/, async function (homeOfficeReference) {
+    await startAppealFlow.saveInitialAppealWithHomeOfficeReference(true, homeOfficeReference);
+});
+
 Then(/^I see a list of all nationalities$/, async function () {
 
     const nationalities = await ccdFormPage.getFieldOptions(
