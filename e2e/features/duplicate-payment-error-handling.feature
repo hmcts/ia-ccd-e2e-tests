@@ -42,7 +42,7 @@ Feature: Duplicate payment error handling
   Scenario: Select pay and submit event with pay later option chosen
 
     When I save my initial PA appeal type with hearing fee and pay offline
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
     Then I click the `Overview` tab
     And I select the `Make a payment` Next step
@@ -54,7 +54,7 @@ Feature: Duplicate payment error handling
   @Pay-and-submit-event-with-pay-later-option-un-submitted-PA @RIA-3574
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial PA appeal type with hearing fee
+    When I save my initial PA appeal type with hearing fee and pay later
 
     And I select the `Pay and submit` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
@@ -64,8 +64,8 @@ Feature: Duplicate payment error handling
   @Make-a-payment-event-with-pay-later-option-submitted-PA @RIA-3574
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial PA appeal type with hearing fee
-    And I submit my appeal
+    When I save my initial PA appeal type with hearing fee and pay later
+    And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
@@ -134,9 +134,3 @@ Feature: Duplicate payment error handling
     And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `Errors`
     And I should see the text `The Make a payment option is not available.`
-
-
-
-
-
-

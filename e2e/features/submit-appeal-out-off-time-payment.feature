@@ -109,7 +109,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
   @submit-appeal-with-paylater-payment-for-PA-appeal-type-with-hearing-fee-out-of-time @RIA-3471-PA-PAY-LATER @RIA-3471
   Scenario: Make a successful payment for PA appeal type with hearing fee and out of time
 
-    And I save my initial PA appeal type with hearing fee and out of time
+    And I save my initial PA appeal type pay later with hearing fee and out of time
     When I select the `Submit your appeal` Next step
     Then I am on the `Submit your appeal` page
     And I should see the text `You've missed the deadline for appealing.`

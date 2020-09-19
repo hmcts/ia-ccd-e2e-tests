@@ -8,7 +8,7 @@ Feature: Mark appeal as paid
   Scenario: Mark PA appeal as paid (PA appeal type with a hearing)
 
     And I save my initial PA appeal type with hearing fee and pay offline
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image
@@ -140,7 +140,7 @@ Feature: Mark appeal as paid
   Scenario: Mark EA appeal as paid (EA appeal type with a hearing)
 
     And I save my initial EA appeal type with hearing fee and pay offline
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     And I should see the text `Do this next`
@@ -279,7 +279,7 @@ Feature: Mark appeal as paid
   Scenario: Mark HU appeal as paid (HU appeal type without a hearing)
 
     And I save my initial HU appeal type without hearing fee and pay offline
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     And I should see the text `Do this next`
@@ -417,7 +417,7 @@ Feature: Mark appeal as paid
   Scenario: End HU appeal on payment incomplete
 
     And I save my initial HU appeal type without hearing fee and pay offline
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     And I should see the text `Do this next`
@@ -435,7 +435,7 @@ Feature: Mark appeal as paid
   Scenario: End EA appeal on payment incomplete
 
     And I save my initial EA appeal type without hearing fee and pay offline
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     And I should see the text `Do this next`
@@ -448,20 +448,3 @@ Feature: Mark appeal as paid
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
 
-
-  @End-appeal-PA @RIA-3473-end-appeal-PA @RIA-3473
-  Scenario: End PA appeal on payment incomplete
-
-    And I save my initial PA appeal type without hearing fee and pay offline
-    And I submit my appeal
-
-    When I click the `Overview` tab
-    And I should see the text `Do this next`
-    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
-
-    Then I switch to be a `Admin Officer`
-    And I end the appeal
-    Then I should only see the `caseOfficer_appealEnded` case progress image
-    And I should see the text `What happens next`
-    And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
-    And I should see the ended appeal details
