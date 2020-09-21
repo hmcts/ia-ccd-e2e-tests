@@ -25,7 +25,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
         const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 13);
 
         expect(referenceNumberIsDraft || referenceNumberIsCorrectLength).to.equal(true);
-        expect(await ccdPage.isFieldValueDisplayed('Appellant', 'José González')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Appellant name', 'José González')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Date of birth', '31 Dec 1999')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationalities', 'first')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'Refusal of protection claim')).to.equal(true);
@@ -38,7 +38,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
 
     } else {
         expect(await ccdPage.contentContains('Appeal reference', Wait.instant)).to.equal(false);
-        expect(await ccdPage.contentContains('Appellant', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Appellant name', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Date of birth', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Nationality', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Type of appeal', Wait.instant)).to.equal(false);
