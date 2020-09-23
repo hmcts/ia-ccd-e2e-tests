@@ -258,7 +258,6 @@ export class StartAppealFlow {
         }
     }
 
-
     async completeHowToPayOffline(clickContinue = false, appealType) {
 
         if (appealType === 'PA') {
@@ -266,16 +265,6 @@ export class StartAppealFlow {
         } else {
             await this.ccdFormPage.click('Pay by card');
         }
-      
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
-
-    async completeHowToPayOffline(clickContinue = false) {
-
-        await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal by card');
-
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
