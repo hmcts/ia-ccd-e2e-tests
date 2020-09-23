@@ -30,7 +30,7 @@ Feature: Leadership judge record the respondent decision and reasons
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
 
-  @ftpa-respondent-leadership-judge-decision-granted @ftpa-respondent-leadership-judge-decision  @RIA-1434 @RIA-2564 @RIA-3211 @nightly-test
+  @ftpa-respondent-leadership-judge-decision-granted @ftpa-respondent-leadership-judge-decision  @RIA-1434 @RIA-2564 @RIA-3211
   Scenario: FTPA respondent leadership judge decision - Granted
     When I switch to be a Judge
     And I select the `Leadership judge FTPA decision` Next step
