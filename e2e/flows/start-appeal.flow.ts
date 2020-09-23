@@ -258,6 +258,20 @@ export class StartAppealFlow {
         }
     }
 
+
+    async completeHowToPayOffline(clickContinue = false, appealType) {
+
+        if (appealType === 'PA') {
+            await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal by card');
+        } else {
+            await this.ccdFormPage.click('Pay by card');
+        }
+      
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeHowToPayOffline(clickContinue = false) {
 
         await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal by card');
@@ -321,7 +335,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeHowToPayOffline(true);
+        await this.completeHowToPayOffline(true, appealType);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
