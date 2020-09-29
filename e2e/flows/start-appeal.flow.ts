@@ -262,9 +262,11 @@ export class StartAppealFlow {
 
         if (appealType === 'PA') {
             await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal by card');
-        } else {
+        }
+        if (appealType === 'EA' || appealType === 'HU') {
             await this.ccdFormPage.click('Pay by card');
         }
+
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
