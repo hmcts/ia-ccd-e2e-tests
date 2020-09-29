@@ -249,9 +249,14 @@ export class StartAppealFlow {
         }
     }
 
-    async completeHowToPay(clickContinue = false) {
+    async completeHowToPay(clickContinue = false, appealType) {
 
-        await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal using Payment by Account');
+        if (appealType === 'PA') {
+            await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal using Payment by Account');
+        }
+        if (appealType === 'EA' || appealType === 'HU') {
+            await this.ccdFormPage.click('Pay now using Payment by Account');
+        }
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -309,7 +314,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeHowToPay(true);
+        await this.completeHowToPay(true, appealType);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
