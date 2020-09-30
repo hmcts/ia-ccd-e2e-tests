@@ -263,6 +263,15 @@ export class StartAppealFlow {
         }
     }
 
+    async completeHowToPayNow(clickContinue = false) {
+
+        await this.ccdFormPage.click('Pay now using Payment by Account');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeHowToPayOffline(clickContinue = false, appealType) {
 
         if (appealType === 'PA') {
@@ -322,6 +331,57 @@ export class StartAppealFlow {
         }
     }
 
+    async saveInitialAppealPayNowWithFee(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeClientDetails(false);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, feeType);
+        await this.completeHowToPayNow(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async saveInitialAppealPayNowWithFeeOutOfTime(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeOutOfTimeClientDetails(false);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, feeType);
+        await this.completeHowToPayNow(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async saveInitialAppealWithFeeOutOfTime(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeOutOfTimeClientDetails(false);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, feeType);
+        await this.completeHowToPay(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
     async saveInitialAppealWithFeePayOffline(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
@@ -339,6 +399,22 @@ export class StartAppealFlow {
         }
     }
 
+    async saveInitialOutOfTimeAppealWithFeePayOffline(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeOutOfTimeClientDetails(false);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, feeType);
+        await this.completeHowToPayOffline(true, appealType);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
     async saveOutOfTimeAppeal(clickContinue = false) {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
@@ -363,6 +439,16 @@ export class StartAppealFlow {
     async completeClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReference(true);
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.completeBasicDetails(true);
+        await this.completeNationality(true);
+        await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+        await this.completeContactPreference(true);
+    }
+
+    async completeOutOfTimeClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeScreeningQuestions(true);
+        await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
         await this.completeUploadNoticeDecisionNoUpload(true);
         await this.completeBasicDetails(true);
         await this.completeNationality(true);
