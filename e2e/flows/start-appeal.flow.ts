@@ -374,7 +374,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeHowToPay(true);
+        await this.completeHowToPay(true, appealType);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
