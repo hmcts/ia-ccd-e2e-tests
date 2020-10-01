@@ -137,7 +137,12 @@ export class StartAppealFlow {
         if (appealType === 'PA') {
             await this.ccdFormPage.setFieldValue('Type of appeal', 'Refusal of protection claim');
         }
-
+        if (appealType === 'RP') {
+            await this.ccdFormPage.setFieldValue('Type of appeal', 'Revocation of a protection status');
+        }
+        if (appealType === 'DC') {
+            await this.ccdFormPage.setFieldValue('Type of appeal', 'Deprivation of citizenship');
+        }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -162,6 +167,12 @@ export class StartAppealFlow {
         }
         if (appealType === 'PA') {
             await this.ccdFormPage.click('Removing the appellant from the UK would breach the UK\'s obligation under the Refugee Convention');
+        }
+        if (appealType === 'RP') {
+            await this.ccdFormPage.click('Revocation of the appellant\'s protection status breaches the United Kingdom\'s obligations under the Refugee Convention');
+        }
+        if (appealType === 'DC') {
+            await this.ccdFormPage.click('Deprivation would have a disproportionate effect');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -314,6 +325,21 @@ export class StartAppealFlow {
         }
     }
 
+    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '') {
+        await this.completeClientDetails(false);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
     async saveInitialAppealWithFee(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
@@ -323,7 +349,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeHowToPay(true, appealType);
+        await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -374,7 +400,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeHowToPay(true, appealType);
+        await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
