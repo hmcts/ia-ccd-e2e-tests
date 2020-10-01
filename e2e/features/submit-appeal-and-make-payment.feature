@@ -36,7 +36,9 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
     And I should see the text `Payment reference number`
+    And I should see the text `Payment date`
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image
@@ -47,36 +49,43 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Admin Officer`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Judge`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office APC`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office LART`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office POU`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office Generic`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
   @successful-payment-for-PA-appeal-type-without-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Make a successful payment for PA appeal type without hearing fee after appeal submitted state (PBA0087535)
@@ -110,7 +119,9 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
     And I should see the text `Payment reference number`
+    And I should see the text `Payment date`
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image
@@ -121,36 +132,43 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Admin Officer`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Judge`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office APC`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office LART`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office POU`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office Generic`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
 
   @failed-payment-account-deleted-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
@@ -188,7 +206,9 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
     And I should see the text `Payment reference number`
+    And I should see the text `Payment date`
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image
@@ -199,36 +219,43 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Admin Officer`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Judge`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office APC`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office LART`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office POU`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office Generic`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
   @failed-payment-account-on-hold-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Failed payment for PA appeal type with hearing fee after appeal submitted state - account on hold (PBA0087442)
@@ -265,6 +292,7 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
     And I should see the text `Payment reference number`
 
     When I click the `Overview` tab
@@ -276,36 +304,43 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Admin Officer`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Judge`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office APC`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office LART`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office POU`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I switch to be a `Home Office Generic`
     And I click the `Appeal` tab
     Then I should see the `Appeal` page
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
   @pay-later-avoid-pay-twice @RIA-3409
   Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087535)
