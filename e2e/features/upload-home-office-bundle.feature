@@ -9,7 +9,7 @@ Feature: Upload Home Office bundle
     And I switch to be a `Case Officer`
     And I request respondent evidence
 
-  @regression @RIA-1308 @upload-home-office-bundle @RIA-1799 @RIA-2034
+  @regression @RIA-1308 @upload-home-office-bundle @RIA-1799 @RIA-2034 @RIA-3591
   Scenario: Only Home Office Generic and APC users can see and upload the Home Office bundle
 
     #    Home Office LART
@@ -27,12 +27,12 @@ Feature: Upload Home Office bundle
     Then I am on the `Upload Home Office bundle` page
 
     When I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `RespondentEvidence.pdf` in the `Document` field
+    And I should see `RespondentEvidence.pdf` in the `Upload a file` field
     And I should see `This is the evidence` in the `Describe the document` field
     And I click the `Cancel` link
 
@@ -52,12 +52,12 @@ Feature: Upload Home Office bundle
     And I should see the text `- None`
 
     When I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `RespondentEvidence.pdf` in the `Document` field
+    And I should see `RespondentEvidence.pdf` in the `Upload a file` field
     And I should see `This is the evidence` in the `Describe the document` field
 
     When I click the `Upload` button
@@ -108,12 +108,12 @@ Feature: Upload Home Office bundle
     And I should see the text `Already uploaded files:`
     And I should see the text `- RespondentEvidence.pdf`
     When I click the `Add new` button
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Upload a file` field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the updated evidence` for the `Describe the document` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
+    And I should see `RespondentEvidenceUpdated.pdf` in the `Upload a file` field
     And I should see `This is the updated evidence` in the `Describe the document` field
 
     When I click the `Upload` button
