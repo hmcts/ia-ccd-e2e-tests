@@ -9,7 +9,10 @@ Feature: Build case
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Rep`
-    
+
+    When I select the `Submit your case` Next step
+    Then I should see the text `You cannot submit this case because you have not uploaded any case building documents.`
+
     When I select the `Build your case` Next step
     Then I am on the `Build your case` page
     And the `Continue` button is disabled
@@ -29,7 +32,7 @@ Feature: Build case
     And within the `Evidence` collection's first item, I should see `Evidence1.pdf` for the `Document` field
     And within the `Evidence` collection's first item, I should see `This is the evidence` in the `Describe the document` field
 
-@OnlyIfSaveAndContinueIsEnabled @regression @create-direction @RIA-480 @RIA-600 @RIA-927
+@OnlyIfSaveAndContinueIsEnabled @regression @create-direction @RIA-480 @RIA-600 @RIA-927 @RIA-3435
   Scenario: Save and continue is enabled
     When I click the `Upload` button
     Then I should see the text `Upload saved`
@@ -52,7 +55,7 @@ Feature: Build case
     And within the `Legal representative documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
 
-  @RIA-2918
+  @RIA-2918 @RIA-3435
   Scenario: Save and continue is disabled
     When I click the `Submit Case` button
     Then I should see the text `You have submitted your case`
