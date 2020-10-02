@@ -14,7 +14,6 @@ Feature: Final display for FTPA decision and reasons
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
-    And I request appellant review
     And I request hearing requirements
     And I switch to be a `Legal Rep`
     And I submit hearing requirements with all yes
@@ -25,13 +24,14 @@ Feature: Final display for FTPA decision and reasons
     And I switch to be a `Case Officer`
     And I create case summary
     And I generate the hearing bundle
+    And I wait for 30 seconds
     And I switch to be a `Case Officer`
     And I start decision and reasons
     And I prepare decision and reasons
     And I send decision and reasons
 
 
-  @RIA-2919 @RIA-2919-scenario1
+  @RIA-2919 @RIA-2919-scenario1 @nightly-test
     #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 

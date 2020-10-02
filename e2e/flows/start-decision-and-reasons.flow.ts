@@ -1,3 +1,5 @@
+import { browser } from 'protractor';
+import { Wait } from '../enums/wait';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class StartDecisionAndReasonsFlow {
@@ -6,6 +8,8 @@ export class StartDecisionAndReasonsFlow {
 
     async startDecisionAndReasons(clickContinue = false) {
 
+        await browser.sleep(Wait.normal);
+        await this.ccdFormPage.refresh();
         await this.ccdFormPage.selectNextStep('Start decision and reasons');
         await this.ccdFormPage.click('Go');
 

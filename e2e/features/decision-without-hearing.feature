@@ -26,7 +26,6 @@ Feature: Decision without a hearing from respondent review
   @RIA-2122
   Scenario: Case Officer makes a decision without a hearing from listing
     When I add the appeal response
-    And I request appellant review
     And I request hearing requirements
     And I click the `Directions` tab
     And I should see the `Directions` page
@@ -43,7 +42,6 @@ Feature: Decision without a hearing from respondent review
   @RIA-2122
   Scenario: Case Officer makes a decision without a hearing from submitHearingRequirements
     When I add the appeal response
-    And I request appellant review
     And I request hearing requirements
     And I switch to be a `Legal Rep`
     And I submit hearing requirements with all yes
@@ -59,7 +57,6 @@ Feature: Decision without a hearing from respondent review
   @RIA-2122
   Scenario: Case Officer makes a decision without a hearing after adjourned
   When I add the appeal response
-  And I request appellant review
   And I request hearing requirements
   And I switch to be a `Legal Rep`
   And I submit hearing requirements with all yes
