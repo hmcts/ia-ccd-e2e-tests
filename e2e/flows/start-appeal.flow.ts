@@ -9,7 +9,6 @@ export class StartAppealFlow {
         await this.ccdFormPage.click('My client is living in the UK');
         await this.ccdFormPage.click('My client is not in detention');
         await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
-        await this.ccdFormPage.click('My client is not appealing with anyone else as part of a linked or grouped appeal');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -116,7 +115,6 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('Continue');
         }
     }
-
     async completeAppealType(clickContinue = false) {
 
         await this.ccdFormPage.setFieldValue('Type of appeal', 'Refusal of protection claim');

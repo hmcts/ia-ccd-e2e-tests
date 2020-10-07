@@ -5,7 +5,7 @@ Feature: Submit appeal application
     And I create a new case
     And I save my initial appeal
 
-  @regression @submit-appeal @RIA-515
+  @regression @submit-appeal @RIA-515 @RIA-3486
   Scenario: Submit an appeal application
 
     When I select the `Submit your appeal` Next step
