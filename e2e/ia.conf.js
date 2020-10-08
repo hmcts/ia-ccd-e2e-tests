@@ -44,5 +44,6 @@ module.exports = {
   TestLawFirmOrgBUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_B_USERNAME,
   TestLawFirmOrgBPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_B_PASSWORD,
 
-  isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false
+  isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
+  isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false
 };

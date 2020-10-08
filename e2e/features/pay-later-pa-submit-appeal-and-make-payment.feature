@@ -1,4 +1,4 @@
-Feature: Make a payment after appeal submitted state (successful and failed payments)
+Feature: Make a payment paylater pa after appeal submitted state (successful and failed payments)
 
   Background:
     Given I am signed in as a `Legal Rep`
@@ -7,8 +7,8 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
   @successful-payment-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087535)
 
-    And I save my initial PA appeal type with hearing fee
-    And I submit my appeal
+    And I save my initial PA appeal type with hearing fee and pay later
+    And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
@@ -37,8 +37,6 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
-    And I should see the text `Payment reference number`
-    And I should see the text `Payment date`
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image
@@ -90,8 +88,8 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
   @successful-payment-for-PA-appeal-type-without-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Make a successful payment for PA appeal type without hearing fee after appeal submitted state (PBA0087535)
 
-    And I save my initial PA appeal type without hearing fee
-    And I submit my appeal
+    And I save my initial PA appeal type without hearing fee and pay later
+    And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
@@ -120,8 +118,6 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
-    And I should see the text `Payment reference number`
-    And I should see the text `Payment date`
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image
@@ -174,8 +170,8 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
   @failed-payment-account-deleted-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Failed payment for PA appeal type with hearing fee after appeal submitted state - account deleted (PBA0087240)
 
-    And I save my initial PA appeal type with hearing fee
-    And I submit my appeal
+    And I save my initial PA appeal type with hearing fee and pay later
+    And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
@@ -207,8 +203,6 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
-    And I should see the text `Payment reference number`
-    And I should see the text `Payment date`
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image
@@ -260,8 +254,8 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
   @failed-payment-account-on-hold-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Failed payment for PA appeal type with hearing fee after appeal submitted state - account on hold (PBA0087442)
 
-    And I save my initial PA appeal type with hearing fee
-    And I submit my appeal
+    And I save my initial PA appeal type with hearing fee and pay later
+    And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
@@ -293,7 +287,6 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
-    And I should see the text `Payment reference number`
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image
@@ -345,8 +338,8 @@ Feature: Make a payment after appeal submitted state (successful and failed paym
   @pay-later-avoid-pay-twice @RIA-3409
   Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087535)
 
-    And I save my initial PA appeal type with hearing fee
-    And I submit my appeal
+    And I save my initial PA appeal type with hearing fee and pay later
+    And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
     Then I should see the `Make a payment` page

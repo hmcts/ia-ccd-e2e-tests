@@ -1,4 +1,4 @@
-Feature: Pay offline by card
+Feature: Pay offline pa by card
 
   Background:
     Given I am signed in as a `Legal Rep`
@@ -8,12 +8,16 @@ Feature: Pay offline by card
   Scenario: Pay offline by card (PA appeal type with a hearing)
 
     And I save my initial PA appeal type with hearing fee and pay offline
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+
+    And I should see the text `Case details`
+    And I should see the text `Refusal of protection claim`
+    And I should see the legal representative details
 
     When I click the `Appeal` tab
     Then I should see the `Appeal` page
@@ -85,7 +89,7 @@ Feature: Pay offline by card
   Scenario: Pay offline by card (PA appeal type without a hearing)
 
     And I save my initial PA appeal type without hearing fee and pay offline
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_appealSubmitted` case progress image

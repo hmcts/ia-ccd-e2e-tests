@@ -6,7 +6,7 @@ Feature: Legal rep decides payment method payNow and saves appeal (PA appeal typ
 
     When I save my initial PA appeal type with hearing fee
 
-  @save-pa-appeal-type-payNow-submit-check @RIA-3498
+  @save-pa-appeal-type-payNow-submit-check-error @RIA-3498
   Scenario: Decide pay and submit for PA appeal type but try to submit without payment.
 
     Then I should not see the `Submit your appeal` link

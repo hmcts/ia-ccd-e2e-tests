@@ -3,6 +3,7 @@ import { StartAppealFlow } from '../../../flows/start-appeal.flow';
 import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
 
+const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 'true';
 const ccdFormPage = new CcdFormPage();
 const startAppealFlow = new StartAppealFlow();
 
@@ -87,7 +88,11 @@ Given(/^I skip the `?([^`]+)`? page by clicking `?([^`]+)`?$/, async function (p
 });
 
 Given('I save my initial appeal', async function () {
-    await startAppealFlow.saveAppeal(true);
+    if (isfeePaymentEnabled) {
+        await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'hearing fee');
+    } else {
+        await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA');
+    }
 });
 
 Given(/^I save my initial `?([^\s`]+)`? appeal type `?([^\s`]+)`? hearing fee$/, async function (appealType, feeType) {
@@ -114,8 +119,16 @@ Given(/^I save my initial `?([^\s`]+)`? appeal type `?([^\s`]+)`? hearing fee an
     await startAppealFlow.saveInitialAppealWithFeePayOffline(true, appealType, feeType);
 });
 
+Given(/^I save my initial `?([^\s`]+)`? appeal type `?([^\s`]+)`? hearing fee and pay later$/, async function (appealType, feeType) {
+    await startAppealFlow.saveInitialAppealWithFeePayLater(true, appealType, feeType);
+});
+
 Given(/^I save my initial `?([^\s`]+)`? appeal type pay offline `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, feeType) {
     await startAppealFlow.saveInitialOutOfTimeAppealWithFeePayOffline(true, appealType, feeType);
+});
+
+Given(/^I save my initial `?([^\s`]+)`? appeal type pay later `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, feeType) {
+    await startAppealFlow.saveInitialOutOfTimeAppealWithFeePayLater(true, appealType, feeType);
 });
 
 Given('I save my initial appeal with out of time decision letter', async function () {
@@ -124,6 +137,10 @@ Given('I save my initial appeal with out of time decision letter', async functio
 
 Given(/^I save my initial appeal with `?([^`]+)`? address and `?([^`]+)`? postcode$/, async function (address, postcode) {
     await startAppealFlow.saveAppeal(true, true, address, postcode);
+});
+
+Given(/^I save my initial `?([^\s`]+)`? appeal for nonPayment$/, async function (appealType) {
+    await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType);
 });
 
 Given('I wait for any found addresses to load', async function () {
