@@ -33,10 +33,10 @@ Then(/^I should (see|not see) the requests for additional adjustments (yes|no) p
     if (isDisplayed) {
         if (isYesPath) {
             expect(await ccdPage.headingContains('Requests for additional adjustments')).to.equal(true);
-            expect(await ccdPage.isFieldValueDisplayed('Does the appellant have any physical or mental health issues that may impact them during the hearing?', 'Yes')).to.equal(true);
-            expect(await ccdPage.contentContains('Explain in detail how any physical or mental health issues may affect them during the hearing.', Wait.instant)).to.equal(true);
-            expect(await ccdPage.isFieldValueDisplayed('Has the appellant had any past experiences that may impact them during the hearing?', 'Yes')).to.equal(true);
-            expect(await ccdPage.contentContains('Explain in detail how any past experiences may affect them during the hearing.', Wait.instant)).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Does the appellant have any physical or mental health issues that may impact them on the day?', 'Yes')).to.equal(true);
+            expect(await ccdPage.contentContains('Explain in detail how any physical or mental health issues may affect them on the day.', Wait.instant)).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Has the appellant had any past experiences that may impact them on the day?', 'Yes')).to.equal(true);
+            expect(await ccdPage.contentContains('Explain in detail how any past experiences may affect them on the day?', Wait.instant)).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Do you have multimedia evidence?', 'Yes')).to.equal(true);
             expect(await ccdPage.contentContains(
                 'You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you\'ll need to play it.',
@@ -45,13 +45,13 @@ Then(/^I should (see|not see) the requests for additional adjustments (yes|no) p
             expect(await ccdPage.contentContains('What type of court do they need?', Wait.instant)).to.equal(true);
             expect(await ccdPage.contentContains('Explain in detail why the appellant needs a single-sex court.', Wait.instant)).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Does the appellant need an in camera court?', 'Yes')).to.equal(true);
-            expect(await ccdPage.contentContains('Explain in detail why the appellant needs a private hearing.', Wait.instant)).to.equal(true);
+            expect(await ccdPage.contentContains('Explain in detail why the appellant needs an in camera court.', Wait.instant)).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Is there anything else you would like to request?', 'Yes')).to.equal(true);
             expect(await ccdPage.contentContains('Provide details of any additional requests and why they are necessary.', Wait.instant)).to.equal(true);
         } else {
             expect(await ccdPage.headingContains('Requests for additional adjustments')).to.equal(true);
-            expect(await ccdPage.isFieldValueDisplayed('Does the appellant have any physical or mental health issues that may impact them during the hearing?', 'No')).to.equal(true);
-            expect(await ccdPage.isFieldValueDisplayed('Has the appellant had any past experiences that may impact them during the hearing?', 'No')).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Does the appellant have any physical or mental health issues that may impact them on the day?', 'No')).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Has the appellant had any past experiences that may impact them on the day?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Do you have multimedia evidence?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Does the appellant need a single-sex court?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Does the appellant need an in camera court?', 'No')).to.equal(true);
@@ -61,10 +61,10 @@ Then(/^I should (see|not see) the requests for additional adjustments (yes|no) p
 
     } else {
         expect(await ccdPage.headingContains('Requests for additional adjustments')).to.equal(false);
-        expect(await ccdPage.contentContains('Does the appellant have any physical or mental health issues that may impact them during the hearing?', Wait.instant)).to.equal(false);
-        expect(await ccdPage.contentContains('Explain in detail how any physical or mental health issues may affect them during the hearing.', Wait.instant)).to.equal(false);
-        expect(await ccdPage.contentContains('Has the appellant had any past experiences that may impact them during the hearing?', Wait.instant)).to.equal(false);
-        expect(await ccdPage.contentContains('Explain in detail how any past experiences may affect them during the hearing.', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Does the appellant have any physical or mental health issues that may impact them on the day?', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Explain in detail how any physical or mental health issues may affect them on the day.', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Has the appellant had any past experiences that may impact them on the day?', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Explain in detail how any past experiences may affect them on the day?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Do you have multimedia evidence?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains(
             'You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you\'ll need to play it.',
@@ -73,7 +73,7 @@ Then(/^I should (see|not see) the requests for additional adjustments (yes|no) p
         expect(await ccdPage.contentContains('What type of court do they need?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Explain in detail why the appellant needs a single-sex court.', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Does the appellant need an in camera court?', Wait.instant)).to.equal(false);
-        expect(await ccdPage.contentContains('Explain in detail why the appellant needs a private hearing.', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Explain in detail why the appellant needs an in camera court.', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Is there anything else you would like to request?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Provide details of any additional requests and why they are necessary.', Wait.instant)).to.equal(false);
     }

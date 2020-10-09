@@ -3,7 +3,7 @@ Feature: Case progression path when case and continue is disabled
   @case-progression @case-progression-core-save-and-continue-true @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
   @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277 @RIA-2343 @RIA-2304 @RIA-2041
-  @RIA-2236 @RIA-2736 @RIA-1360 @RIA-1280 @RIA-1939 @RIA-1903 @RIA-2694
+  @RIA-2236 @RIA-2736 @RIA-1360 @RIA-1280 @RIA-1939 @RIA-1903 @RIA-2694 @RIA-3555
   Scenario: Case progression information is displayed for each case state (contextualised to Case Officer, Admin Officer, Legal Rep or Home Office)
 
     Given I am signed in as a `Legal Rep`
@@ -884,7 +884,7 @@ Feature: Case progression path when case and continue is disabled
     Then the `Continue` button is enabled
 
     When I click the `Continue` button
-    And I select `Yes` for the `Do you need interpreter services at the hearing?` field
+    And I select `Yes` for the `Do you need interpreter services on the day?` field
     Then I see the text `Interpreter details`
     And the `Continue` button is disabled
 
@@ -904,15 +904,15 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `You can request additional adjustments based on the appellant's personal circumstances. The Tribunal will review the information you provide and decide whether a request can be granted.`
 
     When I click the `Continue` button
-    And I select `Yes` for the `Does the appellant have any physical or mental health issues that may impact them during the hearing?` field
+    And I select `Yes` for the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
     Then the `Continue` button is disabled
-    When I type `The appellant is deaf in one ear` for the `Explain in detail how any physical or mental health issues may affect them during the hearing.` field
+    When I type `The appellant is deaf in one ear` for the `Explain in detail how any physical or mental health issues may affect them on the day.` field
     Then the `Continue` button is enabled
 
     When I click the `Continue` button
-    And I select `Yes` for the `Has the appellant had any past experiences that may impact them during the hearing?` field
+    And I select `Yes` for the `Has the appellant had any past experiences that may impact them on the day?` field
     Then the `Continue` button is disabled
-    When I type `The appellant is fearful of the law` for the `Explain in detail how any past experiences may affect them during the hearing.` field
+    When I type `The appellant is fearful of the law` for the `Explain in detail how any past experiences may affect them on the day?` field
     Then the `Continue` button is enabled
 
     When I click the `Continue` button
@@ -933,7 +933,7 @@ Feature: Case progression path when case and continue is disabled
     When I click the `Continue` button
     And I select `Yes` for the `Does the appellant need an in camera court?` field
     Then the `Continue` button is disabled
-    When I type `The appellant is afraid of the general public` for the `Explain in detail why the appellant needs a private hearing.` field
+    When I type `The appellant is afraid of the general public` for the `Explain in detail why the appellant needs an in camera court.` field
     Then the `Continue` button is enabled
 
     When I click the `Continue` button
@@ -945,7 +945,7 @@ Feature: Case progression path when case and continue is disabled
     When I click the `Continue` button
     Then I should see the text `Hearing dates to avoid`
 
-    When I select `Yes` for the `Are there any dates that the appellant or their on-day representation cannot attend a hearing?` field
+    When I select `Yes` for the `Are there any dates that the appellant or their on-day representation cannot attend?` field
     Then I should see the text `Tell us which dates and explain why the case cannot be heard on these dates.`
     And I should see the text `Dates to avoid`
     When I click the `Add new` button
@@ -958,22 +958,22 @@ Feature: Case progression path when case and continue is disabled
     And I should see `Yes` in the `Will the appellant give oral evidence at the hearing?` field
     And I should see `Yes` in the `Will any witnesses attend the hearing?` field
     And I should see `Jenny Button` in the `Witness details` field
-    And I should see `Yes` in the `Do you need interpreter services at the hearing?` field
+    And I should see `Yes` in the `Do you need interpreter services on the day?` field
     And I should see `Zulu` in the `Language` field
     And I should see `Kwabe` in the `Dialect` field
     And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
     And I should see `Yes` in the `Do you need a hearing loop?` field
-    And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them during the hearing?` field
-    And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them during the hearing.` field
-    And I should see `Yes` in the `Has the appellant had any past experiences that may impact them during the hearing?` field
-    And I should see `The appellant is fearful of the law` in the `Explain in detail how any past experiences may affect them during the hearing.` field
+    And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
+    And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them on the day.` field
+    And I should see `Yes` in the `Has the appellant had any past experiences that may impact them on the day?` field
+    And I should see `The appellant is fearful of the law` in the `Explain in detail how any past experiences may affect them on the day?` field
     And I should see `Yes` in the `Do you have multimedia evidence?` field
     And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
     And I should see `Yes` in the `Does the appellant need a single-sex court?` field
     And I should see `All female` in the `What type of court do they need?` field
     And I should see `The appellant is fearful of men` in the `Explain in detail why the appellant needs a single-sex court.` field
     And I should see `Yes` in the `Does the appellant need an in camera court?` field
-    And I should see `The appellant is afraid of the general public` in the `Explain in detail why the appellant needs a private hearing.` field
+    And I should see `The appellant is afraid of the general public` in the `Explain in detail why the appellant needs an in camera court.` field
     And I should see `Yes` in the `Is there anything else you would like to request?` field
     And I should see `The appellant would like fresh orange juice and doughnuts` in the `Provide details of any additional requests and why they are necessary.` field
     And I should see the `Dates to avoid` field
@@ -1056,7 +1056,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see `Yes` in the `Will the appellant give oral evidence at the hearing?` field
     And I should see `Yes` in the `Will any witnesses attend the hearing?` field
     And I should see `Jenny Button` in the `Witness details` field
-    And I should see `Yes` in the `Do you need interpreter services at the hearing?` field
+    And I should see `Yes` in the `Do you need interpreter services on the day?` field
     And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
     And I should see `Yes` in the `Do you need a hearing loop?` field
     Then I select `6 hours` for the `Length of appointment` field
@@ -1066,8 +1066,8 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `Do not enter the reason the appellant made the request.`
     And I should see the text `The respondent will be able to see this information and must not be informed of the appellant's personal circumstances.`
     And I should see the text `Adjustment request`
-    And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them during the hearing?` field
-    And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them during the hearing.` field
+    And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
+    And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them on the day.` field
     And I should see the text `Tribunal response`
     And I type `Physical or mental health conditions will be reviewed` for the `Physical or mental health conditions` field
     And I click the `Continue` button
@@ -1082,7 +1082,7 @@ Feature: Case progression path when case and continue is disabled
     And I type `Single sex court requirement will be reviewed` for the `Single-sex court` field
     And I click the `Continue` button
     And I should see `Yes` in the `Does the appellant need an in camera court?` field
-    And I should see `The appellant is afraid of the general public` in the `Explain in detail why the appellant needs a private hearing.` field
+    And I should see `The appellant is afraid of the general public` in the `Explain in detail why the appellant needs an in camera court.` field
     And I type `Private hearing requirement will be reviewed` for the `In camera court` field
     And I click the `Continue` button
     And I should see `Yes` in the `Is there anything else you would like to request?` field
