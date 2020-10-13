@@ -7,7 +7,7 @@ Feature: Payment validation for non-payment appeal type
   @payment-validation-for-non-payment-appeal-type-RP @payment-validation-for-non-payment_appeal-type @RIA-3654
   Scenario: Select initial appeal with RP appeal type and validate payment errors
 
-    When I save my initial RP appeal for nonPayment
+    When I save my initial RP appeal for nonPayment with hearing
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
     And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
@@ -31,7 +31,7 @@ Feature: Payment validation for non-payment appeal type
   @payment-validation-for-non-payment-appeal-type-DC @payment-validation-for-non-payment_appeal-type @RIA-3654
   Scenario: Select initial appeal with DC appeal type and validate payment errors
 
-    When I save my initial DC appeal for nonPayment
+    When I save my initial DC appeal for nonPayment without hearing
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
     And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
@@ -64,3 +64,156 @@ Feature: Payment validation for non-payment appeal type
     And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `Errors`
     And I should see the text `The Mark appeal as paid option is not available.`
+
+
+  @Submit-RP-appeal-type-with-hearing @RIA-3516-RP-appeal-type-with-hearing @3516
+  Scenario: Submit RP appeal type with hearing option
+
+    When I save my initial RP appeal for nonPayment with hearing
+    Then I submit my appeal
+
+    Then I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Case Officer`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Admin Officer`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Judge`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office APC`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office LART`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office POU`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office Generic`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+  @Submit-DC-appeal-type-with-hearing @RIA-3516-DC-appeal-type-with-hearing @3516
+  Scenario: Submit RP appeal type with hearing option
+
+    When I save my initial DC appeal for nonPayment with hearing
+    Then I submit my appeal
+
+    Then I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Case Officer`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Admin Officer`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Judge`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office APC`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office LART`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office POU`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office Generic`
+    And I click the `Appeal` tab
+    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+
+  @Submit-RP-appeal-type-without-hearing @RIA-3516-RP-appeal-type-without-hearing @3516
+  Scenario: Submit RP appeal type with hearing option
+
+    When I save my initial RP appeal for nonPayment without hearing
+    Then I submit my appeal
+
+    Then I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Case Officer`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Admin Officer`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Judge`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office APC`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office LART`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office POU`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office Generic`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+  @Submit-DC-appeal-type-without-hearing @RIA-3516-RP-appeal-type-without-hearing @3516
+  Scenario: Submit RP appeal type with hearing option
+
+    When I save my initial DC appeal for nonPayment without hearing
+    Then I submit my appeal
+
+    Then I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Case Officer`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Admin Officer`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Judge`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office APC`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office LART`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office POU`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+    Then I switch to be a `Home Office Generic`
+    And I click the `Appeal` tab
+    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+
+
+
+

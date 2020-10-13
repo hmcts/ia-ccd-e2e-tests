@@ -139,8 +139,8 @@ Given(/^I save my initial appeal with `?([^`]+)`? address and `?([^`]+)`? postco
     await startAppealFlow.saveAppeal(true, true, address, postcode);
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal for nonPayment$/, async function (appealType) {
-    await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType);
+Given(/^I save my initial `?([^\s`]+)`? appeal for nonPayment `?([^\s`]+)`? hearing$/, async function (appealType, hearingOption) {
+    await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType, hearingOption);
 });
 
 Given('I wait for any found addresses to load', async function () {

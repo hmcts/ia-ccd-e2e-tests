@@ -322,7 +322,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '') {
+    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hearingOption = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -330,6 +330,7 @@ export class StartAppealFlow {
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
+        await this.completeHearingOption(true, hearingOption);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -532,6 +533,20 @@ export class StartAppealFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async completeHearingOption(clickContinue = false, hearingOption = '') {
+
+        if (hearingOption === 'without') {
+            await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision without a hearing');
+        }
+        if (hearingOption === 'with') {
+            await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision with a hearing');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
         }
     }
 }
