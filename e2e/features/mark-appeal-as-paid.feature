@@ -4,10 +4,10 @@ Feature: Mark appeal as paid
     Given I am signed in as a `Legal Rep`
     And I create a new case
 
-  @Mark-appeal-as-paid-PA @RIA-3473-PA @RIA-3473
+  @Mark-appeal-as-paid-PA @RIA-3473-PA @RIA-3473 @RIA-3014
   Scenario: Mark PA appeal as paid (PA appeal type with a hearing)
 
-    And I save my initial PA appeal type with hearing fee and pay offline
+    And I save my initial PA appeal type with no remission and with hearing fee and pay offline
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
@@ -136,10 +136,10 @@ Feature: Mark appeal as paid
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal by card` for the `Payment method` field
 
-  @Mark-appeal-as-paid-EA @RIA-3473-EA @RIA-3473
+  @Mark-appeal-as-paid-EA @RIA-3473-EA @RIA-3473 @RIA-3014
   Scenario: Mark EA appeal as paid (EA appeal type with a hearing)
 
-    And I save my initial EA appeal type with hearing fee and pay offline
+    And I save my initial EA appeal type with no remission and with hearing fee and pay offline
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
@@ -275,10 +275,10 @@ Feature: Mark appeal as paid
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
 
 
-  @Mark-appeal-as-paid-HU @RIA-3473-HU @RIA-3473
+  @Mark-appeal-as-paid-HU @RIA-3473-HU @RIA-3473 @RIA-3014
   Scenario: Mark HU appeal as paid (HU appeal type without a hearing)
 
-    And I save my initial HU appeal type without hearing fee and pay offline
+    And I save my initial HU appeal type with no remission and without hearing fee and pay offline
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
@@ -416,7 +416,7 @@ Feature: Mark appeal as paid
   @End-appeal-HU @RIA-3473-end-appeal-HU @RIA-3473
   Scenario: End HU appeal on payment incomplete
 
-    And I save my initial HU appeal type without hearing fee and pay offline
+    And I save my initial HU appeal type with no remission and without hearing fee and pay offline
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
@@ -431,10 +431,10 @@ Feature: Mark appeal as paid
     And I should see the ended appeal details
 
 
-  @End-appeal-EA @RIA-3473-end-appeal-EA @RIA-3473
+  @End-appeal-EA @RIA-3473-end-appeal-EA @RIA-3473 @RIA-3014
   Scenario: End EA appeal on payment incomplete
 
-    And I save my initial EA appeal type without hearing fee and pay offline
+    And I save my initial EA appeal type with no remission and without hearing fee and pay offline
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab

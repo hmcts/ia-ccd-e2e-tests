@@ -4,44 +4,44 @@ Feature: Duplicate payment error handling
     Given I am signed in as a `Legal Rep`
     And I create a new case
 
-  @Pay-and-submit-event-with-pay-offline-option-un-submitted-EA @RIA-3574
+  @Pay-and-submit-event-with-pay-offline-option-un-submitted-EA @RIA-3574 @RIA-3014
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial EA appeal type with hearing fee and pay offline
+    When I save my initial EA appeal type with no remission and with hearing fee and pay offline
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `Errors`
-    And I should see the text `The Pay and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
+    And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
-  @Pay-and-submit-event-with-pay-offline-option-un-submitted-HU @RIA-3574
+  @Pay-and-submit-event-with-pay-offline-option-un-submitted-HU @RIA-3574 @RIA-3014
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial HU appeal type with hearing fee and pay offline
+    When I save my initial HU appeal type with no remission and with hearing fee and pay offline
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `Errors`
-    And I should see the text `The Pay and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
+    And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
-  @Pay-and-submit-event-with-pay-offline-option-un-submitted-PA @RIA-3574
+  @Pay-and-submit-event-with-pay-offline-option-un-submitted-PA @RIA-3574 @RIA-3014
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial PA appeal type with hearing fee and pay offline
+    When I save my initial PA appeal type with no remission and with hearing fee and pay offline
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `Errors`
-    And I should see the text `The Pay and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
+    And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
 
   @Make-a-payment-event-with-pay-offline-option-submitted-PA @RIA-3574
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial PA appeal type with hearing fee and pay offline
+    When I save my initial PA appeal type with no remission and with hearing fee and pay offline
     And I submit my nonpayment appeal
 
     Then I click the `Overview` tab
@@ -54,17 +54,17 @@ Feature: Duplicate payment error handling
   @Pay-and-submit-event-with-pay-later-option-un-submitted-PA @RIA-3574
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial PA appeal type with hearing fee and pay later
+    When I save my initial PA appeal type with no remission and with hearing fee and pay later
 
     And I select the `Pay and submit` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `Errors`
-    And I should see the text `The Pay and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
+    And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
   @Make-a-payment-event-with-pay-later-option-submitted-PA @RIA-3574
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial PA appeal type with hearing fee and pay later
+    When I save my initial PA appeal type with no remission and with hearing fee and pay later
     And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
@@ -88,7 +88,7 @@ Feature: Duplicate payment error handling
   @Pay-and-submit-event-with-pay-now-option-EA @RIA-3574
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial EA appeal type with hearing fee
+    When I save my initial EA appeal type with no remission and with hearing fee
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
@@ -113,7 +113,7 @@ Feature: Duplicate payment error handling
   @Pay-and-submit-event-with-pay-now-option-HU @RIA-3574
   Scenario: Select pay and submit event with pay later option chosen
 
-    When I save my initial HU appeal type with hearing fee
+    When I save my initial HU appeal type with no remission and with hearing fee
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step

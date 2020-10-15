@@ -338,7 +338,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealWithFee(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -347,6 +347,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
@@ -355,7 +356,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealPayNowWithFee(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialAppealPayNowWithFee(clickContinue = false, appealType = '', remission = '' , feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -364,6 +365,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
@@ -372,7 +374,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealPayNowWithFeeOutOfTime(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialAppealPayNowWithFeeOutOfTime(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeOutOfTimeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -381,6 +383,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
@@ -389,7 +392,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealWithFeeOutOfTime(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialAppealWithFeeOutOfTime(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeOutOfTimeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -398,6 +401,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
@@ -406,7 +410,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealWithFeePayOffline(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialAppealWithFeePayOffline(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -415,6 +419,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayOffline(true, appealType);
         await this.completeCheckYourAnswers(true);
 
@@ -423,7 +428,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealWithFeePayLater(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialAppealWithFeePayLater(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -432,6 +437,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayLater(true, appealType);
         await this.completeCheckYourAnswers(true);
 
@@ -440,7 +446,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialOutOfTimeAppealWithFeePayOffline(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialOutOfTimeAppealWithFeePayOffline(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeOutOfTimeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -449,6 +455,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayOffline(true, appealType);
         await this.completeCheckYourAnswers(true);
 
@@ -457,7 +464,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialOutOfTimeAppealWithFeePayLater(clickContinue = false, appealType = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialOutOfTimeAppealWithFeePayLater(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeOutOfTimeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -466,6 +473,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayLater(true, appealType);
         await this.completeCheckYourAnswers(true);
 
@@ -543,6 +551,25 @@ export class StartAppealFlow {
         }
         if (hearingOption === 'with') {
             await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision with a hearing');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeRemissionDetails(clickContinue = false, remissionOption = '') {
+        if (remissionOption === 'no remission') {
+            await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client is not eligible for a fee remission');
+        }
+        if (remissionOption === 'a remission') {
+            await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a remission, Legal Aid, Home Office waiver, Section 17/20');
+        }
+        if (remissionOption === 'help with fees') {
+            await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a Help with Fees reference number');
+        }
+        if (remissionOption === 'apply for an exceptional circumstances remissions') {
+            await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a Help with Fees reference number');
         }
 
         if (clickContinue) {

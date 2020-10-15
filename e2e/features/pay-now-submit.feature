@@ -4,10 +4,10 @@ Feature: Pay now and Submit feature
     Given I am signed in as a `Legal Rep`
     And I create a new case
 
-  @Pay-now-and-submit-event-with-hearing-fee-EA @Pay-now-and-submit-event-with-hearing-fee @RIA-3237
+  @Pay-now-and-submit-event-with-hearing-fee-EA @Pay-now-and-submit-event-with-hearing-fee @RIA-3237 @RIA-3014
   Scenario: Select pay and submit event EA appeal type with hearing fee
 
-    When I save my initial EA appeal type with hearing fee
+    When I save my initial EA appeal type with no remission and with hearing fee
 
     And I click the `Overview` tab
     And  I select the `Submit your appeal` Next step
@@ -37,10 +37,10 @@ Feature: Pay now and Submit feature
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I should see `Pay now using Payment by Account` for the `Payment method` answer
 
-  @Pay-now-and-submit-event-with-hearing-fee-HU @Pay-now-and-submit-event-with-hearing-fee @RIA-3237
+  @Pay-now-and-submit-event-with-hearing-fee-HU @Pay-now-and-submit-event-with-hearing-fee @RIA-3237 @RIA-3014
   Scenario: Select pay and submit event HU appeal type with hearing fee
 
-    When I save my initial HU appeal type with hearing fee
+    When I save my initial HU appeal type with no remission and with hearing fee
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
@@ -66,10 +66,10 @@ Feature: Pay now and Submit feature
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I should see `Pay now using Payment by Account` for the `Payment method` answer
 
-  @Pay-now-and-submit-event-with-hearing-fee-PA @Pay-now-and-submit-event-with-hearing-fee @RIA-3237
+  @Pay-now-and-submit-event-with-hearing-fee-PA @Pay-now-and-submit-event-with-hearing-fee @RIA-3237 @RIA-3014
   Scenario: Select pay and submit event PA appeal type with hearing fee
 
-    When I save my initial PA appeal type with hearing fee
+    When I save my initial PA appeal type with no remission and with hearing fee
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
@@ -94,10 +94,10 @@ Feature: Pay now and Submit feature
     And I should see `Pay now using Payment by Account` for the `Payment method` answer
 
 
-  @Pay-now-and-submit-event-without-hearing-fee-EA @Pay-now-and-submit-event-without-hearing-fee @RIA-3237
+  @Pay-now-and-submit-event-without-hearing-fee-EA @Pay-now-and-submit-event-without-hearing-fee @RIA-3237 @RIA-3014
   Scenario: Select pay and submit event EA appeal type without hearing fee
 
-    When I save my initial EA appeal type without hearing fee
+    When I save my initial EA appeal type with no remission and without hearing fee
 
     And I click the `Overview` tab
     And  I select the `Submit your appeal` Next step
@@ -127,10 +127,10 @@ Feature: Pay now and Submit feature
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
     And I should see `Pay now using Payment by Account` for the `Payment method` answer
 
-  @Pay-now-and-submit-event-without-hearing-fee-HU @Pay-now-and-submit-event-without-hearing-fee @RIA-3237
+  @Pay-now-and-submit-event-without-hearing-fee-HU @Pay-now-and-submit-event-without-hearing-fee @RIA-3237 @RIA-3014
   Scenario: Select pay and submit event HU appeal type without hearing fee
 
-    When I save my initial HU appeal type without hearing fee
+    When I save my initial HU appeal type with no remission and without hearing fee
 
     And I click the `Overview` tab
     And  I select the `Submit your appeal` Next step
@@ -160,10 +160,10 @@ Feature: Pay now and Submit feature
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
     And I should see `Pay now using Payment by Account` for the `Payment method` answer
 
-  @Pay-now-and-submit-event-without-hearing-fee-PA @Pay-now-and-submit-event-without-hearing-fee @RIA-3237
+  @Pay-now-and-submit-event-without-hearing-fee-PA @Pay-now-and-submit-event-without-hearing-fee @RIA-3237 @RIA-3014
   Scenario: Select pay and submit event PA appeal type without hearing fee
 
-    When I save my initial PA appeal type without hearing fee
+    When I save my initial PA appeal type with no remission and without hearing fee
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
@@ -190,7 +190,7 @@ Feature: Pay now and Submit feature
   @save-pa-appeal-type-payNow-submit-check @RIA-3498
   Scenario: Decide pay and submit for PA appeal type with hearing fee
 
-    When I save my initial PA appeal type with hearing fee
+    When I save my initial PA appeal type with no remission and with hearing fee
 
     Then I should not see the `Submit your appeal` link
     And  I select the `Submit your appeal` Next step

@@ -7,7 +7,7 @@ Feature: Pay offline pa by card
   @pay_offline-by-card-for-PA-appeal-type-with-hearing-fee @RIA-3434-PA @RIA-3434
   Scenario: Pay offline by card (PA appeal type with a hearing)
 
-    And I save my initial PA appeal type with hearing fee and pay offline
+    And I save my initial PA appeal type with no remission and with hearing fee and pay offline
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
@@ -88,7 +88,7 @@ Feature: Pay offline pa by card
   @pay_offline-by-card-for-PA-appeal-type-without-hearing-fee @RIA-3434-PA @RIA-3434
   Scenario: Pay offline by card (PA appeal type without a hearing)
 
-    And I save my initial PA appeal type without hearing fee and pay offline
+    And I save my initial PA appeal type with no remission and without hearing fee and pay offline
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab

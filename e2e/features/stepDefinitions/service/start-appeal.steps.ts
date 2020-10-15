@@ -89,46 +89,46 @@ Given(/^I skip the `?([^`]+)`? page by clicking `?([^`]+)`?$/, async function (p
 
 Given('I save my initial appeal', async function () {
     if (isfeePaymentEnabled) {
-        await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'hearing fee');
+        await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'no remission', 'hearing fee');
     } else {
         await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA');
     }
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal type `?([^\s`]+)`? hearing fee$/, async function (appealType, feeType) {
-    await startAppealFlow.saveInitialAppealWithFee(true, appealType, feeType);
+Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee$/, async function (appealType, remission, feeType) {
+    await startAppealFlow.saveInitialAppealWithFee(true, appealType, remission, feeType);
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal type pay now `?([^\s`]+)`? hearing fee$/, async function (appealType, feeType) {
-    await startAppealFlow.saveInitialAppealPayNowWithFee(true, appealType, feeType);
+Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay now `?([^\s`]+)`? hearing fee$/, async function (appealType, remission, feeType) {
+    await startAppealFlow.saveInitialAppealPayNowWithFee(true, appealType, remission, feeType);
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal type pay now `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, feeType) {
-    await startAppealFlow.saveInitialAppealPayNowWithFeeOutOfTime(true, appealType, feeType);
+Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay now `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, remission, feeType) {
+    await startAppealFlow.saveInitialAppealPayNowWithFeeOutOfTime(true, appealType, remission, feeType);
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal type `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, feeType) {
-    await startAppealFlow.saveInitialAppealWithFeeOutOfTime(true, appealType, feeType);
+Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, remission, feeType) {
+    await startAppealFlow.saveInitialAppealWithFeeOutOfTime(true, appealType, remission, feeType);
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal type pay offline `?([^\s`]+)`? hearing fee$/, async function (appealType, feeType) {
-    await startAppealFlow.saveInitialAppealWithFeePayOffline(true, appealType, feeType);
+Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay offline `?([^\s`]+)`? hearing fee$/, async function (appealType, remission, feeType) {
+    await startAppealFlow.saveInitialAppealWithFeePayOffline(true, appealType, remission, feeType);
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal type `?([^\s`]+)`? hearing fee and pay offline$/, async function (appealType, feeType) {
-    await startAppealFlow.saveInitialAppealWithFeePayOffline(true, appealType, feeType);
+Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee and pay offline$/, async function (appealType, remission, feeType) {
+    await startAppealFlow.saveInitialAppealWithFeePayOffline(true, appealType, remission, feeType);
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal type `?([^\s`]+)`? hearing fee and pay later$/, async function (appealType, feeType) {
-    await startAppealFlow.saveInitialAppealWithFeePayLater(true, appealType, feeType);
+Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee and pay later$/, async function (appealType, remission, feeType) {
+    await startAppealFlow.saveInitialAppealWithFeePayLater(true, appealType, remission, feeType);
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal type pay offline `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, feeType) {
-    await startAppealFlow.saveInitialOutOfTimeAppealWithFeePayOffline(true, appealType, feeType);
+Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay offline `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, remission, feeType) {
+    await startAppealFlow.saveInitialOutOfTimeAppealWithFeePayOffline(true, appealType, remission, feeType);
 });
 
-Given(/^I save my initial `?([^\s`]+)`? appeal type pay later `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, feeType) {
-    await startAppealFlow.saveInitialOutOfTimeAppealWithFeePayLater(true, appealType, feeType);
+Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay later `?([^\s`]+)`? hearing fee and out of time$/, async function (appealType, remission, feeType) {
+    await startAppealFlow.saveInitialOutOfTimeAppealWithFeePayLater(true, appealType, remission, feeType);
 });
 
 Given('I save my initial appeal with out of time decision letter', async function () {

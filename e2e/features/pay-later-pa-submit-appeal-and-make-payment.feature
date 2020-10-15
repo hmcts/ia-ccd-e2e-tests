@@ -7,7 +7,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
   @successful-payment-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087535)
 
-    And I save my initial PA appeal type with hearing fee and pay later
+    And I save my initial PA appeal type with no remission and with hearing fee and pay later
     And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
@@ -88,7 +88,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
   @successful-payment-for-PA-appeal-type-without-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Make a successful payment for PA appeal type without hearing fee after appeal submitted state (PBA0087535)
 
-    And I save my initial PA appeal type without hearing fee and pay later
+    And I save my initial PA appeal type with no remission and without hearing fee and pay later
     And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
@@ -170,7 +170,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
   @failed-payment-account-deleted-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Failed payment for PA appeal type with hearing fee after appeal submitted state - account deleted (PBA0087240)
 
-    And I save my initial PA appeal type with hearing fee and pay later
+    And I save my initial PA appeal type with no remission and with hearing fee and pay later
     And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
@@ -254,7 +254,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
   @failed-payment-account-on-hold-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
   Scenario: Failed payment for PA appeal type with hearing fee after appeal submitted state - account on hold (PBA0087442)
 
-    And I save my initial PA appeal type with hearing fee and pay later
+    And I save my initial PA appeal type with no remission and with hearing fee and pay later
     And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
@@ -338,7 +338,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
   @pay-later-avoid-pay-twice @RIA-3409
   Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087535)
 
-    And I save my initial PA appeal type with hearing fee and pay later
+    And I save my initial PA appeal type with no remission and with hearing fee and pay later
     And I submit my nonpayment appeal
 
     When I select the `Make a payment` Next step
