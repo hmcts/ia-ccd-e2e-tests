@@ -15,9 +15,12 @@ export class StartAppealFlow {
         }
     }
 
-    async completeHomeOfficeReference(clickContinue = false) {
-
-        await this.ccdFormPage.setFieldValue('Home Office reference', 'A123456/001');
+    async completeHomeOfficeReference(clickContinue = false, homeOfficeReferenceNumber = '') {
+        if (homeOfficeReferenceNumber !== '') {
+            await this.ccdFormPage.setFieldValue('Home Office reference', homeOfficeReferenceNumber);
+        } else {
+            await this.ccdFormPage.setFieldValue('Home Office reference', 'A123456/001');
+        }
         await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '{$TODAY}');
 
         if (clickContinue) {
@@ -509,5 +512,26 @@ export class StartAppealFlow {
         await this.completeNationality(true);
         await this.completeClientAddress(true, hasFixedAddress, address, postcode);
         await this.completeContactPreference(true);
+    }
+
+    async saveInitialAppealWithHomeOfficeReference(clickContinue = false, homeOfficeReferenceNumber = '') {
+        await this.completeScreeningQuestions(true);
+        await this.completeHomeOfficeReference(true, homeOfficeReferenceNumber);
+        await this.completeUploadNoticeDecision(true);
+        await this.completeBasicDetails(true);
+        await this.completeNationality(true);
+        await this.completeClientAddress(true, false, '', '');
+        await this.completeContactPreference(true);
+        await this.completeAppealType(true);
+        await this.completeAppealGrounds(true);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
     }
 }
