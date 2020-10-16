@@ -10,6 +10,10 @@ Feature: Pay now and Submit feature
     When I save my initial EA appeal type with hearing fee
 
     And I click the `Overview` tab
+    And  I select the `Submit your appeal` Next step
+    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
+    And I should see the text `The Submit your appeal option is not available. Select Pay and submit to submit the appeal`
+
     And I select the `Pay and submit` Next step
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
@@ -96,6 +100,10 @@ Feature: Pay now and Submit feature
     When I save my initial EA appeal type without hearing fee
 
     And I click the `Overview` tab
+    And  I select the `Submit your appeal` Next step
+    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
+    And I should see the text `The Submit your appeal option is not available. Select Pay and submit to submit the appeal`
+
     And I select the `Pay and submit` Next step
     And I should see the text `The fee for an appeal without a hearing is £80`
     And I should see the text `Can’t see your Payment by Account number?`
@@ -125,6 +133,10 @@ Feature: Pay now and Submit feature
     When I save my initial HU appeal type without hearing fee
 
     And I click the `Overview` tab
+    And  I select the `Submit your appeal` Next step
+    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
+    And I should see the text `The Submit your appeal option is not available. Select Pay and submit to submit the appeal`
+
     And I select the `Pay and submit` Next step
     And I should see the text `The fee for an appeal without a hearing is £80`
     And I should see the text `Can’t see your Payment by Account number?`
