@@ -105,6 +105,23 @@ Then(/^I should (see|not see) the ended appeal details$/, async function (seeOrN
     }
 });
 
+Then(/^I should (see|not see) the ended appeal reinstate details$/, async function (seeOrNotSee) {
+
+    const isDisplayed = (seeOrNotSee === 'see');
+
+    expect(await ccdPage.headingContains('Ended appeal details', !isDisplayed)).to.equal(isDisplayed);
+
+    if (isDisplayed) {
+        expect(await ccdPage.isFieldValueDisplayed('Status of appeal', 'Reinstated')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Date reinstated', '{$TODAY|D MMM YYYY}')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Reason for reinstating', 'Appeal has been paid for now')).to.equal(true);
+    } else {
+        expect(await ccdPage.contentContains('Status of appeal', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Date reinstated', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Reason for reinstating', Wait.instant)).to.equal(false);
+    }
+});
+
 Then(/^I should (see|not see) the appeal removed from the online service details$/, async function (seeOrNotSee) {
 
     const isDisplayed = (seeOrNotSee === 'see');
