@@ -15,6 +15,7 @@ Feature: Start appeal shows confirmation when saved
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
+    And I complete the `no remission details` page
     And I complete the `Start appeal check your answers` page
 
   @regression @start-appeal @alternate @start-appeal-confirmation @1925

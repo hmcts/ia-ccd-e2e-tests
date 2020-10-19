@@ -52,9 +52,19 @@ Given('I complete the `Type of appeal` page', async function () {
     await startAppealFlow.completeAppealType(true);
 });
 
+Given('I complete the `EA appeal type` page', async function () {
+    expect(await ccdFormPage.headingContains('Type of appeal')).to.equal(true);
+    await startAppealFlow.completeGivenAppealType(true, 'EA');
+});
+
 Given('I complete the `The grounds of your appeal` page', async function () {
     expect(await ccdFormPage.headingContains('The grounds of your appeal')).to.equal(true);
     await startAppealFlow.completeAppealGrounds(true);
+});
+
+Given('I complete the `EA appeal grounds` page', async function () {
+    expect(await ccdFormPage.headingContains('The grounds of your appeal')).to.equal(true);
+    await startAppealFlow.completedGivenAppealGrounds(true, 'EA');
 });
 
 Given('I complete the `New matters` page', async function () {
@@ -75,6 +85,16 @@ Given('I complete the `Has your client appealed against any other UK immigration
 Given('I complete the `Legal representative details` page', async function () {
     expect(await ccdFormPage.headingContains('Legal representative details')).to.equal(true);
     await startAppealFlow.completeLegalRepresentativeDetails(true);
+});
+
+Given('I complete the `Remission details` page', async function () {
+    expect(await ccdFormPage.headingContains('Fee remissions')).to.equal(true);
+    await startAppealFlow.completeRemissionDetails(true, 'a remission');
+});
+
+Given('I complete the `no remission details` page', async function () {
+    expect(await ccdFormPage.headingContains('Fee remissions')).to.equal(true);
+    await startAppealFlow.completeRemissionDetails(true, 'no remission');
 });
 
 Given('I complete the `Start appeal check your answers` page', async function () {
@@ -140,7 +160,7 @@ Given(/^I save my initial appeal with `?([^`]+)`? address and `?([^`]+)`? postco
 });
 
 Given(/^I save my initial `?([^\s`]+)`? appeal for nonPayment `?([^\s`]+)`? hearing$/, async function (appealType, hearingOption) {
-    await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType, hearingOption);
+    await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType);
 });
 
 Given('I wait for any found addresses to load', async function () {
