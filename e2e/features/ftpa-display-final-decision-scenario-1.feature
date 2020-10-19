@@ -38,7 +38,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Rep`
     Then I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
