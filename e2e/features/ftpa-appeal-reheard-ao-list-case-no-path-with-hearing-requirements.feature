@@ -1,4 +1,4 @@
-Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judge)
+Feature: Admin Officer lists reheard case with hearing requirements - FTPA reheard decision (resident judge)
 
   Background:
     Given I am signed in as a `Legal Rep`
@@ -31,8 +31,8 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I send decision and reasons
 
 
-  @ftpa-reheard-feature @RIA-3683-no-path @RIA-3683
-  Scenario: Admin Officer lists reheard case with 'No' options selected - FTPA respondent resident judge decision (Reheard Rule 35)
+  @RIA-3683-no-path @RIA-3683-no-path-with-hearing-requirements @RIA-3683
+  Scenario: Admin Officer lists reheard case with 'No' options selected and hearing requirements submitted - FTPA respondent resident judge decision (Reheard Rule 35)
 
     When I switch to be a `Admin Officer`
     Then I select the `Upload hearing recording` Next step
