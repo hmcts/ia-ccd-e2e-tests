@@ -237,7 +237,7 @@ Feature: Start initial appeal application
     And I click the `Continue` button
 
     When I am on the `Fee remissions` page
-    Then I select `My client has a remission, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    Then I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Then I am on the `Fee remissions` page
