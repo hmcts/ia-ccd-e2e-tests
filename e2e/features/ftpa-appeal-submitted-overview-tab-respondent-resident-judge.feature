@@ -33,7 +33,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I apply for respondent FTPA
 
 
-  @ftpa-reheard-rule-35 @RIA-3652-reheard35 @RIA-3652
+  @ftpa-reheard-feature @ftpa-reheard-rule-35 @RIA-3652-reheard35 @RIA-3652
   Scenario: New overview tab for appeal submitted - FTPA respondent resident judge decision (Reheard Rule 35)
 
     When I switch to be a Judge
@@ -340,7 +340,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
 
 
-  @ftpa-reheard-rule-32 @RIA-3652-reheard32 @RIA-3652
+  @ftpa-reheard-feature @ftpa-reheard-rule-32 @RIA-3652-reheard32 @RIA-3652
   Scenario: New overview tab for appeal submitted - FTPA respondent resident judge decision (Reheard Rule 32)
 
     When I switch to be a Judge
@@ -646,7 +646,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
 
 
-  @ftpa-refused @RIA-3652-refused @RIA-3652
+  @ftpa-reheard-feature @ftpa-refused @RIA-3652-refused @RIA-3652
   Scenario: FTPA respondent resident judge decision - refused (shows error message)
 
     When I switch to be a Judge

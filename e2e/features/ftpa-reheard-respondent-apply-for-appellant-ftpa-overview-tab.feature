@@ -31,7 +31,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     Then I apply for respondent FTPA
 
 
-  @ftpa-reheard-rule-32-apply-for-appellant-ftpa @RIA-3651
+  @ftpa-reheard-feature @ftpa-reheard-rule-32-apply-for-appellant-ftpa @RIA-3651
   Scenario: New Overview tab - FTPA resident judge records the appellant Reheard Decision (Reheard Rule 32) and POU applies for respondent FTPA
 
 
@@ -164,7 +164,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
 
-  @ftpa-reheard-rule-35-apply-for-appellant-ftpa @RIA-3651
+  @ftpa-reheard-feature @ftpa-reheard-rule-35-apply-for-appellant-ftpa @RIA-3651
   Scenario: New Overview tab - FTPA resident judge records the appellant Reheard Decision (Reheard Rule 35) and POU applies for respondent FTPA
 
 

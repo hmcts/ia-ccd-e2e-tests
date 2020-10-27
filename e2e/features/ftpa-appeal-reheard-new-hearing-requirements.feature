@@ -31,7 +31,7 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I send decision and reasons
 
 
-  @ftpa-reheard-rule-35 @RIA-3555-reheard35 @RIA-3555-all-fields @RIA-3555
+  @ftpa-reheard-feature @ftpa-reheard-rule-35 @RIA-3555-reheard35 @RIA-3555-all-fields @RIA-3555
   Scenario: Submit hearing requirements with 'No' options selected - FTPA respondent resident judge decision (Reheard Rule 35)
 
     When I switch to be a `Admin Officer`

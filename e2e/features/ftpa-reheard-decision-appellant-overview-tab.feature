@@ -31,7 +31,7 @@ Feature: New Overview tab - FTPA resident judge records the appellant Reheard De
     And I apply for appellant FTPA
 
 
-  @ftpa-reheard-rule-32-appellant @RIA-3651
+  @ftpa-reheard-feature @ftpa-reheard-rule-32-appellant @RIA-3651
   Scenario: New Overview tab - FTPA resident judge records the appellant Reheard Decision (Reheard Rule 32)
 
 

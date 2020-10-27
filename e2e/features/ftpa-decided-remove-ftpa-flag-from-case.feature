@@ -52,7 +52,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
     And I click the `Close and Return to case details` button
 
 
-  @remove-ftpa-flag-co @RIA-3651
+  @ftpa-reheard-feature @remove-ftpa-flag-co @RIA-3651
   Scenario: Remove Set aside - Reheard flag from a case (case officer) at FTPA decided state (Reheard Rule 35)
 
     And I switch to be a `Case Officer`
@@ -91,7 +91,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
     And I should not see the image `caseFlagSetAsideReheard.svg`
 
 
-  @remove-ftpa-flag-ao @RIA-3651
+  @ftpa-reheard-feature @remove-ftpa-flag-ao @RIA-3651
   Scenario: Remove Set aside - Reheard flag from a case (admin officer) at FTPA decided state (Reheard Rule 35)
 
     When I switch to be a `Admin Officer`
