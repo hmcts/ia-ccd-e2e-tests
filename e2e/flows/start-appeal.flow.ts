@@ -563,7 +563,7 @@ export class StartAppealFlow {
             await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client is not eligible for a fee remission');
         }
         if (remissionOption === 'a remission') {
-            await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a remission, Legal Aid, Home Office waiver, Section 17/20');
+            await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20');
             await this.ccdFormPage.click('Continue');
             await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client receives Legal Aid');
         }
