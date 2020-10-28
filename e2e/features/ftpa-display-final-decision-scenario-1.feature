@@ -31,7 +31,7 @@ Feature: Final display for FTPA decision and reasons
     And I send decision and reasons
 
 
-  @RIA-2919 @RIA-2919-scenario1 @nightly-test
+  @RIA-2919 @RIA-2919-scenario1
     #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 
