@@ -34,7 +34,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
         const homeOfficeNumberLong = await ccdPage.isFieldValueCorrectLength('Home Office Reference/Case ID', 11);
 
         expect(homeOfficeNumberShort || homeOfficeNumberLong).to.equal(true);
-        expect(await ccdPage.contentContains('A123456',  Wait.instant)).to.equal(true);
+        expect(await ccdPage.contentContains('0123456',  Wait.instant)).to.equal(true);
 
     } else {
         expect(await ccdPage.contentContains('Appeal reference', Wait.instant)).to.equal(false);
