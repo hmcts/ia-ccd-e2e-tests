@@ -4,7 +4,7 @@ Feature: Address details are entered manually without using postcode lookup
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I complete the `Tell us about your client` page
-    And I complete the `Home office details` page
+    And I complete the `Home Office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
     And I complete the `Tell us about your client's nationality` page

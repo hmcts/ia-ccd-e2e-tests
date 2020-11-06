@@ -12,7 +12,7 @@ Feature: Case search
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
     When I filter the cases by `CB1 3QL` postcode
     Then I should see the text `HMCTS reference`
     And I should see the text `Appellant name`
@@ -36,7 +36,7 @@ Feature: Case search
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
 
     When  I filter the cases by `CB1 3QL` postcode
     Then I should see the text `HMCTS reference`
@@ -54,7 +54,7 @@ Feature: Case search
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
 
   @case-search @RIA-1478
   Scenario: Case search contains correct filters for Legal Rep
@@ -79,7 +79,7 @@ Feature: Case search
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
 
   @case-search @RIA-1478
   Scenario: Case search contains correct filters for Case Officer
@@ -104,7 +104,7 @@ Feature: Case search
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
 
   @case-search @RIA-1478
   Scenario: Case search contains correct filters for Admin Officer
@@ -129,7 +129,7 @@ Feature: Case search
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
 
   @case-search @RIA-1478
   Scenario: Case search contains correct filters for Home Office user

@@ -12,8 +12,8 @@ Given('I complete the `Tell us about your client` page', async function () {
     await startAppealFlow.completeScreeningQuestions(true);
 });
 
-Given('I complete the `Home office details` page', async function () {
-    expect(await ccdFormPage.headingContains('Home office details')).to.equal(true);
+Given('I complete the `Home Office details` page', async function () {
+    expect(await ccdFormPage.headingContains('Home Office details')).to.equal(true);
     await startAppealFlow.completeHomeOfficeReference(true);
 });
 
@@ -147,7 +147,7 @@ Given('I wait for any found addresses to load', async function () {
     await ccdFormPage.doesDropdownHaveValues('Select an address');
 });
 
-Given(/^I save my initial appeal with Home Office reference `?([^\s`]+)`?$/, async function (homeOfficeReference) {
+Given(/^I save my initial appeal with Home Office Reference\/Case ID `?([^\s`]+)`?$/, async function (homeOfficeReference) {
     await startAppealFlow.saveInitialAppealWithHomeOfficeReference(true, homeOfficeReference);
 });
 

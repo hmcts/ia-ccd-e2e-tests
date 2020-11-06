@@ -11,8 +11,8 @@ Feature: Edit appeal application
     When I select the `Edit appeal` Next step
     Then I am on the `Edit appeal` page
 
-    Given I am on the `Home office details` page
-    When I type `B123456/999` for the `Home Office reference` field
+    Given I am on the `Home Office details` page
+    When I type `B123456/999` for the `Home Office Reference/Case ID` field
     And I type `31-12-2018` for the `Enter the date the decision letter was sent` field
     And I click the `Continue` button
 
@@ -48,7 +48,7 @@ Feature: Edit appeal application
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `B123456/999` for the `Home Office reference` answer
+    Then I should see `B123456/999` for the `Home Office Reference/Case ID` answer
     And I should see `31 Dec 2018` for the `Enter the date the decision letter was sent` answer
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
@@ -102,7 +102,7 @@ Feature: Edit appeal application
     And I should see `Revocation of a protection status` for the `Type of appeal` field
     ### Possible Bug ###
     ### Why do we not see the full B123445/999 reference number after submit or edit ###
-    And I should see `B123456/999` for the `Home Office reference` field
+    And I should see `B123456/999` for the `Home Office Reference/Case ID` field
     ### End ###
 
     And I should see `IA Legal Services` for the `Company` field
@@ -180,8 +180,8 @@ Feature: Edit appeal application
     When I click the `edit the appeal details` link
     Then I am on the `Edit appeal` page
 
-    Given I am on the `Home office details` page
-    When I type `B123456/999` for the `Home Office reference` field
+    Given I am on the `Home Office details` page
+    When I type `B123456/999` for the `Home Office Reference/Case ID` field
     And I type `{$TODAY-3|DD-MM-YYYY}` for the `Enter the date the decision letter was sent` field
     And I click the `Continue` button
 
@@ -211,7 +211,7 @@ Feature: Edit appeal application
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `B123456/999` for the `Home Office reference` answer
+    Then I should see `B123456/999` for the `Home Office Reference/Case ID` answer
     And I should see `{$TODAY-3|D MMM YYYY}` for the `Enter the date the decision letter was sent` answer
     And I should see `Mr` for the `Title` answer
     And I should see `John` for the `Given names` answer
@@ -316,8 +316,8 @@ Feature: Edit appeal application
     When I click the `edit the appeal details` link
     Then I am on the `Edit appeal` page
 
-    Given I am on the `Home office details` page
-    When I type `B123456/999` for the `Home Office reference` field
+    Given I am on the `Home Office details` page
+    When I type `B123456/999` for the `Home Office Reference/Case ID` field
     And I type `15-09-2018` for the `Enter the date the decision letter was sent` field
     And I click the `Continue` button
 
@@ -350,7 +350,7 @@ Feature: Edit appeal application
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `B123456/999` for the `Home Office reference` answer
+    Then I should see `B123456/999` for the `Home Office Reference/Case ID` answer
     And I should see `15 Sep 2018` for the `Enter the date the decision letter was sent` answer
     And I should see `Mr` for the `Title` answer
     And I should see `John` for the `Given names` answer
