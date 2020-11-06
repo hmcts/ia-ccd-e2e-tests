@@ -8,7 +8,7 @@ Feature: Start an appeal application alternate paths
   Scenario: Alternate paths: no fixed address, appeal protection status revoked, no new matters
 
     Given I complete the `Tell us about your client` page
-    And I complete the `Home office details` page
+    And I complete the `Home Office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
     And I complete the `Tell us about your client's nationality` page
@@ -60,7 +60,7 @@ Feature: Start an appeal application alternate paths
   Scenario: Alternate paths for no other UK immigration appeal numbers
 
     Given I complete the `Tell us about your client` page
-    And I complete the `Home office details` page
+    And I complete the `Home Office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
     And I complete the `Tell us about your client's nationality` page
@@ -83,7 +83,7 @@ Feature: Start an appeal application alternate paths
 
     When I click the `Overview` tab
     Given I select the `Edit appeal` Next step
-    And I skip the `Home office details` page by clicking `Continue`
+    And I skip the `Home Office details` page by clicking `Continue`
     And I skip the `Basic details` page by clicking `Continue`
     And I skip the `Your client's address` page by clicking `Continue`
     And I skip the `The appellant's contact preference` page by clicking `Continue`
@@ -103,7 +103,7 @@ Feature: Start an appeal application alternate paths
     Then I should see `No` for the `Previous appeals` field
 
     Given I select the `Edit appeal` Next step
-    And I skip the `Home office details` page by clicking `Continue`
+    And I skip the `Home Office details` page by clicking `Continue`
     And I skip the `Basic details` page by clicking `Continue`
     And I skip the `Your client's address` page by clicking `Continue`
     And I skip the `The appellant's contact preference` page by clicking `Continue`

@@ -30,7 +30,7 @@ Feature: Case list
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
     And I should see the text `Status`
     And I should see the text `Hearing date`
     And I should see the text `Appellant name`
@@ -45,7 +45,7 @@ Feature: Case list
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
 
   @regression @case-list @RIA-609 @RIA-1380
   Scenario: Case list contains correct filters for Legal Rep
@@ -85,7 +85,7 @@ Feature: Case list
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
     And I should see the text `Appellant name`
 
   @regression @case-list @RIA-609 @RIA-1380
@@ -126,7 +126,7 @@ Feature: Case list
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field
 
   @regression @case-list @RIA-1611 @RIA-1380
   Scenario: Case list contains correct filters for Admin Officer
@@ -157,4 +157,4 @@ Feature: Case list
     And I should see the `Date of birth` field
     And I should see the `Post code` field
     And I should see the `Legal representative reference` field
-    And I should see the `Home Office reference` field
+    And I should see the `Home Office Reference/Case ID` field

@@ -7,7 +7,7 @@ Feature: Submit appeal application for Home Office Validation flow
   @ho-validation @RIA-3271 @RIA-3408 @home-office-validation-tab-display-for-ho-reference
   Scenario: Home office validation tab for appeal submitted
 
-    And I save my initial appeal with Home Office reference `1212-0099-0062-8083`
+    And I save my initial appeal with Home Office Reference/Case ID `1212-0099-0062-8083`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -21,7 +21,7 @@ Feature: Submit appeal application for Home Office Validation flow
   @ho-validation @RIA-3545 @home-office-validation-tab-error-1010-display
   Scenario: Home office validation tab for appeal submitted but could not get appellant data from Home Office
 
-    And I save my initial appeal with Home Office reference `X00001010`
+    And I save my initial appeal with Home Office Reference/Case ID `X00001010`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -29,12 +29,12 @@ Feature: Submit appeal application for Home Office Validation flow
     When I click the `Validation` tab
     Then I should see the text `Appeal validation`
     And I should see the text `There is a problem`
-    And I should see the text `The service has been unable to retrieve the Home Office information about this appeal because the Home Office reference number does not have any matching appellant data in the system. You can contact the Home Office if you need more information to validate the appeal.`
+    And I should see the text `The service has been unable to retrieve the Home Office information about this appeal because the Home Office Reference/Case ID number does not have any matching appellant data in the system. You can contact the Home Office if you need more information to validate the appeal.`
 
   @ho-validation @RIA-3545 @home-office-validation-tab-error-1020-display
   Scenario: Home office validation tab for appeal submitted but no data found for HO reference in Home Office
 
-    And I save my initial appeal with Home Office reference `4545-0000-0100-1006`
+    And I save my initial appeal with Home Office Reference/Case ID `4545-0000-0100-1006`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -42,12 +42,12 @@ Feature: Submit appeal application for Home Office Validation flow
     When I click the `Validation` tab
     Then I should see the text `Appeal validation`
     And I should see the text `There is a problem`
-    And I should see the text `The appellant’s Home Office reference number could not be found. You can contact the Home Office to check the reference if you need this information to validate the appeal`
+    And I should see the text `The appellant’s Home Office Reference/Case ID number could not be found. You can contact the Home Office to check the reference if you need this information to validate the appeal`
 
   @ho-validation @RIA-3545 @home-office-validation-tab-error-1030-display
   Scenario: Home office validation tab for appeal submitted but could not get appellant data from Home Office
 
-    And I save my initial appeal with Home Office reference `123123123`
+    And I save my initial appeal with Home Office Reference/Case ID `123123123`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -55,12 +55,12 @@ Feature: Submit appeal application for Home Office Validation flow
     When I click the `Validation` tab
     Then I should see the text `Appeal validation`
     And I should see the text `There is a problem`
-    And I should see the text `The service has been unable to retrieve the Home Office information about this appeal because the Home Office reference number does not have any matching appellant data in the system. You can contact the Home Office if you need more information to validate the appeal.`
+    And I should see the text `The service has been unable to retrieve the Home Office information about this appeal because the Home Office Reference/Case ID number does not have any matching appellant data in the system. You can contact the Home Office if you need more information to validate the appeal.`
 
   @ho-validation @RIA-3545 @home-office-validation-tab-error-1060-display
   Scenario: Home office validation tab for appeal submitted but HO reference is entered incorrectly
 
-    And I save my initial appeal with Home Office reference `X00001060`
+    And I save my initial appeal with Home Office Reference/Case ID `X00001060`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -68,12 +68,12 @@ Feature: Submit appeal application for Home Office Validation flow
     When I click the `Validation` tab
     Then I should see the text `Appeal validation`
     And I should see the text `There is a problem`
-    And I should see the text `The appellant entered the Home Office reference number incorrectly. You can contact the appellant to check the reference number if you need this information to validate the appeal`
+    And I should see the text `The appellant entered the Home Office Reference/Case ID number incorrectly. You can contact the appellant to check the reference number if you need this information to validate the appeal`
 
   @ho-validation @RIA-3545 @home-office-validation-tab-error-more-than-30-display
   Scenario: Home office validation tab for appeal submitted but HO reference is more than 30 characters
 
-    And I save my initial appeal with Home Office reference `012345678901234567890123456789A`
+    And I save my initial appeal with Home Office Reference/Case ID `012345678901234567890123456789A`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -81,12 +81,12 @@ Feature: Submit appeal application for Home Office Validation flow
     When I click the `Validation` tab
     Then I should see the text `Appeal validation`
     And I should see the text `There is a problem`
-    And I should see the text `The appellant entered the Home Office reference number incorrectly. You can contact the appellant to check the reference number if you need this information to validate the appeal`
+    And I should see the text `The appellant entered the Home Office Reference/Case ID number incorrectly. You can contact the appellant to check the reference number if you need this information to validate the appeal`
 
   @ho-validation @RIA-3545 @home-office-validation-tab-error-no-main-applicant-display
   Scenario: Home office validation tab for appeal submitted but Home Office response does not have a main applicant
 
-    And I save my initial appeal with Home Office reference `X00002222`
+    And I save my initial appeal with Home Office Reference/Case ID `X00002222`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -99,7 +99,7 @@ Feature: Submit appeal application for Home Office Validation flow
   @ho-validation @RIA-3390 @home-office-validation-tab-error-1040-display
   Scenario: Home office validation tab for appeal submitted but could not get data from Home Office
 
-    And I save my initial appeal with Home Office reference `X00001040`
+    And I save my initial appeal with Home Office Reference/Case ID `X00001040`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -113,7 +113,7 @@ Feature: Submit appeal application for Home Office Validation flow
   @ho-validation @RIA-3390 @home-office-validation-tab-error-1070-display
   Scenario: Home office validation tab for appeal submitted but could not get data from Home Office
 
-    And I save my initial appeal with Home Office reference `X00001070`
+    And I save my initial appeal with Home Office Reference/Case ID `X00001070`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -127,7 +127,7 @@ Feature: Submit appeal application for Home Office Validation flow
   @ho-validation @RIA-3390 @home-office-validation-tab-error-2000-display-request-home-office-data
   Scenario: Home office validation tab for appeal submitted but could not get data from Home Office
 
-    And I save my initial appeal with Home Office reference `X00002000`
+    And I save my initial appeal with Home Office Reference/Case ID `X00002000`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -151,7 +151,7 @@ Feature: Submit appeal application for Home Office Validation flow
   @ho-validation @RIA-3390 @home-office-validation-tab-error-2010-display
   Scenario: Home office validation tab for appeal submitted but could not get data from Home Office
 
-    And I save my initial appeal with Home Office reference `X00002010`
+    And I save my initial appeal with Home Office Reference/Case ID `X00002010`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab
@@ -165,7 +165,7 @@ Feature: Submit appeal application for Home Office Validation flow
   @ho-validation @RIA-3390 @home-office-validation-data-display-request-home-office-data-error
   Scenario: Home office validation tab is displayed with data. Error on request home office data event.
 
-    And I save my initial appeal with Home Office reference `1212-0099-0062-8083`
+    And I save my initial appeal with Home Office Reference/Case ID `1212-0099-0062-8083`
     And I submit my appeal
     And I switch to be a `Case Officer`
     When I click the `Overview` tab

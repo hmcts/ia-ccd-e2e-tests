@@ -17,9 +17,9 @@ export class StartAppealFlow {
 
     async completeHomeOfficeReference(clickContinue = false, homeOfficeReferenceNumber = '') {
         if (homeOfficeReferenceNumber !== '') {
-            await this.ccdFormPage.setFieldValue('Home Office reference', homeOfficeReferenceNumber);
+            await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
         } else {
-            await this.ccdFormPage.setFieldValue('Home Office reference', 'A123456/001');
+            await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', 'A123456/001');
         }
         await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '{$TODAY}');
 
@@ -62,7 +62,7 @@ export class StartAppealFlow {
 
     async completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(clickContinue = false) {
 
-        await this.ccdFormPage.setFieldValue('Home Office reference', 'A123456/001');
+        await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', 'A123456/001');
         await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '01-01-2018');
 
         if (clickContinue) {

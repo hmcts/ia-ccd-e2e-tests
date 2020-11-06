@@ -1,4 +1,4 @@
-Feature: Home Office reference number is validated
+Feature: Home Office Reference/Case ID number is validated
 
   Background:
     Given I am signed in as a `Legal Rep`
@@ -8,8 +8,8 @@ Feature: Home Office reference number is validated
   @regression @start-appeal @alternate @RIA-597 @migrate-to-unit-tests @RIA-3389
   Scenario: Invalid home office reference is not allowed
 
-    Given I am on the `Home office details` page
-    When I type `A123456001` for the `Home Office reference` field
+    Given I am on the `Home Office details` page
+    When I type `A123456001` for the `Home Office Reference/Case ID` field
     And I type `31-10-2018` for the `Enter the date the decision letter was sent` field
     And I click the `Continue` button
     Then I am on the `Basic details` page

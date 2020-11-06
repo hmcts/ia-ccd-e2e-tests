@@ -30,8 +30,8 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
         expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationalities', 'first')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'Refusal of protection claim')).to.equal(true);
 
-        const homeOfficeNumberShort = await ccdPage.isFieldValueCorrectLength('Home Office reference', 7);
-        const homeOfficeNumberLong = await ccdPage.isFieldValueCorrectLength('Home Office reference', 11);
+        const homeOfficeNumberShort = await ccdPage.isFieldValueCorrectLength('Home Office Reference/Case ID', 7);
+        const homeOfficeNumberLong = await ccdPage.isFieldValueCorrectLength('Home Office Reference/Case ID', 11);
 
         expect(homeOfficeNumberShort || homeOfficeNumberLong).to.equal(true);
         expect(await ccdPage.contentContains('A123456',  Wait.instant)).to.equal(true);
@@ -43,7 +43,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
         expect(await ccdPage.contentContains('Nationality', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Type of appeal', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Hearing centre', Wait.instant)).to.equal(false);
-        expect(await ccdPage.contentContains('Home Office reference', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Home Office Reference/Case ID', Wait.instant)).to.equal(false);
     }
 });
 
