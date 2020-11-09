@@ -159,7 +159,7 @@ class CcdService {
     const caseData = {
       journeyType: 'aip',
       appealType: 'protection',
-      homeOfficeReferenceNumber: 'a1234567',
+      homeOfficeReferenceNumber: '01234567',
       homeOfficeDecisionDate: isoDate(new Date()),
       appellantGivenNames: 'given name',
       appellantFamilyName: 'family name',

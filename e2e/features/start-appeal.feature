@@ -8,7 +8,7 @@ Feature: Start initial appeal application
     And I complete the `Tell us about your client` page
 
     Given I am on the `Home Office details` page
-    When I type `A123456/001` for the `Home Office Reference/Case ID` field
+    When I type `01234567` for the `Home Office Reference/Case ID` field
     And I type `31-10-2018` for the `Enter the date the decision letter was sent` field
     And I click the `Continue` button
 
@@ -82,7 +82,7 @@ Feature: Start initial appeal application
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `A123456/001` for the `Home Office Reference/Case ID` answer
+    Then I should see `01234567` for the `Home Office Reference/Case ID` answer
     And I should see `31 Oct 2018` for the `Enter the date the decision letter was sent` answer
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
@@ -160,7 +160,7 @@ Feature: Start initial appeal application
     And I should see `31 Dec 1999` for the `Date of birth` field
     And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
-    And I should see `A123456/001` for the `Home Office Reference/Case ID` field
+    And I should see `01234567` for the `Home Office Reference/Case ID` field
     And I should see `IA Legal Services` for the `Company` field
     And I should see `ia-legal-fenn` for the `Legal representative reference` field
 
@@ -174,7 +174,7 @@ Feature: Start initial appeal application
     And I complete the `Tell us about your client` page
 
     Given I am on the `Home Office details` page
-    When I type `A123456/001` for the `Home Office Reference/Case ID` field
+    When I type `01234567` for the `Home Office Reference/Case ID` field
     And I type `31-10-2018` for the `Enter the date the decision letter was sent` field
     And I click the `Continue` button
 
@@ -237,7 +237,7 @@ Feature: Start initial appeal application
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `A123456/001` for the `Home Office Reference/Case ID` answer
+    Then I should see `01234567` for the `Home Office Reference/Case ID` answer
     And I should see `31 Oct 2018` for the `Enter the date the decision letter was sent` answer
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
@@ -304,6 +304,6 @@ Feature: Start initial appeal application
     And I should see `31 Dec 1999` for the `Date of birth` field
     And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
-    And I should see `A123456/001` for the `Home Office Reference/Case ID` field
+    And I should see `01234567` for the `Home Office Reference/Case ID` field
     And I should see `IA Legal Services` for the `Company` field
     And I should see `ia-legal-fenn` for the `Legal representative reference` field
