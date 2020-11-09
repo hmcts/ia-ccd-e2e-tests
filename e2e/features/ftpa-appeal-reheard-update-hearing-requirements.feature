@@ -1,4 +1,4 @@
-Feature: New hearing requirements for appeal submitted - FTPA reheard decision (resident judge)
+Feature: Update hearing requirements for appeal submitted - FTPA reheard decision (resident judge)
 
   Background:
     Given I am signed in as a `Legal Rep`
@@ -31,7 +31,7 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I send decision and reasons
 
 
-  @ftpa-reheard-feature @ftpa-reheard-rule-35 @RIA-3555-3763-reheard35 @RIA-3555-3763-all-fields @RIA-3555 @RIA-3763
+  @ftpa-reheard-feature @RIA-3763-update-hearing-requirements @RIA-3763
   Scenario: Submit hearing requirements with 'No' options selected - FTPA respondent resident judge decision (Reheard Rule 35)
 
     When I switch to be a `Admin Officer`
@@ -242,6 +242,42 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And within the `Previous record of requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Overview` tab
 
+    And I select the `Update hearing requirements` Next step
+    And I click the `Continue` button
+    And I select `Yes` for the `Will the appellant attend the hearing?` field
+    And I click the `Continue` button
+    And I select `Yes` for the `Will the appellant give oral evidence at the hearing?` field
+    And I click the `Continue` button
+    And I select `Yes` for the `Will any witnesses attend the hearing?` field
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I click the `Continue` button
+    And I am on the `Check your answers` page
+    And I click the `Update` button
+    And I should see the text `You've updated the hearing requirements`
+    And I should see the text `Do this next`
+    And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
+    And I click the `Close and Return to case details` button
+    And I click the `Hearing and appointment` tab
+    And I should see the `Record of requirements and requests` field
+    And within the `Record of requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+    And within the `Record of requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should see the `Previous record of requirements and requests` field
+    And within the `Previous record of requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+    And within the `Previous record of requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Previous record of requirements and requests` collection's second item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+    And within the `Previous record of requirements and requests` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I click the `Overview` tab
+
     When I switch to be a `Admin Officer`
     Then I should only see the `caseOfficer_listing` case progress image
     And I should see the text `What happens next`
@@ -255,12 +291,14 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I should see the `Previous record of requirements and requests` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Previous record of requirements and requests` collection's second item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+    And within the `Previous record of requirements and requests` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Overview` tab
 
     When I switch to be a `Judge`
-    Then I should only see the `caseOfficer_reviewHearingRequirements` case progress image
-    And I should see the text `What happens next`
-    And I should see the text `The Tribunal Caseworker will agree what adjustments the Tribunal will make.`
+    Then I should only see the `caseOfficer_updateHearingAdjustments` case progress image
+    And I should see the text `Do this next`
+    And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
     And I should see the text `These flags are only visible to the Tribunal`
     And I should see the image `caseFlagSetAsideReheard.svg`
     And I click the `Hearing and appointment` tab
@@ -270,6 +308,8 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I should see the `Previous record of requirements and requests` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Previous record of requirements and requests` collection's second item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+    And within the `Previous record of requirements and requests` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Overview` tab
 
     When I switch to be a `Home Office APC`
@@ -294,4 +334,3 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I click the `Hearing and appointment` tab
     Then I should not see the `Record of requirements and requests` field
     And I should not see the `Previous record of requirements and requests` field
-
