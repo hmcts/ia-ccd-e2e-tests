@@ -70,7 +70,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Do you need interpreter services at the hearing?',
+            'Do you need interpreter services on the day?',
             'Yes'
         );
         await this.ccdFormPage.click('Add new');
@@ -99,22 +99,22 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Does the appellant have any physical or mental health issues that may impact them during the hearing?',
+            'Does the appellant have any physical or mental health issues that may impact them on the day?',
             'Yes'
         );
         await this.ccdFormPage.setFieldValue(
-            'Explain in detail how any physical or mental health issues may affect them during the hearing.',
+            'Explain in detail how any physical or mental health issues may affect them on the day.',
             'The appellant is deaf in one ear',
             'text area'
         );
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Has the appellant had any past experiences that may impact them during the hearing?',
+            'Has the appellant had any past experiences that may impact them on the day?',
             'Yes'
         );
         await this.ccdFormPage.setFieldValue(
-            'Explain in detail how any past experiences may affect them during the hearing.',
+            'Explain in detail how any past experiences may affect them on the day?',
             'The appellant is fearful of the law',
             'text area'
         );
@@ -152,7 +152,7 @@ export class SubmitHearingRequirementsFlow {
             'Yes'
         );
         await this.ccdFormPage.setFieldValue(
-            'Explain in detail why the appellant needs a private hearing.',
+            'Explain in detail why the appellant needs an in camera court.',
             'The appellant is afraid of the general public',
             'text area'
         );
@@ -170,7 +170,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Are there any dates that the appellant or their on-day representation cannot attend a hearing?',
+            'Are there any dates that the appellant or their on-day representation cannot attend?',
             'Yes'
         );
 
@@ -213,7 +213,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Do you need interpreter services at the hearing?',
+            'Do you need interpreter services on the day?',
             'Yes'
         );
         await this.ccdFormPage.click('Continue');
@@ -233,22 +233,22 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Does the appellant have any physical or mental health issues that may impact them during the hearing?',
+            'Does the appellant have any physical or mental health issues that may impact them on the day?',
             'Yes'
         );
         await this.ccdFormPage.setFieldValue(
-            'Explain in detail how any physical or mental health issues may affect them during the hearing.',
+            'Explain in detail how any physical or mental health issues may affect them on the day.',
             'The appellant is deaf in one ear - updated',
             'text area'
         );
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Has the appellant had any past experiences that may impact them during the hearing?',
+            'Has the appellant had any past experiences that may impact them on the day?',
             'Yes'
         );
         await this.ccdFormPage.setFieldValue(
-            'Explain in detail how any past experiences may affect them during the hearing.',
+            'Explain in detail how any past experiences may affect them on the day?',
             'The appellant is fearful of the law - updated',
             'text area'
         );
@@ -286,7 +286,7 @@ export class SubmitHearingRequirementsFlow {
             'Yes'
         );
         await this.ccdFormPage.setFieldValue(
-            'Explain in detail why the appellant needs a private hearing.',
+            'Explain in detail why the appellant needs an in camera court.',
             'The appellant is afraid of the general public - updated',
             'text area'
         );
@@ -304,7 +304,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Are there any dates that the appellant or their on-day representation cannot attend a hearing?',
+            'Are there any dates that the appellant or their on-day representation cannot attend?',
             'Yes'
         );
 
@@ -335,7 +335,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Do you need interpreter services at the hearing?',
+            'Do you need interpreter services on the day?',
             'No'
         );
         await this.ccdFormPage.click('Continue');
@@ -355,13 +355,13 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Does the appellant have any physical or mental health issues that may impact them during the hearing?',
+            'Does the appellant have any physical or mental health issues that may impact them on the day?',
             'No'
         );
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Has the appellant had any past experiences that may impact them during the hearing?',
+            'Has the appellant had any past experiences that may impact them on the day?',
             'No'
         );
         await this.ccdFormPage.click('Continue');
@@ -391,7 +391,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
-            'Are there any dates that the appellant or their on-day representation cannot attend a hearing?',
+            'Are there any dates that the appellant or their on-day representation cannot attend?',
             'No'
         );
 

@@ -23,7 +23,7 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I switch to be a `Admin Officer`
     And I list the case
 
-  @RIA-2374 @update-hearing-adjustments
+  @RIA-2374 @update-hearing-adjustments @RIA-3555
   Scenario: Submit hearing requirements with 'Yes' options selected
 
     ## update hearing adjustments validation
@@ -87,7 +87,7 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I should see `Yes` in the `Will the appellant attend the hearing?` field
     And I should see `Yes` in the `Will the appellant give oral evidence at the hearing?` field
     And I should see `Yes` in the `Will any witnesses attend the hearing?` field
-    And I should see `Yes` in the `Do you need interpreter services at the hearing?` field
+    And I should see `Yes` in the `Do you need interpreter services on the day?` field
     And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
     And I should see `Yes` in the `Do you need a hearing loop?` field
     Then I select `5 hours` for the `Length of appointment` field
@@ -97,8 +97,8 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I should see the text `Do not enter the reason the appellant made the request.`
     And I should see the text `The respondent will be able to see this information and must not be informed of the appellant's personal circumstances.`
     And I should see the text `Adjustment request`
-    And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them during the hearing?` field
-    And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them during the hearing.` field
+    And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
+    And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them on the day.` field
     And I should see the text `Tribunal response`
     And I type `Physical or mental health conditions will be reviewed - updated` for the `Physical or mental health conditions` field
     And I click the `Continue` button
@@ -113,7 +113,7 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I type `Single sex court requirement will be reviewed - updated` for the `Single-sex court` field
     And I click the `Continue` button
     And I should see `Yes` in the `Does the appellant need an in camera court?` field
-    And I should see `The appellant is afraid of the general public` in the `Explain in detail why the appellant needs a private hearing.` field
+    And I should see `The appellant is afraid of the general public` in the `Explain in detail why the appellant needs an in camera court.` field
     And I type `Private hearing requirement will be reviewed - updated` for the `In camera court` field
     And I click the `Continue` button
     And I should see `Yes` in the `Is there anything else you would like to request?` field
