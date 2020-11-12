@@ -622,3 +622,117 @@ Feature: Submit appeal with asylum support remission
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
+  @submit-appeal-with-exceptional-circumstances-remission  @RIA-3085
+  Scenario: Submit appeal with Exceptional circumstances remission
+    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I click the `Continue` button
+
+    Given I am on the `Fee remissions` page
+    And I select `My client wants to apply for an Exceptional Circumstances Remission` for the `Choose one of the following statements` field
+    And I should see the text `More about Help with Fees`
+    And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
+    And I should see the text `More about Exceptional Circumstances Remissions`
+    And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
+    And I click the `Continue` button
+
+    Then I am on the `Exceptional Circumstances Remission` page
+    And I type `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see the text `Provide supporting evidence`
+    And I should see the text `You should provide evidence to support your explanation such as notices threatening legal action due to non-payment of bills or housing costs; details of income, savings or expenses; or any other relevant information.`
+    And I should see the text `Supporting evidence (Optional)`
+    And I click the `Add new` button
+    And within the `Supporting evidence` collection's first item, I upload `{@Evidence1.pdf}` for the document field without a label
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `012345678` for the `Home Office Reference/Case ID` answer
+    And I should see `Mr` for the `Title` answer
+    And I should see `José` for the `Given names` answer
+    And I should see `González` for the `Family name` answer
+    And I should see `My client wants to apply for an Exceptional Circumstances Remission` for the `Choose one of the following statements` answer
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` answer
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
+
+    When I click the `Save and continue` button
+    Then I should see the text `Your appeal details have been saved`
+    And I should see the text `You still need to submit it`
+    And I should see the text `If you're ready to proceed submit your appeal.`
+    And I should see the text `Not ready to submit yet?`
+    And I should see the text `You can return to the case details to make changes.`
+
+    When I click the `Close and Return to case details` button
+
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Exceptional circumstances` for the `Fee remission type` field
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
+
+    Then I select the `Submit your appeal` Next step
+    And I am on the `Submit your appeal` page
+
+    When I agree to the declaration
+    And I click the `Continue` button
+    And I click the `Submit` button
+
+    Then I should see the text `Your appeal has been submitted`
+    And I should see the text `What happens next`
+    And I should see the text `You have submitted an appeal with a remission application.`
+    And I should see the text `Your remission details will be reviewed and you may be asked to provide more information.`
+    And I should see the text `Once the review is complete you will be notified if there is any fee to pay.`
+    And I click the `Close and Return to case details` button
+
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Exceptional circumstances` for the `Fee remission type` field
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
+
+    When I switch to be a `Case Officer`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Exceptional circumstances` for the `Fee remission type` field
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
+
+    When I switch to be a `Admin Officer`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Exceptional circumstances` for the `Fee remission type` field
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
+
+    When I switch to be a `Judge`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Exceptional circumstances` for the `Fee remission type` field
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
+
+    When I switch to be a `Home Office APC`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Exceptional circumstances` for the `Fee remission type` field
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
+
+    When I switch to be a `Home Office LART`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Exceptional circumstances` for the `Fee remission type` field
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
+
+    When I switch to be a `Home Office POU`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Exceptional circumstances` for the `Fee remission type` field
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
+
+    When I switch to be a `Home Office Generic`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Exceptional circumstances` for the `Fee remission type` field
+    And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
+    And I should see `Evidence1.pdf` in the `Supporting evidence` field
