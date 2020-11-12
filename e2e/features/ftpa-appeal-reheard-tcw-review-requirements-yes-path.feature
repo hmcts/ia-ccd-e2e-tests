@@ -31,7 +31,7 @@ Feature: Case Officer reviews hearing requirements - FTPA reheard decision (resi
     And I send decision and reasons
 
 
-  @RIA-3582-yes-path @RIA-3582
+  @ftpa-reheard-feature @RIA-3582-yes-path @RIA-3582
   Scenario: Case Officer reviews hearing requirements with 'Yes' options selected - FTPA respondent resident judge decision (Reheard Rule 35)
 
     When I switch to be a `Admin Officer`

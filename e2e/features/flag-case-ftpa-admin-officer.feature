@@ -39,7 +39,7 @@ Feature: Flag a FTPA case
     And I should see `Some information` for the `Additional information` field
 
 
-  @edit-ftpa-flag-ao @RIA-3651
+  @ftpa-reheard-feature @edit-ftpa-flag-ao @RIA-3651
   Scenario: Edit Set aside - Reheard flag on a case (admin officer)
 
     When I select the `Flag the case` Next step
@@ -70,7 +70,7 @@ Feature: Flag a FTPA case
     And I should see `Some information updated` for the `Additional information` field
 
 
-  @remove-ftpa-flag-ao @RIA-3651
+  @ftpa-reheard-feature @remove-ftpa-flag-ao @RIA-3651
   Scenario: Remove Set aside - Reheard flag from a case (admin officer)
 
     When I select the `Remove a flag` Next step
