@@ -1,4 +1,4 @@
-Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judge)
+Feature: Admin Officer lists reheard case with hearing requirements - FTPA reheard decision (resident judge)
 
   Background:
     Given I am signed in as a `Legal Rep`
@@ -16,9 +16,9 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I add the appeal response
     And I request hearing requirements
     And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I submit hearing requirements with all no
     And I switch to be a `Case Officer`
-    And I record agreed hearing requirements yes path
+    And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`
     And I list the case
     And I switch to be a `Case Officer`
@@ -31,8 +31,8 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I send decision and reasons
 
 
-  @ftpa-reheard-feature @RIA-3683-no-path @RIA-3683
-  Scenario: Admin Officer lists reheard case with 'No' options selected - FTPA respondent resident judge decision (Reheard Rule 35)
+  @RIA-3683-yes-path @RIA-3683-yes-path-with-hearing-requirements @RIA-3683
+  Scenario: Admin Officer lists reheard case with 'Yes' options selected and hearing requirements submitted - FTPA respondent resident judge decision (Reheard Rule 35)
 
     When I switch to be a `Admin Officer`
     Then I select the `Upload hearing recording` Next step
@@ -93,16 +93,21 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I click the `Send direction` button
 
     When I switch to be a `Legal Rep`
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all yes
 
     When I switch to be a `Case Officer`
     And I click the `review and submit` link
     And I select `3 hours` for the `Length` field
     And I click the `Continue` button
+    And I type `Physical or mental health conditions will be reviewed` for the `Adjustments to accommodate vulnerabilities` field
     And I click the `Continue` button
+    And I type `Multimedia equipment requirement will be reviewed` for the `Multimedia equipment` field
     And I click the `Continue` button
+    And I type `Single sex court requirement will be reviewed` for the `Single-sex court` field
     And I click the `Continue` button
+    And I type `Private hearing requirement will be reviewed` for the `In camera court` field
     And I click the `Continue` button
+    And I type `Additional adjustments requirement will be reviewed` for the `Other adjustments` field
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button

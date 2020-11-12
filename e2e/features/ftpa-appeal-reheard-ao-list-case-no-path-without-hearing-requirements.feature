@@ -1,4 +1,4 @@
-Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judge)
+Feature: Admin Officer lists reheard case without hearing requirements - FTPA reheard decision (resident judge)
 
   Background:
     Given I am signed in as a `Legal Rep`
@@ -31,7 +31,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I send decision and reasons
 
 
-  @ftpa-reheard-feature @RIA-3683-no-path @RIA-3683
+  @RIA-3683-no-path @RIA-3683-no-path-without-hearing-requirements @RIA-3683
   Scenario: Admin Officer lists reheard case with 'No' options selected - FTPA respondent resident judge decision (Reheard Rule 35)
 
     When I switch to be a `Admin Officer`
@@ -91,21 +91,16 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     Then I click the `submit any new requirements` link
     And I click the `Continue` button
     And I click the `Send direction` button
-
-    When I switch to be a `Legal Rep`
-    And I submit hearing requirements with all no
-
-    When I switch to be a `Case Officer`
-    And I click the `review and submit` link
-    And I select `3 hours` for the `Length` field
+    And I select the `List without requirements` Next step
+    And I am on the `List without requirements` page
+    And I select `4 hours` for the `Length` field
     And I click the `Continue` button
-    And I click the `Continue` button
-    And I click the `Continue` button
-    And I click the `Continue` button
-    And I click the `Continue` button
-    And I click the `Continue` button
+    And I am on the `Check your answers` page
+    And I should see `4 hours` for the `Length` field
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I should see the text `You've recorded the agreed hearing adjustments`
+    And I should see the text `What happens next`
+    And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
     When I switch to be a `Admin Officer`
     Then I should only see the `caseOfficer_listing` case progress image
