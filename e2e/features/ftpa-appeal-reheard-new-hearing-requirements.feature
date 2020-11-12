@@ -60,7 +60,6 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I type `Jo Gonz` for the `The appellant (Optional)` field
     And I type `John Kardashian` for the `The appellant's legal representative (Optional)` field
     And I type `Carissa Moore` for the `Home Office representative (Optional)` field
-
     And I type `2` for the `Hours` field
     And I type `30` for the `Minutes` field
     And I select `All participants at the hearing centre` for the `How was the hearing conducted?` field
