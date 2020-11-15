@@ -347,7 +347,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayNow(true);
+        if (remission === 'no remission') {
+            await this.completeHowToPayNow(true);
+        }
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -566,6 +568,8 @@ export class StartAppealFlow {
             await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20');
             await this.ccdFormPage.click('Continue');
             await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client receives Legal Aid');
+            await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue('Legal Aid account number', '1A234B');
         }
         if (remissionOption === 'help with fees') {
             await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a Help with Fees reference number');
