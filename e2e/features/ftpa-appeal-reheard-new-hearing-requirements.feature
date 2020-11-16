@@ -31,7 +31,7 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I send decision and reasons
 
 
-  @ftpa-reheard-feature @ftpa-reheard-rule-35 @RIA-3555-3763-reheard35 @RIA-3555-3763-all-fields @RIA-3555 @RIA-3763
+  @ftpa-reheard-feature @ftpa-reheard-rule-35 @RIA-3555-3763-3784-reheard35 @RIA-3555-3763-3784-all-fields @RIA-3555 @RIA-3763 @RIA-3784
   Scenario: Submit hearing requirements with 'No' options selected - FTPA respondent resident judge decision (Reheard Rule 35)
 
     When I switch to be a `Admin Officer`
@@ -93,6 +93,9 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I click the `Send direction` button
     And I click the `Hearing and appointment` tab
     And I should see the `Hearing and appointment` page
+    And I should see the text `Recordings`
+    And within the `Recordings` collection's first item, I should see `HearingRecording.mp3` for the `Audio file` field
+    And within the `Recordings` collection's first item, I should see `some description` for the `Describe the file` field
     And I should see the text `Previous hearings`
     And within the `Previous hearings` collection's first item, I should see `Judge Judy` for the `The Judge` field
     And within the `Previous hearings` collection's first item, I should see `Jo Gonz` for the `The appellant` field
@@ -103,9 +106,12 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And within the `Previous hearings` collection's first item, I should see `Taylor House` for the `Location` field
     And within the `Previous hearings` collection's first item, I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Date and time` field
     And within the `Previous hearings` collection's first item, I should see `6 hours` for the `Length` field
-    And within the `Previous hearings` collection's first item, I should see `Recordings 1` in the `Recordings` field
     And within the `Previous hearings` collection's first item, I should see `Allowed` for the `Decision of appeal` field
     And within the `Previous hearings` collection's first item, I should see `Decision and reason documents 1` in the `Decision and reason documents` field
+    And I click the `Documents` tab
+    And I should see the text `Recordings`
+    And within the `Recordings` collection's first item, I should see `HearingRecording.mp3` for the `Audio file` field
+    And within the `Recordings` collection's first item, I should see `some description` for the `Describe the file` field
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
@@ -209,12 +215,14 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And within the `Previous hearings` collection's first item, I should see `Taylor House` for the `Location` field
     And within the `Previous hearings` collection's first item, I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Date and time` field
     And within the `Previous hearings` collection's first item, I should see `6 hours` for the `Length` field
-    And within the `Previous hearings` collection's first item, I should see `Recordings 1` in the `Recordings` field
     And within the `Previous hearings` collection's first item, I should see `Allowed` for the `Decision of appeal` field
     And within the `Previous hearings` collection's first item, I should see `Decision and reason documents 1` in the `Decision and reason documents` field
     And I should see the `Previous record of requirements and requests` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should not see the text `Previous recordings`
+    And I click the `Documents` tab
+    And I should not see the text `Previous recordings`
 
     When I click the `Overview` tab
     Then I should only see the `legalRep_listing` case progress image
@@ -240,6 +248,15 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I should see the `Previous record of requirements and requests` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should not see the text `Recordings`
+    And I should see the text `Previous recordings`
+    And within the `Previous recordings` collection's first item, I should see `HearingRecording.mp3` for the `Audio file` field
+    And within the `Previous recordings` collection's first item, I should see `some description` for the `Describe the file` field
+    And I click the `Documents` tab
+    And I should not see the text `Recordings`
+    And I should see the text `Previous recordings`
+    And within the `Previous recordings` collection's first item, I should see `HearingRecording.mp3` for the `Audio file` field
+    And within the `Previous recordings` collection's first item, I should see `some description` for the `Describe the file` field
     And I click the `Overview` tab
 
     When I switch to be a `Admin Officer`
@@ -255,6 +272,13 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I should see the `Previous record of requirements and requests` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should see the text `Previous recordings`
+    And within the `Previous recordings` collection's first item, I should see `HearingRecording.mp3` for the `Audio file` field
+    And within the `Previous recordings` collection's first item, I should see `some description` for the `Describe the file` field
+    And I click the `Documents` tab
+    And I should see the text `Previous recordings`
+    And within the `Previous recordings` collection's first item, I should see `HearingRecording.mp3` for the `Audio file` field
+    And within the `Previous recordings` collection's first item, I should see `some description` for the `Describe the file` field
     And I click the `Overview` tab
 
     When I switch to be a `Judge`
@@ -270,28 +294,46 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I should see the `Previous record of requirements and requests` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Previous record of requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should see the text `Previous recordings`
+    And within the `Previous recordings` collection's first item, I should see `HearingRecording.mp3` for the `Audio file` field
+    And within the `Previous recordings` collection's first item, I should see `some description` for the `Describe the file` field
+    And I click the `Documents` tab
+    And I should see the text `Previous recordings`
+    And within the `Previous recordings` collection's first item, I should see `HearingRecording.mp3` for the `Audio file` field
+    And within the `Previous recordings` collection's first item, I should see `some description` for the `Describe the file` field
     And I click the `Overview` tab
 
     When I switch to be a `Home Office APC`
     And I click the `Hearing and appointment` tab
     Then I should not see the `Record of requirements and requests` field
     And I should not see the `Previous record of requirements and requests` field
+    And I should not see the text `Previous recordings`
+    And I click the `Documents` tab
+    And I should not see the text `Previous recordings`
     And I click the `Overview` tab
 
     When I switch to be a `Home Office POU`
     And I click the `Hearing and appointment` tab
     Then I should not see the `Record of requirements and requests` field
     And I should not see the `Previous record of requirements and requests` field
+    And I should not see the text `Previous recordings`
+    And I click the `Documents` tab
+    And I should not see the text `Previous recordings`
     And I click the `Overview` tab
 
     When I switch to be a `Home Office LART`
     And I click the `Hearing and appointment` tab
     Then I should not see the `Record of requirements and requests` field
     And I should not see the `Previous record of requirements and requests` field
+    And I should not see the text `Previous recordings`
+    And I click the `Documents` tab
+    And I should not see the text `Previous recordings`
     And I click the `Overview` tab
 
     When I switch to be a `Home Office Generic`
     And I click the `Hearing and appointment` tab
     Then I should not see the `Record of requirements and requests` field
     And I should not see the `Previous record of requirements and requests` field
-
+    And I should not see the text `Previous recordings`
+    And I click the `Documents` tab
+    And I should not see the text `Previous recordings`
