@@ -548,12 +548,7 @@ export class StartAppealFlow {
 
     async completeHearingOption(clickContinue = false, hearingOption = '') {
 
-        if (hearingOption === 'without') {
-            await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision without a hearing');
-        }
-        if (hearingOption === 'with') {
-            await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision with a hearing');
-        }
+        await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision with a hearing');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
