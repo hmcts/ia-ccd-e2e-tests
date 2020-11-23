@@ -4,13 +4,13 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
     Given I am signed in as a `Legal Rep`
     And I create a new case
 
-    When I save my initial PA appeal type with hearing fee
+    When I save my initial PA appeal type with no remission and with hearing fee
     And I click the `Overview` tab
 
-  @successful-payment-sanity-check @RIA-3082
+  @successful-payment-sanity-check @RIA-3082 @RIA-3014
   Scenario: Submit an appeal application with a successful payment (PA appeal type)
 
-    When I click the `pay and submit your appeal` link
+    When I click the `pay for and submit your appeal` link
     Then I should see the `Pay and submit` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
@@ -47,7 +47,7 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
   @account-on-hold-pa-appeal-type @failed-payment-account-on-hold @RIA-3082
   Scenario: Submit an appeal application with a successful payment (PA appeal type)
 
-    When I click the `pay and submit your appeal` link
+    When I click the `pay for and submit your appeal` link
     Then I should see the `Pay and submit` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
@@ -76,7 +76,7 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
     And I should see the text `Your account is on hold`
     And I click the `Close and Return to case details` button
 
-    And I should see the `pay and submit your appeal` link
+    And I should see the `pay for and submit your appeal` link
 
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
@@ -85,7 +85,7 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
   @account-on-deleted-pa-appeal-type @failed-payment-account-on-deleted @RIA-3082
   Scenario: Submit an appeal application with a successful payment (PA appeal type)
 
-    When I click the `pay and submit your appeal` link
+    When I click the `pay for and submit your appeal` link
     Then I should see the `Pay and submit` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
@@ -114,7 +114,7 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
     And I should see the text `Your account is deleted`
     And I click the `Close and Return to case details` button
 
-    And I should see the `pay and submit your appeal` link
+    And I should see the `pay for and submit your appeal` link
 
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field

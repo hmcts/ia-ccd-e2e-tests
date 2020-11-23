@@ -2,7 +2,7 @@ Feature: Mark appeal as paid after listing
   Background:
     Given I am signed in as a `Legal Rep`
     And I create a new case
-    And I save my initial PA appeal type with hearing fee and pay offline
+    And I save my initial PA appeal type with no remission and with hearing fee and pay offline
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence

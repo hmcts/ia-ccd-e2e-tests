@@ -12,7 +12,7 @@ Feature: Payment validation for non-payment appeal type
     And I select the `Pay and submit` Next step
     And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `Errors`
-    And I should see the text `The Pay and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
+    And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
     Then I submit my nonpayment appeal
     And I click the `Overview` tab
@@ -36,7 +36,7 @@ Feature: Payment validation for non-payment appeal type
     And I select the `Pay and submit` Next step
     And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
     And I should see the text `Errors`
-    And I should see the text `The Pay and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
+    And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
     Then I submit my nonpayment appeal
     And I click the `Overview` tab
@@ -55,7 +55,7 @@ Feature: Payment validation for non-payment appeal type
   @payment-validation-for-pa-appeal-type-pay-later @RIA-3654
   Scenario: Select initial appeal with PA appeal type for pay later and validate payment error when mark appeal as paid
 
-    And I save my initial PA appeal type with hearing fee and pay later
+    And I save my initial PA appeal type with no remission and with hearing fee and pay later
     And I submit my nonpayment appeal
 
     Then I switch to be a `Admin Officer`

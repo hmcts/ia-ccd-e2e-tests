@@ -4,10 +4,10 @@ Feature: Submit Appeal with offline payment for EA and HU
     Given I am signed in as a `Legal Rep`
     And I create a new case
 
-    @submit-appeal-with-offline-payment-for-EA-appeal-type @RIA-3278-EA @RIA-3278
+  @submit-appeal-with-offline-payment-for-EA-appeal-type @RIA-3278-EA @RIA-3278
   Scenario: Make a successful payment for EA appeal type with hearing fee after appeal submitted state
 
-    And I save my initial EA appeal type with hearing fee and pay offline
+    And I save my initial EA appeal type with no remission and with hearing fee and pay offline
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
@@ -70,7 +70,7 @@ Feature: Submit Appeal with offline payment for EA and HU
   @submit-appeal-with-offline-payment-for-HU-appeal-type @RIA-3278-HU @RIA-3278
   Scenario: Make a successful payment for HU appeal type with hearing fee after appeal submitted state
 
-    And I save my initial HU appeal type with hearing fee and pay offline
+    And I save my initial HU appeal type with no remission and with hearing fee and pay offline
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab

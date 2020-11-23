@@ -4,10 +4,10 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     Given I am signed in as a `Legal Rep`
     And I create a new case
 
-  @successful-payment-for-EA-appeal-type-pay-now-with-hearing-fee-out-of-time @RIA-3471-EA-PAY-NOW @RIA-3471
+  @successful-payment-for-EA-appeal-type-pay-now-with-hearing-fee-out-of-time @RIA-3471-EA-PAY-NOW @RIA-3471 @RIA-3014
   Scenario: Make a successful payment for EA appeal type pay now with hearing fee and out of time
 
-    And I save my initial EA appeal type pay now with hearing fee and out of time
+    And I save my initial EA appeal type with no remission and pay now with hearing fee and out of time
 
     When I select the `Pay and submit` Next step
     Then I should see the `Pay and submit` page
@@ -41,7 +41,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
   @successful-payment-for-HU-appeal-type-pay-now-with-hearing-fee-out-of-time @RIA-3471-HU-PAY-NOW @RIA-3471
   Scenario: Make a successful payment for HU appeal type pay now with hearing fee and out of time
 
-    And I save my initial HU appeal type pay now with hearing fee and out of time
+    And I save my initial HU appeal type with no remission and pay now with hearing fee and out of time
 
     When I select the `Pay and submit` Next step
     Then I should see the `Pay and submit` page
@@ -72,10 +72,10 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Pay and submit`
 
-  @successful-payment-for-PA-appeal-type-pay-now-with-hearing-fee-out-of-time @RIA-3471-PA-PAY-NOW @RIA-3471
+  @successful-payment-for-PA-appeal-type-pay-now-with-hearing-fee-out-of-time @RIA-3471-PA-PAY-NOW @RIA-3471 @RIA-3014
   Scenario: Make a successful payment for PA appeal type pay now with hearing fee and out of time
 
-    And I save my initial PA appeal type pay now with hearing fee and out of time
+    And I save my initial PA appeal type with no remission and pay now with hearing fee and out of time
 
     When I select the `Pay and submit` Next step
     Then I should see the `Pay and submit` page
@@ -106,10 +106,10 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Pay and submit`
 
-  @submit-appeal-with-paylater-payment-for-PA-appeal-type-with-hearing-fee-out-of-time @RIA-3471-PA-PAY-LATER @RIA-3471
+  @submit-appeal-with-paylater-payment-for-PA-appeal-type-with-hearing-fee-out-of-time @RIA-3471-PA-PAY-LATER @RIA-3471 @RIA-3014
   Scenario: Make a successful payment for PA appeal type with hearing fee and out of time
 
-    And I save my initial PA appeal type pay later with hearing fee and out of time
+    And I save my initial PA appeal type with no remission and pay later with hearing fee and out of time
     When I select the `Submit your appeal` Next step
     Then I am on the `Submit your appeal` page
     And I should see the text `You've missed the deadline for appealing.`
@@ -133,10 +133,10 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see `I was on holiday` for the `Reasons for late appeal submission` field
     And I should see `SupportForLateSubmission.pdf` for the `Late submission supporting document` field
 
-  @submit-appeal-with-offline-payment-for-EA-appeal-type-with-hearing-fee-out-of-time @RIA-3471-EA-OFFLINE @RIA-3471
+  @submit-appeal-with-offline-payment-for-EA-appeal-type-with-hearing-fee-out-of-time @RIA-3471-EA-OFFLINE @RIA-3471 @RIA-3014
   Scenario: Make a successful payment for EA appeal type with hearing fee and out of time
 
-    And I save my initial EA appeal type pay offline with hearing fee and out of time
+    And I save my initial EA appeal type with no remission and pay offline with hearing fee and out of time
     When I select the `Submit your appeal` Next step
     Then I am on the `Submit your appeal` page
     And I should see the text `You've missed the deadline for appealing.`
@@ -159,10 +159,10 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see `I was on holiday` for the `Reasons for late appeal submission` field
     And I should see `SupportForLateSubmission.pdf` for the `Late submission supporting document` field
 
-  @submit-appeal-with-offline-payment-for-HU-appeal-type-with-hearing-fee-out-of-time @RIA-3471-HU-OFFLINE @RIA-3471
+  @submit-appeal-with-offline-payment-for-HU-appeal-type-with-hearing-fee-out-of-time @RIA-3471-HU-OFFLINE @RIA-3471 @RIA-3014
   Scenario: Make a successful payment for HU appeal type with hearing fee and out of time
 
-    And I save my initial HU appeal type pay offline with hearing fee and out of time
+    And I save my initial HU appeal type with no remission and pay offline with hearing fee and out of time
     When I select the `Submit your appeal` Next step
     Then I am on the `Submit your appeal` page
     And I should see the text `You've missed the deadline for appealing.`
@@ -185,10 +185,10 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see `I was on holiday` for the `Reasons for late appeal submission` field
     And I should see `SupportForLateSubmission.pdf` for the `Late submission supporting document` field
 
-  @submit-appeal-with-offline-payment-for-PA-appeal-type-with-hearing-fee-out-of-time @RIA-3471-PA-OFFLINE @RIA-3471
+  @submit-appeal-with-offline-payment-for-PA-appeal-type-with-hearing-fee-out-of-time @RIA-3471-PA-OFFLINE @RIA-3471 @RIA-3014
   Scenario: Make a successful payment for PA appeal type with hearing fee and out of time
 
-    And I save my initial PA appeal type pay offline with hearing fee and out of time
+    And I save my initial PA appeal type with no remission and pay offline with hearing fee and out of time
     When I select the `Submit your appeal` Next step
     Then I am on the `Submit your appeal` page
     And I should see the text `You've missed the deadline for appealing.`
