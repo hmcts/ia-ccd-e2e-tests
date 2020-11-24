@@ -322,7 +322,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hearingOption = '') {
+    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -330,7 +330,7 @@ export class StartAppealFlow {
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
-        await this.completeHearingOption(true, hearingOption);
+        await this.completeRemissionDetails(true, 'a remission');
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -496,6 +496,7 @@ export class StartAppealFlow {
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
+        await this.completeRemissionDetails(true, 'no remission');
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -564,6 +565,8 @@ export class StartAppealFlow {
         }
         if (remissionOption === 'a remission') {
             await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a remission, Legal Aid, Home Office waiver, Section 17/20');
+            await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client receives Legal Aid');
         }
         if (remissionOption === 'help with fees') {
             await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a Help with Fees reference number');

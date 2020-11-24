@@ -236,6 +236,14 @@ Feature: Start initial appeal application
     And I type `ia-legal-fenn` for the `Own reference` field
     And I click the `Continue` button
 
+    When I am on the `Fee remissions` page
+    Then I select `My client has a remission, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    And I click the `Continue` button
+
+    Then I am on the `Fee remissions` page
+    And I select `My client receives Legal Aid` for the `Choose one of the following statements` field
+    And I click the `Continue` button
+
     Given I am on the `Check your answers` page
     Then I should see `01234567` for the `Home Office Reference/Case ID` answer
     And I should see `31 Oct 2018` for the `Enter the date the decision letter was sent` answer
