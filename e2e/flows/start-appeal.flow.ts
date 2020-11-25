@@ -330,7 +330,6 @@ export class StartAppealFlow {
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
-        await this.completeHearingOption(true, hearingOption);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {

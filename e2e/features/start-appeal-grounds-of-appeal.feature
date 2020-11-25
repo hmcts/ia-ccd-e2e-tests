@@ -32,6 +32,7 @@ Feature: Grounds of appeal
     When I click the `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` label
     And I click the `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` label
     And I click the `Continue` button
+    And I complete the `Deportation order` page
 
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
@@ -65,6 +66,7 @@ Feature: Grounds of appeal
 
     When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` label
     And I click the `Continue` button
+    And I complete the `Deportation order` page
 
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
@@ -98,12 +100,13 @@ Feature: Grounds of appeal
     When I click the `The decision is unlawful because discretion should have been exercised differently` label
     And I click the `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` label
     And I click the `Continue` button
+    And I complete the `Deportation order` page
 
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
-    And I click the `Submit your appeal` link
+    And I click the `submit your appeal` link
     Then I am on the `Submit your appeal` page
     And I click the `I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.` label
     And I click the `Continue` button
@@ -141,12 +144,13 @@ Feature: Grounds of appeal
 
     When I click the `The decision breaches the appellant's rights under the EEA regulations` label
     And I click the `Continue` button
+    And I complete the `Deportation order` page
 
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
-    And I click the `Submit your appeal` link
+    And I click the `submit your appeal` link
     Then I am on the `Submit your appeal` page
     And I click the `I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.` label
     And I click the `Continue` button
@@ -182,12 +186,13 @@ Feature: Grounds of appeal
 
     When I click the `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` label
     And I click the `Continue` button
+    And I complete the `Deportation order` page
 
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
-    And I click the `Submit your appeal` link
+    And I click the `submit your appeal` link
     Then I am on the `Submit your appeal` page
     And I click the `I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.` label
     And I click the `Continue` button

@@ -20,6 +20,7 @@ Feature: Other Appeal Numbers are validated
     And I complete the `The appellant's contact preference` page
     And I complete the `Type of appeal` page
     And I complete the `The grounds of your appeal` page
+    And I complete the `Deportation order` page
     And I complete the `New matters` page
     And I am on the `Has your client appealed against any other UK immigration decisions?` page
     And I select `Yes` for the `Other appeals` field
@@ -28,27 +29,26 @@ Feature: Other Appeal Numbers are validated
   @start-appeal @alternate @RIA-635 @migrate-to-unit-tests
   Scenario: Invalid other appeal references
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
-    And I add an item to the `Appeal number` collection
-    When within the `Appeal number` collection's first item, I type `RT/12345/2014` for the field without a label
-    And I click the `Continue` button
-    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
-
-    When within the `Appeal number` collection's first item, I type `PA/1234x/2014` for the field without a label
-    And I click the `Continue` button
-    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
-
-    When within the `Appeal number` collection's first item, I type `PA/123456/2014` for the field without a label
-    And I click the `Continue` button
-    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
-
-    When within the `Appeal number` collection's first item, I type `PA/123456/201` for the field without a label
-    And I click the `Continue` button
-    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
-
-    When within the `Appeal number` collection's first item, I type `PA/123456/20143` for the field without a label
-    And I click the `Continue` button
-    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
+#    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+#    And I add an item to the `Appeal number` collection
+#    When within the `Appeal number` collection's first item, I type `RT/12345/2014` for the field without a label
+#    And I click the `Continue` button
+#    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
+#
+#    When within the `Appeal number` collection's first item, I type `PA/1234x/2014` for the field without a label
+#    And I click the `Continue` button
+#    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
+#
+#    When within the `Appeal number` collection's first item, I type `PA/123456/2014` for the field without a label
+#    And I click the `Continue` button
+#    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
+#
+#    When within the `Appeal number` collection's first item, I type `PA/123456/201` for the field without a label
+#    And I click the `Continue` button
+#    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
+#
+#    When within the `Appeal number` collection's first item, I type `PA/123456/20143` for the field without a label
+#    Then I should see an error saying `The data entered is not valid for this type of field, please delete and re-enter using only valid data`
 
 
   @start-appeal @alternate @RIA-635 @migrate-to-unit-tests

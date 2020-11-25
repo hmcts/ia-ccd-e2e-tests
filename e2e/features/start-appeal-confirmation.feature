@@ -12,6 +12,7 @@ Feature: Start appeal shows confirmation when saved
     And I complete the `The appellant's contact preference` page
     And I complete the `Type of appeal` page
     And I complete the `The grounds of your appeal` page
+    And I complete the `Deportation order` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
@@ -26,5 +27,5 @@ Feature: Start appeal shows confirmation when saved
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the Submit your appeal link
-    Then I am on the Submit your appeal page
+    When I click the `submit your appeal` link
+    Then I am on the `Submit your appeal` page
