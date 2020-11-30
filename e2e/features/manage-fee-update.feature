@@ -4,7 +4,7 @@ Feature: Manage fee update
     Given I am signed in as a `Legal Rep`
     And I create a new case
 
-  @Case-officer-manage-fee-update-pay-now @RIA-3792
+  @Case-officer-manage-fee-update-pay-now @RIA-3792 @RIA-3790
   Scenario: Case officer manage fee update
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
@@ -84,7 +84,7 @@ Feature: Manage fee update
     And I should see `£10.00` for the `New fee amount (£)` field
 
 
-  @Case-officer-manage-fee-update-pay-offline @RIA-3792
+  @Case-officer-manage-fee-update-pay-offline @RIA-3792 @RIA-3790
   Scenario: Case officer manage fee update
 
     Then I save my initial `EA` appeal type with `no remission` and pay offline `with` hearing fee
@@ -171,7 +171,7 @@ Feature: Manage fee update
 
     Then I save my initial `DC` appeal for nonPayment `with` hearing
     And I submit my nonpayment appeal
-    
+
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
     And I should see the text `You cannot manage a fee update for this appeal`
