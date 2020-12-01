@@ -17,7 +17,7 @@ export class MarkAppealAsPaidFlow {
         );
 
         await this.ccdFormPage.setFieldValue(
-            'Amount paid (£)',
+            'Amount paid',
             '140'
         );
 
