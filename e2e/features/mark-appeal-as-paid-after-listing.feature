@@ -29,13 +29,13 @@ Feature: Mark appeal as paid after listing
     And I select the `Mark appeal as paid` Next step
     Then I should see the `Mark appeal as paid` page
     And I type `31-08-2020` for the `Payment date` field
-    And I type `140` for the `Amount paid (£)` field
+    And I type `140` for the `Amount paid` field
     And I type `Payment is now complete` for the `Additional payment information (Optional) field
     And I click the `Continue` button
 
     When I am on the `Check your answers` page
     And I should see `31 Aug 2020` in the `Payment date` field
-    And I should see `£140.00` for the `Amount paid (£)` field
+    And I should see `£140.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
 
     When I click the `Mark as paid` button
