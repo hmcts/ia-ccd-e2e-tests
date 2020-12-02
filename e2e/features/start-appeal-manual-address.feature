@@ -24,6 +24,7 @@ Feature: Address details are entered manually without using postcode lookup
     Given I complete the `The appellant's contact preference` page
     And I complete the `Type of appeal` page
     And I complete the `The grounds of your appeal` page
+    And I complete the `Deportation order` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page

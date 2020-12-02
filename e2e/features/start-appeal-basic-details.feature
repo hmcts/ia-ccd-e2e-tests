@@ -39,15 +39,3 @@ Feature: Basic details are validated
     Then the `Continue` button is disabled
     When I type `31-12-1999` for the `Date of birth` field
     Then the `Continue` button is enabled
-
-    Then the `Continue` button is enabled
-    When I remove the first item from the `Nationality` collection
-    Then the `Continue` button is disabled
-    When I add an item to the `Nationality` collection
-    When within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
-    Then the `Continue` button is enabled
-
-    When within the `Nationality` collection's first item, I select `--Select a value--` for the `Nationality` field
-    Then the `Continue` button is disabled
-    When within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
-    Then the `Continue` button is enabled

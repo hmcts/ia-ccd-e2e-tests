@@ -33,6 +33,10 @@ Feature: Start an appeal application alternate paths
     When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations in relation to persons eligible for humanitarian protection` label
     And I click the `Continue` button
 
+    Given I am on the `Deportation order` page
+    When I select `Yes` for the `Has a deportation order been made against the appellant?` field
+    And I click the `Continue` button
+
     # Start an appeal application with no new matters
     Given I am on the `New matters` page
     When I select `No` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
@@ -68,6 +72,7 @@ Feature: Start an appeal application alternate paths
     And I complete the `The appellant's contact preference` page
     And I complete the `Type of appeal` page
     And I complete the `The grounds of your appeal` page
+    And I complete the `Deportation order` page
     And I complete the `New matters` page
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
@@ -84,11 +89,14 @@ Feature: Start an appeal application alternate paths
     When I click the `Overview` tab
     Given I select the `Edit appeal` Next step
     And I skip the `Home Office details` page by clicking `Continue`
+    And I skip the `Upload the Notice of Decision` page by clicking `Continue`
     And I skip the `Basic details` page by clicking `Continue`
+    And I skip the `Tell us about your client's nationality` page by clicking `Continue`
     And I skip the `Your client's address` page by clicking `Continue`
     And I skip the `The appellant's contact preference` page by clicking `Continue`
     And I skip the `Type of appeal` page by clicking `Continue`
     And I skip the `The grounds of your appeal` page by clicking `Continue`
+    And I skip the `Deportation order` page by clicking `Continue`
     And I skip the `New matters` page by clicking `Continue`
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
@@ -104,11 +112,14 @@ Feature: Start an appeal application alternate paths
 
     Given I select the `Edit appeal` Next step
     And I skip the `Home Office details` page by clicking `Continue`
+    And I skip the `Upload the Notice of Decision` page by clicking `Continue`
     And I skip the `Basic details` page by clicking `Continue`
+    And I skip the `Tell us about your client's nationality` page by clicking `Continue`
     And I skip the `Your client's address` page by clicking `Continue`
     And I skip the `The appellant's contact preference` page by clicking `Continue`
     And I skip the `Type of appeal` page by clicking `Continue`
     And I skip the `The grounds of your appeal` page by clicking `Continue`
+    And I skip the `Deportation order` page by clicking `Continue`
     And I skip the `New matters` page by clicking `Continue`
 
     Given I am on the `Has your client appealed against any other UK immigration decisions?` page
