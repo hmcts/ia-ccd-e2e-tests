@@ -1,6 +1,6 @@
 Feature: Case progression path when case and continue is disabled 
 
-  @case-progression @case-progression-core-save-and-continue-true @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
+  @case-progression @case-progression-core-save-and-continue-false @RIA-574 @RIA-908 @RIA-909 @RIA-910 @RIA-911 @RIA-912 @RIA-914 @RIA-915 @RIA-905 @RIA-653 @RIA-944 @RIA-985 @RIA-412 @RIA-364 @RIA-1534 @RIA-1568
   @RIA-1571 @RIA-1561 @RIA-1560 @RIA-1284 @RIA-1609 @RIA-1485 @RIA-572 @RIA-1622 @RIA-1563 @RIA-1564 @RIA-1565 @RIA-1707 @RIA-1789 @RIA-1799 @RIA-1356 @RIA-1357 @RIA-1794
   @RIA-1810 @RIA-1771 @RIA-2177 @RIA-436 @RIA-2049 @RIA-2087 @RIA-1899 @RIA-2047 @RIA-597 @RIA-587 @RIA-2022 @RIA-2048 @RIA-2051 @RIA-2011 @RIA-2052 @RIA-2277 @RIA-2343 @RIA-2304 @RIA-2041
   @RIA-2236 @RIA-2736 @RIA-1360 @RIA-1280 @RIA-1939 @RIA-1903 @RIA-2694 @RIA-3555
@@ -1819,7 +1819,7 @@ Feature: Case progression path when case and continue is disabled
     And within the `Directions` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
     And within the `Directions` collection's seventh item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
-    And within the `Directions` collection's seventh item, I should see `You have 14 days to supply` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `You have until the date indicated below to supply` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `Respondent` for the `Parties` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
@@ -1853,7 +1853,7 @@ Feature: Case progression path when case and continue is disabled
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
     And within the `Directions` collection's seventh item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
-    And within the `Directions` collection's seventh item, I should see `You have 14 days to supply` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `You have until the date indicated below to supply` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `Respondent` for the `Parties` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
