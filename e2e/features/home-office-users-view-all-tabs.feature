@@ -105,7 +105,7 @@ Feature: All home office users overview appeal case-details documents directions
     And within the `Directions` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
     And within the `Directions` collection's fifth item, I should see `You must now build your case to enable the respondent to conduct a thorough review of their decision.` in the `Explanation` field
-    And within the `Directions` collection's fifth item, I should see `You have 28 days after the respondent’s bundle is provided, or 42 days after the Notice of Appeal, whichever is the later, to upload your Appeal Skeleton Argument and evidence.` in the `Explanation` field
+    And within the `Directions` collection's fifth item, I should see `You have until the date indicated below to upload your Appeal Skeleton Argument and evidence.` in the `Explanation` field
     And within the `Directions` collection's fifth item, I should see `Your Appeal Skeleton Argument must be set out in three distinct parts to include:` in the `Explanation` field
     And within the `Directions` collection's fifth item, I should see `- a concise summary of the appellant’s case` in the `Explanation` field
     And within the `Directions` collection's fifth item, I should see `- a schedule of issues` in the `Explanation` field
