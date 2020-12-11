@@ -6,8 +6,13 @@ Feature: Record remission decision
     And I save my initial `EA` appeal type with `a remission` and `with` hearing fee
     And I submit my nonpayment appeal
 
-  @record-remission-decision-approved @RIA-3517-approved @RIA-3517
+  @record-remission-decision-approved @RIA-3517-approved @RIA-3517 @RIA-3829
   Scenario: Record remission decision approved
+
+    When I click the `Overview` tab
+    Then I should see the `Overview` page
+    And I should see the text `Do this next`
+    And I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
@@ -49,7 +54,7 @@ Feature: Record remission decision
     Then I click the `Overview` tab
     And I should see the `Overview` page
     And I should see the text `What happens next`
-    And I should see the text `The appellant will be notified that you have approved this remission application. The appeal will progress as usual.`
+    And I should see the text `The Tribunal Caseworker will review the appeal and decide if it's valid.`
 
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
@@ -84,6 +89,11 @@ Feature: Record remission decision
     And I should see `£0.00` for the `Amount left to pay (£)` field
 
     When I switch to be a `Legal Rep`
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the text `Do this next`
+    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal. You don't need to do anything else right now.`
+
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
     And I should see the text `Remission details`
@@ -94,8 +104,13 @@ Feature: Record remission decision
     And I should see `£140.00` for the `Amount remitted (£)` field
     And I should see `£0.00` for the `Amount left to pay (£)` field
 
-  @record-remission-decision-partially-approved @RIA-3517-partially-approved @RIA-3517
+  @record-remission-decision-partially-approved @RIA-3517-partially-approved @RIA-3517 @RIA-3829
   Scenario: Record remission decision partially approved
+
+    When I click the `Overview` tab
+    Then I should see the `Overview` page
+    And I should see the text `Do this next`
+    And I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
@@ -177,6 +192,12 @@ Feature: Record remission decision
     And I should see `A reason for partially approved` for the `Reason for decision` field
 
     When I switch to be a `Legal Rep`
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the text `What happens next`
+    And I should see the text `Your remission application has been partially approved. You will soon receive a notification with instructions on how to pay the fee by card online. You must pay within 14`
+    And I should see the text `days of receiving the notification or the Tribunal will end the appeal.`
+
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
     And I should see `Legal Aid` for the `Fee remission type` field
@@ -187,8 +208,13 @@ Feature: Record remission decision
     And I should see `£40.00` for the `Amount left to pay (£)` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
 
-  @record-remission-decision-rejected @RIA-3517-rejected @RIA-3517
+  @record-remission-decision-rejected @RIA-3517-rejected @RIA-3517 @RIA-3829
   Scenario: Record remission decision rejected
+
+    When I click the `Overview` tab
+    Then I should see the `Overview` page
+    And I should see the text `Do this next`
+    And I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
@@ -228,7 +254,7 @@ Feature: Record remission decision
     Then I click the `Overview` tab
     And I should see the `Overview` page
     And I should see the text `What happens next`
-    And I should see the text `The Tribunal will be notified that you have rejected this remission application. The appellant will be directed to pay the full fee.`
+    And I should see the text `A remission application for this appeal has been rejected. The appellant will be directed to pay the full fee.`
 
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
@@ -259,6 +285,11 @@ Feature: Record remission decision
     And I should see `A reason for rejection` for the `Reason for decision` field
 
     When I switch to be a `Legal Rep`
+    Then I click the `Overview` tab
+    And I should see the `Overview` page
+    And I should see the text `Do this next`
+    And I should see the text `Your remission application has been rejected. You must pay for this appeal by {$TODAY+14|D MMM YYYY} or the Tribunal will end the appeal.`
+
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
     And I should see the text `Remission details`
@@ -266,8 +297,13 @@ Feature: Record remission decision
     And I should see `Rejected` for the `Decision` field
     And I should see `A reason for rejection` for the `Reason for decision` field
 
-  @record-remission-decision-and-mark-appeal-as-paid @RIA-3517-mark-appeal-as-paid @RIA-3517
+  @record-remission-decision-and-mark-appeal-as-paid @RIA-3517-mark-appeal-as-paid @RIA-3517 @RIA-3829
   Scenario: Record remission decision and mark appeal as paid
+
+    When I click the `Overview` tab
+    Then I should see the `Overview` page
+    And I should see the text `Do this next`
+    And I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
@@ -312,6 +348,17 @@ Feature: Record remission decision
     And I should see the `Overview` page
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that they need to pay the outstanding fee. Once payment is made you will need to mark the appeal as paid.`
+
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see the text `Remission details`
+    And I should see `Legal Aid` for the `Fee remission type` field
+    And I should see `1A234B` for the `Legal Aid account number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted (£)` field
+    And I should see `£40.00` for the `Amount left to pay (£)` field
+    And I should see `A reason for partially approved` for the `Reason for decision` field
 
     And I select the `Mark appeal as paid` Next step
     Then I should see the `Mark appeal as paid` page
