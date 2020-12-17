@@ -31,7 +31,7 @@ Feature: Flag a case
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Flag the case`
 
-    When I click the `Overview` tab
+    # When I click the `Overview` tab
     Then I should see the text `Flags`
     And I should see the text `These flags are only visible to the Tribunal.`
     And I should see the `caseFlagComplexCase.png` image
@@ -81,7 +81,7 @@ Feature: Flag a case
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Flag the case`
 
-    When I click the `Overview` tab
+    # When I click the `Overview` tab
     Then I should see the text `Flags`
     And I should see the text `These flags are only visible to the Tribunal.`
     And I should see the `caseFlagComplexCase.png` image
@@ -114,7 +114,7 @@ Feature: Flag a case
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Flag the case`
 
-    When I click the `Overview` tab
+    # When I click the `Overview` tab
     Then I should see the text `Flags`
     And I should see the text `These flags are only visible to the Tribunal.`
     And I should see the `caseFlagComplexCase.png` image
@@ -145,7 +145,7 @@ Feature: Flag a case
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
 
-    When I click the `Overview` tab
+    # When I click the `Overview` tab
     Then I should not see the text `Flags`
     And I should not see the text `These flags are only visible to the Tribunal.`
     And I should not see the text `Oh no! This case turned out to be rather complex!`
