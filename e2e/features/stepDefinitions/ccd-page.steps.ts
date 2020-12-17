@@ -70,10 +70,9 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
 });
 
 When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
-    await browser.sleep(25000);
-    await browser.refresh();
-    await browser.sleep(25000);
+    await browser.sleep(15000);
     await ccdPage.click(linkText);
+    await browser.sleep(15000);
 });
 
 When(/^I click the `?(first|second|third|)`?\s`?([^`]+)`? (?:button|link|tab|label)$/, async function (instanceNumber, linkText) {
