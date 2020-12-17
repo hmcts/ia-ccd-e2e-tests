@@ -23,7 +23,7 @@ Feature: Flag a case
     And I should see `Complex case` in the `Type of flag` field
     And I should see `Oh no! This case turned out to be rather complex!` in the `Additional information` field
 
-    # # When I click the `Overview` tab
+    When I click the `Flag case` button
     Then I should see the text `You've flagged this case`
     And I should see the text `What happens next`
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
@@ -73,7 +73,7 @@ Feature: Flag a case
     And I should see `Potentially violent person` in the `Type of flag` field
     And I should see `The person has once slammed their fists against the desk.` in the `Additional information` field
 
-    # # When I click the `Overview` tab
+    When I click the `Flag case` button
     Then I should see the text `You've flagged this case`
     And I should see the text `What happens next`
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
@@ -106,7 +106,7 @@ Feature: Flag a case
     And I am on the `Check your answers` page
     And I should see `Potentially violent person` in the `Type of flag` field
 
-    # # When I click the `Overview` tab
+    When I click the `Flag case` button
     Then I should see the text `You've flagged this case`
     And I should see the text `What happens next`
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
@@ -114,7 +114,7 @@ Feature: Flag a case
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Flag the case`
 
-    # # When I click the `Overview` tab
+    # When I click the `Overview` tab
     Then I should see the text `Flags`
     And I should see the text `These flags are only visible to the Tribunal.`
     And I should see the `caseFlagComplexCase.png` image
