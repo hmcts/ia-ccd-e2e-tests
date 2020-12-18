@@ -711,8 +711,8 @@ Feature: Case progression path when save and continue is enabled
 
     And I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response` in the `Explain the direction you are issuing` field
     And I should see `Next steps` in the `Explain the direction you are issuing` field
-    And I should see `You have 5 days to review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explain the direction you are issuing` field
-    And I should see `If you do not respond within 5 days, the case will automatically go to hearing` in the `Explain the direction you are issuing` field
+    And I should see `Review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explain the direction you are issuing` field
+    And I should see `If you do not respond by the date indicated below, the case will automatically go to hearing` in the `Explain the direction you are issuing` field
     And I should see `Legal representative` for the `Who are you giving the direction to?` field
     And I should see `{$TODAY+5}` for the `By what date must they comply?` field
 
@@ -720,8 +720,8 @@ Feature: Case progression path when save and continue is enabled
     Then I am on the `Check your answers` page
     And I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response` in the `Explain the direction you are issuing` field
     And I should see `Next steps` in the `Explain the direction you are issuing` field
-    And I should see `You have 5 days to review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explain the direction you are issuing` field
-    And I should see `If you do not respond within 5 days, the case will automatically go to hearing` in the `Explain the direction you are issuing` field
+    And I should see `Review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explain the direction you are issuing` field
+    And I should see `If you do not respond by the date indicated below, the case will automatically go to hearing` in the `Explain the direction you are issuing` field
     And I should see `Legal representative` for the `Who are you giving the direction to?` field
     And I should see `{$TODAY+5|D MMM YYYY}` for the `By what date must they comply?` field
 
@@ -744,8 +744,8 @@ Feature: Case progression path when save and continue is enabled
     And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `You have 5 days to review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not respond within 5 days, the case will automatically go to hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not respond by the date indicated below, the case will automatically go to hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -767,8 +767,8 @@ Feature: Case progression path when save and continue is enabled
     And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `You have 5 days to review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not respond within 5 days, the case will automatically go to hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not respond by the date indicated below, the case will automatically go to hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -1850,7 +1850,7 @@ Feature: Case progression path when save and continue is enabled
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
     And within the `Directions` collection's second item, I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response.` in the `Explanation` field
-    And within the `Directions` collection's second item, I should see `You have 5 days to review the Home Office response. If you want to respond to what they have said, you should email the Tribunal.` in the `Explanation` field
+    And within the `Directions` collection's second item, I should see `Review the Home Office response. If you want to respond to what they have said, you should email the Tribunal.` in the `Explanation` field
     And within the `Directions` collection's second item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's second item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
