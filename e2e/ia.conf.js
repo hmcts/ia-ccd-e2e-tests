@@ -33,6 +33,8 @@ module.exports = {
   TestHomeOfficeApcPassword: 'AldgateT0wer',
   TestHomeOfficePouUserName: 'ia.respondentpou.ccd@gmail.com',
   TestHomeOfficePouPassword: 'AldgateT0wer',
+  TestHomeOfficeLartUserName: 'ia.respondentlarts.ccd@gmail.com',
+  TestHomeOfficeLartPassword: 'AldgateT0wer',
   TestHomeOfficeGenericUserName: process.env.TEST_HOMEOFFICE_GENERIC_USERNAME,
   TestHomeOfficeGenericPassword: 'AldgateT0wer',
   TestJudgeUserName: 'ia.iacjudge.ccd@gmail.com',
