@@ -34,7 +34,7 @@ Feature: Case Officer: List case without hearing requirements
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to submit their hearing requirements.`
-    And I should see the text `If the appellant does not comply within 5 days of the direction, you can proceed to a hearing without the requirements by using 'Next steps' menu above.`
+    And I should see the text `If the appellant does not comply by the date indicated in the direction, you can proceed to a hearing without requirements.`
 
     When I select the `List without requirements` Next step
     Then I should see the text `List without requirements`
