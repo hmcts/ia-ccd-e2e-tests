@@ -130,7 +130,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I should see `# Next steps` in the `Explain the direction you are issuing` field
     And I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explain the direction you are issuing` field
     And I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explain the direction you are issuing` field
-    And I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explain the direction you are issuing` field
+    And I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explain the direction you are issuing` field
     And I should see `Legal representative` for the `Who are you giving the direction to?` field
     And I should see `{$TODAY+5}` for the `By what date must they comply?` field
     And I click the `Continue` button
@@ -140,7 +140,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I should see `# Next steps` in the `Explain the direction you are issuing` field
     And I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explain the direction you are issuing` field
     And I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explain the direction you are issuing` field
-    And I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explain the direction you are issuing` field
+    And I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explain the direction you are issuing` field
     And I should see `Legal representative` for the `Who are you giving the direction to?` field
     And I should see `{$TODAY+5|D MMM YYYY}` for the `By what date must they comply?` field
 
@@ -152,7 +152,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -190,7 +190,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -214,7 +214,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -238,7 +238,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -262,7 +262,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -286,7 +286,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -310,7 +310,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -334,7 +334,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -436,7 +436,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I should see `# Next steps` in the `Explain the direction you are issuing` field
     And I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explain the direction you are issuing` field
     And I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explain the direction you are issuing` field
-    And I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explain the direction you are issuing` field
+    And I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explain the direction you are issuing` field
     And I should see `Legal representative` for the `Who are you giving the direction to?` field
     And I should see `{$TODAY+5}` for the `By what date must they comply?` field
     And I click the `Continue` button
@@ -446,7 +446,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I should see `# Next steps` in the `Explain the direction you are issuing` field
     And I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explain the direction you are issuing` field
     And I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explain the direction you are issuing` field
-    And I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explain the direction you are issuing` field
+    And I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explain the direction you are issuing` field
     And I should see `Legal representative` for the `Who are you giving the direction to?` field
     And I should see `{$TODAY+5|D MMM YYYY}` for the `By what date must they comply?` field
 
@@ -458,7 +458,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -496,7 +496,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -520,7 +520,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -544,7 +544,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -568,7 +568,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -592,7 +592,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -616,7 +616,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
@@ -640,7 +640,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements within 5 working days, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `If you do not submit the hearing requirements by the date indicated below, the Tribunal may not be able to accommodate the appellant's needs for the hearing` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
