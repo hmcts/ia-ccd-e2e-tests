@@ -21,4 +21,3 @@ Feature: Submit case
     Then I should see the text `We have sent you a confirmation email`
     Then I should see the text `What happens next`
     Then I should see the text `The case officer will now review your appeal.`
-    Then I should see the text `The respondent then has 14 days to respond.`
