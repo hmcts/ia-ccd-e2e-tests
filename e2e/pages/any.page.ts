@@ -45,7 +45,7 @@ export class AnyPage {
         const buttonPath = '//button[normalize-space()="' + expandedLinkText + '"]';
         const anchorPath = '//a[normalize-space()="' + expandedLinkText + '"]';
         const linkPath =
-            '//*[self::label or self::span]' +
+            '//*' +
             '[text()[normalize-space()="' + expandedLinkText + '"]]';
 
         try {
