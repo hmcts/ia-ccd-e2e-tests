@@ -736,7 +736,7 @@ Feature: Manage fee update
     And I should see the text `Fee update recorded`
     And I should see the text `Fee update not required`
 
-  @Admin-officer-manage-fee-update-refund-approved-fee-update-not-required @RIA-3813
+  @Admin-officer-manage-fee-update-refund-approved-fee-update-not-required @RIA-3813 @RIA-3880
   Scenario: Admin officer manage fee update refund approved and fee update not required
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
@@ -851,6 +851,10 @@ Feature: Manage fee update
     And I should see the text `Fee update recorded`
     And I should see the text `Refund approved`
     And I should see the text `Fee update not required`
+
+    When I switch to be a `Admin Officer`
+    Then I select the `Manage a fee update` Next step
+    Then I should see the text `You can no longer manage a fee update for this appeal because a fee update has been recorded as not required.`
 
 
   @Admin-officer-manage-fee-update-refund-approved-refund-instructed-fee-update-not-required @RIA-3814
