@@ -24,7 +24,7 @@ Feature: Submit appeal application
     And I should see the text `What happens next`
     And I should see the text `You will receive an email confirming that this appeal has been submitted successfully.`
 
-    And I should not see the image `outOfTimeConfirmation.png`
+    And I should not see the image `outOfTimeConfirmation.svg`
     And I should not see the text `You have submitted this appeal beyond the deadline.`
 
     When I click the `Close and Return to case details` button

@@ -1693,7 +1693,7 @@ Feature: Case progression path when case and continue is disabled
     # Home Office POU
     When I switch to be a `Home Office POU`
     And I should see the `Overview` page
-    And I should see the image `appeal_allowed.png`
+    And I should see the image `appeal_allowed.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
     And I should see the text `You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
