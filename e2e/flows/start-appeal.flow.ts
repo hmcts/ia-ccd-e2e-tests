@@ -1,15 +1,44 @@
 import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
+const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
 
 export class StartAppealFlow {
 
     private ccdFormPage = new CcdFormPage();
 
     async completeScreeningQuestions(clickContinue = false) {
-        await this.ccdFormPage.click('My client is living in the UK');
-        await this.ccdFormPage.runAccessbility();
+        if (isOutOfCountryEnabled) {
+            this.completeScreeningQuestionsOutOfCountry(clickContinue);
+            await this.ccdFormPage.headingContains('Tell us about your client')
+            await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'Yes');
+        } else {
+            await this.ccdFormPage.click('My client is living in the UK');
+            await this.ccdFormPage.runAccessbility();
+            await this.ccdFormPage.click('My client is not in detention');
+            await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeScreeningQuestionsOutOfCountry(clickContinue = false) {
+
         await this.ccdFormPage.click('My client is not in detention');
         await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeOutOfCountryQuestion(clickContinue = false, appellantInUk = '') {
+        if (appellantInUk === 'No') {
+            await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'No');
+        } else {
+            await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'Yes');
+        }
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -362,6 +391,55 @@ export class StartAppealFlow {
 
     async saveInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
+        if (remission === 'no remission') {
+            await this.completeHowToPayNow(true);
+        }
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async saveInitialNonPaymentAppealOutOfCountry(clickContinue = false, appealType = '', appellantInUk = '') {
+        await this.completeScreeningQuestionsOutOfCountry(true);
+        await this.completeOutOfCountryQuestion(true, appellantInUk);
+        await this.completeHomeOfficeReference(true);
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.completeBasicDetails(true);
+        await this.completeNationality(true);
+        await this.completeClientAddress(true, false, '', '');
+        await this.completeContactPreference(true);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async saveInitialAppealWithFeeOutOfCountry(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '') {
+        await this.completeScreeningQuestionsOutOfCountry(true);
+        await this.completeOutOfCountryQuestion(true, appellantInUk);
+        await this.completeHomeOfficeReference(true);
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.completeBasicDetails(true);
+        await this.completeNationality(true);
+        await this.completeClientAddress(true, false, '', '');
+        await this.completeContactPreference(true);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         await this.completeDeportationOrder(true);
