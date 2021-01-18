@@ -9,7 +9,9 @@ export class IdamSignInPage extends AnyPage {
 
     private username = 'form[name="loginForm"] input#username';
     private password = 'form[name="loginForm"] input#password';
-    private signInButton = 'form[name="loginForm"] input[type=submit]';
+
+    // first selector is for Idam, second selector is for Idam simulator
+    private signInButton = 'form[name="loginForm"] input[type=submit], form[name="loginForm"] button[type=submit]';
 
     async signIn(
         emailAddress: string,
