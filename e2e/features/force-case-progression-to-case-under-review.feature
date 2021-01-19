@@ -33,7 +33,7 @@ Feature: Force case progression to case under review
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Force case - case under review`
-    And I should see the image `caseOfficer_caseUnderReview.png`
+    And I should see the image `caseOfficer_caseUnderReview.svg`
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field

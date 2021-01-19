@@ -33,7 +33,7 @@ Feature: Prepare decision and reasons
   Scenario: Prepare decision and reasons
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `caseOfficer_decision.png`
+    And I should see the image `caseOfficer_decision.svg`
     And I should see the text `Do this next`
     Then I should see the `Generate decision and reasons` link
     When I select the `Prepare Decision and Reasons` Next step
@@ -64,7 +64,7 @@ Feature: Prepare decision and reasons
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `caseOfficer_decision.png`
+    And I should see the image `caseOfficer_decision.svg`
     And I should see the text `Do this next`
     Then I should see the `Send decision and reasons` link
 
@@ -129,7 +129,7 @@ Feature: Prepare decision and reasons
     Then I switch to be a `Judge`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `caseOfficer_decision.png`
+    And I should see the image `caseOfficer_decision.svg`
     And I should see the text `Do this next`
     Then I should see the `Prepare the Decision and Reasons document` link
     When I select the `Prepare Decision and Reasons` Next step
@@ -162,7 +162,7 @@ Feature: Prepare decision and reasons
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `caseOfficer_decision.png`
+    And I should see the image `caseOfficer_decision.svg`
     And I should see the text `What happens next`
 
     Then I switch to be a `Admin Officer`

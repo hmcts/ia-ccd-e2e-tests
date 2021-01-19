@@ -164,7 +164,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
 
     When I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to submit any new hearing requirements`
     And I should see the text `If the appellant does not comply within 5 days of the direction, you should direct the listing team to list without hearing requirements`
@@ -174,7 +174,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Judge`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`
@@ -198,7 +198,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case is ready to be listed`
@@ -246,7 +246,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Home Office APC`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`
@@ -270,7 +270,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Home Office POU`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`
@@ -294,7 +294,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Home Office LART`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`
@@ -318,7 +318,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Home Office Generic`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`
@@ -470,7 +470,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
 
     When I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to submit any new hearing requirements`
     And I should see the text `If the appellant does not comply within 5 days of the direction, you should direct the listing team to list without hearing requirements`
@@ -480,7 +480,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Judge`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`
@@ -504,7 +504,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case is ready to be listed`
@@ -552,7 +552,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Home Office APC`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`
@@ -576,7 +576,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Home Office POU`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`
@@ -600,7 +600,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Home Office LART`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`
@@ -624,7 +624,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Home Office Generic`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed`

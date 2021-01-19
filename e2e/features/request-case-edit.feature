@@ -17,7 +17,7 @@ Feature: Request case edit
   Scenario: Request case edit
 
     When I click the `Overview` tab
-    Then I should see the image `caseOfficer_caseUnderReview.png`
+    Then I should see the image `caseOfficer_caseUnderReview.svg`
 
     And I select the `Request case edit` Next step
     Then I am on the `Request case edit` page
@@ -49,4 +49,4 @@ Feature: Request case edit
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
     When I click the `Overview` tab
-    Then I should see the image `caseOfficer_caseBuilding.png`
+    Then I should see the image `caseOfficer_caseBuilding.svg`

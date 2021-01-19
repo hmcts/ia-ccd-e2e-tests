@@ -138,7 +138,7 @@ Feature: Case Officer reviews hearing requirements - FTPA reheard decision (resi
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
     And I click the `Overview` tab
-    Then I should only see the `caseOfficer_listing.png` case progress image
+    Then I should only see the `caseOfficer_listing.svg` case progress image
     And I should see the text `Do this next`
     And I should see the text `The agreed hearing requirements and adjustments have been recorded.`
     And I should see the text `The listing team will now list the case.`
