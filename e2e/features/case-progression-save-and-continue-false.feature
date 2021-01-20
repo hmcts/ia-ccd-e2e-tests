@@ -520,7 +520,7 @@ Feature: Case progression path when case and continue is disabled
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
     And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab`
-    And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
+    And I should see the text `Review the documents and add the Home Office's response, or make an application to withdraw.`
 
     And I click the `add the Home Office's response` link
     And I am on the `Upload the appeal response` page
@@ -622,7 +622,7 @@ Feature: Case progression path when case and continue is disabled
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
     And I should see the text `The Appeal Skeleton Argument is ready to view in the documents tab`
-    And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
+    And I should see the text `Review the documents and add the Home Office's response, or make an application to withdraw.`
 
     And I click the `add the Home Office's response` link
     And I am on the `Upload the appeal response` page
