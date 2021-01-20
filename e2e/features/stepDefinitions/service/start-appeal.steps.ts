@@ -137,6 +137,22 @@ Given(/^I save my initial appeal with appellant living in UK `?([^\s`]+)`?$/, as
     }
 });
 
+Given(/^I save my out of country appeal with decision type `?([^\s`]+)`?$/, async function (decisionType) {
+    if (isOutOfCountryEnabled) {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(true, 'PA', 'no remission', 'hearing fee', 'No', decisionType);
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithDecision(true, 'PA', 'No', decisionType);
+        }
+    } else {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'no remission', 'hearing fee');
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA');
+        }
+    }
+});
+
 Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee$/, async function (appealType, remission, feeType) {
     await startAppealFlow.saveInitialAppealWithFee(true, appealType, remission, feeType);
 });
@@ -210,4 +226,29 @@ Then(/^I see a list of all nationalities$/, async function () {
     expect(nationalities.includes('Afghanistan')).to.equal(true);
     expect(nationalities.includes('Stateless')).to.equal(true);
     expect(nationalities.includes('Zimbabwe')).to.equal(true);
+});
+
+Given('I complete the `Entry clearance decision details` page', async function () {
+    expect(await ccdFormPage.headingContains('Entry clearance decision details')).to.equal(true);
+    await startAppealFlow.completeGlobalWebFormReference(true);
+});
+
+Given('I complete the `Decision type` page', async function () {
+    expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
+    await startAppealFlow.completeDecisionType(true, 'refusalOfHumanRights');
+});
+
+Given('I complete the `Is your client currently living in the United Kingdom?` page', async function () {
+    expect(await ccdFormPage.headingContains('Tell us about your client')).to.equal(true);
+    await startAppealFlow.completeOutOfCountryQuestion(true);
+});
+
+Given('I complete the `Your client\'s address` page', async function () {
+    expect(await ccdFormPage.headingContains('Your client\'s address out of country')).to.equal(true);
+    await startAppealFlow.completeClientAddressOutOfCountry(true, true);
+});
+
+Given('I complete the `Sponsor` page', async function () {
+    expect(await ccdFormPage.headingContains('Sponsor')).to.equal(true);
+    await startAppealFlow.completeSponsorQuestion(true, 'Yes');
 });

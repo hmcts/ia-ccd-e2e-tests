@@ -431,6 +431,73 @@ export class StartAppealFlow {
         }
     }
 
+    async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '') {
+        await this.completeScreeningQuestionsOutOfCountry(true);
+        await this.completeOutOfCountryQuestion(true, appellantInUk);
+        await this.completeDecisionType(true, decisionType);
+        if (decisionType === 'refusalOfHumanRights') {
+            await this.completeGlobalWebFormReference(true, 'GWF1234567');
+        } else {
+            await  this.completeHomeOfficeReferenceOutOfCountryRemovalOfClient(true, '')
+        }
+
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.completeBasicDetails(true);
+        await this.completeNationality(true);
+        await this.completeClientAddressOutOfCountry(true, true);
+        await this.completeContactPreference(true);
+        await this.completeSponsorQuestion(true, 'Yes')
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        if (decisionType !== 'refusalOfHumanRights') {
+            await this.completedDeportationOrder(true, appealType)
+        }
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async saveInitialAppealWithFeeOutOfCountryWithDecision(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '', decisionType = '') {
+        await this.completeScreeningQuestionsOutOfCountry(true);
+        await this.completeOutOfCountryQuestion(true, appellantInUk);
+        await this.completeDecisionType(true, decisionType);
+        if (decisionType === 'refusalOfHumanRights') {
+
+            await this.completeGlobalWebFormReference(true, 'GWF1234567');
+        } else {
+            await  this.completeHomeOfficeReferenceOutOfCountryRemovalOfClient(true, '')
+        }
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.completeBasicDetails(true);
+        await this.completeNationality(true);
+        await this.completeClientAddressOutOfCountry(true, true);
+        await this.completeContactPreference(true);
+        await this.completeSponsorQuestion(true, 'Yes')
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        if (decisionType !== 'refusalOfHumanRights') {
+            await this.completedDeportationOrder(true, appealType)
+        }
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
+        if (remission === 'no remission') {
+            await this.completeHowToPayNow(true);
+        }
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
     async saveInitialAppealWithFeeOutOfCountry(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
@@ -686,4 +753,68 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('Continue');
         }
     }
+
+    async completeGlobalWebFormReference(clickContinue = false, gwfReferenceNumber = '') {
+        if (gwfReferenceNumber !== '') {
+            await this.ccdFormPage.setFieldValue('Global Web Form (GWF) reference number', gwfReferenceNumber);
+        } else {
+            await this.ccdFormPage.setFieldValue('Global Web Form (GWF) reference number', 'GWF1234567');
+        }
+        await this.ccdFormPage.setFieldValue('Date Entry clearance decision letter received', '{$TODAY}');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeDecisionType(clickContinue = false, decisionOption = '') {
+        if (decisionOption === 'refusalOfHumanRights') {
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to refuse a human rights claim for entry clearance');
+        } else if (decisionOption === 'removalOfClient') {
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to remove your client under the Immigration (European Economic Area) Regulations 2016');
+        }
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeClientAddressOutOfCountry(clickContinue = false, hasCorrespondenceAddress = false) {
+
+        if (!hasCorrespondenceAddress) {
+            await this.ccdFormPage.setFieldValue('Does your client have a correspondence address outside the UK?', 'No');
+            await this.ccdFormPage.click('Continue');
+        } else {
+            await this.ccdFormPage.setFieldValue('Does your client have a correspondence address outside the UK?', 'Yes');
+            await this.ccdFormPage.setFieldValue('Enter the address', 'Afghanistan');
+            await this.ccdFormPage.click('Continue');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+    async completeHomeOfficeReferenceOutOfCountryRemovalOfClient(clickContinue = false, homeOfficeReferenceNumber = '') {
+        if (homeOfficeReferenceNumber !== '') {
+            await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
+        } else {
+            await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
+        }
+        await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY}');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+    async completeSponsorQuestion(clickContinue = false, outOfCountry = '') {
+        if (outOfCountry === 'Yes') {
+            await this.ccdFormPage.click('Yes');
+        } else {
+            await this.ccdFormPage.click('No');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
 }
