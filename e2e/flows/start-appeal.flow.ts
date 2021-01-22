@@ -45,14 +45,18 @@ export class StartAppealFlow {
         }
     }
 
-    async completeHomeOfficeReference(clickContinue = false, homeOfficeReferenceNumber = '') {
+    async completeHomeOfficeReference(clickContinue = false, ooc = false, homeOfficeReferenceNumber = '') {
         await this.ccdFormPage.runAccessbility();
         if (homeOfficeReferenceNumber !== '') {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
         } else {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
         }
-        await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '{$TODAY}');
+        if (ooc) {
+            await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY-2}');
+        } else {
+            await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '{$TODAY-10}');
+        }
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -437,8 +441,11 @@ export class StartAppealFlow {
         await this.completeDecisionType(true, decisionType);
         if (decisionType === 'refusalOfHumanRights') {
             await this.completeGlobalWebFormReference(true, 'GWF1234567');
+        } else if (decisionType === 'refusalOfProtection') {
+            await this.completeDepartureDate(true);
+            await this.completeHomeOfficeReferenceOutOfCountry(true, '');
         } else {
-            await  this.completeHomeOfficeReferenceOutOfCountryRemovalOfClient(true, '')
+            await this.completeHomeOfficeReferenceOutOfCountry(true, '');
         }
 
         await this.completeUploadNoticeDecisionNoUpload(true);
@@ -446,7 +453,7 @@ export class StartAppealFlow {
         await this.completeNationality(true);
         await this.completeClientAddressOutOfCountry(true, true);
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true, 'Yes')
+        await this.completeSponsorQuestion(true, 'No')
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         if (decisionType !== 'refusalOfHumanRights') {
@@ -468,15 +475,18 @@ export class StartAppealFlow {
         await this.completeDecisionType(true, decisionType);
         if (decisionType === 'refusalOfHumanRights') {
             await this.completeGlobalWebFormReference(true, 'GWF1234567');
+        } else if (decisionType === 'refusalOfProtection') {
+            await this.completeDepartureDate(true);
+            await  this.completeHomeOfficeReferenceOutOfCountry(true, '')
         } else {
-            await  this.completeHomeOfficeReferenceOutOfCountryRemovalOfClient(true, '')
+            await  this.completeHomeOfficeReferenceOutOfCountry(true, '')
         }
         await this.completeUploadNoticeDecisionNoUpload(true);
         await this.completeBasicDetails(true);
         await this.completeNationality(true);
         await this.completeClientAddressOutOfCountry(true, true);
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true, 'Yes')
+        await this.completeSponsorQuestion(true, 'No');
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         if (decisionType !== 'refusalOfHumanRights') {
@@ -694,7 +704,7 @@ export class StartAppealFlow {
 
     async saveInitialAppealWithHomeOfficeReference(clickContinue = false, homeOfficeReferenceNumber = '') {
         await this.completeScreeningQuestions(true);
-        await this.completeHomeOfficeReference(true, homeOfficeReferenceNumber);
+        await this.completeHomeOfficeReference(true, false, homeOfficeReferenceNumber);
         await this.completeUploadNoticeDecision(true);
         await this.completeBasicDetails(true);
         await this.completeNationality(true);
@@ -766,11 +776,27 @@ export class StartAppealFlow {
         }
     }
 
+    async completeDepartureDate(clickContinue = false) {
+        await this.ccdFormPage.setFieldValue('When did your client leave the UK?', '{$TODAY-7}');
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeDecisionType(clickContinue = false, decisionOption = '') {
         if (decisionOption === 'refusalOfHumanRights') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to refuse a human rights claim for entry clearance');
         } else if (decisionOption === 'removalOfClient') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to remove your client under the Immigration (European Economic Area) Regulations 2016');
+        }
+        if (decisionOption === 'refusalOfProtection') {
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
+                , 'A decision to refuse a human rights or protection claim, or deprive you of British citizenship, where you can only apply after your client has left the country');
+        }
+        if (decisionOption === 'removeClient') {
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
+                , 'A decision to remove your client under the Immigration (EEA) Regulations 2016');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -792,7 +818,7 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('Continue');
         }
     }
-    async completeHomeOfficeReferenceOutOfCountryRemovalOfClient(clickContinue = false, homeOfficeReferenceNumber = '') {
+    async completeHomeOfficeReferenceOutOfCountry(clickContinue = false, homeOfficeReferenceNumber = '') {
         if (homeOfficeReferenceNumber !== '') {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
         } else {

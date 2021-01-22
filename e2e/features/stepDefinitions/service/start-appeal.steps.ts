@@ -23,6 +23,11 @@ Given('I complete the `Home Office details` page', async function () {
     await startAppealFlow.completeHomeOfficeReference(true);
 });
 
+Given('I complete the `Home Office details ooc` page', async function () {
+    expect(await ccdFormPage.headingContains('Home Office details')).to.equal(true);
+    await startAppealFlow.completeHomeOfficeReference(true, true);
+});
+
 Given('I complete the `Upload the Notice of Decision` page', async function () {
   expect(await ccdFormPage.headingContains('Upload the Notice of Decision')).to.equal(true);
   await startAppealFlow.completeUploadNoticeDecision(true);
@@ -233,9 +238,24 @@ Given('I complete the `Entry clearance decision details` page', async function (
     await startAppealFlow.completeGlobalWebFormReference(true);
 });
 
+Given('I complete the `Departure date` page', async function () {
+    expect(await ccdFormPage.headingContains('Departure date')).to.equal(true);
+    await startAppealFlow.completeDepartureDate(true);
+});
+
 Given('I complete the `Decision type` page', async function () {
     expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
     await startAppealFlow.completeDecisionType(true, 'refusalOfHumanRights');
+});
+
+Given('I complete the `Decision type protection claim` page', async function () {
+    expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
+    await startAppealFlow.completeDecisionType(true, 'protectionClaim');
+});
+
+Given('I complete the `Decision type remove client` page', async function () {
+    expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
+    await startAppealFlow.completeDecisionType(true, 'removeClient');
 });
 
 Given('I complete the `Is your client currently living in the United Kingdom?` page', async function () {
