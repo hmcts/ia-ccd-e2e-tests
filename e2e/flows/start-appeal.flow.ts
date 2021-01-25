@@ -467,7 +467,6 @@ export class StartAppealFlow {
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
         if (decisionType === 'refusalOfHumanRights') {
-
             await this.completeGlobalWebFormReference(true, 'GWF1234567');
         } else {
             await  this.completeHomeOfficeReferenceOutOfCountryRemovalOfClient(true, '')
