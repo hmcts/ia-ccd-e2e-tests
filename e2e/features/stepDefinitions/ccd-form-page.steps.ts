@@ -237,7 +237,7 @@ When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the
         );
     });
 
-When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(first|second|third|)`?\s?`?([^`]+)`? `?(text|text area|document|)`?\s?field$/,
+When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(first|second|third|)`?\s?`?([^`]+)`? `?(text|text area|document|email|)`?\s?field$/,
     async function (
         fieldValue,
         instanceNumber,
