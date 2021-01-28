@@ -1856,7 +1856,7 @@ Feature: Case progression path when save and continue is enabled
     And within the `Directions` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
     And within the `Directions` collection's seventh item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
-    And within the `Directions` collection's seventh item, I should see `You have 14 days to supply` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `You have until the date indicated below to supply` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `Respondent` for the `Parties` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
@@ -1890,7 +1890,7 @@ Feature: Case progression path when save and continue is enabled
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
     And within the `Directions` collection's seventh item, I should see `A notice of appeal has been lodged against this asylum decision.` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `You must now send all documents to the case officer.` in the `Explanation` field
-    And within the `Directions` collection's seventh item, I should see `You have 14 days to supply` in the `Explanation` field
+    And within the `Directions` collection's seventh item, I should see `You have until the date indicated below to supply` in the `Explanation` field
     And within the `Directions` collection's seventh item, I should see `Respondent` for the `Parties` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's seventh item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
