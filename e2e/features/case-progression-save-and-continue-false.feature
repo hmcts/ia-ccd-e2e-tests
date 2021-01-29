@@ -489,8 +489,8 @@ Feature: Case progression path when case and continue is disabled
 
     And I should see the text `Do this next`
     And I should see the text `The case has now been sent to the respondent for review`
-    And I should see the text `If you want to reply to the response, you should contact the case officer within 5 days`
-    And I should see the text `If you don't respond within 5 days, the case will proceed to a hearing`
+    And I should see the text `If you want to reply to the response, you should contact the Tribunal by the date indicated in the direction.`
+    And I should see the text `If you don't respond, the case will proceed to a hearing`
 
     And I should not see the hearing details
     And I should see the case details
