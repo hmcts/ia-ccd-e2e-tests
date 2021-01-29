@@ -35,7 +35,7 @@ Feature: Send case to pre hearing state when unable to generate hearing bundle
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-    Then I should only see the `legalRep_preHearing` case progress image
+    Then I should only see the `progress_legalRep_preHearing` case progress image
   
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab

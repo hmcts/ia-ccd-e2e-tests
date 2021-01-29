@@ -144,7 +144,7 @@ Feature: TCW progresses case from pre-hearing to Decision - FTPA reheard decisio
     And within the `Reheard decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I switch to be a `Legal Rep`
-    Then I should only see the `legalRep_decision` case progress image
+    Then I should only see the `progress_legalRep_decision` case progress image
     And I should see the text `Do this next`
     And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -294,7 +294,7 @@ Feature: TCW progresses case from pre-hearing to Decision - FTPA reheard decisio
     And I should see the image `caseFlagSetAsideReheard.svg`
 
     When I switch to be a `Legal Rep`
-    Then I should only see the `legalRep_decision` case progress image
+    Then I should only see the `progress_legalRep_decision` case progress image
     And I should see the text `Do this next`
     And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
     And I should not see the text `These flags are only visible to the Tribunal`

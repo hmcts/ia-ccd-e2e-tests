@@ -144,7 +144,7 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
     And I should see the `Previous hearings` field
 
     When I switch to be a `Legal Rep`
-    Then I should only see the `legalRep_listing` case progress image
+    Then I should only see the `progress_legalRep_listing` case progress image
     And I should see the text `What happens next`
     And I should see the text `You have not submitted any hearing requirements on behalf of the appellant.`
     And I should see the text `The case is now being listed without any new hearing requirements and the Notice of Hearing will be sent to both parties.`

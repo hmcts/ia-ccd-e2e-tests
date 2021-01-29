@@ -12,7 +12,7 @@ Feature: Submit Appeal with offline payment for EA and HU
 
     When I click the `Overview` tab
 
-    Then I should only see the `legalRep_appealSubmitted` case progress image
+    Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
     And I should see the text `You still need to pay for this appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
 
@@ -74,7 +74,7 @@ Feature: Submit Appeal with offline payment for EA and HU
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_appealSubmitted` case progress image
+    Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
     And I should see the text `You still need to pay for this appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
 
