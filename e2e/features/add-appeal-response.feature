@@ -58,7 +58,7 @@ Feature: Add respondent response
     When I click the `Directions` tab
     Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response.` in the `Explanation` field
-    And within the `Directions` collection's first item, I should see `You have 5 days to review the Home Office response.` in the `Explanation` field
+    And within the `Directions` collection's first item, I should see `Review the Home Office response.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
