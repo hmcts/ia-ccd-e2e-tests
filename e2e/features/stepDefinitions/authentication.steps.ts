@@ -180,6 +180,15 @@ Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| B)`?$/, async function ()
     await ccdPage.get(caseUrl);
 });
 
+Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| C)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsLawFirmOrgUserC();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+});
+
 Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {
     await idamSignInPage.waitUntilLoaded();
     expect(await ccdPage.isLoaded()).to.equal(false);
