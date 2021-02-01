@@ -1,6 +1,6 @@
 import { AuthenticationFlow } from '../../flows/authentication.flow';
 import { CcdPage } from '../../pages/ccd.page';
-import { Given, Then } from 'cucumber';
+import { Given, Then, When } from 'cucumber';
 import { IdamSignInPage } from '../../pages/idam-sign-in.page';
 import { expect } from 'chai';
 import { browser } from 'protractor';
@@ -60,8 +60,32 @@ Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| A)`?$/, async fun
     await authenticationFlow.signInAsLawFirmOrgUserA();
 });
 
+When(/^I sign back in as(?:| a) `?(?:|Legal Org User Rep)(?:| A)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserA();
+});
+
+When(/^I sign back in as(?:| a) `?(?:|Legal Org User Rep)(?:| C)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserC();
+});
+
+Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| B)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserB();
+});
+
+Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| C)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserC();
+});
+
+Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| D)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserD();
+});
+
 Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| Creator)`?$/, async function () {
     await authenticationFlow.signInAsLawFirmOrgCreator();
+});
+
+Given(/^I am signed in as(?:| a) `?(?:|Legal Org2 User Rep)(?:| Creator)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrg2Creator();
 });
 
 Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
