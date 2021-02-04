@@ -142,12 +142,12 @@ Given(/^I save my initial appeal with appellant living in UK `?([^\s`]+)`?$/, as
     }
 });
 
-Given(/^I save my out of country appeal with decision type `?([^\s`]+)`?$/, async function (decisionType) {
+Given(/^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s`]+)`?$/, async function (lateAppeal, decisionType) {
     if (isOutOfCountryEnabled) {
         if (isfeePaymentEnabled) {
-            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(true, 'PA', 'no remission', 'hearing fee', 'No', decisionType);
+            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(true, 'HU', 'no remission', 'hearing fee', 'No', decisionType, lateAppeal);
         } else {
-            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithDecision(true, 'PA', 'No', decisionType);
+            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithDecision(true, 'PA', 'No', decisionType, lateAppeal);
         }
     } else {
         if (isfeePaymentEnabled) {
