@@ -60,6 +60,10 @@ Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| A)`?$/, async fun
     await authenticationFlow.signInAsLawFirmOrgUserA();
 });
 
+Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| Creator)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgCreator();
+});
+
 Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();

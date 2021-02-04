@@ -3,6 +3,7 @@ import { Then } from 'cucumber';
 import { Wait } from '../../../enums/wait';
 import { expect } from 'chai';
 import { browser } from 'protractor';
+const iaConfig = require('../../../ia.conf');
 
 const ccdPage = new CcdPage();
 
@@ -52,7 +53,7 @@ Then(/^I should (see|not see) the legal representative details$/, async function
     if (isDisplayed) {
 
         expect(await ccdPage.isFieldValueDisplayed('Company', 'IA Legal Services')).to.equal(true);
-        expect(await ccdPage.isFieldValueDisplayed('Email', 'ia-law-firm-a@fake.hmcts.net')).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Email', iaConfig.TestLawFirmAUserName)).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Legal representative reference', 'ia-legal-fenn')).to.equal(true);
 
     } else {

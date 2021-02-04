@@ -124,6 +124,15 @@ export class AuthenticationFlow {
         );
     }
 
+    async signInAsLawFirmOrgCreator() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestLawFirmOrgCreatorUserName,
+            iaConfig.TestLawFirmOrgCreatorPassword
+        );
+    }
+
     async signOut() {
         await browser.waitForAngularEnabled(false);
         await browser.driver.manage().deleteAllCookies();
