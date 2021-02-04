@@ -59,8 +59,20 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
-    enableFullFunctionalTest(120)
+    //enableFullFunctionalTest(120)
+    
+    enableCrossBrowserTest()
 
-    enableSlackNotifications('#ia-tech')
+    //enableSlackNotifications('#ia-tech')
 
+    after('crossBrowserTest') {
+        publishHTML([
+            allowMissing         : true,
+            alwaysLinkToLastBuild: true,
+            keepAll              : true,
+            reportDir            : "reports/tests/crossbrowser/",
+            reportFiles          : 'index.html',
+            reportName           : 'IA Service Cross Browser Tests'
+        ])
+    }
 }

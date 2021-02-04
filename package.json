@@ -9,6 +9,7 @@
     "test:fullfunctional": "protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTest": "protractor ./e2e/features.conf.js --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelScenarios": "protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
+    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowsertest' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "localTestParallelFeatures": "protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "test:nsp": "nsp check"
   },
@@ -36,7 +37,7 @@
     "protractor": "^5.4.2",
     "protractor-beautiful-reporter": "^1.2.5",
     "protractor-cucumber-framework": "^6.1.1",
-    "protractor-multiple-cucumber-html-reporter-plugin": "^1.8.0",
+    "protractor-multiple-cucumber-html-reporter-plugin": "^1.8.1",
     "puppeteer": "1.15.0",
     "request-promise": "^4.2.5",
     "rxjs": "^6.5.4",
@@ -55,5 +56,8 @@
     "mixin-deep": "^2.0.1",
     "set-value": "^3.0.1",
     "yargs-parser": "^18.1.2"
+  },
+  "devDependencies": {
+    "protractor-screenshot-utils": "^1.0.6"
   }
 }
