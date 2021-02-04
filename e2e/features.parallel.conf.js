@@ -46,7 +46,10 @@ class BaseConfig {
     this.baseUrl = iaConfig.CcdWebUrl;
     this.allScriptsTimeout = 120000;
     this.getPageTimeout = 120000;
-
+    this.plugins = [{
+      axe: true,
+      package: 'protractor-accessibility-plugin'
+    }];
     if (argv.parallelFeatures || argv.parallelScenarios) {
       this.maxSessions = parseInt(iaConfig.RunWithNumberOfBrowsers, 10);
       this.getMultiCapabilities = () => {

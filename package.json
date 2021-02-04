@@ -34,6 +34,7 @@
     "nsp": "^3.2.1",
     "pre-commit": "^1.2.2",
     "protractor": "^5.4.2",
+    "protractor-accessibility-plugin": "0.3.0",
     "protractor-beautiful-reporter": "^1.2.5",
     "protractor-cucumber-framework": "^6.1.1",
     "protractor-multiple-cucumber-html-reporter-plugin": "^1.8.0",
