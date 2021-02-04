@@ -16,8 +16,8 @@
     "lint"
   ],
   "dependencies": {
-    "@angular/compiler": "^7.0.0",
-    "@angular/core": "^7.0.0",
+    "@angular/compiler": "^7.2.16",
+    "@angular/core": "^7.2.16",
     "@hmcts/eslint-config": "^1.4.0",
     "@types/chai": "^4.1.6",
     "@types/cucumber": "^4.0.4",
