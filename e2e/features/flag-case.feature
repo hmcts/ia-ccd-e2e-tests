@@ -9,6 +9,7 @@ Feature: Flag a case
 
     When I select the `Flag the case` Next step
     Then I am on the `Flag the case` page
+    And the page is accessible
     And I should see the text `This flag will only be visible to the Tribunal.`
     And the `Continue` button is disabled
 

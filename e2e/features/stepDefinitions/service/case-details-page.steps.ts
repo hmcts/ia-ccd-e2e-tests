@@ -6,15 +6,18 @@ import { Wait } from '../../../enums/wait';
 const ccdPage = new CcdPage();
 
 Then(/^I should see an alert confirming the case `?([^`]+)`?$/, async function (alertText) {
+    await ccdPage.runAccessbility();
     expect(await ccdPage.alertContains(alertText)).to.equal(true);
 });
 
 Then(/^I select the `?([^`]+)`? Next step$/, async function (nextStep) {
+    await ccdPage.runAccessbility();
     await ccdPage.selectNextStep(nextStep);
     await ccdPage.click('Go');
 });
 
 Then(/^I should not see the decision fields$/, async function () {
+    await ccdPage.runAccessbility();
     expect(await ccdPage.contentContains('Introduction', Wait.instant)).to.equal(false);
     expect(await ccdPage.contentContains('Appellant\'s case summary', Wait.instant)).to.equal(false);
     expect(await ccdPage.contentContains('Do both parties agree the immigration history?', Wait.instant)).to.equal(false);

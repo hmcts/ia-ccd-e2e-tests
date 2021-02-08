@@ -1,10 +1,8 @@
 import { browser, by, element } from 'protractor';
 import { Wait } from '../enums/wait';
 import { ValueExpander } from '../helpers/value-expander';
-import AxeBuilder from '@axe-core/webdriverjs';
 
-let builder = new AxeBuilder(browser.driver);
-
+const AxeRunner = require('../helpers/accessibility/axe-runner');
 const iaConfig = require('../ia.conf');
 
 export class AnyPage {
@@ -20,10 +18,9 @@ export class AnyPage {
     }
 
     async runAccessbility() {
-        console.log('start accessibility');
-
-        let results = await builder.analyze();
-        console.log('results are ..', results.url, '...', results.violations);
+        if (iaConfig.TestForAccessibility) {
+            await AxeRunner.runAndReportAccessibility();
+        }
     }
 
     async getDisplayedImageSources(wait = Wait.normal) {
