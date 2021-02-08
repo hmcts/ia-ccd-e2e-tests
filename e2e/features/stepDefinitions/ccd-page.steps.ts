@@ -11,9 +11,11 @@ const ccdFormPage = new CcdFormPage();
 
 Given('I create a new case', async function () {
     await ccdPage.linkContains('Create case');
+    await ccdPage.runAccessbility();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.isButtonEnabled('Start');
+    await ccdPage.runAccessbility();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdPage.doesDropdownHaveValues('Case type');
     await ccdPage.doesDropdownHaveValues('Event');

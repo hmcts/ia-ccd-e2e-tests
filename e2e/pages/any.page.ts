@@ -1,6 +1,9 @@
 import { browser, by, element } from 'protractor';
 import { Wait } from '../enums/wait';
 import { ValueExpander } from '../helpers/value-expander';
+import AxeBuilder from '@axe-core/webdriverjs';
+
+let builder = new AxeBuilder(browser.driver);
 
 const iaConfig = require('../ia.conf');
 
@@ -14,6 +17,13 @@ export class AnyPage {
 
     async get(uri: string) {
         await browser.get(uri);
+    }
+
+    async runAccessbility() {
+        console.log('start accessibility');
+
+        let results = await builder.analyze();
+        console.log('results are ..', results.url, '...', results.violations);
     }
 
     async getDisplayedImageSources(wait = Wait.normal) {
