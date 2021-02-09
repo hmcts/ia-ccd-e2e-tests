@@ -50,7 +50,6 @@ module.exports = {
       };
     };
     const violations = accessibilityErrorsOnThePage.violations.map(processIssue);
-    console.log('violations are..', violations);
     const isPageAccessible = violations.length === 0 ? result.PASSED : result.FAILED;
 
     const urlArr = accessibilityErrorsOnThePage.url.split('/');
@@ -68,12 +67,9 @@ module.exports = {
         screenshot: screenshotReportRef,
         a11yIssues: violations
       });
-
-    console.log('result obj is ...', resultObj);
   },
 
   getAccessibilityTestResult() {
-    console.log('result obj is1 ...', resultObj);
     return resultObj;
   }
 }

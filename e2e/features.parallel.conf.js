@@ -10,7 +10,7 @@ const {
 } = require('events');
 const eventBroadcaster = new EventEmitter();
 
-const {generateAccessibilityReport} = require('../reporter/customReporter');
+const {generateAccessibilityReport, generateFunctionalTestsReport} = require('../reporter/customReporter');
 const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
@@ -101,16 +101,6 @@ class BaseConfig {
       'no-source': true
     };
 
-    this.mochaOpts = {
-      reporter: 'mochawesome',
-      reporterOptions: {
-        overwrite: false,
-        reportDir: iaConfig.TestOutputDir,
-        reportName: 'IAC - Expert UI E2E Tests',
-        inlineAssets: true
-      }
-    },
-
     this.onPrepare = () => {
       // returning the promise makes protractor wait for
       // the reporter config before executing tests
@@ -128,6 +118,7 @@ class BaseConfig {
 
     this.onComplete = () => {
       generateAccessibilityReport();
+      generateFunctionalTestsReport();
     }
   }
 
