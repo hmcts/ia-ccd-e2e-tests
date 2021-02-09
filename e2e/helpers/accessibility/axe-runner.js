@@ -26,7 +26,6 @@ module.exports = {
     const accessibilityErrorsOnThePage = await new AxeBuilder(browser.driver)
                           .withTags(['wcag2a', 'wcag2aa'])
                           .analyze();
-    console.log('results are ..',screenshotPath, accessibilityErrorsOnThePage.url, '...', accessibilityErrorsOnThePage.violations);
 
     await browser.takeScreenshot()
                       .then( async (screenShot) => {
@@ -40,16 +39,28 @@ module.exports = {
                         });
                       });
 
-      const violations = accessibilityErrorsOnThePage.violations;
-      const isPageAccessible = violations.length === 0 ? result.PASSED : result.FAILED;
+    const processIssue = function(issue) {
+      return {
+        code: issue.id,
+        message: issue.description,
+        helpurl: issue.helpUrl,
+        type: issue.impact,
+        element: issue.nodes,
+        tags: issue.tags,
+        runner: 'axe'
+      };
+    };
+    const violations = accessibilityErrorsOnThePage.violations.map(processIssue);
+    console.log('violations are..', violations);
+    const isPageAccessible = violations.length === 0 ? result.PASSED : result.FAILED;
 
-      const urlArr = accessibilityErrorsOnThePage.url.split('/');
+    const urlArr = accessibilityErrorsOnThePage.url.split('/');
     
-      if (isPageAccessible === result.PASSED) {
-        resultObj.passCount += 1;
-      } else {
-        resultObj.failCount += 1;
-      }
+    if (isPageAccessible === result.PASSED) {
+      resultObj.passCount += 1;
+    } else {
+      resultObj.failCount += 1;
+    }
     
       resultObj.tests.push({
         name: urlArr[urlArr.length -2] + '/' + urlArr[urlArr.length -1],
