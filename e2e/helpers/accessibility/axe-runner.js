@@ -72,7 +72,7 @@ module.exports = {
     console.log('result obj is ...', resultObj);
   },
 
-  async getAccessibilityTestResult() {
+  getAccessibilityTestResult() {
     console.log('result obj is1 ...', resultObj);
     return resultObj;
   }
