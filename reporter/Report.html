@@ -139,8 +139,8 @@
             </div>
            
             <div class="stats">
-                <i class="fas fa-check-circle" style="font-size:40px;color:lightgreen;"></i>{{data.passed}}
-              <i class="fas fa-times-circle" style="font-size:40px;color:red;"></i>{{data.failed}}  
+                <i class="fas fa-check-circle" style="font-size:40px;color:lightgreen;"></i>{{data.passCount}}
+              <i class="fas fa-times-circle" style="font-size:40px;color:red;"></i>{{data.failCount}}  
             </div>
             
         </div>
@@ -159,41 +159,40 @@
             <table class="resultTable">
                 <tr>
                     <th>Page URL:</th>
-                    <td>{{test.a11yResult.pageUrl}}</td>
+                    <td>{{test.pageUrl}}</td>
                 </tr>
                 <tr>
                     <th>Total issues:</th>
-                    <td>{{test.a11yResult.issues.length}}</td>
+                    <td>{{test.a11yIssues.length}}</td>
                 </tr>
             </table>
         
             <h4>Issues:</h4>
-            <div ng-repeat="issue in test.a11yResult.issues">
+            <div ng-repeat="issue in test.a11yIssues">
                 <table class="issuesTable">
                     <tr> <th>Issue code</th><td>{{issue.code}}</td></tr>
-                     <tr> <th>Issue type</th><td>{{issue.type}}</td></tr>
+                    <tr> <th>Issue type</th><td>{{issue.type}}</td></tr>
+                    <tr> <th>Issue message</th><td>{{issue.message}}</td></tr>
+                    <tr> <th>Issue helpurl</th><td>{{issue.helpurl}}</td></tr>
+                    <tr> <th>Issue tags</th><td>{{issue.tags}}</td></tr>
+                    <tr> <th>Issue element</th><td>{{issue.element}}</td></tr>
                     <tr>
                         <th>Runner</th>
                         <td>{{issue.runner}}</td>
                     </tr>
                     <tr><th>Message</th> <td>{{issue.message}}</td></tr>
-                    <tr> <th>Selector</th><td>{{issue.selector}}</td></tr>
-                    <tr>
-                        <th>Context</th>
-                        <td><pre><code>{{issue.context}}</code></pre></td>
-                    </tr>
                     
                 </table>
              
             </div>
-            <img ng-src="{{test.a11yResult.screenshot}}" alt="a11y test page" width="500" height="500">
+            <img ng-src="{{test.screenshot}}" alt="a11y test page" width="500" height="500">
 
         </div>
     </div>
 
     
     </div>
-        <script src="./report_output.js" ></script>
+        <script src="./a11y_output.js" ></script>
 
         <script>
             var data = replacejsoncontent;

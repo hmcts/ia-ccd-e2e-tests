@@ -42,9 +42,9 @@ module.exports = {
     const processIssue = function(issue) {
       return {
         code: issue.id,
+        type: issue.impact,
         message: issue.description,
         helpurl: issue.helpUrl,
-        type: issue.impact,
         element: issue.nodes,
         tags: issue.tags,
         runner: 'axe'
