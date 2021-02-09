@@ -1,7 +1,5 @@
 const fs = require('fs');
-
 const AxeBuilder = require('@axe-core/webdriverjs');
-
 const iaconfig = require('../../ia.conf');
 
 const result = {
@@ -17,7 +15,6 @@ const resultObj = {
 };
 
 module.exports = {
-
   async runAndReportAccessibility() {
     const screenshotPath = iaconfig.TestOutputDir + '/assets';
     const screenshotName = Date.now() + '.png';
@@ -60,13 +57,13 @@ module.exports = {
       resultObj.failCount += 1;
     }
     
-      resultObj.tests.push({
-        name: urlArr[urlArr.length -2] + '/' + urlArr[urlArr.length -1],
-        pageUrl: accessibilityErrorsOnThePage.url,
-        status: isPageAccessible,
-        screenshot: screenshotReportRef,
-        a11yIssues: violations
-      });
+    resultObj.tests.push({
+      name: urlArr[urlArr.length -2] + '/' + urlArr[urlArr.length -1],
+      pageUrl: accessibilityErrorsOnThePage.url,
+      status: isPageAccessible,
+      screenshot: screenshotReportRef,
+      a11yIssues: violations
+    });
   },
 
   getAccessibilityTestResult() {
