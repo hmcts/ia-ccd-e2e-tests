@@ -5,6 +5,7 @@ const fs = require('fs');
 
 function generateAccessibilityReport() {
   const reportJson = AxeRunner.getAccessibilityTestResult();
+  console.log('reportJson value is..', reportJson);
   const result = 'var replacejsoncontent = ' + JSON.stringify(reportJson);
 
   const sourceReport = __dirname + '/Report.html';

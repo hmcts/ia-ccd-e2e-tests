@@ -58,9 +58,12 @@ module.exports = {
         screenshot: screenshotReportRef,
         a11yIssues: violations
       });
+
+    console.log('result obj is ...', resultObj);
   },
 
   async getAccessibilityTestResult() {
+    console.log('result obj is1 ...', resultObj);
     return resultObj;
   }
 }
