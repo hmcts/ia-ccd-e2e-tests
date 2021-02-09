@@ -90,7 +90,6 @@ class BaseConfig {
 
     this.cucumberOpts = {
       strict: true,
-      'no-colors': true,
       format: ['node_modules/cucumber-pretty', 'json:functional-output/xui/functionTestResult.json'],
       require: [
         './cucumber.conf.js',
