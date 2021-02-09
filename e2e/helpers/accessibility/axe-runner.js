@@ -45,7 +45,6 @@ module.exports = {
         type: issue.impact,
         message: issue.description,
         helpurl: issue.helpUrl,
-        element: issue.nodes,
         tags: issue.tags,
         runner: 'axe'
       };
