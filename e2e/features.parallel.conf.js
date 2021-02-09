@@ -10,7 +10,7 @@ const {
 } = require('events');
 const eventBroadcaster = new EventEmitter();
 
-const {generateAccessibilityReport, generateFunctionalTestsReport} = require('../reporter/customReporter');
+const {generateAccessibilityReport} = require('../reporter/customReporter');
 const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
@@ -89,6 +89,9 @@ class BaseConfig {
     this.frameworkPath = require.resolve('protractor-cucumber-framework');
 
     this.cucumberOpts = {
+      strict: true,
+      'no-colors': true,
+      format: ['node_modules/cucumber-pretty', 'json:functional-output/xui/functionTestResult.json'],
       require: [
         './cucumber.conf.js',
         './features/stepDefinitions/**/*.steps.ts'
@@ -114,12 +117,24 @@ class BaseConfig {
       tsNode.register({
         project: path.join(__dirname, './tsconfig.e2e.json')
       });
-    }
+    };
 
     this.onComplete = () => {
       generateAccessibilityReport();
-      generateFunctionalTestsReport();
-    }
+    };
+
+    this.plugins = [
+      {
+          package: 'protractor-simple-cucumber-html-reporter-plugin',
+          options: {
+              automaticallyGenerateReport: true,
+              removeExistingJsonReportFile: true,
+              reportName: 'IAC CCD E2E Tests',
+              jsonDir: './functional-output/xui',
+              reportPath: './functional-output/xui'
+          }
+      }
+  ]
   }
 
   /*

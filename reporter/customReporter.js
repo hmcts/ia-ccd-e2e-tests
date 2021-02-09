@@ -1,23 +1,6 @@
 const testConfig = require('../e2e/ia.conf');
 const AxeRunner = require('../e2e/helpers/accessibility/axe-runner');
-const reporter = require('cucumber-html-reporter');
 const fs = require('fs');
-
-function generateFunctionalTestsReport() {
-  const options = {
-    theme: 'bootstrap',
-    jsonFile: testConfig.TestOutputDir + '/functional-test-results.json',
-    output: testConfig.TestOutputDir + '/functional-test-results.html',
-    reportSuiteAsScenarios: true,
-    launchReport: true,
-    metadata: {
-        "Test Environment": "AAT",
-    },
-    output: testConfig.TestOutputDir  + '/report/cucumber_report.html',
-  };
-  reporter.generate(options);
-}
-
 
 function generateAccessibilityReport() {
   const reportJson = AxeRunner.getAccessibilityTestResult();
@@ -50,4 +33,4 @@ function copyResources() {
     fs.copyFileSync(__dirname + '/resources/webfonts/fa-solid-900.woff2', webfontsDir + 'fa-solid-900.woff2');
 }
 
-module.exports = {generateAccessibilityReport, generateFunctionalTestsReport};
+module.exports = {generateAccessibilityReport};
