@@ -61,9 +61,9 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
     enableFullFunctionalTest(120)
 
-    //enableSlackNotifications('#ia-tech')
-
     after('fullFunctionalTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
+
+    enableSlackNotifications('#ia-tech')
 }
