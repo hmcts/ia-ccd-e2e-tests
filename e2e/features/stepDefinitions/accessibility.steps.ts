@@ -3,6 +3,6 @@ import { Then } from 'cucumber';
 
 const ccdPage = new CcdPage();
 
-Then(/^the page is accessible$/, async function () {
+Then(/^The page is accessible$/, async function () {
     await ccdPage.runAccessbility();
 });
