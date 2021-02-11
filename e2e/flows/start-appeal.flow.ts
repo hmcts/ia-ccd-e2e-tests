@@ -1,3 +1,4 @@
+import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class StartAppealFlow {
@@ -87,7 +88,7 @@ export class StartAppealFlow {
     }
 
     async completeNationality(clickContinue = false) {
-
+        await browser.sleep(5000);
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Nationality', 'Has a nationality');
         await this.ccdFormPage.addCollectionItem('Nationality');
