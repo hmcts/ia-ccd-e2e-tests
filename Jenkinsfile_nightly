@@ -62,7 +62,23 @@ withNightlyPipeline("nodejs", product, component) {
     enableFullFunctionalTest(120)
 
     after('fullFunctionalTest') {
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+        publishHTML([
+            allowMissing         : true,
+            alwaysLinkToLastBuild: true,
+            keepAll              : true,
+            reportDir            : "reports/tests/functional/",
+            reportFiles          : 'index.html',
+            reportName           : 'IAC - Manage Cases Functional Test'
+        ])
+
+        publishHTML([
+            allowMissing         : true,
+            alwaysLinkToLastBuild: true,
+            keepAll              : true,
+            reportDir            : "reports/tests/",
+            reportFiles          : 'a11y.html',
+            reportName           : 'IAC - Manage Cases a11y Test Report'
+        ])
     }
 
     enableSlackNotifications('#ia-tech')

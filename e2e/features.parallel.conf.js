@@ -90,7 +90,7 @@ class BaseConfig {
 
     this.cucumberOpts = {
       strict: true,
-      format: ['node_modules/cucumber-pretty', 'json:functional-output/xui/functionTestResult.json'],
+      format: ['node_modules/cucumber-pretty', 'json:reports/tests/functionTestResult.json'],
       require: [
         './cucumber.conf.js',
         './features/stepDefinitions/**/*.steps.ts'
@@ -124,13 +124,13 @@ class BaseConfig {
 
     this.plugins = [
       {
-          package: 'protractor-simple-cucumber-html-reporter-plugin',
+          package: 'protractor-multiple-cucumber-html-reporter-plugin',
           options: {
               automaticallyGenerateReport: true,
               removeExistingJsonReportFile: true,
               reportName: 'IAC CCD E2E Tests',
-              jsonDir: './functional-output/xui',
-              reportPath: './functional-output/xui'
+              jsonDir: 'reports/tests/functional',
+              reportPath: 'reports/tests/functional'
           }
       }
   ]

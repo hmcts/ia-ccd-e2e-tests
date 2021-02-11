@@ -1,4 +1,4 @@
-functional-output/
+reports/
 node_modules/
 .idea/
 yarn-error.log
