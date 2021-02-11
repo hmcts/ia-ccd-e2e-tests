@@ -34,6 +34,7 @@ export class CcdWriteFixedRadioListField implements Field {
     }
 
     public async setValue(value) {
+        console.log('radio button value is : ' + value);
         await this.container
             .element(by.xpath('.//label[normalize-space()="' + value + '"]/preceding-sibling::input[1]'))
             .click();
