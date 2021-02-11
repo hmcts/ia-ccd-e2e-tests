@@ -10,6 +10,7 @@ const {
 } = require('events');
 const eventBroadcaster = new EventEmitter();
 
+const {generateAccessibilityReport} = require('../reporter/customReporter');
 const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
@@ -46,7 +47,6 @@ class BaseConfig {
     this.baseUrl = iaConfig.CcdWebUrl;
     this.allScriptsTimeout = 120000;
     this.getPageTimeout = 120000;
-
     if (argv.parallelFeatures || argv.parallelScenarios) {
       this.maxSessions = parseInt(iaConfig.RunWithNumberOfBrowsers, 10);
       this.getMultiCapabilities = () => {
@@ -89,6 +89,8 @@ class BaseConfig {
     this.frameworkPath = require.resolve('protractor-cucumber-framework');
 
     this.cucumberOpts = {
+      strict: true,
+      format: ['node_modules/cucumber-pretty', 'json:reports/tests/functionTestResult.json'],
       require: [
         './cucumber.conf.js',
         './features/stepDefinitions/**/*.steps.ts'
@@ -114,7 +116,24 @@ class BaseConfig {
       tsNode.register({
         project: path.join(__dirname, './tsconfig.e2e.json')
       });
-    }
+    };
+
+    this.onComplete = () => {
+      generateAccessibilityReport();
+    };
+
+    this.plugins = [
+      {
+          package: 'protractor-multiple-cucumber-html-reporter-plugin',
+          options: {
+              automaticallyGenerateReport: true,
+              removeExistingJsonReportFile: true,
+              reportName: 'IAC CCD E2E Tests',
+              jsonDir: 'reports/tests/functional',
+              reportPath: 'reports/tests/functional'
+          }
+      }
+  ]
   }
 
   /*

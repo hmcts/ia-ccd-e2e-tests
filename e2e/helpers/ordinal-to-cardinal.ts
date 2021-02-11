@@ -4,6 +4,7 @@ export class OrdinalToCardinal {
 
         switch (ordinalWord) {
 
+            case null:
             case undefined:
             case '':
             case 'first':

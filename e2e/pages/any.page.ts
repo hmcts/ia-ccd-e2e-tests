@@ -2,6 +2,7 @@ import { browser, by, element } from 'protractor';
 import { Wait } from '../enums/wait';
 import { ValueExpander } from '../helpers/value-expander';
 
+const AxeRunner = require('../helpers/accessibility/axe-runner');
 const iaConfig = require('../ia.conf');
 
 export class AnyPage {
@@ -14,6 +15,12 @@ export class AnyPage {
 
     async get(uri: string) {
         await browser.get(uri);
+    }
+
+    async runAccessbility() {
+        if (iaConfig.TestForAccessibility) {
+            await AxeRunner.runAndReportAccessibility();
+        }
     }
 
     async getDisplayedImageSources(wait = Wait.normal) {

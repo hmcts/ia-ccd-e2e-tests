@@ -5,8 +5,8 @@ export class StartAppealFlow {
     private ccdFormPage = new CcdFormPage();
 
     async completeScreeningQuestions(clickContinue = false) {
-
         await this.ccdFormPage.click('My client is living in the UK');
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click('My client is not in detention');
         await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
 
@@ -16,6 +16,7 @@ export class StartAppealFlow {
     }
 
     async completeHomeOfficeReference(clickContinue = false, homeOfficeReferenceNumber = '') {
+        await this.ccdFormPage.runAccessbility();
         if (homeOfficeReferenceNumber !== '') {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
         } else {
@@ -29,7 +30,7 @@ export class StartAppealFlow {
     }
 
     async completeUploadNoticeDecision(clickContinue = false) {
-
+      await this.ccdFormPage.runAccessbility();
       await this.ccdFormPage.setFieldValue(
         'Notice of Decision (Optional)',
         '{@test.doc}',
@@ -49,6 +50,7 @@ export class StartAppealFlow {
 
     async completeUploadNoticeDecisionNoUpload(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue(
             'Reason you cannot provide the Notice of Decision (Optional)',
             'I do not have this document',
@@ -62,6 +64,7 @@ export class StartAppealFlow {
 
     async completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
         await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '01-01-2018');
 
@@ -72,6 +75,7 @@ export class StartAppealFlow {
 
     async completeBasicDetails(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Title', 'Mr');
         await this.ccdFormPage.setFieldValue('Given names', 'José');
         await this.ccdFormPage.setFieldValue('Family name', 'González');
@@ -83,6 +87,8 @@ export class StartAppealFlow {
     }
 
     async completeNationality(clickContinue = false) {
+
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Nationality', 'Has a nationality');
         await this.ccdFormPage.addCollectionItem('Nationality');
         await this.ccdFormPage.setFieldValue('Nationality', 'Finland', 'select list', 'first', 'Nationality', 'first');
@@ -94,6 +100,7 @@ export class StartAppealFlow {
 
     async completeClientAddress(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
 
+        await this.ccdFormPage.runAccessbility();
         if (!hasFixedAddress) {
             await this.ccdFormPage.setFieldValue('Does the appellant have a fixed address?', 'No');
         } else {
@@ -112,6 +119,7 @@ export class StartAppealFlow {
 
     async completeContactPreference(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Communication Preference', 'Text message');
         await this.ccdFormPage.setFieldValue('Mobile phone number', '07977111111');
         if (clickContinue) {
@@ -129,6 +137,7 @@ export class StartAppealFlow {
 
     async completeGivenAppealType(clickContinue = false, appealType) {
 
+        await this.ccdFormPage.runAccessbility();
         if (appealType === 'EA') {
             await this.ccdFormPage.setFieldValue('Type of appeal', 'Refusal of application under the EEA regulations');
         }
@@ -151,6 +160,7 @@ export class StartAppealFlow {
 
     async completeAppealGrounds(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click('Removing the appellant from the UK would breach the UK\'s obligation under the Refugee Convention');
 
         if (clickContinue) {
@@ -160,6 +170,7 @@ export class StartAppealFlow {
 
     async completedGivenAppealGrounds(clickContinue = false, appealType) {
 
+        await this.ccdFormPage.runAccessbility();
         if (appealType === 'EA') {
             await this.ccdFormPage.click('The decision breaches the appellant\'s rights under the EEA regulations');
         }
@@ -182,6 +193,7 @@ export class StartAppealFlow {
 
     async completedDeportationOrder(clickContinue = false, appealType) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Has a deportation order been made against the appellant?', 'No');
 
         if (clickContinue) {
@@ -191,6 +203,7 @@ export class StartAppealFlow {
 
     async completeNewMatters(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue(
             'Are there any new reasons your client wishes to remain in the UK ' +
             'or any new grounds on which they should be permitted to stay?',
@@ -208,6 +221,7 @@ export class StartAppealFlow {
 
     async completeDeportationOrder(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
       await this.ccdFormPage.setFieldValue(
         'Has a deportation order been made against the appellant?',
         'Yes'
@@ -220,6 +234,7 @@ export class StartAppealFlow {
 
     async completeOtherAppeals(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Other appeals', 'No');
 
         if (clickContinue) {
@@ -229,6 +244,7 @@ export class StartAppealFlow {
 
     async completeReferenceNumber(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
         await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
         await this.ccdFormPage.setFieldValue('Own reference', 'some-ref');
@@ -239,6 +255,7 @@ export class StartAppealFlow {
 
     async completeLegalRepresentativeDetails(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
         await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
         await this.ccdFormPage.setFieldValue('Own reference', 'ia-legal-fenn');
@@ -250,6 +267,7 @@ export class StartAppealFlow {
 
     async completeGivenFee(clickContinue = false, feeType) {
 
+        await this.ccdFormPage.runAccessbility();
         if (feeType === 'without') {
             await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision without a hearing. The fee for this type of appeal is £80');
         } else {
@@ -263,6 +281,7 @@ export class StartAppealFlow {
 
     async completeHowToPayNow(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click('Pay now using Payment by Account');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -271,6 +290,7 @@ export class StartAppealFlow {
 
     async completeHowToPayOffline(clickContinue = false, appealType) {
 
+        await this.ccdFormPage.runAccessbility();
         if (appealType === 'PA') {
             await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal by card');
         }
@@ -285,6 +305,7 @@ export class StartAppealFlow {
 
     async completeHowToPayLater(clickContinue = false, appealType) {
 
+        await this.ccdFormPage.runAccessbility();
         if (appealType === 'PA') {
             await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal using Payment by Account');
         }
@@ -296,6 +317,7 @@ export class StartAppealFlow {
 
     async completeCheckYourAnswers(clickContinue = false) {
 
+        await this.ccdFormPage.runAccessbility();
         if (clickContinue) {
             await this.ccdFormPage.click('Save and continue');
         }
@@ -548,6 +570,7 @@ export class StartAppealFlow {
 
     async completeHearingOption(clickContinue = false, hearingOption = '') {
 
+        await this.ccdFormPage.runAccessbility();
         if (hearingOption === 'without') {
             await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision without a hearing');
         }
@@ -561,6 +584,8 @@ export class StartAppealFlow {
     }
 
     async completeRemissionDetails(clickContinue = false, remissionOption = '') {
+
+        await this.ccdFormPage.runAccessbility();
         if (remissionOption === 'no remission') {
             await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client is not eligible for a fee remission');
         }
