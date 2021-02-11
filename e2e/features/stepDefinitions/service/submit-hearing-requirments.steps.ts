@@ -1,4 +1,4 @@
-import { Then } from 'cucumber';
+import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
 import { Wait } from '../../../enums/wait';
 import { CcdPage } from '../../../pages/ccd.page';
@@ -34,15 +34,15 @@ Then(/^I should (see|not see) the hearing requirements (yes|no) path$/, async fu
             expect(await ccdPage.isFieldValueDisplayed('Will the appellant give oral evidence at the hearing?', 'Yes')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Will the appellant attend the hearing?', 'Yes')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Will any witnesses attend the hearing?', 'Yes')).to.equal(true);
-            expect(await ccdPage.isFieldValueDisplayed('Name', 'Jenny Button')).to.equal(true);
+            expect(await ccdPage.contentContains('Name', Wait.instant)).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('How many witnesses will attend?', '1')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Do you need interpreter services on the day?', 'Yes')).to.equal(true);
-            expect(await ccdPage.isFieldValueDisplayed('Language', 'Zulu')).to.equal(true);
-            expect(await ccdPage.isFieldValueDisplayed('Dialect', 'Kwabe')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Do you need a hearing room with step-free access?', 'Yes')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Do you need a hearing loop?', 'Yes')).to.equal(true);
-            expect(await ccdPage.isFieldValueDisplayed('Date', '31 Dec 2019')).to.equal(true);
-            expect(await ccdPage.isFieldValueDisplayed('Reason', 'New Year\'s Eve')).to.equal(true);
+            expect(await ccdPage.contentContains('Language', Wait.instant)).to.equal(true);
+            expect(await ccdPage.contentContains('Dialect', Wait.instant)).to.equal(true);
+            expect(await ccdPage.contentContains('Date', Wait.instant)).to.equal(true);
+            expect(await ccdPage.contentContains('Reason', Wait.instant)).to.equal(true);
         } else {
             expect(await ccdPage.isFieldValueDisplayed('Will the appellant give oral evidence at the hearing?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Will the appellant attend the hearing?', 'No')).to.equal(true);
@@ -105,4 +105,8 @@ Then(/^I should (see|not see) the reheard hearing requirements (yes|no) path$/, 
         expect(await ccdPage.contentContains('Do you need a hearing room with step-free access?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Do you need a hearing loop?', Wait.instant)).to.equal(false);
     }
+});
+
+Given(/^I select `?([^\s`]+)`? for Remote hearing with details `?([^`]+)`?$/, async function (isYesPath, details) {
+        await submitHearingRequirementsFlow.setRemoteHearingRequirement(true, isYesPath, details);
 });
