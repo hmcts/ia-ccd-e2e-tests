@@ -403,10 +403,8 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
-        if (remission === 'no remission') {
-            await this.completeHowToPayNow(true);
-        }
+        await this.completeRemissionDetails(true, 'no remission');
+        await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -445,8 +443,9 @@ export class StartAppealFlow {
         await this.completeNationality(true);
         await this.completeClientAddress(true, false, '', '');
         await this.completeContactPreference(true);
-        await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeSponsorQuestion(true );
+        await this.completeGivenAppealType(true, 'PA');
+        await this.completedGivenAppealGrounds(true, 'PA');
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -481,7 +480,7 @@ export class StartAppealFlow {
         await this.completeNationality(true);
         await this.completeClientAddressOutOfCountry(true, hasAddress === 'Yes' ? true : false);
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true, hasSponsor)
+        await this.completeSponsorQuestion(true)
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         if (decisionType !== 'refusalOfHumanRights') {
@@ -515,7 +514,7 @@ export class StartAppealFlow {
         await this.completeNationality(true);
         await this.completeClientAddressOutOfCountry(true, hasAddress === 'Yes' ? true : false);
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true, hasSponsor );
+        await this.completeSponsorQuestion(true );
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         if (decisionType !== 'refusalOfHumanRights') {
@@ -525,10 +524,8 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
-        if (remission === 'no remission') {
-            await this.completeHowToPayOffline(true, appealType);
-        }
+        await this.completeRemissionDetails(true, 'no remission');
+        await this.completeHowToPayOffline(true, appealType);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {

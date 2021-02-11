@@ -60,6 +60,9 @@ Feature: Record agreed hearing requirements
     And I should see the text `Do not enter the reason the appellant made the request.`
     And I should see the text `The respondent will be able to see this information and must not be informed of the appellant's personal circumstances.`
     And I should see the text `Adjustment request`
+
+
+    And I record `false` for Remote hearing requirement will be reviewed
     And I should see `No` in the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
     And I click the `Continue` button
     And I should see `No` in the `Do you have multimedia evidence?` field
@@ -83,7 +86,7 @@ Feature: Record agreed hearing requirements
 
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_listing.png` case progress image
-    And I should see the text `Do this next`
+    And I should see the text `What happens next`
     And I should see the text `The agreed hearing requirements and adjustments have been recorded.`
     And I should see the text `The listing team will now list the case.`
 
@@ -134,6 +137,9 @@ Feature: Record agreed hearing requirements
     And I should see the text `Do not enter the reason the appellant made the request.`
     And I should see the text `The respondent will be able to see this information and must not be informed of the appellant's personal circumstances.`
     And I should see the text `Adjustment request`
+
+    And I record `true` for Remote hearing requirement will be reviewed
+
     And I should see `Yes` in the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
     And I should see `The appellant is deaf in one ear` in the `Explain in detail how any physical or mental health issues may affect them on the day.` field
     And I should see the text `Tribunal response`
@@ -167,7 +173,7 @@ Feature: Record agreed hearing requirements
 
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_listing.png` case progress image
-    And I should see the text `Do this next`
+    And I should see the text `What happens next`
     And I should see the text `The agreed hearing requirements and adjustments have been recorded.`
     And I should see the text `The listing team will now list the case.`
 
