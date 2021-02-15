@@ -43,7 +43,7 @@ export class UploadRespondentEvidenceFlow {
 
         await this.ccdFormPage.addCollectionItem('Upload Home Office bundle');
         await this.ccdFormPage.setFieldValue(
-            'Document',
+            'Upload a file',
             '{@RespondentEvidence.pdf}',
             'document',
             'first',
