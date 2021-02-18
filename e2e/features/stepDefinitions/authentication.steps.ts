@@ -162,20 +162,20 @@ Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
     await ccdPage.contentContains('Immigration');
 });
 
-Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| B)`?$/, async function () {
-    await browser.sleep(100);
-    const currentUrl = await ccdPage.getCurrentUrl();
-    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-    await authenticationFlow.signInAsLawFirmOrgUserB();
-    await browser.sleep(100);
-    await ccdPage.get(caseUrl);
-});
-
 Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| A)`?$/, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsLawFirmOrgUserA();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+});
+
+Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| B)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsLawFirmOrgUserB();
     await browser.sleep(100);
     await ccdPage.get(caseUrl);
 });
