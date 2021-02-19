@@ -1,5 +1,6 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { browser } from 'protractor';
+const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
 
 export class SubmitHearingRequirementsFlow {
 
@@ -97,6 +98,8 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.click('Continue');
+
+        await this.setRemoteHearingRequirement(true, 'Yes', 'The appellant has good internet connectivity and a laptops');
 
         await this.ccdFormPage.setFieldValue(
             'Does the appellant have any physical or mental health issues that may impact them on the day?',
@@ -232,6 +235,8 @@ export class SubmitHearingRequirementsFlow {
 
         await this.ccdFormPage.click('Continue');
 
+        await this.setRemoteHearingRequirement(true, 'Yes', 'The appellant has good internet connectivity and a laptops');
+
         await this.ccdFormPage.setFieldValue(
             'Does the appellant have any physical or mental health issues that may impact them on the day?',
             'Yes'
@@ -354,6 +359,8 @@ export class SubmitHearingRequirementsFlow {
 
         await this.ccdFormPage.click('Continue');
 
+        await this.setRemoteHearingRequirement(true, 'No', '');
+
         await this.ccdFormPage.setFieldValue(
             'Does the appellant have any physical or mental health issues that may impact them on the day?',
             'No'
@@ -396,5 +403,28 @@ export class SubmitHearingRequirementsFlow {
         );
 
         await this.ccdFormPage.click('Continue');
+    }
+
+    async setRemoteHearingRequirement(clickContinue = false, isYesPath = '', details = '') {
+        if (isOutOfCountryEnabled) {
+            if (isYesPath === 'Yes') {
+                await this.ccdFormPage.setFieldValue(
+                    'Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?',
+                    'Yes'
+                );
+                await this.ccdFormPage.setFieldValue(
+                    'Explain in detail anything you would like the Tribunal to consider',
+                    details
+                );
+            } else {
+                await this.ccdFormPage.setFieldValue(
+                    'Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?',
+                    'No'
+                );
+            }
+            if (clickContinue) {
+                await this.ccdFormPage.click('Continue');
+            }
+        }
     }
 }

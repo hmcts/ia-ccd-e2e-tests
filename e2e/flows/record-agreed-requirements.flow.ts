@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
 
 export class RecordAgreedRequirementsFlow {
 
@@ -15,6 +16,8 @@ export class RecordAgreedRequirementsFlow {
         );
 
         await this.ccdFormPage.click('Continue');
+
+        await this.setRemoteHearingAdjustment(true, true, 'Remote hearing requirement will be reviewed');
 
         await this.ccdFormPage.setFieldValue(
             'Adjustments to accommodate vulnerabilities',
@@ -69,6 +72,8 @@ export class RecordAgreedRequirementsFlow {
         );
 
         await this.ccdFormPage.click('Continue');
+
+        await this.setRemoteHearingAdjustment(true, true, 'Remote hearing requirement will be reviewed');
 
         await this.ccdFormPage.setFieldValue(
             'Adjustments to accommodate vulnerabilities',
@@ -126,6 +131,8 @@ export class RecordAgreedRequirementsFlow {
 
         await this.ccdFormPage.click('Continue');
 
+        await this.setRemoteHearingAdjustment(true, false, 'Remote hearing requirement will be reviewed');
+
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.click('Continue');
@@ -140,6 +147,16 @@ export class RecordAgreedRequirementsFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async setRemoteHearingAdjustment(clickContinue = false, yesPath = false, details = '') {
+        if (isOutOfCountryEnabled) {
+            await this.ccdFormPage.setFieldValue( 'Remote hearing', details);
+
+            if (clickContinue) {
+                await this.ccdFormPage.click('Continue');
+            }
         }
     }
 }
