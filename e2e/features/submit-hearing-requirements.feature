@@ -32,7 +32,6 @@ Feature: Submit hearing requirements
     And I should see the text `The appeal is now going to a hearing. You need to submit the appellant's hearing requirements.`
     And I should see the case details
     And I should not see the hearing details
-    And I should see the legal representative details
 
     And I should see the option `Upload additional evidence` for the `Next step` field
     And I should see the option `Submit hearing requirements` for the `Next step` field
@@ -48,7 +47,6 @@ Feature: Submit hearing requirements
 
     When I click the `Appellant` tab
     Then I should see the appellant's details
-    And I should see the legal representative's details
 
     When I select the `Submit hearing requirements` Next step
     Then I should see the text `Submit hearing requirements`
@@ -89,6 +87,8 @@ Feature: Submit hearing requirements
     And I should see the text `You can request additional adjustments based on the appellant's personal circumstances. The Tribunal will review the information you provide and decide whether a request can be granted.`
 
     When I click the `Continue` button
+    And I select `No` for Remote hearing with details `No`
+
     Then I select `No` for the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
 
     When I click the `Continue` button
@@ -206,8 +206,10 @@ Feature: Submit hearing requirements
     When I click the `Continue` button
     Then I should see the text `Additional requests`
     And I should see the text `You can request additional adjustments based on the appellant's personal circumstances. The Tribunal will review the information you provide and decide whether a request can be granted.`
-
     When I click the `Continue` button
+
+    And I select `Yes` for Remote hearing with details `I have good internet connectivity and laptop`
+
     And I select `Yes` for the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
     Then the `Continue` button is disabled
     When I type `The appellant is deaf in one ear` for the `Explain in detail how any physical or mental health issues may affect them on the day.` field
