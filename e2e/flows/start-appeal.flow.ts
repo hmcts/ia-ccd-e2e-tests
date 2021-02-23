@@ -66,30 +66,48 @@ export class StartAppealFlow {
 
     async completeUploadNoticeDecision(clickContinue = false) {
       await this.ccdFormPage.runAccessbility();
-      await this.ccdFormPage.setFieldValue(
-        'Notice of Decision (Optional)',
-        '{@test.doc}',
-        'document'
-      );
+        await this.ccdFormPage.click('Add new');
+        await this.ccdFormPage.setFieldValue(
+            'Document',
+            '{@Evidence1.pdf}',
+            'document',
+            'first',
+            'Notice of Decision',
+            'first'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Describe the document',
+            'This is the notice of decision',
+            'text area',
+            'first',
+            'Notice of Decision',
+            'first'
+        );
 
-      await this.ccdFormPage.setFieldValue(
-        'Reason you cannot provide the Notice of Decision (Optional)',
-        'Some optional reasons',
-        'text area'
-      );
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+      if (clickContinue) {
+          await this.ccdFormPage.click('Continue');
+      }
     }
 
     async completeUploadNoticeDecisionNoUpload(clickContinue = false) {
 
         await this.ccdFormPage.runAccessbility();
+        await this.ccdFormPage.click('Add new');
         await this.ccdFormPage.setFieldValue(
-            'Reason you cannot provide the Notice of Decision (Optional)',
-            'I do not have this document',
-            'text area'
+            'Document',
+            '{@Evidence1.pdf}',
+            'document',
+            'first',
+            'Notice of Decision',
+            'first'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Describe the document',
+            'This is the notice of decision',
+            'text area',
+            'first',
+            'Notice of Decision',
+            'first'
         );
 
         if (clickContinue) {
