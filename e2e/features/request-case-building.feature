@@ -13,7 +13,7 @@ Feature: Request case edit
   Scenario: Send direction to appellant for building their case
 
     When I click the `Overview` tab
-    Then I should see the image `homeOffice_uploadBundle.png`
+    Then I should see the image `homeOffice_uploadBundle.svg`
     And I should see the text `If you accept that there is a right of appeal you should upload the Home Office bundle.`
     And I click the `upload the Home Office bundle` link
     And I am on the `Upload Home Office bundle` page
