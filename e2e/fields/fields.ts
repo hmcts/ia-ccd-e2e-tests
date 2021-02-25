@@ -11,6 +11,7 @@ import { CcdWriteTextAreaFieldFinder } from './ccd-write-text-area-field-finder'
 import { CcdWriteTextFieldFinder } from './ccd-write-text-field-finder';
 import { CcdWriteYesNoFieldFinder } from './ccd-write-yes-no-field-finder';
 import { CcdWriteMoneyGBPFieldFinder } from './CcdWriteMoneyGBPFieldFinder';
+import { CcdWriteEmailFieldFinder } from './ccd-write-email-field-finder';
 import { TableCollectionFinder } from './complex-field-finders/table-collection-finder';
 import { CollectionItemFinder } from './collection-item-finders/collection-item-finder';
 import { ComplexFieldFinder } from './complex-field-finders/complex-field-finder';
@@ -55,6 +56,7 @@ export class Fields {
         new CcdWriteDocumentFieldFinder(),
         new CcdWriteLabelFieldFinder(),
         new CcdWriteMoneyGBPFieldFinder(),
+        new CcdWriteEmailFieldFinder(),
 
         // the following fields are not specific to one type
         // and so are searched last in order of specificity
