@@ -61,5 +61,5 @@ Feature: Request case edit
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
 
     When I switch to be a `Legal Rep`
-    Then I should see the image `legalRep_caseBuilding.png`
+    Then I should see the image `progress_legalRep_caseBuilding.png`
 

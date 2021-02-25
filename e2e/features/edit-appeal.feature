@@ -91,7 +91,7 @@ Feature: Edit appeal application
     And I should see `ia-legal-fenn` for the `Legal representative reference` field
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_appealStarted` case progress image
+    Then I should only see the `progress_legalRep_appealStarted` case progress image
     And I should see the text `Do this next`
     And I should see the `Submit your appeal` link
     And I should see the `Edit appeal` link

@@ -115,7 +115,7 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-    Then I should only see the `legalRep_submitHearingRequirements` case progress image
+    Then I should only see the `progress_legalRep_submitHearingRequirements` case progress image
     And I should see the text `Do this next`
     And I should see the text `The appeal is being reheard. If the appellant's hearing requirements have changed, you should submit new requirements.`
     And I should see the `submit new requirements` link
@@ -225,7 +225,7 @@ Feature: New hearing requirements for appeal submitted - FTPA reheard decision (
     And I should not see the text `Previous recordings`
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_listing` case progress image
+    Then I should only see the `progress_legalRep_listing` case progress image
     And I should see the text `Do this next`
     And I should see the text `The case officer is reviewing the hearing requirements.`
     And I should see the text `Once the requirements have been agreed with the Tribunal, the case will be listed and you will receive a notification with the hearing notice.`

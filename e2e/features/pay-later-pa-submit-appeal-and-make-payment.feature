@@ -39,7 +39,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_appealSubmitted` case progress image
+    Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 
@@ -120,7 +120,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_appealSubmitted` case progress image
+    Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 
@@ -205,7 +205,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_appealSubmitted` case progress image
+    Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 
@@ -289,7 +289,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_appealSubmitted` case progress image
+    Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 

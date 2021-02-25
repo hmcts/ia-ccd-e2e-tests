@@ -151,7 +151,7 @@ Feature: Start initial appeal application
     And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_appealStarted` case progress image
+    Then I should only see the `progress_legalRep_appealStarted` case progress image
     And I should see the text `Do this next`
     And I should see the `Submit your appeal` link
     And I should see the `Edit appeal` link
@@ -303,7 +303,7 @@ Feature: Start initial appeal application
     And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_appealStarted` case progress image
+    Then I should only see the `progress_legalRep_appealStarted` case progress image
     And I should see the text `Do this next`
     And I should see the `Submit your appeal` link
     And I should see the `Edit appeal` link

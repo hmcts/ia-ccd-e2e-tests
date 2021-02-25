@@ -200,7 +200,7 @@ Feature: Pay now and Submit feature
     And I submit my appeal
 
     When I click the `Overview` tab
-    Then I should only see the `legalRep_appealSubmitted` case progress image
+    Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 

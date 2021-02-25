@@ -27,7 +27,7 @@ Feature: Submit hearing requirements
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
 
-    Then I should only see the `legalRep_submitHearingRequirements` case progress image
+    Then I should only see the `progress_legalRep_submitHearingRequirements` case progress image
     And I should see the text `Do this next`
     And I should see the text `The appeal is now going to a hearing. You need to submit the appellant's hearing requirements.`
     And I should see the case details

@@ -16,7 +16,7 @@ Feature: Case progression path when case and continue is disabled
 
     When I click the `Overview` tab
 
-    Then I should only see the `legalRep_appealStarted` case progress image
+    Then I should only see the `progress_legalRep_appealStarted` case progress image
 
     And I should see the text `Do this next`
     And I should see the text `You still need to submit your appeal`
@@ -44,7 +44,7 @@ Feature: Case progression path when case and continue is disabled
     When I submit my appeal
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_appealSubmitted` case progress image
+    Then I should only see the `progress_legalRep_appealSubmitted` case progress image
 
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal`
@@ -107,7 +107,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_awaitingRespondentEvidence` case progress image
+    Then I should only see the `progress_legalRep_awaitingRespondentEvidence` case progress image
 
     And I should see the text `Do this next`
     And I should see the text `You'll get an email when the respondent evidence is available in the documents tab`
@@ -342,7 +342,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_caseBuilding` case progress image
+    Then I should only see the `progress_legalRep_caseBuilding` case progress image
 
     And I should see the text `Do this next`
     And I should see the text `The respondent evidence is now available in the documents tab. You now need to build your case`
@@ -373,7 +373,7 @@ Feature: Case progression path when case and continue is disabled
     When I build my case
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_caseUnderReview` case progress image
+    Then I should only see the `progress_legalRep_caseUnderReview` case progress image
 
     And I should see the text `Do this next`
     And I should see the text `Your case is now under review`
@@ -485,7 +485,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_respondentReview` case progress image
+    Then I should only see the `progress_legalRep_respondentReview` case progress image
 
     And I should see the text `Do this next`
     And I should see the text `The case has now been sent to the respondent for review`
@@ -742,7 +742,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_respondentReview_appeal_response` case progress image
+    Then I should only see the `progress_legalRep_respondentReview_appeal_response` case progress image
     And I should see the text `Do this next`
     And I should see the text `The Home Office is proceeding with the case and you've been directed to review their response in the Documents tab.`
     And I should see the text `If you want to respond to the Home Office, you should contact The Tribunal within 5 working days or the case will automatically proceed to a hearing.`
@@ -838,7 +838,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_submitHearingRequirements` case progress image
+    Then I should only see the `progress_legalRep_submitHearingRequirements` case progress image
     And I should see the text `Do this next`
     And I should see the text `The appeal is now going to a hearing. You need to submit the appellant's hearing requirements.`
     And I should see the case details
@@ -1143,7 +1143,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_listing` case progress image
+    Then I should only see the `progress_legalRep_listing` case progress image
     And I should see the text `Do this next`
     And I should see the text `The case officer is reviewing the hearing requirements`
     And I should see the text `Once the requirements have been agreed with the Tribunal,`
@@ -1276,7 +1276,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_listed` case progress image
+    Then I should only see the `progress_legalRep_listed` case progress image
 
     And I should see the text `Do this next`
     And I should see the text `The case has now been listed and the hearing details are ready to view in the Hearing tab.`
@@ -1363,7 +1363,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_listed` case progress image
+    Then I should only see the `progress_legalRep_listed` case progress image
     And I should see the text `Do this next`
     And I should see the text `The case has now been listed. Go to the documents tab to see the Hearing notice, which includes the hearing details.`
     And I should see the text `Go to the documents`
@@ -1407,7 +1407,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_preHearing` case progress image
+    Then I should only see the `progress_legalRep_preHearing` case progress image
     And I should see the text `Do this next`
     And I should see the text `You can now view the hearing bundle in the documents tab.`
     And I should see the text `Go to the documents`
@@ -1486,7 +1486,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_decision` case progress image
+    Then I should only see the `progress_legalRep_decision` case progress image
     And I should see the text `Do this next`
     And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
     And I should see the hearing details
@@ -1598,7 +1598,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should not see `Legally Represented` tag
-    Then I should only see the `legalRep_decision` case progress image
+    Then I should only see the `progress_legalRep_decision` case progress image
     And I should see the text `Do this next`
     And I should see the text `The judge is writing the decisions and reasons. You will be notified when it is available to view.`
     And I should see the hearing details

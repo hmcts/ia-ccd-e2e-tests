@@ -222,7 +222,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Legal Rep`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `legalRep_submitHearingRequirements.png`
+    And I should see the image `progress_legalRep_submitHearingRequirements.png`
     And I should see the text `Do this next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `If the appellant's hearing requirements have changed, you should submit new requirements`
@@ -528,7 +528,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I switch to be a `Legal Rep`
     Then I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `legalRep_submitHearingRequirements.png`
+    And I should see the image `progress_legalRep_submitHearingRequirements.png`
     And I should see the text `Do this next`
     And I should see the text `The appeal is being reheard`
     And I should see the text `If the appellant's hearing requirements have changed, you should submit new requirements`
