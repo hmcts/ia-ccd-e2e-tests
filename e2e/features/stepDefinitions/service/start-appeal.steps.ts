@@ -4,12 +4,18 @@ import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
 
 const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 'true';
+const isOutOfCountryEnabled = require('../../../ia.conf').isOutOfCountryEnabled === 'true';
 const ccdFormPage = new CcdFormPage();
 const startAppealFlow = new StartAppealFlow();
 
 Given('I complete the `Tell us about your client` page', async function () {
     expect(await ccdFormPage.headingContains('Tell us about your client')).to.equal(true);
     await startAppealFlow.completeScreeningQuestions(true);
+});
+
+Given('I complete the `Tell us about your client out of country` page', async function () {
+    expect(await ccdFormPage.headingContains('Tell us about your client')).to.equal(true);
+    await startAppealFlow.completeScreeningQuestionsOutOfCountry(true);
 });
 
 Given('I complete the `Home Office details` page', async function () {
@@ -115,6 +121,22 @@ Given('I save my initial appeal', async function () {
     }
 });
 
+Given(/^I save my initial appeal with appellant living in UK `?([^\s`]+)`?$/, async function (appellantInUk) {
+    if (isOutOfCountryEnabled) {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFeeOutOfCountry(true, 'PA', 'no remission', 'hearing fee', appellantInUk);
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountry(true, 'PA', appellantInUk);
+        }
+    } else {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'no remission', 'hearing fee');
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA');
+        }
+    }
+});
+
 Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee$/, async function (appealType, remission, feeType) {
     await startAppealFlow.saveInitialAppealWithFee(true, appealType, remission, feeType);
 });
@@ -169,6 +191,10 @@ Given('I wait for any found addresses to load', async function () {
 
 Given(/^I save my initial appeal with Home Office Reference\/Case ID `?([^\s`]+)`?$/, async function (homeOfficeReference) {
     await startAppealFlow.saveInitialAppealWithHomeOfficeReference(true, homeOfficeReference);
+});
+
+Given(/^I save my initial appeal with client living in United Kingdom `?([^\s`]+)`?$/, async function (outOfCountry) {
+    await startAppealFlow.completeOutOfCountryQuestion(true, outOfCountry);
 });
 
 Then(/^I see a list of all nationalities$/, async function () {
