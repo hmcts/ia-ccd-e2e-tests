@@ -237,7 +237,7 @@ Feature: Upload appeal response - Home Office user
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-    Then I should only see the `caseOfficer_respondentReviewStarted` case progress image
+    Then I should only see the `caseOfficer_respondentReview` case progress image
     And I should see the text `Do this next`
     And I should see the text `The respondent is reviewing the case, you'll be notified when their response has been uploaded.`
 
@@ -261,7 +261,7 @@ Feature: Upload appeal response - Home Office user
     And I click the `Overview` tab
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
-    And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
+    And I should see the text `Review the documents and add the Home Office's response, or make an application to withdraw.`
     And I upload the appeal response
 
     And I click the `Overview` tab
@@ -312,7 +312,7 @@ Feature: Upload appeal response - Home Office user
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
 
-    And I should see the text `Review the documents and add the Home Office's response, or contact the Tribunal for withdrawal of the decision.`
+    And I should see the text `Review the documents and add the Home Office's response, or make an application to withdraw.`
     And I upload the appeal response
 
     When I switch to be a <homeOfficeLartApcPOU>
