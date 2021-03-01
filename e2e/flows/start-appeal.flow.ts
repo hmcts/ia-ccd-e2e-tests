@@ -463,17 +463,17 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '') {
+    async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '', lateAppeal = '') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
         if (decisionType === 'refusalOfHumanRights') {
-            await this.completeGlobalWebFormReference(true, 'GWF1234567');
+            await this.completeGlobalWebFormReference(true, 'GWF1234567', lateAppeal);
         } else if (decisionType === 'refusalOfProtection') {
-            await this.completeDepartureDate(true);
+            await this.completeDepartureDate(true,  lateAppeal);
             await this.completeHomeOfficeReferenceOutOfCountry(true, '');
         } else {
-            await this.completeHomeOfficeReferenceOutOfCountry(true, '');
+            await  this.completeHomeOfficeReferenceOutOfCountry(true, '', lateAppeal)
         }
 
         await this.completeUploadNoticeDecisionNoUpload(true);
@@ -497,17 +497,17 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealWithFeeOutOfCountryWithDecision(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '', decisionType = '') {
+    async saveInitialAppealWithFeeOutOfCountryWithDecision(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '', decisionType = '', lateAppeal = '') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
         if (decisionType === 'refusalOfHumanRights') {
-            await this.completeGlobalWebFormReference(true, 'GWF1234567');
+            await this.completeGlobalWebFormReference(true, 'GWF1234567', lateAppeal);
         } else if (decisionType === 'refusalOfProtection') {
-            await this.completeDepartureDate(true);
-            await  this.completeHomeOfficeReferenceOutOfCountry(true, '')
+            await this.completeDepartureDate(true, lateAppeal);
+            await this.completeHomeOfficeReferenceOutOfCountry(true, '');
         } else {
-            await  this.completeHomeOfficeReferenceOutOfCountry(true, '')
+            await  this.completeHomeOfficeReferenceOutOfCountry(true, '', lateAppeal)
         }
         await this.completeUploadNoticeDecisionNoUpload(true);
         await this.completeBasicDetails(true);
@@ -526,7 +526,7 @@ export class StartAppealFlow {
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
         if (remission === 'no remission') {
-            await this.completeHowToPayNow(true);
+            await this.completeHowToPayOffline(true, appealType);
         }
         await this.completeCheckYourAnswers(true);
 
@@ -821,13 +821,30 @@ export class StartAppealFlow {
         }
     }
 
-    async completeGlobalWebFormReference(clickContinue = false, gwfReferenceNumber = '') {
+    async completeGlobalWebFormReference(clickContinue = false, gwfReferenceNumber = '', lateAppeal = '') {
         if (gwfReferenceNumber !== '') {
             await this.ccdFormPage.setFieldValue('Global Web Form (GWF) reference number', gwfReferenceNumber);
         } else {
             await this.ccdFormPage.setFieldValue('Global Web Form (GWF) reference number', 'GWF1234567');
         }
-        await this.ccdFormPage.setFieldValue('Date Entry clearance decision letter received', '{$TODAY}');
+        if (lateAppeal === 'late') {
+            await this.ccdFormPage.setFieldValue('Date Entry clearance decision letter received', '{$TODAY-30}');
+        } else {
+            await this.ccdFormPage.setFieldValue('Date Entry clearance decision letter received', '{$TODAY}');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeDepartureDate(clickContinue = false, lateAppeal = '') {
+
+        if (lateAppeal === 'late') {
+            await this.ccdFormPage.setFieldValue('When did your client leave the UK?', '{$TODAY-30}');
+        } else {
+            await this.ccdFormPage.setFieldValue('When did your client leave the UK?', '{$TODAY-7}');
+        }
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -845,6 +862,9 @@ export class StartAppealFlow {
     async completeDecisionType(clickContinue = false, decisionOption = '') {
         if (decisionOption === 'refusalOfHumanRights') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to refuse a human rights claim for entry clearance');
+        } else if (decisionOption === 'refusalOfProtection') {
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
+                , 'A decision to refuse a human rights or protection claim, or deprive you of British citizenship, where you can only apply after your client has left the country');
         } else if (decisionOption === 'removalOfClient') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to remove your client under the Immigration (European Economic Area) Regulations 2016');
         }
@@ -876,13 +896,18 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('Continue');
         }
     }
-    async completeHomeOfficeReferenceOutOfCountry(clickContinue = false, homeOfficeReferenceNumber = '') {
+    async completeHomeOfficeReferenceOutOfCountry(clickContinue = false, homeOfficeReferenceNumber = '', lateAppeal = '') {
         if (homeOfficeReferenceNumber !== '') {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
         } else {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
         }
-        await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY}');
+
+        if (lateAppeal === 'late') {
+            await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY-30}');
+        } else {
+            await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY-10}');
+        }
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');

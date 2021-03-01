@@ -8,7 +8,7 @@ Feature: Out of country appeal with no sponsor
   @start-appeal-out-of-country-no-sponsor @RIA-2110
   Scenario: Select refusal of human rights for decision type
 
-    And I save my out of country appeal with decision type `refusalOfHumanRights`
+    And I save my out of country now appeal with decision type `refusalOfHumanRights`
     And I submit my appeal
 
     When I switch to be a `Case Officer`

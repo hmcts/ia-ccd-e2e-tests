@@ -25,3 +25,7 @@ Then(/^I pay for and submit my appeal$/, async function () {
 Then(/^I submit my nonpayment appeal$/, async function () {
     await submitAppealFlow.submitAppeal(true);
 });
+
+Then(/^I submit my late appeal$/, async function () {
+    await submitAppealFlow.submitLateAppeal(true);
+});
