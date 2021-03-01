@@ -158,6 +158,23 @@ Given(/^I save my out of country appeal with decision type `?([^\s`]+)`?$/, asyn
     }
 });
 
+// tslint:disable-next-line:max-line-length
+Given(/^I save my out of country appeal with sponsor given name `?([^\s`]+)`? family name `?([^`]+)`? contactPreference `?([^`]+)`? authorisation `?([^`]+)`?$/, async function (givenName, familyName, contactPreference, authorisation) {
+    if (isOutOfCountryEnabled) {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithSponsor(true, givenName, familyName, contactPreference, authorisation);
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithSponsor(true, givenName, familyName, contactPreference, authorisation);
+        }
+    } else {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'no remission', 'hearing fee');
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA');
+        }
+    }
+});
+
 Given(/^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee$/, async function (appealType, remission, feeType) {
     await startAppealFlow.saveInitialAppealWithFee(true, appealType, remission, feeType);
 });
@@ -271,4 +288,8 @@ Given('I complete the `Your client\'s address` page', async function () {
 Given('I complete the `Sponsor` page', async function () {
     expect(await ccdFormPage.headingContains('Sponsor')).to.equal(true);
     await startAppealFlow.completeSponsorQuestion(true, 'Yes');
+    await startAppealFlow.completeSponsorNames(true);
+    await startAppealFlow.completeSponsorAddress(true, 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London', 'EC1R 4QU');
+    await startAppealFlow.completeSponsorContactPreference(true, '');
+    await startAppealFlow.completeSponsorAuthorisation(true);
 });
