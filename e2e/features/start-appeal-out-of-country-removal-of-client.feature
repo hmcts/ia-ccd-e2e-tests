@@ -22,8 +22,3 @@ Feature: Out of country appeal removal of client
     And I should see `Yes` for the `Out of country` field
     And I should see `A decision to remove your client under the Immigration (European Economic Area) Regulations 2016` for the `Out of country decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Home Office decision letter received` field
-
-
-
-
-
