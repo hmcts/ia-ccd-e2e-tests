@@ -1,13 +1,14 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { browser, By, by, element } from 'protractor';
 import { Wait } from '../enums/wait';
+
 const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
 
 export class SubmitHearingRequirementsFlow {
 
     private ccdFormPage = new CcdFormPage();
 
-    async submitHearingRequirements(clickContinue = false, isYesPath = false) {
+    async submitHearingRequirements(clickContinue = false, isYesPath = false, inCountry = true) {
 
         await this.ccdFormPage.selectNextStep('Submit hearing requirements');
         await this.ccdFormPage.click('Go');
@@ -15,10 +16,19 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.headingContains('Submit hearing requirements');
 
         if (isYesPath) {
-            await this.hearingRequirementsYesPath();
+            if (inCountry) {
+                await this.hearingRequirementsYesPath(true);
+            } else {
+                await this.hearingRequirementsYesPath(false);
+            }
         } else {
-            await this.hearingRequirementsNoPath();
+            if (inCountry) {
+                await this.hearingRequirementsNoPath(true);
+            } else {
+                await this.hearingRequirementsNoPath(false);
+            }
         }
+
         await this.ccdFormPage.click('Submit');
 
         if (clickContinue) {
@@ -26,15 +36,23 @@ export class SubmitHearingRequirementsFlow {
         }
     }
 
-    async updateHearingRequirements(clickContinue = false, isYesPath = false) {
+    async updateHearingRequirements(clickContinue = false, isYesPath = false, inCountry = true) {
 
         await this.ccdFormPage.selectNextStep('Update hearing requirements');
         await this.ccdFormPage.click('Go');
 
         if (isYesPath) {
-            await this.updateHearingRequirementsYesPath();
+            if (inCountry) {
+                await this.updateHearingRequirementsYesPath(true, true);
+            } else {
+                await this.updateHearingRequirementsYesPath(false, true);
+            }
         } else {
-            await this.hearingRequirementsNoPath();
+            if (inCountry) {
+                await this.hearingRequirementsNoPath(true);
+            } else {
+                await this.hearingRequirementsNoPath(false);
+            }
         }
 
         await this.ccdFormPage.click('Update');
@@ -44,32 +62,60 @@ export class SubmitHearingRequirementsFlow {
         }
     }
 
-    async hearingRequirementsYesPath() {
+    async hearingRequirementsYesPath(isInCountry = true) {
 
         await this.ccdFormPage.click('Continue');
 
-        await this.ccdFormPage.setFieldValue(
-            'Will the appellant attend the hearing?',
-            'Yes'
-        );
-        await this.ccdFormPage.click('Continue');
+        if (isInCountry) {
 
-        await this.ccdFormPage.setFieldValue(
-            'Will the appellant give oral evidence at the hearing?',
-            'Yes'
-        );
-        await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant attend the hearing?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Continue');
 
-        await this.ccdFormPage.setFieldValue(
-            'Will any witnesses attend the hearing?',
-            'Yes'
-        );
-        await this.ccdFormPage.click('Add new');
-        await this.ccdFormPage.setFieldValue(
-            'Name',
-            'Jenny button'
-        );
-        await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant give oral evidence at the hearing?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Will any witnesses attend the hearing?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Add new');
+            await this.ccdFormPage.setFieldValue(
+                'Name',
+                'Jenny button'
+            );
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Continue');
+
+        } else {
+
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Will any witnesses attend the hearing?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Add new');
+            await this.ccdFormPage.setFieldValue(
+                'Name',
+                'Jenny button'
+            );
+            await this.ccdFormPage.click('Continue');
+        }
 
         await this.ccdFormPage.setFieldValue(
             'Do you need interpreter services on the day?',
@@ -194,46 +240,82 @@ export class SubmitHearingRequirementsFlow {
 
     }
 
-    async updateHearingRequirementsYesPath() {
+    async updateHearingRequirementsYesPath(isInCountry = true, keepExitingValues = true) {
 
         await this.ccdFormPage.click('Continue');
 
-        await this.ccdFormPage.setFieldValue(
-            'Will the appellant attend the hearing?',
-            'Yes'
-        );
-        await this.ccdFormPage.click('Continue');
+        if (isInCountry) {
 
-        await this.ccdFormPage.setFieldValue(
-            'Will the appellant give oral evidence at the hearing?',
-            'Yes'
-        );
-        await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant attend the hearing?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Continue');
 
-        await this.ccdFormPage.setFieldValue(
-            'Will any witnesses attend the hearing?',
-            'Yes'
-        );
-        await this.ccdFormPage.click('Add new');
-        await this.ccdFormPage.setFieldValue(
-            'Name',
-            'Jenny button'
-        );
-        await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant give oral evidence at the hearing?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Will any witnesses attend the hearing?',
+                'Yes'
+            );
+
+            if (!keepExitingValues) {
+                await this.ccdFormPage.click('Add new');
+                await this.ccdFormPage.setFieldValue(
+                    'Name',
+                    'Jenny button'
+                );
+            }
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Continue');
+
+        }  else {
+
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?',
+                'Yes'
+            );
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Will any witnesses attend the hearing?',
+                'Yes'
+            );
+
+            if (!keepExitingValues) {
+                await this.ccdFormPage.click('Add new');
+                await this.ccdFormPage.setFieldValue(
+                    'Name',
+                    'Jenny button'
+                );
+            }
+            await this.ccdFormPage.click('Continue');
+        }
 
         await this.ccdFormPage.setFieldValue(
             'Do you need interpreter services on the day?',
             'Yes'
         );
-        await this.ccdFormPage.click('Add new');
-        await this.ccdFormPage.setFieldValue(
-            'Language',
-            'Zulu'
-        );
-        await this.ccdFormPage.setFieldValue(
-            'Dialect',
-            'Kwabe'
-        );
+        if (!keepExitingValues) {
+            await this.ccdFormPage.click('Add new');
+            await this.ccdFormPage.setFieldValue(
+                'Language',
+                'Zulu'
+            );
+            await this.ccdFormPage.setFieldValue(
+                'Dialect',
+                'Kwabe'
+            );
+        }
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue(
@@ -328,41 +410,66 @@ export class SubmitHearingRequirementsFlow {
             'Yes'
         );
 
-        await this.ccdFormPage.click('Add new');
-        await browser.sleep(500);
-        await this.ccdFormPage.setFieldValue(
-            'Date',
-            '31-12-2021'
-        );
-        await this.ccdFormPage.setFieldValue(
-            'Reason',
-            'New year\'s eve',
-            'text area'
-        );
+        if (!keepExitingValues) {
+            await this.ccdFormPage.click('Add new');
+            await browser.sleep(500);
+            await this.ccdFormPage.setFieldValue(
+                'Date',
+                '31-12-2021'
+            );
+            await this.ccdFormPage.setFieldValue(
+                'Reason',
+                'New year\'s eve',
+                'text area'
+            );
+        }
         await this.ccdFormPage.click('Continue');
     }
 
-    async hearingRequirementsNoPath() {
+    async hearingRequirementsNoPath(isInCountry = true) {
 
         await this.ccdFormPage.click('Continue');
 
-        await this.ccdFormPage.setFieldValue(
-            'Will the appellant attend the hearing?',
-            'No'
-        );
-        await this.ccdFormPage.click('Continue');
+        if (isInCountry) {
 
-        await this.ccdFormPage.setFieldValue(
-            'Will the appellant give oral evidence at the hearing?',
-            'No'
-        );
-        await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant attend the hearing?',
+                'No'
+            );
+            await this.ccdFormPage.click('Continue');
 
-        await this.ccdFormPage.setFieldValue(
-            'Will any witnesses attend the hearing?',
-            'No'
-        );
-        await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant give oral evidence at the hearing?',
+                'No'
+            );
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Will any witnesses attend the hearing?',
+                'No'
+            );
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?',
+                'No'
+            );
+            await this.ccdFormPage.click('Continue');
+
+        } else {
+
+            await this.ccdFormPage.setFieldValue(
+                'Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?',
+                'No'
+            );
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Will any witnesses attend the hearing?',
+                'No'
+            );
+            await this.ccdFormPage.click('Continue');
+        }
 
         await this.ccdFormPage.setFieldValue(
             'Do you need interpreter services on the day?',

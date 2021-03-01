@@ -45,18 +45,6 @@ export class StartAppealFlow {
         }
     }
 
-    async completeOutOfCountryQuestion(clickContinue = false, appellantInUk = '') {
-        if (appellantInUk === 'No') {
-            await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'No');
-        } else {
-            await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'Yes');
-        }
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
-
     async completeHomeOfficeReference(clickContinue = false, ooc = false, homeOfficeReferenceNumber = '') {
         await this.ccdFormPage.runAccessbility();
 
