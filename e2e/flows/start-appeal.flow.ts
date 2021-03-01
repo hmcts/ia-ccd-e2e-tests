@@ -379,8 +379,8 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '') {
-        await this.completeClientDetails(false);
+    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeClientDetails(false, hasFixedAddress, address, postcode);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         await this.completeDeportationOrder(true);
@@ -395,7 +395,7 @@ export class StartAppealFlow {
     }
 
     async saveInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
-        await this.completeClientDetails(false);
+        await this.completeClientDetails(false, hasFixedAddress, address, postcode);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         await this.completeDeportationOrder(true);
@@ -403,10 +403,8 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
-        if (remission === 'no remission') {
-            await this.completeHowToPayNow(true);
-        }
+        await this.completeRemissionDetails(true, 'no remission');
+        await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -525,10 +523,8 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
-        if (remission === 'no remission') {
-            await this.completeHowToPayOffline(true, appealType);
-        }
+        await this.completeRemissionDetails(true, 'no remission');
+        await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -548,7 +544,7 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeSponsorQuestion(true, 'Yes');
         await this.completeSponsorNames(true, givenName, familyName);
-        await this.completeSponsorAddress(true, 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London', 'EC1R 4QU');
+        await this.completeSponsorAddress(true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
         await this.completeSponsorContactPreference(true, contactPreference);
         await this.completeSponsorAuthorisation(true, authorisation);
         await this.completeGivenAppealType(true, 'PA');
@@ -575,7 +571,7 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeSponsorQuestion(true, 'Yes');
         await this.completeSponsorNames(true, givenName, familyName);
-        await this.completeSponsorAddress(true, 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London', 'EC1R 4QU');
+        await this.completeSponsorAddress(true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
         await this.completeSponsorContactPreference(true, contactPreference);
         await this.completeSponsorAuthorisation(true, authorisation);
         await this.completeGivenAppealType(true, 'PA');
