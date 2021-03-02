@@ -25,7 +25,7 @@ export class StartAppealFlow {
     }
 
     async completeScreeningQuestionsOutOfCountry(clickContinue = false) {
-
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click('My client is not in detention');
         await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
 
@@ -916,9 +916,9 @@ export class StartAppealFlow {
 
     async completeSponsorQuestion(clickContinue = false, hasSponsor = '') {
         if (hasSponsor === 'Yes') {
-            await this.ccdFormPage.click('Yes');
+            await this.ccdFormPage.setFieldValue('Does your client have a sponsor?', 'Yes');
         } else {
-            await this.ccdFormPage.click('No');
+            await this.ccdFormPage.setFieldValue('Does your client have a sponsor?', 'No');
         }
 
         if (clickContinue) {
@@ -983,4 +983,105 @@ export class StartAppealFlow {
         }
     }
 
+    async editClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+        if (isOutOfCountryEnabled) {
+            await this.completeOutOfCountryQuestion(true, 'Yes');
+        }
+        await this.completeHomeOfficeReference(true);
+        await this.clickContinueToNextStep(true); // completeUploadNoticeDecisionNoUpload
+        await this.clickContinueToNextStep(true); // completeBasicDetails
+        await this.clickContinueToNextStep(true); // completeNationality
+        await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+        await this.clickContinueToNextStep(true); // completeContactPreference
+        await this.clickContinueToNextStep(true); // completeGivenAppealType
+        await this.clickContinueToNextStep(true); // completedGivenAppealGrounds
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.clickContinueToNextStep(true); // completeOtherAppeals
+        await this.completeLegalRepresentativeDetails(true);
+    }
+
+    async editInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.editClientDetails(false);
+        await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
+        if (remission === 'no remission') {
+            await this.completeHowToPayNow(true);
+        }
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async editInitialNonPaymentAppeal(clickContinue = false, appealType = '', ) {
+        await this.editClientDetails(false);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async clickContinueToNextStep(clickContinue = false) {
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async editInitialAppealWithFeeOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
+        await this.completeOutOfCountryQuestion(true, 'No');
+        await this.completeDecisionType(true, 'refusalOfHumanRights');
+        await this.completeGlobalWebFormReference(true, 'GWF1234567');
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.clickContinueToNextStep(true); // completeBasicDetails
+        await this.clickContinueToNextStep(true); // completeNationality
+        await this.completeClientAddressOutOfCountry(true, true);
+        await this.clickContinueToNextStep(true); // completeContactPreference
+        await this.completeSponsorQuestion(true, 'Yes');
+        await this.completeSponsorNames(true, givenName, familyName);
+        await this.completeSponsorAddress(true, 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London', 'EC1R 4QU');
+        await this.completeSponsorContactPreference(true, contactPreference);
+        await this.completeSponsorAuthorisation(true, authorisation);
+        await this.clickContinueToNextStep(true); // completeGivenAppealType
+        await this.clickContinueToNextStep(true); // completedGivenAppealGrounds
+        await this.clickContinueToNextStep(true); // completeNewMatters
+        await this.clickContinueToNextStep(true); // completeOtherAppeals
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, 'hearing fee');
+        await this.completeRemissionDetails(true, 'no remission');
+        await this.completeHowToPayNow(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async editInitialNonPaymentAppealOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
+        await this.completeOutOfCountryQuestion(true, 'No');
+        await this.completeDecisionType(true, 'refusalOfHumanRights');
+        await this.completeGlobalWebFormReference(true, 'GWF1234567');
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.clickContinueToNextStep(true); // completeBasicDetails
+        await this.clickContinueToNextStep(true); // completeNationality
+        await this.completeClientAddressOutOfCountry(true, true);
+        await this.clickContinueToNextStep(true); // completeContactPreference
+        await this.completeSponsorQuestion(true, 'Yes');
+        await this.completeSponsorNames(true, givenName, familyName);
+        await this.completeSponsorAddress(true, 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London', 'EC1R 4QU');
+        await this.completeSponsorContactPreference(true, contactPreference);
+        await this.completeSponsorAuthorisation(true, authorisation);
+        await this.clickContinueToNextStep(true); // completeGivenAppealType
+        await this.clickContinueToNextStep(true); // completedGivenAppealGrounds
+        await this.clickContinueToNextStep(true); // completeNewMatters
+        await this.clickContinueToNextStep(true); // completeOtherAppeals
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
 }
