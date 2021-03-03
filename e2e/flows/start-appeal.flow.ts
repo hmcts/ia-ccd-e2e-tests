@@ -851,14 +851,6 @@ export class StartAppealFlow {
         }
     }
 
-    async completeDepartureDate(clickContinue = false) {
-        await this.ccdFormPage.setFieldValue('When did your client leave the UK?', '{$TODAY-7}');
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
-
     async completeDecisionType(clickContinue = false, decisionOption = '') {
         if (decisionOption === 'refusalOfHumanRights') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to refuse a human rights claim for entry clearance');
