@@ -23,6 +23,11 @@ Given('I complete the `Home Office details` page', async function () {
     await startAppealFlow.completeHomeOfficeReference(true);
 });
 
+Given('I complete the `Home Office details ooc` page', async function () {
+    expect(await ccdFormPage.headingContains('Home Office details')).to.equal(true);
+    await startAppealFlow.completeHomeOfficeReference(true, true);
+});
+
 Given('I complete the `Upload the Notice of Decision` page', async function () {
   expect(await ccdFormPage.headingContains('Upload the Notice of Decision')).to.equal(true);
   await startAppealFlow.completeUploadNoticeDecision(true);
@@ -137,12 +142,29 @@ Given(/^I save my initial appeal with appellant living in UK `?([^\s`]+)`?$/, as
     }
 });
 
-Given(/^I save my out of country appeal with decision type `?([^\s`]+)`?$/, async function (decisionType) {
+Given(/^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s`]+)`?$/, async function (lateAppeal, decisionType) {
     if (isOutOfCountryEnabled) {
         if (isfeePaymentEnabled) {
-            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(true, 'PA', 'no remission', 'hearing fee', 'No', decisionType);
+            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(true, 'HU', 'no remission', 'hearing fee', 'No', decisionType, lateAppeal);
         } else {
-            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithDecision(true, 'PA', 'No', decisionType);
+            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithDecision(true, 'PA', 'No', decisionType, lateAppeal);
+        }
+    } else {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'no remission', 'hearing fee');
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA');
+        }
+    }
+});
+
+// tslint:disable-next-line:max-line-length
+Given(/^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s`]+)`? with address `?([^\s`]+)`? and with sponsor `?([^\s`]+)`?$/, async function (lateAppeal, decisionType, hasAddress= 'Yes', hasSponsor = 'Yes') {
+    if (isOutOfCountryEnabled) {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(true, 'HU', 'no remission', 'hearing fee', 'No', decisionType, lateAppeal, hasAddress, hasSponsor);
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithDecision(true, 'PA', 'No', decisionType, lateAppeal, hasAddress, hasSponsor);
         }
     } else {
         if (isfeePaymentEnabled) {
@@ -250,9 +272,24 @@ Given('I complete the `Entry clearance decision details` page', async function (
     await startAppealFlow.completeGlobalWebFormReference(true);
 });
 
+Given('I complete the `Departure date` page', async function () {
+    expect(await ccdFormPage.headingContains('Departure date')).to.equal(true);
+    await startAppealFlow.completeDepartureDate(true);
+});
+
 Given('I complete the `Decision type` page', async function () {
     expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
     await startAppealFlow.completeDecisionType(true, 'refusalOfHumanRights');
+});
+
+Given('I complete the `Decision type protection claim` page', async function () {
+    expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
+    await startAppealFlow.completeDecisionType(true, 'protectionClaim');
+});
+
+Given('I complete the `Decision type remove client` page', async function () {
+    expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
+    await startAppealFlow.completeDecisionType(true, 'removeClient');
 });
 
 Given('I complete the `Is your client currently living in the United Kingdom?` page', async function () {

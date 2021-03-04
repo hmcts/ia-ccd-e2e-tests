@@ -24,7 +24,7 @@ export class StartAppealFlow {
     }
 
     async completeScreeningQuestionsOutOfCountry(clickContinue = false) {
-
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click('My client is not in detention');
         await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
 
@@ -45,14 +45,31 @@ export class StartAppealFlow {
         }
     }
 
-    async completeHomeOfficeReference(clickContinue = false, homeOfficeReferenceNumber = '') {
+    async completeOutOfCountryQuestion(clickContinue = false, appellantInUk = '') {
+        if (appellantInUk === 'No') {
+            await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'No');
+        } else {
+            await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'Yes');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeHomeOfficeReference(clickContinue = false, ooc = false, homeOfficeReferenceNumber = '') {
         await this.ccdFormPage.runAccessbility();
+
         if (homeOfficeReferenceNumber !== '') {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
         } else {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
         }
-        await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '{$TODAY}');
+        if (ooc) {
+            await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY-2}');
+        } else {
+            await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '{$TODAY-10}');
+        }
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -458,22 +475,25 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '') {
+    async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '', lateAppeal = '', hasAddress= 'Yes', hasSponsor = 'Yes') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
         if (decisionType === 'refusalOfHumanRights') {
-            await this.completeGlobalWebFormReference(true, 'GWF1234567');
+            await this.completeGlobalWebFormReference(true, 'GWF1234567', lateAppeal);
+        } else if (decisionType === 'refusalOfProtection') {
+            await this.completeDepartureDate(true,  lateAppeal);
+            await this.completeHomeOfficeReferenceOutOfCountry(true, '');
         } else {
-            await  this.completeHomeOfficeReferenceOutOfCountryRemovalOfClient(true, '')
+            await  this.completeHomeOfficeReferenceOutOfCountry(true, '', lateAppeal)
         }
 
         await this.completeUploadNoticeDecisionNoUpload(true);
         await this.completeBasicDetails(true);
         await this.completeNationality(true);
-        await this.completeClientAddressOutOfCountry(true, true);
+        await this.completeClientAddressOutOfCountry(true, hasAddress === 'Yes' ? true : false);
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true, 'Yes')
+        await this.completeSponsorQuestion(true, hasSponsor)
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         if (decisionType !== 'refusalOfHumanRights') {
@@ -489,22 +509,25 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealWithFeeOutOfCountryWithDecision(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '', decisionType = '') {
+    // tslint:disable-next-line:max-line-length
+    async saveInitialAppealWithFeeOutOfCountryWithDecision(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '', decisionType = '', lateAppeal = '', hasAddress= 'Yes', hasSponsor = 'Yes') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
         if (decisionType === 'refusalOfHumanRights') {
-
-            await this.completeGlobalWebFormReference(true, 'GWF1234567');
+            await this.completeGlobalWebFormReference(true, 'GWF1234567', lateAppeal);
+        } else if (decisionType === 'refusalOfProtection') {
+            await this.completeDepartureDate(true, lateAppeal);
+            await this.completeHomeOfficeReferenceOutOfCountry(true, '');
         } else {
-            await  this.completeHomeOfficeReferenceOutOfCountryRemovalOfClient(true, '')
+            await  this.completeHomeOfficeReferenceOutOfCountry(true, '', lateAppeal)
         }
         await this.completeUploadNoticeDecisionNoUpload(true);
         await this.completeBasicDetails(true);
         await this.completeNationality(true);
-        await this.completeClientAddressOutOfCountry(true, true);
+        await this.completeClientAddressOutOfCountry(true, hasAddress === 'Yes' ? true : false);
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true, 'Yes')
+        await this.completeSponsorQuestion(true, hasSponsor );
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         if (decisionType !== 'refusalOfHumanRights') {
@@ -516,7 +539,7 @@ export class StartAppealFlow {
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
         if (remission === 'no remission') {
-            await this.completeHowToPayNow(true);
+            await this.completeHowToPayOffline(true, appealType);
         }
         await this.completeCheckYourAnswers(true);
 
@@ -752,7 +775,7 @@ export class StartAppealFlow {
 
     async saveInitialAppealWithHomeOfficeReference(clickContinue = false, homeOfficeReferenceNumber = '') {
         await this.completeScreeningQuestions(true);
-        await this.completeHomeOfficeReference(true, homeOfficeReferenceNumber);
+        await this.completeHomeOfficeReference(true, false, homeOfficeReferenceNumber);
         await this.completeUploadNoticeDecision(true);
         await this.completeBasicDetails(true);
         await this.completeNationality(true);
@@ -811,13 +834,30 @@ export class StartAppealFlow {
         }
     }
 
-    async completeGlobalWebFormReference(clickContinue = false, gwfReferenceNumber = '') {
+    async completeGlobalWebFormReference(clickContinue = false, gwfReferenceNumber = '', lateAppeal = '') {
         if (gwfReferenceNumber !== '') {
             await this.ccdFormPage.setFieldValue('Global Web Form (GWF) reference number', gwfReferenceNumber);
         } else {
             await this.ccdFormPage.setFieldValue('Global Web Form (GWF) reference number', 'GWF1234567');
         }
-        await this.ccdFormPage.setFieldValue('Date Entry clearance decision letter received', '{$TODAY}');
+        if (lateAppeal === 'late') {
+            await this.ccdFormPage.setFieldValue('Date Entry clearance decision letter received', '{$TODAY-30}');
+        } else {
+            await this.ccdFormPage.setFieldValue('Date Entry clearance decision letter received', '{$TODAY}');
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeDepartureDate(clickContinue = false, lateAppeal = '') {
+
+        if (lateAppeal === 'late') {
+            await this.ccdFormPage.setFieldValue('When did your client leave the UK?', '{$TODAY-30}');
+        } else {
+            await this.ccdFormPage.setFieldValue('When did your client leave the UK?', '{$TODAY-7}');
+        }
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -827,8 +867,19 @@ export class StartAppealFlow {
     async completeDecisionType(clickContinue = false, decisionOption = '') {
         if (decisionOption === 'refusalOfHumanRights') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to refuse a human rights claim for entry clearance');
+        } else if (decisionOption === 'refusalOfProtection') {
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
+                , 'A decision to refuse a human rights or protection claim, or deprive you of British citizenship, where you can only apply after your client has left the country');
         } else if (decisionOption === 'removalOfClient') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to remove your client under the Immigration (European Economic Area) Regulations 2016');
+        }
+        if (decisionOption === 'refusalOfProtection') {
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
+                , 'A decision to refuse a human rights or protection claim, or deprive you of British citizenship, where you can only apply after your client has left the country');
+        }
+        if (decisionOption === 'removeClient') {
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
+                , 'A decision to remove your client under the Immigration (EEA) Regulations 2016');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -850,13 +901,18 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('Continue');
         }
     }
-    async completeHomeOfficeReferenceOutOfCountryRemovalOfClient(clickContinue = false, homeOfficeReferenceNumber = '') {
+    async completeHomeOfficeReferenceOutOfCountry(clickContinue = false, homeOfficeReferenceNumber = '', lateAppeal = '') {
         if (homeOfficeReferenceNumber !== '') {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
         } else {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
         }
-        await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY}');
+
+        if (lateAppeal === 'late') {
+            await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY-30}');
+        } else {
+            await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY-10}');
+        }
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -865,9 +921,9 @@ export class StartAppealFlow {
 
     async completeSponsorQuestion(clickContinue = false, hasSponsor = '') {
         if (hasSponsor === 'Yes') {
-            await this.ccdFormPage.click('Yes');
+            await this.ccdFormPage.setFieldValue('Does your client have a sponsor?', 'Yes');
         } else {
-            await this.ccdFormPage.click('No');
+            await this.ccdFormPage.setFieldValue('Does your client have a sponsor?', 'No');
         }
 
         if (clickContinue) {
@@ -932,4 +988,105 @@ export class StartAppealFlow {
         }
     }
 
+    async editClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+        if (isOutOfCountryEnabled) {
+            await this.completeOutOfCountryQuestion(true, 'Yes');
+        }
+        await this.completeHomeOfficeReference(true);
+        await this.clickContinueToNextStep(true); // completeUploadNoticeDecisionNoUpload
+        await this.clickContinueToNextStep(true); // completeBasicDetails
+        await this.clickContinueToNextStep(true); // completeNationality
+        await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+        await this.clickContinueToNextStep(true); // completeContactPreference
+        await this.clickContinueToNextStep(true); // completeGivenAppealType
+        await this.clickContinueToNextStep(true); // completedGivenAppealGrounds
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.clickContinueToNextStep(true); // completeOtherAppeals
+        await this.completeLegalRepresentativeDetails(true);
+    }
+
+    async editInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.editClientDetails(false);
+        await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, remission);
+        if (remission === 'no remission') {
+            await this.completeHowToPayNow(true);
+        }
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async editInitialNonPaymentAppeal(clickContinue = false, appealType = '', ) {
+        await this.editClientDetails(false);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async clickContinueToNextStep(clickContinue = false) {
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async editInitialAppealWithFeeOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
+        await this.completeOutOfCountryQuestion(true, 'No');
+        await this.completeDecisionType(true, 'refusalOfHumanRights');
+        await this.completeGlobalWebFormReference(true, 'GWF1234567');
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.clickContinueToNextStep(true); // completeBasicDetails
+        await this.clickContinueToNextStep(true); // completeNationality
+        await this.completeClientAddressOutOfCountry(true, true);
+        await this.clickContinueToNextStep(true); // completeContactPreference
+        await this.completeSponsorQuestion(true, 'Yes');
+        await this.completeSponsorNames(true, givenName, familyName);
+        await this.completeSponsorAddress(true, 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London', 'EC1R 4QU');
+        await this.completeSponsorContactPreference(true, contactPreference);
+        await this.completeSponsorAuthorisation(true, authorisation);
+        await this.clickContinueToNextStep(true); // completeGivenAppealType
+        await this.clickContinueToNextStep(true); // completedGivenAppealGrounds
+        await this.clickContinueToNextStep(true); // completeNewMatters
+        await this.clickContinueToNextStep(true); // completeOtherAppeals
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, 'hearing fee');
+        await this.completeRemissionDetails(true, 'no remission');
+        await this.completeHowToPayNow(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async editInitialNonPaymentAppealOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
+        await this.completeOutOfCountryQuestion(true, 'No');
+        await this.completeDecisionType(true, 'refusalOfHumanRights');
+        await this.completeGlobalWebFormReference(true, 'GWF1234567');
+        await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.clickContinueToNextStep(true); // completeBasicDetails
+        await this.clickContinueToNextStep(true); // completeNationality
+        await this.completeClientAddressOutOfCountry(true, true);
+        await this.clickContinueToNextStep(true); // completeContactPreference
+        await this.completeSponsorQuestion(true, 'Yes');
+        await this.completeSponsorNames(true, givenName, familyName);
+        await this.completeSponsorAddress(true, 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London', 'EC1R 4QU');
+        await this.completeSponsorContactPreference(true, contactPreference);
+        await this.completeSponsorAuthorisation(true, authorisation);
+        await this.clickContinueToNextStep(true); // completeGivenAppealType
+        await this.clickContinueToNextStep(true); // completedGivenAppealGrounds
+        await this.clickContinueToNextStep(true); // completeNewMatters
+        await this.clickContinueToNextStep(true); // completeOtherAppeals
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
 }
