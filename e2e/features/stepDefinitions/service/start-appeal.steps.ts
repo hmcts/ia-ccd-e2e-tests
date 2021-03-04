@@ -159,6 +159,23 @@ Given(/^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s
 });
 
 // tslint:disable-next-line:max-line-length
+Given(/^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s`]+)`? with address `?([^\s`]+)`? and with sponsor `?([^\s`]+)`?$/, async function (lateAppeal, decisionType, hasAddress= 'Yes', hasSponsor = 'Yes') {
+    if (isOutOfCountryEnabled) {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(true, 'HU', 'no remission', 'hearing fee', 'No', decisionType, lateAppeal, hasAddress, hasSponsor);
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithDecision(true, 'PA', 'No', decisionType, lateAppeal, hasAddress, hasSponsor);
+        }
+    } else {
+        if (isfeePaymentEnabled) {
+            await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'no remission', 'hearing fee');
+        } else {
+            await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA');
+        }
+    }
+});
+
+// tslint:disable-next-line:max-line-length
 Given(/^I save my out of country appeal with sponsor given name `?([^\s`]+)`? family name `?([^`]+)`? contactPreference `?([^`]+)`? authorisation `?([^`]+)`?$/, async function (givenName, familyName, contactPreference, authorisation) {
     if (isOutOfCountryEnabled) {
         if (isfeePaymentEnabled) {

@@ -463,7 +463,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '', lateAppeal = '') {
+    async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '', lateAppeal = '', hasAddress= 'Yes', hasSponsor = 'Yes') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
@@ -479,9 +479,9 @@ export class StartAppealFlow {
         await this.completeUploadNoticeDecisionNoUpload(true);
         await this.completeBasicDetails(true);
         await this.completeNationality(true);
-        await this.completeClientAddressOutOfCountry(true, true);
+        await this.completeClientAddressOutOfCountry(true, hasAddress === 'Yes' ? true : false);
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true, 'No')
+        await this.completeSponsorQuestion(true, hasSponsor)
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         if (decisionType !== 'refusalOfHumanRights') {
@@ -497,7 +497,8 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealWithFeeOutOfCountryWithDecision(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '', decisionType = '', lateAppeal = '') {
+    // tslint:disable-next-line:max-line-length
+    async saveInitialAppealWithFeeOutOfCountryWithDecision(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '', decisionType = '', lateAppeal = '', hasAddress= 'Yes', hasSponsor = 'Yes') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
@@ -512,9 +513,9 @@ export class StartAppealFlow {
         await this.completeUploadNoticeDecisionNoUpload(true);
         await this.completeBasicDetails(true);
         await this.completeNationality(true);
-        await this.completeClientAddressOutOfCountry(true, true);
+        await this.completeClientAddressOutOfCountry(true, hasAddress === 'Yes' ? true : false);
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true, 'No');
+        await this.completeSponsorQuestion(true, hasSponsor );
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         if (decisionType !== 'refusalOfHumanRights') {
