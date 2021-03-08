@@ -46,6 +46,12 @@ module.exports = {
   TestLawFirmOrgAPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_A_PASSWORD,
   TestLawFirmOrgBUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_B_USERNAME,
   TestLawFirmOrgBPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_B_PASSWORD,
+  TestLawFirmOrg2CreatorUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_ORG2_USERNAME,
+  TestLawFirmOrg2CreatorPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_ORG2_PASSWORD,
+  TestLawFirmOrgCUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_C_USERNAME,
+  TestLawFirmOrgCPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_C_PASSWORD,
+  TestLawFirmOrgDUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_D_USERNAME,
+  TestLawFirmOrgDPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_D_PASSWORD,
 
   isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
   isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false,
