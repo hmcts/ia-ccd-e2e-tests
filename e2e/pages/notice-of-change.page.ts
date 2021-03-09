@@ -2,6 +2,9 @@
 import { Wait } from '../enums/wait';
 import { browser, by, element, By } from 'protractor';
 
+const iaConfig = require('../ia.conf');
+const ccdUrl = iaConfig.CcdWebUrl;
+
 export class NoticeOfChangePage {
 
     private noticeOfChangeCaseId: string;
@@ -158,6 +161,10 @@ export class NoticeOfChangePage {
 
         this.latestCaseId = caseId;
         console.log('\n\tLatest case id : ' + this.latestCaseId + '\n')
+    }
+
+    async goToLatestCase(shortWait = false) {
+        browser.driver.get(`${ccdUrl}/cases/case-details/` + this.noticeOfChangeCaseId);
     }
 
     async checkLatestCaseIdIsNotTheSame(shortWait = false) {

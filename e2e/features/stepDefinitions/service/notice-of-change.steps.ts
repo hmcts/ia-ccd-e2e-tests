@@ -50,7 +50,17 @@ Then('I confirm the notice of change case is no longer available', async functio
     await noticeOfChangePage.checkLatestCaseIdIsNotTheSame();
 });
 
-When(/^I get the most recent case id after successful notice of change$/, async function () {
+Then('I confirm the remove representation case is no longer available', async function () {
+    await noticeOfChangePage.checkLatestCaseIdIsNotTheSame();
+});
+
+When(/^I get the most recent case id after successful (notice of change|remove represenation)$/, async function (correctEvent) {
     await noticeOfChangeFlow.selectShareCase();
     await noticeOfChangePage.getLatestCaseId();
+});
+
+When(/^I get the most recent case id for removing representation$/, async function () {
+    await noticeOfChangeFlow.selectShareCase();
+    await noticeOfChangePage.getNoticeOfChangeCaseId();
+    await noticeOfChangePage.goToLatestCase();
 });
