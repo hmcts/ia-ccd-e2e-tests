@@ -46,3 +46,11 @@ When('I select all the submit checkboxes', async function () {
 Then('I enter the removed case id in the url', async function () {
     await noticeOfChangePage.goToRemovedCase();
 });
+
+When(/^I get the most recent case id for removing representation$/, async function () {
+    await noticeOfChangePage.getLatestCaseIdFromUrl();
+});
+
+When(/^I set the case role id field$/, async function () {
+    await noticeOfChangePage.setCaseRoleId();
+});
