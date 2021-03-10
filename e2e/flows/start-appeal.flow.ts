@@ -749,7 +749,9 @@ export class StartAppealFlow {
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, 'without')
         await this.completeRemissionDetails(true, 'no remission');
+        await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
