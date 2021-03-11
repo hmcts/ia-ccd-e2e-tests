@@ -75,28 +75,28 @@ Feature: Submit appeal with asylum support remission
     And I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Asylum support` for the `Fee remission type` field
     And I should see `20/02/1234` for the `Asylum Support reference number` field
     And I should see `Evidence1.pdf` for the `Asylum Support confirmation letter` field
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Asylum support` for the `Fee remission type` field
     And I should see `20/02/1234` for the `Asylum Support reference number` field
     And I should see `Evidence1.pdf` for the `Asylum Support confirmation letter` field
 
     When I switch to be a `Admin Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Asylum support` for the `Fee remission type` field
     And I should see `20/02/1234` for the `Asylum Support reference number` field
     And I should see `Evidence1.pdf` for the `Asylum Support confirmation letter` field
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Asylum support` for the `Fee remission type` field
     And I should see `20/02/1234` for the `Asylum Support reference number` field
     And I should see `Evidence1.pdf` for the `Asylum Support confirmation letter` field
@@ -142,7 +142,7 @@ Feature: Submit appeal with asylum support remission
     When I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
 
@@ -161,49 +161,49 @@ Feature: Submit appeal with asylum support remission
     And I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Admin Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
 
@@ -250,7 +250,7 @@ Feature: Submit appeal with asylum support remission
     When I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 17` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
@@ -269,46 +269,46 @@ Feature: Submit appeal with asylum support remission
     And I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 17` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 17` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     When I switch to be a `Admin Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 17` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 17` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 17` for the `Fee remission type` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 17` for the `Fee remission type` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 17` for the `Fee remission type` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 17` for the `Fee remission type` field
 
   @submit-appeal-with-section20-remission  @RIA-3686-section20-remission @RIA-3686
@@ -353,7 +353,7 @@ Feature: Submit appeal with asylum support remission
     When I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 20` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
@@ -372,46 +372,46 @@ Feature: Submit appeal with asylum support remission
     And I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 20` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 20` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     When I switch to be a `Admin Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 20` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 20` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 20` for the `Fee remission type` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 20` for the `Fee remission type` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 20` for the `Fee remission type` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Section 20` for the `Fee remission type` field
 
   @submit-appeal-with-hoWaiver-remission  @RIA-3686-hoWaiver-remission @RIA-3686
@@ -456,7 +456,7 @@ Feature: Submit appeal with asylum support remission
     When I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Home Office fee waiver` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Home Office fee waiver letter` field
 
@@ -475,46 +475,46 @@ Feature: Submit appeal with asylum support remission
     And I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Home Office fee waiver` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Home Office fee waiver letter` field
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Home Office fee waiver` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Home Office fee waiver letter` field
 
     When I switch to be a `Admin Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Home Office fee waiver` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Home Office fee waiver letter` field
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Home Office fee waiver` for the `Fee remission type` field
     And I should see `Evidence1.pdf` for the `Home Office fee waiver letter` field
 
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Home Office fee waiver` for the `Fee remission type` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Home Office fee waiver` for the `Fee remission type` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Home Office fee waiver` for the `Fee remission type` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Home Office fee waiver` for the `Fee remission type` field
 
   @submit-appeal-with-help-with-fees  @RIA-3084
@@ -553,7 +553,7 @@ Feature: Submit appeal with asylum support remission
     When I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
@@ -576,49 +576,49 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Admin Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
@@ -663,7 +663,7 @@ Feature: Submit appeal with asylum support remission
     When I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
@@ -683,56 +683,56 @@ Feature: Submit appeal with asylum support remission
     And I click the `Close and Return to case details` button
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Admin Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
     And I should see `Evidence1.pdf` in the `Supporting evidence` field

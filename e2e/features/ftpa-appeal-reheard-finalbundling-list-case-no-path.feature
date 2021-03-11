@@ -100,7 +100,6 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I click the `Close and Return to case details` button
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`
@@ -189,7 +188,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
 
     And I generate the hearing bundle
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I select the `Generate hearing bundle` Next step
     Then I should see the `Generate hearing bundle` page
@@ -204,12 +203,12 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I wait for 10 seconds
     And I switch to be a `Legal Rep`
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Reheard hearing documents` collection's first item, I should see `-González-reheard-hearing-bundle.pdf` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

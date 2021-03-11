@@ -69,7 +69,6 @@ Feature: Home Office appeal response amendment
     And I should see the legal representative details
 
     Then I click the `Directions` tab
-    And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `Do the thing` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
     And within the `Directions` collection's first item, I should see `15 Oct 2019` for the `Date due` field

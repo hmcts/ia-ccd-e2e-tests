@@ -34,7 +34,6 @@ Feature: FTPA Appellant application to the Upper Tribunal
   Scenario: FTPA Appellant application
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
@@ -72,7 +71,6 @@ Feature: FTPA Appellant application to the Upper Tribunal
 
     When I click the `Close and Return to case details` button
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaInProgress.png`
     And I should see the text `What happens next`
     And I should see the text `The First-tier Tribunal will consider the application and make a decision shortly. The application is available to view in the FTPA tab`
@@ -82,7 +80,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I verify the presence of appellant FTPA documents under FTPA tab
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `FTPA Appellant documents` collection's first item, I should see `FTPAAppellantGrounds.pdf` in the `Document` field
     And within the `FTPA Appellant documents` collection's first item, I should see `This is the FTPA Appellant grounds` in the `Description` field
     And within the `FTPA Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -101,7 +99,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I verify the presence of appellant FTPA documents under FTPA tab
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `FTPA Appellant documents` collection's first item, I should see `FTPAAppellantGrounds.pdf` in the `Document` field
     And within the `FTPA Appellant documents` collection's first item, I should see `This is the FTPA Appellant grounds` in the `Description` field
     And within the `FTPA Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -113,7 +111,6 @@ Feature: FTPA Appellant application to the Upper Tribunal
     ## Admin Officer
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaInProgress.png`
     And I should see the text `Do this next`
     And I should see the text `Assign the application to a judge then record the judge's name.`
@@ -127,7 +124,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I verify the presence of appellant FTPA documents under FTPA tab
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `FTPA Appellant documents` collection's first item, I should see `FTPAAppellantGrounds.pdf` in the `Document` field
     And within the `FTPA Appellant documents` collection's first item, I should see `This is the FTPA Appellant grounds` in the `Description` field
     And within the `FTPA Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -142,7 +139,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I verify the presence of appellant FTPA documents under FTPA tab
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `FTPA Appellant documents` collection's first item, I should see `FTPAAppellantGrounds.pdf` in the `Document` field
     And within the `FTPA Appellant documents` collection's first item, I should see `This is the FTPA Appellant grounds` in the `Description` field
     And within the `FTPA Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -153,13 +150,12 @@ Feature: FTPA Appellant application to the Upper Tribunal
     ## Home Office APC
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `Do this next`
     And I should see the text `The appeal has been decided. The Decision and Reasons document is available in the documents tab.`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
     And I should not see the text `Appellant: Application for permission to appeal`
@@ -167,13 +163,12 @@ Feature: FTPA Appellant application to the Upper Tribunal
     ## Home Office LART
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `Do this next`
     And I should see the text `The appeal has been decided. The Decision and Reasons document is available in the documents tab.`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
     And I should not see the text `Appellant: Application for permission to appeal`
@@ -181,7 +176,6 @@ Feature: FTPA Appellant application to the Upper Tribunal
     ## Home Office Generic
     When I switch to be a `Home Office Generic`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
@@ -189,7 +183,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `apply for permission to appeal` link
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
     And I should not see the text `Appellant: Application for permission to appeal`
@@ -197,7 +191,6 @@ Feature: FTPA Appellant application to the Upper Tribunal
     ## Home Office POU
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
@@ -205,14 +198,13 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `apply for permission to appeal` link
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the appellant FTPA documents under Documents tab
     And I click the `FTPA` tab
     And I should not see the appellant FTPA documents under FTPA tab
 
     When I submit FTPA Respondent appeal
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaInProgress.png`
     And I should see the text `What happens next`
     And I should see the text `The First-tier Tribunal will consider the application and make a decision shortly. The application is available to view in the FTPA tab`

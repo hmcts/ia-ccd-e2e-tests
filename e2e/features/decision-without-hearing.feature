@@ -19,7 +19,6 @@ Feature: Decision without a hearing from respondent review
     When I select the `Decision without a hearing` Next step
     Then I am on the `Decision without a hearing` page
     And I click the `Decision` button
-    Then I should see the `Overview` page
     And I should see the text `has been updated with event: Decision without a hearing`
 
 
@@ -28,7 +27,6 @@ Feature: Decision without a hearing from respondent review
     When I add the appeal response
     And I request hearing requirements
     And I click the `Directions` tab
-    And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
@@ -36,7 +34,6 @@ Feature: Decision without a hearing from respondent review
     When I select the `Decision without a hearing` Next step
     Then I am on the `Decision without a hearing` page
     And I click the `Decision` button
-    Then I should see the `Overview` page
     And I should see the text `has been updated with event: Decision without a hearing`
 
   @RIA-2122
@@ -51,7 +48,6 @@ Feature: Decision without a hearing from respondent review
     Then I select the `Decision without a hearing` Next step
     Then I am on the `Decision without a hearing` page
     And I click the `Decision` button
-    Then I should see the `Overview` page
     And I should see the text `has been updated with event: Decision without a hearing`
 
   @RIA-2122
@@ -86,5 +82,4 @@ Feature: Decision without a hearing from respondent review
   Then I select the `Decision without a hearing` Next step
   Then I am on the `Decision without a hearing` page
   And I click the `Decision` button
-  Then I should see the `Overview` page
   And I should see the text `has been updated with event: Decision without a hearing`

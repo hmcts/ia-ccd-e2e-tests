@@ -13,7 +13,7 @@ Feature: End appeal
     Then I end the appeal
 
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Upload additional evidence` link
     And I should not see the `Add additional evidence as an addendum` link
     And I should see the `Tribunal documents` field
@@ -21,7 +21,6 @@ Feature: End appeal
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And I should not see the `Send a new direction` link
     And I should not see the `Change a direction due date` link
     When I click the `Overview` tab
@@ -85,7 +84,7 @@ Feature: End appeal
     Then I end the appeal
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Upload additional evidence` link
     And I should not see the `Add additional evidence as an addendum` link
     And I should see the `Tribunal documents` field
@@ -93,7 +92,6 @@ Feature: End appeal
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And I should not see the `Send a new direction` link
     And I should not see the `Change a direction due date` link
     When I click the `Overview` tab
@@ -172,7 +170,7 @@ Feature: End appeal
     And I end the appeal
 
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Tribunal documents` field
     And within the `Tribunal documents` collection's first item, I should see `-Gonzlez-NoticeOfEndedAppeal.PDF` in the `Document` field
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -253,7 +251,7 @@ Feature: End appeal
     And I end the appeal
 
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Tribunal documents` field
     And within the `Tribunal documents` collection's first item, I should see `-Gonzlez-NoticeOfEndedAppeal.PDF` in the `Document` field
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
