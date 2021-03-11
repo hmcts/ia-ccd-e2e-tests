@@ -862,7 +862,6 @@ Feature: Case progression path when save and continue is enabled
     # Admin Officer
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see `Legally Represented` tag
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
     And I should see the text `What happens next`
@@ -1202,7 +1201,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_listing` case progress image
     And I should see the text `Do this next`
@@ -1332,7 +1330,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_listed` case progress image
 
@@ -1383,7 +1380,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_listed` case progress image
 
@@ -1460,7 +1456,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_preHearing` case progress image
 
@@ -1647,7 +1642,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_decision` case progress image
 
@@ -1712,7 +1706,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `appeal_allowed` case progress image
 
@@ -1730,7 +1723,6 @@ Feature: Case progression path when save and continue is enabled
 
     # Home Office POU
     When I switch to be a `Home Office POU`
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`

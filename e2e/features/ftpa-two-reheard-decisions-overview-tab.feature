@@ -58,7 +58,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
     And I click the `Close and Return to case details` button
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
 
     When I switch to be a `Home Office POU`
@@ -81,7 +80,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
     And I click the `Close and Return to case details` button
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`
@@ -94,7 +92,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Case Officer`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `Do this next`
     And I should see the text `The appeal is being reheard. First check the FTPA tab and follow any instructions the Judge has made to the Tribunal`
@@ -112,7 +109,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case is ready to be listed.`
@@ -125,7 +121,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Legal Rep`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified if you need to do anything.`
@@ -138,7 +133,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Home Office APC`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
@@ -151,7 +145,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Home Office POU`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
@@ -164,7 +157,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Home Office LART`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
@@ -177,7 +169,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Home Office Generic`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
@@ -212,7 +203,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
     And I click the `Close and Return to case details` button
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
 
     When I switch to be a `Home Office POU`
@@ -240,7 +230,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
     And I click the `Close and Return to case details` button
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`
@@ -253,7 +242,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Case Officer`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `Do this next`
     And I should see the text `The appeal is being reheard. First check the FTPA tab and follow any instructions the Judge has made to the Tribunal`
@@ -271,7 +259,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case is ready to be listed.`
@@ -284,7 +271,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Legal Rep`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified if you need to do anything.`
@@ -297,7 +283,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Home Office APC`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
@@ -310,7 +295,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Home Office POU`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
@@ -323,7 +307,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Home Office LART`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
@@ -336,7 +319,6 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
 
     When I switch to be a `Home Office Generic`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`

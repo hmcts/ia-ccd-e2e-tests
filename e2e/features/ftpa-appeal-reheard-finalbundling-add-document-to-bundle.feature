@@ -98,7 +98,6 @@ Feature: Case Officer add a new document to final bundle for a reheard case
     And I click the `Close and Return to case details` button
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`
@@ -198,7 +197,6 @@ Feature: Case Officer add a new document to final bundle for a reheard case
     Then I should see the text `If the bundle fails to generate, you will be notified and will need to generate the bundle again.`
 
     When I click the `Close and Return to case details` button
-    Then I should see the `Overview` page
     Then I should see the text `The hearing bundle is being generated. You will soon be able to view the hearing bundle in the documents tab.`
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`

@@ -51,7 +51,6 @@ Feature: Admin Officer - Edit case listing after review update hearing requireme
     Then I am on the `Edit case listing` page
     And I click the `Cancel` link
     And I relist the case with length of hearing as `5` hours
-    And I should see the `Overview` page
     And I should only see the `caseOfficer_prepareForHearing` case progress image
     And I should see the text `What happens next`
     And I should see the text `The Notice of Hearing will be sent to all parties.`
@@ -85,7 +84,6 @@ Feature: Admin Officer - Edit case listing after review update hearing requireme
     And I click the `Cancel` link
     And I relist the case with length of hearing as `3` hours
 
-    And I should see the `Overview` page
     And I should only see the `caseOfficer_finalBundling` case progress image
     And I should see the text `What happens next`
     And I should see the text `The Tribunal Caseworker will generate a hearing bundle for all parties to use at the hearing.`
@@ -95,8 +93,6 @@ Feature: Admin Officer - Edit case listing after review update hearing requireme
     When I switch to be a `Case Officer`
     And I generate the hearing bundle
     And I click the `Overview` tab
-
-    And I should see the `Overview` page
     And I should only see the `caseOfficer_preHearing` case progress image
     And I should see the text `Do this next`
     And I should see the text `You can start to create the decision and reasons document.`
@@ -123,7 +119,6 @@ Feature: Admin Officer - Edit case listing after review update hearing requireme
     And I click the `Cancel` link
     And I relist the case with length of hearing as `3` hours
 
-    And I should see the `Overview` page
     And I should only see the `caseOfficer_preHearing` case progress image
     And I should see the text `What happens next`
     And I should see the text `The Tribunal Caseworker will generate the Decision and Reasons document.`
@@ -133,8 +128,6 @@ Feature: Admin Officer - Edit case listing after review update hearing requireme
     When I switch to be a `Case Officer`
     And I start decision and reasons
     And I click the `Overview` tab
-
-    And I should see the `Overview` page
     And I should only see the `caseOfficer_decision` case progress image
 
     ## update hearing adjustments
@@ -158,7 +151,6 @@ Feature: Admin Officer - Edit case listing after review update hearing requireme
     And I click the `Cancel` link
     And I relist the case with length of hearing as `3` hours
 
-    And I should see the `Overview` page
     And I should only see the `caseOfficer_decision` case progress image
     And I should see the text `Do this next`
     And I should see the text `Record the attendees and duration of the hearing.`

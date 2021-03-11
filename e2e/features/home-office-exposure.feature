@@ -298,7 +298,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listing` case progress image
 
     And I should see the text `Do this next`
@@ -315,7 +314,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listing` case progress image
 
     And I should see the text `Do this next`
@@ -332,7 +330,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listing` case progress image
 
     And I should see the text `Do this next`
@@ -349,7 +346,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office Generic`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listing` case progress image
 
     And I should see the text `Do this next`
@@ -369,7 +365,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -384,7 +379,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -399,7 +393,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -414,7 +407,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office Generic`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -434,7 +426,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -449,7 +440,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -464,7 +454,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -479,7 +468,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office Generic`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_listed` case progress image
 
     And I should see the text `Do this next`
@@ -499,7 +487,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_preHearing` case progress image
 
     And I should see the text `Do this next`
@@ -513,7 +500,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_preHearing` case progress image
 
     And I should see the text `Do this next`
@@ -527,7 +513,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_preHearing` case progress image
 
     And I should see the text `Do this next`
@@ -541,7 +526,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office Generic`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_preHearing` case progress image
 
     And I should see the text `Do this next`
@@ -561,7 +545,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_decision` case progress image
 
     And I should see the text `Do this next`
@@ -579,7 +562,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_decision` case progress image
 
     And I should see the text `Do this next`
@@ -597,7 +579,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_decision` case progress image
 
     And I should see the text `Do this next`
@@ -615,7 +596,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office Generic`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `homeOffice_decision` case progress image
 
     And I should see the text `Do this next`
@@ -638,7 +618,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `appeal_allowed` case progress image
 
     And I should see the text `Do this next`
@@ -656,7 +635,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `appeal_allowed` case progress image
 
     And I should see the text `Do this next`
@@ -674,7 +652,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `appeal_allowed` case progress image
 
     And I should see the text `Do this next`
@@ -692,7 +669,6 @@ Feature: Different Home Office roles have different functionality
     When I switch to be a `Home Office Generic`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should only see the `appeal_allowed` case progress image
 
     And I should see the text `Do this next`

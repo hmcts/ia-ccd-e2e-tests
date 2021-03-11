@@ -20,7 +20,6 @@ Feature: Edit documents
     When I click the `Continue` button
     Then I should see the `Submit` button
     When I click the `Submit` button
-    Then I should see the `Overview` page
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field

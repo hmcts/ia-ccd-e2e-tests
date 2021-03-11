@@ -52,37 +52,30 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Close and Return to case details` button
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office POU`
@@ -103,43 +96,36 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Close and Return to case details` button
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should not see the image `appeal_dismissed.png`
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should not see the image `appeal_dismissed.png`
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should not see the image `appeal_dismissed.png`
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should not see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should not see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should not see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should not see the image `appeal_dismissed.png`
 
@@ -168,37 +154,30 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Close and Return to case details` button
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office POU`
@@ -219,43 +198,36 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Close and Return to case details` button
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should not see the image `appeal_allowed.png`
 
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should not see the image `appeal_allowed.png`
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should not see the image `appeal_allowed.png`
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should not see the image `appeal_allowed.png`
 
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should not see the image `appeal_allowed.png`
 
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should not see the image `appeal_allowed.png`
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should not see the image `appeal_allowed.png`
 

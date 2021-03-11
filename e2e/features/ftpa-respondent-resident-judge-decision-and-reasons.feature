@@ -100,7 +100,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaGranted.png`
     And I should see the text `No further action required.`
     And I should see `Permission granted` for the `The outcome of the application` field
@@ -126,7 +125,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaGranted.png`
     And I should see the text `No further action required.`
     And I should see `Permission granted` for the `The outcome of the application` field
@@ -176,7 +174,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaGranted.png`
     And I should see the text `Send all information and documents related to this case to the Upper Tribunal.`
     And I should see `Permission granted` for the `The outcome of the application` field
@@ -201,7 +198,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaGranted.png`
     And I should see the text `The Upper Tribunal will review the application and make a decision.`
     And I should see `Permission granted` for the `The outcome of the application` field
@@ -362,7 +358,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaGranted.png`
     And I should see the text `No further action required.`
     And I should see `Permission partially granted` for the `The outcome of the application` field
@@ -388,7 +383,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaGranted.png`
     And I should see the text `No further action required.`
     And I should see `Permission partially granted` for the `The outcome of the application` field
@@ -413,7 +407,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaGranted.png`
     And I should see the text `The Upper Tribunal will review the application and make a decision.`
     And I should see `Permission partially granted` for the `The outcome of the application` field
@@ -439,7 +432,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaGranted.png`
     And I should see the text `Send all information and documents related to this case to the Upper Tribunal.`
     And I should see `Permission partially granted` for the `The outcome of the application` field
@@ -464,7 +456,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `ftpaGranted.png`
     And I should see the text `The Upper Tribunal will review the application and make a decision.`
     And I should see `Permission partially granted` for the `The outcome of the application` field
@@ -604,7 +595,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should see the text `No further action required.`
     And I should see `Permission refused` for the `The outcome of the application` field
@@ -626,7 +616,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should see the text `No further action required.`
     And I should see `Permission refused` for the `The outcome of the application` field
@@ -648,7 +637,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should see the text `The application for permission to appeal to the Upper Tribunal was refused. You can apply to the Upper Tribunal directly.`
     And I should see `Permission refused` for the `The outcome of the application` field
@@ -670,7 +658,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should see the text `No further action required.`
     And I should see `Permission refused` for the `The outcome of the application` field
@@ -679,7 +666,6 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Home Office Generic`
-    And I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should see the text `The application for permission to appeal to the Upper Tribunal was refused. You can apply to the Upper Tribunal directly.`
     And I should see `Permission refused` for the `The outcome of the application` field
@@ -696,7 +682,6 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Home Office LART`
-    And I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should see the text `The application for permission to appeal to the Upper Tribunal was refused. You can apply to the Upper Tribunal directly.`
     And I should see `Permission refused` for the `The outcome of the application` field
@@ -705,7 +690,6 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
     When I switch to be a `Legal Rep`
-    And I should see the `Overview` page
     And I should see the image `appeal_dismissed.png`
     And I should see the text `The appeal has been dismissed. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
     And I should not see the `The outcome of the application` field
@@ -821,7 +805,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
@@ -846,7 +829,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `Do this next`
     And I should see the text `Check the FTPA tab and follow any instructions the judge has made to the Tribunal. Once you've done this you should record the length of the hearing`
@@ -871,7 +853,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
@@ -911,7 +892,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
@@ -1018,7 +998,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
@@ -1041,7 +1020,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `Do this next`
     And I should see the text `Check the FTPA tab and follow any instructions the judge has made to the Tribunal. Once you've done this you should record the length of the hearing`
@@ -1064,7 +1042,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
@@ -1100,7 +1077,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`
     And I should see the text `A Caseworker will review any Tribunal instructions and then relist the case.`
@@ -1207,7 +1183,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`
     And I should see the text `No further action required.`
@@ -1231,7 +1206,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`
     And I should see the text `No further action required.`
@@ -1255,7 +1229,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`
     And I should see the text `The decision was set aside and remade under rule 32 following an application for permission to appeal to the Upper Tribunal. You can apply to the Upper Tribunal directly.`
@@ -1309,7 +1282,6 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`
     And I should see the text `No further action required.`

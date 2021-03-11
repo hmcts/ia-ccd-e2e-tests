@@ -93,7 +93,6 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
     And I click the `Send direction` button
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `caseOfficer_submitHearingRequirements.png`
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to submit any new hearing requirements`
@@ -120,7 +119,6 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
     When I click the `Close and Return to case details` button
-    Then I should see the `Overview` page
     And I should only see the `caseOfficer_listing` case progress image
     And I should see the text `What happens next`
     And I should see the text `The agreed hearing requirements and adjustments have been recorded.`

@@ -14,7 +14,6 @@ Feature: Force case progression to case under review
   Scenario: Case officer forces the case state from caseBuilding to caseUnderReview
 
     When I click the `Overview` tab
-    And I should see the `Overview` page
 
     When I select the `Force case - case under review` Next step
     Then I am on the `Force case - case under review` page

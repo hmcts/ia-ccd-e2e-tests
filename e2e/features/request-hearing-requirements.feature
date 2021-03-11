@@ -24,7 +24,6 @@ Feature: Request hearing requirements
     Then I should see an alert confirming the case `has been updated with event: Request hearing requirements`
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to submit their hearing requirements.`
@@ -41,7 +40,6 @@ Feature: Request hearing requirements
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant will submit their hearing requirements.`

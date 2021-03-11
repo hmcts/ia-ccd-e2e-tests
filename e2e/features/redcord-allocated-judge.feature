@@ -35,7 +35,6 @@ Feature: Record allocated Judge
   Scenario: Record allocated Judge
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the image `ftpaInProgress.png`
     And I should see the text `Do this next`
     And I should see the text `Assign the application to a judge then record the judge's name.`

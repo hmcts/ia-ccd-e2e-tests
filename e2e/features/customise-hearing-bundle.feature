@@ -31,9 +31,6 @@ Feature: Customise hearing bundle
     When I click the `Documents` tab
     Then I should see the `Documents` page
 
-    When I click the `Overview` tab
-    Then I should see the `Overview` page
-
     When I select the `Customise hearing bundle` Next step
     Then I should see the `Customise hearing bundle` page
     And I should see the `Continue` button
@@ -50,7 +47,6 @@ Feature: Customise hearing bundle
     Then I should see the text `If the bundle fails to generate, you will be notified and will need to generate the bundle again.`
 
     When I click the `Close and Return to case details` button
-    Then I should see the `Overview` page
     Then I should see the text `The hearing bundle is being generated. You will soon be able to view the hearing bundle in the documents tab.`
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`
@@ -65,7 +61,6 @@ Feature: Customise hearing bundle
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should only see the `caseOfficer_preHearing` case progress image
     And I should see the text `Do this next`
     And I should see the text `You can start to create the decision and reasons document.`
@@ -75,9 +70,6 @@ Feature: Customise hearing bundle
   Scenario: Generate hearing bundle add document
     When I click the `Documents` tab
     Then I should see the `Documents` page
-
-    When I click the `Overview` tab
-    Then I should see the `Overview` page
 
     When I select the `Customise hearing bundle` Next step
     Then I should see the `Customise hearing bundle` page
@@ -99,7 +91,6 @@ Feature: Customise hearing bundle
     Then I should see the text `If the bundle fails to generate, you will be notified and will need to generate the bundle again.`
 
     When I click the `Close and Return to case details` button
-    Then I should see the `Overview` page
     Then I should see the text `The hearing bundle is being generated. You will soon be able to view the hearing bundle in the documents tab.`
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`
@@ -141,7 +132,6 @@ Feature: Customise hearing bundle
     Then I should see the text `If the bundle fails to generate, you will be notified and will need to generate the bundle again.`
 
     When I click the `Close and Return to case details` button
-    Then I should see the `Overview` page
     Then I should see the text `The hearing bundle is being generated. You will soon be able to view the hearing bundle in the documents tab.`
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`

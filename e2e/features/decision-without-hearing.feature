@@ -19,7 +19,6 @@ Feature: Decision without a hearing from respondent review
     When I select the `Decision without a hearing` Next step
     Then I am on the `Decision without a hearing` page
     And I click the `Decision` button
-    Then I should see the `Overview` page
     And I should see the text `has been updated with event: Decision without a hearing`
 
 
@@ -36,7 +35,6 @@ Feature: Decision without a hearing from respondent review
     When I select the `Decision without a hearing` Next step
     Then I am on the `Decision without a hearing` page
     And I click the `Decision` button
-    Then I should see the `Overview` page
     And I should see the text `has been updated with event: Decision without a hearing`
 
   @RIA-2122
@@ -51,7 +49,6 @@ Feature: Decision without a hearing from respondent review
     Then I select the `Decision without a hearing` Next step
     Then I am on the `Decision without a hearing` page
     And I click the `Decision` button
-    Then I should see the `Overview` page
     And I should see the text `has been updated with event: Decision without a hearing`
 
   @RIA-2122
@@ -86,5 +83,4 @@ Feature: Decision without a hearing from respondent review
   Then I select the `Decision without a hearing` Next step
   Then I am on the `Decision without a hearing` page
   And I click the `Decision` button
-  Then I should see the `Overview` page
   And I should see the text `has been updated with event: Decision without a hearing`
