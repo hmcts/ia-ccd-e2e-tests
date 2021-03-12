@@ -1730,7 +1730,7 @@ Feature: Case progression path when case and continue is disabled
 
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `CaseArgument.pdf` in the first `Appeal skeleton argument` field
     And I should see `This is the case argument` in the first `Description` field
     And within the first `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field

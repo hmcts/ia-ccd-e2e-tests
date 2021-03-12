@@ -29,7 +29,7 @@ Feature: Pay now and Submit feature
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
@@ -58,7 +58,7 @@ Feature: Pay now and Submit feature
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` answer
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
@@ -87,7 +87,7 @@ Feature: Pay now and Submit feature
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
@@ -119,7 +119,7 @@ Feature: Pay now and Submit feature
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
@@ -152,7 +152,7 @@ Feature: Pay now and Submit feature
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` answer
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
@@ -181,7 +181,7 @@ Feature: Pay now and Submit feature
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
@@ -209,7 +209,7 @@ Feature: Pay now and Submit feature
     And I should see the legal representative details
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field

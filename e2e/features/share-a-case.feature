@@ -16,7 +16,7 @@ Feature: Share a case
     When I click the `Overview` tab
     And I should see the text `Do this next`
     And I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I click the `Appellant` tab
     And I should not see any case progress images
     And I should see the appellant's details

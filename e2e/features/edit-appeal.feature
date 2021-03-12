@@ -395,6 +395,6 @@ Feature: Edit appeal application
     And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Yes` for the `Was the appeal submission late?` field
     And I should see `some reason` for the `Reasons for late appeal submission` field

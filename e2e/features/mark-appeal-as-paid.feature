@@ -16,7 +16,7 @@ Feature: Mark appeal as paid
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
@@ -45,7 +45,7 @@ Feature: Mark appeal as paid
     Then I should see an alert confirming the case `has been updated with event: Mark appeal as paid`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `31 Aug 2020` for the `Payment date` field
@@ -56,7 +56,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Legal Rep`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -69,7 +69,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Case Officer`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -82,7 +82,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Judge`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -95,7 +95,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office APC`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -106,7 +106,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office LART`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -117,7 +117,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office POU`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -128,7 +128,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office Generic`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -147,7 +147,7 @@ Feature: Mark appeal as paid
     And I should see the text `You still need to pay for this appeal. You will soon receive a notification with instructions on how to pay by card online.`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Payment pending` for the `Payment status` field
@@ -183,7 +183,7 @@ Feature: Mark appeal as paid
     Then I should see an alert confirming the case `has been updated with event: Mark appeal as paid`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
@@ -199,7 +199,7 @@ Feature: Mark appeal as paid
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
@@ -211,7 +211,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Case Officer`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
@@ -223,7 +223,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Judge`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
@@ -235,7 +235,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office APC`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
@@ -245,7 +245,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office LART`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
@@ -255,7 +255,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office POU`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
@@ -266,7 +266,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office Generic`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
@@ -286,7 +286,7 @@ Feature: Mark appeal as paid
     And I should see the text `You still need to pay for this appeal. You will soon receive a notification with instructions on how to pay by card online.`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Payment pending` for the `Payment status` field
@@ -322,7 +322,7 @@ Feature: Mark appeal as paid
     Then I should see an alert confirming the case `has been updated with event: Mark appeal as paid`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `31 Aug 2020` for the `Payment date` field
@@ -338,7 +338,7 @@ Feature: Mark appeal as paid
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -350,7 +350,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Case Officer`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -362,7 +362,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Judge`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -374,7 +374,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office APC`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -384,7 +384,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office LART`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -394,7 +394,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office POU`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
@@ -405,7 +405,7 @@ Feature: Mark appeal as paid
 
     When I switch to be a `Home Office Generic`
     When I click the `Appeal` tab
-    Then I should see the `Appeal` page
+    Then I should see the `Appeal details` page
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
