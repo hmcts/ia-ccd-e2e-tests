@@ -31,7 +31,7 @@ Feature: Add addendum evidence by Legal Rep
     When I switch to be a `Legal Rep`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And I should see the `Add additional evidence as an addendum` link
 
     When I click the `Add additional evidence as an addendum` link
@@ -57,7 +57,7 @@ Feature: Add addendum evidence by Legal Rep
     Then I should see an alert confirming the case `has been updated with event: Upload additional evidence`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -67,7 +67,7 @@ Feature: Add addendum evidence by Legal Rep
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -77,7 +77,7 @@ Feature: Add addendum evidence by Legal Rep
     When I switch to be a `Admin Officer`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -87,7 +87,7 @@ Feature: Add addendum evidence by Legal Rep
     When I switch to be a `Home Office APC`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -97,7 +97,7 @@ Feature: Add addendum evidence by Legal Rep
     When I switch to be a `Home Office LART`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -108,7 +108,7 @@ Feature: Add addendum evidence by Legal Rep
     When I switch to be a `Home Office POU`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -119,7 +119,7 @@ Feature: Add addendum evidence by Legal Rep
     When I switch to be a `Home Office Generic`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `The appellant` for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field

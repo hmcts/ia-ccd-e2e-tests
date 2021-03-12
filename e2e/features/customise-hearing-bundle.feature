@@ -29,7 +29,7 @@ Feature: Customise hearing bundle
   @regression @customise-hearing-bundle @RIA-2923
   Scenario: customise hearing bundle no change
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I select the `Customise hearing bundle` Next step
     Then I should see the `Customise hearing bundle` page
@@ -56,7 +56,7 @@ Feature: Customise hearing bundle
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.pdf` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
@@ -69,7 +69,7 @@ Feature: Customise hearing bundle
   @regression @customise-hearing-bundle-add-document @RIA-2923
   Scenario: Generate hearing bundle add document
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I select the `Customise hearing bundle` Next step
     Then I should see the `Customise hearing bundle` page
@@ -100,7 +100,7 @@ Feature: Customise hearing bundle
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.pdf` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
@@ -111,7 +111,7 @@ Feature: Customise hearing bundle
   @regression @customise-hearing-bundle-remove-document @RIA-2923
   Scenario: Generate hearing bundle remove document
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I select the `Customise hearing bundle` Next step
     Then I should see the `Customise hearing bundle` page
@@ -141,7 +141,7 @@ Feature: Customise hearing bundle
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.pdf` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 

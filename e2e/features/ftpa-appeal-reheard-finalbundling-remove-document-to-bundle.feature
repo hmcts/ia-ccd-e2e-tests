@@ -175,7 +175,7 @@ Feature: Case Officer remove document from final bundle for a reheard case
     And I create case summary
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I select the `Customise hearing bundle` Next step
     Then I should see the `Customise hearing bundle` page
@@ -205,10 +205,10 @@ Feature: Case Officer remove document from final bundle for a reheard case
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Reheard hearing documents` collection's first item, I should see `-González-reheard-hearing-bundle.pdf` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 

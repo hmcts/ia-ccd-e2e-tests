@@ -47,7 +47,7 @@ Feature: Add respondent response
 
     #And I see the open case
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

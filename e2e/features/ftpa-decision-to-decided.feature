@@ -131,7 +131,7 @@ Feature: TCW progresses case from decision to decided - FTPA reheard decision (r
     And I should see the text `These flags are only visible to the Tribunal`
     And I should see the image `caseFlagSetAsideReheard.svg`
     And I click the `Documents` tab
-    And I should see the `Documents` page
+
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-González-reheard-hearing-bundle.pdf` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

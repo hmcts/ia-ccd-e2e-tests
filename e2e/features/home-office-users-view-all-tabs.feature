@@ -51,7 +51,7 @@ Feature: All home office users overview appeal case-details documents directions
     And I should see the legal representative details
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Hearing documents` field
     And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

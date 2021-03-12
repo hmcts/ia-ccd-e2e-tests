@@ -151,7 +151,7 @@ Feature: Case Officer create a new hearing bundle for a reheard case
 
 #    And I generate the hearing bundle
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I select the `Generate hearing bundle` Next step
     Then I should see the `Generate hearing bundle` page
@@ -166,12 +166,12 @@ Feature: Case Officer create a new hearing bundle for a reheard case
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I wait for 10 seconds
     And I switch to be a `Legal Rep`
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Reheard hearing documents` collection's first item, I should see `-González-reheard-hearing-bundle.pdf` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

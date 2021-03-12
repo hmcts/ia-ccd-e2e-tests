@@ -250,7 +250,7 @@ Feature: Edit appeal application
     And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Legal representative documents` field
     And within the `Legal representative documents` collection's first item, I should see `-Smith-appeal-form.PDF` in the `Document` field
     And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -389,7 +389,7 @@ Feature: Edit appeal application
     And within the `Applications` collection's first item, I should see `Completed` for the `Status` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Legal representative documents` field
     And within the `Legal representative documents` collection's first item, I should see `-Smith-appeal-form.PDF` in the `Document` field
     And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

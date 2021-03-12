@@ -55,7 +55,7 @@ Feature: Upload hearing recording
 
     When I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Hearing recordings` collection's first item, I should see `HearingRecording.mp3` in the `Audio file` field
     And within the `Hearing recordings` collection's first item, I should see `some description` for the `Describe the file` field
 
@@ -63,6 +63,6 @@ Feature: Upload hearing recording
 
     When I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Hearing recordings` collection's first item, I should see `HearingRecording.mp3` in the `Audio file` field
     And within the `Hearing recordings` collection's first item, I should see `some description` for the `Describe the file` field

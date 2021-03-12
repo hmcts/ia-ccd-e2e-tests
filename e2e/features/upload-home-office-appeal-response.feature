@@ -102,7 +102,7 @@ Feature: Upload appeal response - Home Office user
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -117,7 +117,7 @@ Feature: Upload appeal response - Home Office user
     # CO
     And I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -128,7 +128,7 @@ Feature: Upload appeal response - Home Office user
     # Legal Rep
     And I switch to be a `Legal Rep`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -139,7 +139,7 @@ Feature: Upload appeal response - Home Office user
     # Home Office APC
     And I switch to be a `Home Office APC`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -150,7 +150,7 @@ Feature: Upload appeal response - Home Office user
     # Home Office POU
     And I switch to be a `Home Office POU`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -217,7 +217,7 @@ Feature: Upload appeal response - Home Office user
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponseUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the updated appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

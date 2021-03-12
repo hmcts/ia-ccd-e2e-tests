@@ -176,7 +176,7 @@ Feature: Case Officer add a new document to final bundle for a reheard case
 
 #    And I generate the hearing bundle
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I select the `Customise hearing bundle` Next step
     Then I should see the `Customise hearing bundle` page
@@ -205,7 +205,7 @@ Feature: Case Officer add a new document to final bundle for a reheard case
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Reheard hearing documents` collection's first item, I should see `-González-reheard-hearing-bundle.pdf` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Documents` tab
@@ -213,5 +213,5 @@ Feature: Case Officer add a new document to final bundle for a reheard case
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
 

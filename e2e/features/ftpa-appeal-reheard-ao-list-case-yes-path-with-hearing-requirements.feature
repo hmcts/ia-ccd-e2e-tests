@@ -184,7 +184,7 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     Then I should see an alert confirming the case `has been updated with event: List the case`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -245,7 +245,7 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     And I should see `{$TODAY+20|D MMM YYYY}, 9:30:00 AM` for the `Date and time` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -283,7 +283,7 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     And I should see `{$TODAY+20|D MMM YYYY}, 9:30:00 AM` for the `Date and time` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -321,7 +321,7 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     And I should see `{$TODAY+20|D MMM YYYY}, 9:30:00 AM` for the `Date and time` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -359,7 +359,7 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     And I should see `{$TODAY+20|D MMM YYYY}, 9:30:00 AM` for the `Date and time` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -397,7 +397,7 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     And I should see `{$TODAY+20|D MMM YYYY}, 9:30:00 AM` for the `Date and time` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -435,7 +435,7 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     And I should see `{$TODAY+20|D MMM YYYY}, 9:30:00 AM` for the `Date and time` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -473,7 +473,7 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     And I should see `{$TODAY+20|D MMM YYYY}, 9:30:00 AM` for the `Date and time` field
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

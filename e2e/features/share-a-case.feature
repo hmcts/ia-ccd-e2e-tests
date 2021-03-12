@@ -22,7 +22,7 @@ Feature: Share a case
     And I should see the appellant's details
     And I should not see the decision fields
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Legal representative documents` field
     And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Directions` tab

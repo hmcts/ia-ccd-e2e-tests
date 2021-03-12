@@ -28,7 +28,7 @@ Feature: Different Home Office roles have different functionality
     And I should not see the `Next step` field
 
     When I click the `documents tab` link
-    Then I am on the `Documents` page
+
 
     # HO POU:
     When I switch to be a `Home Office POU`
@@ -45,7 +45,7 @@ Feature: Different Home Office roles have different functionality
     And I should not see the `Next step` field
 
     When I click the `documents tab` link
-    Then I am on the `Documents` page
+
 
     # HO GENERIC:
     When I switch to be a `Home Office Generic`
@@ -75,7 +75,7 @@ Feature: Different Home Office roles have different functionality
     And I click the `Cancel` link
 
     When I click the `documents tab` link
-    Then I am on the `Documents` page
+
 
     # HO APC:
     Given I switch to be a `Home Office APC`
@@ -119,7 +119,7 @@ Feature: Different Home Office roles have different functionality
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidence.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the evidence` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

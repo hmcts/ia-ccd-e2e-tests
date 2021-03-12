@@ -18,14 +18,14 @@ Feature: Submit case
 
     #Given I see the open case
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     Then I should not see the `Upload additional evidence` link
 
     ### upload single document in caseUnderReview state
 
     Given I submit my case
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     When I click the `Upload additional evidence` link
     Then I am on the `Upload additional evidence` page
     And I see the text `Additional evidence is anything submitted after the appeal skeleton argument.`
@@ -50,7 +50,7 @@ Feature: Submit case
     When I click the `Close and Return to case details` button
     #And I see the open case
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Additional evidence from appellant` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Additional evidence from appellant` collection's first item, I should see `This is the additional evidence` in the `Description` field
     And within the `Additional evidence from appellant` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -60,7 +60,7 @@ Feature: Submit case
     Given I switch to be a `Case Officer`
     #And I see the open case
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Upload additional evidence` link
 
     ### upload multiple documents, of different types, in respondentReview state
@@ -69,7 +69,7 @@ Feature: Submit case
     And I switch to be a `Legal Rep`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     When I click the `Upload additional evidence` link
     Then I am on the `Upload additional evidence` page
     And I see the text `Additional evidence is anything submitted after the appeal skeleton argument.`
@@ -114,7 +114,7 @@ Feature: Submit case
     When I click the `Close and Return to case details` button
     #And I see the open case
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Upload additional evidence` link
     And within the `Additional evidence from appellant` collection's first item, I should see `test.doc` in the `Document` field
     And within the `Additional evidence from appellant` collection's first item, I should see `This is an older Word document` in the `Description` field
@@ -137,7 +137,7 @@ Feature: Submit case
     When I switch to be a `Case Officer`
     #And I see the open case
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Upload additional evidence` link
     And within the `Additional evidence from appellant` collection's first item, I should see `test.doc` in the `Document` field
     And within the `Additional evidence from appellant` collection's first item, I should see `This is an older Word document` in the `Description` field

@@ -135,7 +135,7 @@ Feature: Submit hearing requirements
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Hearing documents` field
 
     When I click the `Hearing and appointment` tab
@@ -294,7 +294,7 @@ Feature: Submit hearing requirements
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Hearing documents` field
 
     When I click the `Hearing and appointment` tab

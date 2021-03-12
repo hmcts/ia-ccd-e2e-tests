@@ -80,7 +80,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I verify the presence of appellant FTPA documents under FTPA tab
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `FTPA Appellant documents` collection's first item, I should see `FTPAAppellantGrounds.pdf` in the `Document` field
     And within the `FTPA Appellant documents` collection's first item, I should see `This is the FTPA Appellant grounds` in the `Description` field
     And within the `FTPA Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -99,7 +99,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I verify the presence of appellant FTPA documents under FTPA tab
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `FTPA Appellant documents` collection's first item, I should see `FTPAAppellantGrounds.pdf` in the `Document` field
     And within the `FTPA Appellant documents` collection's first item, I should see `This is the FTPA Appellant grounds` in the `Description` field
     And within the `FTPA Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -124,7 +124,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I verify the presence of appellant FTPA documents under FTPA tab
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `FTPA Appellant documents` collection's first item, I should see `FTPAAppellantGrounds.pdf` in the `Document` field
     And within the `FTPA Appellant documents` collection's first item, I should see `This is the FTPA Appellant grounds` in the `Description` field
     And within the `FTPA Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -139,7 +139,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I verify the presence of appellant FTPA documents under FTPA tab
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `FTPA Appellant documents` collection's first item, I should see `FTPAAppellantGrounds.pdf` in the `Document` field
     And within the `FTPA Appellant documents` collection's first item, I should see `This is the FTPA Appellant grounds` in the `Description` field
     And within the `FTPA Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -155,7 +155,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I should see the text `The appeal has been decided. The Decision and Reasons document is available in the documents tab.`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
     And I should not see the text `Appellant: Application for permission to appeal`
@@ -168,7 +168,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     And I should see the text `The appeal has been decided. The Decision and Reasons document is available in the documents tab.`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
     And I should not see the text `Appellant: Application for permission to appeal`
@@ -183,7 +183,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `apply for permission to appeal` link
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `FTPA Appellant documents`
     And I click the `FTPA` tab
     And I should not see the text `Appellant: Application for permission to appeal`
@@ -198,7 +198,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the `apply for permission to appeal` link
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the appellant FTPA documents under Documents tab
     And I click the `FTPA` tab
     And I should not see the appellant FTPA documents under FTPA tab

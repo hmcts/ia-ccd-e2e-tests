@@ -32,7 +32,7 @@ Feature: Add addendum evidence
   @regression @add-addendum-evidence @RIA-1603 @RIA-2037
   Scenario Outline: Add addendum evidence
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I click the `Add additional evidence as an addendum` link
     Then I should see the `Upload additional evidence` page
@@ -60,7 +60,7 @@ Feature: Add addendum evidence
     Then I should see an alert confirming the case `has been updated with event: Upload additional evidence`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -70,7 +70,7 @@ Feature: Add addendum evidence
     When I switch to be a `Legal Rep`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -80,7 +80,7 @@ Feature: Add addendum evidence
     When I switch to be a `Admin Officer`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And I should not see the `Add additional evidence as an addendum` link
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
@@ -91,7 +91,7 @@ Feature: Add addendum evidence
     When I switch to be a `Home Office APC`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -101,7 +101,7 @@ Feature: Add addendum evidence
     When I switch to be a `Home Office LART`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -112,7 +112,7 @@ Feature: Add addendum evidence
     When I switch to be a `Home Office POU`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field
@@ -123,7 +123,7 @@ Feature: Add addendum evidence
     When I switch to be a `Home Office Generic`
     And I click the `Documents` tab
 
-    Then I should see the `Documents` page
+
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see <supplier> for the `Supplied by` field
     And within the `Evidence supplied after the hearing bundle` collection's first item, I should see `some description` for the `Description` field

@@ -29,7 +29,7 @@ Feature: Generate hearing bundle
   @regression @generate-hearing-bundle @RIA-941 @RIA-1846
   Scenario: Generate hearing bundle
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I select the `Generate hearing bundle` Next step
     Then I should see the `Generate hearing bundle` page
@@ -42,6 +42,6 @@ Feature: Generate hearing bundle
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

@@ -259,7 +259,7 @@ Feature: Case progression path when case and continue is disabled
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the updated evidence` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -547,7 +547,7 @@ Feature: Case progression path when case and continue is disabled
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -650,7 +650,7 @@ Feature: Case progression path when case and continue is disabled
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponseUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the updated appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -1001,7 +1001,7 @@ Feature: Case progression path when case and continue is disabled
 
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Hearing documents` field
 
     When I switch to be a `Home Office APC`
@@ -1368,7 +1368,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see the hearing details
 
     When I click the `Go to the documents tab` link
-    Then I am on the `Documents` page
+
 
     ### start decision and reasons
 
@@ -1413,7 +1413,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see the option `Upload additional evidence` for the `Next step` field
 
     When I click the `Go to the documents tab` link
-    Then I am on the `Documents` page
+
 
     # Home Office APC
     When I switch to be a `Home Office APC`
@@ -1755,7 +1755,7 @@ Feature: Case progression path when case and continue is disabled
     And I should not see the decision fields
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Hearing documents` field
     And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -1832,7 +1832,7 @@ Feature: Case progression path when case and continue is disabled
     Then I should see the appellant's details
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Hearing documents` field
     And I should see the `Legal representative documents` field
     And I should see the `Respondent documents` field

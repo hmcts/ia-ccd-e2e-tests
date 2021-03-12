@@ -75,7 +75,7 @@ Feature: Edit case listing
     And I should see the text `11:30:00 AM`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Hearing documents` field
     And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

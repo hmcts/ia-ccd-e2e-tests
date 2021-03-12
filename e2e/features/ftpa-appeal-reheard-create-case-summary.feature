@@ -173,7 +173,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     When I click the `Close and Return to case details` button
     #And I see the open case
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Reheard hearing documents` collection's first item, I should see `CaseSummary.pdf` in the `Document` field
     And within the `Reheard hearing documents` collection's first item, I should see `This is the case summary` in the `Description` field
     And within the `Reheard hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

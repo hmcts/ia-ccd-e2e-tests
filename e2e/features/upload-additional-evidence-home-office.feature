@@ -16,7 +16,7 @@ Feature: Upload additional evidence Home Office
 
     When I switch to be a <homeOfficeUser>
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
 
     When I click the `Upload additional evidence` link
     Then I am on the `Upload additional evidence` page
@@ -38,7 +38,7 @@ Feature: Upload additional evidence Home Office
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `HomeOfficeEvidence.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the additional Home Office evidence` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -46,7 +46,7 @@ Feature: Upload additional evidence Home Office
     ### additional evidence is visible to Legal Rep
     When I switch to be a `Legal Rep`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `HomeOfficeEvidence.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the additional Home Office evidence` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -54,7 +54,7 @@ Feature: Upload additional evidence Home Office
     ### additional evidence is visible to Case Officer
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `HomeOfficeEvidence.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the additional Home Office evidence` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
