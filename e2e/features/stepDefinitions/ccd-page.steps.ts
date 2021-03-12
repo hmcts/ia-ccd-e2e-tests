@@ -19,7 +19,7 @@ Given('I create a new case', async function () {
     await ccdPage.doesDropdownHaveValues('Case type');
     await ccdFormPage.setFieldValue(
         'Case type',
-        'Appeal* master'
+        'Appeal* RIA-4119'
     );
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
