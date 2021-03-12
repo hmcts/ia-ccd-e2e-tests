@@ -27,7 +27,6 @@ Feature: Decision without a hearing from respondent review
     When I add the appeal response
     And I request hearing requirements
     And I click the `Directions` tab
-    And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field

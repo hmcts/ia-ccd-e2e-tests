@@ -21,7 +21,6 @@ Feature: End appeal
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And I should not see the `Send a new direction` link
     And I should not see the `Change a direction due date` link
     When I click the `Overview` tab
@@ -93,7 +92,6 @@ Feature: End appeal
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And I should not see the `Send a new direction` link
     And I should not see the `Change a direction due date` link
     When I click the `Overview` tab

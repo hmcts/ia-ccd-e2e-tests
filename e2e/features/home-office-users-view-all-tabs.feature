@@ -82,7 +82,6 @@ Feature: All home office users overview appeal case-details documents directions
     And within the `Respondent documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. You'll be able to submit the hearing requirements using the Overview tab.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date.` in the `Explanation` field

@@ -35,7 +35,6 @@ Feature: Request reasons for appeal
     When I click the `Close and Return to case details` button
     Then I should see the text `The appellant has been directed to submit their Appeal Reasons. You will be notified when it is ready to review.`
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `You must now tell us why you think the Home Office decision to refuse your claim is wrong.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Appellant` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+28|D MMM YYYY} in the `Date due` field

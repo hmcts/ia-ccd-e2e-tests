@@ -54,7 +54,6 @@ Feature: Request case edit
 
     When I click the `Close and Return to case details` button
     Then I click the `Directions` tab
-    And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `You must now build your case to enable the respondent to conduct a thorough review of their decision.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+42|D MMM YYYY} in the `Date due` field

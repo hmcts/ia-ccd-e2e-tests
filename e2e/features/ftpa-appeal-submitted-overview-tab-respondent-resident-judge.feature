@@ -141,7 +141,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I click the `Send direction` button
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -177,7 +176,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -200,7 +198,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -223,7 +220,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -246,7 +242,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -269,7 +264,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -292,7 +286,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -315,7 +308,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -433,7 +425,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I click the `Send direction` button
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -469,7 +460,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -492,7 +482,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -515,7 +504,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -538,7 +526,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -561,7 +548,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -584,7 +570,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field
@@ -607,7 +592,6 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     When I click the `Hearing and appointment` tab
     Then I should see the `Hearing and appointment` page
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `This appeal will be reheard. You should tell the Tribunal if the appellant’s hearing requirements have changed` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. Use the link on the overview tab to submit the appellant’s hearing requirements` in the `Explanation` field

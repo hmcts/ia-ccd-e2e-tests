@@ -53,7 +53,6 @@ Feature: Request respondent evidence
     When I click the `Close and Return to case details` button
     #And I see the open case
     And I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `You have until the date indicated below to review the appellant's argument and evidence` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `You must explain whether the appellant makes a valid case for overturning the original decision` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `You must respond to the Tribunal and tell them:` in the `Explanation` field
@@ -88,7 +87,6 @@ Feature: Request respondent evidence
     When I click the `Close and Return to case details` button
     #And I see the open case
     And I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `Something else` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
     And within the `Directions` collection's first item, I should see `31 Dec 2020` for the `Date due` field
