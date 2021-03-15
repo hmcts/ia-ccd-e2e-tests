@@ -124,12 +124,38 @@ export class AuthenticationFlow {
         );
     }
 
+    async signInAsLawFirmOrgUserC() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestLawFirmOrgCUserName,
+            iaConfig.TestLawFirmOrgCPassword
+        );
+    }
+    async signInAsLawFirmOrgUserD() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestLawFirmOrgDUserName,
+            iaConfig.TestLawFirmOrgDPassword
+        );
+    }
+
     async signInAsLawFirmOrgCreator() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
             iaConfig.TestLawFirmOrgCreatorUserName,
             iaConfig.TestLawFirmOrgCreatorPassword
+        );
+    }
+
+    async signInAsLawFirmOrg2Creator() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestLawFirmOrg2CreatorUserName,
+            iaConfig.TestLawFirmOrg2CreatorPassword
         );
     }
 

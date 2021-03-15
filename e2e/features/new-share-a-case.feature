@@ -5,7 +5,7 @@ Feature: New Share a Case (common component)
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
-    Given I am signed in as a `Legal Org User Rep A`
+    When I sign back in as a `Legal Org User Rep A`
     And the `Share Case` button is disabled
 
   @new-share-a-case @RIA-3845
