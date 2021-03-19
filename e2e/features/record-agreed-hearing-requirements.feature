@@ -25,7 +25,7 @@ Feature: Record agreed hearing requirements
 
     When I switch to be a `Case Officer`
     Then I click the `Overview` tab
-    And I should only see the `caseOfficer_reviewHearingRequirements.png` case progress image
+    And I should only see the `caseOfficer_reviewHearingRequirements.svg` case progress image
     And I should see the text `You can view the hearing requirements and any requests for additional adjustments in the Hearing tab.`
     And I should see the text `You should contact the appellant if you need more information.`
     And I should see the text `You should then review and submit the hearing requirements and any additional adjustments.`
@@ -82,7 +82,7 @@ Feature: Record agreed hearing requirements
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
     And I click the `Overview` tab
-    Then I should only see the `caseOfficer_listing.png` case progress image
+    Then I should only see the `caseOfficer_listing.svg` case progress image
     And I should see the text `Do this next`
     And I should see the text `The agreed hearing requirements and adjustments have been recorded.`
     And I should see the text `The listing team will now list the case.`
@@ -113,7 +113,7 @@ Feature: Record agreed hearing requirements
 
     When I switch to be a `Case Officer`
     Then I click the `Overview` tab
-    And I should only see the `caseOfficer_reviewHearingRequirements.png` case progress image
+    And I should only see the `caseOfficer_reviewHearingRequirements.svg` case progress image
     And I should see the text `You can view the hearing requirements and any requests for additional adjustments in the Hearing tab.`
     And I should see the text `You should contact the appellant if you need more information.`
     And I should see the text `You should then review and submit the hearing requirements and any additional adjustments.`
@@ -166,7 +166,7 @@ Feature: Record agreed hearing requirements
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
     And I click the `Overview` tab
-    Then I should only see the `caseOfficer_listing.png` case progress image
+    Then I should only see the `caseOfficer_listing.svg` case progress image
     And I should see the text `Do this next`
     And I should see the text `The agreed hearing requirements and adjustments have been recorded.`
     And I should see the text `The listing team will now list the case.`

@@ -110,6 +110,6 @@ Feature: Send case to pre hearing state when unable to generate hearing bundle
     Then I should not see the decision fields
 
     When I click the `Overview` tab
-    Then I should see the image `caseOfficer_decision.png`
+    Then I should see the image `caseOfficer_decision.svg`
     And I should not see the decision fields
 

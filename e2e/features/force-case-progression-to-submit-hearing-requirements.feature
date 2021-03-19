@@ -38,7 +38,7 @@ Feature: Force case progression to submit hearing requirements
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Force case - hearing reqs`
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field

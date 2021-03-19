@@ -1044,7 +1044,7 @@ Feature: Case progression path when case and continue is disabled
     When I switch to be a `Case Officer`
     Then I click the `Overview` tab
     And  I should see `Legally Represented` tag
-    And I should only see the `caseOfficer_reviewHearingRequirements.png` case progress image
+    And I should only see the `caseOfficer_reviewHearingRequirements.svg` case progress image
     And I should see the text `You can view the hearing requirements and any requests for additional adjustments in the Hearing tab.`
     And I should see the text `You should contact the appellant if you need more information.`
     And I should see the text `You should then review and submit the hearing requirements and any additional adjustments.`

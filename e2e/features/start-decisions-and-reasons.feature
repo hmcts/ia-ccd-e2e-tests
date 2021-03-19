@@ -82,7 +82,7 @@ Feature: Start decision and reasons
     Then I should not see the decision fields
 
     When I click the `Overview` tab
-    Then I should see the image `caseOfficer_decision.png`
+    Then I should see the image `caseOfficer_decision.svg`
     And I should not see the decision fields
 
 
@@ -147,7 +147,7 @@ Feature: Start decision and reasons
     Then I should not see the decision fields
 
     When I click the `Overview` tab
-    Then I should see the image `caseOfficer_decision.png`
+    Then I should see the image `caseOfficer_decision.svg`
     And I should not see the decision fields
 
 

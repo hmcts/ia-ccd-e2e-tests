@@ -94,7 +94,7 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
 
     When I click the `Overview` tab
     Then I should see the `Overview` page
-    And I should see the image `caseOfficer_submitHearingRequirements.png`
+    And I should see the image `caseOfficer_submitHearingRequirements.svg`
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to submit any new hearing requirements`
     And I should see the text `If the appellant does not comply within 5 days of the direction, you should direct the listing team to list without hearing requirements`
