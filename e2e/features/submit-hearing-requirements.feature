@@ -89,7 +89,7 @@ Feature: Submit hearing requirements
     And I should see the text `You can request additional adjustments based on the appellant's personal circumstances. The Tribunal will review the information you provide and decide whether a request can be granted.`
 
     When I click the `Continue` button
-    And I select `No` for Remote hearing with details ``
+    And I select `No` for Remote hearing with details `No`
 
     Then I select `No` for the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
 

@@ -1,4 +1,4 @@
-import { Then } from 'cucumber';
+import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
 import { Wait } from '../../../enums/wait';
 import { CcdPage } from '../../../pages/ccd.page';
@@ -33,6 +33,8 @@ Then(/^I should (see|not see) the requests for additional adjustments (yes|no) p
     if (isDisplayed) {
         if (isYesPath) {
             expect(await ccdPage.headingContains('Requests for additional adjustments')).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?', 'Yes')).to.equal(true);
+            expect(await ccdPage.contentContains('Explain in detail anything you would like the Tribunal to consider', Wait.instant)).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Does the appellant have any physical or mental health issues that may impact them on the day?', 'Yes')).to.equal(true);
             expect(await ccdPage.contentContains('Explain in detail how any physical or mental health issues may affect them on the day.', Wait.instant)).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Has the appellant had any past experiences that may impact them on the day?', 'Yes')).to.equal(true);
@@ -50,6 +52,7 @@ Then(/^I should (see|not see) the requests for additional adjustments (yes|no) p
             expect(await ccdPage.contentContains('Provide details of any additional requests and why they are necessary.', Wait.instant)).to.equal(true);
         } else {
             expect(await ccdPage.headingContains('Requests for additional adjustments')).to.equal(true);
+            expect(await ccdPage.isFieldValueDisplayed('Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Does the appellant have any physical or mental health issues that may impact them on the day?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Has the appellant had any past experiences that may impact them on the day?', 'No')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Do you have multimedia evidence?', 'No')).to.equal(true);
@@ -61,6 +64,7 @@ Then(/^I should (see|not see) the requests for additional adjustments (yes|no) p
 
     } else {
         expect(await ccdPage.headingContains('Requests for additional adjustments')).to.equal(false);
+        expect(await ccdPage.contentContains('Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Does the appellant have any physical or mental health issues that may impact them on the day?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Explain in detail how any physical or mental health issues may affect them on the day.', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Has the appellant had any past experiences that may impact them on the day?', Wait.instant)).to.equal(false);
@@ -89,6 +93,7 @@ Then(/^I should (see|not see) the agreed additional adjustments (yes|no) path$/,
 
     if (isDisplayed) {
         if (isYesPath) {
+            expect(await ccdPage.isFieldValueDisplayed('Remote hearing', 'Remote hearing requirement will be reviewed')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Adjustments to accommodate vulnerabilities', 'Physical or mental health conditions will be reviewed')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Multimedia equipment', 'Multimedia equipment requirement will be reviewed')).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Single-sex court', 'Single sex court requirement will be reviewed')).to.equal(true);
@@ -96,6 +101,7 @@ Then(/^I should (see|not see) the agreed additional adjustments (yes|no) path$/,
             expect(await ccdPage.isFieldValueDisplayed('Other adjustments', 'Additional adjustments requirement will be reviewed')).to.equal(true);
 
         } else {
+            expect(await ccdPage.contentContains('Remote hearing', Wait.instant)).to.equal(true);
             expect(await ccdPage.contentContains('Adjustments to accommodate vulnerabilities', Wait.instant)).to.equal(false);
             expect(await ccdPage.contentContains('Multimedia equipment', Wait.instant)).to.equal(false);
             expect(await ccdPage.contentContains('Single-sex court', Wait.instant)).to.equal(false);
@@ -103,10 +109,15 @@ Then(/^I should (see|not see) the agreed additional adjustments (yes|no) path$/,
             expect(await ccdPage.contentContains('Other adjustments', Wait.instant)).to.equal(false);
         }
     } else {
+        expect(await ccdPage.contentContains('Remote hearing', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Adjustments to accommodate vulnerabilities', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Multimedia equipment', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Single-sex court', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('In camera court', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Other adjustments', Wait.instant)).to.equal(false);
     }
+});
+
+Given(/^I record `?([^\s`]+)`? for Remote hearing requirement will be reviewed$/, async function (isYesPath) {
+    await recordAgreedRequirementsFlow.setRemoteHearingAdjustment(true, isYesPath, 'Remote hearing requirement will be reviewed');
 });
