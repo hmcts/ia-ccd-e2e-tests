@@ -453,7 +453,7 @@ export class StartAppealFlow {
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
         if (remission === 'no remission') {
-            await this.completeHowToPayNow(true);
+            await this.completeHowToPayOffline(true, 'PA');
         }
         await this.completeCheckYourAnswers(true);
 
@@ -991,6 +991,23 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
     }
 
+    async editInitialAppealAppealAfterSubmit(clickContinue = false) {
+        await this.completeOutOfCountryQuestion(true, 'Yes');
+        await this.completeHomeOfficeReference(true);
+        await this.clickContinueToNextStep(true); // completeBasicDetails
+        await this.clickContinueToNextStep(true); // completeNationality
+        await this.completeClientAddress(true, true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
+        await this.completedDeportationOrder(true, '');
+        await this.clickContinueToNextStep(true); // completeNewMatters
+        await this.clickContinueToNextStep(true); // completeOtherAppeals
+        await this.clickContinueToNextStep(true); // legalDetails
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
     async editInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.editClientDetails(false);
         await this.completeGivenFee(true, feeType);
@@ -1049,6 +1066,28 @@ export class StartAppealFlow {
         }
     }
 
+    async editInitialAppealAfterSubmitWithFeeOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
+        await this.completeOutOfCountryQuestion(true, 'No');
+        await this.completeDecisionType(true, 'refusalOfHumanRights');
+        await this.completeGlobalWebFormReference(true, 'GWF7654321');
+        await this.clickContinueToNextStep(true); // completeBasicDetails
+        await this.clickContinueToNextStep(true); // completeNationality
+        await this.completeClientAddressOutOfCountry(true, true);
+        await this.completeSponsorQuestion(true, 'Yes');
+        await this.completeSponsorNames(true, givenName, familyName);
+        await this.completeSponsorAddress(true, 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London', 'EC1R 4QU');
+        await this.completeSponsorContactPreference(true, contactPreference);
+        await this.completeSponsorAuthorisation(true, authorisation);
+        await this.clickContinueToNextStep(true); // completeNewMatters
+        await this.clickContinueToNextStep(true); // completeOtherAppeals
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
     async editInitialNonPaymentAppealOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
         await this.completeOutOfCountryQuestion(true, 'No');
         await this.completeDecisionType(true, 'refusalOfHumanRights');
@@ -1074,4 +1113,5 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('Close and Return to case details');
         }
     }
+
 }

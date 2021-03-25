@@ -8,6 +8,7 @@ import { CcdFormPage } from '../../pages/ccd-form.page';
 
 const ccdPage = new CcdPage();
 const ccdFormPage = new CcdFormPage();
+const iaConfig = require('../../ia.conf');
 
 Given('I create a new case', async function () {
     await ccdPage.linkContains('Create case');
@@ -17,10 +18,14 @@ Given('I create a new case', async function () {
     await ccdPage.runAccessbility();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdPage.doesDropdownHaveValues('Case type');
-    await ccdFormPage.setFieldValue(
-        'Case type',
-        'Appeal* master'
-    );
+
+    if (iaConfig.CcdWebUrl.includes('aat') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* master'
+        );
+    }
+
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
     await ccdPage.click('Start');

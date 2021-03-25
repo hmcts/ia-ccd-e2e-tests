@@ -28,3 +28,13 @@ Given(/^I edit the appeal with appellant living in UK `?([^\s`]+)`?$/, async fun
         }
     }
 });
+
+Given(/^I edit the appeal after submit with appellant living in UK `?([^\s`]+)`?$/, async function (appellantInUk) {
+    if (isOutOfCountryEnabled) {
+        if (appellantInUk === 'No') {
+            await startAppealFlow.editInitialAppealAfterSubmitWithFeeOutOfCountryWithSponsor(true, 'Smith', 'Benett', 'wantsSms', 'Yes');
+        } else {
+            await startAppealFlow.editInitialAppealAppealAfterSubmit(true);
+        }
+    }
+});
