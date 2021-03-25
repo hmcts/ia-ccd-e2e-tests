@@ -126,6 +126,14 @@ Given('I save my initial appeal', async function () {
     }
 });
 
+Given('I save my initial appeal with address', async function () {
+    if (isfeePaymentEnabled) {
+        await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'no remission', 'hearing fee', true, `Airborne Studios, 52 Newton Street, Manchester`, `M1 1ED`);
+    } else {
+        await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA', true, `Airborne Studios, 52 Newton Street, Manchester`, `M1 1ED`);
+    }
+});
+
 Given(/^I save my initial appeal with appellant living in UK `?([^\s`]+)`?$/, async function (appellantInUk) {
     if (isOutOfCountryEnabled) {
         if (isfeePaymentEnabled) {
@@ -145,9 +153,9 @@ Given(/^I save my initial appeal with appellant living in UK `?([^\s`]+)`?$/, as
 Given(/^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s`]+)`?$/, async function (lateAppeal, decisionType) {
     if (isOutOfCountryEnabled) {
         if (isfeePaymentEnabled) {
-            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(true, 'PA', 'no remission', 'hearing fee', 'No', decisionType, lateAppeal);
+            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(true, 'PA', 'no remission', 'hearing fee', 'No', decisionType, lateAppeal, 'No', 'No');
         } else {
-            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithDecision(true, 'PA', 'No', decisionType, lateAppeal);
+            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithDecision(true, 'PA', 'No', decisionType, lateAppeal, 'No', 'No');
         }
     } else {
         if (isfeePaymentEnabled) {
