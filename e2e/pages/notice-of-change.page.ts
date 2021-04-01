@@ -94,10 +94,24 @@ export class NoticeOfChangePage {
         let caseId = url.substring(startIndex + 13, endIndex)
 
         this.noticeOfChangeCaseId = caseId;
+        this.latestCaseId = caseId;
         console.log('\n\tcase id: ' + caseId + '\n');
     }
 
     async goToRemovedCase(shortWait = false) {
         browser.driver.get(`${ccdUrl}/cases/case-details/` + this.latestCaseId);
+    }
+
+    async setCaseRoleId(shortWait = false) {
+        await element(by.id('changeOrganisationRequestField_CaseRoleId'))
+            .$('[value=\'1: [LEGALREPRESENTATIVE]\']').click();
+    }
+
+    async checkLatestCaseIdIsNotTheSame(shortWait = false) {
+        if (this.latestCaseId !== this.noticeOfChangeCaseId) {
+            return
+        } else {
+            throw Error('latestCaseId and noticeOfChangeCaseId are the same...')
+        }
     }
 }
