@@ -10,7 +10,6 @@ export class MarkAppealAsPaidFlow {
         await this.ccdFormPage.click('Go');
 
         await this.ccdFormPage.headingContains('Mark appeal as paid');
-
         await this.ccdFormPage.setFieldValue(
             'Payment date',
             '{$TODAY|DD-MM-YYYY}'
@@ -21,14 +20,18 @@ export class MarkAppealAsPaidFlow {
             '140'
         );
 
+        await this.ccdFormPage.setFieldValue('Amount paid', '40');
         await this.ccdFormPage.setFieldValue(
             'Additional payment information (Optional)',
-            'some payment details',
+            'The fee for the appeal has been paid now.',
             'text area'
         );
+
         await this.ccdFormPage.click('Continue');
 
+        await this.ccdFormPage.headingContains('Check your answers');
         await this.ccdFormPage.click('Mark as paid');
+
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
         }
