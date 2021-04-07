@@ -261,20 +261,20 @@ Feature: Manage fee update
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
-    And I should see `Appeal not valid` for the `Reason for fee update` field
-    And I should see `£0.00` for the `New fee amount` field
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
 
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
-    And I should see `Appeal not valid` for the `Reason for fee update` field
-    And I should see `£0.00` for the `New fee amount` field
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
-    And I should see `Appeal not valid` for the `Reason for fee update` field
-    And I should see `£0.00` for the `New fee amount` field
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
 
   @Manage-fee-update-for-dc-appeal @RIA-3792
   Scenario: Case officer manage fee update for dc appeal
@@ -285,3 +285,103 @@ Feature: Manage fee update
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
     And I should see the text `You cannot manage a fee update for this appeal`
+
+  @Case-officer-manage-fee-update-fee-remission-changed @RIA-3794
+  Scenario: Case officer manage fee update for fee remission changed
+
+    When I save my initial PA appeal type with a remission and with hearing fee
+    Then I submit my nonpayment appeal
+
+    And I switch to be a `Admin Officer`
+    And I record remission decision as partially approved
+    And I mark the appeal as paid
+
+    When I switch to be a `Case Officer`
+    Then I select the `Manage a fee update` Next step
+    And I should see the `Manage a fee update` page
+    And I should see the text `Select the reason the fee has been updated.`
+    And I select `Fee remission changed` for the `Reason for fee update` field
+    And I type `10` for the `New fee amount` field
+    And I click the `Continue` button
+
+    Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
+    And I click the first `Fee update recorded` label
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Fee remission changed` in the `Reason for fee update` field
+    And I should see `£10.00` in the `New fee amount` field
+    And I should see `Fee update recorded` in the `Fee update status` field
+    And I click the `Submit` button
+
+    Then I should see the text `You have recorded a fee update`
+    And I should see the text `What happens next`
+    And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
+    And I click the `Close and Return to case details` button
+
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Fee remission changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+
+    When I switch to be a `Admin Officer`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Fee remission changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+
+    When I switch to be a `Legal Rep`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Fee remission changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+
+  @Admin-officer-manage-fee-update-fee-remission-changed @RIA-3794
+  Scenario: Case officer manage fee update for fee remission changed
+
+    When I save my initial PA appeal type with a remission and with hearing fee
+    Then I submit my nonpayment appeal
+
+    And I switch to be a `Admin Officer`
+    And I record remission decision as partially approved
+    And I mark the appeal as paid
+
+    When I switch to be a `Admin Officer`
+    Then I select the `Manage a fee update` Next step
+    And I should see the `Manage a fee update` page
+    And I should see the text `Select the reason the fee has been updated.`
+    And I select `Fee remission changed` for the `Reason for fee update` field
+    And I type `10` for the `New fee amount` field
+    And I click the `Continue` button
+
+    Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
+    And I click the first `Fee update recorded` label
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Fee remission changed` in the `Reason for fee update` field
+    And I should see `£10.00` in the `New fee amount` field
+    And I should see `Fee update recorded` in the `Fee update status` field
+    And I click the `Submit` button
+
+    Then I should see the text `You have recorded a fee update`
+    And I should see the text `What happens next`
+    And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
+    And I click the `Close and Return to case details` button
+
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Fee remission changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+
+    When I switch to be a `Case Officer`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Fee remission changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+
+    When I switch to be a `Legal Rep`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Fee remission changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
