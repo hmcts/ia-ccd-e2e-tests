@@ -3,11 +3,12 @@ Feature: Record remission decision
   Background:
     Given I am signed in as a `Legal Rep`
     And I create a new case
-    And I save my initial `EA` appeal type with `a remission` and `with` hearing fee
-    And I submit my nonpayment appeal
 
   @record-remission-decision-approved @RIA-3517-approved @RIA-3517 @RIA-3829
   Scenario: Record remission decision approved
+
+    And I save my initial `EA` appeal type with `a remission` and `with` hearing fee
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     Then I should see the `Overview` page
@@ -106,6 +107,9 @@ Feature: Record remission decision
 
   @record-remission-decision-partially-approved @RIA-3517-partially-approved @RIA-3517 @RIA-3829
   Scenario: Record remission decision partially approved
+
+    And I save my initial `EA` appeal type with `a remission` and `with` hearing fee
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     Then I should see the `Overview` page
@@ -211,6 +215,9 @@ Feature: Record remission decision
   @record-remission-decision-rejected @RIA-3517-rejected @RIA-3517 @RIA-3829
   Scenario: Record remission decision rejected
 
+    And I save my initial `EA` appeal type with `a remission` and `with` hearing fee
+    And I submit my nonpayment appeal
+
     When I click the `Overview` tab
     Then I should see the `Overview` page
     And I should see the text `Do this next`
@@ -299,6 +306,9 @@ Feature: Record remission decision
 
   @record-remission-decision-and-mark-appeal-as-paid @RIA-3517-mark-appeal-as-paid @RIA-3517 @RIA-3829
   Scenario: Record remission decision and mark appeal as paid
+
+    And I save my initial `EA` appeal type with `a remission` and `with` hearing fee
+    And I submit my nonpayment appeal
 
     When I click the `Overview` tab
     Then I should see the `Overview` page
@@ -445,4 +455,170 @@ Feature: Record remission decision
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
+
+  @record-remission-decision-pay-now-and-late-remission @RIA-3830
+  Scenario: Record remission decision of a late remission after pay now
+
+    And I save my initial `EA` appeal type with `no remission` and `with` hearing fee
+    And I submit my appeal
+    And I request a fee remission
+
+    When I switch to be a `Admin Officer`
+    Then I record remission decision as partially approved
+
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Legal Aid` for the `Fee remission type` field
+    And I should see `1A234B` for the `Legal Aid account number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+    When I switch to be a `Case Officer`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Legal Aid` for the `Fee remission type` field
+    And I should see `1A234B` for the `Legal Aid account number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+    When I switch to be a `Judge`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Legal Aid` for the `Fee remission type` field
+    And I should see `1A234B` for the `Legal Aid account number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+    When I switch to be a `Legal Rep`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Legal Aid` for the `Fee remission type` field
+    And I should see `1A234B` for the `Legal Aid account number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+  @record-remission-decision-pay-later-and-late-remission @RIA-3830
+  Scenario: Appeal submitted with pay later option and request a fee remission
+
+    And I save my initial `PA` appeal type with `no remission` and `with` hearing fee and pay later
+    And I submit my nonpayment appeal
+    And I request a fee remission
+
+    When I switch to be a `Admin Officer`
+    Then I record remission decision as partially approved
+
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Legal Aid` for the `Fee remission type` field
+    And I should see `1A234B` for the `Legal Aid account number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+    When I switch to be a `Case Officer`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Legal Aid` for the `Fee remission type` field
+    And I should see `1A234B` for the `Legal Aid account number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+    When I switch to be a `Judge`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Legal Aid` for the `Fee remission type` field
+    And I should see `1A234B` for the `Legal Aid account number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+    When I switch to be a `Legal Rep`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Legal Aid` for the `Fee remission type` field
+    And I should see `1A234B` for the `Legal Aid account number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+  @record-remission-decision-submitted-with-remission-and-late-remission @RIA-3830
+  Scenario: Appeal submitted with remission and request a fee remission
+
+    And I save my initial `EA` appeal type with `a remission` and `with` hearing fee
+    And I submit my nonpayment appeal
+
+    Then I switch to be a `Admin Officer`
+    And I record remission decision as partially approved
+
+    Then I switch to be a `Legal Rep`
+    And I request a remission of help with fees
+
+    When I switch to be a `Admin Officer`
+    Then I record remission decision as partially approved
+
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Help with Fees` for the `Fee remission type` field
+    And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+    When I switch to be a `Case Officer`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Help with Fees` for the `Fee remission type` field
+    And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+    When I switch to be a `Judge`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Help with Fees` for the `Fee remission type` field
+    And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+    When I switch to be a `Legal Rep`
+    Then I click the `Appeal` tab
+    And I should see the `Appeal` page
+    And I should see `Help with Fees` for the `Fee remission type` field
+    And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
+    And I should see `Partially approved` for the `Decision` field
+    And I should see `£140.00` for the `Fee` field
+    And I should see `£100.00` for the `Amount remitted` field
+    And I should see `£40.00` for the `Amount left to pay` field
+    And I should see `This remission is partially approved` for the `Reason for decision` field
+
+
 

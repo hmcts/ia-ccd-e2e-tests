@@ -4,7 +4,7 @@ export class RecordRemissionDecisionFlow {
 
     private ccdFormPage = new CcdFormPage();
 
-    async partiallApproved(clickContinue = false) {
+    async partiallyApproved(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Record remission decision');
         await this.ccdFormPage.click('Go');
