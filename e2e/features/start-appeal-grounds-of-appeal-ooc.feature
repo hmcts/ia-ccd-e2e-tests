@@ -3,15 +3,18 @@ Feature: Grounds of appeal
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
-    And I complete the `Tell us about your client` page
-    And I complete the `Home Office details` page
+    And I complete the `Tell us about your client out of country` page
+    And I save my initial appeal with client living in United Kingdom No
+    And I complete the `Decision type remove client` page
+    And I complete the `Home Office details ooc` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
     And I complete the `Tell us about your client's nationality` page
-    And I complete the `Your client's address` page
+    And I complete the `Your client's ooc address` page
     And I complete the `The appellant's contact preference` page
+    And I complete the `Sponsor` page
 
-  @regression @start-appeal @RIA-230
+  @start-appeal-ooc @RIA-4253-PA @RIA-4253
   Scenario: Grounds of appeal are captured for protection type cases
 
     Given I am on the `Type of appeal` page
@@ -47,7 +50,7 @@ Feature: Grounds of appeal
     And I should see the text `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention`
     And I should see the text `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998`
 
-  @regression @start-appeal @RIA-236
+  @start-appeal-ooc @RIA-4253-RP @RIA-4253
   Scenario: Grounds of appeal are captured for revocation type cases
 
     Given I am on the `Type of appeal` page
@@ -80,7 +83,7 @@ Feature: Grounds of appeal
     And I should see the text `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention`
     And I should see the text `Revocation of the appellant's protection status breaches the United Kingdom's obligations in relation to persons eligible for humanitarian protection`
 
-  @regression @start-appeal @RIA-2733 @RIA-2693
+  @start-appeal-ooc @RIA-4253-DC @RIA-4253
   Scenario: Grounds of appeal are captured for deprivation of citizenship type cases
 
     Given I am on the `Type of appeal` page
@@ -115,10 +118,10 @@ Feature: Grounds of appeal
     And I should see the text `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998`
 
     When I click the `Documents` tab
-
+    And I should see the `Documents` page
     And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
 
-  @regression @start-appeal @RIA-2733-EA @RIA-2693
+  @start-appeal-ooc @RIA-4253-EA @RIA-4253
   Scenario: Grounds of appeal are captured for EEA refusal type cases
 
     Given I am on the `Type of appeal` page
@@ -149,10 +152,10 @@ Feature: Grounds of appeal
     And I should see the text `The decision breaches the appellant's rights under the EEA regulations`
 
     When I click the `Documents` tab
-
+    And I should see the `Documents` page
     And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
 
-  @regression @start-appeal @RIA-2733-HU @RIA-2693
+  @start-appeal-ooc @RIA-4253-HU @RIA-4253
   Scenario: Grounds of appeal are captured for human rights refusal type cases
 
     Given I am on the `Type of appeal` page
@@ -183,5 +186,5 @@ Feature: Grounds of appeal
     And I should see the text `The decision is unlawful under section 6 of the Human Rights Act 1998`
 
     When I click the `Documents` tab
-
+    And I should see the `Documents` page
     And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field

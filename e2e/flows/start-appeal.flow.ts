@@ -237,7 +237,7 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('The decision breaches the appellant\'s rights under the EEA regulations');
         }
         if (appealType === 'HU') {
-            await this.ccdFormPage.click('Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998');
+            await this.ccdFormPage.click('The decision is unlawful under section 6 of the Human Rights Act 1998');
         }
         if (appealType === 'PA') {
             await this.ccdFormPage.click('Removing the appellant from the UK would breach the UK\'s obligation under the Refugee Convention');
@@ -918,7 +918,7 @@ export class StartAppealFlow {
         }
         if (decisionOption === 'removeClient') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
-                , 'A decision to remove your client under the Immigration (EEA) Regulations 2016');
+                , 'A decision to remove your client under the Immigration (European Economic Area) Regulations 2016');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -1169,4 +1169,29 @@ export class StartAppealFlow {
         }
     }
 
+    async saveLegalRepAndContinueNonPaymentAppeal(clickContinue = false) {
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async saveLegalRepAndConinueWithFee(clickContinue = false, feeType = '', appealType = '') {
+        await this.completeLegalRepresentativeDetails(true);
+        if (appealType === 'DC' || appealType === 'RP') {
+            await this.completeHearingOption(true, 'without');
+        } else {
+            await this.completeGivenFee(true, feeType);
+            await this.completeRemissionDetails(true, 'no remission');
+            await this.completeHowToPayOffline(true, appealType);
+        }
+
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
 }
