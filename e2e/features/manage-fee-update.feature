@@ -386,8 +386,8 @@ Feature: Manage fee update
     And I should see `Fee remission changed` for the `Reason for fee update` field
     And I should see `£10.00` for the `New fee amount` field
 
-  @Admin-officer-manage-fee-update-refund-approved-refund-instructed @RIA-3795 @RIA-3813
-  Scenario: Admin officer manage fee update refund approved and refund instructed
+  @Admin-officer-manage-fee-update-refund-approved-refund-instructed-additional-fee @RIA-3795 @RIA-3813 @RIA-3814
+  Scenario: Admin officer manage fee update refund approved, refund instructed and additional fee requested
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
     And I pay for and submit my appeal
@@ -516,6 +516,61 @@ Feature: Manage fee update
     And I should see the text `Fee update recorded`
     And I should see the text `Refund approved`
     And I should see the text `Refund instructed`
+
+    When I switch to be a `Admin Officer`
+    Then I select the `Manage a fee update` Next step
+    And I should see the `Manage a fee update` page
+    And I should see the text `Select the reason the fee has been updated.`
+    And I click the `Continue` button
+
+    Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
+    And I click the `Additional fee requested` label
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Decision type changed` in the `Reason for fee update` field
+    And I should see `£10.00` in the `New fee amount` field
+    And I should see `Fee update recorded` in the `Fee update status` field
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
+    And I should see the text `Additional fee requested`
+    And I click the `Submit` button
+
+    Then I should see the text `You have progressed a fee update`
+    And I should see the text `What happens next`
+    And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
+    And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
+    And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
+    And I click the `Close and Return to case details` button
+
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+    And I should see the text `Fee update recorded`
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
+    And I should see the text `Additional fee requested`
+
+    When I switch to be a `Case Officer`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+    And I should see the text `Fee update recorded`
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
+    And I should see the text `Additional fee requested`
+
+    When I switch to be a `Judge`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+    And I should see the text `Fee update recorded`
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
+    And I should see the text `Additional fee requested`
 
   @Admin-officer-manage-fee-update-additional-fee-requested @RIA-3795
   Scenario: Admin officer manage fee update additional fee requested
@@ -795,4 +850,155 @@ Feature: Manage fee update
     And I should see `£10.00` for the `New fee amount` field
     And I should see the text `Fee update recorded`
     And I should see the text `Refund approved`
+    And I should see the text `Fee update not required`
+
+
+  @Admin-officer-manage-fee-update-refund-approved-refund-instructed-fee-update-not-required @RIA-3814
+  Scenario: Admin officer manage fee update refund approved,refund instructed and fee update not required
+
+    Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
+    And I pay for and submit my appeal
+
+    When I switch to be a `Case Officer`
+    Then I select the `Manage a fee update` Next step
+    And I should see the `Manage a fee update` page
+    And I should see the text `Select the reason the fee has been updated.`
+    And I select `Decision type changed` for the `Reason for fee update` field
+    And I type `10` for the `New fee amount` field
+    And I click the `Continue` button
+
+    Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
+    And I click the first `Fee update recorded` label
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Decision type changed` in the `Reason for fee update` field
+    And I should see `£10.00` in the `New fee amount` field
+    And I should see `Fee update recorded` in the `Fee update status` field
+    And I click the `Submit` button
+
+    Then I should see the text `You have recorded a fee update`
+    And I should see the text `What happens next`
+    And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
+    And I click the `Close and Return to case details` button
+
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+    And I should see `Fee update recorded` for the `Completed stages` field
+
+    When I switch to be a `Admin Officer`
+    Then I select the `Manage a fee update` Next step
+    And I should see the `Manage a fee update` page
+    And I should see the text `Select the reason the fee has been updated.`
+    And I click the `Continue` button
+
+    Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
+    And I click the `Refund approved` label
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Decision type changed` in the `Reason for fee update` field
+    And I should see `£10.00` in the `New fee amount` field
+    And I should see `Fee update recorded` in the `Fee update status` field
+    And I should see the text `Refund approved`
+    And I click the `Submit` button
+
+    Then I should see the text `You have progressed a fee update`
+    And I should see the text `What happens next`
+    And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
+    And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
+    And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
+    And I click the `Close and Return to case details` button
+
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+    And I should see the text `Fee update recorded`
+    And I should see the text `Refund approved`
+
+    When I select the `Manage a fee update` Next step
+    And I should see the `Manage a fee update` page
+    And I should see the text `Select the reason the fee has been updated.`
+    And I click the `Continue` button
+
+    Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
+    And I click the `Refund instructed` label
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Decision type changed` in the `Reason for fee update` field
+    And I should see `£10.00` in the `New fee amount` field
+    And I should see `Fee update recorded` in the `Fee update status` field
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
+    And I click the `Submit` button
+
+    Then I should see the text `You have marked the refund as instructed`
+    And I should see the text `What happens next`
+    And I should see the text `The legal representative will be notified that the refund has been instructed.`
+    And I click the `Close and Return to case details` button
+
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+    And I should see the text `Fee update recorded`
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
+
+    When I select the `Manage a fee update` Next step
+    And I should see the `Manage a fee update` page
+    And I should see the text `Select the reason the fee has been updated.`
+    And I click the `Continue` button
+
+    Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
+    And I click the `Fee update not required` label
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Decision type changed` in the `Reason for fee update` field
+    And I should see `£10.00` in the `New fee amount` field
+    And I should see `Fee update recorded` in the `Fee update status` field
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
+    And I should see the text `Fee update not required`
+    And I click the `Submit` button
+
+    Then I should see the text `You have progressed a fee update`
+    And I should see the text `What happens next`
+    And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
+    And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
+    And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
+    And I click the `Close and Return to case details` button
+
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+    And I should see the text `Fee update recorded`
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
+    And I should see the text `Fee update not required`
+
+    When I switch to be a `Case Officer`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+    And I should see the text `Fee update recorded`
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
+    And I should see the text `Fee update not required`
+
+    When I switch to be a `Judge`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£10.00` for the `New fee amount` field
+    And I should see the text `Fee update recorded`
+    And I should see the text `Refund approved`
+    And I should see the text `Refund instructed`
     And I should see the text `Fee update not required`
