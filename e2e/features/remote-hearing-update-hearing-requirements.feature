@@ -129,6 +129,8 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     And I should see the text `The respondent will be able to see this information and must not be informed of the appellant's personal circumstances.`
     And I should see the text `Adjustment request`
     And I should see `No` in the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
+    And I should see the text `Tribunal response`
+    And I type `Nothing to add` for the `Remote hearing` field
     And I click the `Continue` button
     And I should see the text `Adjustment request`
     And I should see `No` in the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
@@ -157,7 +159,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
 
     When I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments no path
-    And I should not see the `Remote hearing` field
+    And I should see `Nothing to add` in the `Remote hearing` field
     And I should not see the `Multimedia equipment` field
     And I should not see the `Single-sex court` field
     And I should not see the `In camera court` field
@@ -279,6 +281,8 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     And I should see the text `The respondent will be able to see this information and must not be informed of the appellant's personal circumstances.`
     And I should see the text `Adjustment request`
     And I should see `No` in the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
+    And I should see the text `Tribunal response`
+    And I type `Nothing to add` for the `Remote hearing` field
     And I click the `Continue` button
     And I should see the text `Adjustment request`
     And I should see `No` in the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
@@ -306,7 +310,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
 
     When I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments no path
-    And I should not see the `Remote hearing` field
+    And I should see `Nothing to add` in the `Remote hearing` field
     And I should not see the `Multimedia equipment` field
     And I should not see the `Single-sex court` field
     And I should not see the `In camera court` field
