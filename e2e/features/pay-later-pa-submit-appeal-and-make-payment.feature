@@ -182,7 +182,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I click the `Continue` button
 
     When I click the `Pay now` button
-    Then I should see the image `paymentFailed.png`
+    Then I should see the image `paymentFailed.svg`
     And I should see the text `Do this next`
     And I should see the text `Call 01633 652 125 (option 3) or email MiddleOffice.DDServices@liberata.com to try to resolve the payment issue.`
     And I should see the text `Payment failed`
@@ -266,7 +266,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I click the `Continue` button
 
     When I click the `Pay now` button
-    Then I should see the image `paymentFailed.png`
+    Then I should see the image `paymentFailed.svg`
     And I should see the text `Do this next`
     And I should see the text `Call 01633 652 125 (option 3) or email MiddleOffice.DDServices@liberata.com to try to resolve the payment issue.`
     And I should see the text `Payment failed`

@@ -223,7 +223,7 @@ Feature: Case progression - Admin Officer
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
 
-    Then I should see the image `ftpaInProgress.png`
+    Then I should see the image `ftpaInProgress.svg`
     And I should see the text `Do this next`
     And I should see the text `Assign the application to a judge then record the judge's name.`
     And I should see the `record the judge's name` link

@@ -35,7 +35,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     When I switch to be a `Legal Rep`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_allowed.png`
+    And I should see the image `appeal_allowed.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
     And I should see the text `You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
@@ -73,7 +73,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     When I click the `Close and Return to case details` button
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `ftpaInProgress.png`
+    And I should see the image `ftpaInProgress.svg`
     And I should see the text `What happens next`
     And I should see the text `The First-tier Tribunal will consider the application and make a decision shortly. The application is available to view in the FTPA tab`
     Then I should see the `FTPA tab` link
@@ -93,7 +93,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
 
     ## CO
     When I switch to be a `Case Officer`
-    And I should see the image `ftpaInProgress.png`
+    And I should see the image `ftpaInProgress.svg`
     And I should see the text `What happens next`
     And I should see the text `A judge will be assigned to consider the application, they'll then record their decision.`
     When I click the `FTPA` tab
@@ -114,7 +114,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `ftpaInProgress.png`
+    And I should see the image `ftpaInProgress.svg`
     And I should see the text `Do this next`
     And I should see the text `Assign the application to a judge then record the judge's name.`
     Then I should see the `record the judge's name` link
@@ -154,7 +154,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_allowed.png`
+    And I should see the image `appeal_allowed.svg`
     And I should see the text `Do this next`
     And I should see the text `The appeal has been decided. The Decision and Reasons document is available in the documents tab.`
 
@@ -168,7 +168,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_allowed.png`
+    And I should see the image `appeal_allowed.svg`
     And I should see the text `Do this next`
     And I should see the text `The appeal has been decided. The Decision and Reasons document is available in the documents tab.`
 
@@ -182,7 +182,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     When I switch to be a `Home Office Generic`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_allowed.png`
+    And I should see the image `appeal_allowed.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
     And I should see the text `You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
@@ -198,7 +198,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_allowed.png`
+    And I should see the image `appeal_allowed.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
     And I should see the text `You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
@@ -213,7 +213,7 @@ Feature: FTPA Appellant application to the Upper Tribunal
     When I submit FTPA Respondent appeal
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `ftpaInProgress.png`
+    And I should see the image `ftpaInProgress.svg`
     And I should see the text `What happens next`
     And I should see the text `The First-tier Tribunal will consider the application and make a decision shortly. The application is available to view in the FTPA tab`
     Then I should see the `FTPA tab` link

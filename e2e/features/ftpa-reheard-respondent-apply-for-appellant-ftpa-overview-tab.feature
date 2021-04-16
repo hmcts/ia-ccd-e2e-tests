@@ -58,7 +58,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified if you need to do anything.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -71,7 +71,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a Judge
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`
     And I should see the text `These flags are only visible to the Tribunal`
     And I should see the image `caseFlagSetAsideReheard.svg`
@@ -83,7 +83,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Case Officer`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `Do this next`
     And I should see the text `The appeal is being reheard. First check the FTPA tab and follow any instructions the Judge has made to the Tribunal`
     And I should see the text `You should then direct the appellant to submit any new requirements`
@@ -101,7 +101,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case is ready to be listed.`
     And I should see the text `These flags are only visible to the Tribunal`
@@ -114,7 +114,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -127,7 +127,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Home Office APC`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -140,7 +140,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Home Office LART`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -153,7 +153,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Home Office Generic`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -195,7 +195,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
 
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified if you need to do anything.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -208,7 +208,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a Judge
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`
     And I should see the text `These flags are only visible to the Tribunal`
     And I should see the image `caseFlagSetAsideReheard.svg`
@@ -220,7 +220,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Case Officer`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `Do this next`
     And I should see the text `The appeal is being reheard. First check the FTPA tab and follow any instructions the Judge has made to the Tribunal`
     And I should see the text `You should then direct the appellant to submit any new requirements`
@@ -238,7 +238,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case is ready to be listed.`
     And I should see the text `These flags are only visible to the Tribunal`
@@ -251,7 +251,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Home Office POU`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -264,7 +264,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Home Office APC`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -277,7 +277,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Home Office LART`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
     And I should not see the text `These flags are only visible to the Tribunal`
@@ -290,7 +290,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     When I switch to be a `Home Office Generic`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case has been listed.`
     And I should not see the text `These flags are only visible to the Tribunal`

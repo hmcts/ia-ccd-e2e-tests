@@ -58,7 +58,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
     And I switch to be a `Case Officer`
     And I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `Do this next`
     And I should see the text `The appeal is being reheard. First check the FTPA tab and follow any instructions the Judge has made to the Tribunal`
     And I should see the text `You should then direct the appellant to submit any new requirements`
@@ -83,7 +83,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `Do this next`
     And I should see the text `The appeal is being reheard. First check the FTPA tab and follow any instructions the Judge has made to the Tribunal`
     And I should see the text `You should then direct the appellant to submit any new requirements`
@@ -97,7 +97,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
     And I should see the `Overview` page
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case is ready to be listed.`
     And I should see the text `These flags are only visible to the Tribunal`
@@ -121,7 +121,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
-    And I should see the image `appeal_reheard.png`
+    And I should see the image `appeal_reheard.svg`
     And I should see the text `What happens next`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any instructions from the Judge and you will be notified when the case is ready to be listed.`
     And I should not see the text `These flags are only visible to the Tribunal`

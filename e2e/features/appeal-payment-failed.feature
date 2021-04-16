@@ -60,7 +60,7 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
-    Then I should see the image `paymentFailed.png`
+    Then I should see the image `paymentFailed.svg`
     And I should see the text `Do this next`
     And I should see the text `Call 01633 652 125 (option 3) or email MiddleOffice.DDServices@liberata.com to try to resolve the payment issue.`
     And I should see the text `If you need to submit the appeal urgently, you can edit your appeal and change the payment method.`
@@ -98,7 +98,7 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
-    Then I should see the image `paymentFailed.png`
+    Then I should see the image `paymentFailed.svg`
     And I should see the text `Do this next`
     And I should see the text `Call 01633 652 125 (option 3) or email MiddleOffice.DDServices@liberata.com to try to resolve the payment issue.`
     And I should see the text `If you need to submit the appeal urgently, you can edit your appeal and change the payment method.`
