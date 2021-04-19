@@ -69,14 +69,13 @@ Feature: Edit case listing
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the `Hearing details` field
     And I should see `Manchester` for the `Hearing centre` field
     And I should see `3 hours` for the `Length of appointment` field
     And I should see the text `11:30:00 AM`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Hearing documents` field
     And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

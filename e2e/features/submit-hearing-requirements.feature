@@ -18,7 +18,6 @@ Feature: Submit hearing requirements
     And I request hearing requirements
 
     Then I click the `Directions` tab
-    And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
@@ -137,7 +136,7 @@ Feature: Submit hearing requirements
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Hearing documents` field
 
     When I click the `Hearing and appointment` tab
@@ -298,7 +297,7 @@ Feature: Submit hearing requirements
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Hearing documents` field
 
     When I click the `Hearing and appointment` tab

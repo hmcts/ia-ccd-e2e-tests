@@ -47,7 +47,7 @@ Feature: Add respondent response
 
     #And I see the open case
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -56,7 +56,6 @@ Feature: Add respondent response
     And within the `Respondent documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Review the Home Office response.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field

@@ -73,7 +73,6 @@ Feature: Home Office appeal response under review
     And I should see the legal representative details
 
     Then I click the `Directions` tab
-    And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The respondent has replied to your appeal argument and evidence. You must now review their response` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `If you would like to respond, you must email the Tribunal caseworker within 5 days` in the `Explanation` field
@@ -93,7 +92,6 @@ Feature: Home Office appeal response under review
     And I should see the legal representative details
 
     Then I click the `Directions` tab
-    And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The respondent has replied to your appeal argument and evidence. You must now review their response` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `If you would like to respond, you must email the Tribunal caseworker within 5 days` in the `Explanation` field

@@ -107,7 +107,6 @@ Feature: Case Officer edits reheard hearing document - FTPA reheard decision (re
     And I click the `Continue` button
     And I should see the `Submit` button
     And I click the `Submit` button
-    And I should see the `Overview` page
     And I click the `Case notes` tab
     And I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field

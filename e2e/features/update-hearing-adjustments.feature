@@ -128,7 +128,6 @@ Feature: Update hearing adjustments after updating hearing requirements
 
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
-    And I should see the `Overview` page
     And I should only see the `caseOfficer_prepareForHearing` case progress image
     And I should see the text `Do this next`
     And I should see the text `You must create a case summary for the judge to use at the hearing.`

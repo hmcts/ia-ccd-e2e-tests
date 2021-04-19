@@ -28,7 +28,6 @@ Feature: Record hearing attendees and duration
     And I prepare decision and reasons
     And I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    And I should see the `Overview` page
 
   @regression @record-hearing-attendees @RIA-572 @RIA-1903 @RIA-3297
   Scenario: Record hearing attendees and duration

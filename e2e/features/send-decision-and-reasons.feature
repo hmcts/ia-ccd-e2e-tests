@@ -58,7 +58,7 @@ Feature: Send decision and reasons
     Then I should see an alert confirming the case `has been updated with event: Complete decision and reasons`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-Decision-and-reasons-FINAL.pdf` in the `Document` field
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
@@ -95,7 +95,7 @@ Feature: Send decision and reasons
     Then I should see an alert confirming the case `has been updated with event: Complete decision and reasons`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-Decision-and-reasons-FINAL.pdf` in the `Document` field
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 

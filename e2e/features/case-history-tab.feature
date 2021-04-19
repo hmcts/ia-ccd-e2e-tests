@@ -17,13 +17,11 @@ Feature: Case history viewer tab
 Scenario: View case history
 
   When I click the `Case history` tab
-  Then I should see the `History` page
   And I click the `Build your case` link
   And I click the `Pay and submit` link
   And I click the `Start your appeal` link
 
   Then I switch to be a `Case Officer`
   And I click the `Case history` tab
-  And I should see the `History` page
   And I click the `Upload respondent evidence` link
   And I click the `Request respondent evidence` link

@@ -34,7 +34,7 @@ Feature: Upload sensitive documents
     Then I should see the text `You can see the documentation in the documents tab. Select Edit documents from the Next step dropdown if you need to remove a document.`
 
     When I click the `documents tab` link
-    Then I should see the `Documents` page
+
     And within the `Sensitive documents` collection's first item, I should see `Evidence1.pdf` in the `Document` field
     And within the `Sensitive documents` collection's first item, I should see `The respondent` in the `Supplied by` field
     And within the `Sensitive documents` collection's first item, I should see `his is a sensitive document` in the `Description` field

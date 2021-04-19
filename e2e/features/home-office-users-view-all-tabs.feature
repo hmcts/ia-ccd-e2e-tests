@@ -33,7 +33,7 @@ Feature: All home office users overview appeal case-details documents directions
 
     When I switch to be a <homeOfficeUser>
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And within the first `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
     And within the first `Evidence` collection's first item, I should see `The is the case argument evidence` in the `Describe the document` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` in the `Grounds of appeal` field
@@ -51,7 +51,7 @@ Feature: All home office users overview appeal case-details documents directions
     And I should see the legal representative details
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Hearing documents` field
     And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -82,7 +82,6 @@ Feature: All home office users overview appeal case-details documents directions
     And within the `Respondent documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. You'll be able to submit the hearing requirements using the Overview tab.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date.` in the `Explanation` field

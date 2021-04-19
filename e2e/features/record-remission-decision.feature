@@ -11,20 +11,18 @@ Feature: Record remission decision
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `An appeal has been submitted with a remission application. You need to review the remission details in the appeal tab.`
     And I should see the text `If you need more information to make a decision, you can email the appellant.`
     And I should see the text `You then need to record your remission decision.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -53,12 +51,11 @@ Feature: Record remission decision
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `What happens next`
     And I should see the text `The Tribunal Caseworker will review the appeal and decide if it's valid.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -69,7 +66,7 @@ Feature: Record remission decision
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -80,7 +77,7 @@ Feature: Record remission decision
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -91,12 +88,11 @@ Feature: Record remission decision
 
     When I switch to be a `Legal Rep`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal. You don't need to do anything else right now.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -112,20 +108,18 @@ Feature: Record remission decision
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `An appeal has been submitted with a remission application. You need to review the remission details in the appeal tab.`
     And I should see the text `If you need more information to make a decision, you can email the appellant.`
     And I should see the text `You then need to record your remission decision.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -156,12 +150,11 @@ Feature: Record remission decision
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that they need to pay the outstanding fee. Once payment is made you will need to mark the appeal as paid.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -173,7 +166,7 @@ Feature: Record remission decision
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -185,7 +178,7 @@ Feature: Record remission decision
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -197,13 +190,12 @@ Feature: Record remission decision
 
     When I switch to be a `Legal Rep`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `What happens next`
     And I should see the text `Your remission application has been partially approved. You will soon receive a notification with instructions on how to pay the fee by card online. You must pay within 14`
     And I should see the text `days of receiving the notification or the Tribunal will end the appeal.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
@@ -219,20 +211,18 @@ Feature: Record remission decision
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `An appeal has been submitted with a remission application. You need to review the remission details in the appeal tab.`
     And I should see the text `If you need more information to make a decision, you can email the appellant.`
     And I should see the text `You then need to record your remission decision.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -259,12 +249,11 @@ Feature: Record remission decision
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `What happens next`
     And I should see the text `A remission application for this appeal has been rejected. The appellant will be directed to pay the full fee.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -274,7 +263,7 @@ Feature: Record remission decision
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -284,7 +273,7 @@ Feature: Record remission decision
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `£140.00` for the `Fee` field
@@ -293,12 +282,11 @@ Feature: Record remission decision
 
     When I switch to be a `Legal Rep`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `Your remission application has been rejected. You must pay for this appeal by {$TODAY+14|D MMM YYYY} or the Tribunal will end the appeal.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `£140.00` for the `Fee` field
     And I should see `Rejected` for the `Decision` field
@@ -311,20 +299,18 @@ Feature: Record remission decision
     And I submit my nonpayment appeal
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
 
     When I switch to be a `Admin Officer`
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `Do this next`
     And I should see the text `An appeal has been submitted with a remission application. You need to review the remission details in the appeal tab.`
     And I should see the text `If you need more information to make a decision, you can email the appellant.`
     And I should see the text `You then need to record your remission decision.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -355,12 +341,11 @@ Feature: Record remission decision
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
     Then I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that they need to pay the outstanding fee. Once payment is made you will need to mark the appeal as paid.`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
@@ -391,7 +376,7 @@ Feature: Record remission decision
     Then I should see an alert confirming the case `has been updated with event: Mark appeal as paid`
 
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Submission details`
     And I should see `Paid` for the `Payment status` field
     And I should see `16 Nov 2020` for the `Payment date` field
@@ -408,7 +393,7 @@ Feature: Record remission decision
 
     When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Submission details`
     And I should see `Paid` for the `Payment status` field
     And I should see `16 Nov 2020` for the `Payment date` field
@@ -425,7 +410,7 @@ Feature: Record remission decision
 
     When I switch to be a `Judge`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Submission details`
     And I should see `Paid` for the `Payment status` field
     And I should see `16 Nov 2020` for the `Payment date` field
@@ -442,7 +427,7 @@ Feature: Record remission decision
 
     When I switch to be a `Legal Rep`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see the text `Submission details`
     And I should see `Paid` for the `Payment status` field
     And I should see `16 Nov 2020` for the `Payment date` field

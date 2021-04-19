@@ -32,7 +32,6 @@ Feature: Prepare decision and reasons
   @regression @prepare-decision-and-reasons @RIA-1152 @RIA-1153 @RIA-1540 @RIA-1544 @RIA-2037 @RIA-1280
   Scenario: Prepare decision and reasons
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `caseOfficer_decision.png`
     And I should see the text `Do this next`
     Then I should see the `Generate decision and reasons` link
@@ -59,11 +58,10 @@ Feature: Prepare decision and reasons
     Then I should see an alert confirming the case `has been updated with event: Prepare Decision and Reasons`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-decision-and-reasons-draft.docx` in the `Document` field
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `caseOfficer_decision.png`
     And I should see the text `Do this next`
     Then I should see the `Send decision and reasons` link
@@ -128,7 +126,6 @@ Feature: Prepare decision and reasons
   Scenario: Prepare decision and reasons - Judge
     Then I switch to be a `Judge`
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `caseOfficer_decision.png`
     And I should see the text `Do this next`
     Then I should see the `Prepare the Decision and Reasons document` link
@@ -157,42 +154,41 @@ Feature: Prepare decision and reasons
     Then I should see an alert confirming the case `has been updated with event: Prepare Decision and Reasons`
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-decision-and-reasons-draft.docx` in the `Document` field
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Overview` tab
-    And I should see the `Overview` page
     And I should see the image `caseOfficer_decision.png`
     And I should see the text `What happens next`
 
     Then I switch to be a `Admin Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-decision-and-reasons-draft.docx` in the `Document` field
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     Then I switch to be a `Case Officer`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Decision and reason documents` collection's first item, I should see `-Gonzlez-decision-and-reasons-draft.docx` in the `Document` field
     And within the `Decision and reason documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     Then I switch to be a `Home Office Generic`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `Decision and reason documents`
 
     Then I switch to be a `Home Office POU`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `Decision and reason documents`
 
     Then I switch to be a `Home Office APC`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `Decision and reason documents`
 
     Then I switch to be a `Home Office LART`
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the text `Decision and reason documents`

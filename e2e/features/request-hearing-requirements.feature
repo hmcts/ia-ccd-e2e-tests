@@ -24,13 +24,11 @@ Feature: Request hearing requirements
     Then I should see an alert confirming the case `has been updated with event: Request hearing requirements`
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to submit their hearing requirements.`
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Visit the online service and use the HMCTS reference to find the case. You'll be able to submit the hearing requirements using the Overview tab.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `The Tribunal will review the hearing requirements and any requests for additional adjustments. You'll then be sent a hearing date.` in the `Explanation` field
@@ -41,7 +39,6 @@ Feature: Request hearing requirements
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant will submit their hearing requirements.`

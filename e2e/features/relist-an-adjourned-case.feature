@@ -58,7 +58,6 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the `Restore to previous state` page
 
     When I click the `Restore appeal` button
-    Then I should see the `Overview` page
     And I should see the text `This case is ready to be relisted. Review the hearing requirements in the hearing tab and then relist the hearing in Aria.`
     And I should see the text `You should then relist the case on this service.`
 
@@ -109,7 +108,6 @@ Feature: Relist an adjourned hearing without a date case
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the `Hearing details` field
     And I should see `Manchester` for the `Hearing centre` field
     And I should see `3 hours` for the `Length` field
@@ -152,7 +150,6 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the `Restore to previous state` page
 
     When I click the `Restore appeal` button
-    Then I should see the `Overview` page
     And I should see the text `This case is ready to be relisted. Review the hearing requirements in the hearing tab and then relist the hearing in Aria.`
     And I should see the text `You should then relist the case on this service.`
 
@@ -203,7 +200,6 @@ Feature: Relist an adjourned hearing without a date case
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the `Hearing details` field
     And I should see `Manchester` for the `Hearing centre` field
     And I should see `3 hours` for the `Length` field
@@ -247,7 +243,6 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the `Restore to previous state` page
 
     When I click the `Restore appeal` button
-    Then I should see the `Overview` page
     And I should see the text `This case is ready to be relisted. Review the hearing requirements in the hearing tab and then relist the hearing in Aria.`
     And I should see the text `You should then relist the case on this service.`
 
@@ -298,7 +293,6 @@ Feature: Relist an adjourned hearing without a date case
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the `Hearing details` field
     And I should see `Manchester` for the `Hearing centre` field
     And I should see `3 hours` for the `Length` field
@@ -341,7 +335,6 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the `Restore to previous state` page
 
     When I click the `Restore appeal` button
-    Then I should see the `Overview` page
     And I should see the text `This case is ready to be relisted. Review the hearing requirements in the hearing tab and then relist the hearing in Aria.`
     And I should see the text `You should then relist the case on this service.`
 
@@ -392,7 +385,6 @@ Feature: Relist an adjourned hearing without a date case
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see the `Hearing details` field
     And I should see `Manchester` for the `Hearing centre` field
     And I should see `3 hours` for the `Length` field

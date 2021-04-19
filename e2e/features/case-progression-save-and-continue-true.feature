@@ -260,7 +260,7 @@ Feature: Case progression path when save and continue is enabled
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the updated evidence` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -584,7 +584,7 @@ Feature: Case progression path when save and continue is enabled
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -687,7 +687,7 @@ Feature: Case progression path when save and continue is enabled
 
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And within the `Respondent documents` collection's first item, I should see `AppealResponseUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the updated appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -742,7 +742,6 @@ Feature: Case progression path when save and continue is enabled
     And I should see the legal representative details
 
     Then I click the `Directions` tab
-    And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explanation` field
@@ -765,7 +764,6 @@ Feature: Case progression path when save and continue is enabled
     And I should see the legal representative details
 
     Then I click the `Directions` tab
-    And I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The Home Office has replied to your Appeal Skeleton Argument and evidence. You should review their response` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Next steps` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Review the Home Office response. If you want to respond to what they have said, you should email the Tribunal` in the `Explanation` field
@@ -862,7 +860,6 @@ Feature: Case progression path when save and continue is enabled
     # Admin Officer
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    Then I should see the `Overview` page
     And I should see `Legally Represented` tag
     And I should only see the `caseOfficer_submitHearingRequirements` case progress image
     And I should see the text `What happens next`
@@ -1039,7 +1036,7 @@ Feature: Case progression path when save and continue is enabled
 
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should not see the `Hearing documents` field
 
     When I switch to be a `Home Office APC`
@@ -1202,7 +1199,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_listing` case progress image
     And I should see the text `Do this next`
@@ -1332,7 +1328,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_listed` case progress image
 
@@ -1383,7 +1378,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_listed` case progress image
 
@@ -1409,7 +1403,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the hearing details
 
     When I click the `Go to the documents tab` link
-    Then I am on the `Documents` page
+
 
     ### start decision and reasons
 
@@ -1454,13 +1448,12 @@ Feature: Case progression path when save and continue is enabled
     And I should see the option `Upload additional evidence` for the `Next step` field
 
     When I click the `Go to the documents tab` link
-    Then I am on the `Documents` page
+
 
     # Home Office APC
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_preHearing` case progress image
 
@@ -1647,7 +1640,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `homeOffice_decision` case progress image
 
@@ -1712,7 +1704,6 @@ Feature: Case progression path when save and continue is enabled
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
 
-    Then I should see the `Overview` page
     And I should not see `Legally Represented` tag
     And I should only see the `appeal_allowed` case progress image
 
@@ -1730,7 +1721,6 @@ Feature: Case progression path when save and continue is enabled
 
     # Home Office POU
     When I switch to be a `Home Office POU`
-    And I should see the `Overview` page
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`
@@ -1776,7 +1766,7 @@ Feature: Case progression path when save and continue is enabled
 
     When I switch to be a `Home Office APC`
     Then I click the `Appeal` tab
-    And I should see the `Appeal` page
+    And I should see the `Appeal details` page
     And I should see `CaseArgument.pdf` in the first `Appeal skeleton argument` field
     And I should see `This is the case argument` in the first `Description` field
     And within the first `Evidence` collection's first item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
@@ -1801,7 +1791,7 @@ Feature: Case progression path when save and continue is enabled
     And I should not see the decision fields
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Hearing documents` field
     And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
     And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -1845,7 +1835,6 @@ Feature: Case progression path when save and continue is enabled
     And within the `Decision and reason documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
@@ -1878,13 +1867,12 @@ Feature: Case progression path when save and continue is enabled
     Then I should see the appellant's details
 
     When I click the `Documents` tab
-    Then I should see the `Documents` page
+
     And I should see the `Hearing documents` field
     And I should see the `Legal representative documents` field
     And I should see the `Respondent documents` field
 
     When I click the `Directions` tab
-    Then I should see the `Directions` page
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field

@@ -19,7 +19,6 @@ Feature: Force case progression to submit hearing requirements
   Scenario: Case officer forces the case state from respondentReview to submitHearingRequirements
 
     When I click the `Overview` tab
-    And I should see the `Overview` page
 
     When I select the `Force case - hearing reqs` Next step
     Then I am on the `Force case - hearing reqs` page
