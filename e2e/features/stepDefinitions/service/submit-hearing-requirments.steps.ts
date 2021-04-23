@@ -11,6 +11,17 @@ Then(/^I submit hearing requirements with all no$/, async function () {
     await submitHearingRequirementsFlow.submitHearingRequirements(true, false);
 });
 
+Then(/^I submit hearing requirements with all no when (in|out of) country$/, async function (inOrOutOfCountry) {
+
+    const inCountry = (inOrOutOfCountry === 'in');
+
+    if (inCountry) {
+        await submitHearingRequirementsFlow.submitHearingRequirementsForInOutOfCountry(true, false, true);
+    } else {
+        await submitHearingRequirementsFlow.submitHearingRequirementsForInOutOfCountry(true, false, false);
+    }
+});
+
 Then(/^I update hearing requirements with all no$/, async function () {
     await submitHearingRequirementsFlow.updateHearingRequirements(true, false);
 });
@@ -19,8 +30,41 @@ Then(/^I submit hearing requirements with all yes$/, async function () {
     await submitHearingRequirementsFlow.submitHearingRequirements(true, true);
 });
 
+Then(/^I submit hearing requirements with all yes when (in|out of) country$/, async function (inOrOutOfCountry) {
+
+    const inCountry = (inOrOutOfCountry === 'in');
+
+    if (inCountry) {
+        await submitHearingRequirementsFlow.submitHearingRequirementsForInOutOfCountry(true, true, true);
+    } else {
+        await submitHearingRequirementsFlow.submitHearingRequirementsForInOutOfCountry(true, true, false);
+    }
+});
+
 Then(/^I update hearing requirements with all yes$/, async function () {
     await submitHearingRequirementsFlow.updateHearingRequirements(true, true);
+});
+
+Then(/^I update hearing requirements with all yes when (in|out of) country$/, async function (inOrOutOfCountry) {
+
+    const inCountry = (inOrOutOfCountry === 'in');
+
+    if (inCountry) {
+        await submitHearingRequirementsFlow.updateHearingRequirementsForInOutOfCountry(true, true, true);
+    } else {
+        await submitHearingRequirementsFlow.updateHearingRequirementsForInOutOfCountry(true, true, false);
+    }
+});
+
+Then(/^I update hearing requirements with all no when (in|out of) country$/, async function (inOrOutOfCountry) {
+
+    const inCountry = (inOrOutOfCountry === 'in');
+
+    if (inCountry) {
+        await submitHearingRequirementsFlow.updateHearingRequirementsForInOutOfCountry(true, false, true);
+    } else {
+        await submitHearingRequirementsFlow.updateHearingRequirementsForInOutOfCountry(true, false, false);
+    }
 });
 
 Then(/^I should (see|not see) the hearing requirements (yes|no) path$/, async function (seeOrNotSee, yesOrNo) {
