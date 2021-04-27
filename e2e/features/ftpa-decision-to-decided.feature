@@ -1,22 +1,22 @@
 Feature: TCW progresses case from decision to decided - FTPA reheard decision (resident judge)
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
@@ -89,8 +89,8 @@ Feature: TCW progresses case from decision to decided - FTPA reheard decision (r
     And I click the `Continue` button
     And I click the `Send direction` button
 
-    When I switch to be a `Legal Rep`
-    And I submit hearing requirements with all no
+    When I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all no when in country
 
     When I switch to be a `Case Officer`
     Then I click the `review and submit` link
@@ -192,7 +192,7 @@ Feature: TCW progresses case from decision to decided - FTPA reheard decision (r
     And within the `Decision and reason documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Overview` tab
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I should only see the `appeal_allowed` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appeal has been decided. You have the right to apply for permission to appeal to the Upper Tribunal.`

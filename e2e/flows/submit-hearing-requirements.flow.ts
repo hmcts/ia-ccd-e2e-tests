@@ -271,6 +271,7 @@ export class SubmitHearingRequirementsFlow {
                 'Will any witnesses attend the hearing?',
                 'Yes'
             );
+            await browser.sleep(2000);
             await this.ccdFormPage.click('Add new');
             await this.ccdFormPage.setFieldValue(
                 'Name',
@@ -296,6 +297,7 @@ export class SubmitHearingRequirementsFlow {
                 'Will any witnesses attend the hearing?',
                 'Yes'
             );
+            await browser.sleep(2000);
             await this.ccdFormPage.click('Add new');
             await this.ccdFormPage.setFieldValue(
                 'Name',
@@ -308,6 +310,7 @@ export class SubmitHearingRequirementsFlow {
             'Do you need interpreter services on the day?',
             'Yes'
         );
+        await browser.sleep(2000);
         await this.ccdFormPage.click('Add new');
         await this.ccdFormPage.setFieldValue(
             'Language',
@@ -410,7 +413,7 @@ export class SubmitHearingRequirementsFlow {
             'Are there any dates that the appellant or their on-day representation cannot attend?',
             'Yes'
         );
-
+        await browser.sleep(2000);
         await this.ccdFormPage.click('Add new');
         await browser.sleep(500);
         await this.ccdFormPage.setFieldValue(

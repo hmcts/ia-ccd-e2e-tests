@@ -21,6 +21,22 @@ Feature: Submit & update hearing requirements (summarised step flow) - Giving ev
 
     And I switch to be a `Legal Org User Rep A`
     And I submit hearing requirements with all no when in country
+    When I click the `Hearing and appointment` tab
+    Then I should see the `Requirements and requests` field
+    And I should see `No` in the `Will the appellant attend the hearing?` field
+    And I should see `No` in the `Will the appellant give oral evidence at the hearing?` field
+    And I should see `No` in the `Will any witnesses attend the hearing?` field
+    And I should see `No` in the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
+    And I should see `No` in the `Do you need interpreter services on the day?` field
+    And I should see `No` in the `Do you need a hearing room with step-free access?` field
+    And I should see `No` in the `Do you need a hearing loop?` field
+    And I should see `No` in the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
+    And I should not see the agreed additional adjustments yes path
+    And I should see the text `Hearing requirements`
+    And I should see the text `Requests for additional adjustments`
+    And I should see the text `Record of requirements and requests`
+    And within the `Requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+    And within the `Requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     # Review hearing requirements (placeholder)
     # This flow requires testing for the field display changes
@@ -49,8 +65,18 @@ Feature: Submit & update hearing requirements (summarised step flow) - Giving ev
     And I update hearing requirements with all no when in country
     When I click the `Hearing and appointment` tab
     Then I should see the `Requirements and requests` field
-    And within the `Requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
-    And within the `Requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should see `No` in the `Will the appellant attend the hearing?` field
+    And I should see `No` in the `Will the appellant give oral evidence at the hearing?` field
+    And I should see `No` in the `Will any witnesses attend the hearing?` field
+    And I should see `No` in the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
+    And I should see `No` in the `Do you need interpreter services on the day?` field
+    And I should see `No` in the `Do you need a hearing room with step-free access?` field
+    And I should see `No` in the `Do you need a hearing loop?` field
+    And I should see `No` in the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
+    And I should not see the agreed additional adjustments yes path
+    And I should see the text `Hearing requirements`
+    And I should see the text `Requests for additional adjustments`
+    And I should see the text `Record of requirements and requests`
     And within the `Requirements and requests` collection's second item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Requirements and requests` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
@@ -70,12 +96,28 @@ Feature: Submit & update hearing requirements (summarised step flow) - Giving ev
     And I click the `Update` button
     And I click the `Close and Return to case details` button
 
-
   @RIA-3825 @RIA-3825-in-country-yes-flow @in-country-submit-hearing-requirements-giving-evidence-yes-path
   Scenario: Submit & update hearing requirements (summarised step flow) - Giving evidence from outside the UK (in country appeal) - Yes path
 
     And I switch to be a `Legal Org User Rep A`
     And I submit hearing requirements with all yes when in country
+
+    When I click the `Hearing and appointment` tab
+    Then I should see the `Requirements and requests` field
+    And I should see `Yes` in the `Will the appellant attend the hearing?` field
+    And I should see `Yes` in the `Will the appellant give oral evidence at the hearing?` field
+    And I should see `Yes` in the `Will any witnesses attend the hearing?` field
+    And I should see `Yes` in the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
+    And I should see `Yes` in the `Do you need interpreter services on the day?` field
+    And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
+    And I should see `Yes` in the `Do you need a hearing loop?` field
+    And I should see `Yes` in the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
+    And I should not see the agreed additional adjustments no path
+    And I should see the text `Hearing requirements`
+    And I should see the text `Requests for additional adjustments`
+    And I should see the text `Record of requirements and requests`
+    And within the `Requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+    And within the `Requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     # Review hearing requirements (placeholder)
     # This flow requires testing for the field display changes
@@ -109,6 +151,18 @@ Feature: Submit & update hearing requirements (summarised step flow) - Giving ev
     And I update hearing requirements with all yes when in country
     When I click the `Hearing and appointment` tab
     Then I should see the `Requirements and requests` field
+    And I should see `Yes` in the `Will the appellant attend the hearing?` field
+    And I should see `Yes` in the `Will the appellant give oral evidence at the hearing?` field
+    And I should see `Yes` in the `Will any witnesses attend the hearing?` field
+    And I should see `Yes` in the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
+    And I should see `Yes` in the `Do you need interpreter services on the day?` field
+    And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
+    And I should see `Yes` in the `Do you need a hearing loop?` field
+    And I should see `Yes` in the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
+    And I should not see the agreed additional adjustments no path
+    And I should see the text `Hearing requirements`
+    And I should see the text `Requests for additional adjustments`
+    And I should see the text `Record of requirements and requests`
     And within the `Requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
     And within the `Requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Requirements and requests` collection's second item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field

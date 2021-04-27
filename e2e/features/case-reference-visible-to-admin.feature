@@ -16,7 +16,7 @@ Feature: Remote hearing during Submit hearing requirements
     And I add the appeal response
     And I request hearing requirements
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all yes
+    And I submit hearing requirements with all yes when in country
 
   @RIA-3996 @case-reference-visible-to-admin
   Scenario: Submit hearing requirements with 'Yes' option selected for Remote hearing

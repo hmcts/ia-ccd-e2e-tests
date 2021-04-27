@@ -1,14 +1,14 @@
 Feature: Remote hearing during Submit hearing requirements
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my out of country now appeal with decision type `refusalOfHumanRights`
     And I submit my nonpayment appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
@@ -19,8 +19,8 @@ Feature: Remote hearing during Submit hearing requirements
   @RIA-3718 @remote-hearing @remote-hearing-yes
   Scenario: Submit hearing requirements with 'Yes' option selected for Remote hearing
 
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
@@ -61,8 +61,8 @@ Feature: Remote hearing during Submit hearing requirements
   @RIA-3718 @remote-hearing @remote-hearing-no
   Scenario: Submit hearing requirements with 'No' option selected for Remote hearing
 
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all no
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all no when in country
 
     When I click the `Documents` tab
     Then I should see the `Documents` page
@@ -101,8 +101,8 @@ Feature: Remote hearing during Submit hearing requirements
   @RIA-3719 @remote-hearing @record-agreed-hearing-remote-hearing-no
   Scenario: Record agreed hearing requirements with 'No' option selected for Remote hearing
 
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all no
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
 
@@ -116,7 +116,7 @@ Feature: Remote hearing during Submit hearing requirements
     Then I should not see the requests for additional adjustments no path
     Then I should see the agreed additional adjustments no path
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments no path
     Then I should see the agreed additional adjustments no path
@@ -129,8 +129,8 @@ Feature: Remote hearing during Submit hearing requirements
   @RIA-3719 @remote-hearing @record-agreed-hearing-remote-hearing-yes
   Scenario: Record agreed hearing requirements with 'Yes' option selected for Remote hearing
 
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
 
@@ -144,7 +144,7 @@ Feature: Remote hearing during Submit hearing requirements
     Then I should not see the requests for additional adjustments yes path
     And I should see the agreed additional adjustments yes path
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Hearing and appointment` tab
     Then I should not see the requests for additional adjustments yes path
     Then I should see the agreed additional adjustments yes path

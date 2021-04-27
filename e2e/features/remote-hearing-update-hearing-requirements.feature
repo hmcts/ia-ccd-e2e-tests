@@ -20,7 +20,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
   Scenario: Remote hearing - TCW updates (all no) hearing requirements and hearing adjustments (with all yes)
 
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`
@@ -103,7 +103,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
   Scenario: Remote hearing - TCW updates (all yes) hearing requirements and hearing adjustments (with all no)
 
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all yes
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
@@ -173,7 +173,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
   Scenario: Remote hearing - Judge updates (all no) hearing requirements and hearing adjustments (with all yes)
 
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`
@@ -255,7 +255,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
   Scenario: Remote hearing - Judge updates (all yes) hearing requirements and hearing adjustments (with all no)
 
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all yes
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`

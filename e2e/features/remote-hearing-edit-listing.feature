@@ -44,7 +44,7 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
   Scenario: List the case with a Hearing Centre (Taylor House) location and re-list as a Remote Hearing
 
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`
@@ -61,7 +61,7 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
   Scenario: List the case as a Remote Hearing and re-list to a Hearing Centre (Taylor House) location
 
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`
@@ -78,7 +78,7 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
   Scenario: List the case as a Remote Hearing and re-list as a Remote Hearing
 
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`
@@ -97,7 +97,7 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
   Scenario: List the case as a Remote Hearing and re-list as a Remote Hearing with no changes
 
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`

@@ -143,6 +143,7 @@ export class StartAppealFlow {
         await browser.sleep(5000);
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Nationality', 'Has a nationality');
+        await browser.sleep(2000);
         await this.ccdFormPage.addCollectionItem('Nationality');
         await this.ccdFormPage.setFieldValue('Nationality', 'Finland', 'select list', 'first', 'Nationality', 'first');
 

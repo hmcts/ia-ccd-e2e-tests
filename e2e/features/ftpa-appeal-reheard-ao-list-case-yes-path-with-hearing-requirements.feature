@@ -1,22 +1,22 @@
 Feature: Admin Officer lists reheard case with hearing requirements - FTPA reheard decision (resident judge)
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all no
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`
@@ -92,8 +92,8 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     And I click the `Continue` button
     And I click the `Send direction` button
 
-    When I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    When I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
 
     When I switch to be a `Case Officer`
     And I click the `review and submit` link
@@ -220,7 +220,7 @@ Feature: Admin Officer lists reheard case with hearing requirements - FTPA rehea
     And I should see `1 hour` for the `Length` field
     And I should see `{$TODAY+20|D MMM YYYY}, 9:30:00 AM` for the `Date and time` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I should not see the text `These flags are only visible to the Tribunal`
     And I should not see the image `caseFlagSetAsideReheard.svg`
     And I should see the text `Hearing details`

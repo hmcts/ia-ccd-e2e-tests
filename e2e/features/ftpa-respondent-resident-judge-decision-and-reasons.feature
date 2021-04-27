@@ -1,22 +1,22 @@
 Feature: Resident judge record the appellant decision and reasons
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
@@ -132,7 +132,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
     And I should see `Permission granted` for the `The outcome of the application` field
@@ -205,7 +205,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
     And I should see `Permission granted` for the `The outcome of the application` field
@@ -221,7 +221,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -390,7 +390,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
     And I should see `Permission partially granted` for the `The outcome of the application` field
@@ -463,7 +463,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
     And I should see `Permission partially granted` for the `The outcome of the application` field
@@ -479,7 +479,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -689,13 +689,13 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I should see the image `appeal_dismissed.png`
     And I should see the text `The appeal has been dismissed. You have the right to apply for permission to appeal to the Upper Tribunal. You have 14 days to apply from the date the Decision and Reasons document was uploaded.`
     And I should not see the `The outcome of the application` field
     And I should not see the `FTPA Decision and Reasons document` field
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -876,7 +876,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
     And I should see `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
@@ -900,7 +900,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -1063,7 +1063,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `This is the ftpa decision and reasons` in the `Description` field
     And within the `FTPA Respondent Decision and Reasons documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
     And I should see `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
@@ -1085,7 +1085,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -1291,7 +1291,7 @@ Feature: Resident judge record the appellant decision and reasons
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
     When I switch to be a Judge

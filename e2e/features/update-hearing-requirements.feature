@@ -2,14 +2,14 @@ Feature: Update hearing requirements
 
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I upload additional evidence
@@ -17,12 +17,12 @@ Feature: Update hearing requirements
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
 
   @update-hearing-requirements-yes-to-no @RIA-2031 @RIA-3555
   Scenario: Update hearing requirements to No answers
 
-    And I submit hearing requirements with all yes
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
@@ -121,7 +121,7 @@ Feature: Update hearing requirements
   @update-hearing-requirements-no-to-yes @RIA-2031 @RIA-3555
   Scenario: Update hearing requirements to Yes answers
 
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`

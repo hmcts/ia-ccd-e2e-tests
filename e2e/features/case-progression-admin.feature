@@ -3,7 +3,7 @@ Feature: Case progression - Admin Officer
   @case-progression @case-progression-admin @RIA-1360 @RIA-1939
   Scenario: Case progression information is displayed for each case state for Admin Officer
 
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
@@ -52,7 +52,7 @@ Feature: Case progression - Admin Officer
     And I should see the text `What happens next`
     And I should see the text `The appellant will build their case.`
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
 
     When I switch to be a `Admin Officer`
@@ -63,7 +63,7 @@ Feature: Case progression - Admin Officer
     # And I should see the text `What happens next`
     # And I should see the text `The appellant will build their case.`
 
-    # And I switch to be a `Legal Rep`
+    # And I switch to be a `Legal Org User Rep A`
     # And I submit my case
 
     # When I switch to be a `Admin Officer`
@@ -123,8 +123,8 @@ Feature: Case progression - Admin Officer
     And I should see the text `What happens next`
     And I should see the text `The appellant will submit their hearing requirements.`
 
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
@@ -217,7 +217,7 @@ Feature: Case progression - Admin Officer
     Then I should only see the `appeal_allowed` case progress image
     And I should see the text `The case has been decided. Either party has the right to appeal this decision, they have 14 days from the date of decision to do this.`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I submit FTPA appeal
 
     When I switch to be a `Admin Officer`

@@ -2,22 +2,22 @@ Feature: FTPA Respondent application to the Upper Tribunal
 
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
@@ -146,8 +146,8 @@ Feature: FTPA Respondent application to the Upper Tribunal
     And within the `FTPA Home Office documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
 
-    ## Legal Representative
-    When I switch to be a `Legal Rep`
+    ## Legal representative
+    When I switch to be a `Legal Org User Rep A`
 #    And I click the `Overview` tab
     And I should see the image `appeal_allowed.png`
     And I should see the text `What happens next`

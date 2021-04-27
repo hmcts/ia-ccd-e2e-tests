@@ -1,22 +1,22 @@
 Feature: Final display for FTPA decision and reasons
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
@@ -33,7 +33,7 @@ Feature: Final display for FTPA decision and reasons
     #  Granted / Reheard Rule 35 (Final Decision: Granted - Scenario 7)
   Scenario: FTPA judge decision - Granted
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -57,7 +57,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
@@ -109,7 +109,7 @@ Feature: Final display for FTPA decision and reasons
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_reheard.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_reheard.png`
@@ -144,7 +144,7 @@ Feature: Final display for FTPA decision and reasons
     #  Granted / Reheard Rule 32 (Final Decision: Granted - Scenario 7)
   Scenario: FTPA judge decision - Granted
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -168,7 +168,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
@@ -215,7 +215,7 @@ Feature: Final display for FTPA decision and reasons
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_reheard.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_reheard.png`
@@ -250,7 +250,7 @@ Feature: Final display for FTPA decision and reasons
     #  Granted / Remade Rule 32 (Final Decision: Granted - Scenario 7)
   Scenario: FTPA judge decision - Granted
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -274,7 +274,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
@@ -321,7 +321,7 @@ Feature: Final display for FTPA decision and reasons
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_reheard.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_allowed.png`
@@ -356,7 +356,7 @@ Feature: Final display for FTPA decision and reasons
     #  Reheard Rule 35 / Granted (Final Decision: Granted - Scenario 7)
   Scenario: FTPA judge decision - Granted
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -383,7 +383,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
 
@@ -438,7 +438,7 @@ Feature: Final display for FTPA decision and reasons
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_reheard.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_reheard.png`
@@ -473,7 +473,7 @@ Feature: Final display for FTPA decision and reasons
     #  Reheard Rule 32 / Granted (Final Decision: Granted - Scenario 7)
   Scenario: FTPA judge decision - Granted
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -496,7 +496,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
 
@@ -551,7 +551,7 @@ Feature: Final display for FTPA decision and reasons
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_reheard.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_reheard.png`
@@ -586,7 +586,7 @@ Feature: Final display for FTPA decision and reasons
     #  Remade Rule 32 / Granted (Final Decision: Granted - Scenario 7)
   Scenario: FTPA judge decision - Granted
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
     When I switch to be a Judge
@@ -608,7 +608,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `appeal_allowed.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `appeal_allowed.png`
 
@@ -663,7 +663,7 @@ Feature: Final display for FTPA decision and reasons
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_allowed.png`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
     And I should not see the image `appeal_allowed.png`
