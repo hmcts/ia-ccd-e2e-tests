@@ -19,7 +19,9 @@ Given('I create a new case', async function () {
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdPage.doesDropdownHaveValues('Case type');
 
-    if (iaConfig.CcdWebUrl.includes('aat') ) {
+    if (iaConfig.CcdWebUrl.includes('aat')
+        || iaConfig.CcdWebUrl.includes('demo')
+    ) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* master'
