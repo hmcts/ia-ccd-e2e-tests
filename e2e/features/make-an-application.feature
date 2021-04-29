@@ -1,7 +1,7 @@
 Feature: Legal representative make an application
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
@@ -166,7 +166,7 @@ Feature: Legal representative make an application
     And I should see the option `Judge's review of application decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
     And I should see the `Make an application` page
@@ -305,7 +305,7 @@ Feature: Legal representative make an application
     And within the `Application` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's second item, I should see `Pending` in the `Decision` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     When I click the `Applications` tab
     And I should see the `Application` field
     And within the `Application` collection's first item, I should see `Respondent` in the `Applicant` field
@@ -330,7 +330,7 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
     And I should see the `Make an application` page
@@ -402,19 +402,19 @@ Feature: Legal representative make an application
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
     And I should see the `Make an application` page
@@ -462,21 +462,21 @@ Feature: Legal representative make an application
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
     And I list the case
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
     And I should see the `Make an application` page

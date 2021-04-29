@@ -2,14 +2,14 @@ Feature: Customise hearing bundle
 
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I upload additional evidence
@@ -17,8 +17,8 @@ Feature: Customise hearing bundle
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all no
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`
@@ -52,7 +52,7 @@ Feature: Customise hearing bundle
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`
 
     And I wait for 10 seconds
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
@@ -96,7 +96,7 @@ Feature: Customise hearing bundle
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`
 
     And I wait for 10 seconds
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab
@@ -137,7 +137,7 @@ Feature: Customise hearing bundle
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`
 
     And I wait for 10 seconds
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
 
     When I switch to be a `Case Officer`
     And I click the `Documents` tab

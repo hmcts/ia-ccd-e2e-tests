@@ -1,22 +1,22 @@
 Feature: New overview tab for appeal submitted - FTPA reheard decision (resident judge)
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
@@ -90,7 +90,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     Then I click the `Overview` tab
     And I should not see the option `Request hearing requirements` for the `Next step` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Overview` tab
     And I should not see the option `Request hearing requirements` for the `Next step` field
 
@@ -207,7 +207,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Overview` tab
     And I should see the image `progress_legalRep_submitHearingRequirements.png`
     And I should see the text `Do this next`
@@ -374,7 +374,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     Then I click the `Overview` tab
     And I should not see the option `Request hearing requirements` for the `Next step` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Overview` tab
     And I should not see the option `Request hearing requirements` for the `Next step` field
 
@@ -491,7 +491,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY} in the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY} in the `Date sent` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Overview` tab
     And I should see the image `progress_legalRep_submitHearingRequirements.png`
     And I should see the text `Do this next`

@@ -1,7 +1,7 @@
 Feature: End appeal
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
@@ -50,7 +50,7 @@ Feature: End appeal
     And I should not see the hearing details
     And I should see the case details
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
     And I should see the text `Do this next`
@@ -121,7 +121,7 @@ Feature: End appeal
     And I should not see the hearing details
     And I should see the case details
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
     And I should see the text `Do this next`
@@ -153,15 +153,15 @@ Feature: End appeal
     And I switch to be a `Case Officer`
     When I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
@@ -202,7 +202,7 @@ Feature: End appeal
     And I should see the hearing details
     And I should see the case details
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
     And I should see the text `Do this next`
@@ -234,15 +234,15 @@ Feature: End appeal
     And I switch to be a `Case Officer`
     When I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-    And I switch to be a `Legal Rep`
-    And I submit hearing requirements with all yes
+    And I switch to be a `Legal Org User Rep A`
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
@@ -283,7 +283,7 @@ Feature: End appeal
     And I should see the hearing details
     And I should see the case details
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
     Then I should only see the `caseOfficer_appealEnded` case progress image
     And I should see the text `Do this next`

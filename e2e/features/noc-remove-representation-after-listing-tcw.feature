@@ -23,7 +23,7 @@ Feature: Notice of Change (common component) - Remove Representation by TCW and 
     And I add the appeal response
     And I request hearing requirements
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`
@@ -65,7 +65,7 @@ Feature: Notice of Change (common component) - Remove Representation by TCW and 
     And I add the appeal response
     And I request hearing requirements
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all no
+    And I submit hearing requirements with all no when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements no path
     And I switch to be a `Admin Officer`

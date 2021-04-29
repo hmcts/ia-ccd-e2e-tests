@@ -20,7 +20,7 @@ Feature: Remote hearing during Submit hearing requirements
   Scenario: Record agreed hearing requirements with 'Yes' option selected for Remote hearing
 
     And I switch to be a `Legal Org User Rep A`
-    And I submit hearing requirements with all yes
+    And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
