@@ -9,7 +9,7 @@ export class StartAppealFlow {
 
     async completeScreeningQuestions(clickContinue = false) {
         if (isOutOfCountryEnabled) {
-            this.completeScreeningQuestionsOutOfCountry(clickContinue);
+            await this.completeScreeningQuestionsOutOfCountry(clickContinue);
             await this.ccdFormPage.headingContains('Tell us about your client')
             await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'Yes');
         } else {
@@ -66,6 +66,7 @@ export class StartAppealFlow {
 
     async completeUploadNoticeDecision(clickContinue = false) {
       await this.ccdFormPage.runAccessbility();
+        await browser.sleep(1000)
         await this.ccdFormPage.click('Add new');
         await this.ccdFormPage.setFieldValue(
             'Document',
@@ -92,6 +93,7 @@ export class StartAppealFlow {
     async completeUploadNoticeDecisionNoUpload(clickContinue = false) {
 
         await this.ccdFormPage.runAccessbility();
+        await browser.sleep(1000)
         await this.ccdFormPage.click('Add new');
         await this.ccdFormPage.setFieldValue(
             'Document',

@@ -1,9 +1,9 @@
 import { browser, by, element } from 'protractor';
 import { Wait } from '../enums/wait';
 import { ValueExpander } from '../helpers/value-expander';
-
 const AxeRunner = require('../helpers/accessibility/axe-runner');
 const iaConfig = require('../ia.conf');
+const BrowserWaits = require('../support/customWaits');
 
 export class AnyPage {
 
@@ -75,7 +75,12 @@ export class AnyPage {
             .get(xpathIndex);
 
         if (await button.isPresent()) {
+            await BrowserWaits.waitForelementToBeClickable(button)
+            let thisPageUrl = await browser.getCurrentUrl();
             await button.click();
+            if (linkText === 'Continue') {
+                await this.waitForPageNavigation(thisPageUrl);
+            }
             return;
         }
 
@@ -85,6 +90,7 @@ export class AnyPage {
             .get(xpathIndex);
 
         if (await anchor.isPresent()) {
+            await BrowserWaits.waitForelementToBeClickable(anchor)
             await anchor.click();
             return;
         }
@@ -94,9 +100,18 @@ export class AnyPage {
             .filter(e => e.isPresent() && e.isDisplayed())
             .get(xpathIndex);
 
-        await link.click();
+            await BrowserWaits.waitForelementToBeClickable(link)
+             await link.click();
     }
 
+    async waitForPageNavigation(currentPageUrl) {
+        let nextPage = '';
+        let pageErrors = '';
+        await browser.wait(async () => {
+            nextPage = await browser.getCurrentUrl();
+            return currentPageUrl !== nextPage;
+        }, 5000, 'Navigation to next page taking too long ' + 5000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
+    }
     async isButtonEnabled(match: string, shortWait = false) {
 
         const expandedMatch = await this.valueExpander.expand(match);

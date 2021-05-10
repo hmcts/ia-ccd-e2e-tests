@@ -15,7 +15,7 @@ Then(/^I should (see|not see) the appellant's details$/, async function (seeOrNo
     if (isDisplayed) {
 
         const referenceNumberIsDraft = await ccdPage.isFieldValueDisplayed('Appeal reference', 'DRAFT');
-        const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 13);
+        const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 14);
 
         expect(referenceNumberIsDraft || referenceNumberIsCorrectLength).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Title', 'Mr')).to.equal(true);
@@ -26,6 +26,7 @@ Then(/^I should (see|not see) the appellant's details$/, async function (seeOrNo
         expect(await ccdPage.isFieldValueDisplayed('Does the appellant have a fixed address?', 'No')).to.equal(true);
 
     } else {
+
         expect(await ccdPage.contentContains('Appeal reference', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Title', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Given names', Wait.instant)).to.equal(false);
