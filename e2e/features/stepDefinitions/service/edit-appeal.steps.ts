@@ -2,7 +2,7 @@ import { StartAppealFlow } from '../../../flows/start-appeal.flow';
 import { Given } from 'cucumber';
 
 const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 'true';
-const isOutOfCountryEnabled = require('../../../ia.conf').isOutOfCountryEnabled === 'true';
+const isOutOfCountryEnabled = require('../../../ia.conf').isOutOfCountryEnabled === true;
 const startAppealFlow = new StartAppealFlow();
 
 Given(/^I edit the appeal with appellant living in UK `?([^\s`]+)`?$/, async function (appellantInUk) {

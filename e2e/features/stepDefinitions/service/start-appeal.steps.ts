@@ -4,7 +4,7 @@ import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
 
 const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 'true';
-const isOutOfCountryEnabled = require('../../../ia.conf').isOutOfCountryEnabled === 'true';
+const isOutOfCountryEnabled = require('../../../ia.conf').isOutOfCountryEnabled === true;
 const ccdFormPage = new CcdFormPage();
 const startAppealFlow = new StartAppealFlow();
 

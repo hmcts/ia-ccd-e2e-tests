@@ -11,6 +11,9 @@ const ccdFormPage = new CcdFormPage();
 const iaConfig = require('../../ia.conf');
 
 Given('I create a new case', async function () {
+    // there is loading mask with spinner added by ExUI
+    await browser.sleep(Wait.minimal);
+
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
     await ccdPage.click('Create case');

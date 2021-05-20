@@ -36,12 +36,9 @@ Feature: Generate hearing bundle
     And I should see the `Generate` button
 
     When I click the `Generate` button
-    Then I should see the text `You have generated the hearing bundle`
+    Then I should see the text `The hearing bundle is being generated`
     Then I should see the text `What happens next`
-    Then I should see the text `You can view the hearing bundle in the documents tab. All parties have been notified that the hearing bundle is now available.`
+    Then I should see the text `You will soon be able to view the hearing bundle in the documents tab.`
 
     When I click the `Close and Return to case details` button
-    And I click the `Documents` tab
 
-    And within the `Hearing documents` collection's first item, I should see `-González-hearing-bundle.PDF` in the `Document` field
-    And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
