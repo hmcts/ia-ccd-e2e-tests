@@ -14,6 +14,7 @@ export class StartAppealFlow {
             await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'Yes');
         } else {
             await this.ccdFormPage.runAccessbility();
+            await this.ccdFormPage.click('My client is living in the UK');
             await this.ccdFormPage.click('My client is not in detention');
             await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
         }
