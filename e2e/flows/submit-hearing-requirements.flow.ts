@@ -1,8 +1,7 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser, By, by, element } from 'protractor';
-import { Wait } from '../enums/wait';
+import { browser } from 'protractor';
 
-const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
+const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === true;
 
 export class SubmitHearingRequirementsFlow {
 
@@ -33,7 +32,6 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Go');
 
         await this.ccdFormPage.headingContains('Submit hearing requirements');
-
         if (isYesPath) {
             if (inCountry) {
                 await this.hearingRequirementsYesPathForInOutOfCountry(true);
@@ -987,61 +985,23 @@ export class SubmitHearingRequirementsFlow {
     async setRemoteHearingRequirementForInOutOfCountryForInOutOfCountry(clickContinue = false, isYesPath = '', details = '') {
         if (isOutOfCountryEnabled) {
             if (isYesPath === 'Yes') {
-                await this.selectVideoHearingsYesRadioButton()
+                await this.ccdFormPage.setFieldValue(
+                    'Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?',
+                    'Yes'
+                );
                 await this.ccdFormPage.setFieldValue(
                     'Explain in detail anything you would like the Tribunal to consider',
                     details
                 );
             } else {
-                await this.selectVideoHearingsNoRadioButton()
+                await this.ccdFormPage.setFieldValue(
+                    'Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?',
+                    'No'
+                );
             }
             if (clickContinue) {
                 await this.ccdFormPage.click('Continue');
             }
         }
-    }
-
-    async selectVideoHearingsNoRadioButton(shortWait = false) {
-        const radioButtonNoIdPath = '//*[@id=\'remoteVideoCall-No\']';
-
-        try {
-            await browser.wait(
-                async () => {
-                    return (await element
-                        .all(by.xpath(radioButtonNoIdPath))
-                        .filter(e => e.isPresent())
-                        .count()) > 0;
-                },
-                shortWait ? Wait.minimal : Wait.normal
-            );
-        } catch (error) {
-            throw Error('radioButtonNoIdPath radio button not found...')
-        }
-
-        browser.driver
-            .findElement(By.xpath('//*[@id="remoteVideoCall-No"]'))
-            .click()
-    }
-
-    async selectVideoHearingsYesRadioButton(shortWait = false) {
-        const radioButtonYesIdPath = '//*[@id=\'remoteVideoCall-Yes\']';
-
-        try {
-            await browser.wait(
-                async () => {
-                    return (await element
-                        .all(by.xpath(radioButtonYesIdPath))
-                        .filter(e => e.isPresent())
-                        .count()) > 0;
-                },
-                shortWait ? Wait.minimal : Wait.normal
-            );
-        } catch (error) {
-            throw Error('radioButtonYesIdPath radio button not found...')
-        }
-
-        browser.driver
-            .findElement(By.xpath('//*[@id="remoteVideoCall-Yes"]'))
-            .click()
     }
 }

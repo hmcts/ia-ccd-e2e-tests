@@ -1,7 +1,7 @@
 import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
-const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
+const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === true;
 
 export class StartAppealFlow {
 
@@ -13,8 +13,8 @@ export class StartAppealFlow {
             await this.ccdFormPage.headingContains('Tell us about your client')
             await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'Yes');
         } else {
-            await this.ccdFormPage.click('My client is living in the UK');
             await this.ccdFormPage.runAccessbility();
+            await this.ccdFormPage.click('My client is living in the UK');
             await this.ccdFormPage.click('My client is not in detention');
             await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
         }
