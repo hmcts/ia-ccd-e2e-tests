@@ -17,6 +17,10 @@ class BrowserWaits {
     async waitForCondition(condition) {
         await browser.wait(condition(), this.waitTime);
     }
+    async waitForelementToBeClickable(element) {
+        await browser.executeScript('arguments[0].scrollIntoView()', element.getWebElement());
+        await browser.wait(EC.elementToBeClickable(element), this.waitTime, "Error : " + element.locator().toString());
+    }
 }
 
 module.exports = new BrowserWaits();

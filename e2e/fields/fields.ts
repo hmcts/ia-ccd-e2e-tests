@@ -6,6 +6,7 @@ import { CcdWriteCollectionFinder } from './complex-field-finders/ccd-write-coll
 import { CcdWriteCollectionItemFinder } from './collection-item-finders/ccd-write-collection-item-finder';
 import { CcdWriteDateFieldFinder } from './ccd-write-date-field-finder';
 import { CcdWriteFixedListFieldFinder } from './ccd-write-fixed-list-field-finder';
+import { CcdWriteDynamicListFieldFinder } from './ccd-write-dynamic-list-field-finder';
 import { CcdWriteLabelFieldFinder } from './ccd-write-label-field-finder';
 import { CcdWriteTextAreaFieldFinder } from './ccd-write-text-area-field-finder';
 import { CcdWriteTextFieldFinder } from './ccd-write-text-field-finder';
@@ -57,6 +58,7 @@ export class Fields {
         new CcdWriteLabelFieldFinder(),
         new CcdWriteMoneyGBPFieldFinder(),
         new CcdWriteEmailFieldFinder(),
+        new CcdWriteDynamicListFieldFinder(),
 
         // the following fields are not specific to one type
         // and so are searched last in order of specificity
@@ -82,7 +84,10 @@ export class Fields {
     ) {
         const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
 
+        const addNewBtn = complexFieldContainer.element(by.xpath('.//button[normalize-space()="Add new"]'));
+        await browser.wait(ExpectedConditions.visibilityOf(addNewBtn));
         if (!!complexFieldContainer) {
+            await browser.executeScript('arguments[0].scrollIntoView()', addNewBtn.getWebElement());
 
             await complexFieldContainer
                 .all(by.xpath('.//button[normalize-space()="Add new"]'))

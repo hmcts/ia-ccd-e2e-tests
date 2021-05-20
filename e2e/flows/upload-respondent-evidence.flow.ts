@@ -1,3 +1,4 @@
+import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class UploadRespondentEvidenceFlow {
@@ -28,6 +29,7 @@ export class UploadRespondentEvidenceFlow {
         );
 
         await this.ccdFormPage.click('Continue');
+        await browser.sleep(1000);
         await this.ccdFormPage.click('Upload');
 
         if (clickContinue) {
