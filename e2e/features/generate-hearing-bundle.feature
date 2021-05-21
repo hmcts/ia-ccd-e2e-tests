@@ -31,14 +31,14 @@ Feature: Generate hearing bundle
     When I click the `Documents` tab
 
 
-#    When I select the `Generate hearing bundle` Next step
-#    Then I should see the `Generate hearing bundle` page
-#    And I should see the `Generate` button
-#
-#    When I click the `Generate` button
-#    Then I should see the text `The hearing bundle is being generated`
-#    Then I should see the text `What happens next`
-#    Then I should see the text `You will soon be able to view the hearing bundle in the documents tab.`
-#
-#    When I click the `Close and Return to case details` button
+    When I select the `Generate hearing bundle` Next step
+    Then I should see the `Generate hearing bundle` page
+    And I should see the `Generate` button
+
+    When I click the `Generate` button
+    Then I should see the text `The hearing bundle is being generated`
+    Then I should see the text `What happens next`
+    Then I should see the text `You will soon be able to view the hearing bundle in the documents tab.`
+
+    When I click the `Close and Return to case details` button
 
