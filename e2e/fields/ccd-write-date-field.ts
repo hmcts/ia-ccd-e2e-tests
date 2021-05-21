@@ -164,6 +164,6 @@ export class CcdWriteDateField implements Field {
     }
 
     private getUnitElement(unit: string) {
-        return this.container.element(by.xpath('.//input[@type="text" and contains(@name, "-' + unit + '")]'));
+        return this.container.element(by.xpath('.//input[(@type="text" or @type="number") and contains(@name, "-' + unit + '")]'));
     }
 }

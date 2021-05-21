@@ -1,7 +1,7 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { browser } from 'protractor';
 
-const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === true;
+const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
 
 export class SubmitHearingRequirementsFlow {
 
