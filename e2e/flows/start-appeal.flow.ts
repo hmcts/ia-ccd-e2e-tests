@@ -1,7 +1,7 @@
 import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
-const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === true;
+const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
 
 export class StartAppealFlow {
 

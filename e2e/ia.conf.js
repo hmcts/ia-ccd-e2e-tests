@@ -55,5 +55,5 @@ module.exports = {
 
   isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
   isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false,
-  isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || false
+  isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'false'
 };
