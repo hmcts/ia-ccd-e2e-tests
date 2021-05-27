@@ -1,7 +1,10 @@
-import { browser } from 'protractor';
+import { browser, by } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
+const remote = require('selenium-webdriver/remote');
+const path = require('path');
+const { WebDriver } = require('selenium-webdriver');
 
 export class StartAppealFlow {
 
@@ -95,14 +98,11 @@ export class StartAppealFlow {
         await this.ccdFormPage.runAccessbility();
         await browser.sleep(1000)
         await this.ccdFormPage.click('Add new');
-        await this.ccdFormPage.setFieldValue(
-            'Document',
-            '{@Evidence1.pdf}',
-            'document',
-            'first',
-            'Notice of Decision',
-            'first'
-        );
+        let fileDetector = WebDriver.fileDetector;
+        browser.setFileDetector(new remote.FileDetector())
+        let absolutePath = path.resolve('documents', 'Evidence1.pdf');
+        await browser.element.all(by.css('input[type=file]')).get(0).sendKeys(absolutePath);
+        browser.setFileDetector(fileDetector);
         await this.ccdFormPage.setFieldValue(
             'Describe the document',
             'This is the notice of decision',

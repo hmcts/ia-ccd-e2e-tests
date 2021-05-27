@@ -8,6 +8,7 @@ module.exports = {
           tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
           extendedDebugging: true,
           sharedTestFiles: false,
+          capturePerformance: true,
           maxInstances: 1
         },
         {
@@ -18,6 +19,7 @@ module.exports = {
           tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
           extendedDebugging: true,
           sharedTestFiles: false,
+          capturePerformance: true,
           maxInstances: 1
         },
         {
@@ -28,6 +30,7 @@ module.exports = {
           tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
           extendedDebugging: true,
           sharedTestFiles: false,
+          capturePerformance: true,
           maxInstances: 1
         },
         {
@@ -38,6 +41,7 @@ module.exports = {
           tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
           extendedDebugging: true,
           sharedTestFiles: false,
+          capturePerformance: true,
           maxInstances: 1
         },
         {
@@ -48,6 +52,7 @@ module.exports = {
           tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
           extendedDebugging: true,
           sharedTestFiles: false,
+          capturePerformance: true,
           maxInstances: 1,
         },
         {
@@ -58,6 +63,7 @@ module.exports = {
           tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
           extendedDebugging: true,
           sharedTestFiles: false,
+          capturePerformance: true,
           maxInstances: 1
         },
         {
@@ -68,6 +74,7 @@ module.exports = {
           tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
           extendedDebugging: true,
           sharedTestFiles: false,
+          capturePerformance: true,
           maxInstances: 1
         },
       ],
