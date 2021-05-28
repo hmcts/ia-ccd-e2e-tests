@@ -66,16 +66,5 @@ module.exports = {
           capturePerformance: true,
           maxInstances: 1
         },
-        {
-          browserName: 'internet explorer',
-          version: 'latest',
-          platform: 'Windows 10',
-          name: 'ia-ie11-windows-test',
-          tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
-          extendedDebugging: true,
-          sharedTestFiles: false,
-          capturePerformance: true,
-          maxInstances: 1
-        },
       ],
 };
