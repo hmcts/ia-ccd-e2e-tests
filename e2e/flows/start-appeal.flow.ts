@@ -4,7 +4,7 @@ import { CcdFormPage } from '../pages/ccd-form.page';
 const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
 const remote = require('selenium-webdriver/remote');
 const path = require('path');
-const { WebDriver } = require('selenium-webdriver');
+const {WebDriver} = require('selenium-webdriver');
 
 export class StartAppealFlow {
 
@@ -68,7 +68,7 @@ export class StartAppealFlow {
     }
 
     async completeUploadNoticeDecision(clickContinue = false) {
-      await this.ccdFormPage.runAccessbility();
+        await this.ccdFormPage.runAccessbility();
         await browser.sleep(1000)
         await this.ccdFormPage.click('Add new');
         await this.ccdFormPage.setFieldValue(
@@ -88,9 +88,9 @@ export class StartAppealFlow {
             'first'
         );
 
-      if (clickContinue) {
-          await this.ccdFormPage.click('Continue');
-      }
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
     }
 
     async completeUploadNoticeDecisionNoUpload(clickContinue = false) {
@@ -182,6 +182,7 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('Continue');
         }
     }
+
     async completeAppealType(clickContinue = false) {
 
         await this.ccdFormPage.setFieldValue('Type of appeal', 'Refusal of protection claim');
@@ -379,7 +380,7 @@ export class StartAppealFlow {
         }
     }
 
-  async  saveAppeal(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+    async saveAppeal(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
         await this.completeScreeningQuestions(true);
         await this.completeHomeOfficeReference(true);
         await this.completeUploadNoticeDecision(true);
@@ -433,6 +434,29 @@ export class StartAppealFlow {
         }
     }
 
+    async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
+        await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
+        await this.completeDeportationOrder(true);
+        await this.completeNewMatters(true);
+        await this.completeOtherAppeals(true);
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeGivenFee(true, feeType);
+        if (paymentChoice === 'now') {
+            await this.completeHowToPayNow(true);
+        } else if (paymentChoice === 'later') {
+            await this.completeHowToPayLater(true, appealType);
+        } else {
+            await this.completeHowToPayOffline(true, appealType);
+        }
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
     async saveInitialNonPaymentAppealOutOfCountry(clickContinue = false, appealType = '', appellantInUk = '') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
@@ -464,7 +488,7 @@ export class StartAppealFlow {
         await this.completeNationality(true);
         await this.completeClientAddress(true, false, '', '');
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true );
+        await this.completeSponsorQuestion(true);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         await this.completeDeportationOrder(true);
@@ -483,17 +507,17 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '', lateAppeal = '', hasAddress= 'Yes', hasSponsor = 'Yes') {
+    async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '', lateAppeal = '', hasAddress = 'Yes', hasSponsor = 'Yes') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
         if (decisionType === 'refusalOfHumanRights') {
             await this.completeGlobalWebFormReference(true, 'GWF1234567', lateAppeal);
         } else if (decisionType === 'refusalOfProtection') {
-            await this.completeDepartureDate(true,  lateAppeal);
+            await this.completeDepartureDate(true, lateAppeal);
             await this.completeHomeOfficeReferenceOutOfCountry(true, '');
         } else {
-            await  this.completeHomeOfficeReferenceOutOfCountry(true, '', lateAppeal)
+            await this.completeHomeOfficeReferenceOutOfCountry(true, '', lateAppeal)
         }
 
         await this.completeUploadNoticeDecisionNoUpload(true);
@@ -518,7 +542,7 @@ export class StartAppealFlow {
     }
 
     // tslint:disable-next-line:max-line-length
-    async saveInitialAppealWithFeeOutOfCountryWithDecision(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '', decisionType = '', lateAppeal = '', hasAddress= 'Yes', hasSponsor = 'Yes') {
+    async saveInitialAppealWithFeeOutOfCountryWithDecision(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '', decisionType = '', lateAppeal = '', hasAddress = 'Yes', hasSponsor = 'Yes') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
@@ -528,14 +552,14 @@ export class StartAppealFlow {
             await this.completeDepartureDate(true, lateAppeal);
             await this.completeHomeOfficeReferenceOutOfCountry(true, '');
         } else {
-            await  this.completeHomeOfficeReferenceOutOfCountry(true, '', lateAppeal)
+            await this.completeHomeOfficeReferenceOutOfCountry(true, '', lateAppeal)
         }
         await this.completeUploadNoticeDecisionNoUpload(true);
         await this.completeBasicDetails(true);
         await this.completeNationality(true);
         await this.completeClientAddressOutOfCountry(true, hasAddress === 'Yes' ? true : false);
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true, hasSponsor );
+        await this.completeSponsorQuestion(true, hasSponsor);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         if (decisionType !== 'refusalOfHumanRights') {
@@ -611,7 +635,7 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialAppealPayNowWithFee(clickContinue = false, appealType = '', remission = '' , feeType = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialAppealPayNowWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
@@ -909,6 +933,7 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('Continue');
         }
     }
+
     async completeHomeOfficeReferenceOutOfCountry(clickContinue = false, homeOfficeReferenceNumber = '', lateAppeal = '') {
         if (homeOfficeReferenceNumber !== '') {
             await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
