@@ -83,3 +83,16 @@ Feature: Decision without a hearing from respondent review
   Then I am on the `Decision without a hearing` page
   And I click the `Decision` button
   And I should see the text `has been updated with event: Decision without a hearing`
+
+  @RIA-4473
+  Scenario: Case Officer makes a decision without a hearing respondentReview and generateHearingBundle after
+    When I select the `Decision without a hearing` Next step
+    Then I am on the `Decision without a hearing` page
+    And I click the `Decision` button
+    And I should see the text `has been updated with event: Decision without a hearing`
+    And I generate the hearing bundle
+    And I wait for 10 seconds
+    And I reload the Case Overview Page
+    Then I should see the text `Do this next`
+    Then I should see the text `You can start to create the decision and reasons document.`
+
