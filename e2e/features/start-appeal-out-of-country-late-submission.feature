@@ -21,7 +21,7 @@ Feature: Out of country appeal late submission
 
     When I click the `Appeal` tab
     And I should see `Yes` for the `Out of country` field
-    And I should see `A decision to refuse a human rights claim for entry clearance` for the `Out of country decision` field
+    And I should see `A decision either 1) to refuse a human rights claim made following an application for entry clearance or 2) to refuse a permit to enter the UK under the Immigration (European Economic Area) Regulation 2016` for the `Out of country decision` field
 
     When I click the `Appellant` tab
     Then I should see `Afghanistan` for the `Address` field
@@ -42,7 +42,7 @@ Feature: Out of country appeal late submission
 
     When I click the `Appeal` tab
     And I should see `Yes` for the `Out of country` field
-    And I should see `A decision to refuse a human rights or protection claim, or deprive you of British citizenship, where you can only apply after your client has left the country` for the `Out of country decision` field
+    And I should see `A decision to refuse a protection or human rights claim where your client may only apply after leaving the UK` for the `Out of country decision` field
 
     When I click the `Appellant` tab
     Then I should see `Afghanistan` for the `Address` field
@@ -62,7 +62,7 @@ Feature: Out of country appeal late submission
 
     When I click the `Appeal` tab
     And I should see `Yes` for the `Out of country` field
-    And I should see `A decision to remove your client under the Immigration (European Economic Area) Regulations 2016` for the `Out of country decision` field
+    And I should see `A decision either 1) to remove your client from the UK under the Immigration (European Economic Area) Regulations 2016, where they are currently outside the UK or 2) to deprive your client of British citizenship, where they are currently outside the UK` for the `Out of country decision` field
 
     When I click the `Appellant` tab
     Then I should see `Afghanistan` for the `Address` field

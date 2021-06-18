@@ -20,7 +20,7 @@ Feature: Out of country appeal with no sponsor
 
     When I click the `Appeal` tab
     And I should see `Yes` for the `Out of country` field
-    And I should see `A decision to refuse a human rights or protection claim, or deprive you of British citizenship, where you can only apply after your client has left the country` for the `Out of country decision` field
+    And I should see `A decision to refuse a protection or human rights claim where your client may only apply after leaving the UK` for the `Out of country decision` field
 
     When I click the `Appellant` tab
     Then I should see `Afghanistan` for the `Address` field

@@ -20,5 +20,5 @@ Feature: Out of country appeal removal of client
 
     When I click the `Appeal` tab
     And I should see `Yes` for the `Out of country` field
-    And I should see `A decision to remove your client under the Immigration (European Economic Area) Regulations 2016` for the `Out of country decision` field
+    And I should see `A decision either 1) to remove your client from the UK under the Immigration (European Economic Area) Regulations 2016, where they are currently outside the UK or 2) to deprive your client of British citizenship, where they are currently outside the UK` for the `Out of country decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Home Office decision letter received` field
