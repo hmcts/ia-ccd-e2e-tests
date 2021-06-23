@@ -59,19 +59,8 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
-    enableCrossBrowserTest()
-    enableFullFunctionalTest(120)
 
-    after('crossBrowserTest') {
-        publishHTML([
-            allowMissing         : true,
-            alwaysLinkToLastBuild: true,
-            keepAll              : true,
-            reportDir            : "reports/tests/crossbrowser/",
-            reportFiles          : 'index.html',
-            reportName           : 'IA Service Cross Browser Tests'
-        ])
-    }
+    enableFullFunctionalTest(120)
 
         after('fullFunctionalTest') {
         publishHTML([
@@ -92,6 +81,4 @@ withNightlyPipeline("nodejs", product, component) {
             reportName           : 'IAC - Manage Cases a11y Test Report'
         ])
     }
-
-    enableSlackNotifications('#ia-tech')
 }
