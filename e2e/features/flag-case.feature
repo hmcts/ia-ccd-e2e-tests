@@ -11,7 +11,6 @@ Feature: Flag a case
     Then I am on the `Flag the case` page
     And The page is accessible
     And I should see the text `This flag will only be visible to the Tribunal.`
-    And the `Continue` button is disabled
     And I wait for 10 seconds
     When I select `Complex case` from the `Type of flag` field
     Then The page is accessible
@@ -72,7 +71,6 @@ Feature: Flag a case
     Then I am on the `Flag the case` page
     And The page is accessible
     And I should see the text `This flag will only be visible to the Tribunal.`
-    And the `Continue` button is disabled
     And I wait for 10 seconds
     When I select `Potentially violent person` from the `Type of flag` field
     Then I click the `Continue` button
@@ -114,7 +112,6 @@ Feature: Flag a case
     Then I am on the `Flag the case` page
     And The page is accessible
     And I should see the text `This flag will only be visible to the Tribunal.`
-    And the `Continue` button is disabled
     And I wait for 10 seconds
     When I select `Potentially violent person` from the `Type of flag` field
     Then I click the `Continue` button
@@ -152,7 +149,6 @@ Feature: Flag a case
     When I select the `Flag the case` Next step
     Then I am on the `Flag the case` page
     And I should see the text `This flag will only be visible to the Tribunal.`
-    And the `Continue` button is disabled
 
     When I select `S94B Out of Country` from the `Type of flag` field
     And I click the `Continue` button
