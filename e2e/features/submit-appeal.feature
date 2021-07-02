@@ -10,9 +10,6 @@ Feature: Submit appeal application
   Scenario: Submit an appeal application
 
     When I select the `Submit your appeal` Next step
-    Then I am on the `Submit your appeal` page
-    And the `Continue` button is disabled
-
     When I agree to the declaration
     And I click the `Continue` button
     And I click the `Submit` button

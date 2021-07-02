@@ -147,7 +147,7 @@ export class StartAppealFlow {
     }
 
     async completeNationality(clickContinue = false) {
-        await browser.sleep(5000);
+        await browser.sleep(3000);
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Nationality', 'Has a nationality');
         await browser.sleep(2000);
