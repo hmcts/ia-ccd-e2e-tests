@@ -109,6 +109,11 @@ export class AnyPage {
         let pageErrors = '';
         await browser.wait(async () => {
             nextPage = await browser.getCurrentUrl();
+
+            if (nextPage.includes('/noc')) {
+                return true;
+            }
+
             return currentPageUrl !== nextPage;
         }, 5000, 'Navigation to next page taking too long ' + 5000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
     }
