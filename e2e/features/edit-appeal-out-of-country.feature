@@ -32,7 +32,7 @@ Feature: Out of Country - Edit appeal
     And I should see `{$TODAY|D MMM YYYY}` for the `Date of entry clearance decision` field
 
     When I click the `Appeal` tab
-    Then I should see `A decision to refuse a human rights claim for entry clearance` for the `Out of country decision` field
+    Then I should see `A decision either 1) to refuse a human rights claim made following an application for entry clearance or 2) to refuse a permit to enter the UK under the Immigration (European Economic Area) Regulation 2016` for the `Out of country decision` field
     And I should see `Yes` for the `Out of country` field
 
     When I click the `Appellant` tab
@@ -56,7 +56,7 @@ Feature: Out of Country - Edit appeal
     And I should see `{$TODAY|D MMM YYYY}` for the `Date of entry clearance decision` field
 
     When I click the `Appeal` tab
-    Then I should see `A decision to refuse a human rights claim for entry clearance` for the `Out of country decision` field
+    Then I should see `A decision either 1) to refuse a human rights claim made following an application for entry clearance or 2) to refuse a permit to enter the UK under the Immigration (European Economic Area) Regulation 2016` for the `Out of country decision` field
     And I should see `Yes` for the `Out of country` field
 
     When I click the `Appellant` tab
