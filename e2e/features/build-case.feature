@@ -46,13 +46,13 @@ Feature: Build case
     And I click the `Documents` tab
 
 
-    And within the `Legal representative documents` collection's first item, I should see `CaseArgument.pdf` in the `Document` field
-    And within the `Legal representative documents` collection's first item, I should see `This is the case argument` in the `Description` field
-    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Appellant documents` collection's first item, I should see `CaseArgument.pdf` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `This is the case argument` in the `Description` field
+    And within the `Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    And within the `Legal representative documents` collection's second item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Legal representative documents` collection's second item, I should see `This is the evidence` in the `Description` field
-    And within the `Legal representative documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Appellant documents` collection's second item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Appellant documents` collection's second item, I should see `This is the evidence` in the `Description` field
+    And within the `Appellant documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
 
   @RIA-2918 @RIA-3534
@@ -66,13 +66,13 @@ Feature: Build case
     When I click the `Close and Return to case details` button
     And I click the `Documents` tab
 
-    And within the `Legal representative documents` collection's first item, I should see `2020-González-appeal-skeleton-argument.PDF` in the `Document` field
-    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Appellant documents` collection's first item, I should see `2020-González-appeal-skeleton-argument.PDF` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    And within the `Legal representative documents` collection's second item, I should see `CaseArgument.pdf` in the `Document` field
-    And within the `Legal representative documents` collection's second item, I should see `This is the case argument` in the `Description` field
-    And within the `Legal representative documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Appellant documents` collection's second item, I should see `CaseArgument.pdf` in the `Document` field
+    And within the `Appellant documents` collection's second item, I should see `This is the case argument` in the `Description` field
+    And within the `Appellant documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    And within the `Legal representative documents` collection's third item, I should see `Evidence1.pdf` in the `Document` field
-    And within the `Legal representative documents` collection's third item, I should see `This is the evidence` in the `Description` field
-    And within the `Legal representative documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Appellant documents` collection's third item, I should see `Evidence1.pdf` in the `Document` field
+    And within the `Appellant documents` collection's third item, I should see `This is the evidence` in the `Description` field
+    And within the `Appellant documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field

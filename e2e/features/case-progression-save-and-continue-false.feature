@@ -1761,18 +1761,18 @@ Feature: Case progression path when case and continue is disabled
     And within the `Hearing documents` collection's second item, I should see `This is the case summary` in the `Description` field
     And within the `Hearing documents` collection's third item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
     And within the `Hearing documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And I should see the `Legal representative documents` field
-    And within the `Legal representative documents` collection's first item, I should see `-González-appeal-skeleton-argument.PDF` in the `Document` field
-    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `Legal representative documents` collection's second item, I should see `CaseArgument.pdf` in the `Document` field
-    And within the `Legal representative documents` collection's second item, I should see `This is the case argument` in the `Description` field
-    And within the `Legal representative documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `Legal representative documents` collection's third item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
-    And within the `Legal representative documents` collection's third item, I should see `The is the case argument evidence` in the `Description` field
-    And within the `Legal representative documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And within the `Legal representative documents` collection's fourth item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
-    And within the `Legal representative documents` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should see the `Appellant documents` field
+    And within the `Appellant documents` collection's first item, I should see `-González-appeal-skeleton-argument.PDF` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Appellant documents` collection's second item, I should see `CaseArgument.pdf` in the `Document` field
+    And within the `Appellant documents` collection's second item, I should see `This is the case argument` in the `Description` field
+    And within the `Appellant documents` collection's second item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Appellant documents` collection's third item, I should see `CaseArgumentEvidence.pdf` in the `Document` field
+    And within the `Appellant documents` collection's third item, I should see `The is the case argument evidence` in the `Description` field
+    And within the `Appellant documents` collection's third item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Appellant documents` collection's fourth item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
+    And within the `Appellant documents` collection's fourth item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And within the `Respondent documents` collection's first item, I should see `AppealResponseUpdated.pdf` in the `Document` field
     And within the `Respondent documents` collection's first item, I should see `This is the updated appeal response` in the `Description` field
     And within the `Respondent documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
@@ -1831,7 +1831,7 @@ Feature: Case progression path when case and continue is disabled
     When I click the `Documents` tab
 
     And I should see the `Hearing documents` field
-    And I should see the `Legal representative documents` field
+    And I should see the `Appellant documents` field
     And I should see the `Respondent documents` field
 
     When I click the `Directions` tab

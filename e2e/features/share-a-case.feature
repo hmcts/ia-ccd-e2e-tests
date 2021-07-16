@@ -23,7 +23,7 @@ Feature: Share a case
     And I should not see the decision fields
     And I click the `Documents` tab
 
-    And I should see the `Legal representative documents` field
-    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should see the `Appellant documents` field
+    And within the `Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I click the `Directions` tab
     And I should see the `Directions` field
