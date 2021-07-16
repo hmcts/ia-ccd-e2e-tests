@@ -929,11 +929,9 @@ export class StartAppealFlow {
 
         if (!hasCorrespondenceAddress) {
             await this.ccdFormPage.setFieldValue('Does your client have a correspondence address outside the UK?', 'No');
-            await this.ccdFormPage.click('Continue');
         } else {
             await this.ccdFormPage.setFieldValue('Does your client have a correspondence address outside the UK?', 'Yes');
             await this.ccdFormPage.setFieldValue('Enter the address', 'Afghanistan');
-            await this.ccdFormPage.click('Continue');
         }
 
         if (clickContinue) {
@@ -995,7 +993,6 @@ export class StartAppealFlow {
         await this.ccdFormPage.click('Find address');
         await this.ccdFormPage.doesDropdownHaveValues('Select an address');
         await this.ccdFormPage.setFieldValue('Select an address', address);
-        await this.ccdFormPage.click('Continue');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -1178,17 +1175,15 @@ export class StartAppealFlow {
         }
     }
 
-    async saveLegalRepAndConinueWithFee(clickContinue = false, feeType = '', appealType = '') {
+    async saveLegalRepAndContinueWithFee(clickContinue = false, feeType = '', appealType = '') {
         await this.completeLegalRepresentativeDetails(true);
         if (appealType === 'DC' || appealType === 'RP') {
-            await this.completeHearingOption(true, 'without');
+            await this.completeCheckYourAnswers(true);
         } else {
             await this.completeGivenFee(true, feeType);
-            await this.completeRemissionDetails(true, 'no remission');
             await this.completeHowToPayOffline(true, appealType);
+            await this.completeCheckYourAnswers(true);
         }
-
-        await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');

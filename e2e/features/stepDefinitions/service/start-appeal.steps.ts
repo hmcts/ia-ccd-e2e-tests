@@ -290,17 +290,17 @@ Given('I complete the `Departure date` page', async function () {
 });
 
 Given('I complete the `Decision type` page', async function () {
-    expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
+    expect(await ccdFormPage.headingContains('Out of country decision')).to.equal(true);
     await startAppealFlow.completeDecisionType(true, 'refusalOfHumanRights');
 });
 
 Given('I complete the `Decision type protection claim` page', async function () {
-    expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
+    expect(await ccdFormPage.headingContains('Out of country decision')).to.equal(true);
     await startAppealFlow.completeDecisionType(true, 'protectionClaim');
 });
 
 Given('I complete the `Decision type remove client` page', async function () {
-    expect(await ccdFormPage.headingContains('Decision type')).to.equal(true);
+    expect(await ccdFormPage.headingContains('Out of country decision')).to.equal(true);
     await startAppealFlow.completeDecisionType(true, 'removeClient');
 });
 
@@ -315,7 +315,6 @@ Given('I complete the `Your client\'s ooc address` page', async function () {
 });
 
 Given('I complete the `Sponsor` page', async function () {
-    expect(await ccdFormPage.headingContains('Sponsor')).to.equal(true);
     await startAppealFlow.completeSponsorQuestion(true, 'Yes');
     await startAppealFlow.completeSponsorNames(true);
     await startAppealFlow.completeSponsorAddress(true, 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London', 'EC1R 4QU');
@@ -325,7 +324,7 @@ Given('I complete the `Sponsor` page', async function () {
 
 Given(/^I save my legal rep details and continue `?([^\s`]+)`?$/, async function (appealType) {
     if (isfeePaymentEnabled) {
-        await startAppealFlow.saveLegalRepAndConinueWithFee(true, 'without', appealType);
+        await startAppealFlow.saveLegalRepAndContinueWithFee(true, 'without', appealType);
     } else {
         await startAppealFlow.saveLegalRepAndContinueNonPaymentAppeal(true);
     }
