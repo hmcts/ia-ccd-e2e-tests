@@ -12,7 +12,7 @@ const iaConfig = require('../../ia.conf');
 
 Given('I create a new case', async function () {
     // there is loading mask with spinner added by ExUI
-    await browser.sleep(3000);
+    await browser.sleep(5000);
 
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();

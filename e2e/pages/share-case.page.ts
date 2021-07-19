@@ -49,7 +49,7 @@ export class ShareCasePage {
     }
 
     async getCaseIdToBeShared(shortWait = false) {
-        const caseIdPath = '//*[@id=\'case-id\']';
+        const caseIdPath = '//*[contains(@id,"case-id-")]';
 
         try {
             await browser.wait(
@@ -66,7 +66,7 @@ export class ShareCasePage {
         }
 
         const caseId = await element
-            .all(by.id('case-id'))
+            .all(by.xpath("//*[contains(@id,'case-id-')]"))
             .last()
             .getText();
 
@@ -75,7 +75,7 @@ export class ShareCasePage {
     }
 
     async getSharedCaseId(shortWait = false) {
-        const caseIdPath = '//*[@id=\'case-id\']';
+        const caseIdPath = "//*[contains(@id,'case-id-')]";
 
         try {
             await browser.wait(
@@ -92,9 +92,9 @@ export class ShareCasePage {
         }
 
         const caseId = await element
-            .all(by.id('case-id'))
-            .last()
-            .getText();
+        .all(by.xpath("//*[contains(@id,'case-id-')]"))
+        .last()
+        .getText();
 
         this.sharedCaseId = caseId;
         console.log('\n\tShared case has id : ' + caseId + '\n')

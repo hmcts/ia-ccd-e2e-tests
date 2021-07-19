@@ -12,7 +12,8 @@ When(/^I agree to the declaration$/, async function () {
 
 Then(/^I submit my appeal$/, async function () {
     if (isfeePaymentEnabled) {
-        await payAndSubmitAppealFlow.payAndsubmitAppeal(true);
+        await submitAppealFlow.submitAppeal(true);
+        // await payAndSubmitAppealFlow.payAndsubmitAppeal(true);
     } else {
         await submitAppealFlow.submitAppeal(true);
     }

@@ -107,6 +107,7 @@ export class StartAppealFlow {
         let absolutePath = path.resolve('documents', 'Evidence1.pdf');
         await browser.element.all(by.css('input[type=file]')).get(0).sendKeys(absolutePath);
         browser.setFileDetector(fileDetector);
+        await browser.sleep(5000)
         await this.ccdFormPage.setFieldValue(
             'Describe the document',
             'This is the notice of decision',
@@ -430,7 +431,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, 'no remission');
+        // await this.completeRemissionDetails(true, 'no remission');
         await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
 
@@ -493,7 +494,7 @@ export class StartAppealFlow {
         await this.completeNationality(true);
         await this.completeClientAddress(true, false, '', '');
         await this.completeContactPreference(true);
-        await this.completeSponsorQuestion(true);
+        // await this.completeSponsorQuestion(true);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         await this.completeDeportationOrder(true);
@@ -501,7 +502,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
+        // await this.completeRemissionDetails(true, remission);
         if (remission === 'no remission') {
             await this.completeHowToPayOffline(true, 'PA');
         }
@@ -574,7 +575,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, 'no remission');
+        // await this.completeRemissionDetails(true, 'no remission');
         await this.completeHowToPayOffline(true, appealType);
         await this.completeCheckYourAnswers(true);
 
@@ -631,7 +632,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'hearing fee');
-        await this.completeRemissionDetails(true, 'no remission');
+        // await this.completeRemissionDetails(true, 'no remission');
         await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
 
@@ -649,7 +650,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
+        // await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
@@ -667,7 +668,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
+        // await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
@@ -685,7 +686,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
+        // await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
@@ -703,7 +704,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
+        // await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayOffline(true, appealType);
         await this.completeCheckYourAnswers(true);
 
@@ -721,7 +722,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
+        // await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayLater(true, appealType);
         await this.completeCheckYourAnswers(true);
 
@@ -739,7 +740,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
+        // await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayOffline(true, appealType);
         await this.completeCheckYourAnswers(true);
 
@@ -757,7 +758,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
+        // await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayLater(true, appealType);
         await this.completeCheckYourAnswers(true);
 
@@ -781,7 +782,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'without')
-        await this.completeRemissionDetails(true, 'no remission');
+        // await this.completeRemissionDetails(true, 'no remission');
         await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 
@@ -1063,7 +1064,7 @@ export class StartAppealFlow {
     async editInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.editClientDetails(false);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, remission);
+        // await this.completeRemissionDetails(true, remission);
         if (remission === 'no remission') {
             await this.completeHowToPayNow(true);
         }
@@ -1109,7 +1110,7 @@ export class StartAppealFlow {
         await this.clickContinueToNextStep(true); // completeOtherAppeals
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'hearing fee');
-        await this.completeRemissionDetails(true, 'no remission');
+        // await this.completeRemissionDetails(true, 'no remission');
         await this.completeHowToPayNow(true);
         await this.completeCheckYourAnswers(true);
 

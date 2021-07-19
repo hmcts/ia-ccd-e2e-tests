@@ -2,6 +2,7 @@ Feature: Flag a case
 
   Background:
     Given I am signed in as a `Legal Rep`
+    And I wait for 5 seconds
     And I create a new case
     And I save my initial appeal
     And I submit my appeal
@@ -105,7 +106,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-1742 @nightly-test
+  @regression @flag-case @RIA-1742 
   Scenario: Flag a case with multiple flags and only single additional information
 
     When I select the `Flag the case` Next step
