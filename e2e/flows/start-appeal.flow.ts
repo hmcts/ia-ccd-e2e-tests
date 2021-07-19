@@ -237,7 +237,7 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('The decision breaches the appellant\'s rights under the EEA regulations');
         }
         if (appealType === 'HU') {
-            await this.ccdFormPage.click('Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998');
+            await this.ccdFormPage.click('The decision is unlawful under section 6 of the Human Rights Act 1998');
         }
         if (appealType === 'PA') {
             await this.ccdFormPage.click('Removing the appellant from the UK would breach the UK\'s obligation under the Refugee Convention');
@@ -903,20 +903,22 @@ export class StartAppealFlow {
 
     async completeDecisionType(clickContinue = false, decisionOption = '') {
         if (decisionOption === 'refusalOfHumanRights') {
-            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to refuse a human rights claim for entry clearance');
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
+                , 'A decision either 1) to refuse a human rights claim made following an application for entry clearance or 2) to refuse a permit to enter the UK under the Immigration (European Economic Area) Regulation 2016');
         } else if (decisionOption === 'refusalOfProtection') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
-                , 'A decision to refuse a human rights or protection claim, or deprive you of British citizenship, where you can only apply after your client has left the country');
+                , 'A decision to refuse a protection or human rights claim where your client may only apply after leaving the UK');
         } else if (decisionOption === 'removalOfClient') {
-            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?', 'A decision to remove your client under the Immigration (European Economic Area) Regulations 2016');
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
+                , 'A decision either 1) to remove your client from the UK under the Immigration (European Economic Area) Regulations 2016, where they are currently outside the UK or 2) to deprive your client of British citizenship, where they are currently outside the UK');
         }
         if (decisionOption === 'refusalOfProtection') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
-                , 'A decision to refuse a human rights or protection claim, or deprive you of British citizenship, where you can only apply after your client has left the country');
+                , 'A decision to refuse a protection or human rights claim where your client may only apply after leaving the UK');
         }
         if (decisionOption === 'removeClient') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
-                , 'A decision to remove your client under the Immigration (EEA) Regulations 2016');
+                , 'A decision to remove your client under the Immigration (European Economic Area) Regulations 2016');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -927,11 +929,9 @@ export class StartAppealFlow {
 
         if (!hasCorrespondenceAddress) {
             await this.ccdFormPage.setFieldValue('Does your client have a correspondence address outside the UK?', 'No');
-            await this.ccdFormPage.click('Continue');
         } else {
             await this.ccdFormPage.setFieldValue('Does your client have a correspondence address outside the UK?', 'Yes');
             await this.ccdFormPage.setFieldValue('Enter the address', 'Afghanistan');
-            await this.ccdFormPage.click('Continue');
         }
 
         if (clickContinue) {
@@ -993,7 +993,6 @@ export class StartAppealFlow {
         await this.ccdFormPage.click('Find address');
         await this.ccdFormPage.doesDropdownHaveValues('Select an address');
         await this.ccdFormPage.setFieldValue('Select an address', address);
-        await this.ccdFormPage.click('Continue');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -1167,4 +1166,27 @@ export class StartAppealFlow {
         }
     }
 
+    async saveLegalRepAndContinueNonPaymentAppeal(clickContinue = false) {
+        await this.completeLegalRepresentativeDetails(true);
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
+
+    async saveLegalRepAndContinueWithFee(clickContinue = false, feeType = '', appealType = '') {
+        await this.completeLegalRepresentativeDetails(true);
+        if (appealType === 'DC' || appealType === 'RP') {
+            await this.completeCheckYourAnswers(true);
+        } else {
+            await this.completeGivenFee(true, feeType);
+            await this.completeHowToPayOffline(true, appealType);
+            await this.completeCheckYourAnswers(true);
+        }
+
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
+        }
+    }
 }
