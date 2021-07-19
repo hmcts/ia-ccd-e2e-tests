@@ -66,7 +66,7 @@ export class ShareCasePage {
         }
 
         const caseId = await element
-            .all(by.xpath("//*[contains(@id,'case-id-')]"))
+            .all(by.xpath('//*[contains(@id,"case-id-")]'))
             .last()
             .getText();
 
@@ -75,7 +75,7 @@ export class ShareCasePage {
     }
 
     async getSharedCaseId(shortWait = false) {
-        const caseIdPath = "//*[contains(@id,'case-id-')]";
+        const caseIdPath = '//*[contains(@id,"case-id-")]';
 
         try {
             await browser.wait(
@@ -92,7 +92,7 @@ export class ShareCasePage {
         }
 
         const caseId = await element
-        .all(by.xpath("//*[contains(@id,'case-id-')]"))
+        .all(by.xpath('//*[contains(@id,"case-id-")]'))
         .last()
         .getText();
 
