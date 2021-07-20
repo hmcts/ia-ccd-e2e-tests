@@ -52,7 +52,8 @@ module.exports = {
   TestLawFirmOrgCPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_C_PASSWORD,
   TestLawFirmOrgDUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_D_USERNAME,
   TestLawFirmOrgDPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_D_PASSWORD,
-
+  TestLawFirmOrgSuccessUserName: process.env.TEST_LAW_FIRM_ORG_SUCCESS_USERNAME,
+  TestLawFirmOrgSuccessPassword: process.env.TEST_LAW_FIRM_ORG_SUCCESS_PASSWORD,
   isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
   isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false,
   isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true'
