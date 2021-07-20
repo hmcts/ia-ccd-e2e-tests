@@ -36,7 +36,7 @@ Given('I create a new case', async function () {
 
 Given('I create a new case with org user', async function () {
     // there is loading mask with spinner added by ExUI
-    await browser.sleep(5000);
+    await browser.sleep(4000);
 
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
@@ -44,15 +44,13 @@ Given('I create a new case with org user', async function () {
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
-    await ccdPage.doesDropdownHaveValues('Case type');
-
     if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Jurisdiction',
             'Immigration & Asylum'
         );
     }
-
+    await ccdPage.doesDropdownHaveValues('Case type');
     if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
