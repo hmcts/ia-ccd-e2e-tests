@@ -34,6 +34,37 @@ Given('I create a new case', async function () {
     await ccdPage.click('Start');
 });
 
+Given('I create a new case with org user', async function () {
+    // there is loading mask with spinner added by ExUI
+    await browser.sleep(5000);
+
+    await ccdPage.linkContains('Create case');
+    await ccdPage.runAccessbility();
+    await ccdPage.click('Create case');
+    expect(await ccdPage.headingContains('Create Case')).to.equal(true);
+    await ccdPage.runAccessbility();
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdPage.doesDropdownHaveValues('Case type');
+
+    if (iaConfig.CcdWebUrl.includes('aat') ) {
+        await ccdFormPage.setFieldValue(
+            'Jurisdiction',
+            'Immigration & Asylum'
+        );
+    }
+
+    if (iaConfig.CcdWebUrl.includes('aat') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* master'
+        );
+    }
+
+    await ccdPage.doesDropdownHaveValues('Event');
+    await ccdPage.isButtonEnabled('Start');
+    await ccdPage.click('Start');
+});
+
 Then('I wait for Create Case fields to load', async function () {
     await ccdPage.headingContains('Create Case');
     await ccdPage.doesDropdownHaveValues('Jurisdiction');

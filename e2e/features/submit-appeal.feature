@@ -1,19 +1,22 @@
 Feature: Submit appeal application
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     Then I wait for 10 seconds
-    And I create a new case
-    And I save my initial appeal
+    And I create a new case with org user
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
 
   @xbrowsertest
   Scenario: Submit an appeal application
 
-    When I select the `Submit your appeal` Next step
-    When I agree to the declaration
+    When I click the `pay for and submit your appeal` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
-    And I click the `Submit` button
-    Then I should see the text `Your appeal has been submitted`
+    And I agree to the declaration
+    And I click the `Continue` button
+    When I click the `Pay and submit now` button
+    Then I should see the text `Your appeal has been paid for and submitted`
 
   @regression @submit-appeal @RIA-515 @RIA-3486
   Scenario: Submit an appeal application

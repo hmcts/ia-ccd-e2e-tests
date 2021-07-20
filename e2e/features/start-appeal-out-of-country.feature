@@ -5,7 +5,7 @@ Feature: Out of Country - Start appeal
     And I wait for 5 seconds
     And I create a new case
 
-  @start-appeal-out-of-country-yes @RIA-3876 @nightly-test
+  @start-appeal-out-of-country-yes @RIA-3876 @nightly-test1
   Scenario: Select No for Out of country
 
     And I save my initial appeal with appellant living in UK `Yes`
@@ -26,7 +26,7 @@ Feature: Out of Country - Start appeal
     When I click the `Overview` tab
     Then I should see `Yes` for the `Out of country` field
 
-  @start-appeal-out-of-country-sponsor @RIA-3851 @nightly-test
+  @start-appeal-out-of-country-sponsor @RIA-3851 @nightly-test1
   Scenario: Select sponsor for Out of country
     And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes`
     And I submit my nonpayment appeal
