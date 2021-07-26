@@ -116,7 +116,7 @@ Feature: Grounds of appeal
 
     When I click the `Documents` tab
 
-    And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
 
   @regression @start-appeal @RIA-2733-EA @RIA-2693
   Scenario: Grounds of appeal are captured for EEA refusal type cases
@@ -150,7 +150,7 @@ Feature: Grounds of appeal
 
     When I click the `Documents` tab
 
-    And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
 
   @regression @start-appeal @RIA-2733-HU @RIA-2693
   Scenario: Grounds of appeal are captured for human rights refusal type cases
@@ -184,4 +184,4 @@ Feature: Grounds of appeal
 
     When I click the `Documents` tab
 
-    And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field

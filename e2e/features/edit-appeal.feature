@@ -251,9 +251,9 @@ Feature: Edit appeal application
 
     When I click the `Documents` tab
 
-    And I should see the `Legal representative documents` field
-    And within the `Legal representative documents` collection's first item, I should see `-Smith-appeal-form.PDF` in the `Document` field
-    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should see the `Appellant documents` field
+    And within the `Appellant documents` collection's first item, I should see `-Smith-appeal-form.PDF` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
   @regression @edit-appeal-after-submit-out-of-time @RIA-1359
   Scenario: Edit submitted appeal when submitted out of time
@@ -390,9 +390,9 @@ Feature: Edit appeal application
 
     When I click the `Documents` tab
 
-    And I should see the `Legal representative documents` field
-    And within the `Legal representative documents` collection's first item, I should see `-Smith-appeal-form.PDF` in the `Document` field
-    And within the `Legal representative documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And I should see the `Appellant documents` field
+    And within the `Appellant documents` collection's first item, I should see `-Smith-appeal-form.PDF` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
     When I click the `Appeal` tab
     Then I should see the `Appeal details` page

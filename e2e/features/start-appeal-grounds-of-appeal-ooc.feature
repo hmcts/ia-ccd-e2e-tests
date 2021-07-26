@@ -92,7 +92,7 @@ Feature: Grounds of appeal
     And I should see the text `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998`
 
     When I click the `Documents` tab
-    Then within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
+    Then within the `Appellant documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
 
   @start-appeal-ooc @RIA-4253-EA @RIA-4253
   Scenario: Grounds of appeal are captured for EEA refusal type cases
@@ -117,7 +117,7 @@ Feature: Grounds of appeal
     And I should see the text `The decision breaches the appellant's rights under the EEA regulations`
 
     When I click the `Documents` tab
-    And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
 
   @start-appeal-ooc @RIA-4253-HU @RIA-4253
   Scenario: Grounds of appeal are captured for human rights refusal type cases
@@ -142,4 +142,4 @@ Feature: Grounds of appeal
     And I should see the text `The decision is unlawful under section 6 of the Human Rights Act 1998`
 
     When I click the `Documents` tab
-    And within the `Legal representative documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
+    And within the `Appellant documents` collection's first item, I should see `-Gonzlez-appeal-form.PDF` in the `Document` field
