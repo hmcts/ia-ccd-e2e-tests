@@ -151,9 +151,10 @@ export class StartAppealFlow {
         await browser.sleep(3000);
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Nationality', 'Has a nationality');
-        await browser.sleep(2000);
+        await browser.sleep(3000);
         await this.ccdFormPage.addCollectionItem('Nationality');
         await this.ccdFormPage.setFieldValue('Nationality', 'Finland', 'select list', 'first', 'Nationality', 'first');
+        await browser.sleep(2000);
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -285,6 +286,7 @@ export class StartAppealFlow {
     async completeDeportationOrder(clickContinue = false) {
 
         await this.ccdFormPage.runAccessbility();
+        await browser.sleep(2000);
       await this.ccdFormPage.setFieldValue(
         'Has a deportation order been made against the appellant?',
         'Yes'
@@ -632,7 +634,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'hearing fee');
-        await this.completeRemissionDetails(true, 'no remission');
+        // await this.completeRemissionDetails(true, 'no remission');
         await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
 

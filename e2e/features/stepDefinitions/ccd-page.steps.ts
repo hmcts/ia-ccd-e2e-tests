@@ -20,6 +20,7 @@ Given('I create a new case', async function () {
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdFormPage.setFieldValue('Jurisdiction','Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
 
     if (iaConfig.CcdWebUrl.includes('aat') ) {
@@ -34,14 +35,11 @@ Given('I create a new case', async function () {
     await ccdPage.click('Start');
 });
 
-Given('I create a new case with org user', async function () {
+Given('I Apply case list filter', async function () {
     // there is loading mask with spinner added by ExUI
-    await browser.sleep(4000);
+    await browser.sleep(5000);
 
-    await ccdPage.linkContains('Create case');
-    await ccdPage.runAccessbility();
-    await ccdPage.click('Create case');
-    expect(await ccdPage.headingContains('Create Case')).to.equal(true);
+    expect(await ccdPage.headingContains('Case list')).to.equal(true);
     await ccdPage.runAccessbility();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     if (iaConfig.CcdWebUrl.includes('aat') ) {
@@ -58,9 +56,13 @@ Given('I create a new case with org user', async function () {
         );
     }
 
-    await ccdPage.doesDropdownHaveValues('Event');
-    await ccdPage.isButtonEnabled('Start');
-    await ccdPage.click('Start');
+    await ccdPage.doesDropdownHaveValues('State');
+    await ccdFormPage.setFieldValue(
+        'State',
+        'Any'
+    );
+    await ccdPage.isButtonEnabled('Apply');
+    await ccdPage.click('Apply');
 });
 
 Then('I wait for Create Case fields to load', async function () {

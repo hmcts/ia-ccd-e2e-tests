@@ -1,11 +1,11 @@
 Feature: Out of Country - Start appeal
 
   Background:
-    Given I am signed in as a `Legal Rep`
-    And I wait for 5 seconds
+    Given I am signed in as a `Legal Org User Rep A`
+    Then I wait for 10 seconds
     And I create a new case
 
-  @start-appeal-out-of-country-yes @RIA-3876 @nightly-test1
+  @start-appeal-out-of-country-yes @RIA-3876 
   Scenario: Select No for Out of country
 
     And I save my initial appeal with appellant living in UK `Yes`

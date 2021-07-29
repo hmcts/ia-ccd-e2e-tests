@@ -2,8 +2,8 @@ Feature: Submit appeal application
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    Then I wait for 5 seconds
-    And I create a new case with org user
+    Then I wait for 10 seconds
+    And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
 
@@ -12,6 +12,7 @@ Feature: Submit appeal application
 
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I wait for 5 seconds
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
