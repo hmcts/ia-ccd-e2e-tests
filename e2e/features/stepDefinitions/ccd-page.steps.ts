@@ -20,7 +20,7 @@ Given('I create a new case', async function () {
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
-    await ccdFormPage.setFieldValue('Jurisdiction','Immigration & Asylum');
+    await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
 
     if (iaConfig.CcdWebUrl.includes('aat') ) {

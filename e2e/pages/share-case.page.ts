@@ -29,10 +29,10 @@ export class ShareCasePage {
         const paginationElement = element.all(by.css('ccd-pagination pagination-template ul li'));
         await BrowserWaits.waitForelementToBeClickable(element(by.css('ccd-pagination pagination-template')));
 
-        const pagination =await paginationElement.count();
+        const pagination = await paginationElement.count();
 
-        if(pagination>4){
-            await paginationElement.get(pagination-2).element(by.tagName('a')).click();
+        if (pagination > 4) {
+            await paginationElement.get(pagination - 2).element(by.tagName('a')).click();
         }
         await browser.sleep(5000);
         const checkboxPath = '//input[@class=\'govuk-checkboxes__input\']';
