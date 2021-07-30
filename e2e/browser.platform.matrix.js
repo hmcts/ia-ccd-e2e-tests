@@ -1,16 +1,16 @@
 module.exports = {
     multiCapabilities: [
-        {
-          browserName: 'chrome',
-          version: 'latest',
-          platform: 'Windows 10',
-          name: 'ia-chrome-windows-test',
-          tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
-          extendedDebugging: true,
-          sharedTestFiles: false,
-          capturePerformance: true,
-          maxInstances: 1
-        },
+        // {
+        //   browserName: 'chrome',
+        //   version: 'latest',
+        //   platform: 'Windows 10',
+        //   name: 'ia-chrome-windows-test',
+        //   tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
+        //   extendedDebugging: true,
+        //   sharedTestFiles: false,
+        //   capturePerformance: true,
+        //   maxInstances: 1
+        // },
         {
           browserName: 'firefox',
           version: 'latest',
@@ -22,17 +22,17 @@ module.exports = {
           capturePerformance: true,
           maxInstances: 1
         },
-        {
-          browserName: 'chrome',
-          version: 'latest',
-          platform: 'macOS 10.13',
-          name: 'ia-chrome-mac-test',
-          tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
-          extendedDebugging: true,
-          sharedTestFiles: false,
-          capturePerformance: true,
-          maxInstances: 1
-        },
+        // {
+        //   browserName: 'chrome',
+        //   version: 'latest',
+        //   platform: 'macOS 10.13',
+        //   name: 'ia-chrome-mac-test',
+        //   tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
+        //   extendedDebugging: true,
+        //   sharedTestFiles: false,
+        //   capturePerformance: true,
+        //   maxInstances: 1
+        // },
         {
           browserName: 'firefox',
           version: 'latest',

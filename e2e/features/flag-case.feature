@@ -1,10 +1,18 @@
 Feature: Flag a case
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
+    Then I wait for 10 seconds
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
+    When I click the `pay for and submit your appeal` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+    And I agree to the declaration
+    And I click the `Continue` button
+    When I click the `Pay and submit now` button
+    Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
 
     When I select the `Flag the case` Next step
@@ -105,7 +113,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-1742 @nightly-test
+  @regression @flag-case @RIA-1742 
   Scenario: Flag a case with multiple flags and only single additional information
 
     When I select the `Flag the case` Next step
@@ -198,7 +206,7 @@ Feature: Flag a case
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
 
-  @regression @flag-case @remove-flag @RIA-2513 @nightly-test
+  @regression @flag-case @remove-flag @RIA-2513 
   Scenario: Remove flag from a case
 
     When I select the `Remove a flag` Next step

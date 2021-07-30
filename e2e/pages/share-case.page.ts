@@ -25,6 +25,16 @@ export class ShareCasePage {
     }
 
     async selectLastCaseCheckbox(shortWait = false) {
+        await browser.sleep(5000);
+        const paginationElement = element.all(by.css('ccd-pagination pagination-template ul li'));
+        await BrowserWaits.waitForelementToBeClickable(element(by.css('ccd-pagination pagination-template')));
+
+        const pagination = await paginationElement.count();
+
+        if (pagination > 4) {
+            await paginationElement.get(pagination - 2).element(by.tagName('a')).click();
+        }
+        await browser.sleep(5000);
         const checkboxPath = '//input[@class=\'govuk-checkboxes__input\']';
 
         try {
@@ -49,7 +59,7 @@ export class ShareCasePage {
     }
 
     async getCaseIdToBeShared(shortWait = false) {
-        const caseIdPath = '//*[@id=\'case-id\']';
+        const caseIdPath = '//*[contains(@id,"case-id-")]';
 
         try {
             await browser.wait(
@@ -66,7 +76,7 @@ export class ShareCasePage {
         }
 
         const caseId = await element
-            .all(by.id('case-id'))
+            .all(by.xpath('//*[contains(@id,"case-id-")]'))
             .last()
             .getText();
 
@@ -75,7 +85,7 @@ export class ShareCasePage {
     }
 
     async getSharedCaseId(shortWait = false) {
-        const caseIdPath = '//*[@id=\'case-id\']';
+        const caseIdPath = '//*[contains(@id,"case-id-")]';
 
         try {
             await browser.wait(
@@ -92,9 +102,9 @@ export class ShareCasePage {
         }
 
         const caseId = await element
-            .all(by.id('case-id'))
-            .last()
-            .getText();
+        .all(by.xpath('//*[contains(@id,"case-id-")]'))
+        .last()
+        .getText();
 
         this.sharedCaseId = caseId;
         console.log('\n\tShared case has id : ' + caseId + '\n')
