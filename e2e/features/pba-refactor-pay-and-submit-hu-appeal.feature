@@ -7,7 +7,7 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
     And I save my initial HU appeal type without remission and with hearing fee and pay now
     And I click the `Overview` tab
 
-  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-hu @RIA-4468-hu @RIA-4468
+  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-hu @RIA-4468-hu @RIA-4468 @nightly-test
   Scenario: Pay and submit appeal - successful payment (HU appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -28,7 +28,7 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
     And I should see the text `You will receive an email confirming that this appeal has been submitted successfully.`
     And I should see the text `Payment successful`
     And I should see the text `Payment reference number`
-    And I should see the text `RC-1590-6786-1063-9996`
+    # And I should see the text `RC-1627-6545-0718-4880`
     And I should see the text `Payment by Account number`
     And I should see the text `PBA0087535`
     And I should see the text `Fee`
