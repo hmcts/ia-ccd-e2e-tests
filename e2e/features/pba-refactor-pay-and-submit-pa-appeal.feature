@@ -7,7 +7,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I click the `Overview` tab
 
-  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa  @RIA-4468-pa @RIA-4468 @nightly-test
+  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa  @RIA-4468-pa @RIA-4468 @RIA-4679 @nightly-test
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -43,7 +43,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
     And I select the `Make a payment` Next step
@@ -51,7 +51,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `You have already paid for this appeal.`
     And I should see the text `The Make a payment option is not available.`
 
-  @RIA-4468-pay-and-submit-failed @RIA-4468-pay-and-submit-failed-link-validation @RIA-4468-pa @RIA-4468
+  @RIA-4468-pay-and-submit-failed @RIA-4468-pay-and-submit-failed-link-validation @RIA-4468-pa @RIA-4468 @RIA-4679
   Scenario: Pay and submit appeal - failed payment / link validation on failed confirmation page (PA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -90,7 +90,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     When I click the `Cancel` link
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
 
-  @RIA-4468-pay-and-submit-failed @RIA-4468-pay-and-submit-failed-pa-deleted  @RIA-4468-pa @RIA-4468
+  @RIA-4468-pay-and-submit-failed @RIA-4468-pay-and-submit-failed-pa-deleted  @RIA-4468-pa @RIA-4468 @RIA-4679
   Scenario: Pay and submit appeal - failed payment / account deleted (PA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -152,9 +152,9 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
 
-  @RIA-4468-pay-and-submit-on-hold @RIA-4468-pay-and-submit-on-hold-pa  @RIA-4468-pa @RIA-4468
+  @RIA-4468-pay-and-submit-on-hold @RIA-4468-pay-and-submit-on-hold-pa  @RIA-4468-pa @RIA-4468 @RIA-4679
   Scenario: Pay and submit appeal - failed payment / account on hold (PA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -216,4 +216,4 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
