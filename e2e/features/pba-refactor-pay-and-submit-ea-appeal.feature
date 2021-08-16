@@ -7,7 +7,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I click the `Overview` tab
 
-  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-ea @RIA-4468-ea @RIA-4468
+  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-ea @RIA-4468-ea @RIA-4468 @RIA-4679
   Scenario: Pay and submit appeal - successful payment (EA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -43,7 +43,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
     And I select the `Make a payment` Next step
@@ -51,7 +51,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     And I should see the text `You have already paid for this appeal.`
     And I should see the text `The Make a payment option is not available.`
 
-  @RIA-4468-pay-and-submit-failed @RIA-4468-pay-and-submit-failed-ea-deleted  @RIA-4468-ea @RIA-4468
+  @RIA-4468-pay-and-submit-failed @RIA-4468-pay-and-submit-failed-ea-deleted  @RIA-4468-ea @RIA-4468 @RIA-4679
   Scenario: Pay and submit appeal - failed payment / account deleted (EA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -112,9 +112,9 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
 
-  @RIA-4468-pay-and-submit-on-hold @RIA-4468-pay-and-submit-on-hold-ea  @RIA-4468-ea @RIA-4468
+  @RIA-4468-pay-and-submit-on-hold @RIA-4468-pay-and-submit-on-hold-ea  @RIA-4468-ea @RIA-4468 @RIA-4679
   Scenario: Pay and submit appeal - failed payment / account on hold (EA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -154,4 +154,4 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
