@@ -14,7 +14,7 @@ Feature: Upload appeal response - Home Office user
     And I switch to be a `Case Officer`
     And I request respondent review
 
-  @regression @RIA-1309 @RIA-1810 @RIA-2177 @amend-appeal-response
+  @regression @RIA-1309 @RIA-1810 @RIA-2177 @amend-appeal-response  @RIA-4642
   Scenario: Uploading appeal response adds documents
 
     When I select the `Add appeal response` Next step
@@ -261,7 +261,7 @@ Feature: Upload appeal response - Home Office user
     And I click the `Overview` tab
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
-    And I should see the text `Review the documents and add the Home Office's response, or make an application to withdraw.`
+    And I should see the text `Review the documents and add the Home Office's response.`
     And I upload the appeal response
 
     And I click the `Overview` tab
@@ -312,7 +312,7 @@ Feature: Upload appeal response - Home Office user
     Then I should only see the `homeOffice_respondentReview` case progress image
     And I should see the text `Do this next`
 
-    And I should see the text `Review the documents and add the Home Office's response, or make an application to withdraw.`
+    And I should see the text `Review the documents and add the Home Office's response.`
     And I upload the appeal response
 
     When I switch to be a <homeOfficeLartApcPOU>
