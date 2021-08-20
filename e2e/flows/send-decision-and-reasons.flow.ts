@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class SendDecisionAndReasonsFlow {
 
@@ -13,6 +14,7 @@ export class SendDecisionAndReasonsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue('Decision and reasons', '{@test.docx}');
+        await browser.sleep(5000);
         await this.ccdFormPage.click('I confirm this document is signed with today\'s date.');
         await this.ccdFormPage.click('Ensure that the fee award is consistent with your decision.');
         await this.ccdFormPage.click('Continue');
@@ -31,6 +33,7 @@ export class SendDecisionAndReasonsFlow {
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.setFieldValue('Decision and reasons', '{@test.docx}');
+        await browser.sleep(5000);
         await this.ccdFormPage.click('I confirm this document is signed with today\'s date.');
         await this.ccdFormPage.click('Ensure that the fee award is consistent with your decision.');
         await this.ccdFormPage.click('Continue');

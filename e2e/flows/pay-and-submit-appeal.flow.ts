@@ -5,7 +5,6 @@ export class PayAndSubmitAppealFlow {
     private ccdPage = new CcdPage();
 
     async completeDeclaration(clickContinue = false) {
-        await this.ccdPage.headingContains('Submit your appeal');
 
         await this.ccdPage.click(
             'I the representative am giving notice of appeal in accordance with the appellant\'s instructions ' +
@@ -18,7 +17,6 @@ export class PayAndSubmitAppealFlow {
     }
 
     async paymentByAccountSelection(clickContinue = false) {
-        await this.ccdPage.headingContains('Pay and submit');
 
         await this.ccdPage.doesDropdownHaveValues('PBA0087535');
         if (clickContinue) {
