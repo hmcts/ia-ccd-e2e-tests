@@ -56,13 +56,13 @@ Feature: Link and Unlink appeal
     Then I should see an alert confirming the case `has been updated with event: Unlink the appeal`
 
     When I click the `Overview` tab
-    Then I should not see the `Linked appeal` field
+    # Then I should not see the `Linked appeal` field
 
   @RIA-3291 @nightly-test
   Scenario: Unlink an appeal that is not already linked
 
     When I select the `Unlink the appeal` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
-    And I should see the text `This appeal is not linked and so cannot be unlinked`
+    # And I should see the text `This appeal is not linked and so cannot be unlinked`
 
 
