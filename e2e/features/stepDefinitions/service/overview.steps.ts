@@ -23,7 +23,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
     if (isDisplayed) {
 
         const referenceNumberIsDraft = await ccdPage.isFieldValueDisplayed('Appeal reference', 'DRAFT');
-        const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 14);
+        const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 13);
 
         expect(referenceNumberIsDraft || referenceNumberIsCorrectLength).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Appellant name', 'José González')).to.equal(true);
@@ -31,7 +31,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
         expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationalities', 'first')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'Refusal of protection claim')).to.equal(true);
 
-        expect(await ccdPage.contentContains('0123456',  Wait.instant)).to.equal(true);
+        expect(await ccdPage.contentContains('001234567',  Wait.instant)).to.equal(true);
 
     } else {
         expect(await ccdPage.contentContains('Appeal reference', Wait.instant)).to.equal(false);
@@ -53,7 +53,7 @@ Then(/^I should (see|not see) the legal representative details$/, async function
     if (isDisplayed) {
 
         expect(await ccdPage.isFieldValueDisplayed('Company', 'IA Legal Services')).to.equal(true);
-        expect(await ccdPage.isFieldValueDisplayed('Email', iaConfig.TestLawFirmAUserName)).to.equal(true);
+        expect(await ccdPage.isFieldValueDisplayed('Email', iaConfig.TestLawFirmOrgAUserName)).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Legal representative reference', 'ia-legal-fenn')).to.equal(true);
 
     } else {
