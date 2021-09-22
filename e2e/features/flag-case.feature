@@ -206,7 +206,7 @@ Feature: Flag a case
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
 
-  @regression @flag-case @remove-flag @RIA-2513 @nightly-test1
+  @regression @flag-case @remove-flag @RIA-2513 @nightly-test
   Scenario: Remove flag from a case
 
     When I select the `Remove a flag` Next step

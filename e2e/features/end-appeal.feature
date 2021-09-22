@@ -15,7 +15,7 @@ Feature: End appeal
     
 
   @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test
-  Scenario Outline: End appeal after submit appeal case officer
+  Scenario: End appeal after submit appeal case officer
 
     And I switch to be a `Case Officer`
     Then I end the appeal
@@ -50,13 +50,13 @@ Feature: End appeal
     And I should not see the hearing details
     And I should see the case details
 
-    When I switch to be a `Judge`
-    Then I should only see the `caseOfficer_appealEnded` case progress image
-    And I should see the text `What happens next`
-    And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
-    And I should see the ended appeal details
-    And I should not see the hearing details
-    And I should see the case details
+    # When I switch to be a `Judge`
+    # Then I should only see the `caseOfficer_appealEnded` case progress image
+    # And I should see the text `What happens next`
+    # And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
+    # And I should see the ended appeal details
+    # And I should not see the hearing details
+    # And I should see the case details
 
     # When I switch to be a `Legal Org User Rep A`
     # And I click the `Overview` tab
@@ -77,12 +77,12 @@ Feature: End appeal
     # And I should not see the hearing details
     # And I should see the case details
 
-    Examples:
-      | IAUser                |
-      | Home Office APC       |
-      | Home Office LART      |
-      | Home Office POU       |
-      | Home Office Generic   |
+    # Examples:
+    #   | IAUser                |
+    #   | Home Office APC       |
+    #   | Home Office LART      |
+    #   | Home Office POU       |
+    #   | Home Office Generic   |
 
 
   @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239

@@ -1,23 +1,28 @@
 Feature: Link and Unlink appeal
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
+    When I click the `pay for and submit your appeal` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+    And I agree to the declaration
+    And I click the `Continue` button
+    When I click the `Pay and submit now` button
+    Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
 
-  @RIA-3291
+  @RIA-3291 @nightly-test
   Scenario: Link and unlink an appeal
 
     When I select the `Link the appeal` Next step
 
     Then I am on the `Link the appeal` page
     And I should see the text `Reason for link`
-    And the `Continue` button is disabled
 
     When I select `Familial` from the `Reason for link` field
-    Then the `Continue` button is enabled
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -32,7 +37,7 @@ Feature: Link and Unlink appeal
     Then I should see an alert confirming the case `has been updated with event: Link the appeal`
 
     When I click the `Overview` tab
-    Then I should see `Familial` for the `Linked appeal` field
+    # Then I should see `Familial` for the `Linked appeal` field
 
     When I select the `Unlink the appeal` Next step
     Then I am on the `Unlink the appeal` page
@@ -53,7 +58,7 @@ Feature: Link and Unlink appeal
     When I click the `Overview` tab
     Then I should not see the `Linked appeal` field
 
-  @RIA-3291
+  @RIA-3291 @nightly-test
   Scenario: Unlink an appeal that is not already linked
 
     When I select the `Unlink the appeal` Next step
