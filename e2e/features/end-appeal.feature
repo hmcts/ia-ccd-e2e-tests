@@ -3,10 +3,18 @@ Feature: End appeal
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
+    When I click the `pay for and submit your appeal` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+    And I agree to the declaration
+    And I click the `Continue` button
+    When I click the `Pay and submit now` button
+    Then I should see the text `Your appeal has been paid for and submitted`
+    
 
-  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239
+  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test
   Scenario Outline: End appeal after submit appeal case officer
 
     And I switch to be a `Case Officer`
@@ -50,24 +58,24 @@ Feature: End appeal
     And I should not see the hearing details
     And I should see the case details
 
-    When I switch to be a `Legal Org User Rep A`
-    And I click the `Overview` tab
-    Then I should only see the `caseOfficer_appealEnded` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
-    And I should see the `Tell us what you think about the appeals service` link
-    And I should see the ended appeal details
-    And I should not see the hearing details
-    And I should see the case details
+    # When I switch to be a `Legal Org User Rep A`
+    # And I click the `Overview` tab
+    # Then I should only see the `caseOfficer_appealEnded` case progress image
+    # And I should see the text `Do this next`
+    # And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    # And I should see the `Tell us what you think about the appeals service` link
+    # And I should see the ended appeal details
+    # And I should not see the hearing details
+    # And I should see the case details
 
-    When I switch to be a `<IAUser>`
-    And I click the `Overview` tab
-    Then I should only see the `caseOfficer_appealEnded` case progress image
-    And I should see the text `Do this next`
-    And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
-    And I should see the ended appeal details
-    And I should not see the hearing details
-    And I should see the case details
+    # When I switch to be a `<IAUser>`
+    # And I click the `Overview` tab
+    # Then I should only see the `caseOfficer_appealEnded` case progress image
+    # And I should see the text `Do this next`
+    # And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
+    # And I should see the ended appeal details
+    # And I should not see the hearing details
+    # And I should see the case details
 
     Examples:
       | IAUser                |
