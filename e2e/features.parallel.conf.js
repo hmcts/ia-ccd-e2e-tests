@@ -1,7 +1,6 @@
 const _ = require('lodash');
 const glob = require('glob');
 const argv = require('yargs').argv;
-const retry = require('protractor-retry').retry;
 
 const {
   PickleFilter,
@@ -91,7 +90,7 @@ class BaseConfig {
     this.frameworkPath = require.resolve('protractor-cucumber-framework');
 
     this.cucumberOpts = {
-      // strict: true,
+      strict: true,
       format: ['node_modules/cucumber-pretty', 'json:reports/tests/functionTestResult.json'],
       require: [
         './cucumber.conf.js',
@@ -118,9 +117,6 @@ class BaseConfig {
       }
     ],
 
-    this.onCleanUp = (results) => {
-      retry.onCleanUp(results);
-    }
 
     this.onPrepare = () => {
       // returning the promise makes protractor wait for
@@ -135,13 +131,8 @@ class BaseConfig {
       tsNode.register({
         project: path.join(__dirname, './tsconfig.e2e.json')
       });
-      retry.onPrepare();
 
     };
-
-    this.afterLaunch = () => {
-      return retry.afterLaunch(2);
-    }
 
     this.onComplete = () => {
       generateAccessibilityReport();
