@@ -139,7 +139,7 @@ class BaseConfig {
     };
 
    this.afterLaunch=() =>{
-      return retry.afterLaunch(2);
+      return retry.afterLaunch(1);
     };
 
     this.onComplete = () => {

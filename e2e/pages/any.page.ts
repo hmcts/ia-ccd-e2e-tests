@@ -115,7 +115,7 @@ export class AnyPage {
             }
 
             return currentPageUrl !== nextPage;
-        }, 5000, 'Navigation to next page taking too long ' + 5000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
+        }, 15000, 'Navigation to next page taking too long ' + 1000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
     }
     async isButtonEnabled(match: string, shortWait = false) {
 

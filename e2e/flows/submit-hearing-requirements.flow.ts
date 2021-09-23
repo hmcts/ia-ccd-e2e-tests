@@ -31,7 +31,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.selectNextStep('Submit hearing requirements');
         await this.ccdFormPage.click('Go');
 
-        await this.ccdFormPage.headingContains('Submit hearing requirements');
+        // await this.ccdFormPage.headingContains('Submit hearing requirements');
         if (isYesPath) {
             if (inCountry) {
                 await this.hearingRequirementsYesPathForInOutOfCountry(true);

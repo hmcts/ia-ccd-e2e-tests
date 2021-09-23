@@ -4,7 +4,6 @@ const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
 const path = require('path');
-const retry = require('protractor-retry').retry;
 
 exports.config = {
 
@@ -63,10 +62,6 @@ exports.config = {
     'no-source': true
   },
 
-  onCleanUp(results,files) {
-    retry.onCleanUp(results, files);
-  },
-
   onPrepare() {
     // returning the promise makes protractor wait for
     // the reporter config before executing tests
@@ -80,10 +75,6 @@ exports.config = {
     tsNode.register({
       project: path.join(__dirname, './tsconfig.e2e.json')
     });
-    retry.onPrepare();
 
-  },
-  afterLaunch() {
-    return retry.afterLaunch(2);
   }
 };
