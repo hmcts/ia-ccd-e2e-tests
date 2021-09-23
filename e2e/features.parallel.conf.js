@@ -118,8 +118,8 @@ class BaseConfig {
       }
     ],
 
-    this.onCleanUp=(results,files)=> {
-      retry.onCleanUp(results, files);
+    this.onCleanUp=(results)=> {
+      retry.onCleanUp(results);
     };
 
     this.onPrepare = () => {
