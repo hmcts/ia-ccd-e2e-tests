@@ -118,7 +118,7 @@ class BaseConfig {
       }
     ],
 
-    this.onCleanUp(results,files) {
+    this.onCleanUp=(results,files)=> {
       retry.onCleanUp(results, files);
     };
 
@@ -138,7 +138,7 @@ class BaseConfig {
       retry.onPrepare();
     };
 
-    afterLaunch() {
+   this.afterLaunch=() =>{
       return retry.afterLaunch(2);
     };
 
