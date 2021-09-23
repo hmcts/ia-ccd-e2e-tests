@@ -3,9 +3,18 @@ Feature: Final display for FTPA decision and reasons
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
+    When I click the `pay for and submit your appeal` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+    And I agree to the declaration
+    And I click the `Continue` button
+    When I click the `Pay and submit now` button
+    Then I should see the text `Your appeal has been paid for and submitted`
+    And I click the `Close and Return to case details` button
     And I switch to be a `Case Officer`
+    And I request home office data
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
@@ -29,13 +38,13 @@ Feature: Final display for FTPA decision and reasons
     And I start decision and reasons
     And I prepare decision and reasons
     And I send decision and reasons
+    When I switch to be a `Legal Org User Rep A`
 
 
-  @RIA-2919 @RIA-2919-scenario1
+  @RIA-2919 @RIA-2919-scenario1 @nightly-test
     #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 
-    When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
     When I switch to be a `Judge`
@@ -75,16 +84,16 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
-    When I switch to be a `Home Office POU`
-    And I click the `Overview` tab
-    And I should see the image `ftpaGranted.png`
+    # When I switch to be a `Home Office POU`
+    # And I click the `Overview` tab
+    # And I should see the image `ftpaGranted.png`
 
-    When I switch to be a `Home Office APC`
-    And I click the `Overview` tab
-    And I should see the image `ftpaGranted.png`
+    # When I switch to be a `Home Office APC`
+    # And I click the `Overview` tab
+    # And I should see the image `ftpaGranted.png`
 
-    When I switch to be a `Home Office POU`
-    Then I apply for respondent FTPA
+    # When I switch to be a `Home Office POU`
+    # Then I apply for respondent FTPA
 
     When I switch to be a Judge
     And I select the `Resident judge FTPA decision` Next step
@@ -129,10 +138,10 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
-    When I switch to be a `Home Office POU`
-    And I click the `Overview` tab
-    And I should see the image `ftpaGranted.png`
+    # When I switch to be a `Home Office POU`
+    # And I click the `Overview` tab
+    # And I should see the image `ftpaGranted.png`
 
-    When I switch to be a `Home Office APC`
-    And I click the `Overview` tab
-    And I should see the image `ftpaGranted.png`
+    # When I switch to be a `Home Office APC`
+    # And I click the `Overview` tab
+    # And I should see the image `ftpaGranted.png`

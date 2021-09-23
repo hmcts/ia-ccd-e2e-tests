@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const glob = require('glob');
 const argv = require('yargs').argv;
+const retry = require('protractor-retry').retry;
 
 const {
   PickleFilter,
@@ -117,6 +118,9 @@ class BaseConfig {
       }
     ],
 
+    this.onCleanUp(results,files) {
+      retry.onCleanUp(results, files);
+    };
 
     this.onPrepare = () => {
       // returning the promise makes protractor wait for
@@ -131,7 +135,11 @@ class BaseConfig {
       tsNode.register({
         project: path.join(__dirname, './tsconfig.e2e.json')
       });
+      retry.onPrepare();
+    };
 
+    afterLaunch() {
+      return retry.afterLaunch(2);
     };
 
     this.onComplete = () => {
