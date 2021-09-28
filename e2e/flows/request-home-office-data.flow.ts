@@ -9,7 +9,7 @@ export class RequestHomeOfficeDataFlow {
         await this.ccdFormPage.selectNextStep('Request Home Office data');
         await this.ccdFormPage.click('Go');
 
-        await this.ccdFormPage.headingContains('Request Home Office data');
+        // await this.ccdFormPage.headingContains('Request Home Office data');
         await this.ccdFormPage.setFieldValue('Make a selection', 'No Match');
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.click('Request Home Office data');

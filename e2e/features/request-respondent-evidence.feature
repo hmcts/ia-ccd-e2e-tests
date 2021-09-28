@@ -3,8 +3,15 @@ Feature: Request respondent evidence
   Background:
     Given I am signed in as a `Legal Rep`
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
+    When I click the `pay for and submit your appeal` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+    And I agree to the declaration
+    And I click the `Continue` button
+    When I click the `Pay and submit now` button
+    Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
 
   @regression @create-direction @RIA-892 @RIA-2694
