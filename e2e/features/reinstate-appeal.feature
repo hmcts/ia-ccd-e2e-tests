@@ -1,10 +1,21 @@
 Feature: Reinstate appeal
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial HU appeal type without remission and with hearing fee and pay now
+    And I click the `Overview` tab
+    When I click the `pay for and submit your appeal` link
+    Then I should see the `Pay and submit` page
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+
+    And I agree to the declaration
+    And I click the `Continue` button
+
+    When I click the `Pay and submit now` button
+    Then I should see the text `Your appeal has been paid for and submitted`
+
 
   @reinstate-appeal-ended-appeal-submitted @reinstate-appeal-submitted @RIA-3039
   Scenario: Reinstate appeal after end appeal submitted
@@ -129,10 +140,10 @@ Feature: Reinstate appeal
     When I switch to be a `Case Officer`
     And I upload respondent evidence
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit my case
 
     When I switch to be a `Judge`
@@ -165,10 +176,10 @@ Feature: Reinstate appeal
     When I switch to be a `Case Officer`
     And I upload respondent evidence
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit my case
 
     And I switch to be a `Case Officer`
@@ -191,6 +202,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
+    And I request home office data
     And I request respondent evidence
 
     When I switch to be a `Home Office APC`
@@ -206,11 +218,8 @@ Feature: Reinstate appeal
     When I switch to be a `Case Officer`
     And I upload respondent evidence
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
-
-    And I switch to be a `Legal Rep`
-    And I submit my case
 
     And I switch to be a `Case Officer`
     And I request respondent review
@@ -218,6 +227,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -264,10 +275,10 @@ Feature: Reinstate appeal
     When I switch to be a `Case Officer`
     And I upload respondent evidence
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit my case
 
     And I switch to be a `Case Officer`
@@ -276,6 +287,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -288,7 +301,7 @@ Feature: Reinstate appeal
     And I switch to be a `Case Officer`
     And I request hearing requirements
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit hearing requirements with all yes
 
     And I switch to be a `Case Officer`
@@ -332,10 +345,10 @@ Feature: Reinstate appeal
     When I switch to be a `Case Officer`
     And I upload respondent evidence
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit my case
 
     And I switch to be a `Case Officer`
@@ -344,6 +357,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -356,7 +371,7 @@ Feature: Reinstate appeal
     And I switch to be a `Case Officer`
     And I request hearing requirements
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit hearing requirements with all yes
 
     And I switch to be a `Case Officer`
@@ -398,10 +413,10 @@ Feature: Reinstate appeal
     When I switch to be a `Case Officer`
     And I upload respondent evidence
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit my case
 
     And I switch to be a `Case Officer`
@@ -410,6 +425,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -422,7 +439,7 @@ Feature: Reinstate appeal
     And I switch to be a `Case Officer`
     And I request hearing requirements
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit hearing requirements with all yes
 
     And I switch to be a `Case Officer`
@@ -465,10 +482,10 @@ Feature: Reinstate appeal
     When I switch to be a `Case Officer`
     And I upload respondent evidence
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit my case
 
     And I switch to be a `Case Officer`
@@ -477,6 +494,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -489,7 +508,7 @@ Feature: Reinstate appeal
     And I switch to be a `Case Officer`
     And I request hearing requirements
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit hearing requirements with all yes
 
     And I switch to be a `Case Officer`
@@ -531,10 +550,10 @@ Feature: Reinstate appeal
     When I switch to be a `Case Officer`
     And I upload respondent evidence
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit my case
 
     And I switch to be a `Case Officer`
@@ -543,6 +562,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -555,7 +576,7 @@ Feature: Reinstate appeal
     And I switch to be a `Case Officer`
     And I request hearing requirements
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit hearing requirements with all yes
 
     And I switch to be a `Case Officer`
@@ -601,10 +622,10 @@ Feature: Reinstate appeal
     When I switch to be a `Case Officer`
     And I upload respondent evidence
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit my case
 
     And I switch to be a `Case Officer`
@@ -613,6 +634,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -625,7 +648,7 @@ Feature: Reinstate appeal
     And I switch to be a `Case Officer`
     And I request hearing requirements
 
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I submit hearing requirements with all yes
 
     And I switch to be a `Case Officer`

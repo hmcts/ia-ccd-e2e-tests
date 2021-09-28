@@ -585,6 +585,8 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `Review the documents and add the Home Office's response.`
 
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I am on the `Upload the appeal response` page
     And I should see the text `Already uploaded files:`
     And I should see the text `- None`
@@ -687,6 +689,8 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `Review the documents and add the Home Office's response.`
 
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I am on the `Upload the appeal response` page
     And I should see the text `Already uploaded files:`
     And I should see the text `- AppealResponse.pdf`

@@ -7,6 +7,8 @@ export class UploadAppealResponseFlow {
     async uploadAppealResponse(clickContinue = false) {
 
         await this.ccdFormPage.clickLinkText('add the Home Office\'s response');
+        await this.ccdFormPage.setFieldValue('Outcome', 'Decision maintained');
+        await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.setFieldValue(
             'Upload the appeal response',
             '{@AppealResponse.pdf}',
