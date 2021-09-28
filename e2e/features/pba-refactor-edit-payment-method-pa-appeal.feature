@@ -7,7 +7,7 @@ Feature: Edit payment method after failed PBA payment (PA, EA and HU appeal type
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I click the `Overview` tab
 
-  @RIA-4468-edit-payment-method @RIA-4468-edit-payment-method-pa @RIA-4468
+  @RIA-4468-edit-payment-method @RIA-4468-edit-payment-method-pa @RIA-4468 @RIA-4679
   Scenario: Edit payment method - failed payment (PA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -53,7 +53,7 @@ Feature: Edit payment method after failed PBA payment (PA, EA and HU appeal type
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
     Then I click the `change the payment method to card` link

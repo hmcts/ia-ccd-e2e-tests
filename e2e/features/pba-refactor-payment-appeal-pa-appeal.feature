@@ -7,7 +7,7 @@ Feature: Payment appeal (Make a payment) after failed PBA payment (PA appeal typ
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I click the `Overview` tab
 
-  @RIA-4468-payment-appeal @RIA-4468-payment-appeal-pa @RIA-4468-payment-appeal-pa-successful @RIA-4468
+  @RIA-4468-payment-appeal @RIA-4468-payment-appeal-pa @RIA-4468-payment-appeal-pa-successful @RIA-4468 @RIA-4679
   Scenario: Pay for appeal (Make a payment) successful after initial failed PBA payment (PA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -53,7 +53,7 @@ Feature: Payment appeal (Make a payment) after failed PBA payment (PA appeal typ
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
     And I click the `make a payment using Payment by Account` link
@@ -85,9 +85,9 @@ Feature: Payment appeal (Make a payment) after failed PBA payment (PA appeal typ
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
 
-  @RIA-4468-payment-appeal @RIA-4468-payment-appeal-pa @RIA-4468-payment-appeal-pa-failed @RIA-4468
+  @RIA-4468-payment-appeal @RIA-4468-payment-appeal-pa @RIA-4468-payment-appeal-pa-failed @RIA-4468 @RIA-4679
   Scenario: Pay for appeal (Make a payment) fails after initial failed PBA payment (PA appeal type)
 
     When I click the `pay for and submit your appeal` link
@@ -133,7 +133,7 @@ Feature: Payment appeal (Make a payment) after failed PBA payment (PA appeal typ
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
+    And I should see `Pay using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
     And I click the `make a payment using Payment by Account` link
@@ -175,5 +175,4 @@ Feature: Payment appeal (Make a payment) after failed PBA payment (PA appeal typ
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Pay now using Payment by Account` for the `Payment method` field
-
+    And I should see `Pay using Payment by Account` for the `Payment method` field

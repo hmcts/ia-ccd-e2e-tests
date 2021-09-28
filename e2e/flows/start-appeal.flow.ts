@@ -347,7 +347,7 @@ export class StartAppealFlow {
     async completeHowToPayNow(clickContinue = false) {
 
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.click('Pay now using Payment by Account');
+        await this.ccdFormPage.click('Pay using Payment by Account');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
