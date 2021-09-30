@@ -97,6 +97,15 @@ Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
+Given(/^I switch to be a Sr `?Case (?:Officer|Worker)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsSrCaseOfficer();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+});
+
 Given(/^I switch to be a `?(?:Admin Officer)`?$/, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
