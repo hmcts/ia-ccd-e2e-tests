@@ -2012,9 +2012,9 @@ npm-run-path@^2.0.0:
   dependencies:
     path-key "^2.0.0"
 
-nsp@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/nsp/-/nsp-5.0.1.tgz#0f540f8e85851e4ad370b14d5001098046dedfd1"
+nsp@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/nsp/-/nsp-3.2.1.tgz#0f540f8e85851e4ad370b14d5001098046dedfd1"
   integrity sha512-dLmGi7IGixJEHKetErIH460MYiYIzAoxuVsloZFu9e1p9U8K0yULx7YQ1+VzrjZbB+wqq67ES1SfOvKVb/qMDQ==
   dependencies:
     chalk "^2.1.0"
