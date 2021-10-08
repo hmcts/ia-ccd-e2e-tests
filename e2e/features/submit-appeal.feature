@@ -11,7 +11,7 @@ Feature: Submit appeal application
   Scenario: Submit an appeal application
 
     When I click the `pay for and submit your appeal` link
-    And I select `PBA0088063` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I wait for 5 seconds
     And I click the `Continue` button
     And I agree to the declaration
