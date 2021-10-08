@@ -3,6 +3,7 @@ Feature: Case officer or Judge make an application
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
+    And I wait for 5 seconds
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
@@ -11,6 +12,7 @@ Feature: Case officer or Judge make an application
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
+    And I wait for 2 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I click the `Close and Return to case details` button
     And I switch to be a `Legal Org User Rep A`
