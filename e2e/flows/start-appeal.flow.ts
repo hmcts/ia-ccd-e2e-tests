@@ -338,7 +338,6 @@ export class StartAppealFlow {
         } else {
             await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision with a hearing. The fee for this type of appeal is £140');
         }
-
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -409,14 +408,15 @@ export class StartAppealFlow {
         }
     }
 
-    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hasFixedAddress = false, address = '', postcode = '') {
-        await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hasFixedAddress = false, address = '', postcode = '', hearingOption = '') {
+        await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
         await this.completedGivenAppealGrounds(true, appealType);
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
+        await this.completeHearingOption(true, hearingOption);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -433,7 +433,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
-        await this.completeRemissionDetails(true, 'no remission');
+        await this.completeRemissionDetails(true, remission);
         await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
 
@@ -451,6 +451,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeRemissionDetails(true, 'no remission');
         if (paymentChoice === 'now') {
             await this.completeHowToPayNow(true);
         } else if (paymentChoice === 'later') {
@@ -634,7 +635,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'hearing fee');
-        // await this.completeRemissionDetails(true, 'no remission');
+        await this.completeRemissionDetails(true, 'no remission');
         await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
 

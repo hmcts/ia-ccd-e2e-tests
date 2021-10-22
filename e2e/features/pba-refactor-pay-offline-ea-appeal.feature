@@ -5,7 +5,7 @@ Feature: Pay by card (offline) after submitting appeal (EA appeal type)
     And I create a new case
 
     And I save my initial EA appeal type without remission and with hearing fee and pay offline
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
   @RIA-4468-pay-offline @RIA-4468-pay-offline-ea @RIA-4468
   Scenario: Pay by card (offline) after submitting appeal (EA appeal type)

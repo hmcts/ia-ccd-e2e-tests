@@ -82,7 +82,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `£140`
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is deleted`
-    And I wait for 20 seconds
+    And I wait for 30 seconds
 
     When I click the `change the payment method` link
     Then I am on the `Change payment method to card` page

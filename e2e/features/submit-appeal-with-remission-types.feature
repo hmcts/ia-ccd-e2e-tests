@@ -1,7 +1,7 @@
 Feature: Submit appeal with asylum support remission
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I complete the `Tell us about your client` page
     And I complete the `Home Office details` page
@@ -25,21 +25,15 @@ Feature: Submit appeal with asylum support remission
 
     Given I am on the `Fee remissions` page
     And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
-    And I should see the text `More about Help with Fees`
-    And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
-    And I should see the text `More about Exceptional Circumstances Remissions`
-    And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
     And I click the `Continue` button
 
-    Then I am on the `Fee remissions` page
     And I select `My client is being provided with Asylum Support Funding under sections 95 or 98 of the Immigration and Asylum Act 1999` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
-    Then I am on the `Asylum support` page
     And I should see the text `Enter the Asylum Support reference number. You can find this on the Asylum Support confirmation letter your client received from the Home Office.`
     And I type `20/02/1234` for the `Asylum Support reference number` field
     And I upload `{@Evidence1.pdf}` for the `Asylum Support confirmation letter (Optional)` field
-    And I wait for 2 seconds
+    And I wait for 10 seconds
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
@@ -61,7 +55,7 @@ Feature: Submit appeal with asylum support remission
     When I click the `Close and Return to case details` button
 
     When I select the `Submit your appeal` Next step
-    And I am on the `Submit your appeal` page
+
 
     When I agree to the declaration
     And I click the `Continue` button
@@ -109,18 +103,10 @@ Feature: Submit appeal with asylum support remission
 
     Given I am on the `Fee remissions` page
     And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
-    And I should see the text `More about Help with Fees`
-    And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
-    And I should see the text `More about Exceptional Circumstances Remissions`
-    And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
     And I click the `Continue` button
 
-    Then I am on the `Fee remissions` page
     And I select `My client receives Legal Aid` for the `Choose one of the following statements` field
     And I click the `Continue` button
-
-    Then I am on the `Legal Aid` page
-    And I should see the text `You need to provide your firm's Legal Aid account number`
     And I type `1A234B` for the `Legal Aid account number` field
     And I click the `Continue` button
 
@@ -147,7 +133,6 @@ Feature: Submit appeal with asylum support remission
     And I should see `1A234B` for the `Legal Aid account number` field
 
     Then I select the `Submit your appeal` Next step
-    And I am on the `Submit your appeal` page
 
     When I agree to the declaration
     And I click the `Continue` button
@@ -187,25 +172,21 @@ Feature: Submit appeal with asylum support remission
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
-    And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
-    And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
-    And I should see `1A234B` for the `Legal Aid account number` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Legal Aid` for the `Fee remission type` field
-    And I should see `1A234B` for the `Legal Aid account number` field
 
 
   @submit-appeal-with-section17-remission  @RIA-3686-section17-remission @RIA-3686
@@ -216,20 +197,15 @@ Feature: Submit appeal with asylum support remission
 
     Given I am on the `Fee remissions` page
     And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
-    And I should see the text `More about Help with Fees`
-    And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
-    And I should see the text `More about Exceptional Circumstances Remissions`
-    And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
     And I click the `Continue` button
 
-    Then I am on the `Fee remissions` page
     And I select `My client receives (or has parental responsibility for a person who receives) benefit services or accommodation provided by a local authority under section 17 of the Children Act 1989, section 22 of the Children (Scotland) Act 1995, article 18 of the Children (Northern Ireland) Order 1995 or section 37 of the Social Services and Well-being (Wales) Act 2014` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Then I am on the `Section 17` page
     And I should see the text `You need to provide a copy of a letter from the local authority confirming your client's benefit or accommodation support.`
     And I upload `{@Evidence1.pdf}` for the `Local authority letter` field
-    And I wait for 5 seconds
+    And I wait for 10 seconds
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
@@ -255,7 +231,6 @@ Feature: Submit appeal with asylum support remission
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     Then I select the `Submit your appeal` Next step
-    And I am on the `Submit your appeal` page
 
     When I agree to the declaration
     And I click the `Continue` button
@@ -319,20 +294,15 @@ Feature: Submit appeal with asylum support remission
 
     Given I am on the `Fee remissions` page
     And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
-    And I should see the text `More about Help with Fees`
-    And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
-    And I should see the text `More about Exceptional Circumstances Remissions`
-    And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
     And I click the `Continue` button
 
-    Then I am on the `Fee remissions` page
     And I select `My client's accommodation is being provided by a local authority under section 20 of the Children Act 1989, section 25 of the Children (Scotland) Act 1995, article 21 of the Children (Northern Ireland) Order 1995 or section 76 of the Social Services and Well-being (Wales) Act 2014` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Then I am on the `Section 20` page
     And I should see the text `You need to provide a copy of a letter from the local authority confirming your client's benefit or accommodation support.`
     And I upload `{@Evidence1.pdf}` for the `Local authority letter` field
-    And I wait for 5 seconds
+    And I wait for 10 seconds
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
@@ -358,7 +328,6 @@ Feature: Submit appeal with asylum support remission
     And I should see `Evidence1.pdf` for the `Local authority letter` field
 
     Then I select the `Submit your appeal` Next step
-    And I am on the `Submit your appeal` page
 
     When I agree to the declaration
     And I click the `Continue` button
@@ -422,20 +391,15 @@ Feature: Submit appeal with asylum support remission
 
     Given I am on the `Fee remissions` page
     And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
-    And I should see the text `More about Help with Fees`
-    And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
-    And I should see the text `More about Exceptional Circumstances Remissions`
-    And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
     And I click the `Continue` button
 
-    Then I am on the `Fee remissions` page
     And I select `The Home Office waived the fee for the application this appeal relates to because it came under exceptions 4.5 or 9.4 of the Immigration and Nationality (Fees) Regulations 2016` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Then I am on the `Home Office Waiver` page
     And I should see the text `You need to provide a copy of the Home Office fee waiver letter to validate this fee remission.`
     And I upload `{@Evidence1.pdf}` for the `Home Office fee waiver letter (Optional)` field
-    And I wait for 5 seconds
+    And I wait for 10 seconds
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
@@ -461,7 +425,6 @@ Feature: Submit appeal with asylum support remission
     And I should see `Evidence1.pdf` for the `Home Office fee waiver letter` field
 
     Then I select the `Submit your appeal` Next step
-    And I am on the `Submit your appeal` page
 
     When I agree to the declaration
     And I click the `Continue` button
@@ -525,10 +488,6 @@ Feature: Submit appeal with asylum support remission
 
     Given I am on the `Fee remissions` page
     And I select `My client has a Help with Fees reference number` for the `Choose one of the following statements` field
-    And I should see the text `More about Help with Fees`
-    And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
-    And I should see the text `More about Exceptional Circumstances Remissions`
-    And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
     And I click the `Continue` button
 
     Then I am on the `Help with Fees` page
@@ -558,7 +517,6 @@ Feature: Submit appeal with asylum support remission
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     Then I select the `Submit your appeal` Next step
-    And I am on the `Submit your appeal` page
 
     When I agree to the declaration
     And I click the `Continue` button
@@ -602,25 +560,21 @@ Feature: Submit appeal with asylum support remission
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
-    And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
-    And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
-    And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Help with Fees` for the `Fee remission type` field
-    And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
 
   @submit-appeal-with-exceptional-circumstances-remission  @RIA-3085
   Scenario: Submit appeal with Exceptional circumstances remission
@@ -629,17 +583,10 @@ Feature: Submit appeal with asylum support remission
 
     Given I am on the `Fee remissions` page
     And I select `My client wants to apply for an Exceptional Circumstances Remission` for the `Choose one of the following statements` field
-    And I should see the text `More about Help with Fees`
-    And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
-    And I should see the text `More about Exceptional Circumstances Remissions`
-    And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
     And I click the `Continue` button
 
     Then I am on the `Exceptional Circumstances Remission` page
     And I type `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
-    And I should see the text `Provide supporting evidence`
-    And I should see the text `You should provide evidence to support your explanation such as notices threatening legal action due to non-payment of bills or housing costs; details of income, savings or expenses; or any other relevant information.`
-    And I should see the text `Supporting evidence (Optional)`
     And I click the `Add new` button
     And within the `Supporting evidence` collection's first item, I upload `{@Evidence1.pdf}` for the document field without a label
     And I click the `Continue` button
@@ -669,7 +616,6 @@ Feature: Submit appeal with asylum support remission
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     Then I select the `Submit your appeal` Next step
-    And I am on the `Submit your appeal` page
 
     When I agree to the declaration
     And I click the `Continue` button
@@ -714,25 +660,21 @@ Feature: Submit appeal with asylum support remission
     And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
-    And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
-    And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
-    And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see `Exceptional circumstances` for the `Fee remission type` field
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` field
-    And I should see `Evidence1.pdf` in the `Supporting evidence` field

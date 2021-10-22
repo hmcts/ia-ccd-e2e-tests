@@ -1,31 +1,25 @@
 Feature: Payment validation for non-payment appeal type
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
   @payment-validation-for-non-payment-appeal-type-RP @payment-validation-for-non-payment_appeal-type @RIA-3654
   Scenario: Select initial appeal with RP appeal type and validate payment errors
 
-    When I save my initial RP appeal for nonPayment with hearing
+    When I save my initial RP appeal for nonPayment without hearing
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
-    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
-    And I should see the text `Errors`
     And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
     Then I submit my nonpayment appeal
     And I click the `Overview` tab
     And I select the `Make a payment` Next step
-    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
-    And I should see the text `Errors`
     And I should see the text `You do not have to pay for this type of appeal.`
 
     Then I switch to be a `Admin Officer`
     And I click the `Overview` tab
     And I select the `Mark appeal as paid` Next step
-    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
-    And I should see the text `Errors`
     And I should see the text `Payment is not required for this type of appeal.`
 
   @payment-validation-for-non-payment-appeal-type-DC @payment-validation-for-non-payment_appeal-type @RIA-3654
@@ -34,22 +28,16 @@ Feature: Payment validation for non-payment appeal type
     When I save my initial DC appeal for nonPayment without hearing
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
-    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
-    And I should see the text `Errors`
     And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
     Then I submit my nonpayment appeal
     And I click the `Overview` tab
     And I select the `Make a payment` Next step
-    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
-    And I should see the text `Errors`
     And I should see the text `You do not have to pay for this type of appeal.`
 
     Then I switch to be a `Admin Officer`
     And I click the `Overview` tab
     And I select the `Mark appeal as paid` Next step
-    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
-    And I should see the text `Errors`
     And I should see the text `Payment is not required for this type of appeal.`
 
   @payment-validation-for-pa-appeal-type-pay-later @RIA-3654
@@ -61,8 +49,6 @@ Feature: Payment validation for non-payment appeal type
     Then I switch to be a `Admin Officer`
     And I click the `Overview` tab
     And I select the `Mark appeal as paid` Next step
-    And I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`
-    And I should see the text `Errors`
     And I should see the text `The Mark appeal as paid option is not available.`
 
 
@@ -70,7 +56,7 @@ Feature: Payment validation for non-payment appeal type
   Scenario: Submit RP appeal type with hearing option
 
     When I save my initial RP appeal for nonPayment with hearing
-    Then I submit my appeal
+    Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
     And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
@@ -107,7 +93,7 @@ Feature: Payment validation for non-payment appeal type
   Scenario: Submit RP appeal type with hearing option
 
     When I save my initial DC appeal for nonPayment with hearing
-    Then I submit my appeal
+    Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
     And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
@@ -144,7 +130,7 @@ Feature: Payment validation for non-payment appeal type
   Scenario: Submit RP appeal type with hearing option
 
     When I save my initial RP appeal for nonPayment without hearing
-    Then I submit my appeal
+    Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
     And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
@@ -181,7 +167,7 @@ Feature: Payment validation for non-payment appeal type
   Scenario: Submit RP appeal type with hearing option
 
     When I save my initial DC appeal for nonPayment without hearing
-    Then I submit my appeal
+    Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
     And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field

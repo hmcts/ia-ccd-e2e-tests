@@ -1,7 +1,7 @@
 Feature: Record remission decision
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
   @record-remission-decision-approved @RIA-3517-approved @RIA-3517 @RIA-3829
@@ -86,7 +86,7 @@ Feature: Record remission decision
     And I should see `£140.00` for the `Amount remitted` field
     And I should see `£0.00` for the `Amount left to pay` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Overview` tab
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal. You don't need to do anything else right now.`
@@ -188,7 +188,7 @@ Feature: Record remission decision
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Overview` tab
     And I should see the text `What happens next`
     And I should see the text `Your remission application has been partially approved. You will soon receive a notification with instructions on how to pay the fee by card online. You must pay within 14`
@@ -280,7 +280,7 @@ Feature: Record remission decision
     And I should see `Rejected` for the `Decision` field
     And I should see `A reason for rejection` for the `Reason for decision` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Overview` tab
     And I should see the text `Do this next`
     And I should see the text `Your remission application has been rejected. You must pay for this appeal by {$TODAY+14|D MMM YYYY} or the Tribunal will end the appeal.`
@@ -425,7 +425,7 @@ Feature: Record remission decision
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see the text `Submission details`
@@ -483,7 +483,7 @@ Feature: Record remission decision
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
     And I should see `Legal Aid` for the `Fee remission type` field
@@ -536,7 +536,7 @@ Feature: Record remission decision
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
     And I should see `Legal Aid` for the `Fee remission type` field
@@ -594,7 +594,7 @@ Feature: Record remission decision
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
     And I should see `Help with Fees` for the `Fee remission type` field
