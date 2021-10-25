@@ -49,9 +49,9 @@ Feature: Add a case note
     # And within the `Case notes` collection's first item, I should see `Case Officer` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
-    When I click the `Add case note` link
-    And I wait for 3 seconds
-    Then I am on the `Add case note` page
+    # When I click the `Add case note` link
+    # And I wait for 3 seconds
+    # Then I am on the `Add case note` page
 
 
   @regression @add-case-note @RIA-575 @nightly-test
@@ -86,9 +86,9 @@ Feature: Add a case note
     And within the `Case notes` collection's first item, I should see `Case Officer` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
-    When I click the `Add case note` link
-    And I wait for 3 seconds
-    Then I am on the `Add case note` page
+    # When I click the `Add case note` link
+    # And I wait for 3 seconds
+    # Then I am on the `Add case note` page
 
   @regression @add-subsequent-case-note @RIA-575
   Scenario: Add a case note without document

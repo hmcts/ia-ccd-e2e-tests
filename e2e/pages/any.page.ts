@@ -92,6 +92,7 @@ export class AnyPage {
         if (await anchor.isPresent()) {
             await BrowserWaits.waitForelementToBeClickable(anchor)
             await anchor.click();
+            await browser.sleep(5000);
             return;
         }
 
