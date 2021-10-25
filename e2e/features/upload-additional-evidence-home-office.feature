@@ -28,7 +28,8 @@ Feature: Upload additional evidence Home Office
     And I click the `Documents` tab
 
 
-    When I click the `Upload additional evidence` link
+    # When I click the `Upload additional evidence` link
+    When I select the `Upload additional evidence` Next step
     Then I am on the `Upload additional evidence` page
     And I see the text `Files should be:`
     And I see the text `You’ll need to explain why this evidence is being submitted late.`

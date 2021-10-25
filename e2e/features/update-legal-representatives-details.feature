@@ -16,7 +16,7 @@ Background:
     And I request home office data
     And I request respondent evidence
 
-@update-legal-representatives-details @RIA-1358 @nightly-test11
+@update-legal-representatives-details @RIA-1358 @nightly-test
 Scenario: update legal representatives details
     When I switch to be a `Legal Org User Rep A`
     And I click the `Appellant` tab

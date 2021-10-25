@@ -49,7 +49,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
-  @RIA-2919 @RIA-2919-scenario1 @nightly-test
+  @RIA-2919 @RIA-2919-scenario1 @nightly-test1
     #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 
