@@ -11,11 +11,11 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
   Scenario: Pay and submit appeal - successful payment (EA appeal type)
 
     When I click the `pay for and submit your appeal` link
-    Then I should see the `Pay and submit` page
+    Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
-    And I should see the text `Can’t see your Payment by Account number?`
-    And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I should see the `edit your appeal` link
+    #And I should see the text `Can’t see your Payment by Account number?`
+    #And I should see the `MyHMCTSsupport@justice.gov.uk` link
+    #And I should see the `edit your appeal` link
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
@@ -57,9 +57,9 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     When I click the `pay for and submit your appeal` link
     Then I should see the `Pay and submit` page
     And I should see the text `The fee for an appeal with a hearing is £140`
-    And I should see the text `Can’t see your Payment by Account number?`
-    And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I should see the `edit your appeal` link
+    #And I should see the text `Can’t see your Payment by Account number?`
+    #And I should see the `MyHMCTSsupport@justice.gov.uk` link
+    #And I should see the `edit your appeal` link
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
@@ -120,9 +120,9 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     When I click the `pay for and submit your appeal` link
     Then I should see the `Pay and submit` page
     And I should see the text `The fee for an appeal with a hearing is £140`
-    And I should see the text `Can’t see your Payment by Account number?`
-    And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I should see the `edit your appeal` link
+    #And I should see the text `Can’t see your Payment by Account number?`
+    #And I should see the `MyHMCTSsupport@justice.gov.uk` link
+    #And I should see the `edit your appeal` link
     And I select `PBA0087442` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
