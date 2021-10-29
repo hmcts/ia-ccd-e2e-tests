@@ -10,7 +10,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I save my initial EA appeal type with no remission and pay now with hearing fee and out of time
 
     When I select the `Pay and submit` Next step
-    Then I should see the `Pay and submit` page
+    Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
@@ -44,7 +44,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I save my initial HU appeal type with no remission and pay now with hearing fee and out of time
 
     When I select the `Pay and submit` Next step
-    Then I should see the `Pay and submit` page
+    Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
@@ -78,7 +78,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I save my initial PA appeal type with no remission and pay now with hearing fee and out of time
 
     When I select the `Pay and submit` Next step
-    Then I should see the `Pay and submit` page
+    Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
