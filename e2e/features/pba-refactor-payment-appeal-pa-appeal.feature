@@ -11,7 +11,7 @@ Feature: Payment appeal (Make a payment) after failed PBA payment (PA appeal typ
   Scenario: Pay for appeal (Make a payment) successful after initial failed PBA payment (PA appeal type)
 
     When I click the `pay for and submit your appeal` link
-    Then I should see the `Pay and submit` page
+    Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
@@ -91,7 +91,7 @@ Feature: Payment appeal (Make a payment) after failed PBA payment (PA appeal typ
   Scenario: Pay for appeal (Make a payment) fails after initial failed PBA payment (PA appeal type)
 
     When I click the `pay for and submit your appeal` link
-    Then I should see the `Pay and submit` page
+    Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
