@@ -54,7 +54,7 @@ Feature: Add a case note
     Then I am on the `Add case note` page
 
 
-  @regression @add-case-note @RIA-575 @nightly-test1234
+  @regression @add-case-note @RIA-575 @nightly-test
   Scenario: Add a case note without document
 
     And I switch to be a `Case Officer`
