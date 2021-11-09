@@ -4,7 +4,6 @@ const minimist = require('minimist');
 const argv = minimist(process.argv.slice(2));
 const iaConfig = require('./ia.conf');
 const browserPlatformMatrix = require('./browser.platform.matrix');
-const retry = require('protractor-retry').retry;
 
 const config = {
   framework: 'custom',
@@ -54,10 +53,6 @@ const config = {
     }
   ],
 
-  onCleanUp(results,files) {
-    retry.onCleanUp(results, files);
-  },
-
   onPrepare() {
     const caps = browser.getCapabilities();
     browser.manage()
@@ -68,12 +63,8 @@ const config = {
     tsNode.register({
       project: path.join(__dirname, './tsconfig.e2e.json')
     });
-    retry.onPrepare();
+  },
 
-  },
-  afterLaunch() {
-    return retry.afterLaunch(1);
-  },
   onComplete() {
     return browser.getProcessedConfig().then(function (c) {
       return browser.getSession().then(function (session) {
