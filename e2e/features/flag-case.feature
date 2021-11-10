@@ -113,7 +113,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-1742 @nightly-test1
+  @regression @flag-case @RIA-1742 
   Scenario: Flag a case with multiple flags and only single additional information
 
     When I select the `Flag the case` Next step
@@ -151,7 +151,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should not see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-3865 @nightly-test1
+  @regression @flag-case @RIA-3865
   Scenario: Flag a case with 94B flag and additional information
 
     When I select the `Flag the case` Next step

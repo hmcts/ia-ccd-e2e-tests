@@ -78,7 +78,7 @@ Feature: Submit hearing requirements
     And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
 
-  @submit-hearing-requirements-no-path @RIA-436-2087 @RIA-2049 @RIA-2047 @RIA-1899 @RIA-587 @RIA-2304 @RIA-3555 
+  @submit-hearing-requirements-no-path @RIA-436-2087 @RIA-2049 @RIA-2047 @RIA-1899 @RIA-587 @RIA-2304 @RIA-3555
   Scenario: Submit hearing requirements with 'No' options selected
 
 

@@ -23,7 +23,7 @@ Feature: List case and edit case listing after agreed hearing requirements stage
     And I switch to be a `Case Officer`
     And I record agreed hearing requirements yes path
 
-  @RIA-2011 @list-case-after-agreed-hearing-req @RIA-3758 @nightly-test1
+  @RIA-2011 @list-case-after-agreed-hearing-req @RIA-3758 @nightly-test
   Scenario: Submit hearing requirements with 'Yes' options selected
 
     When I switch to be a `Admin Officer`
