@@ -344,6 +344,15 @@ export class StartAppealFlow {
         }
     }
 
+    async completeNoFeeRemissions(clickContinue = false) {
+
+        await this.ccdFormPage.runAccessbility();
+        await this.ccdFormPage.click('My client is not eligible for a fee remission');
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeHowToPayNow(clickContinue = false) {
 
         await this.ccdFormPage.runAccessbility();
@@ -451,6 +460,7 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
+        await this.completeNoFeeRemissions(true);
         if (paymentChoice === 'now') {
             await this.completeHowToPayNow(true);
         } else if (paymentChoice === 'later') {
