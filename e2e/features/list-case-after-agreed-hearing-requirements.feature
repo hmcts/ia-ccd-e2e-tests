@@ -9,18 +9,24 @@ Feature: List case and edit case listing after agreed hearing requirements stage
     And I wait for 5 seconds
     And I submit my appeal
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
+    And I request home office data
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
+    And I wait for 2 seconds
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
     And I switch to be a `Legal Org User Rep A`
+    And I wait for 2 seconds
     And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
     And I record agreed hearing requirements yes path
 
   @RIA-2011 @list-case-after-agreed-hearing-req @RIA-3758 @nightly-test
@@ -39,10 +45,13 @@ Feature: List case and edit case listing after agreed hearing requirements stage
     And I should see the option `Taylor House` for the `Location` field
     And I should see the option `Newport` for the `Location` field
     And I should see the option `Bradford` for the `Location` field
-    And I should see the option `North Shields` for the `Location` field
     And I should see the option `Birmingham` for the `Location` field
     And I should see the option `Hatton Cross` for the `Location` field
-    And I should see the option `Glasgow Tribunals Centre` for the `Location` field
+    And I should see the option `Glasgow` for the `Location` field
+    And I should see the option `Coventry Magistrates Court` for the `Location` field
+    And I should see the option `Belfast` for the `Location` field
+    And I should see the option `Remote hearing` for the `Location` field
+    And I should see the option `Decision Without Hearing` for the `Location` field
     And I should see the option `30 minutes` for the `Length` field
     And I should see the option `1 hour` for the `Length` field
     And I should see the option `1 hour 30 minutes` for the `Length` field
