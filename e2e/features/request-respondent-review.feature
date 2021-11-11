@@ -13,16 +13,19 @@ Feature: Request respondent evidence
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
     And I request home office data
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
+    And I wait for 2 seconds
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
   @regression @create-direction @RIA-435 @RIA-2694 @nightly-test
   Scenario: Request respondent review
-   
+
     When I select the `Request respondent review` Next step
     Then I am on the `Request respondent review` page
     And I should see `You have until the date indicated below to review the appellant's argument and evidence.` in the `Explain the direction you are issuing` field
