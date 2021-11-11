@@ -2,28 +2,43 @@ Feature: Submit hearing requirements
 
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
+    # And I create a new case
+    # And I save my initial appeal
+    # And I submit my appeal
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
+    When I click the `pay for and submit your appeal` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+    And I agree to the declaration
+    And I click the `Continue` button
+    When I click the `Pay and submit now` button
+    Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
+    And I request home office data
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Rep`
+    And I switch to be a `Legal Org User Rep A`
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
+    And I wait for 3 seconds
     And I request respondent review
+    And I wait for 2 seconds
     And I add the appeal response
+    And I wait for 2 seconds
     And I request hearing requirements
 
     Then I click the `Directions` tab
+    And I wait for 2 seconds
     And within the `Directions` collection's first item, I should see `The appeal is going to a hearing and you should tell the Tribunal if the appellant has any hearing requirements.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
     And within the `Directions` collection's first item, I should see `{$TODAY+5|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-    When I switch to be a `Legal Rep`
+    When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
 
     Then I should only see the `progress_legalRep_submitHearingRequirements` case progress image
@@ -42,10 +57,12 @@ Feature: Submit hearing requirements
     And I should not see the option `Record an application` for the `Next step` field
 
     When I click the `Appeal` tab
+    And I wait for 2 seconds
     Then I should see the appeal details
     And I should see the submission details
 
     When I click the `Appellant` tab
+    And I wait for 2 seconds
     Then I should see the appellant's details
     And I should see the legal representative details
 
@@ -70,12 +87,18 @@ Feature: Submit hearing requirements
 
     When I click the `Continue` button
     Then I select `No` for the `Will the appellant give oral evidence at the hearing?` field
-
+    
     When I click the `Continue` button
     Then I select `No` for the `Will any witnesses attend the hearing?` field
 
     When I click the `Continue` button
+    Then I select `No` for the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
+    
+    When I click the `Continue` button
     Then I select `No` for the `Do you need interpreter services on the day?` field
+
+    # When I click the `Continue` button
+    # Then I select `No` for the `Do you need interpreter services on the day?` field
 
     When I click the `Continue` button
     Then I select `No` for the `Do you need a hearing room with step-free access?` field
@@ -88,7 +111,10 @@ Feature: Submit hearing requirements
     And I should see the text `You can request additional adjustments based on the appellant's personal circumstances. The Tribunal will review the information you provide and decide whether a request can be granted.`
 
     When I click the `Continue` button
-    And I select `No` for Remote hearing with details `No`
+    # And I select `No` for Remote hearing with details `No`
+    
+    Then I select `No` for the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
+    When I click the `Continue` button
 
     Then I select `No` for the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
 

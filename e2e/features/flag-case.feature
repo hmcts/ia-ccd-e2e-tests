@@ -14,7 +14,7 @@ Feature: Flag a case
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
-
+    And I wait for 5 seconds
     When I select the `Flag the case` Next step
     Then I am on the `Flag the case` page
     And The page is accessible
@@ -206,7 +206,7 @@ Feature: Flag a case
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
 
-  @regression @flag-case @remove-flag @RIA-2513 
+  @regression @flag-case @remove-flag @RIA-2513 @nightly-test
   Scenario: Remove flag from a case
 
     When I select the `Remove a flag` Next step

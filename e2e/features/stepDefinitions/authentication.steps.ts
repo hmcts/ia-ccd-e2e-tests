@@ -157,9 +157,9 @@ Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsJudge();
     await browser.sleep(100);
-    await ccdPage.contentContains('Immigration');
+    // await ccdPage.contentContains('Immigration');
     await ccdPage.get(caseUrl);
-    await ccdPage.contentContains('Immigration');
+    // await ccdPage.contentContains('Immigration');
 });
 
 Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| A)`?$/, async function () {

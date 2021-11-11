@@ -14,7 +14,7 @@ Then(/^I should (see|not see) the appeal details$/, async function (seeOrNotSee)
     if (isDisplayed) {
 
         const referenceNumberIsDraft = await ccdPage.isFieldValueDisplayed('Appeal reference', 'DRAFT');
-        const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 14);
+        const referenceNumberIsCorrectLength = await ccdPage.isFieldValueCorrectLength('Appeal reference', 13);
 
         expect(referenceNumberIsDraft || referenceNumberIsCorrectLength).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Appellant name', 'José González')).to.equal(true);
@@ -41,7 +41,7 @@ Then(/^I should (see|not see) the submission details$/, async function (seeOrNot
 
     if (isDisplayed) {
 
-        expect(await ccdPage.isFieldValueDisplayed('Home Office decision letter sent', '{$TODAY|D MMM YYYY}')).to.equal(true);
+        // expect(await ccdPage.isFieldValueDisplayed('Home Office decision letter sent', '{$TODAY|D MMM YYYY}')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Appeal submitted', '{$TODAY|D MMM YYYY}')).to.equal(true);
         expect(await ccdPage.isFieldValueDisplayed('Was the appeal submission late?', 'No')).to.equal(true);
 

@@ -14,7 +14,7 @@ export class RequestHomeOfficeDataFlow {
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.click('Request Home Office data');
         if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
+          await this.ccdFormPage.click('Close and Return to case details');
+      }
     }
 }

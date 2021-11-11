@@ -1,7 +1,7 @@
 Feature: Request respondent evidence
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
@@ -13,8 +13,9 @@ Feature: Request respondent evidence
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
+    And I request home office data
 
-  @regression @create-direction @RIA-892 @RIA-2694
+  @regression @create-direction @RIA-892 @RIA-2694 @nightly-test
   Scenario: Request respondent evidence
 
     And I click the `Overview` tab
@@ -70,7 +71,7 @@ Feature: Request respondent evidence
     And within the `Directions` collection's first item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-  @regression @create-direction @RIA-892
+  @regression @create-direction @RIA-892 @nightly-test
   Scenario: Request respondent evidence with changes to default values
 
     When I select the `Request respondent evidence` Next step

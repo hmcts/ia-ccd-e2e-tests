@@ -16,7 +16,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I should see the `edit your appeal` link
-    And I select `PBA0087240` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     And I agree to the declaration
@@ -33,7 +33,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
     And I should see the text `Payment reference number`
     And I should see the text `RC-1590-6786-1063-9996`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087240`
+    And I should see the text `PBA0087535`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I should see the text `Reason for failed payment`
@@ -96,7 +96,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I should see the `edit your appeal` link
-    And I select `PBA0087240` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     And I agree to the declaration
@@ -113,7 +113,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
     And I should see the text `Payment reference number`
     And I should see the text `RC-1590-6786-1063-9996`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087240`
+    And I should see the text `PBA0087535`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I should see the text `Reason for failed payment`
@@ -141,7 +141,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087240` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     When I click the `Pay now` button
@@ -155,7 +155,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
     And I should see the text `Payment reference number`
     And I should see the text `RC-1590-6786-1063-9996`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087240`
+    And I should see the text `PBA0087535`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I should see the text `Reason for failed payment`

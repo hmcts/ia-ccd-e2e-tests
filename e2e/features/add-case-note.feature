@@ -1,27 +1,32 @@
 Feature: Add a case note
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
+    When I click the `pay for and submit your appeal` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+    And I agree to the declaration
+    And I click the `Continue` button
+    When I click the `Pay and submit now` button
+    And I wait for 2 seconds
+    Then I should see the text `Your appeal has been paid for and submitted`
 
-  @regression @add-case-note @RIA-575
+  @regression @add-case-note @RIA-575 @nightly-test
   Scenario: Add a case note with document
 
     And I switch to be a `Case Officer`
     When I select the `Add case note` Next step
     Then I am on the `Add case note` page
     And I should see the text `Add your case note below`
-    And the `Continue` button is disabled
-
     When I type `some case note subject` for the `Subject` field
-    Then the `Continue` button is disabled
-
     When I type `some case note description` for the `Case note` field
     Then the `Continue` button is enabled
 
     When I upload `{@test.doc}` for the `Upload a document (Optional)` field
+    And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `some case note subject` in the `Subject` field
@@ -45,24 +50,22 @@ Feature: Add a case note
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
     When I click the `Add case note` link
+    And I wait for 3 seconds
     Then I am on the `Add case note` page
 
 
-  @regression @add-case-note @RIA-575
+  @regression @add-case-note @RIA-575 @nightly-test
   Scenario: Add a case note without document
 
     And I switch to be a `Case Officer`
     When I select the `Add case note` Next step
     Then I am on the `Add case note` page
     And I should see the text `Add your case note below`
-    And the `Continue` button is disabled
 
     When I type `some case note subject` for the `Subject` field
-    Then the `Continue` button is disabled
 
     When I type `some case note description` for the `Case note` field
-    Then the `Continue` button is enabled
-
+    And I wait for 1 seconds
     When I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `some case note subject` in the `Subject` field
@@ -83,7 +86,8 @@ Feature: Add a case note
     And within the `Case notes` collection's first item, I should see `Case Officer` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
-    When I click the `Add case note` link
+    When I select the `Add case note` Next step
+    And I wait for 3 seconds
     Then I am on the `Add case note` page
 
   @regression @add-subsequent-case-note @RIA-575

@@ -92,6 +92,7 @@ export class AnyPage {
         if (await anchor.isPresent()) {
             await BrowserWaits.waitForelementToBeClickable(anchor)
             await anchor.click();
+            await browser.sleep(5000);
             return;
         }
 
@@ -115,7 +116,7 @@ export class AnyPage {
             }
 
             return currentPageUrl !== nextPage;
-        }, 5000, 'Navigation to next page taking too long ' + 5000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
+        }, 15000, 'Navigation to next page taking too long ' + 10000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
     }
     async isButtonEnabled(match: string, shortWait = false) {
 
