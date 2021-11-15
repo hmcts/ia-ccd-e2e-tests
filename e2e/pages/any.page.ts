@@ -136,9 +136,7 @@ export class AnyPage {
                 },
                 shortWait ? Wait.minimal : Wait.normal
             );
-
             return true;
-
         } catch (error) {
             return false;
         }
@@ -317,9 +315,10 @@ export class AnyPage {
         }
     }
 
-    async hideSpinner(){
-        var el = await element(by.css('loading-spinner-in-action'));
-        var EC=protractor.ExpectedConditions; browser.wait(EC.not(EC.presenceOf(el)), 10000);
+    async hideSpinner() {
+        const el = await element(by.css('loading-spinner-in-action'));
+        let EC = protractor.ExpectedConditions;
+        await browser.wait(EC.not(EC.presenceOf(el)), 10000);
     }
 
     async refresh() {

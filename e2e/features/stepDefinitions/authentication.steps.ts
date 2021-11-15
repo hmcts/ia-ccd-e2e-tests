@@ -96,7 +96,7 @@ Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     await browser.sleep(100);
     await ccdPage.get(caseUrl);
     await browser.sleep(7000);
-    if(!await ccdPage.overViewContains('Overview')){
+    if (!await ccdPage.overViewContains('Overview')) {
         await ccdPage.get(caseUrl);
     }
 });
@@ -109,7 +109,7 @@ Given(/^I switch to be a `?(?:Admin Officer)`?$/, async function () {
     await browser.sleep(100);
     await ccdPage.get(caseUrl);
     await browser.sleep(7000);
-    if(!await ccdPage.overViewContains('Overview')){
+    if (!await ccdPage.overViewContains('Overview')) {
         await ccdPage.get(caseUrl);
     }
 });
@@ -131,7 +131,7 @@ Given(/^I switch to be a `?(?:Home Office APC)`?$/, async function () {
     await browser.sleep(100);
     await ccdPage.get(caseUrl);
     await browser.sleep(7000);
-    if(!await ccdPage.overViewContains('Overview')){
+    if (!await ccdPage.overViewContains('Overview')) {
         await ccdPage.get(caseUrl);
     }
 });
@@ -173,7 +173,7 @@ Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
     await ccdPage.get(caseUrl);
     // await ccdPage.contentContains('Immigration');
     await browser.sleep(7000);
-    if(!await ccdPage.overViewContains('Overview')){
+    if (!await ccdPage.overViewContains('Overview')) {
         await ccdPage.get(caseUrl);
     }
 });
@@ -186,7 +186,7 @@ Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| A)`?$/, async function ()
     await browser.sleep(100);
     await ccdPage.get(caseUrl);
     await browser.sleep(7000);
-    if(!await ccdPage.overViewContains('Overview')){
+    if (!await ccdPage.overViewContains('Overview')) {
         await ccdPage.get(caseUrl);
     }
 });
@@ -199,7 +199,7 @@ Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| B)`?$/, async function ()
     await browser.sleep(100);
     await ccdPage.get(caseUrl);
     await browser.sleep(7000);
-    if(!await ccdPage.overViewContains('Overview')){
+    if (!await ccdPage.overViewContains('Overview')) {
         await ccdPage.get(caseUrl);
     }
 });
@@ -211,7 +211,6 @@ Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| C)`?$/, async function ()
     await authenticationFlow.signInAsLawFirmOrgUserC();
     await browser.sleep(100);
     await ccdPage.get(caseUrl);
-    
 });
 
 Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {
