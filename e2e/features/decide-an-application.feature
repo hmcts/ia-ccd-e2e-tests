@@ -18,7 +18,7 @@ Feature: Case officer or Judge make an application
     And I click the `Close and Return to case details` button
     And I switch to be a `Legal Org User Rep A`
 
-  @Case-officer-decide-an-application @RIA-3451-case-officer-decide-an-application @RIA-3451 @nightly-test122
+  @Case-officer-decide-an-application @RIA-3451-case-officer-decide-an-application @RIA-3451 @nightly-test
   Scenario: Case officer decide an application
 
     Then I make an application for `Update appeal details` type
@@ -36,7 +36,7 @@ Feature: Case officer or Judge make an application
     
     When I select the `Decide an application` Next step
     # And I click the `Decide an application` link
-    And I should see the option `Legal representative : Application 1` for the `Application` field
+    # And I should see the option `Legal representative : Application 1` for the `Application` field
 
     And I click the `Continue` button
     And I should see the text `Update appeal details`

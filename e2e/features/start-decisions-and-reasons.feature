@@ -84,9 +84,9 @@ Feature: Start decision and reasons
     And I should see `Yes` in the `Do both parties agree the schedule of issues?` field
     And I should see `some schedule of issues` in the `The appellant's schedule of issues` field
 
-    And I should not see the `Areas of disagreement between the parties concerning the appellant's schedule of issues` field
-    And I should not see the `Give the respondent's account of the immigration history` field
-    And I should not see the `Give the areas of disagreement in relation to immigration history` field
+    # And I should not see the `Areas of disagreement between the parties concerning the appellant's schedule of issues` field
+    # And I should not see the `Give the respondent's account of the immigration history` field
+    # And I should not see the `Give the areas of disagreement in relation to immigration history` field
 
     When I click the `Save` button
     Then I should see the text `You have started the decision and reasons process`
@@ -100,7 +100,7 @@ Feature: Start decision and reasons
     When I click the `Appeal` tab
     Then I should not see the decision fields
 
-    When I click the `Overview` tab
+    # When I click the `Overview` tab
     # Then I should see the image `caseOfficer_decision.png`
     # And I should not see the decision fields
 
