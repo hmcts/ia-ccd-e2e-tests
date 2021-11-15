@@ -132,4 +132,15 @@ export class CcdPage extends AnyPage {
         return (await browser.driver.getCurrentUrl()).includes('ccd')
             && (await ExpectedConditions.visibilityOf($('#sign-out'))());
     }
+    async overViewContains(match: string) {
+
+        try {
+
+            return await element(by.xpath('//*'+'[text()[normalize-space()=" '+ match +'"]]'))
+                .isDisplayed();
+
+        } catch (error) {
+            return false;
+        }
+    }
 }
