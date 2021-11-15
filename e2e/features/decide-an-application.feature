@@ -18,7 +18,7 @@ Feature: Case officer or Judge make an application
     And I click the `Close and Return to case details` button
     And I switch to be a `Legal Org User Rep A`
 
-  @Case-officer-decide-an-application @RIA-3451-case-officer-decide-an-application @RIA-3451 @nightly-test
+  @Case-officer-decide-an-application @RIA-3451-case-officer-decide-an-application @RIA-3451 @nightly-test122
   Scenario: Case officer decide an application
 
     Then I make an application for `Update appeal details` type
@@ -33,8 +33,9 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
-
-    And I click the `Decide an application` link
+    
+    When I select the `Decide an application` Next step
+    # And I click the `Decide an application` link
     And I should see the option `Legal representative : Application 1` for the `Application` field
 
     And I click the `Continue` button
