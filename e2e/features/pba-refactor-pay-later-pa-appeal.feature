@@ -5,7 +5,7 @@ Feature: Pay (later) after submitting appeal - successful and failed payments (P
     And I create a new case
 
     And I save my initial PA appeal type without remission and with hearing fee and pay later
-    And I submit my appeal
+    And I submit my nonpayment appeal
 
   @RIA-4468-pay-later-pa @RIA-4468-pay-later-pa-successful @RIA-4468
   Scenario: Pay (later) after submitting appeal - successful payment (PA appeal type)
