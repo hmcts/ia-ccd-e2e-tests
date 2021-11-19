@@ -6,7 +6,7 @@ export class UploadAdditionalEvidenceFlow {
 
     async uploadAdditionalEvidence(clickContinue = false) {
 
-        await this.ccdFormPage.selectNextStep('Upload additional evidence');
+            await this.ccdFormPage.selectNextStep('Upload additional evidence');
         await this.ccdFormPage.click('Go');
         await this.ccdFormPage.addCollectionItem('Upload documents');
         await this.ccdFormPage.setFieldValue(
