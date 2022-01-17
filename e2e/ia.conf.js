@@ -1,7 +1,7 @@
 module.exports = {
 
   CcdGatewayUrl: process.env.TEST_E2E_URL_GATEWAY || 'https://gateway-ccd.aat.platform.hmcts.net',
-  CcdWebUrl: process.env.TEST_E2E_URL_WEB || 'https://manage-case.aat.platform.hmcts.net',
+  CcdWebUrl: 'https://manage-case-wa-int.demo.platform.hmcts.net/',
   CcdApiUrl: process.env.TEST_E2E_CCD_API_URL || 'http://ccd-data-store-api-aat.service.core-compute-aat.internal',
   UseHeadlessBrowser: process.env.TEST_E2E_HEADLESS !== 'false',
   ProxyUrl: process.env.TEST_E2E_URL_PROXY || 'http://proxyout.reform.hmcts.net:8080',
@@ -18,6 +18,12 @@ module.exports = {
 
   TestCaseOfficerUserName: process.env.TEST_CASEOFFICER_USERNAME,
   TestCaseOfficerPassword: process.env.TEST_CASEOFFICER_PASSWORD,
+  TestLegalOpsAUserName: 'CRD_func_test_demo_tcw1@justice.gov.uk',
+  TestLegalOpsAPassword: 'AldgateT0wer',
+  TestJudicialUserName: '330085EMP-@ejudiciary.net',
+  TestJudicialPassword: 'Hmcts1234',
+  TestWaAdminUserName: 'CRD_func_test_demo_adm11@justice.gov.uk',
+  TestWaAdminPassword: 'AldgateT0wer',
   TestAdminOfficerUserName: process.env.TEST_ADMINOFFICER_USERNAME,
   TestAdminOfficerPassword: process.env.TEST_ADMINOFFICER_PASSWORD,
   TestJudiciaryUserName: process.env.TEST_JUDICIARY_USERNAME,
@@ -42,8 +48,8 @@ module.exports = {
   TestJudgePassword: process.env.TEST_JUDGE_X_PASSWORD,
   TestLawFirmOrgCreatorUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_ORG_USERNAME,
   TestLawFirmOrgCreatorPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_ORG_PASSWORD,
-  TestLawFirmOrgAUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_A_USERNAME,
-  TestLawFirmOrgAPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_A_PASSWORD,
+  TestLawFirmOrgAUserName: 'ia.legalrep.a.sc@mailnesia.com',
+  TestLawFirmOrgAPassword: 'Aldg@teT0wer',
   TestLawFirmOrgBUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_B_USERNAME,
   TestLawFirmOrgBPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_B_PASSWORD,
   TestLawFirmOrg2CreatorUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_ORG2_USERNAME,

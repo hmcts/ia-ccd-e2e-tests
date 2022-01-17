@@ -1,0 +1,40 @@
+Feature: Work allocation R2 legal-ops scenarios
+Background:
+  Given I am signed in as a `Legal Org User Rep A`
+  And I create a new case
+
+  And I save my initial HU appeal type without remission and with hearing fee and pay offline
+  And I submit my nonpayment appeal
+  And I switch to be a `Legal Ops A`
+
+  @legal-Ops @RIA-4923 @legal-ops-reserve-to-me
+  Scenario: Legal-Ops allocating a role to himself(Reserve to me)
+
+    When I click the `Roles and access` tab
+    And  I wait for 5 seconds
+    When I click the `Allocate a role` link for Legal Ops
+    Then I allocate a role to my self
+
+  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-another-legal-ops
+  Scenario: Legal-Ops allocating a role to another legal ops(Reserve to another user)
+
+    When I click the `Roles and access` tab
+    And  I wait for 5 seconds
+    When I click the `Allocate a role` link for Legal Ops
+    Then I allocate a role to another legal ops user
+
+  Scenario: Legal-Ops allocating a role to Judicial user(Reserve to Judicial)
+
+    When I click the `Roles and access` tab
+    And  I wait for 5 seconds
+    When I click the `Allocate a role` link for Judiciary
+    Then I allocate a role to another Judiciary user
+
+
+
+
+
+
+
+
+
