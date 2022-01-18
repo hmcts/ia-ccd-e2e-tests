@@ -3,31 +3,50 @@ Feature: Start decision and reasons
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
+    And I wait for 3 seconds
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
+    When I click the `pay for and submit your appeal` link
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I click the `Continue` button
+    And I agree to the declaration
+    And I click the `Continue` button
+    When I click the `Pay and submit now` button
+    Then I should see the text `Your appeal has been paid for and submitted`
+    And I click the `Close and Return to case details` button
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
+    And I request home office data
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
+    And I wait for 2 seconds
     And I build my case
     And I submit my case
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
     And I switch to be a `Legal Org User Rep A`
+    And I wait for 2 seconds
     And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
+    And I wait for 2 seconds
     And I list the case
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
     And I create case summary
     And I generate the hearing bundle
+    And I wait for 30 seconds
+    And I switch to be a `Case Officer`
+    And I wait for 2 seconds
 
-
-  @regression @start-decision-and-reasons-yes-path @RIA-574
+  @regression @start-decision-and-reasons-yes-path @RIA-574 @nightly-test
   Scenario: Start decision and reasons
     When I select the `Start decision and reasons` Next step
     Then I should see the text `Start decision and reasons`
@@ -65,9 +84,9 @@ Feature: Start decision and reasons
     And I should see `Yes` in the `Do both parties agree the schedule of issues?` field
     And I should see `some schedule of issues` in the `The appellant's schedule of issues` field
 
-    And I should not see the `Areas of disagreement between the parties concerning the appellant's schedule of issues` field
-    And I should not see the `Give the respondent's account of the immigration history` field
-    And I should not see the `Give the areas of disagreement in relation to immigration history` field
+    # And I should not see the `Areas of disagreement between the parties concerning the appellant's schedule of issues` field
+    # And I should not see the `Give the respondent's account of the immigration history` field
+    # And I should not see the `Give the areas of disagreement in relation to immigration history` field
 
     When I click the `Save` button
     Then I should see the text `You have started the decision and reasons process`
@@ -81,9 +100,9 @@ Feature: Start decision and reasons
     When I click the `Appeal` tab
     Then I should not see the decision fields
 
-    When I click the `Overview` tab
-    Then I should see the image `caseOfficer_decision.png`
-    And I should not see the decision fields
+    # When I click the `Overview` tab
+    # Then I should see the image `caseOfficer_decision.png`
+    # And I should not see the decision fields
 
 
 

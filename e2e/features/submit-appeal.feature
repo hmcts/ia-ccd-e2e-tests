@@ -2,7 +2,9 @@ Feature: Submit appeal application
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    Then I wait for 20 seconds
+    Then I wait for 10 seconds
+    And I refresh the page
+    Then I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds

@@ -16,6 +16,15 @@ export class AuthenticationFlow {
         );
     }
 
+    async signInAsSrCaseOfficer() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestSrCaseOfficerUserName,
+            iaConfig.TestSrCaseOfficerPassword
+        );
+    }
+
     async signInAsAdminOfficer() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();

@@ -2,6 +2,7 @@ Feature: Case officer or Judge make an application
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
+    And I wait for 5 seconds
     And I create a new case
     And I wait for 5 seconds
     And I save my initial PA appeal type without remission and with hearing fee and pay now
@@ -32,9 +33,10 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
-
-    And I click the `Decide an application` link
-    And I should see the option `Legal representative : Application 1` for the `Application` field
+    
+    When I select the `Decide an application` Next step
+    # And I click the `Decide an application` link
+    # And I should see the option `Legal representative : Application 1` for the `Application` field
 
     And I click the `Continue` button
     And I should see the text `Update appeal details`

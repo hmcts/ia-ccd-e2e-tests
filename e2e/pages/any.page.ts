@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, protractor } from 'protractor';
 import { Wait } from '../enums/wait';
 import { ValueExpander } from '../helpers/value-expander';
 const AxeRunner = require('../helpers/accessibility/axe-runner');
@@ -116,7 +116,7 @@ export class AnyPage {
             }
 
             return currentPageUrl !== nextPage;
-        }, 15000, 'Navigation to next page taking too long ' + 1000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
+        }, 15000, 'Navigation to next page taking too long ' + 10000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
     }
     async isButtonEnabled(match: string, shortWait = false) {
 
@@ -136,9 +136,7 @@ export class AnyPage {
                 },
                 shortWait ? Wait.minimal : Wait.normal
             );
-
             return true;
-
         } catch (error) {
             return false;
         }
@@ -315,6 +313,12 @@ export class AnyPage {
         } else {
             await browser.sleep(Wait.minimal);
         }
+    }
+
+    async hideSpinner() {
+        const el = await element(by.css('loading-spinner-in-action'));
+        let EC = protractor.ExpectedConditions;
+        await browser.wait(EC.not(EC.presenceOf(el)), 10000);
     }
 
     async refresh() {

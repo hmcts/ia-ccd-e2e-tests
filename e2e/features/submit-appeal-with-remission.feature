@@ -1,7 +1,7 @@
 Feature: Submit appeal with has a remission
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I complete the `Tell us about your client` page
     And I complete the `Home Office details` page
@@ -25,14 +25,11 @@ Feature: Submit appeal with has a remission
 
     Given I am on the `Fee remissions` page
     And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
-    And I should see the text `More about Help with Fees`
-    And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
-    And I should see the text `More about Exceptional Circumstances Remissions`
-    And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
     And I click the `Continue` button
 
-    Then I am on the `Fee remissions` page
     And I select `My client receives Legal Aid` for the `Choose one of the following statements` field
+    And I click the `Continue` button
+    When I type `1A234B` for the `Legal Aid account number` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
@@ -52,7 +49,7 @@ Feature: Submit appeal with has a remission
     When I click the `Close and Return to case details` button
 
     When I select the `Submit your appeal` Next step
-    And I am on the `Submit your appeal` page
+
 
     When I agree to the declaration
     And I click the `Continue` button

@@ -2,6 +2,7 @@ Feature: Update legal representatives details
 
 Background:
     Given I am signed in as a `Legal Org User Rep A`
+    And I wait for 5 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
@@ -16,7 +17,7 @@ Background:
     And I request home office data
     And I request respondent evidence
 
-@update-legal-representatives-details @RIA-1358 @nightly-test11
+@update-legal-representatives-details @RIA-1358 @nightly-test
 Scenario: update legal representatives details
     When I switch to be a `Legal Org User Rep A`
     And I click the `Appellant` tab

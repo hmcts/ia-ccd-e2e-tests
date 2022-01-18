@@ -2,6 +2,7 @@ Feature: Upload additional evidence Home Office
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
+    And I wait for 5 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
@@ -14,7 +15,6 @@ Feature: Upload additional evidence Home Office
     Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
     And I request home office data
-    And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
@@ -28,7 +28,8 @@ Feature: Upload additional evidence Home Office
     And I click the `Documents` tab
 
 
-    When I click the `Upload additional evidence` link
+    # When I click the `Upload additional evidence` link
+    When I select the `Upload additional evidence` Next step
     Then I am on the `Upload additional evidence` page
     And I see the text `Files should be:`
     And I see the text `You’ll need to explain why this evidence is being submitted late.`
