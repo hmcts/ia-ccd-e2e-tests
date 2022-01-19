@@ -25,7 +25,7 @@ Feature: Upload additional evidence Home Office
   Scenario: Upload additional evidence Home Office to the case
 
     When I switch to be a `Home Office APC`
-    And I click the `Documents` tab
+    #And I click the `Documents` tab
 
 
     # When I click the `Upload additional evidence` link
