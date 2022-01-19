@@ -51,7 +51,7 @@ Given('I Apply case list filter', async function () {
     // if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* master'
+            'Appeal*'
         );
     // }
 

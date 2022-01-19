@@ -41,7 +41,7 @@ Feature: Final display for FTPA decision and reasons
     And I create case summary
     And I generate the hearing bundle
     And I wait for 30 seconds
-    And I switch to be a `Case Officer`
+    And I refresh the page
     And I wait for 4 seconds
     And I start decision and reasons
     And I prepare decision and reasons
