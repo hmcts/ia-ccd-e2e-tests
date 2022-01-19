@@ -5,12 +5,11 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I create a new case
 
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I click the `Overview` tab
 
-  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa  @RIA-4468-pa @RIA-4468 @RIA-4679 @nightly-test
+  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa @RIA-4468-pa @RIA-4468 @RIA-4679 @nightly-test
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
 
-    When I click the `pay for and submit your appeal` link
+    And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
