@@ -31,7 +31,7 @@ Feature: Legal representative make an application
     And I click the `Continue` button
 
     Then I should see the text `Update appeal details`
-    # And the `Continue` button is disabled
+    And the `Continue` button is disabled
     And I type `A reason to update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
     And I add an item to the `Supporting evidence (Optional)` collection
     And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
