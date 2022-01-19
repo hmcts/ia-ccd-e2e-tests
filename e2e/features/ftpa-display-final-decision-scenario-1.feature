@@ -42,7 +42,7 @@ Feature: Final display for FTPA decision and reasons
     And I generate the hearing bundle
     And I wait for 30 seconds
     And I switch to be a `Case Officer`
-    And I wait for 2 seconds
+    And I wait for 5 seconds
     And I start decision and reasons
     And I prepare decision and reasons
     And I send decision and reasons

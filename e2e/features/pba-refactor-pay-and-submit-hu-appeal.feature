@@ -2,10 +2,10 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 8 seconds
+    And I wait for 10 seconds
     And I create a new case
     And I save my initial HU appeal type without remission and with hearing fee and pay now
-    And I click the `Overview` tab
+    # And I click the `Overview` tab
 
   @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-hu @RIA-4468-hu @RIA-4468 @RIA-4679 @nightly-test
   Scenario: Pay and submit appeal - successful payment (HU appeal type)

@@ -318,7 +318,7 @@ export class AnyPage {
     async hideSpinner() {
         const el = await element(by.css('loading-spinner-in-action'));
         let EC = protractor.ExpectedConditions;
-        await browser.wait(EC.not(EC.presenceOf(el)), 10000);
+        await browser.wait(EC.not(EC.presenceOf(el)), 15000);
     }
 
     async refresh() {
