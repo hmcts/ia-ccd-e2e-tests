@@ -1,0 +1,78 @@
+{
+  "caseName": "given name family name",
+  "appealType": "protection",
+  "journeyType": "aip",
+  "hearingCentre": "taylorHouse",
+  "staffLocation": "Taylor House",
+  "subscriptions": [],
+  "appellantAddress": {
+    "County": "county",
+    "Country": "UK",
+    "PostCode": "ab11 1aa",
+    "PostTown": "Post town",
+    "AddressLine1": "Address line 1",
+    "AddressLine2": "Address line 2"
+  },
+  "isAppellantMinor": "No",
+  "notificationsSent": [
+    {
+      "id": "1643646284361079_APPEAL_SUBMITTED_CASE_OFFICER",
+      "value": "8a3a9ba2-9400-4cb3-af94-c64df1b45eef"
+    },
+    {
+      "id": "1643646284361079_APPEAL_SUBMITTED_HOME_OFFICE",
+      "value": "50cc2608-8292-4eea-af06-2bf3f6b12558"
+    }
+  ],
+  "appealOutOfCountry": "No",
+  "appellantFamilyName": "family name",
+  "appellantGivenNames": "given name",
+  "submissionOutOfTime": "No",
+  "appealSubmissionDate": "2022-01-31",
+  "appellantDateOfBirth": "1950-01-01",
+  "appealReferenceNumber": "PA/50003/2022",
+  "appealTypeDescription": "Refusal of protection claim",
+  "appellantNationalities": [
+    {
+      "id": "cc13ad32-9979-4951-8e3b-8b669a0f4868",
+      "value": {
+        "code": "AF"
+      }
+    }
+  ],
+  "caseManagementLocation": {
+    "region": "1",
+    "baseLocation": "765324"
+  },
+  "homeOfficeDecisionDate": "2022-01-31",
+  "homeOfficeSearchStatus": "FAIL",
+  "appealGroundsForDisplay": [],
+  "appellantNameForDisplay": "given name family name",
+  "appellantHasFixedAddress": "No",
+  "homeOfficeReferenceNumber": "01234567",
+  "ccdReferenceNumberForDisplay": "1643 6462 8436 1079",
+  "sendDirectionActionAvailable": "Yes",
+  "homeOfficeSearchStatusMessage": "**Note:** The service was unable to retrieve any appellant details from the Home Office because the Home Office data does not include a main applicant. You can contact the Home Office if you need this information to validate the appeal.\n## Do this next\r\n- Contact the Home Office to get the correct details\r\n- Use [Edit appeal](/case/IA/Asylum/${[CASE_REFERENCE]}/trigger/editAppealAfterSubmit) to update the details as required\r\n- [Request Home Office data](/case/IA/Asylum/${[CASE_REFERENCE]}/trigger/requestHomeOfficeData) to match the appellant details with the Home Office details",
+  "currentCaseStateVisibleToJudge": "appealSubmitted",
+  "isHomeOfficeIntegrationEnabled": "Yes",
+  "homeOfficeNotificationsEligible": "Yes",
+  "appellantNationalitiesDescription": "Afghanistan",
+  "currentCaseStateVisibleToCaseOfficer": "appealSubmitted",
+  "changeDirectionDueDateActionAvailable": "No",
+  "currentCaseStateVisibleToAdminOfficer": "appealSubmitted",
+  "markEvidenceAsReviewedActionAvailable": "No",
+  "uploadAddendumEvidenceActionAvailable": "No",
+  "currentCaseStateVisibleToHomeOfficeAll": "appealSubmitted",
+  "currentCaseStateVisibleToHomeOfficeApc": "appealSubmitted",
+  "currentCaseStateVisibleToHomeOfficePou": "appealSubmitted",
+  "currentCaseStateVisibleToHomeOfficeLart": "appealSubmitted",
+  "uploadAdditionalEvidenceActionAvailable": "No",
+  "applicationChangeDesignatedHearingCentre": "taylorHouse",
+  "currentCaseStateVisibleToHomeOfficeGeneric": "appealSubmitted",
+  "haveHearingAttendeesAndDurationBeenRecorded": "No",
+  "currentCaseStateVisibleToLegalRepresentative": "appealSubmitted",
+  "uploadAddendumEvidenceLegalRepActionAvailable": "No",
+  "uploadAddendumEvidenceHomeOfficeActionAvailable": "No",
+  "uploadAddendumEvidenceAdminOfficerActionAvailable": "No",
+  "uploadAdditionalEvidenceHomeOfficeActionAvailable": "No"
+}

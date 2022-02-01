@@ -1,16 +1,39 @@
 Feature: Submit clarifying questions for an appeal in person
 
-  @aip-clarifying-questions-ho
+  @aip-clarifying-questions-ho @nightly-test
   Scenario: An Home Office user can view the respondent clarifying question answers form the appeal tab
     Given An appellant has submitted an appeal
     And I am signed in as a `Case Officer`
-    And I am viewing the appellant's case
+    And I am viewing the appellant's case details
+
+    And I click the `PA/50015/2022` link
+    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the Validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
+
+    When I select the `Request Home Office data` Next step
+    And I am on the `Match appellant details` page
+    And I should see the option `No Match` for the `Make a selection` field
+    And I select `No Match` for the `Make a selection` field
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `No Match` for the `Make a selection` field
+    And I click the `Request Home Office data` button
+
+    Then I should see the text `You have matched the appellant details`
+    And I should see the text `Do this next`
+    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
+
+    When I click the `Close and Return to case details` button
+
+    Then I click the `Validation` tab
+    And I should see the text `There are no matching details for this appellant. You can contact the Home Office if you need more information to validate the appeal.`
+
     And I request respondent evidence
     And I switch to be a `Home Office APC`
     And I click the `upload the Home Office bundle` link
     And I am on the `Upload Home Office bundle` page
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I am on the `Check your answers` page

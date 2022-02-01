@@ -24,6 +24,11 @@ Given(/^An appellant has submitted an appeal$/, async function () {
   this.securityHeaders = securityHeaders;
 });
 
+Given(/^I am viewing the appellant's case details$/, async function () {
+  await ccdPage.get(`${ccdUrl}/case/case-details/${this.caseDetails.id}`);
+  await ccdPage.contentContains('PA/50004/2022');
+});
+
 Given(/^I am viewing the appellant's case$/, async function () {
   await ccdPage.get(`${ccdUrl}/case/IA/Asylum/${this.caseDetails.id}`);
   await ccdPage.contentContains('Immigration');
