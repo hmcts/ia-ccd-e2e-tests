@@ -1,12 +1,11 @@
 Feature: Submit clarifying questions for an appeal in person
 
-  @aip-clarifying-questions-ho @nightly-test
+  @aip-clarifying-questions-ho @RIA-5185 @nightly-test
   Scenario: An Home Office user can view the respondent clarifying question answers form the appeal tab
     Given An appellant has submitted an appeal
     And I am signed in as a `Case Officer`
     And I am viewing the appellant's case details
 
-    And I click the `PA/50015/2022` link
     And I should see the text `You must review the appeal data and cross reference it with Home Office data in the Validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
 
     When I select the `Request Home Office data` Next step
@@ -51,8 +50,7 @@ Feature: Submit clarifying questions for an appeal in person
     When I click the `Close and Return to case details` button
     Then I should only see the `caseOfficer_caseUnderReview` case progress image
     And I should see the text `If you don't think it is ready, you should direct the appellant to answer clarifying questions or attend a case management appointment.`
-
-    When I click the `directions tab` link
+    When I click the `Directions` tab
     Then I should see the `Direct the appellant to answer clarifying questions` link
     When I click the `Direct the appellant to answer clarifying questions` link
     Then I should see the text `Direct the appellant to answer clarifying questions`
@@ -75,8 +73,8 @@ Feature: Submit clarifying questions for an appeal in person
     And within the `Directions` collection's first item, I should see `Question 1` in the `Question` field
 
     When the appellant submits clarifying answers
-    And I click the `Appeal` tab
     And I refresh the page
+    And I click the `Appeal` tab
     Then I should see the `Clarifying Questions and Answers` field
     And within the `Clarifying Questions and Answers` collection's first item, I should see `Question 1` for the `Question` field
     And within the `Clarifying Questions and Answers` collection's first item, I should see `Answer 1` for the `Answer` field

@@ -116,6 +116,7 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
 });
 
 When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
+    await browser.sleep(1000);
     await ccdPage.hideSpinner();
     await ccdPage.click(linkText);
 });
