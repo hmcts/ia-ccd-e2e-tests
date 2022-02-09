@@ -231,6 +231,23 @@ Given(/^I switch to be a `?(?:|Legal Ops)(?:| A)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
+Given(/^I switch to be a `?(?:|Judicial)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsJudicial();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+});
+
+Given(/^I switch to be a `?(?:|WaAdmin)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsWaAdmin();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+});
 Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {
     await idamSignInPage.waitUntilLoaded();
     expect(await ccdPage.isLoaded()).to.equal(false);

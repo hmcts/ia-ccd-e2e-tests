@@ -36,7 +36,7 @@ export class ExclusionsFlow {
         await this.ccdFormPage.click('Continue');
         await browser.sleep(200);
         await this.ccdFormPage.click('Confirm exclusion');
-        await this.ccdFormPage.contentContains('You\'ve excluded yourself from a case.');
+        await this.ccdFormPage.contentContains('You\'ve added an exclusion.');
     }
 
     async JudicialExclusion(clickContinue = false) {
@@ -70,7 +70,7 @@ export class ExclusionsFlow {
         await this.ccdFormPage.click('Continue');
         await browser.sleep(200);
         await this.ccdFormPage.click('Confirm exclusion');
-        await this.ccdFormPage.contentContains('You\'ve excluded yourself from a case.');
+        await this.ccdFormPage.contentContains('You\'ve added an exclusion.');
     }
 
     async adminExclusion(clickContinue = false) {
@@ -105,6 +105,6 @@ export class ExclusionsFlow {
         await this.ccdFormPage.click('Continue');
         await browser.sleep(200);
         await this.ccdFormPage.click('Confirm exclusion');
-        await this.ccdFormPage.contentContains('You\'ve excluded yourself from a case.');
+        await this.ccdFormPage.contentContains('You\'ve added an exclusion.');
     }
 };

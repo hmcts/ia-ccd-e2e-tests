@@ -180,16 +180,16 @@ export class AuthenticationFlow {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
-            iaConfig.TestLegalOpsAUserName,
-            iaConfig.TestLegalOpsAPassword
+            iaConfig.TestJudicialUserName,
+            iaConfig.TestJudicialPassword
         );
     }
     async signInAsWaAdmin() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
-            iaConfig.TestLegalOpsAUserName,
-            iaConfig.TestLegalOpsAPassword
+            iaConfig.TestWaAdminUserName,
+            iaConfig.TestWaAdminPassword
         );
     }
 
