@@ -29,7 +29,8 @@ Feature: Notice of Change (common component)
     And I enter the incorrect firstname answer to the challenge questions
     And I enter the correct lastname answer to the challenge questions
     And I click the `Continue` button
-    And I should see the text `Enter the client details exactly as they’re written on the case, including any mistakes`
+    And I wait for 20 seconds
+    And I should see the text `Enter the client details exactly as they're written on the case, including any mistakes`
     And I click the `Back` link
     And I click the `Back` link
 

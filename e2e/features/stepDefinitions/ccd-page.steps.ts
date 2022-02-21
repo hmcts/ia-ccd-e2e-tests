@@ -43,17 +43,15 @@ Given('I Apply case list filter', async function () {
     expect(await ccdPage.headingContains('Case list')).to.equal(true);
     await ccdPage.runAccessbility();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
-        await ccdFormPage.setFieldValue(
-            'Jurisdiction',
-            'Immigration & Asylum'
-        );
+    await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
-    // if (iaConfig.CcdWebUrl.includes('aat') ) {
+
+    if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* master'
         );
-    // }
+    }
 
     await ccdPage.doesDropdownHaveValues('State');
     await ccdFormPage.setFieldValue(
