@@ -33,7 +33,6 @@ Feature: New Share a Case (common component)
     And I click the `Confirm` button
     And I click the `Go back to the case list.` link
     Given I am signed in as a `Legal Org User Rep A`
-    And I refresh the page
     And I Apply case list filter
     When I select the most recent case to share
     Then I should see the `Add recipient` page

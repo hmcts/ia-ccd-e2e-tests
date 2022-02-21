@@ -16,8 +16,8 @@ export class PrepareDecisionAndReasonsFlow {
 
         await this.ccdFormPage.headingContains('Prepare Decision and Reasons');
         await this.ccdFormPage.contentContains('Give the names of the legal representatives in this case');
-        await this.ccdFormPage.setFieldValue('Legal representative for the appellant (Optional)', 'Atticus Finch');
-        await this.ccdFormPage.setFieldValue('Legal representative for the respondent (Optional)', 'Perry Mason');
+        await this.ccdFormPage.setFieldValue('Legal representative for the appellant', 'Atticus Finch');
+        await this.ccdFormPage.setFieldValue('Legal representative for the respondent', 'Perry Mason');
         await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.contentContains('Check your answers');
