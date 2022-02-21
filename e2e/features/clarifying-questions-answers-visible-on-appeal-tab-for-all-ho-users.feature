@@ -62,7 +62,8 @@ Feature: Submit clarifying questions for an appeal in person
     When I click the `Submit` button
     Then I should see the text `The appellant will be directed to answer the questions. You will be notified when they are ready to review.`
     When I click the `Close and Return to case details` button
-    Then I should see the text `The appellant has been directed to answer clarifying questions. You will be notified when their answers are ready to review.`
+    Then I should see the text `The appellant has been directed to answer clarifying questions. You will be notified when their answers are ready to`
+    And I should see the text `review.`
 
     When I click the `Directions` tab
     Then I should see the `Directions` field
