@@ -3,7 +3,7 @@ Feature: Notice of Change (common component)
   Background:
 
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 8 seconds
+    And I wait for 15 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
@@ -20,7 +20,7 @@ Feature: Notice of Change (common component)
   Scenario: NoC request as a user from the same organisation (incorrect firstname anwser)
 
     When I switch to be a `Legal Org User Rep B`
-    And I wait for 8 seconds    
+    And I wait for 10 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
