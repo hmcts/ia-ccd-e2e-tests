@@ -13,6 +13,7 @@ Feature: Start decision and reasons
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
+    And I wait for 2 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I click the `Close and Return to case details` button
     And I switch to be a `Case Officer`
