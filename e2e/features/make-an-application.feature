@@ -2,7 +2,7 @@ Feature: Legal representative make an application
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 8 seconds
+    And I wait for 10 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
