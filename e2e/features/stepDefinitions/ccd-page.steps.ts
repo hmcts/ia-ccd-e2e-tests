@@ -38,7 +38,7 @@ Given('I create a new case', async function () {
 
 Given('I Apply case list filter', async function () {
     // there is loading mask with spinner added by ExUI
-    await browser.sleep(5000);
+    await browser.sleep(10000);
 
     expect(await ccdPage.headingContains('Case list')).to.equal(true);
     await ccdPage.runAccessbility();

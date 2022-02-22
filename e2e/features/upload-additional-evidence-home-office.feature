@@ -14,6 +14,7 @@ Feature: Upload additional evidence Home Office
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
+    And I wait for 2 seconds
     And I request home office data
     And I request respondent evidence
     And I upload respondent evidence

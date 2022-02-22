@@ -6,13 +6,14 @@ Feature: Notice of Change (common component)
     And I wait for 15 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I wait for 10 seconds
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
+    And I wait for 2 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I get the most recent case id for the notice of change case
 
