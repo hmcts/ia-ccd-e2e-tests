@@ -7,12 +7,13 @@ Feature: Final display for FTPA decision and reasons
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     When I click the `pay for and submit your appeal` link
+    Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
-    And I wait for 2 seconds
+    And I wait for 5 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I click the `Close and Return to case details` button
     And I switch to be a `Case Officer`
@@ -45,7 +46,33 @@ Feature: Final display for FTPA decision and reasons
     And I wait for 30 seconds
     And I refresh the page
     And I wait for 4 seconds
-    And I start decision and reasons
+
+    When I select the `Start decision and reasons` Next step
+    Then I should see the text `Start decision and reasons`
+
+    When I type `some introduction` for the `Introduction (Optional)` field
+    And I click the `Continue` button
+    Then I should see the text `Add the appellant's case summary`
+
+    When I type `some case summary` for the `Appellant's case summary (Optional)` field
+    And I click the `Continue` button
+    Then I should see the text `Do both parties agree the immigration history?`
+
+    When I select `Yes` for the `Do both parties agree the immigration history?` field
+    When I type `some agreed immigration history` for the `Agreed immigration history (Optional)` field
+    And I click the `Continue` button
+    Then I see the text `Do both parties agree the schedule of issues?`
+
+    When I select `Yes` for the `Do both parties agree the schedule of issues?` field
+    When I type `some schedule of issues` for the `The appellant's schedule of issues (Optional)` field
+    And I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `some introduction` in the `Introduction` field
+    When I click the `Save` button
+    Then I should see the text `You have started the decision and reasons process`
+    And I should see the text `The judge can now download and complete the decision and reasons document.`
+    And I click the `Close and Return to case details` button
+
     And I prepare decision and reasons
     And I send decision and reasons
     When I switch to be a `Legal Org User Rep A`
