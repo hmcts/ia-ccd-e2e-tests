@@ -59,6 +59,6 @@
     "mixin-deep": "^2.0.1",
     "set-value": "^4.0.1",
     "yargs-parser": "^18.1.2",
-    "yargs": "^13.3.2"
+    "yargs": "^15.0.0"
   }
 }
