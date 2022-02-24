@@ -85,7 +85,7 @@ Feature: Final display for FTPA decision and reasons
 
     Then I apply for appellant FTPA
 
-    When I switch to be a `Judge`
+    When I switch to be a Judge
     And I wait for 2 seconds
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
