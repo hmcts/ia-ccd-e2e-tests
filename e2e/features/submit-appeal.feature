@@ -12,6 +12,7 @@ Feature: Submit appeal application
   @xbrowsertest
   Scenario: Submit an appeal application
 
+    And I click the `Close and Return to case details` button
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field

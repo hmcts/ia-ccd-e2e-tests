@@ -10,6 +10,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
   @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa  @RIA-4468-pa @RIA-4468 @RIA-4679 @nightly-test
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
 
+    And I click the `Close and Return to case details` button
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
