@@ -10,7 +10,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
   @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa  @RIA-4468-pa @RIA-4468 @RIA-4679 @nightly-test
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
 
-    When I click the `pay for and submit your appeal` link
+    And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
@@ -23,6 +23,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
+    And I wait for 15 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I should see the text `What happens next`
     And I should see the text `You will receive an email confirming that this appeal has been submitted successfully.`

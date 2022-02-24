@@ -12,7 +12,7 @@ Feature: Submit appeal application
   @xbrowsertest
   Scenario: Submit an appeal application
 
-    When I click the `pay for and submit your appeal` link
+    And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I wait for 5 seconds
@@ -20,6 +20,7 @@ Feature: Submit appeal application
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
+    And I wait for 15 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
 
   @regression @submit-appeal @RIA-515 @RIA-3486
