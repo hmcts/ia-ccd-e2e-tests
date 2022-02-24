@@ -19,6 +19,7 @@ Feature: Flag a case
     And I switch to be a `Case Officer`
     And I wait for 5 seconds
     When I select the `Flag the case` Next step
+    And I wait for 5 seconds
     Then I am on the `Flag the case` page
     And The page is accessible
     And I should see the text `This flag will only be visible to the Tribunal.`
@@ -59,6 +60,7 @@ Feature: Flag a case
   Scenario: Additional information dialog is populated empty for non-existing flags
     
     When I select the `Flag the case` Next step
+    And I wait for 5 seconds
     Then I am on the `Flag the case` page
     And The page is accessible
 
@@ -79,6 +81,7 @@ Feature: Flag a case
   Scenario: Flag a case with multiple flags and additional information
 
     When I select the `Flag the case` Next step
+    And I wait for 5 seconds
     Then I am on the `Flag the case` page
     And The page is accessible
     And I should see the text `This flag will only be visible to the Tribunal.`
@@ -120,6 +123,7 @@ Feature: Flag a case
   Scenario: Flag a case with multiple flags and only single additional information
 
     When I select the `Flag the case` Next step
+    And I wait for 5 seconds
     Then I am on the `Flag the case` page
     And The page is accessible
     And I should see the text `This flag will only be visible to the Tribunal.`
@@ -158,6 +162,7 @@ Feature: Flag a case
   Scenario: Flag a case with 94B flag and additional information
 
     When I select the `Flag the case` Next step
+    And I wait for 5 seconds
     Then I am on the `Flag the case` page
     And I should see the text `This flag will only be visible to the Tribunal.`
 
