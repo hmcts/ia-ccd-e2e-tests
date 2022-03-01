@@ -15,7 +15,7 @@ Feature: Notice of Change (common component)
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
-    And I wait for 15 seconds
+    And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I get the most recent case id for the notice of change case
 

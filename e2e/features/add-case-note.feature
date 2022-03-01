@@ -14,7 +14,7 @@ Feature: Add a case note
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
-    And I wait for 15 seconds
+    And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
 
   @regression @add-case-note @RIA-575 @nightly-test
