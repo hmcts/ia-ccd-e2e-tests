@@ -21,7 +21,7 @@ Feature: Submit appeal application
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
-    And I wait for 15 seconds
+    And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
 
   @regression @submit-appeal @RIA-515 @RIA-3486
