@@ -15,7 +15,7 @@ Feature: Notice of Change (common component)
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
-    And I wait for 15 seconds
+    And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I get the most recent case id for the notice of change case
 
@@ -33,7 +33,7 @@ Feature: Notice of Change (common component)
     And I enter the correct lastname answer to the challenge questions
     And I click the `Continue` button
     And I wait for 30 seconds
-    And I should see the text `Enter the client details exactly as they’re written on the case, including any mistakes`
+    And I should see the text `There is a problem`
     And I click the `Back` link
     And I click the `Back` link
 

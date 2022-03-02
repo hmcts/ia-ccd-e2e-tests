@@ -24,7 +24,7 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
-    And I wait for 15 seconds
+    And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I should see the text `What happens next`
     And I should see the text `You will receive an email confirming that this appeal has been submitted successfully.`
