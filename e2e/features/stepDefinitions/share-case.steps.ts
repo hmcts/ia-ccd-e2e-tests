@@ -9,10 +9,6 @@ When('I enter text {string} in user email in share case page', async function (t
     await shareCasePage.enterUserEmailToSelect(text);
 });
 
-When('I enter Legal Org User Rep B in user email in share case page', async function () {
-    await shareCasePage.enterLegalOrgRepUserBEmailToSelect();
-});
-
 Then('I see a list of users filtered containing text {string}', async function (text) {
     let userEmails = await shareCasePage.getFilteredUserNameEmails();
     for (let i = 0; i < userEmails.length; i++) {
