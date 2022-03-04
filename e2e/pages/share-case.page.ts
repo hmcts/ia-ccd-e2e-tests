@@ -15,6 +15,7 @@ export class ShareCasePage {
     private continueButton: ElementFinder;
     private caseIdToBeShared: string;
     private sharedCaseId: string;
+    private formFiller = new FormFiller();
 
     constructor() {
 
