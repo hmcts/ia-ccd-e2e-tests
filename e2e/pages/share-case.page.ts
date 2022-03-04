@@ -2,6 +2,7 @@ import { Wait } from '../enums/wait';
 import { $, $$, browser, by, element, ElementArrayFinder, ElementFinder } from 'protractor';
 
 const BrowserWaits = require('../support/customWaits');
+const iaConfig = require('../../ia.conf');
 
 export class ShareCasePage {
 
