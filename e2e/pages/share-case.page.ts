@@ -5,7 +5,6 @@ import { FormFiller } from '../helpers/form-filler';
 const BrowserWaits = require('../support/customWaits');
 const iaConfig = require('../ia.conf');
 
-
 export class ShareCasePage {
 
     private userEmailInput: any;
