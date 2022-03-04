@@ -27,15 +27,14 @@ Feature: New Share a Case (common component)
     Then I should see the `Add recipient` page
     And I get the case id to be shared
     And I wait for 5 seconds
-    When I enter text "@" in user email in share case page
+    When I enter Legal Org User Rep B in user email in share case page
     And I wait for 2 seconds
-    Then I see a list of users filtered containing text "@"
     And I select a listed user not shared with in the share case page
     And I click Add user button in share case page
     And I click continue in share case page
     And I click the `Confirm` button
     And I click the `Go back to the case list.` link
-    Given I am signed in as a `Legal Org User Rep A`
+    Given I am signed in as a `Legal Org User Rep B`
     And I refresh the page
     And I wait for 15 seconds
     And I Apply case list filter
