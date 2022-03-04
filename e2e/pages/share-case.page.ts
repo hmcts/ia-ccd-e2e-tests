@@ -1,7 +1,9 @@
 import { Wait } from '../enums/wait';
 import { $, $$, browser, by, element, ElementArrayFinder, ElementFinder } from 'protractor';
+import { FormFiller } from '../helpers/form-filler';
 
 const BrowserWaits = require('../support/customWaits');
+const iaConfig = require('../../ia.conf');
 
 export class ShareCasePage {
 
@@ -120,6 +122,10 @@ export class ShareCasePage {
 
     async enterUserEmailToSelect(emailText) {
         return await this.userEmailInput.sendKeys(emailText);
+    }
+
+    async enterLegalOrgRepUserBEmailToSelect() {
+        return await this.formFiller.replaceText(this.userEmailInput, iaConfig.TestLawFirmBUserName);
     }
 
     async getFilteredUserEmails() {
