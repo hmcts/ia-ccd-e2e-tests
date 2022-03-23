@@ -4,21 +4,22 @@ Feature: Start initial bail application as Admin Officer
   Scenario: Start initial bail application as Admin Officer
 
     Given I am signed in as a `Admin Officer`
-    And I create a new bail application
+    When I create a new bail application
     And I complete the `Before you start` page
     Then I am on the `Which party sent the application to the Tribunal?` page
 
-    Given I am on the `Home Office details` page
-    When I type `01234567` for the `Home Office Reference/Case ID` field
-    And I type `31-10-2018` for the `Enter the date the decision letter was sent` field
+    Given I am on the `Which party sent the application to the Tribunal?` page
+    #When I select `Applicant` for `Which party sent the application to the Tribunal` page
+    When I select `Applicant` for the `Application sent by` field
     And I click the `Continue` button
+    Then I am on the `What is the applicants name?` page
 
-    Given I am on the `Basic details` page
-    And I type `Mr` for the `Title` field
+    Given I am on the `What is the applicants name?` page
     And I type `José` for the `Given names` field
     And I type `González` for the `Family name` field
-    And I type `31-12-1999` for the `Date of birth` field
     And I click the `Continue` button
+
+    And I type `31-12-1999` for the `Date of birth` field
 
     Given I am on the `Tell us about your client's nationality` page
     When I select `Has a nationality` for the `Nationality` field

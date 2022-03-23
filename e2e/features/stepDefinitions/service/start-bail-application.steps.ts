@@ -8,6 +8,9 @@ const startBailApplicationFlow = new StartBailApplicationFlow();
 
 Given('I complete the `Before you start` page', async function () {
     expect(await ccdFormPage.headingContains('Before you start')).to.equal(true);
-    await startBailApplicationFlow.confirmStart(true);
+    await startBailApplicationFlow.completeBeforeYouStart(true);
 });
 
+/*Given(/^I select `?([^`]+)`? for `Which party sent the application to the Tribunal` page$/, async function (party) {
+    await startBailApplicationFlow.selectPartyApplication(party);
+});*/
