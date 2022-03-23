@@ -1,6 +1,6 @@
 import { CcdFormPage } from '../../../pages/ccd-form.page';
 import { startBailApplicationFlow } from '../../../flows/start-bail-application.flow';
-import { Given, Then } from 'cucumber';
+import { Given } from 'cucumber';
 import { expect } from 'chai';
 
 const ccdFormPage = new CcdFormPage();
