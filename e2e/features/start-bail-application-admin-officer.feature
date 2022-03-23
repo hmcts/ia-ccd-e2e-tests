@@ -1,35 +1,88 @@
-Feature: Start initial bail application as Admin Officer
+Feature: Start bail application as Admin Officer
 
 @start-bail-application @RIA-5634
-  Scenario: Start initial bail application as Admin Officer
+  Scenario: Start bail application as Admin Officer
 
     Given I am signed in as a `Admin Officer`
     When I create a new bail application
-    And I complete the `Before you start` page
+    And I am on the `Before you start` page
+    And I click the `Continue` button
     Then I am on the `Which party sent the application to the Tribunal?` page
 
     Given I am on the `Which party sent the application to the Tribunal?` page
-    #When I select `Applicant` for `Which party sent the application to the Tribunal` page
     When I select `Applicant` for the `Application sent by` field
+    # When I select `Legal representative` for the `Application sent by` field
+    # When I select `Home Office` for the `Application sent by` field
     And I click the `Continue` button
-    Then I am on the `What is the applicants name?` page
+    Then I am on the `What is the applicant's name?` page
 
-    Given I am on the `What is the applicants name?` page
+    Given I am on the `What is the applicant's name?` page
     And I type `José` for the `Given names` field
     And I type `González` for the `Family name` field
     And I click the `Continue` button
+    Then I am on the `What is the applicant's date of birth?` page
 
+    Given I am on the `What is the applicant's date of birth?` page
     And I type `31-12-1999` for the `Date of birth` field
-
-    Given I am on the `Tell us about your client's nationality` page
-    When I select `Has a nationality` for the `Nationality` field
-    And I add an item to the `Nationality` collection
-    And within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
-    And I add another item to the `Nationality` collection
-    And within the `Nationality` collection's second item, I select `Iceland` for the `Nationality` field
     And I click the `Continue` button
+    Then I am on the `What is the applicant's gender?` page
 
-    Given I am on the `Your client's address` page
+    Given I am on the `What is the applicant's gender?` page
+    # When I select `Female` for the `Gender` field
+    # When I select `Male` for the `Gender` field
+    When I select `Other` for the `Gender` field
+    And I type `Other` for the `Enter details` field
+    And I click the `Continue` button
+    Then I am on the `What is the applicant's nationality?` page
+
+    Given I am on the `What is the applicant's nationality` page
+    # When I select `The applicant is stateless` for the `Nationality` field
+    When I select `The applicant has a nationality` for the `Nationality` field
+    And I add an item to the `Nationality` collection
+    And within the `Nationality` collection's first item, I select `Finnish` for the `Nationality` field
+    And I add another item to the `Nationality` collection
+    And within the `Nationality` collection's second item, I select `Icelandic` for the `Nationality` field
+    And I click the `Continue` button
+    Then I am on the `What is the applicant's Home Office reference number?` page
+
+    Given I am on the `What is the applicant's Home Office reference number?` page
+    When I type `01234567` for the `Home Office reference` field
+    And I click the `Continue` button
+    Then I am on the `Where is the applicant detained?` page
+
+    Given I am on the `Where is the applicant detained?` page
+    # When I select `Immigration removal centre` for the `Detention facility` field
+    # And I click the `Continue` button
+    # Then I am on the `In which immigration removal centre is the applicant detained?` page
+    When I select `Prison` for the `Detention facility` field
+    And I type `987654321` for the `What is the applicant's NOMS number?` field
+    And I click the `Continue` button
+    Then I am on the `In which prison is the applicant detained?` page
+
+    # Given I am on the `In which immigration removal centre is the applicant detained?` page
+    # When I select `Larne House` for the `Immigration remove centre name` field
+    # And I click the `Continue` button
+    Given I am on the `In which prison is the applicant detained?` page
+    When I select `HM Prison Blundeston` for the `Prison name` field
+    And I click the `Continue` button
+    Then I am on the `What date did the applicant arrive in the UK?` page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Given I am on the `Your client's address` page
     When I select `Yes` for the `Does the appellant have a fixed address?` field
     And I see the text `Enter a UK postcode`
     And I type `SW1A 2AA` for the `Enter a UK postcode` field

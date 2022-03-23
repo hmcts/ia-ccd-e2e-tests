@@ -1,3 +1,4 @@
+/*
 import { CcdFormPage } from '../../../pages/ccd-form.page';
 import { StartBailApplicationFlow } from '../../../flows/start-bail-application.flow';
 import { Given, Then } from 'cucumber';
@@ -10,7 +11,4 @@ Given('I complete the `Before you start` page', async function () {
     expect(await ccdFormPage.headingContains('Before you start')).to.equal(true);
     await startBailApplicationFlow.completeBeforeYouStart(true);
 });
-
-/*Given(/^I select `?([^`]+)`? for `Which party sent the application to the Tribunal` page$/, async function (party) {
-    await startBailApplicationFlow.selectPartyApplication(party);
-});*/
+*/

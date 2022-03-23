@@ -1,3 +1,4 @@
+/*
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class StartBailApplicationFlow {
@@ -10,8 +11,5 @@ export class StartBailApplicationFlow {
             await this.ccdFormPage.click('Continue');
         }
     }
-
-    /*async selectPartyApplication(party) {
-        await this.ccdFormPage.setFieldValue('Application sent by', party);
-    }*/
 }
+*/
