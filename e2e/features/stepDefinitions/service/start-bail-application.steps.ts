@@ -11,6 +11,3 @@ Given('I complete the `Before you start` page', async function () {
     await startBailApplicationFlow.confirmStart(true);
 });
 
-Then(/^I am on the `?([^`]+)`? page$/, async function (pageName) {
-    expect(await ccdFormPage.headingContains(pageName)).to.equal(true);
-});
