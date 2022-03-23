@@ -36,12 +36,12 @@ Feature: Start bail application as Admin Officer
     Then I am on the `What is the applicant's nationality?` page
 
     Given I am on the `What is the applicant's nationality` page
-    # When I select `The applicant is stateless` for the `Nationality` field
-    When I select `The applicant has a nationality` for the `Nationality` field
-    And I add an item to the `Nationality` collection
-    And within the `Nationality` collection's first item, I select `Finnish` for the `Nationality` field
-    And I add another item to the `Nationality` collection
-    And within the `Nationality` collection's second item, I select `Icelandic` for the `Nationality` field
+    When I select `The applicant is stateless` for the `Nationality` field
+    # When I select `The applicant has a nationality` for the `Nationality` field
+    # And I add an item to the `Nationality` collection
+    # And within the `Nationality` collection's first item, I select `Finnish` for the `Nationality` field
+    # And I add another item to the `Nationality` collection
+    # And within the `Nationality` collection's second item, I select `Icelandic` for the `Nationality` field
     And I click the `Continue` button
     Then I am on the `What is the applicant's Home Office reference number?` page
 
