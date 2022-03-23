@@ -1,5 +1,5 @@
 import { CcdFormPage } from '../../../pages/ccd-form.page';
-import { StartAppealFlow } from '../../../flows/start-bail-application.flow';
+import { startBailApplicationFlow } from '../../../flows/start-bail-application.flow';
 import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
 
