@@ -36,6 +36,32 @@ Given('I create a new case', async function () {
     await ccdPage.click('Start');
 });
 
+Given('I create a new bail application', async function () {
+    // there is loading mask with spinner added by ExUI
+    await browser.sleep(7000);
+    await ccdPage.hideSpinner();
+    await ccdPage.linkContains('Create case');
+    await ccdPage.runAccessbility();
+    await browser.sleep(3000);
+    await ccdPage.click('Create case');
+    expect(await ccdPage.headingContains('Create Case')).to.equal(true);
+    await ccdPage.runAccessbility();
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
+    await ccdPage.doesDropdownHaveValues('Case type');
+
+    //if (iaConfig.CcdWebUrl.includes('aat') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Bail*'
+        );
+    //}
+
+    await ccdPage.doesDropdownHaveValues('Event');
+    await ccdPage.isButtonEnabled('Start');
+    await ccdPage.click('Start');
+});
+
 Given('I Apply case list filter', async function () {
     // there is loading mask with spinner added by ExUI
     await browser.sleep(5000);
