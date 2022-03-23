@@ -10,3 +10,7 @@ Given('I complete the `Before you start` page', async function () {
     expect(await ccdFormPage.headingContains('Before you start')).to.equal(true);
     await startBailApplicationFlow.confirmStart(true);
 });
+
+Then('I am on the `{ heading }` page', async function () {
+    expect(await ccdFormPage.headingContains( { heading } )).to.equal(true);
+});

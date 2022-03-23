@@ -6,6 +6,7 @@ Feature: Start initial bail application as Admin Officer
     Given I am signed in as a `Admin Officer`
     And I create a new bail application
     And I complete the `Before you start` page
+    Then I am on the `Which party sent the application to the Tribunal?` page
 
     Given I am on the `Home Office details` page
     When I type `01234567` for the `Home Office Reference/Case ID` field
