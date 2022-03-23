@@ -1,6 +1,6 @@
 import { CcdFormPage } from '../../../pages/ccd-form.page';
-import { startBailApplicationFlow } from '../../../flows/start-bail-application.flow';
-import { Given } from 'cucumber';
+import { StartBailApplicationFlow } from '../../../flows/start-bail-application.flow';
+import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
 
 const ccdFormPage = new CcdFormPage();
@@ -11,6 +11,6 @@ Given('I complete the `Before you start` page', async function () {
     await startBailApplicationFlow.confirmStart(true);
 });
 
-Then('I am on the `{ heading }` page', async function () {
-    expect(await ccdFormPage.headingContains( { heading } )).to.equal(true);
+Then(/^I am on the `?([^`]+)`? page$/, async function (pageName) {
+    expect(await ccdFormPage.headingContains(pageName)).to.equal(true);
 });
