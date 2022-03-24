@@ -55,7 +55,7 @@
     "kind-of": "^6.0.3",
     "lodash": "^4.17.19",
     "mem": "^4.0.0",
-    "minimist": "^1.2.3",
+    "minimist": "^1.2.6",
     "mixin-deep": "^2.0.1",
     "set-value": "^4.0.1",
     "yargs-parser": "^18.1.2",
