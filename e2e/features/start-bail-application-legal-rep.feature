@@ -131,8 +131,7 @@ Feature: Start bail application as a Legal Representative user
     Then I should see `Pugh` for the first `Family name` answer
     And I should see `31 Dec 1998` for the first `Date of birth` answer
     And I should see `Male` for the `Gender` answer
-    And I should see `Immigration removal centre` for the `Detention facility` answer
-    And I should see `Larne House` for the `Immigration removal centre name` answer
+    And I should see `Larne House` for the `Immigration removal centre` answer
     And I should see `Yes, but I don't know the appeal reference number` for the `Pending appeal hearing` answer
     And I should see `Yes, but I don't know the bail application number` for the `Previous application` answer
     And I should see `No` for the `Address if bail granted` answer
