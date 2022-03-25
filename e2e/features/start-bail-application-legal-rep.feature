@@ -152,7 +152,6 @@ Feature: Start bail application as a Legal Representative user
 
     Given I click the `Overview` tab
     Then I should see `Harri Pugh` for the `Applicant name` field
-    And I should see `Immigration removal centre` for the `Detention facility` field
     And I should see `Larne House` for the `Immigration removal centre` field
     And I should see `01234568` for the `Home Office reference` field
     And I should see `Fake Org Ltd` for the `Company` field
