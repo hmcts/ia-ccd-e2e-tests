@@ -90,6 +90,34 @@ Given('I Apply case list filter', async function () {
     await ccdPage.click('Apply');
 });
 
+Given('I Apply case list filter for Bails', async function () {
+    // there is loading mask with spinner added by ExUI
+    await browser.sleep(5000);
+
+    expect(await ccdPage.headingContains('Case list')).to.equal(true);
+    await ccdPage.runAccessbility();
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+        await ccdFormPage.setFieldValue(
+            'Jurisdiction',
+            'Immigration & Asylum'
+        );
+    await ccdPage.doesDropdownHaveValues('Case type');
+    // if (iaConfig.CcdWebUrl.includes('aat') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Bail* master'
+        );
+    // }
+
+    await ccdPage.doesDropdownHaveValues('State');
+    await ccdFormPage.setFieldValue(
+        'State',
+        'Any'
+    );
+    await ccdPage.isButtonEnabled('Apply');
+    await ccdPage.click('Apply');
+});
+
 Then('I wait for Create Case fields to load', async function () {
     await ccdPage.headingContains('Create Case');
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
