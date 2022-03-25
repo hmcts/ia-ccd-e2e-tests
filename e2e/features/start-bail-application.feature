@@ -480,7 +480,7 @@ Feature: Start bail application
     Then I am on the `Has the applicant made an application for immigration bail before?` page
 
     Given I am on the `Has the applicant made an application for immigration bail before?` page
-    When I select `Yes, but I don't know the appeal reference number` for the `Previous application` field
+    When I select `Yes, but I don't know the bail application number` for the `Previous application` field
     And I click the `Continue` button
     Then I am on the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` page
 
