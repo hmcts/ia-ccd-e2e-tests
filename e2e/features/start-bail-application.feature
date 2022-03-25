@@ -543,7 +543,7 @@ Feature: Start bail application
 
     Given I am on the `Enter the legal representative’s details` page
     When I type `Legal Rep` for the `Name` field
-    When I type `07292929299` for the field with ID `legalRepPhone`
+    When I type `07292929292` for the field with ID `legalRepPhone`
     And I type `This is a reference` for the `Reference` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
