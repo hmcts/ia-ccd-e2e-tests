@@ -724,6 +724,7 @@ Feature: Start bail application
     And I click the `Continue` button
     Then I am on the `Check your answers` page
 
+    # Check your answers page
     Given I am on the `Check your answers` page
     # Applicant personal details
     Then I should see `Harri` for the first `Given names` answer
@@ -764,16 +765,64 @@ Feature: Start bail application
     And I wait for 10 seconds
     Then I should see the text `Case record`
 
+    # Tab checks
+    Given I click the `Overview` tab
+    Then I should see `Harri Pugh` for the `Applicant name` field
+    And I should see `Immigration removal centre` for the `Detention facility` field
+    And I should see `Brookhouse` for the `Immigration removal centre name` field
+    And I should see `01234569` for the `Home Office reference` field
+    And I should see `A Legal Representative Company` for the `Company` field
+    And I should see `Legal Representative` for the `Name` field
+    And I should see `legalRep@test.com` for the `Email address` field
+    And I should see `07292929299` for the `Phone number` field
+    And I should see `This is a very good reference` for the `Reference` field
 
+    Given I click the `Bail application` tab
+    Then I should see the text `Submission`
+    And I should see `Home Office` for the `Application submitted by` answer
 
+    And I should see the text `Personal information`
+    And I should see `Harri` for the first `Given names` answer
+    And I should see `Pugh` for the first `Family name` answer
+    And I should see `31 Dec 1997` for the first `Date of birth` answer
+    And I should see `Female` for the `Gender` answer
+    And I should see the text `Stateless`
+    And I should see `No` for the `Mobile phone` answer
 
+    And I should see the text `Applicant information`
+    And I should see `01234569` for the `Home Office reference` answer
+    And I should see `Immigration removal centre` for the `Detention facility` answer
+    And I should see `Brookhouse` for the `Immigration removal centre name` answer
+    And I should see `31 Dec 2007` for the `Date of arrival in the UK` answer
+    And I should see `No` for the `Pending appeal hearing` answer
+    And I should see `No` for the `Address if bail granted` answer
 
+    And I should see the text `Previous application`
+    And I should see the text `Don't know`
+    And I should see `No` for the `Bail refused in the last 28 days` answer
 
+    And I should see the text `Financial condition commitment`
+    And I should see `No` for the `Financial condition` answer
 
+    And I should see the text `Financial condition supporter 1`
+    And I should see `No` for the `Financial condition supporter` answer
 
+    And I should see the text `Grounds for bail`
+    And I should see `Grounds for bail` for the `Enter the bail grounds` answer
+    And I should see `Yes` for the `Transfer bail management` answer
+    And I should see `No` for the `Supporting evidence` answer
 
+    And I should see the text `Hearing requirements`
+    And I should see `No` for the `Interpreter` answer
+    And I should see `No` for the `Disability` answer
+    And I should see `Yes` for the `Able to join video hearing` answer
 
-
+    And I should see the text `Legal Representative`
+    And I should see `A Legal Representative Company` for the `Company` answer
+    And I should see `Legal Representative` for the `Name` answer
+    And I should see `legalRep@test.com` for the `Email address` answer
+    And I should see `07292929299` for the `Phone number` answer
+    And I should see `This is a very good reference` for the `Reference` answer
 
 
 
