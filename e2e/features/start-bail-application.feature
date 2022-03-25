@@ -60,7 +60,7 @@ Feature: Start bail application
     Then I am on the `In which prison is the applicant detained?` page
 
     # Given I am on the `In which immigration removal centre is the applicant detained?` page
-    # When I select `Larne House` for the `Immigration remove centre name` field
+    # When I select `Larne House` for the `Immigration removal centre name` field
     # And I click the `Continue` button
     Given I am on the `In which prison is the applicant detained?` page
     When I select `HM Prison Blundeston` for the `Prison name` field
@@ -460,7 +460,7 @@ Feature: Start bail application
     Then I am on the `In which immigration removal centre is the applicant detained?` page
 
     Given I am on the `In which immigration removal centre is the applicant detained?` page
-    When I select `Larne House` for the `Immigration remove centre name` field
+    When I select `Larne House` for the `Immigration removal centre name` field
     And I click the `Continue` button
     Then I am on the `What date did the applicant arrive in the UK?` page
 
@@ -543,7 +543,7 @@ Feature: Start bail application
 
     Given I am on the `Enter the legal representative’s details` page
     When I type `Legal Rep` for the `Name` field
-    And I type `07292929292` for the `Phone number` field
+    When I type `07292929299` for the field with ID `legalRepPhone`
     And I type `This is a reference` for the `Reference` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -576,7 +576,7 @@ Feature: Start bail application
     And I should see `Yes` for the `Able to join video hearing` answer
     # Representative details
     And I should see `Legal Rep` for the `Name` answer
-    And I should see `07292929292` for the `Mobile number` answer
+    And I should see `07292929292` for the `Phone number` answer
     And I should see `This is a reference` for the `Reference` answer
 
     Given I click the `Save application` button
@@ -629,7 +629,7 @@ Feature: Start bail application
     Then I am on the `In which immigration removal centre is the applicant detained?` page
 
     Given I am on the `In which immigration removal centre is the applicant detained?` page
-    When I select `Brookhouse` for the `Immigration remove centre name` field
+    When I select `Brookhouse` for the `Immigration removal centre name` field
     And I click the `Continue` button
     Then I am on the `What date did the applicant arrive in the UK?` page
 
@@ -718,8 +718,8 @@ Feature: Start bail application
     Given I am on the `Enter the legal representative’s details` page
     When I type `A Legal Representative Company` for the `Company` field
     When I type `Legal Representative` for the `Name` field
-    And I type `07292929299` for the `Phone number` field
     And I type `legalRep@test.com` for the `Email address` field
+    When I type `07292929299` for the field with ID `legalRepPhone`
     And I type `This is a very good reference` for the `Reference` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -754,7 +754,7 @@ Feature: Start bail application
     And I should see `A Legal Representative Company` for the `Company` answer
     And I should see `Legal Representative` for the `Name` answer
     And I should see `legalRep@test.com` for the `Email address` answer
-    And I should see `07292929299` for the `Mobile number` answer
+    And I should see `07292929299` for the `Phone number` answer
     And I should see `This is a very good reference` for the `Reference` answer
 
     Given I click the `Save application` button
