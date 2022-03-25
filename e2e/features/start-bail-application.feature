@@ -562,7 +562,7 @@ Feature: Start bail application
     And I should see `31 Dec 2008` for the `Date of arrival in the UK` answer
     And I should see `No` for the `Mobile phone` answer
     And I should see `Yes, but I don't know the appeal reference number` for the `Pending appeal hearing` answer
-    And I should see `Yes, but I don't know the appeal reference number` for the `Previous application` answer
+    And I should see `Yes, but I don't know the bail application number` for the `Previous application` answer
     And I should see `No` for the `Bail refused in the last 28 days` answer
     And I should see `No` for the `Address if bail granted` answer
     # Financial condition details
