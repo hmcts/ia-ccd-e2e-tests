@@ -381,7 +381,6 @@ Feature: Start bail application
     And I should see `123456789` for the first `Passport number` answer
     And I should see `450` for the first `Financial condition amount (£)` answer
     And I should see `Yes` for the `Financial condition supporter 2` answer
-#
     And I should see `Jane` for the third `Given names` answer
     And I should see `Doe` for the third `Family name` answer
     And within the second `Address` fieldset, I should see `First Tier Tribunal Immigration & Asylum Chamber, Taylor House` for the `Building and Street` answer
@@ -416,6 +415,94 @@ Feature: Start bail application
     When I click the `Close and Return to case details` button
     And I wait for 10 seconds
     Then I should see the text `Case record`
+
+    # Tab checks
+    Given I click the `Overview` tab
+    Then I should see `Harri Pugh` for the `Applicant name` field
+    And I should see `HM Prison Blundeston` for the `Prison name` field
+    And I should see `01234567` for the `Home Office reference` field
+
+    Given I click the `Bail application` tab
+    Then I should see the text `Submission`
+    And I should see `Applicant` for the `Application submitted by` answer
+    And I should see the text `Personal information`
+    And I should see `Harri` for the first `Given names` answer
+    And I should see `Pugh` for the first `Family name` answer
+    And I should see `31 Dec 1999` for the first `Date of birth` answer
+    And I should see `Other` for the `Gender` answer
+    And I should see `Other` for the `Enter details` answer
+#    And I should see the text `Finnish`
+#    And I should see the text `Icelandic`
+    And I should see the text `Stateless`
+    And I should see `Yes` for the `Mobile phone` answer
+    And I should see `07930111111` for the `Mobile phone number` answer
+    And I should see the text `Applicant information`
+    And I should see `01234567` for the `Home Office reference` answer
+    And I should see `Prison` for the `Detention facility` answer
+    And I should see `987654321` for the `Prison NOMS number` answer
+    And I should see `HM Prison Blundeston` for the `Prison name` answer
+    And I should see `31 Dec 2009` for the `Date of arrival in the UK` answer
+    And I should see `Yes` for the `Pending appeal hearing` answer
+    And I should see `098765` for the `Appeal reference number` answer
+    And I should see `Yes` for the `Address if bail granted` answer
+    And within the first `Address` fieldset, I should see `Prime Minister & First Lord Of The Treasury` for the `Building and Street` answer
+    And within the first `Address` fieldset, I should see `10 Downing Street` for the `Address Line 2` answer
+    And within the first `Address` fieldset, I should see `London` for the `Town or City` answer
+    And within the first `Address` fieldset, I should see `SW1A 2AA` for the `Postcode/Zipcode` answer
+    And within the first `Address` fieldset, I should see `United Kingdom` for the `Country` answer
+    And I should see the text `Previous application`
+    And I should see `Yes` for the second `Previous application` answer
+    And I should see `123456` for the `Bail number` answer
+    And I should see `Yes` for the `Bail refused in the last 28 days` answer
+    And I should see `31 Dec 2019` for the `What was the date of the hearing?` answer
+    And I should see the text `Financial condition commitment`
+    And I should see `Yes` for the `Financial condition` answer
+    And I should see `1000` for the `Enter the financial condition amount (£)` answer
+    And I should see the text `Financial condition supporter 1`
+    And I should see `Yes` for the `Financial condition supporter` answer
+    And I should see `John` for the second `Given names` answer
+    And I should see `Smith` for the second `Family name` answer
+    And I should see `01182904610` for the first `Telephone number` answer
+    And I should see `07930111222` for the first `Mobile number` answer
+    And I should see `johnSmith@test.com` for the first `Email address` answer
+    And I should see `30 Dec 1999` for the second `Date of birth` answer
+    And I should see `Uncle` for the first `Relationship to the applicant` answer
+    And I should see `Lawyer` for the first `Occupation` answer
+    And I should see `Citizen` for the first `Immigration status` answer
+    And I should see the text `Angolan`
+    And I should see the text `Uzbek`
+    And I should see `Yes` for the first `Passport` answer
+    And I should see `123456789` for the first `Passport number` answer
+    And I should see `450` for the first `Financial condition amount (£)` answer
+    And I should see the text `Financial condition supporter 2`
+    And I should see `Jane` for the third `Given names` answer
+    And I should see `Doe` for the third `Family name` answer
+    And I should see `janeDoe@test.com` for the second `Email address` answer
+    And I should see `29 Dec 1999` for the third `Date of birth` answer
+    And I should see `Aunt` for the second `Relationship to the applicant` answer
+    And I should see `Lawyer` for the second `Occupation` answer
+    And I should see `Immigrant` for the second `Immigration status` answer
+    And I should see the text `Armenian`
+    And I should see `Yes` for the second `Passport` answer
+    And I should see `550` for the second `Financial condition amount (£)` answer
+    And I should see the text `Grounds for bail`
+    And I should see `Grounds for bail` for the `Enter the bail grounds` answer
+    And I should see `No` for the `Transfer bail management` answer
+    And I should see `They do not consent to bail being transferred` for the `Explain why the applicant does not consent to bail being transferred` answer
+    And I should see `Yes` for the `Supporting evidence` answer
+    And I should see the `GroundsForBailSupportingEvidence.pdf` link
+    And I should see the text `This is the supporting evidence`
+    And I should see the text `Hearing requirements`
+    And I should see `Yes` for the `Interpreter` answer
+    And I should see the text `Language Details`
+    And I should see the text `Bambara`
+    And I should see the text `N/A`
+    And I should see `Yes` for the `Disability` answer
+    And I should see `They need special arrangements` for the `Explain any special arrangements needed for the hearing` answer
+    And I should see `No` for the `Able to join video hearing` answer
+    And I should see `They can't join video` for the `Explain why the applicant would not be able to join the hearing by video link` answer
+    And I should see the text `Legal Representative`
+    And I should see `No` for the `Legal Representative` answer
 
   @start-bail-application @RIA-5657 @start-bail-application-legal-rep
   Scenario: Start bail application as Legal Rep
@@ -585,6 +672,64 @@ Feature: Start bail application
     When I click the `Close and Return to case details` button
     And I wait for 10 seconds
     Then I should see the text `Case record`
+
+    # Tab checks
+    Given I click the `Overview` tab
+    Then I should see `Harri Pugh` for the `Applicant name` field
+    And I should see `Immigration removal centre` for the `Detention facility` field
+    And I should see `Larne House` for the `Immigration removal centre name` field
+    And I should see `01234568` for the `Home Office reference` field
+    And I should see `Fake Org Ltd` for the `Company` field
+    And I should see `Legal Rep` for the `Name` field
+    And I should see `ia-law-firm-a-sc@fake.hmcts.net` for the `Email address` field
+    And I should see `07292929292` for the `Phone number` field
+    And I should see `This is a reference` for the `Reference` field
+
+    Given I click the `Bail application` tab
+    Then I should see the text `Submission`
+    And I should see `Legal Representative` for the `Application submitted by` answer
+
+    And I should see the text `Personal information`
+    And I should see `Harri` for the first `Given names` answer
+    And I should see `Pugh` for the first `Family name` answer
+    And I should see `31 Dec 1998` for the first `Date of birth` answer
+    And I should see `Male` for the `Gender` answer
+    And I should see the text `Stateless`
+    And I should see `No` for the `Mobile phone` answer
+
+    And I should see the text `Applicant information`
+    And I should see `01234568` for the `Home Office reference` answer
+    And I should see `Larne House` for the `Immigration removal centre name` answer
+    And I should see `31 Dec 2008` for the `Date of arrival in the UK` answer
+    And I should see `Yes, but I don't know the appeal reference number` for the `Pending appeal hearing` answer
+    And I should see `No` for the `Address if bail granted` answer
+
+    And I should see the text `Previous application`
+    And I should see the text `Yes, but I don't know the bail application number`
+    And I should see `No` for the `Bail refused in the last 28 days` answer
+
+    And I should see the text `Financial condition commitment`
+    And I should see `No` for the `Financial condition` answer
+
+    And I should see the text `Financial condition supporter 1`
+    And I should see `No` for the `Financial condition supporter` answer
+
+    And I should see the text `Grounds for bail`
+    And I should see `Grounds for bail` for the `Enter the bail grounds` answer
+    And I should see `Yes` for the `Transfer bail management` answer
+    And I should see `No` for the `Supporting evidence` answer
+
+    And I should see the text `Hearing requirements`
+    And I should see `No` for the `Interpreter` answer
+    And I should see `No` for the `Disability` answer
+    And I should see `Yes` for the `Able to join video hearing` answer
+
+    And I should see the text `Legal Representative`
+    And I should see `Fake Org Ltd` for the `Company` answer
+    And I should see `Legal Rep` for the `Name` answer
+    And I should see `ia-law-firm-a-sc@fake.hmcts.net` for the `Email address` answer
+    And I should see `07292929292` for the `Phone number` answer
+    And I should see `This is a reference` for the `Reference` answer
 
   @start-bail-application @RIA-5658 @start-bail-application-home-office
   Scenario: Start bail application as Home Office
@@ -768,7 +913,6 @@ Feature: Start bail application
     # Tab checks
     Given I click the `Overview` tab
     Then I should see `Harri Pugh` for the `Applicant name` field
-    And I should see `Immigration removal centre` for the `Detention facility` field
     And I should see `Brookhouse` for the `Immigration removal centre name` field
     And I should see `01234569` for the `Home Office reference` field
     And I should see `A Legal Representative Company` for the `Company` field
