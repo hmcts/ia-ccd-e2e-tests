@@ -25,7 +25,7 @@ Feature: Start bail application as a Home Office user
     And I click the `Continue` button
     Then I am on the `What is the applicant’s nationality?` page
 
-    Given I am on the `What is the applicant’s nationality` page
+    Given I am on the `What is the applicant’s nationality?` page
     When I select `The applicant is stateless` for the `Nationality` field
     And I click the `Continue` button
     Then I am on the `What is the applicant’s Home Office reference number?` page
