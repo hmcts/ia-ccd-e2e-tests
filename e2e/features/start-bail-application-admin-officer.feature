@@ -193,11 +193,11 @@ Feature: Start bail application as an Admin Officer user
     Then I am on the `What is the financial condition supporter’s address?` page
 
     Given I am on the `What is the financial condition supporter’s address?` page
-    When I type `EC1R 4QU` for the `Enter a UK postcode` field
+    When I type `EC4A 1DZ` for the `Enter a UK postcode` field
     And I click the `Find address` button
     And I see the text `Select an address`
     And I wait for any found addresses to load
-    And I select `First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London` for the `Select an address` field
+    And I select `Immigration Appellate Tribunal, 15-25, Bream's Buildings, London` for the `Select an address` field
     And I see the text `Building and Street`
     And I click the `Continue` button
     Then I am on the `What are the financial condition supporter’s contact details?` page
