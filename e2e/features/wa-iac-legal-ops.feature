@@ -23,6 +23,7 @@ Background:
     When I click the `Allocate a role` link for Legal Ops
     Then I allocate a role to another legal ops user
 
+  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-judicial
   Scenario: Legal-Ops allocating a role to Judicial user(Reserve to Judicial)
 
     When I click the `Roles and access` tab

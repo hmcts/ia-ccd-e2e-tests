@@ -13,6 +13,7 @@ export class ShareCasePage {
     private continueButton: ElementFinder;
     private caseIdToBeShared: string;
     private sharedCaseId: string;
+    private allocateUserEmailInput: any;
 
     constructor() {
 
@@ -22,6 +23,7 @@ export class ShareCasePage {
         this.userFilterList = $$('.mat-autocomplete-panel .mat-option-text');
         this.addUserBtn = $('#btn-add-user');
         this.continueButton = $('#share-case-nav button');
+        this.allocateUserEmailInput = $('xuilib-find-person #inputSelectPerson');
     }
 
     async selectLastCaseCheckbox(shortWait = false) {
@@ -131,6 +133,9 @@ export class ShareCasePage {
             userEmails.push(userEmail);
         }
         return userEmails;
+    }
+    async enterAllocateUserEmailInput(userName) {
+        return await this.allocateUserEmailInput.sendKeys(userName);
     }
 
     async getFilteredUserNameEmails() {

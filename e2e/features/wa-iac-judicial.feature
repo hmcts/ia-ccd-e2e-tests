@@ -23,6 +23,7 @@ Feature: Work allocation R2 Judicial scenarios
     When I click the `Allocate a role` link for Judiciary
     Then I allocate a role to another judicial user
 
+  @judicial @RIA-4923 @Judicial-allocate-a-role-to-legal-Ops
   Scenario: Judicial allocating a role to legal ops(Reserve to legal Ops)
 
     When I click the `Roles and access` tab
