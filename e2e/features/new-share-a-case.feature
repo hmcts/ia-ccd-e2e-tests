@@ -27,8 +27,10 @@ Feature: New Share a Case (common component)
     Then I should see the `Add recipient` page
     And I get the case id to be shared
     And I wait for 5 seconds
-    When I enter text "IAC User2 - ia.legalrep.b.sc@mailnesia.com" in user email in share case page
+    When I enter text "ia.legalrep.b.sc@mailnesia.com" in user email in share case page
     And I wait for 2 seconds
+    Then I see a list of users filtered containing text "ia.legalrep.b.sc@mailnesia.com"
+    When I select a listed user not shared with in the share case page
     And I click Add user button in share case page
     And I click continue in share case page
     And I click the `Confirm` button
