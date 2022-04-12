@@ -17,7 +17,6 @@ Feature: New Share a Case (common component)
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     When I click the `Close and Return to case details` button
-    When I click the `PA/50001/2022` link
     And I should see the text `Case record for`
     And I get the Appeal Reference
     When I sign back in as a `Legal Org User Rep A`
