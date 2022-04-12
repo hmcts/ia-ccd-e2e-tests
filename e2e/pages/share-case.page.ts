@@ -240,9 +240,8 @@ export class ShareCasePage {
         browser.driver
             .findElement(by.xpath('//*[@id=\'appealReferenceNumber\']'))
             .clear();
-        browser.driver
-            .findElement(by.xpath('//*[@id=\'appealReferenceNumber\']'))``
-            .sendKeys(this.appealReference);
+            .then()
+                .sendKeys(this.appealReference);
 
         await element(by.xpath('//*[@title=\'Apply filter\']')).click();
     }
