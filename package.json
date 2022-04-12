@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "webdriver-manager update --versions.chrome 75",
+    "postinstall": "webdriver-manager update --versions.chrome=75.0.3770.140",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "e2e": "yarn localTest",
     "test:fullfunctional": "yarn install && TESTS_FOR_ACCESSIBILITY='true' protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
