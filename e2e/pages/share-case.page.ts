@@ -13,6 +13,7 @@ export class ShareCasePage {
     private continueButton: ElementFinder;
     private caseIdToBeShared: string;
     private sharedCaseId: string;
+    private appealReference: string;
 
     constructor() {
 
@@ -26,14 +27,14 @@ export class ShareCasePage {
 
     async selectLastCaseCheckbox(shortWait = false) {
         await browser.sleep(5000);
-        const paginationElement = element.all(by.css('ccd-pagination pagination-template ul li'));
+        /* const paginationElement = element.all(by.css('ccd-pagination pagination-template ul li'));
         await BrowserWaits.waitForelementToBeClickable(element(by.css('ccd-pagination pagination-template')));
 
         const pagination = await paginationElement.count();
 
         if (pagination > 4) {
             await paginationElement.get(pagination - 2).element(by.tagName('a')).click();
-        }
+        } */
         await browser.sleep(5000);
         const checkboxPath = '//input[@class=\'govuk-checkboxes__input\']';
 
@@ -224,5 +225,23 @@ export class ShareCasePage {
 
     async clickContinueButton() {
         await this.continueButton.click();
+    }
+
+    async getAppealReference() {
+        let appealReferenceTitle = await element
+        .all(by.xpath('//h1'))
+        .getText();
+        let appealReference = appealReferenceTitle.toString().substring(16, 29)
+        this.appealReference = appealReference
+        console.log('\n\tCase has reference : ' + this.appealReference + '\n')
+    }
+
+    async filterByAppealReference() {
+        browser.driver
+            .findElement(by.xpath('//*[@id=\'appealReferenceNumber\']'))
+            .clear()
+            .sendKeys(this.appealReference);
+
+        await element(by.xpath('//*[@title=\'Apply filter\']')).click();
     }
 }

@@ -11,4 +11,12 @@ export class NewShareACaseFlow {
         await this.ccdFormPage.isButtonEnabled('Share Case');
         await this.ccdFormPage.click('Share Case');
     }
+
+    async getAndSaveAppealReference() {
+        await this.shareCasePage.getAppealReference();
+    }
+
+    async filterBySavedAppealReference() {
+        await this.shareCasePage.filterByAppealReference();
+    }
 }
