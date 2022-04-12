@@ -13,6 +13,7 @@ export class ShareCasePage {
     private continueButton: ElementFinder;
     private caseIdToBeShared: string;
     private sharedCaseId: string;
+    private appealReference: string;
 
     constructor() {
 
@@ -224,5 +225,25 @@ export class ShareCasePage {
 
     async clickContinueButton() {
         await this.continueButton.click();
+    }
+
+    async getAppealReference() {
+        let appealReferenceTitle = await element
+        .all(by.xpath('//h1'))
+        .getText();
+        let appealReference = appealReferenceTitle.toString().substring(16, 29)
+        this.appealReference = appealReference
+        console.log('\n\tCase has reference : ' + this.appealReference + '\n')
+    }
+
+    async filterByAppealReference() {
+        browser.driver
+            .findElement(by.xpath('//*[@id=\'appealReferenceNumber\']'))
+            .clear();
+        browser.driver
+            .findElement(by.xpath('//*[@id=\'appealReferenceNumber\']'))``
+            .sendKeys(this.appealReference);
+
+        await element(by.xpath('//*[@title=\'Apply filter\']')).click();
     }
 }

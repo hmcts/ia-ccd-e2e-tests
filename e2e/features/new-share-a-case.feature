@@ -46,6 +46,8 @@ Feature: New Share a Case (common component)
     And I click the `Confirm` button
     And I click the `Go back to the case list.` link
     Given I am signed in as a `Legal Org User Rep B`
+    And I refresh the page
+    And I wait for 15 seconds
     And I Apply case list filter
     Then I filter the cases by the Appeal Reference
     And I wait for 30 seconds
