@@ -239,7 +239,9 @@ export class ShareCasePage {
     async filterByAppealReference() {
         browser.driver
             .findElement(by.xpath('//*[@id=\'appealReferenceNumber\']'))
-            .clear()
+            .clear();
+        browser.driver
+            .findElement(by.xpath('//*[@id=\'appealReferenceNumber\']'))``
             .sendKeys(this.appealReference);
 
         await element(by.xpath('//*[@title=\'Apply filter\']')).click();
