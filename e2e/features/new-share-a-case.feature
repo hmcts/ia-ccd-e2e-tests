@@ -20,7 +20,8 @@ Feature: New Share a Case (common component)
     And I should see the text `Case record for PA`
     And I get the Appeal Reference
     When I sign back in as a `Legal Org User Rep A`
-    And I wait for 10 seconds
+    And I refresh the page
+    And I wait for 20 seconds
     Then I filter the cases by the Appeal Reference
     And I wait for 30 seconds
 
@@ -46,7 +47,7 @@ Feature: New Share a Case (common component)
     And I click the `Go back to the case list.` link
     Given I am signed in as a `Legal Org User Rep B`
     And I refresh the page
-    And I wait for 15 seconds
+    And I wait for 20 seconds
     Then I filter the cases by the Appeal Reference
     And I wait for 30 seconds
     When I select the most recent case to share
