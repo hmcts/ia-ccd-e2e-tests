@@ -238,8 +238,6 @@ export class ShareCasePage {
     }
 
     async filterByAppealReference() {
-        let Jurisdiction = element(browser.driver.findElement(by.xpath('//*[@id=\'wb-jurisdiction\']')))
-        await Jurisdiction.selectByVisibleText('Immigration & Asylum');
         const jurisdictionPath =
             '//select[@id="wb-jurisdiction"]' +
             '/option[normalize-space()="Immigration & Asylum"]';
