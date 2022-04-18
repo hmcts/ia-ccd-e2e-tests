@@ -230,6 +230,7 @@ export class ShareCasePage {
     async getAppealReference() {
         let appealReferenceTitle = await element
         .all(by.xpath('//h1'))
+        .last()
         .getText();
         let appealReference = appealReferenceTitle.toString().substring(16, 29)
         console.log('\n\tappeal reference string : ' + appealReferenceTitle.toString() + '\n')
