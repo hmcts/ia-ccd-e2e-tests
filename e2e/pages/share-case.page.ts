@@ -229,8 +229,7 @@ export class ShareCasePage {
 
     async getAppealReference() {
         let appealReferenceTitle = await element
-        .all(by.xpath('//h1'))
-        .last()
+        .all(by.xpath('(//h1)[1]'))
         .getText();
         let appealReference = appealReferenceTitle.toString().substring(16, 29)
         console.log('\n\tappeal reference string : ' + appealReferenceTitle.toString() + '\n')
@@ -241,6 +240,10 @@ export class ShareCasePage {
     async filterByAppealReference() {
         let Jurisdiction = element(browser.driver.findElement(by.xpath('//*[@id=\'wb-jurisdiction\']')))
         await Jurisdiction.selectByVisibleText('Immigration & Asylum');
+        const jurisdictionPath =
+            '//select[@id="wb-jurisdiction"]' +
+            '/option[normalize-space()="Immigration & Asylum"]';
+        await element(by.xpath(jurisdictionPath)).click();
         let appealRefField = element(browser.driver.findElement(by.xpath('//*[@id=\'appealReferenceNumber\']')))
         await appealRefField.clear();
         await appealRefField.sendKeys(this.appealReference);
