@@ -241,7 +241,7 @@ export class ShareCasePage {
             '//select[@id="wb-jurisdiction"]' +
             '/option[normalize-space()="Immigration & Asylum"]';
         await element(by.xpath(jurisdictionPath)).click();
-        let appealRefField = element(browser.driver.findElement(by.xpath('//*[@id=\'appealReferenceNumber\']')))
+        let appealRefField = element(by.xpath('//*[@id=\'appealReferenceNumber\']'))
         await appealRefField.clear();
         await appealRefField.sendKeys(this.appealReference);
         await element(by.xpath('//*[@title=\'Apply filter\']')).click();
