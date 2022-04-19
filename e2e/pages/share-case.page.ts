@@ -59,6 +59,31 @@ export class ShareCasePage {
         await lastCase.click();
     }
 
+    async selectFirstCaseCheckbox(shortWait = false) {
+        await browser.sleep(5000);
+        const checkboxPath = '//input[@class=\'govuk-checkboxes__input\']';
+
+        try {
+            await browser.wait(
+                async () => {
+                    return (await element
+                        .all(by.xpath(checkboxPath))
+                        .filter(e => e.isPresent())
+                        .count()) > 0;
+                },
+                shortWait ? Wait.minimal : Wait.normal
+            );
+        } catch (error) {
+            throw Error('Case list did not load in time...')
+        }
+
+        const firstCase = await element
+            .all(by.className('govuk-checkboxes__input'))
+            .last();
+
+        await firstCase.click();
+    }
+
     async getCaseIdToBeShared(shortWait = false) {
         const caseIdPath = '//*[contains(@id,"case-id-")]';
 
