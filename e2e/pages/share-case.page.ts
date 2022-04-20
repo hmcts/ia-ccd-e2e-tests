@@ -59,6 +59,31 @@ export class ShareCasePage {
         await lastCase.click();
     }
 
+    async selectFirstCaseCheckbox(shortWait = false) {
+        await browser.sleep(5000);
+        const checkboxPath = '//input[@class=\'govuk-checkboxes__input\']';
+
+        try {
+            await browser.wait(
+                async () => {
+                    return (await element
+                        .all(by.xpath(checkboxPath))
+                        .filter(e => e.isPresent())
+                        .count()) > 0;
+                },
+                shortWait ? Wait.minimal : Wait.normal
+            );
+        } catch (error) {
+            throw Error('Case list did not load in time...')
+        }
+
+        const firstCase = await element
+            .all(by.className('govuk-checkboxes__input'))
+            .last();
+
+        await firstCase.click();
+    }
+
     async getCaseIdToBeShared(shortWait = false) {
         const caseIdPath = '//*[contains(@id,"case-id-")]';
 
@@ -229,7 +254,7 @@ export class ShareCasePage {
 
     async getAppealReference() {
         let appealReferenceTitle = await element
-        .all(by.xpath('//h1'))
+        .all(by.xpath('(//h1)[1]'))
         .getText();
         let appealReference = appealReferenceTitle.toString().substring(16, 29)
         this.appealReference = appealReference
@@ -237,7 +262,11 @@ export class ShareCasePage {
     }
 
     async filterByAppealReference() {
-        let appealRefField = element(browser.driver.findElement(by.xpath('//*[@id=\'appealReferenceNumber\']')))
+        const jurisdictionPath =
+            '//select[@id="wb-jurisdiction"]' +
+            '/option[normalize-space()="Immigration & Asylum"]';
+        await element(by.xpath(jurisdictionPath)).click();
+        let appealRefField = element(by.xpath('//*[@id=\'appealReferenceNumber\']'))
         await appealRefField.clear();
         await appealRefField.sendKeys(this.appealReference);
         await element(by.xpath('//*[@title=\'Apply filter\']')).click();
