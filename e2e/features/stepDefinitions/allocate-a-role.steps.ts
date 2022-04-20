@@ -4,11 +4,11 @@ import { AllocateARoleFlow } from '../../flows/allocate-a-role.flow';
 const legalOpsFlow = new AllocateARoleFlow();
 
 When(/^I click the `Allocate a role` link for Legal Ops$/, async function () {
-    await legalOpsFlow.allocateARoleLink(true,'Legal Ops',1);
+    await legalOpsFlow.allocateARoleLink(true, 'Legal Ops', 1);
 });
 
 When(/^I click the `Allocate a role` link for Judiciary$/, async function () {
-    await legalOpsFlow.allocateARoleLink(true,'Judiciary',0);
+    await legalOpsFlow.allocateARoleLink(true, 'Judiciary', 0);
 });
 
 Then(/^I allocate a role to my self `?([^`]+)`?/, async function (userRole) {

@@ -7,13 +7,12 @@ export class AllocateARoleFlow {
     private ccdFormPage = new CcdFormPage();
     private workAllocationPage = new WorkAllocationPage();
 
-    async allocateARoleLink(clickContinue = false,user,index){
+    async allocateARoleLink(clickContinue = false, user, index) {
         await this.ccdFormPage.headingContains(user);
-        await this.ccdFormPage.click('Allocate a role',index);
+        await this.ccdFormPage.click('Allocate a role', index);
     }
 
-    async reserveToMe(clickContinue = false,userRole:string) {
-        
+    async reserveToMe(clickContinue = false, userRole: string) {
         await this.ccdFormPage.headingContains('Choose a role');
         await this.ccdFormPage.click(userRole);
         await this.ccdFormPage.click('Continue');
@@ -40,7 +39,7 @@ export class AllocateARoleFlow {
         await this.ccdFormPage.headingContains('Duration of role');
         await this.ccdFormPage.click('7 days');
         await this.ccdFormPage.click('Continue');
-        await this.ccdFormPage.click('Confirm allocation');         
+        await this.ccdFormPage.click('Confirm allocation');
     }
 
     async judicialToLegalOps(clickContinue = false) {
@@ -56,7 +55,7 @@ export class AllocateARoleFlow {
         await this.ccdFormPage.headingContains('Duration of role');
         await this.ccdFormPage.click('7 days');
         await this.ccdFormPage.click('Continue');
-        await this.ccdFormPage.click('Confirm allocation');         
+        await this.ccdFormPage.click('Confirm allocation');
     }
 
     async legalOpsToJudicial(clickContinue = false) {
@@ -101,6 +100,6 @@ export class AllocateARoleFlow {
         await this.ccdFormPage.headingContains('Duration of role');
         await this.ccdFormPage.click('7 days');
         await this.ccdFormPage.click('Continue');
-        await this.ccdFormPage.click('Confirm allocation');         
+        await this.ccdFormPage.click('Confirm allocation');
     }
 };

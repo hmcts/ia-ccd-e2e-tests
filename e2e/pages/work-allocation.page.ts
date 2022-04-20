@@ -25,10 +25,12 @@ export class WorkAllocationPage {
 
   async selectUser() {
     let usersCount = await this.getFilteredUsersCount();
-    if(usersCount) await this.userFilterList.get(0).click();  
+    if (usersCount) {
+      await this.userFilterList.get(0).click();
+    }
   }
 
-  async addExclusionReason(reason:string) {
+  async addExclusionReason(reason: string) {
     return await this.exclusionTextArea.sendKeys(reason);
   }
 

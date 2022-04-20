@@ -13,8 +13,8 @@ Then(/^I exclude my self from case/, async function () {
     await legalOpsExclusionFlow.excludeMe(true);
 });
 
-Then(/^I Exclude another `?([^`]+)`? from case email text `?\s?`?([^`]+)`?/, async function (userRole,emailText) {
-    await legalOpsExclusionFlow.legalOpsExcludeAnotherLegalOps(true,userRole,emailText);
+Then(/^I Exclude another `?([^`]+)`? from case email text `?\s?`?([^`]+)`?/, async function (userRole, emailText) {
+    await legalOpsExclusionFlow.legalOpsExcludeAnotherLegalOps(true, userRole, emailText);
 });
 
 Then(/^I exclude another Judicial from case/, async function () {

@@ -7,7 +7,7 @@ export class ExclusionsFlow {
     private ccdFormPage = new CcdFormPage();
     private workAllocationPage = new WorkAllocationPage();
 
-    async clickAddLink(clickContinue = false){
+    async clickAddLink(clickContinue = false) {
         await this.ccdFormPage.headingContains('Exclusions');
         await this.ccdFormPage.click('Add');
     }
@@ -22,7 +22,7 @@ export class ExclusionsFlow {
         await this.ccdFormPage.contentContains('You\'ve excluded yourself from a case.');
 
     }
-    async legalOpsExcludeAnotherLegalOps(clickContinue = false,userRole,emailText) {
+    async legalOpsExcludeAnotherLegalOps(clickContinue = false, userRole, emailText) {
         await this.ccdFormPage.headingContains('Choose who the exclusion is for');
         await this.ccdFormPage.click( 'Exclude another person');
         await this.ccdFormPage.click('Continue');
