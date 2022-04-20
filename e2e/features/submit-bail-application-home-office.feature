@@ -6,4 +6,7 @@ Feature: Submit bail application as Home Office User
 
   @submit-bail-application @RIA-5662 @submit-bail-application-home-office
   Scenario: Submit bail application as Home Office
-
+    When I select the `Submit the application` Next step
+    Then I am on the `Submit the application` page
+    And I click the `Submit` button
+    Then I should see the text `You have submitted this application`
