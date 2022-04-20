@@ -6,3 +6,9 @@ Feature: Submit bail application as Legal Rep
 
   @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep
   Scenario: Submit bail application as Legal Rep
+    When I select the `Submit the application` Next step
+    Then I am on the `Submit the application` page
+    When I click the `The applicant has confirmed that the facts stated in this application are true.` label
+    And I click the `Continue` button
+    And I click the `Submit` button
+    Then I should see the text `You have submitted this application`
