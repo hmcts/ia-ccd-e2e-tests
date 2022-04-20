@@ -132,7 +132,6 @@ export class ShareCasePage {
         }
         return userEmails;
     }
-   
 
     async getFilteredUserNameEmails() {
         let userNameEmails = [];
