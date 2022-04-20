@@ -17,26 +17,25 @@ Feature: New Share a Case (common component)
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     When I click the `Close and Return to case details` button
-    And I should see the text `Case record for PA`
-    And I get the Appeal Reference
-    When I sign back in as a `Legal Org User Rep A`
-    And I refresh the page
+    Then I should see the text `Case record for PA`
+    When I get the Appeal Reference
+    And I click the `Case List` link
     And I wait for 20 seconds
-    Then I filter the cases by the Appeal Reference
+    And I filter the cases by the Appeal Reference
     And I wait for 30 seconds
 
   @new-share-a-case @RIA-3845 @nightly-test
   Scenario: Add user to share a case
 
-    When I select the most recent case to share
+    And I select the most recent case to share
     Then I should see the `Add recipient` page
-    And I get the case id to be shared
+    When I get the case id to be shared
     And I wait for 5 seconds
     # For local test
 #    When I enter text "ia-law-firm-b-sc@fake.hmcts.net" in user email in share case page
 #    And I wait for 2 seconds
 #    Then I see a list of users filtered containing text "ia-law-firm-b-sc@fake.hmcts.net"
-    When I enter text "ia.legalrep.b.sc@mailnesia.com" in user email in share case page
+    And I enter text "ia.legalrep.b.sc@mailnesia.com" in user email in share case page
     And I wait for 2 seconds
     Then I see a list of users filtered containing text "ia.legalrep.b.sc@mailnesia.com"
 
@@ -44,15 +43,15 @@ Feature: New Share a Case (common component)
     And I click Add user button in share case page
     And I click continue in share case page
     And I click the `Confirm` button
-    And I click the `Go back to the case list.` link
+    Then I click the `Go back to the case list.` link
     Given I am signed in as a `Legal Org User Rep B`
     And I refresh the page
     And I wait for 20 seconds
-    Then I filter the cases by the Appeal Reference
+    When I filter the cases by the Appeal Reference
     And I wait for 30 seconds
-    When I select the most recent case to share
+    And I select the most recent case to share
     Then I should see the `Add recipient` page
-    And I get the shared case id
+    When I get the shared case id
 
-    And I confirm the case has the same case id as the shared case
+    Then I confirm the case has the same case id as the shared case
 
