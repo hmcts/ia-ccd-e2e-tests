@@ -2,28 +2,31 @@ import { Then, When } from 'cucumber';
 import { AllocateARoleFlow } from '../../flows/allocate-a-role.flow';
 
 const legalOpsFlow = new AllocateARoleFlow();
-const JudiciaryFlow = new AllocateARoleFlow()
 
 When(/^I click the `Allocate a role` link for Legal Ops$/, async function () {
-    await legalOpsFlow.legalOps(true);
+    await legalOpsFlow.allocateARoleLink(true,'Legal Ops',1);
 });
 
 When(/^I click the `Allocate a role` link for Judiciary$/, async function () {
-    await JudiciaryFlow.legalOpsToJudicial(true);
+    await legalOpsFlow.allocateARoleLink(true,'Judiciary',0);
 });
 
-Then(/^I allocate a role to my self/, async function () {
-    await legalOpsFlow.legalOps(true);
+Then(/^I allocate a role to my self `?([^`]+)`?/, async function (userRole) {
+    await legalOpsFlow.reserveToMe(true, userRole);
 });
 
 Then(/^I allocate a role to another legal ops user/, async function () {
     await legalOpsFlow.legalOpsToAnotherLegalOps(true);
 });
 
-Then(/^I allocate a role to another Judiciary user/, async function (userName) {
-    await legalOpsFlow.legalOpsToJudicial(userName);
+Then(/^I allocate a role to another Judiciary user/, async function () {
+    await legalOpsFlow.legalOpsToJudicial();
 });
 
-Then(/^I allocate a role/, async function () {
-    await legalOpsFlow.Judiciary(true);
+Then(/^I Allocate a role from Judicial to another Judicial user/, async function () {
+    await legalOpsFlow.judicialToAnotherJudicial();
+});
+
+Then(/^I Allocate a role from Judicaial to legal ops/, async function () {
+    await legalOpsFlow.judicialToLegalOps();
 });

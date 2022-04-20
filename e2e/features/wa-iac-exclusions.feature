@@ -22,7 +22,7 @@ Feature: Work allocation R2 exclusion scenarios
     When I click the `Roles and access` tab
     And  I wait for 5 seconds
     When I click the `Add` link for Exclusions
-    Then I exclude another LegalOps from case
+    Then I Exclude another `Legal Ops` from case email text `IAC`
 
   @judicial @RIA-4923 @judicial-exclude-himself
   Scenario: Judicial excluding himself(exclude me)
@@ -41,11 +41,13 @@ Feature: Work allocation R2 exclusion scenarios
     And  I wait for 5 seconds
     When I click the `Add` link for Exclusions
     Then I exclude another Judicial from case
+    Then I Exclude another `Judicial` from case email text `Vim`
+
 
   @admin @RIA-4923 @admin-exclude-himself
   Scenario: Admin excluding himself(exclude me)
 
-    And  I switch to be a `Admin`
+    And  I switch to be a `WaAdmin`
     When I click the `Roles and access` tab
     And  I wait for 5 seconds
     When I click the `Add` link for Exclusions
@@ -58,5 +60,5 @@ Feature: Work allocation R2 exclusion scenarios
     When I click the `Roles and access` tab
     And  I wait for 5 seconds
     When I click the `Add` link for Exclusions
-    Then I exclude another Admin from case
+    Then I Exclude another `Admin` from case email text `IAC`
 

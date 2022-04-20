@@ -111,7 +111,7 @@ export class AnyPage {
         await browser.wait(async () => {
             nextPage = await browser.getCurrentUrl();
 
-            if (nextPage.includes('/noc')) {
+            if (nextPage.includes('/noc') || nextPage.includes('/allocate-role/')  || nextPage.includes('/add-exclusion')) {
                 return true;
             }
 
