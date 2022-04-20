@@ -19,7 +19,7 @@ Feature: New Share a Case (common component)
     When I click the `Close and Return to case details` button
     Then I should see the text `Case record for PA`
     When I get the Appeal Reference
-    And I click the `Case List` link
+    And I go to the `Case List`
     And I wait for 20 seconds
     And I filter the cases by the Appeal Reference
     And I wait for 30 seconds
