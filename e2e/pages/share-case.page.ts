@@ -59,9 +59,9 @@ export class ShareCasePage {
         await lastCase.click();
     }
 
-    async selectFirstCaseCheckbox(shortWait = false) {
+    async selectAllCaseCheckbox(shortWait = false) {
         await browser.sleep(5000);
-        const checkboxPath = '//input[@class=\'govuk-checkboxes__input\']';
+        const checkboxPath = '//input[@id=\'select-all\']';
 
         try {
             await browser.wait(
@@ -76,12 +76,7 @@ export class ShareCasePage {
         } catch (error) {
             throw Error('Case list did not load in time...')
         }
-
-        const firstCase = await element
-            .all(by.className('govuk-checkboxes__input'))
-            .last();
-
-        await firstCase.click();
+        await element(by.xpath('//input[@id=\'select-all\']')).click();
     }
 
     async getCaseIdToBeShared(shortWait = false) {
