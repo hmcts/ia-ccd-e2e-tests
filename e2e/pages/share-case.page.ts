@@ -61,7 +61,7 @@ export class ShareCasePage {
 
     async selectAllCaseCheckbox() {
         await browser.sleep(5000);
-        await element(by.xpath('//input[@id=\'select-all\']')).click();
+        await element(by.xpath('//*input[@id=\'select-all\']')).click();
     }
 
     async getCaseIdToBeShared(shortWait = false) {
