@@ -236,7 +236,7 @@ export class ShareCasePage {
         let appealReferenceTitle = await element
         .all(by.xpath('(//h1)[1]'))
         .getText();
-        let appealReference = appealReferenceTitle.toString().substring(16, 29)
+        let appealReference = appealReferenceTitle.toString().substring(16, 30)
         this.appealReference = appealReference
         console.log('\n\tCase has reference : ' + this.appealReference + '\n')
     }
