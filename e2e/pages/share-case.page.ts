@@ -59,9 +59,9 @@ export class ShareCasePage {
         await lastCase.click();
     }
 
-    async selectAllCaseCheckbox() {
+    async selectFirstCaseCheckbox() {
         await browser.sleep(5000);
-        await element(by.xpath('//*input[@id=\'select-all\']')).click();
+        await element(by.xpath('(//input[@class="govuk-checkboxes__input"])[2]')).click();
     }
 
     async getCaseIdToBeShared(shortWait = false) {
