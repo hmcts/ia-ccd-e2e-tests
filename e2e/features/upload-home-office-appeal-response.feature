@@ -191,6 +191,8 @@ Feature: Upload appeal response - Home Office user
     Then I should see the option `Upload the appeal response` for the `Next step` field
     And I should see the option `Upload additional evidence` for the `Next step` field
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     Then I am on the `Upload the appeal response` page
 
     And I should see the text `Already uploaded files:`

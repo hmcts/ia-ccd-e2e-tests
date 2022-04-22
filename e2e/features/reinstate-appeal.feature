@@ -218,6 +218,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -276,6 +278,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -344,6 +348,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -410,6 +416,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -477,6 +485,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -543,6 +553,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
@@ -613,6 +625,8 @@ Feature: Reinstate appeal
     When I switch to be a `Home Office LART`
     And I click the `Overview` tab
     And I click the `add the Home Office's response` link
+    And I select `Decision maintained` for the `Outcome` field
+    And I click the `Continue` button
     And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
