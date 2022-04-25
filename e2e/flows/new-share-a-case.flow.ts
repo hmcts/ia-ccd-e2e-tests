@@ -7,8 +7,16 @@ export class NewShareACaseFlow {
     private shareCasePage = new ShareCasePage();
 
     async selectCaseToShare() {
-        await this.shareCasePage.selectLastCaseCheckbox();
+        await this.shareCasePage.selectFirstCaseCheckbox();
         await this.ccdFormPage.isButtonEnabled('Share Case');
         await this.ccdFormPage.click('Share Case');
+    }
+
+    async getAndSaveAppealReference() {
+        await this.shareCasePage.getAppealReference();
+    }
+
+    async filterBySavedAppealReference() {
+        await this.shareCasePage.filterByAppealReference();
     }
 }
