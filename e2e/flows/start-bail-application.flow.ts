@@ -109,6 +109,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeAppealHearingPending(clickContinue = false) {
+        await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Pending appeal hearing', 'Yes');
         await this.ccdFormPage.setFieldValue('What is the reference number for the applicant’s appeal?', '098765');
         if (clickContinue) {
