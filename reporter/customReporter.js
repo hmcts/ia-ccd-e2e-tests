@@ -2,7 +2,7 @@ const testConfig = require('../e2e/ia.conf');
 const AxeRunner = require('../e2e/helpers/accessibility/axe-runner');
 const fs = require('fs');
 
-function generateAccessibilityReport() {
+async function generateAccessibilityReport() {
   const reportJson = AxeRunner.getAccessibilityTestResult();
   const result = 'var replacejsoncontent = ' + JSON.stringify(reportJson);
 
