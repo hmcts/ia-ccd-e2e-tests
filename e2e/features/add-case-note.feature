@@ -17,7 +17,7 @@ Feature: Add a case note
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
 
-  @regression @add-case-note @RIA-575 @nightly-test
+  @regression @add-case-note @RIA-575 @nightly-test @protractor-retry
   Scenario: Add a case note with document
 
     And I switch to be a `Case Officer`

@@ -81,7 +81,7 @@ Feature: Request respondent evidence
     And within the `Directions` collection's first item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-  @regression @create-direction @RIA-435 @nightly-test
+  @regression @create-direction @RIA-435 @nightly-test @protractor-retry
   Scenario: Request respondent review with changes to default values
 
     When I select the `Request respondent review` Next step

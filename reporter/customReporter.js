@@ -9,7 +9,7 @@ async function generateAccessibilityReport() {
   const sourceReport = __dirname + '/Report.html';
   const destReport = testConfig.TestOutputDir + '/a11y.html';
   const destJson = testConfig.TestOutputDir + '/a11y_output.js';
-
+   browser.sleep(5000)
    fs.copyFileSync(sourceReport, destReport);
    fs.writeFileSync(destJson, result);
    copyResources()
@@ -28,6 +28,7 @@ function copyResources() {
     fs.mkdirSync(webfontsDir, {recursive: true});
   }
   
+  browser.sleep(5000)
   fs.copyFileSync(__dirname + '/resources/angular.min.js', resourceDir + 'angular.min.js');
   fs.copyFileSync(__dirname + '/resources/css/all.css', cssDir + 'all.css');
   fs.copyFileSync(__dirname + '/resources/webfonts/fa-solid-900.woff2', webfontsDir + 'fa-solid-900.woff2');
