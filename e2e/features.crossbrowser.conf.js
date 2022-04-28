@@ -55,7 +55,7 @@ const config = {
   ],
 
   onCleanUp(results,files) {
-    //retry.onCleanUp(results, files);
+    retry.onCleanUp(results, files);
   },
 
   onPrepare() {
@@ -68,12 +68,12 @@ const config = {
     tsNode.register({
       project: path.join(__dirname, './tsconfig.e2e.json')
     });
-    //retry.onPrepare();
+    retry.onPrepare();
 
   },
-  //afterLaunch() {
-    //return retry.afterLaunch(1);
-  //},
+  afterLaunch() {
+    return retry.afterLaunch(1);
+  },
   onComplete() {
     return browser.getProcessedConfig().then(function (c) {
       return browser.getSession().then(function (session) {
