@@ -106,7 +106,7 @@ class BaseConfig {
     };
 
     this.onCleanUp = (results) => {
-      retry.onCleanUp(results);
+      //retry.onCleanUp(results);
     }
 
     this.onPrepare = () => {
@@ -123,12 +123,12 @@ class BaseConfig {
         project: path.join(__dirname, './tsconfig.e2e.json')
       });
 
-      retry.onPrepare();
+      //retry.onPrepare();
     };
 
-    this.afterLaunch = () => {
-      return retry.afterLaunch(0);
-    }
+    //this.afterLaunch = () => {
+      //return retry.afterLaunch(0);
+    //}
 
     this.onComplete = () => {
        generateAccessibilityReport();
