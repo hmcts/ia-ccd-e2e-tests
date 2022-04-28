@@ -72,7 +72,7 @@ const config = {
 
   },
   afterLaunch() {
-    return retry.afterLaunch(1);
+    return retry.afterLaunch(0);
   },
   onComplete() {
     return browser.getProcessedConfig().then(function (c) {
