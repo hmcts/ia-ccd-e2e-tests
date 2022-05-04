@@ -243,7 +243,6 @@ Feature: Flag a case
     And The page is accessible
 
     # When I click the `Overview` tab
-    Then I should not see the text `Flags`
-    And The page is accessible
-    And I should not see the text `These flags are only visible to the Tribunal.`
+    # Then I should not see the text `Flags`
+    Then I should not see the text `These flags are only visible to the Tribunal.`
     And I should not see the text `Oh no! This case turned out to be rather complex!`
