@@ -10,3 +10,5 @@ Feature: Submit bail application as Home Office User
     Then I am on the `Submit the application` page
     And I click the `Submit` button
     Then I should see the text `You have submitted this application`
+    When I click the `Close and Return to case details` button
+    Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
