@@ -241,10 +241,7 @@ Feature: Flag a case
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
     And The page is accessible
-    And I wait for 5 seconds
-    And I refresh the page
 
     # When I click the `Overview` tab
-    Then I should not see the text `Flags`
     Then I should not see the text `These flags are only visible to the Tribunal.`
     And I should not see the text `Oh no! This case turned out to be rather complex!`
