@@ -528,32 +528,32 @@ export class StartBailApplicationFlow {
                     await this.completeAnotherFinancialConditionSupporter(true, '2', 'No');
                 }
             }
-            await this.completeGroundsForBailInfo(true);
-            await this.completeGroundsForBail(true);
-            await this.completeSupportingEvidenceYesNo(true, 'Yes');
-            await this.completeSupportingEvidenceUpload(true);
-            await this.completeBailTransfer(true);
-            await this.completeInterpreterRequirements(true);
-            await this.completeDisabilityRequirements(true);
-            await this.completeVideoLinkRequirements(true);
-            if (legalRepresentativeOrNot === 'a') {
-                await this.completeLegalRepYesNo(true, 'Yes');
-                if (user === 'Legal Rep') {
-                    await this.completeLegalRepDetails(true, 'LR');
-                } else {
-                    await this.completeLegalRepDetails(true, 'NonLR');
-                }
+        }
+        await this.completeGroundsForBailInfo(true);
+        await this.completeGroundsForBail(true);
+        await this.completeSupportingEvidenceYesNo(true, 'Yes');
+        await this.completeSupportingEvidenceUpload(true);
+        await this.completeBailTransfer(true);
+        await this.completeInterpreterRequirements(true);
+        await this.completeDisabilityRequirements(true);
+        await this.completeVideoLinkRequirements(true);
+        if (legalRepresentativeOrNot === 'a') {
+            if (user === 'Legal Rep') {
+                await this.completeLegalRepDetails(true, 'LR');
             } else {
-                await this.completeLegalRepYesNo(true, 'No');
+                await this.completeLegalRepYesNo(true, 'Yes');
+                await this.completeLegalRepDetails(true, 'NonLR');
             }
-            if (user === 'Admin Officer') {
-                await this.completeB1Upload(true);
-            }
-            await this.completeCheckYourAnswers(true);
+        } else {
+            await this.completeLegalRepYesNo(true, 'No');
+        }
+        if (user === 'Admin Officer') {
+            await this.completeB1Upload(true);
+        }
+        await this.completeCheckYourAnswers(true);
 
-            if (clickContinue) {
-                await this.ccdFormPage.click('Close and Return to case details');
-            }
+        if (clickContinue) {
+            await this.ccdFormPage.click('Close and Return to case details');
         }
     }
 }
