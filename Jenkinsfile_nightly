@@ -6,7 +6,8 @@ properties([
         string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
         string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
         string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '2', description: 'The number of tests to run in parallel'),
-        string(name: 'NIGHTLY_TAG', defaultValue: '--cucumberOpts.tags=@nightly-test', description: 'Tag for nightly build')
+        string(name: 'NIGHTLY_TAG', defaultValue: '--cucumberOpts.tags=@nightly-test', description: 'Tag for nightly build'),
+        string(name: 'FUNCTIONAL_TIMEOUT', defaultValue: '120', description: 'Set timeout in minutes for full functional tests')
     ])
 ])
 
@@ -67,7 +68,7 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
     enableCrossBrowserTest()
-    enableFullFunctionalTest(120)
+    enableFullFunctionalTest(params.FUNCTIONAL_TIMEOUT)
 
     after('crossBrowserTest') {
         publishHTML([
