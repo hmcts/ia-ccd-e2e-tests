@@ -30,6 +30,12 @@ Given('I create a new case', async function () {
             'Appeal* master'
         );
     }
+    if (iaConfig.CcdWebUrl.includes('demo') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* RIA-5126'
+        );
+    }
 
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
