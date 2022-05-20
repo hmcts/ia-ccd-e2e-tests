@@ -189,16 +189,16 @@ export class StartBailApplicationFlow {
     async completeFinancialConditionSupporterAddress(clickContinue = false, number = '') {
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
-            await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'EC1R 4QU');
+            await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'CH5 3QW');
             await this.ccdFormPage.click('Find address');
             await this.ccdFormPage.doesDropdownHaveValues('Select an address');
-            await this.ccdFormPage.setFieldValue('Select an address', 'First Tier Tribunal Immigration & Asylum Chamber, Taylor House, 88 Rosebery Avenue, London');
+            await this.ccdFormPage.setFieldValue('Select an address', 'J & P Engineering Services Ltd, Wellington House, Manor Lane, Penarlag Hawarden Industrial Park Airfield View, Glannau Dyfrdwy');
         }
         if (number === '2') {
-            await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'EC4A 1DZ');
+            await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'SW1A 1AA');
             await this.ccdFormPage.click('Find address');
             await this.ccdFormPage.doesDropdownHaveValues('Select an address');
-            await this.ccdFormPage.setFieldValue('Select an address', 'Immigration Appellate Tribunal, 15-25, Bream\'s Buildings, London');
+            await this.ccdFormPage.setFieldValue('Select an address', 'Buckingham Palace, London');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
