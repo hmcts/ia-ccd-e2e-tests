@@ -6,7 +6,7 @@ Feature: Upload Bail Summary
    And I submit my bail application as a `Legal Rep`
    # Listing steps need to go here
 
-  @upload-bail-summary @RIA-5707
+  @upload-bail-summary @RIA-5707 @bails-nightly
   Scenario: Upload the Bail Summary as the Home Office
     When I switch to be a `Home Office Generic`
     And I select the `Upload Bail Summary` Next step
