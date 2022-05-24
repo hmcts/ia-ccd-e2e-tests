@@ -133,3 +133,4 @@ Feature: Record the decision
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     And I should see the text `If you want to make another bail application, you must return to this page to make the new application.`
     And I should see the text `If you make a new application within 28 days of this decision, you won't get another hearing unless the applicant's situation has changed materially.`
+
