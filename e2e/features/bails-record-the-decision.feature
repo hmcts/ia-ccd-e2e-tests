@@ -405,3 +405,4 @@ Feature: Record the decision
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Legal Org User Rep A`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+   
