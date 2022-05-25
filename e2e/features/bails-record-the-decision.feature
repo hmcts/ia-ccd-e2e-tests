@@ -1,11 +1,10 @@
 Feature: Record the decision
   Background:
-#   Given I am signed in as a `Legal Org User Rep A`
-#   And I create a new bail application
-#   And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
-#   And I submit my bail application as a `Legal Rep`
-#   And I upload the bail summary
-    Given I am signed in as a `Admin Officer`
+   Given I am signed in as a `Legal Org User Rep A`
+   And I create a new bail application
+   And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+   And I submit my bail application as a `Legal Rep`
+   And I upload the bail summary
 
   @record-the-decision @RIA-5757 @record-the-decision-refused @record-the-decision-no-ss-consent @record-the-decision-refused-no-ss-consent @bails
   Scenario: Refused case - SS consent No
@@ -137,11 +136,7 @@ Feature: Record the decision
 
   @record-the-decision @RIA-5757 @record-the-decision-granted @record-the-decision-no-ss-consent @record-the-decision-granted-no-ss-consent @bails
   Scenario: Granted case - SS consent No
-#    When I switch to be a `Admin Officer`
-    And I wait for 5 seconds
-    And I click the `Next` link
-    And I wait for 5 seconds
-    And I click the `1653-4865-2561-9630` link
+    When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     When I type `Mr Judge Judgerson` for the `Judge name` field
