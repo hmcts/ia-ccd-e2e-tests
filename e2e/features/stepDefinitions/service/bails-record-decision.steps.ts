@@ -4,7 +4,7 @@ import { Given } from 'cucumber';
 const recordDecision = new RecordDecision();
 
 Given('I record a refused decision with SS consent No', async function () {
-  await recordDecision.recordDecision(true, 'No', 'Refused', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');
+  await recordDecision.recordDecision(false, 'No', 'Refused', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');
 });
 
 // Given('I record a refused decision with SS consent Yes', async function () {
