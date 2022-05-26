@@ -4,10 +4,11 @@ import { CcdFormPage } from '../pages/ccd-form.page';
 export class RecordDecision {
 
     private ccdFormPage = new CcdFormPage();
+    private waitTime = 1000
 
     async completeJudgeName(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('Judge name', 'Mr Judge Judgerson');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -16,7 +17,7 @@ export class RecordDecision {
 
     async completeSsConsent(clickContinue = false, SsConsentYesOrNo) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('Is Secretary of State consent needed?', SsConsentYesOrNo);
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -25,7 +26,7 @@ export class RecordDecision {
 
     async completeTribunalDecision(clickContinue = false, tribunalDecision) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('What is the Tribunal\'s decision?', tribunalDecision);
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -34,7 +35,7 @@ export class RecordDecision {
 
     async completeReasonsForRefusal(clickContinue = false, ssConsent) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         if (ssConsent === 'No') {
             await this.ccdFormPage.setFieldValue('Enter the reasons for refusal', 'This is a reason for refusing the application.');
         }
@@ -45,7 +46,7 @@ export class RecordDecision {
 
     async completeReasonsForDecision(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('Enter the reasons the judge is minded to grant bail', 'This is a reason for minding to grant bail.');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -54,7 +55,7 @@ export class RecordDecision {
 
     async completeSsConsentDecision(clickContinue = false, SsConsentDecisionYesOrNo) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('Does the Secretary of State give consent to grant bail?', SsConsentDecisionYesOrNo);
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -63,7 +64,7 @@ export class RecordDecision {
 
     async completeReleaseStatus(clickContinue = false, releaseStatusYesOrNo) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('Will the applicant be released with immediate effect?', releaseStatusYesOrNo);
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -72,7 +73,7 @@ export class RecordDecision {
 
     async completeConditions(clickContinue = false, conditions = []) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         if (conditions.includes('Appearance')) {
             await this.ccdFormPage.click('Appearance (where bail is going to be transferred to the Home Office)');
             await this.ccdFormPage.setFieldValue('Enter the appearance conditions the applicant will be subject to', 'The applicant is to appear before an Immigration Officer at Big Ben between 11am and 1pm on 1st January 2023 or any other place and on any other date and time that may be required by the Home Office or an Immigration Officer.  -OR-  The Applicant must appear before an Immigration Officer on a date and time and by such means as may be notified to him by the Home Office in writing.');
@@ -104,7 +105,7 @@ export class RecordDecision {
 
     async completeFinancialCondition(clickContinue = false, financialConditionYesOrNo) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('Will the applicant be subject to a financial condition?', financialConditionYesOrNo);
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -113,7 +114,7 @@ export class RecordDecision {
 
     async completeFinancialConditionDetails(clickContinue = false, financialConditionDetailsYesOrNo) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('Is the financial condition amount correct?', financialConditionDetailsYesOrNo);
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -122,7 +123,7 @@ export class RecordDecision {
 
     async completeConfirmFinancialConditionAmount(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('Amount (£)', '500');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -132,13 +133,13 @@ export class RecordDecision {
     async completeFinancialConditionSupporter(clickContinue = false, numberOfSupporters, yesOrNoForEachSupporter = []) {
         for (let i = 0; i < numberOfSupporters; i++) {
             await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
             await this.ccdFormPage.setFieldValue('Did the judge agree to accept financial condition supporter ' + (i + 1) + '?', yesOrNoForEachSupporter[i]);
             if (clickContinue) {
                 await this.ccdFormPage.click('Continue');
             }
             await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
             await this.ccdFormPage.setFieldValue('Amount (£)', '250');
             if (clickContinue) {
                 await this.ccdFormPage.click('Continue');
@@ -148,7 +149,7 @@ export class RecordDecision {
 
     async completeBailTransfer(clickContinue = false, bailTransferYesOrNo) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.setFieldValue('Will the future management of bail for this applicant transfer to the Secretary of State?', bailTransferYesOrNo);
         if (bailTransferYesOrNo === 'No') {
             await this.ccdFormPage.setFieldValue('Enter any relevant details (Optional)', 'Other relevant details');
@@ -160,7 +161,7 @@ export class RecordDecision {
 
     async completeCheckYourAnswers(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         if (clickContinue) {
             await this.ccdFormPage.click('Record decision');
             browser.sleep(30000)
@@ -180,7 +181,7 @@ export class RecordDecision {
     yesOrNoForEachSupporter: string[],
     bailTransferYesOrNo: string) {
         await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000);
+        await browser.sleep(this.waitTime);
         await this.ccdFormPage.selectNextStep('Record the decision');
         await this.ccdFormPage.click('Go');
         await this.completeJudgeName(true);
