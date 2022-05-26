@@ -75,7 +75,7 @@ Given(/^I record a conditional grant decision with SS consent No with (no|one|tw
   await recordDecision.recordDecision(false, 'Yes', 'Minded to grant', 'Yes', 'No', ['Other', 'Reporting'], 'No', 'N/A', numberOfSupporters, ['N/A'], 'No');
 });
 
-Given(/^I record a conditional grant decision with SS consent Yes$/, async function (noOfSupporters) {
+Given(/^I record a conditional grant decision with SS consent Yes with (no|one|two) financial condition supporters$/, async function (noOfSupporters) {
   let numberOfSupporters;
   if (noOfSupporters === 'no') {
     numberOfSupporters = 0;
