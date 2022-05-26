@@ -12,7 +12,7 @@ Given(/^I record a refused decision with SS consent No with (no|one|two) financi
   } else if (noOfSupporters === 'two') {
     numberOfSupporters = 2;
   }
-  await recordDecision.recordDecision(false, 'No', 'Refused', 'N/A', 'N/A', ['N/A'], 'N/A', 'N/A', numberOfSupporters, ['N/A'], 'N/A');
+  await recordDecision.recordDecision(true, 'No', 'Refused', 'N/A', 'N/A', ['N/A'], 'N/A', 'N/A', numberOfSupporters, ['N/A'], 'N/A');
 });
 
 Given(/^I record a refused decision with SS consent Yes with (no|one|two) financial condition supporters$/, async function (noOfSupporters) {
@@ -24,7 +24,7 @@ Given(/^I record a refused decision with SS consent Yes with (no|one|two) financ
   } else if (noOfSupporters === 'two') {
     numberOfSupporters = 2;
   }
-  await recordDecision.recordDecision(false, 'Yes', 'Refused', 'N/A', 'N/A', ['N/A'], 'N/A', 'N/A', numberOfSupporters, ['N/A'], 'N/A');
+  await recordDecision.recordDecision(true, 'Yes', 'Refused', 'N/A', 'N/A', ['N/A'], 'N/A', 'N/A', numberOfSupporters, ['N/A'], 'N/A');
 });
 
 Given(/^I record a refused decision with SS consent Yes and Minded to grant with (no|one|two) financial condition supporters$/, async function (noOfSupporters) {
@@ -36,7 +36,7 @@ Given(/^I record a refused decision with SS consent Yes and Minded to grant with
   } else if (noOfSupporters === 'two') {
     numberOfSupporters = 2;
   }
-  await recordDecision.recordDecision(false, 'Yes', 'Minded to grant', 'No', 'N/A', ['N/A'], 'N/A', 'N/A', numberOfSupporters, ['N/A'], 'N/A');
+  await recordDecision.recordDecision(true, 'Yes', 'Minded to grant', 'No', 'N/A', ['N/A'], 'N/A', 'N/A', numberOfSupporters, ['N/A'], 'N/A');
 });
 
 Given(/^I record a granted decision with SS consent No with (no|one|two) financial condition supporters$/, async function (noOfSupporters) {
@@ -48,7 +48,7 @@ Given(/^I record a granted decision with SS consent No with (no|one|two) financi
   } else if (noOfSupporters === 'two') {
     numberOfSupporters = 2;
   }
-  await recordDecision.recordDecision(false, 'No', 'Granted', 'N/A', 'Yes', ['Residence'], 'Yes', 'No', numberOfSupporters, ['N/A'], 'Yes');
+  await recordDecision.recordDecision(true, 'No', 'Granted', 'N/A', 'Yes', ['Residence'], 'Yes', 'No', numberOfSupporters, ['N/A'], 'Yes');
 });
 
 Given(/^I record a granted decision with SS consent Yes with (no|one|two) financial condition supporters$/, async function (noOfSupporters) {
@@ -60,7 +60,7 @@ Given(/^I record a granted decision with SS consent Yes with (no|one|two) financ
   } else if (noOfSupporters === 'two') {
     numberOfSupporters = 2;
   }
-  await recordDecision.recordDecision(false, 'Yes', 'Minded to grant', 'Yes', 'Yes', ['Appearance'], 'No', 'N/A', numberOfSupporters, ['N/A'], 'No');
+  await recordDecision.recordDecision(true, 'Yes', 'Minded to grant', 'Yes', 'Yes', ['Appearance'], 'No', 'N/A', numberOfSupporters, ['N/A'], 'No');
 });
 
 Given(/^I record a conditional grant decision with SS consent No with (no|one|two) financial condition supporters$/, async function (noOfSupporters) {
@@ -72,7 +72,7 @@ Given(/^I record a conditional grant decision with SS consent No with (no|one|tw
   } else if (noOfSupporters === 'two') {
     numberOfSupporters = 2;
   }
-  await recordDecision.recordDecision(false, 'Yes', 'Minded to grant', 'Yes', 'No', ['Other', 'Reporting'], 'No', 'N/A', numberOfSupporters, ['N/A'], 'No');
+  await recordDecision.recordDecision(true, 'Yes', 'Minded to grant', 'Yes', 'No', ['Other', 'Reporting'], 'No', 'N/A', numberOfSupporters, ['N/A'], 'No');
 });
 
 Given(/^I record a conditional grant decision with SS consent Yes with (no|one|two) financial condition supporters$/, async function (noOfSupporters) {
@@ -84,5 +84,5 @@ Given(/^I record a conditional grant decision with SS consent Yes with (no|one|t
   } else if (noOfSupporters === 'two') {
     numberOfSupporters = 2;
   }
-  await recordDecision.recordDecision(false, 'Yes', 'Minded to grant', 'Yes', 'No', ['Activities', 'Electronic Monitoring'], 'No', 'N/A', numberOfSupporters, ['N/A'], 'No');
+  await recordDecision.recordDecision(true, 'Yes', 'Minded to grant', 'Yes', 'No', ['Activities', 'Electronic Monitoring'], 'No', 'N/A', numberOfSupporters, ['N/A'], 'No');
 });

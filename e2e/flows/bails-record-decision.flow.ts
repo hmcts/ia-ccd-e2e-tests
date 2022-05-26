@@ -188,7 +188,7 @@ export class RecordDecision {
         await this.completeTribunalDecision(true, tribunalDecision)
         if (tribunalDecision === 'Refused') {
             await this.completeReasonsForRefusal(true, 'No')
-            await this.completeCheckYourAnswers(false)
+            await this.completeCheckYourAnswers(true)
         } else if (tribunalDecision === 'Granted') {
             await this.completeReleaseStatus(true, releaseStatusYesOrNo)
             await this.completeConditions(true, conditions)
@@ -201,13 +201,13 @@ export class RecordDecision {
                 }
             }
             await this.completeBailTransfer(true, bailTransferYesOrNo)
-            await this.completeCheckYourAnswers(false)
+            await this.completeCheckYourAnswers(true)
         } else if (tribunalDecision === 'Minded to grant') {
             await this.completeReasonsForDecision(true)
             await this.completeSsConsentDecision(true, SsConsentDecisionYesOrNo)
             if (SsConsentDecisionYesOrNo === 'No') {
                 await this.completeReasonsForRefusal(true, 'Yes')
-                await this.completeCheckYourAnswers(false)
+                await this.completeCheckYourAnswers(true)
             } else if (SsConsentDecisionYesOrNo === 'Yes') {
                 await this.completeReleaseStatus(true, releaseStatusYesOrNo)
                 await this.completeConditions(true, conditions)
@@ -220,7 +220,7 @@ export class RecordDecision {
                     }
                 }
                 await this.completeBailTransfer(true, bailTransferYesOrNo)
-                await this.completeCheckYourAnswers(false)
+                await this.completeCheckYourAnswers(true)
             }
         }
         if (clickContinue) {
