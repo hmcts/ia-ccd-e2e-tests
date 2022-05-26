@@ -1,10 +1,11 @@
 Feature: Record the decision
   Background:
-   Given I am signed in as a `Legal Org User Rep A`
-   And I create a new bail application
-   And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
-   And I submit my bail application as a `Legal Rep`
-   And I upload the bail summary
+#   Given I am signed in as a `Legal Org User Rep A`
+#   And I create a new bail application
+#   And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+#   And I submit my bail application as a `Legal Rep`
+#    When I switch to be a `Home Office Generic`
+#   And I upload the bail summary
 
   @record-the-decision @RIA-5757 @record-the-decision-refused @record-the-decision-no-ss-consent @record-the-decision-refused-no-ss-consent @bails
   Scenario: Refused case - SS consent No
@@ -421,3 +422,33 @@ Feature: Record the decision
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Legal Org User Rep A`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+
+  @recorddecisiontest
+  Scenario: test
+    Given I am signed in as a `Admin Officer`
+    And I wait for 5 seconds
+    And I click the `Next` link
+    And I wait for 5 seconds
+    And I click the `1653-4907-2819-2635` link
+    And I select the `Record the decision` Next step
+    Then I am on the `Judge details` page
+    When I type `Mr Judge Judgerson` for the `Judge name` field
+    And I click the `Continue` button
+    Then I am on the `Secretary of State consent` page
+    When I select `Yes` for the `Is Secretary of State consent needed?` field
+    And I click the `Continue` button
+    Then I am on the `Decision` page
+    When I select `Minded to grant` for the `What is the Tribunal's decision?` field
+    And I click the `Continue` button
+    Then I am on the `Reasons for decision` page
+    When I type `This is a reason for minding to grant.  This is another reason to grant.` for the `Enter the reasons the judge is minded to grant bail` field
+    And I click the `Continue` button
+    Then I am on the `Secretary of State consent decision` page
+    When I select `Yes` for the `Does the Secretary of State give consent to grant bail?` field
+    And I click the `Continue` button
+    Then I am on the `Release Status` page
+    When I select `No` for the `Will the applicant be released with immediate effect?` field
+    And I click the `Continue` button
+    Then I am on the `Conditions` page
+    And I complete Conditions page
+    And I wait for 30 seconds
