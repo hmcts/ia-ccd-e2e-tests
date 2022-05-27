@@ -25,7 +25,7 @@ export class UploadBailSummary {
             'Upload Bail Summary',
             'first'
         );
-        await browser.sleep(3000)
+        await browser.sleep(1000)
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -38,7 +38,7 @@ export class UploadBailSummary {
         await this.ccdFormPage.click('Go');
         await this.uploadBailSummaryFile(true);
         await this.ccdFormPage.click('Upload');
-        await browser.sleep(10000)
+        await browser.sleep(5000)
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
         }
