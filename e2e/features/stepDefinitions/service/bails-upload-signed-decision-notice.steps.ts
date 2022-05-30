@@ -1,4 +1,4 @@
-import { UploadSignedDecisionNotice } from '../../../flows/bails-upload-bail-summary.flow';
+import { UploadSignedDecisionNotice } from '../../../flows/bails-upload-signed-decision-notice.flow';
 import { Given } from 'cucumber';
 
 const uploadSignedDecisionNotice = new UploadSignedDecisionNotice();
