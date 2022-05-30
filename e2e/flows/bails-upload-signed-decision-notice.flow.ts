@@ -9,12 +9,12 @@ export class UploadSignedDecisionNotice {
         await this.ccdFormPage.runAccessbility();
         if (decision === 'Refused') {
             await this.ccdFormPage.setFieldValue(
-                'Decision Document',
+                'Decision document',
                 '{@SignedDecisionNoticeRefused.pdf}',
             );
         } else {
             await this.ccdFormPage.setFieldValue(
-                'Decision Document',
+                'Decision document',
                 '{@SignedDecisionNoticeGranted.pdf}',
             );
         }
