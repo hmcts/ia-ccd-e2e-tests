@@ -6,7 +6,7 @@ Feature: Upload signed decision notice
     And I submit my bail application as a `Home Office Generic`
     And I upload the bail summary
 
-  @upload-signed-decision-notice @upload-signed-decision-notice-refused
+  @upload-signed-decision-notice @RIA-5759 @upload-signed-decision-notice-refused
   Scenario: Upload signed decision notice for refused case
     Given I switch to be a `Admin Officer`
     When I record a refused decision with SS consent Yes with no financial condition supporters
@@ -25,7 +25,7 @@ Feature: Upload signed decision notice
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `SignedDecisionNoticeRefused.pdf` for the `Decision document` field
 
-  @upload-signed-decision-notice @upload-signed-decision-notice-granted
+  @upload-signed-decision-notice @RIA-5759 @upload-signed-decision-notice-granted
   Scenario: Upload signed decision notice for granted case
     Given I switch to be a `Admin Officer`
     When I record a granted decision with SS consent No with no financial condition supporters
@@ -44,7 +44,7 @@ Feature: Upload signed decision notice
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `SignedDecisionNoticeGranted.pdf` for the `Decision document` field
 
-  @upload-signed-decision-notice @upload-signed-decision-notice-conditional-grant
+  @upload-signed-decision-notice @RIA-5759 @upload-signed-decision-notice-conditional-grant
   Scenario: Upload signed decision notice for conditional grant case
     Given I switch to be a `Admin Officer`
     When I record a conditional grant decision with SS consent Yes with no financial condition supporters
@@ -63,7 +63,7 @@ Feature: Upload signed decision notice
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `SignedDecisionNoticeGranted.pdf` for the `Decision document` field
 
-  @upload-signed-decision-notice @upload-signed-decision-notice-judge
+  @upload-signed-decision-notice @RIA-5759 @upload-signed-decision-notice-judge
   Scenario: Upload signed decision notice as Judge
     Given I switch to be a `Judge`
     When I record a refused decision with SS consent Yes with no financial condition supporters
