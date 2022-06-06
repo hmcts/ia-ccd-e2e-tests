@@ -5,7 +5,7 @@ Feature: End the application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
 
-  @end-the-application @RIA-5760 @end-the-application-withdrawn @end-the-application-post-submit
+  @bails-end-the-application @RIA-5760 @bails-end-the-application-withdrawn @bails-end-the-application-post-submit
   Scenario: End Application after submitting
     When I switch to be a `Admin Officer`
     And I select the `End the application` Next step
@@ -27,7 +27,7 @@ Feature: End the application
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
-  @end-the-application @RIA-5760 @end-the-application-dismissed @end-the-application-post-bail-summary
+  @bails-end-the-application @RIA-5760 @bails-end-the-application-dismissed @bails-end-the-application-post-bail-summary
   Scenario: End Application after uploading bail summary
     When I switch to be a `Home Office Generic`
     And I upload the bail summary
@@ -51,7 +51,7 @@ Feature: End the application
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
-  @end-the-application @RIA-5760 @end-the-application-not-in-detention @end-the-application-post-record-decision
+  @bails-end-the-application @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-record-decision
   Scenario: End Application after recording a decision
     When I switch to be a `Home Office Generic`
     And I upload the bail summary
@@ -76,7 +76,7 @@ Feature: End the application
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
-  @end-the-application @RIA-5760 @end-the-application-not-in-detention @end-the-application-post-upload-signed-decision-notice
+  @bails-end-the-application @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-upload-signed-decision-notice
   Scenario: End Application after uploading signed decision notice for a conditional bail
     When I switch to be a `Home Office Generic`
     And I upload the bail summary
