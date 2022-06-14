@@ -33,7 +33,7 @@ Given('I create a new case', async function () {
     if (iaConfig.CcdWebUrl.includes('demo') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* master'
+            'Appeal* RIA-5126'
         );
     }
 
