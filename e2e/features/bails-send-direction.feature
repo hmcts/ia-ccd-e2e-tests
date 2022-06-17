@@ -148,4 +148,3 @@ Feature: Send direction
     And within the `Directions` collection's first item, I should see `Home Office` for the `Party` field
     And within the `Directions` collection's first item, I should see `1 Feb 2025` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
-

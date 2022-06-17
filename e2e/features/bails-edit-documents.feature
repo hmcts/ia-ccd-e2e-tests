@@ -134,5 +134,3 @@ Feature: Edit bail documents
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `Document names: [Pugh-bail-application-summary.PDF, GroundsForBailSupportingEvidence.pdf, Evidence1.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: This is a reason for editing, removing and adding documents` in the `Case note` field
-
-
