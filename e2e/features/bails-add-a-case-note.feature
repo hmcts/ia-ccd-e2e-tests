@@ -1,9 +1,9 @@
 Feature: Add a case note to bails application
  Background:
-   Given I am signed in as a `Home Office Generic`
+   Given I am signed in as a `Home Office Bails`
    When I create a new bail application
-   And I save my initial application as a `Home Office Generic` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
-   And I submit my bail application as a `Home Office Generic`
+   And I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+   And I submit my bail application as a `Home Office Bails`
 
   @bails-add-case-note @bails-add-case-note-admin-officer @bails-add-case-note-document @bails-add-case-note-document-admin-officer @RIA-5753 @bails
   Scenario: Add case note with document as Admin Officer

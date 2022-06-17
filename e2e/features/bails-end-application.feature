@@ -29,7 +29,7 @@ Feature: End the application
 
   @bails-end-the-application @RIA-5760 @bails-end-the-application-dismissed @bails-end-the-application-post-bail-summary
   Scenario: End Application after uploading bail summary
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer`
     And I select the `End the application` Next step
@@ -53,7 +53,7 @@ Feature: End the application
 
   @bails-end-the-application @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-record-decision
   Scenario: End Application after recording a decision
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
@@ -78,7 +78,7 @@ Feature: End the application
 
   @bails-end-the-application @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-upload-signed-decision-notice
   Scenario: End Application after uploading signed decision notice for a conditional bail
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters

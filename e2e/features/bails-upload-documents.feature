@@ -28,7 +28,7 @@ Feature: Upload Documents
 
   @bails-upload-documents @RIA-5769 @bails-upload-documents-post-bail-summary
   Scenario: Upload Documents after uploading bail summary
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     And I upload the bail summary
     When I select the `Upload documents` Next step
     Then I am on the `Upload` page
@@ -51,7 +51,7 @@ Feature: Upload Documents
 
   @bails-upload-documents @RIA-5769 @bails-upload-documents-post-record-decision
   Scenario: Upload Documents after recording a decision
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
@@ -76,7 +76,7 @@ Feature: Upload Documents
     
   @bails-upload-documents @RIA-5769 @bails-upload-documents-post-upload-signed-decision-notice
   Scenario: Upload Documents after uploading signed decision notice for a conditional bail
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters

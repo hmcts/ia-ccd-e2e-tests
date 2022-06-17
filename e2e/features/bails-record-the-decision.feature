@@ -4,7 +4,7 @@ Feature: Record the decision
     And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
-    And I switch to be a `Home Office Generic`
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails
@@ -38,7 +38,7 @@ Feature: Record the decision
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
     And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
@@ -78,7 +78,7 @@ Feature: Record the decision
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
     And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
@@ -126,7 +126,7 @@ Feature: Record the decision
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
     And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
@@ -210,7 +210,7 @@ Feature: Record the decision
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
     And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
@@ -269,7 +269,7 @@ Feature: Record the decision
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
     And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
@@ -354,7 +354,7 @@ Feature: Record the decision
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
     And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
@@ -416,7 +416,7 @@ Feature: Record the decision
     When I click the `Documents` tab
     Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
     And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    When I switch to be a `Home Office Generic`
+    When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
