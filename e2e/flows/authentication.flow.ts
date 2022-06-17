@@ -70,6 +70,15 @@ export class AuthenticationFlow {
         );
     }
 
+    async signInAsHomeOfficeBails() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestHomeOfficeBailsUserName,
+            iaConfig.TestHomeOfficeBailsPassword
+        );
+    }
+
     async signInAsJudiciary() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();

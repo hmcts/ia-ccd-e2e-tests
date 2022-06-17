@@ -2,7 +2,7 @@ const testConfig = require('../e2e/ia.conf');
 const AxeRunner = require('../e2e/helpers/accessibility/axe-runner');
 const fs = require('fs');
 
-function generateAccessibilityReport() {
+async function generateAccessibilityReport() {
   const reportJson = AxeRunner.getAccessibilityTestResult();
   const result = 'var replacejsoncontent = ' + JSON.stringify(reportJson);
 
@@ -10,10 +10,10 @@ function generateAccessibilityReport() {
   const destReport = testConfig.TestOutputDir + '/a11y.html';
   const destJson = testConfig.TestOutputDir + '/a11y_output.js';
 
-  fs.copyFileSync(sourceReport, destReport);
-  fs.writeFileSync(destJson, result);
-  copyResources();
-
+   fs.copyFileSync(sourceReport, destReport);
+   fs.writeFileSync(destJson, result);
+   copyResources()
+  
 }
 
 function copyResources() {

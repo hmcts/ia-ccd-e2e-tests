@@ -5,6 +5,29 @@ export class StartBailApplicationFlow {
 
     private ccdFormPage = new CcdFormPage();
 
+    async completePreviousBailApplication(clickContinue = false) {
+        await this.ccdFormPage.runAccessbility();
+        await this.ccdFormPage.setFieldValue('Has the applicant made a previous application before?', 'Yes');
+        await this.ccdFormPage.setFieldValue('What is the bail number for the previous application?', 'HW/07919');
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeRefusedBail(clickContinue = false) {
+        await this.ccdFormPage.runAccessbility();
+        await this.ccdFormPage.setFieldValue('Bail refused in the last 28 days', 'Yes');
+        await this.ccdFormPage.setFieldValue('What was the date of the hearing?', '31-12-2019');
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
+    async completeCreateNewApplication(clickContinue = false) {
+        await this.ccdFormPage.runAccessbility();
+        await this.ccdFormPage.click('Continue');
+    }
+
     async completeBeforeYouStart(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click('Continue');
@@ -112,24 +135,6 @@ export class StartBailApplicationFlow {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Pending appeal hearing', 'Yes');
         await this.ccdFormPage.setFieldValue('What is the reference number for the applicant’s appeal?', '098765');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
-
-    async completePreviousBailApplication(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Previous application', 'Yes');
-        await this.ccdFormPage.setFieldValue('What is the bail number for the previous application?', '098765');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
-
-    async completeRefusedBail(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Bail refused in the last 28 days', 'Yes');
-        await this.ccdFormPage.setFieldValue('What was the date of the hearing?', '31-12-2019');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -471,6 +476,9 @@ export class StartBailApplicationFlow {
     }
 
     async saveInitialApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
+        await this.completePreviousBailApplication(true);
+        await this.completeRefusedBail(true);
+        await this.completeCreateNewApplication(true);
         await this.completeBeforeYouStart(true);
         if (user === 'Admin Officer') {
             await this.completeWhichPartySentApplication(true, 'Applicant');
@@ -489,8 +497,6 @@ export class StartBailApplicationFlow {
         await this.completeDateOfApplicantArrival(true);
         await this.completeApplicantMobilePhone(true);
         await this.completeAppealHearingPending(true);
-        await this.completePreviousBailApplication(true);
-        await this.completeRefusedBail(true);
         await this.completeApplicantPlaceToLive(true);
         await this.completeApplicantAddress(true);
         await this.completeFinancialConditionAgree(true);

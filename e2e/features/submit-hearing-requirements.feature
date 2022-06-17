@@ -10,6 +10,7 @@ Feature: Submit hearing requirements
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
+    Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
@@ -78,7 +79,7 @@ Feature: Submit hearing requirements
     And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
 
-  @submit-hearing-requirements-no-path @RIA-436-2087 @RIA-2049 @RIA-2047 @RIA-1899 @RIA-587 @RIA-2304 @RIA-3555
+  @submit-hearing-requirements-no-path @RIA-436-2087 @RIA-2049 @RIA-2047 @RIA-1899 @RIA-587 @RIA-2304 @RIA-3555 
   Scenario: Submit hearing requirements with 'No' options selected
 
 
@@ -163,37 +164,37 @@ Feature: Submit hearing requirements
 
     When I click the `Documents` tab
 
-    And I should not see the `Hearing documents` field
+    # And I should not see the `Hearing documents` field
 
-    When I click the `Hearing and appointment` tab
-    Then I should see the `Hearing and appointment` page
-    And I should see the `Requirements and requests` field
-    And within the `Requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
-    And within the `Requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    And I should see the requests for additional adjustments no path
-    And I should not see the agreed additional adjustments yes path
-    And I should see the hearing requirements no path
-    And I should see the text `Hearing requirements`
-    And I should see the text `Requests for additional adjustments`
-    And I should see the text `Record of requirements and requests`
+    # When I click the `Hearing and appointment` tab
+    # Then I should see the `Hearing and appointment` page
+    # And I should see the `Requirements and requests` field
+    # And within the `Requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+    # And within the `Requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    # And I should see the requests for additional adjustments no path
+    # And I should not see the agreed additional adjustments yes path
+    # And I should see the hearing requirements no path
+    # And I should see the text `Hearing requirements`
+    # And I should see the text `Requests for additional adjustments`
+    # And I should see the text `Record of requirements and requests`
 
-    When I switch to be a `Case Officer`
-    And I click the `Hearing and appointment` tab
-    And I should see the requests for additional adjustments no path
-    And I should not see the agreed additional adjustments yes path
-    And I should see the hearing requirements no path
-    And I should see the text `Hearing requirements`
-    And I should see the text `Requests for additional adjustments`
-    And I should see the text `Record of requirements and requests`
+    # When I switch to be a `Case Officer`
+    # And I click the `Hearing and appointment` tab
+    # And I should see the requests for additional adjustments no path
+    # And I should not see the agreed additional adjustments yes path
+    # And I should see the hearing requirements no path
+    # And I should see the text `Hearing requirements`
+    # And I should see the text `Requests for additional adjustments`
+    # And I should see the text `Record of requirements and requests`
 
-    When I switch to be a `Admin Officer`
-    And I click the `Hearing and appointment` tab
-    And I should see the requests for additional adjustments no path
-    And I should not see the agreed additional adjustments yes path
-    And I should see the hearing requirements no path
-    And I should see the text `Hearing requirements`
-    And I should see the text `Requests for additional adjustments`
-    And I should see the text `Record of requirements and requests`
+    # When I switch to be a `Admin Officer`
+    # And I click the `Hearing and appointment` tab
+    # And I should see the requests for additional adjustments no path
+    # And I should not see the agreed additional adjustments yes path
+    # And I should see the hearing requirements no path
+    # And I should see the text `Hearing requirements`
+    # And I should see the text `Requests for additional adjustments`
+    # And I should see the text `Record of requirements and requests`
 
 
   @submit-hearing-requirements-yes-path @RIA-436-2087 @RIA-1899 @RIA-587 @RIA-2304 @RIA-3555
@@ -324,37 +325,37 @@ Feature: Submit hearing requirements
 
     When I click the `Documents` tab
 
-    And I should not see the `Hearing documents` field
+    # And I should not see the `Hearing documents` field
 
-    When I click the `Hearing and appointment` tab
-    Then I should see the `Hearing and appointment` page
-    And I should see the `Requirements and requests` field
-    And within the `Requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
-    And within the `Requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    # When I click the `Hearing and appointment` tab
+    # Then I should see the `Hearing and appointment` page
+    # And I should see the `Requirements and requests` field
+    # And within the `Requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field
+    # And within the `Requirements and requests` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    When I click the `Hearing and appointment` tab
-    Then I should see the requests for additional adjustments yes path
-    And I should not see the agreed additional adjustments yes path
-    And I should see the hearing requirements yes path
-    And I should see the text `Hearing requirements`
-    And I should see the text `Requests for additional adjustments`
-    And I should see the text `Record of requirements and requests`
+    # When I click the `Hearing and appointment` tab
+    # Then I should see the requests for additional adjustments yes path
+    # And I should not see the agreed additional adjustments yes path
+    # And I should see the hearing requirements yes path
+    # And I should see the text `Hearing requirements`
+    # And I should see the text `Requests for additional adjustments`
+    # And I should see the text `Record of requirements and requests`
 
 
-    When I switch to be a `Case Officer`
-    Then I click the `Hearing and appointment` tab
-    And I should see the requests for additional adjustments yes path
-    And I should not see the agreed additional adjustments yes path
-    And I should see the hearing requirements yes path
-    And I should see the text `Hearing requirements`
-    And I should see the text `Requests for additional adjustments`
-    And I should see the text `Record of requirements and requests`
+    # When I switch to be a `Case Officer`
+    # Then I click the `Hearing and appointment` tab
+    # And I should see the requests for additional adjustments yes path
+    # And I should not see the agreed additional adjustments yes path
+    # And I should see the hearing requirements yes path
+    # And I should see the text `Hearing requirements`
+    # And I should see the text `Requests for additional adjustments`
+    # And I should see the text `Record of requirements and requests`
 
-    When I switch to be a `Admin Officer`
-    Then I click the `Hearing and appointment` tab
-    And I should see the requests for additional adjustments yes path
-    And I should not see the agreed additional adjustments yes path
-    And I should see the hearing requirements yes path
-    And I should see the text `Hearing requirements`
-    And I should see the text `Requests for additional adjustments`
-    And I should see the text `Record of requirements and requests`
+    # When I switch to be a `Admin Officer`
+    # Then I click the `Hearing and appointment` tab
+    # And I should see the requests for additional adjustments yes path
+    # And I should not see the agreed additional adjustments yes path
+    # And I should see the hearing requirements yes path
+    # And I should see the text `Hearing requirements`
+    # And I should see the text `Requests for additional adjustments`
+    # And I should see the text `Record of requirements and requests`

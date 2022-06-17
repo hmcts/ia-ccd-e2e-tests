@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "webdriver-manager update",
+    "postinstall": "webdriver-manager update --versions.chrome=75.0.3770.140",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "e2e": "yarn localTest",
-    "test:fullfunctional": "TESTS_FOR_ACCESSIBILITY='true' protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
-    "localTest": "protractor ./e2e/features.conf.js --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
-    "localTestParallelScenarios": "protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
-    "localTestParallelFeatures": "protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
+    "test:fullfunctional": "yarn install && TESTS_FOR_ACCESSIBILITY='true' protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+    "localTest": "yarn install && protractor ./e2e/features.conf.js --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
+    "localTestParallelScenarios": "yarn install && protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
+    "localTestParallelFeatures": "yarn install && protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowsertest' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:nsp": "nsp check"
   },
@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "@angular/compiler": "^7.0.0",
-    "@angular/core": "^7.0.0",
+    "@angular/core": "^11.0.5",
     "@hmcts/eslint-config": "^1.4.0",
     "@types/axe-core": "^2.0.7",
     "@types/chai": "^4.1.6",
@@ -40,6 +40,7 @@
     "protractor-beautiful-reporter": "^1.2.5",
     "protractor-cucumber-framework": "^6.2.1",
     "protractor-multiple-cucumber-html-reporter-plugin": "1.8.1",
+    "protractor-retry": "^1.2.13",
     "puppeteer": "1.15.0",
     "request-promise": "^4.2.5",
     "rxjs": "^6.5.4",
@@ -57,6 +58,7 @@
     "minimist": "^1.2.3",
     "mixin-deep": "^2.0.1",
     "set-value": "^4.0.1",
-    "yargs-parser": "^18.1.2"
+    "yargs-parser": "^18.1.2",
+    "yargs": "^15.0.0"
   }
 }

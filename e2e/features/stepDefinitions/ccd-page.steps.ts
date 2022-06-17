@@ -30,6 +30,12 @@ Given('I create a new case', async function () {
             'Appeal* master'
         );
     }
+    if (iaConfig.CcdWebUrl.includes('demo') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* RIA-5126'
+        );
+    }
 
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
@@ -64,22 +70,19 @@ Given('I create a new bail application', async function () {
 
 Given('I Apply case list filter', async function () {
     // there is loading mask with spinner added by ExUI
-    await browser.sleep(5000);
+    await browser.sleep(10000);
 
     expect(await ccdPage.headingContains('Case list')).to.equal(true);
     await ccdPage.runAccessbility();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
-        await ccdFormPage.setFieldValue(
-            'Jurisdiction',
-            'Immigration & Asylum'
-        );
+    await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
-    // if (iaConfig.CcdWebUrl.includes('aat') ) {
+    if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* master'
         );
-    // }
+    }
 
     await ccdPage.doesDropdownHaveValues('State');
     await ccdFormPage.setFieldValue(
