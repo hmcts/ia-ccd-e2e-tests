@@ -40,6 +40,10 @@ Given(/^I am signed in as a `?(?:Home Office Generic)`?$/, async function () {
     await authenticationFlow.signInAsHomeOfficeGeneric();
 });
 
+Given(/^I am signed in as a `?(?:Home Office Bails)`?$/, async function () {
+    await authenticationFlow.signInAsHomeOfficeBails();
+});
+
 Given(/^I am signed in as a `?(?:Judge)`?$/, async function () {
     await authenticationFlow.signInAsJudge();
 });
