@@ -38,6 +38,8 @@ module.exports = {
   TestHomeOfficePouPassword: process.env.TEST_HOMEOFFICE_POU_PASSWORD,
   TestHomeOfficeGenericUserName: process.env.TEST_HOMEOFFICE_GENERIC_USERNAME,
   TestHomeOfficeGenericPassword: process.env.TEST_HOMEOFFICE_GENERIC_PASSWORD,
+  TestHomeOfficeBailsUserName: process.env.TEST_HOMEOFFICE_BAILS_USERNAME,
+  TestHomeOfficeBailsPassword: process.env.TEST_HOMEOFFICE_BAILS_PASSWORD,
   TestJudgeUserName: process.env.TEST_JUDGE_X_USERNAME,
   TestJudgePassword: process.env.TEST_JUDGE_X_PASSWORD,
   TestLawFirmOrgCreatorUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_ORG_USERNAME,
