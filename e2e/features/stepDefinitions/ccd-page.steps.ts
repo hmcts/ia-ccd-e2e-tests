@@ -63,6 +63,7 @@ Given('I create a new bail application', async function () {
         );
     // }
 
+
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
     await ccdPage.click('Start');
