@@ -44,6 +44,8 @@ module.exports = {
   TestLawFirmOrgCreatorPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_ORG_PASSWORD,
   TestLawFirmOrgAUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_A_USERNAME,
   TestLawFirmOrgAPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_A_PASSWORD,
+  // TestLawFirmOrgAUserName:'ialegalreporgcreator12@mailinator.com',
+  // TestLawFirmOrgAPassword: 'Aldg@teT0wer',
   TestLawFirmOrgBUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_B_USERNAME,
   TestLawFirmOrgBPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_B_PASSWORD,
   TestLawFirmOrg2CreatorUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_ORG2_USERNAME,
