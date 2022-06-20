@@ -116,7 +116,7 @@ export class StartBailApplicationFlow {
     }
     async completeDateOfApplicantArrival(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Date of arrival in the UK', '31-12-2009');
+        await this.ccdFormPage.setFieldValue('Date of arrival in the UK (Optional)', '31-12-2009');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
