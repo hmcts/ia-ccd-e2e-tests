@@ -73,10 +73,15 @@ export class AuthenticationFlow {
     async signInAsHomeOfficeBails() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
-        await this.idamSignInPage.signIn(
-            iaConfig.TestHomeOfficeBailsUserName,
-            iaConfig.TestHomeOfficeBailsPassword
-        );
+        if (iaConfig.CcdWebUrl.includes('localhost') ) {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestHomeOfficeGenericUserName,
+                iaConfig.TestHomeOfficeGenericPassword
+        )} else {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestHomeOfficeBailsUserName,
+                iaConfig.TestHomeOfficeBailsPassword
+        )}
     }
 
     async signInAsJudiciary() {
