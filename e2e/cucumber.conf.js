@@ -1,2 +1,2 @@
 const { setDefaultTimeout } = require('cucumber');
-setDefaultTimeout(360 * 1000 * 3);
+setDefaultTimeout(180 * 1000 * 3);
