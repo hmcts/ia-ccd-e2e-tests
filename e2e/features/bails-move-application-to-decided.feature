@@ -21,7 +21,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should only see the `progress_application_decided` case progress image
 
-  @bails-move-application-to-decided @bails @RIA-5759 @bails-move-application-to-decided-judge
+  @bails-move-application-to-decided @bails @RIA-5759 @bails-move-application-to-decided-judge @bails-regression
   Scenario: Move application to decided as Judge
     When I switch to be a `Judge`
     And I select the `Move application to decided` Next step

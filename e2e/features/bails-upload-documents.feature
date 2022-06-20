@@ -5,7 +5,7 @@ Feature: Upload Documents
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
 
-  @bails-upload-documents @bails @RIA-5769 @bails-upload-documents-post-submit
+  @bails-upload-documents @bails @RIA-5769 @bails-upload-documents-post-submit @bails-regression
   Scenario: Upload Documents after submitting
     When I select the `Upload documents` Next step
     Then I am on the `Upload` page

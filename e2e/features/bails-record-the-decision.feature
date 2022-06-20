@@ -7,7 +7,7 @@ Feature: Record the decision
     And I switch to be a `Home Office Bails`
     And I upload the bail summary
 
-  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails
+  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails @bails-regression
   Scenario: Refused case - SS consent No
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
@@ -217,7 +217,7 @@ Feature: Record the decision
     When I switch to be a `Legal Org User Rep A`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
 
-  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-granted-yes-ss-consent @bails
+  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-granted-yes-ss-consent @bails @bails-regression
   Scenario: Granted case - SS consent Yes
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step

@@ -29,7 +29,7 @@ Feature: Send direction
     And within the `Directions` collection's first item, I should see `10 Feb 2025` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-  @bails @RIA-5771 @bails-send-direction @bails-send-direction-to-LR @bails-send-direction-to-LR-AO
+  @bails @RIA-5771 @bails-send-direction @bails-send-direction-to-LR @bails-send-direction-to-LR-AO @bails-regression
   Scenario: Send a direction to Legal Representative as an Admin Officer
     When I switch to be a `Admin Officer`
     And I select the `Send direction` Next step
@@ -77,7 +77,7 @@ Feature: Send direction
     And within the `Directions` collection's first item, I should see `6 Feb 2025` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-  @bails @RIA-5771 @bails-send-direction @bails-send-direction-to-applicant @bails-send-direction-to-applicant-judge
+  @bails @RIA-5771 @bails-send-direction @bails-send-direction-to-applicant @bails-send-direction-to-applicant-judge @bails-regression
   Scenario: Send a direction to Applicant as a Judge
     When I switch to be a `Judge`
     And I select the `Send direction` Next step

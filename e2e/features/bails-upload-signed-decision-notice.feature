@@ -6,7 +6,7 @@ Feature: Upload signed decision notice
     And I submit my bail application as a `Home Office Bails`
     And I upload the bail summary
 
-  @bails-upload-signed-decision-notice @bails @RIA-5759 @bails-upload-signed-decision-notice-refused
+  @bails-upload-signed-decision-notice @bails @RIA-5759 @bails-upload-signed-decision-notice-refused @bails-regression
   Scenario: Upload signed decision notice for refused case
     Given I switch to be a `Admin Officer`
     When I record a refused decision with SS consent Yes with no financial condition supporters

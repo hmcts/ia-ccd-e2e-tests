@@ -73,7 +73,7 @@ Feature: Edit bail documents
     And within the `Case notes` collection's first item, I should see `Document names: [Evidence1.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: Take some reasons for adding a new document` in the `Case note` field
 
-  @RIA-5770 @bails @bails-edit-documents @bails-edit-documents-delete @bails-edit-documents-edit @bails-edit-documents-add @bails-edit-documents-delete-edit-add
+  @RIA-5770 @bails @bails-edit-documents @bails-edit-documents-delete @bails-edit-documents-edit @bails-edit-documents-add @bails-edit-documents-delete-edit-add @bails-regression
   Scenario: Delete, edit and add a document
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page
