@@ -16,7 +16,7 @@ export class StartBailApplicationFlow {
 
     async completeRefusedBail(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Bail refused in the last 28 days', 'Yes');
+        await this.ccdFormPage.setFieldValue('Has the applicant been refused immigration bail at a hearing within the last 28 days?', 'Yes');
         await this.ccdFormPage.setFieldValue('What was the date of the hearing?', '31-12-2019');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
