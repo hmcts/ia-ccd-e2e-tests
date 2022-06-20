@@ -10,7 +10,7 @@ Feature: Upload Documents
     When I select the `Upload documents` Next step
     Then I am on the `Upload` page
     When I click the `Add new` button
-    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Upload a file` field
+    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` field
     And within the `Upload documents` collection's first item, I type `This is the a bails document that is being uploaded by the LR after submitting.` for the `Describe the document` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -33,7 +33,7 @@ Feature: Upload Documents
     When I select the `Upload documents` Next step
     Then I am on the `Upload` page
     When I click the `Add new` button
-    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Upload a file` field
+    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` field
     And within the `Upload documents` collection's first item, I type `This is the a bails document that is being uploaded by the HO after uploading bail summary.` for the `Describe the document` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -58,7 +58,7 @@ Feature: Upload Documents
     When I select the `Upload documents` Next step
     Then I am on the `Upload` page
     When I click the `Add new` button
-    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Upload a file` field
+    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` field
     And within the `Upload documents` collection's first item, I type `This is the a bails document that is being uploaded by the AO after recording decision.` for the `Describe the document` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -84,7 +84,7 @@ Feature: Upload Documents
     When I select the `Upload documents` Next step
     Then I am on the `Upload` page
     When I click the `Add new` button
-    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Upload a file` field
+    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` field
     And within the `Upload documents` collection's first item, I type `This is the a bails document that is being uploaded by the AO after uploading signed decision notice.` for the `Describe the document` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
