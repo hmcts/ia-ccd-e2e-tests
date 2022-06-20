@@ -79,7 +79,6 @@ Feature: Add a case note to bails application
     And within the `Case notes` collection's first item, I should see `some case note subject` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `some case note description` for the `Case note` field
     And within the `Case notes` collection's first item, I should see `BailsCaseNote.pdf` for the `Document` field
-    And within the `Case notes` collection's first item, I should see `Judge` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
     When I switch to be a `Admin Officer`
@@ -88,7 +87,6 @@ Feature: Add a case note to bails application
     And within the `Case notes` collection's first item, I should see `some case note subject` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `some case note description` for the `Case note` field
     And within the `Case notes` collection's first item, I should see `BailsCaseNote.pdf` for the `Document` field
-    And within the `Case notes` collection's first item, I should see `Judge` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
   @bails-add-case-note @bails-add-case-note-admin-officer @RIA-5753 @bails
@@ -156,7 +154,6 @@ Feature: Add a case note to bails application
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `some case note subject` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `some case note description` for the `Case note` field
-    And within the `Case notes` collection's first item, I should see `Judge` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
     When I switch to be a `Admin Officer`
@@ -164,5 +161,4 @@ Feature: Add a case note to bails application
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `some case note subject` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `some case note description` for the `Case note` field
-    And within the `Case notes` collection's first item, I should see `Judge` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
