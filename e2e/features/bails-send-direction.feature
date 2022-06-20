@@ -15,7 +15,7 @@ Feature: Send direction
     And I type `10-02-2025` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `This is a test direction to the Applicant` for the `Explain the direction you are issuing` in the `Explain the direction you are issuing` field
+    And I should see `This is a test direction to the Applicant` for the `Explain the direction you are issuing` field
     And I should see `Applicant` in the `Who are you giving direction to?` field
     And I should see `10 Feb 2025` in the `By what date must they comply?` field
     When I click the `Send the direction` button
@@ -39,7 +39,7 @@ Feature: Send direction
     And I type `08-02-2025` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `This is a test direction to the Legal Rep` for the `Explain the direction you are issuing` in the `Explain the direction you are issuing` field
+    And I should see `This is a test direction to the Legal Rep` for the `Explain the direction you are issuing` field
     And I should see `Legal representative` in the `Who are you giving direction to?` field
     And I should see `8 Feb 2025` in the `By what date must they comply?` field
     When I click the `Send the direction` button
@@ -63,7 +63,7 @@ Feature: Send direction
     And I type `06-02-2025` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `This is a test direction to the Home Office` for the `Explain the direction you are issuing` in the `Explain the direction you are issuing` field
+    And I should see `This is a test direction to the Home Office` for the `Explain the direction you are issuing` field
     And I should see `Home Office` in the `Who are you giving direction to?` field
     And I should see `6 Feb 2025` in the `By what date must they comply?` field
     When I click the `Send the direction` button
@@ -87,7 +87,7 @@ Feature: Send direction
     And I type `04-02-2025` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `This is a test direction to the Applicant` for the `Explain the direction you are issuing` in the `Explain the direction you are issuing` field
+    And I should see `This is a test direction to the Applicant` for the `Explain the direction you are issuing` field
     And I should see `Applicant` in the `Who are you giving direction to?` field
     And I should see `4 Feb 2025` in the `By what date must they comply?` field
     When I click the `Send the direction` button
@@ -111,7 +111,7 @@ Feature: Send direction
     And I type `02-02-2025` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `This is a test direction to the Legal Rep` for the `Explain the direction you are issuing` in the `Explain the direction you are issuing` field
+    And I should see `This is a test direction to the Legal Rep` for the `Explain the direction you are issuing` field
     And I should see `Legal representative` in the `Who are you giving direction to?` field
     And I should see `2 Feb 2025` in the `By what date must they comply?` field
     When I click the `Send the direction` button
@@ -135,7 +135,7 @@ Feature: Send direction
     And I type `01-02-2025` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `This is a test direction to the Home Office` for the `Explain the direction you are issuing` in the `Explain the direction you are issuing` field
+    And I should see `This is a test direction to the Home Office` for the `Explain the direction you are issuing` field
     And I should see `Home Office` in the `Who are you giving direction to?` field
     And I should see `1 Feb 2025` in the `By what date must they comply?` field
     When I click the `Send the direction` button
