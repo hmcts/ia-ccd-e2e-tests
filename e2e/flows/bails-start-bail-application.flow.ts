@@ -6,6 +6,7 @@ export class StartBailApplicationFlow {
     private ccdFormPage = new CcdFormPage();
 
     async completePreviousBailApplication(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Has the applicant made a previous application before?', 'Yes');
         await this.ccdFormPage.setFieldValue('What is the bail number for the previous application?', 'HW/07919');
@@ -15,6 +16,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeRefusedBail(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Bail refused in the last 28 days', 'Yes');
         await this.ccdFormPage.setFieldValue('What was the date of the hearing?', '31-12-2019');
@@ -24,16 +26,19 @@ export class StartBailApplicationFlow {
     }
 
     async completeCreateNewApplication(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click('Continue');
     }
 
     async completeBeforeYouStart(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click('Continue');
     }
 
     async completeWhichPartySentApplication(clickContinue = false, user) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Application sent by', user);
         if (clickContinue) {
@@ -42,6 +47,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeApplicantName(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Given names', 'Harri');
         await this.ccdFormPage.setFieldValue('Family name', 'Pugh');
@@ -51,6 +57,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeApplicantDOB(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
             await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
         if (clickContinue) {
@@ -59,6 +66,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeApplicantGender(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Gender', 'Other')
         await this.ccdFormPage.setFieldValue('Enter details', 'Other')
@@ -68,6 +76,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeApplicantNationality(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await browser.sleep(2000);
         await this.ccdFormPage.setFieldValue('Nationality', 'The applicant has a nationality');
@@ -81,6 +90,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeApplicantReferenceNumber(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Home Office reference', '01234567');
         if (clickContinue) {
@@ -89,6 +99,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeDetentionFacility(clickContinue = false, facility) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Detention facility', facility);
         if (facility === 'Prison') {
@@ -100,6 +111,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeWhichPrison(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Prison name', 'HM Prison Blundeston');
         if (clickContinue) {
@@ -108,6 +120,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeWhichIRC(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Immigration removal centre name', 'Brookhouse');
         if (clickContinue) {
@@ -115,6 +128,7 @@ export class StartBailApplicationFlow {
         }
     }
     async completeDateOfApplicantArrival(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Date of arrival in the UK', '31-12-2009');
         if (clickContinue) {
@@ -123,6 +137,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeApplicantMobilePhone(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Mobile phone', 'Yes');
         await this.ccdFormPage.setFieldValue('Mobile phone number', '07930111111');
@@ -132,6 +147,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeAppealHearingPending(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Pending appeal hearing', 'Yes');
         await this.ccdFormPage.setFieldValue('What is the reference number for the applicant’s appeal?', '098765');
@@ -141,6 +157,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeApplicantPlaceToLive(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Address if bail granted', 'Yes');
         if (clickContinue) {
@@ -149,6 +166,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeApplicantAddress(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'SW1A 2AA');
         await this.ccdFormPage.click('Find address');
@@ -160,6 +178,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionAgree(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Financial condition', 'Yes');
         await this.ccdFormPage.setFieldValue('Enter the financial condition amount (£)', '1000');
@@ -169,6 +188,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporter(clickContinue = false, choice) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Financial condition supporter', choice);
         if (clickContinue) {
@@ -177,6 +197,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterName(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Given names', 'John');
@@ -192,6 +213,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterAddress(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'CH5 3QW');
@@ -211,6 +233,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterContactDetails(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.click('Telephone');
@@ -230,6 +253,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterDOB(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Date of birth', '30-12-1999');
@@ -243,6 +267,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterRelationship(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Relationship to the applicant', 'Uncle');
@@ -256,6 +281,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterOccupation(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Occupation', 'Lawyer');
@@ -269,6 +295,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterImmigrationStatus(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Immigration status', 'Citizen');
@@ -282,6 +309,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterNationality(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.click('Add new');
@@ -299,6 +327,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterPassport(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Passport', 'Yes');
@@ -312,7 +341,9 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterPassportNumber(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
+
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Passport number (Optional)', '123456789');
         }
@@ -322,6 +353,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeFinancialConditionSupporterUndertaking(clickContinue = false, number = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Financial condition amount (£)', '450');
@@ -335,6 +367,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeAnotherFinancialConditionSupporter(clickContinue = false, number = '', choice = '') {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
             await this.ccdFormPage.setFieldValue('Financial condition supporter 2', choice);
@@ -348,6 +381,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeGroundsForBailInfo(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -355,6 +389,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeGroundsForBail(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Enter the bail grounds', 'Grounds for bail');
         if (clickContinue) {
@@ -363,6 +398,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeSupportingEvidenceYesNo(clickContinue = false, choice) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click(choice);
         if (clickContinue) {
@@ -371,6 +407,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeSupportingEvidenceUpload(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await browser.sleep(1000)
         await this.ccdFormPage.click('Add new');
@@ -389,6 +426,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeBailTransfer(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Transfer bail management', 'No');
         await this.ccdFormPage.setFieldValue('Explain why the applicant does not consent to bail being transferred', 'They do not consent to bail being transferred');
@@ -398,6 +436,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeInterpreterRequirements(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Interpreter', 'Yes');
         await browser.sleep(1000)
@@ -410,6 +449,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeDisabilityRequirements(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Disability', 'Yes');
         await this.ccdFormPage.setFieldValue('Explain any special arrangements needed for the hearing', 'They need special arrangements');
@@ -419,6 +459,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeVideoLinkRequirements(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Able to join video hearing', 'No');
         await this.ccdFormPage.setFieldValue('Explain why the applicant would not be able to join the hearing by video link', 'They can\'t join video');
@@ -428,6 +469,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeLegalRepYesNo(clickContinue = false, choice) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Legal representative', choice);
         if (clickContinue) {
@@ -436,6 +478,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeLegalRepDetails(clickContinue = false, choice) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Name', 'Legal Representative Name');
         await this.ccdFormPage.typeText('legalRepPhone', '07292929292');
@@ -450,6 +493,7 @@ export class StartBailApplicationFlow {
     }
 
     async completeB1Upload(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await browser.sleep(1000)
         await this.ccdFormPage.click('Add new');
@@ -468,10 +512,11 @@ export class StartBailApplicationFlow {
     }
 
     async completeCheckYourAnswers(clickContinue = false) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (clickContinue) {
             await this.ccdFormPage.click('Save application');
-            browser.sleep(30000)
+            await browser.sleep(30000)
         }
     }
 

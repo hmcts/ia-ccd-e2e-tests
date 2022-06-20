@@ -5,6 +5,7 @@ export class SubmitBailApplicationFlow {
     private ccdFormPage = new CcdFormPage();
 
     async submitBailApplication(clickContinue = false, user: string) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.selectNextStep('Submit the application');
         await this.ccdFormPage.click('Go');

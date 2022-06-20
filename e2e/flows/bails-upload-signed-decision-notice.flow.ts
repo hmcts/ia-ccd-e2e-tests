@@ -6,6 +6,7 @@ export class UploadSignedDecisionNotice {
     private ccdFormPage = new CcdFormPage();
 
     async uploadSignedDecisionNoticeFile(clickContinue = false, decision) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         if (decision === 'Refused') {
             await this.ccdFormPage.setFieldValue(
@@ -25,6 +26,7 @@ export class UploadSignedDecisionNotice {
     }
 
     async uploadSignedDecisionNotice(clickContinue = false, decision) {
+        await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.selectNextStep('Upload signed decision notice');
         await this.ccdFormPage.click('Go');
