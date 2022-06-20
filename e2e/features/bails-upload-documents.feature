@@ -70,9 +70,9 @@ Feature: Upload Documents
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Upload documents`
     When I click the `Documents` tab
-    And within the `Tribunal document` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
-    And within the `Tribunal document` collection's first item, I should see `This is the a bails document that is being uploaded by the AO after recording decision.` in the `Description` field
-    And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Tribunal documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
+    And within the `Tribunal documents` collection's first item, I should see `This is the a bails document that is being uploaded by the AO after recording decision.` in the `Description` field
+    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     
   @bails-upload-documents @bails @RIA-5769 @bails-upload-documents-post-upload-signed-decision-notice
   Scenario: Upload Documents after uploading signed decision notice for a conditional bail
@@ -96,7 +96,7 @@ Feature: Upload Documents
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Upload documents`
     When I click the `Documents` tab
-    And within the `Tribunal document` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
-    And within the `Tribunal document` collection's first item, I should see `This is the a bails document that is being uploaded by the AO after uploading signed decision notice.` in the `Description` field
-    And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Tribunal documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
+    And within the `Tribunal documents` collection's first item, I should see `This is the a bails document that is being uploaded by the AO after uploading signed decision notice.` in the `Description` field
+    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     

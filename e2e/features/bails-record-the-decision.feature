@@ -33,11 +33,11 @@ Feature: Record the decision
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Refused` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
+    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal documents` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
@@ -73,11 +73,11 @@ Feature: Record the decision
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Refused` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
+    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal documents` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
@@ -121,11 +121,11 @@ Feature: Record the decision
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Refused` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
+    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal documents` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
@@ -205,11 +205,11 @@ Feature: Record the decision
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Granted` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
+    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal documents` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
@@ -264,11 +264,11 @@ Feature: Record the decision
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Granted` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
+    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal documents` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
@@ -349,11 +349,11 @@ Feature: Record the decision
     Then I should see the text `Relist the case`
     Then I should see the text `Send a direction`
     And I should see `Conditional grant` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
+    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal documents` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`
@@ -411,11 +411,11 @@ Feature: Record the decision
     Then I should see the text `Relist the case`
     Then I should see the text `Send a direction`
     And I should see `Conditional grant` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
+    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal documents` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Judge`

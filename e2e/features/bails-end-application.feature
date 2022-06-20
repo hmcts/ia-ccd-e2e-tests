@@ -25,7 +25,7 @@ Feature: End the application
     And I should see `Withdrawn because it was needed for the test.` for the `Reasons` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Date application ended` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
   @bails-end-the-application @bails @RIA-5760 @bails-end-the-application-dismissed @bails-end-the-application-post-bail-summary
   Scenario: End Application after uploading bail summary
@@ -49,7 +49,7 @@ Feature: End the application
     And I should see `Dismissed because it was needed for the test.` for the `Reasons` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Date application ended` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
   @bails-end-the-application @bails @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-record-decision
   Scenario: End Application after recording a decision
@@ -74,7 +74,7 @@ Feature: End the application
     And I should see `Not in detention because it was needed for the test.` for the `Reasons` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Date application ended` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
   @bails-end-the-application @bails @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-upload-signed-decision-notice
   Scenario: End Application after uploading signed decision notice for a conditional bail
@@ -100,4 +100,4 @@ Feature: End the application
     And I should see `Not in detention because it was needed for the test.` for the `Reasons` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Date application ended` field
     When I click the `Documents` tab
-    Then within the `Tribunal document` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
+    Then within the `Tribunal documents` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
