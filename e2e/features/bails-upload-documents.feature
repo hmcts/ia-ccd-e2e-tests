@@ -5,7 +5,7 @@ Feature: Upload Documents
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
 
-  @bails-upload-documents @RIA-5769 @bails-upload-documents-post-submit
+  @bails-upload-documents @bails @RIA-5769 @bails-upload-documents-post-submit
   Scenario: Upload Documents after submitting
     When I select the `Upload documents` Next step
     Then I am on the `Upload` page
@@ -26,7 +26,7 @@ Feature: Upload Documents
     And within the `Applicant documents` collection's first item, I should see `This is the a bails document that is being uploaded by the LR after submitting.` in the `Description` field
     And within the `Applicant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @bails-upload-documents @RIA-5769 @bails-upload-documents-post-bail-summary
+  @bails-upload-documents @bails @RIA-5769 @bails-upload-documents-post-bail-summary
   Scenario: Upload Documents after uploading bail summary
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -49,7 +49,7 @@ Feature: Upload Documents
     And within the `Home Office documents` collection's first item, I should see `This is the a bails document that is being uploaded by the HO after uploading bail summary.` in the `Description` field
     And within the `Home Office documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-  @bails-upload-documents @RIA-5769 @bails-upload-documents-post-record-decision
+  @bails-upload-documents @bails @RIA-5769 @bails-upload-documents-post-record-decision
   Scenario: Upload Documents after recording a decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -74,7 +74,7 @@ Feature: Upload Documents
     And within the `Tribunal document` collection's first item, I should see `This is the a bails document that is being uploaded by the AO after recording decision.` in the `Description` field
     And within the `Tribunal document` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     
-  @bails-upload-documents @RIA-5769 @bails-upload-documents-post-upload-signed-decision-notice
+  @bails-upload-documents @bails @RIA-5769 @bails-upload-documents-post-upload-signed-decision-notice
   Scenario: Upload Documents after uploading signed decision notice for a conditional bail
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
