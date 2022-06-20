@@ -1,7 +1,9 @@
 import { Wait } from '../enums/wait';
 import { $, $$, browser, by, element, ElementArrayFinder, ElementFinder } from 'protractor';
+import { CcdFormPage } from './ccd-form.page';
 
 const BrowserWaits = require('../support/customWaits');
+const ccdFormPage = new CcdFormPage();
 
 export class ShareCasePage {
 
@@ -246,6 +248,8 @@ export class ShareCasePage {
             '//select[@id="wb-jurisdiction"]' +
             '/option[normalize-space()="Immigration & Asylum"]';
         await element(by.xpath(jurisdictionPath)).click();
+        await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
+        await browser.sleep(7000);
         let appealRefField = element(by.xpath('//*[@id=\'appealReferenceNumber\']'))
         await appealRefField.clear();
         await appealRefField.sendKeys(this.appealReference);
