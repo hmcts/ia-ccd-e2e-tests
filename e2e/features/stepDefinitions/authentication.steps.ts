@@ -176,6 +176,15 @@ Given(/^I switch to be a `?(?:Home Office Generic)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
+Given(/^I switch to be a `?(?:Home Office Bails)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsHomeOfficeBails();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+});
+
 Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
