@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "@angular/compiler": "^7.0.0",
-    "@angular/core": "^7.0.0",
+    "@angular/core": "^11.0.5",
     "@hmcts/eslint-config": "^1.4.0",
     "@types/axe-core": "^2.0.7",
     "@types/chai": "^4.1.6",
