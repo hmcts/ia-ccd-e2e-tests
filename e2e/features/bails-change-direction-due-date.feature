@@ -13,7 +13,7 @@ Feature: Send direction
     Then I am on the `Select direction` page
     When I select `Direction 1` for the `Direction` field
     And I click the `Continue` button
-    Then I am on the `Change direction due date` page
+    Then I am on the `Change the date` page
     When I type `10-02-2030` for the `Date Due` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -38,7 +38,7 @@ Feature: Send direction
     Then I am on the `Select direction` page
     When I select `Direction 1` for the `Direction` field
     And I click the `Continue` button
-    Then I am on the `Change direction due date` page
+    Then I am on the `Change the date` page
     When I type `10-02-2030` for the `Date Due` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page

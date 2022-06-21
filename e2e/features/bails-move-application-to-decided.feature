@@ -19,7 +19,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     When I click the `Submit` button
     Then I should see an alert confirming the case `has been updated with event: Move application to decided`
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
-    And I should only see the `progress_application_decided` case progress image
+    And I should see the image `progress_application_decided.svg`
 
   @bails-move-application-to-decided @bails @RIA-5759 @bails-move-application-to-decided-judge @bails-regression
   Scenario: Move application to decided as Judge
