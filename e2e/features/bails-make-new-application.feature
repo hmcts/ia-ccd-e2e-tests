@@ -112,7 +112,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I make a new application as a `Home Office Bails` for a Prison detention with no financial condition supporters and with no Legal Representative
     Then I should see an alert confirming the case `has been updated with event: Make new application`
     When I click the `Bail application` tab
-    # Then I should see `Home Office` for the `Application submitted by` field
+    Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
     And I should see `01234567` for the `Home Office reference` field
@@ -136,7 +136,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I make a new application as a `Home Office Bails` for a Prison detention with no financial condition supporters and with no Legal Representative
     Then I should see an alert confirming the case `has been updated with event: Make new application`
     When I click the `Bail application` tab
-    # Then I should see `Home Office` for the `Application submitted by` field
+    Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
     And I should see `01234567` for the `Home Office reference` field
@@ -160,7 +160,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I make a new application as a `Home Office Bails` for a Prison detention with no financial condition supporters and with no Legal Representative
     Then I should see an alert confirming the case `has been updated with event: Make new application`
     When I click the `Bail application` tab
-    # Then I should see `Home Office` for the `Application submitted by` field
+    Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
     And I should see `01234567` for the `Home Office reference` field
@@ -181,7 +181,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I make a new application as a `Home Office Bails` for a Prison detention with no financial condition supporters and with no Legal Representative
     Then I should see an alert confirming the case `has been updated with event: Make new application`
     When I click the `Bail application` tab
-    # Then I should see `Home Office` for the `Application submitted by` field
+    Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
     And I should see `01234567` for the `Home Office reference` field
