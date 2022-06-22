@@ -59,7 +59,9 @@ exports.config = {
     profile: false,
     'fail-fast': iaConfig.FailFast,
     'nightly-tag': iaConfig.NightlyTag,
-    'no-source': true
+    'no-source': true,
+    format: 'json:.tmp/results.json',
+    strict: true
   },
 
   onPrepare() {
