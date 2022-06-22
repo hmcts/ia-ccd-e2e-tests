@@ -2,16 +2,19 @@ Feature: Legal representative make an application
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 5 seconds
+    And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
-    When I click the `pay for and submit your appeal` link
+    And I click the `Close and Return to case details` button
+    And I select the `Pay and submit` Next step
+    Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Pay and submit now` button
+    And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I click the `Close and Return to case details` button
 
@@ -31,6 +34,7 @@ Feature: Legal representative make an application
     And I click the `Continue` button
 
     Then I should see the text `Update appeal details`
+    #And the `Continue` button is disabled
     And I type `A reason to update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
     And I add an item to the `Supporting evidence (Optional)` collection
     And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
@@ -97,7 +101,6 @@ Feature: Legal representative make an application
     And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
-  
     # When I switch to be a `Home Office LART`
     # Then I click the `Applications` tab
     # And I should see the `Application` field
@@ -127,8 +130,8 @@ Feature: Legal representative make an application
     # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     # And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
-  
-  
+
+
   @Make-an-application-at-respondent-review @RIA-3457-make-an-application-at-respondent-review @RIA-3457
   Scenario: Make an application in respondent review state
 
@@ -189,7 +192,7 @@ Feature: Legal representative make an application
     And I click the `Continue` button
 
     Then I should see the text `Update appeal details`
-    And the `Continue` button is disabled
+    # And the `Continue` button is disabled
     And I type `A reason to update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
     And I add an item to the `Supporting evidence (Optional)` collection
     And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
@@ -221,7 +224,7 @@ Feature: Legal representative make an application
     And I click the `Continue` button
 
     Then I should see the text `Time extension`
-    And the `Continue` button is disabled
+    #And the `Continue` button is disabled
     And I type `A reason for time extension` for the `Tell us which task you need more time to complete, explain why you need more time and include how much more time you will need.` field
     And I add an item to the `Supporting evidence (Optional)` collection
     And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label

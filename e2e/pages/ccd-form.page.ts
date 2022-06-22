@@ -1,5 +1,5 @@
 import { CcdPage } from './ccd.page';
-import { $, browser, ExpectedConditions } from 'protractor';
+import { $, browser, ExpectedConditions, By } from 'protractor';
 // import { Wait } from '../enums/wait';
 
 export class CcdFormPage extends CcdPage {
@@ -89,5 +89,10 @@ export class CcdFormPage extends CcdPage {
             // await browser.sleep(Wait.short);
             await browser.sleep(15000);
         }
+    }
+    async typeText(ID: string, text: string) {
+        browser.driver
+            .findElement(By.xpath(`//*[@id='${ ID }']`))
+            .sendKeys(text);
     }
 }

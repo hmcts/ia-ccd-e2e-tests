@@ -30,6 +30,38 @@ Given('I create a new case', async function () {
             'Appeal* master'
         );
     }
+    if (iaConfig.CcdWebUrl.includes('demo') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* RIA-5126'
+        );
+    }
+
+    await ccdPage.doesDropdownHaveValues('Event');
+    await ccdPage.isButtonEnabled('Start');
+    await ccdPage.click('Start');
+});
+
+Given('I create a new bail application', async function () {
+    // there is loading mask with spinner added by ExUI
+    await browser.sleep(7000);
+    await ccdPage.hideSpinner();
+    await ccdPage.linkContains('Create case');
+    await ccdPage.runAccessbility();
+    await browser.sleep(3000);
+    await ccdPage.click('Create case');
+    expect(await ccdPage.headingContains('Create Case')).to.equal(true);
+    await ccdPage.runAccessbility();
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
+    await ccdPage.doesDropdownHaveValues('Case type');
+
+    // if (iaConfig.CcdWebUrl.includes('aat') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Bail* master'
+        );
+    // }
 
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
@@ -37,6 +69,31 @@ Given('I create a new case', async function () {
 });
 
 Given('I Apply case list filter', async function () {
+    // there is loading mask with spinner added by ExUI
+    await browser.sleep(10000);
+
+    expect(await ccdPage.headingContains('Case list')).to.equal(true);
+    await ccdPage.runAccessbility();
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
+    await ccdPage.doesDropdownHaveValues('Case type');
+    if (iaConfig.CcdWebUrl.includes('aat') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* master'
+        );
+    }
+
+    await ccdPage.doesDropdownHaveValues('State');
+    await ccdFormPage.setFieldValue(
+        'State',
+        'Any'
+    );
+    await ccdPage.isButtonEnabled('Apply');
+    await ccdPage.click('Apply');
+});
+
+Given('I Apply case list filter for Bails', async function () {
     // there is loading mask with spinner added by ExUI
     await browser.sleep(5000);
 
@@ -51,7 +108,7 @@ Given('I Apply case list filter', async function () {
     // if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* master'
+            'Bail* master'
         );
     // }
 
