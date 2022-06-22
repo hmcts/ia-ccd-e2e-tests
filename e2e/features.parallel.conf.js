@@ -140,6 +140,7 @@ class BaseConfig {
           options: {
               automaticallyGenerateReport: true,
               removeExistingJsonReportFile: true,
+              saveCollectedJSON: true,
               reportName: 'IAC CCD E2E Tests',
               jsonDir: 'reports/tests/functional',
               reportPath: 'reports/tests/functional'
