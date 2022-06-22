@@ -65,8 +65,9 @@ Feature: Upload signed decision notice
 
   @bails-upload-signed-decision-notice @bails @RIA-5759 @bails-upload-signed-decision-notice-judge
   Scenario: Upload signed decision notice as Judge
-    Given I switch to be a `Judge`
+    Given I switch to be a `Admin Officer`
     When I record a refused decision with SS consent Yes with no financial condition supporters
+    And I switch to be a `Judge`
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` field
