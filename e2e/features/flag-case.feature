@@ -6,7 +6,6 @@ Feature: Flag a case
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
-    And I click the `Close and Return to case details` button
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
@@ -119,7 +118,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-1742 @nightly-test1
+  @regression @flag-case @RIA-1742 
   Scenario: Flag a case with multiple flags and only single additional information
 
     When I select the `Flag the case` Next step
@@ -158,7 +157,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should not see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-3865 @nightly-test1
+  @regression @flag-case @RIA-3865 
   Scenario: Flag a case with 94B flag and additional information
 
     When I select the `Flag the case` Next step

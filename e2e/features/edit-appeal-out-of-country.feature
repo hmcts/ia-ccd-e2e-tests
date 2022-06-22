@@ -1,13 +1,13 @@
 Feature: Out of Country - Edit appeal
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
+    And I wait for 30 seconds
     And I create a new case
-
-  @edit-appeal-out-of-country-yes @RIA-3878
+  @edit-appeal-out-of-country-yes @RIA-3878 @nightly-test
   Scenario: Edit In country appeal to Out of country
 
-    And I save my initial appeal with appellant living in UK `Yes`
+    And I save my initial EA appeal type without remission and with hearing fee and pay now
 
     When I click the `Overview` tab
     Then I should see `No` for the `Out of country` field

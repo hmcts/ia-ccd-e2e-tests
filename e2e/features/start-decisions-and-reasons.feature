@@ -7,7 +7,6 @@ Feature: Start decision and reasons
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
-    And I click the `Close and Return to case details` button
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
@@ -49,7 +48,7 @@ Feature: Start decision and reasons
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
 
-  @regression @start-decision-and-reasons-yes-path @RIA-574
+  @regression @start-decision-and-reasons-yes-path @RIA-574 @nightly-test
   Scenario: Start decision and reasons
     When I select the `Start decision and reasons` Next step
     Then I should see the text `Start decision and reasons`

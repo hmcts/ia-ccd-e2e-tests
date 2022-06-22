@@ -6,7 +6,6 @@ Feature: Upload additional evidence Home Office
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
-    And I click the `Close and Return to case details` button
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
@@ -29,11 +28,7 @@ Feature: Upload additional evidence Home Office
   Scenario: Upload additional evidence Home Office to the case
 
     When I switch to be a `Home Office APC`
-<<<<<<< HEAD
-    And I click the `Documents` tab
-=======
     #And I click the `Documents` tab
->>>>>>> 6e416eabb78b7e37d25639805fff3f209c7238fc
 
 
     # When I click the `Upload additional evidence` link

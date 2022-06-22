@@ -1097,7 +1097,8 @@ export class StartAppealFlow {
         await this.completeOutOfCountryQuestion(true, 'No');
         await this.completeDecisionType(true, 'refusalOfHumanRights');
         await this.completeGlobalWebFormReference(true, 'GWF1234567');
-        await this.completeUploadNoticeDecisionNoUpload(true);
+        // await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.clickContinueToNextStep(true); // completeNotice of decision
         await this.clickContinueToNextStep(true); // completeBasicDetails
         await this.clickContinueToNextStep(true); // completeNationality
         await this.completeClientAddressOutOfCountry(true, true);
