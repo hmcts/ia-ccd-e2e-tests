@@ -7,7 +7,7 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
     And I save my initial HU appeal type without remission and with hearing fee and pay now
 
 
-  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-hu @RIA-4468-hu @RIA-4468 @RIA-4679 @nightly-test
+  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-hu @RIA-4468-hu @RIA-4468 @RIA-4679 @nightly-test321
   Scenario: Pay and submit appeal - successful payment (HU appeal type)
 
     And I click the `Close and Return to case details` button
