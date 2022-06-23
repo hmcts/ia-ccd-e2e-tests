@@ -16,7 +16,7 @@ def product = "ia"
 def component = "ccd-e2e-tests"
 
 def secrets = [
-    'ia-${env}': [
+    'ia-aat': [
         secret('test-caseofficer-username', 'TEST_CASEOFFICER_USERNAME'),
         secret('test-caseofficer-password', 'TEST_CASEOFFICER_PASSWORD'),
         secret('test-law-firm-a-username', 'TEST_LAW_FIRM_A_USERNAME'),
@@ -69,7 +69,7 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
     enableCrossBrowserTest()
-    enableFullFunctionalTest(180)
+    enableFullFunctionalTest(240)
 
     after('crossBrowserTest') {
         publishHTML([
