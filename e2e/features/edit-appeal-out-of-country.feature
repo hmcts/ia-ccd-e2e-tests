@@ -4,7 +4,7 @@ Feature: Out of Country - Edit appeal
     Given I am signed in as a `Legal Rep`
     And I create a new case
 
-  @edit-appeal-out-of-country-yes @RIA-3878
+  @edit-appeal-out-of-country-yes @RIA-3878 @quickTest
   Scenario: Edit In country appeal to Out of country
 
     And I save my initial appeal with appellant living in UK `Yes`
