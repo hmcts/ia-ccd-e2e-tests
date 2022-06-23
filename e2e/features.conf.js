@@ -61,7 +61,8 @@ exports.config = {
     'nightly-tag': iaConfig.NightlyTag,
     'no-source': true,
     format: 'json:.tmp/results.json',
-    strict: true
+    strict: true,
+    retry: 2
   },
 
   onPrepare() {
