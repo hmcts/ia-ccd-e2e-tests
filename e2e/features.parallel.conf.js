@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const glob = require('glob');
 const argv = require('yargs').argv;
+const retry = require('protractor-retry').retry;
 const {
   PickleFilter,
   getTestCasesFromFilesystem
@@ -93,15 +94,21 @@ class BaseConfig {
       format: ['node_modules/cucumber-pretty', 'json:reports/tests/functionTestResult.json'],
       require: [
         './cucumber.conf.js',
-        './features/stepDefinitions/**/*.steps.ts'
+        './features/stepDefinitions/**/*.steps.ts',
+        './support/hooks.js'
       ],
       keepAlive: false,
       tags: false,
       profile: false,
       'fail-fast': iaConfig.FailFast,
       'nightly-tag': iaConfig.NightlyTag,
-      'no-source': true
+      'no-source': true,
+      retry: 2
     };
+
+    this.onCleanUp = (results) => {
+      //retry.onCleanUp(results);
+    }
 
     this.onPrepare = () => {
       // returning the promise makes protractor wait for
@@ -116,18 +123,25 @@ class BaseConfig {
       tsNode.register({
         project: path.join(__dirname, './tsconfig.e2e.json')
       });
+
+      //retry.onPrepare();
     };
 
+    //this.afterLaunch = () => {
+      //return retry.afterLaunch(0);
+    //}
+
     this.onComplete = () => {
-      generateAccessibilityReport();
+       generateAccessibilityReport();
     };
 
     this.plugins = [
       {
-          package: 'protractor-multiple-cucumber-html-reporter-plugin',
+          package: 'protractor-simple-cucumber-html-reporter-plugin',
           options: {
               automaticallyGenerateReport: true,
               removeExistingJsonReportFile: true,
+              saveCollectedJSON: true,
               reportName: 'IAC CCD E2E Tests',
               jsonDir: 'reports/tests/functional',
               reportPath: 'reports/tests/functional'
