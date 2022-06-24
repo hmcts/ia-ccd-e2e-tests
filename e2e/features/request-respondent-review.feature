@@ -27,7 +27,7 @@ Feature: Request respondent evidence
     And I submit my case
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
-  @regression @create-direction @RIA-435 @RIA-2694 @nightly-test
+  @regression @create-direction @RIA-435 @RIA-2694
   Scenario: Request respondent review
 
     When I select the `Request respondent review` Next step
