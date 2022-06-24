@@ -1,4 +1,4 @@
-Feature: Move application to decided after a signed conditional bail decision notice has been uploaded
+Feature: Make new application
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new bail application
@@ -28,7 +28,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted
   Scenario: Make new application as Admin Officer after granted decision
@@ -52,7 +52,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused
   Scenario: Make new application as Admin Officer after refused decision
@@ -76,7 +76,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended
   Scenario: Make new application as Admin Officer after ended application
@@ -97,7 +97,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant
   Scenario: Make new application as Home Office after conditional grant decided
@@ -122,7 +122,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see `New grounds for bail` for the `Enter the bail grounds` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted
   Scenario: Make new application as Home Office after granted decision
@@ -146,7 +146,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see `New grounds for bail` for the `Enter the bail grounds` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused
   Scenario: Make new application as Home Office after refused decision
@@ -170,7 +170,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see `New grounds for bail` for the `Enter the bail grounds` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-ended
   Scenario: Make new application as Home Office after ended application
@@ -193,7 +193,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see `New grounds for bail` for the `Enter the bail grounds` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-conditional-grant
   Scenario: Make new application as Legal Rep after conditional grant decided
@@ -220,7 +220,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see `New Legal Representative Name` for the `Name` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-granted
   Scenario: Make new application as Legal Rep after granted decision
@@ -246,7 +246,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see `New Legal Representative Name` for the `Name` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-refused @bails-regression
   Scenario: Make new application as Legal Rep after refused decision
@@ -272,7 +272,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see `New Legal Representative Name` for the `Name` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
   @bails-make-new-application @bails @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-ended
   Scenario: Make new application as Legal Rep after ended application
@@ -295,5 +295,5 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see `New Legal Representative Name` for the `Name` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
-    # STUFF FOR PREVIOUS APPLICATION TAB
+    And I should see the `Previous applications` tab
 
