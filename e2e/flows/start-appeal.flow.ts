@@ -382,6 +382,7 @@ export class StartAppealFlow {
     async completeCheckYourAnswers(clickContinue = false) {
 
         await this.ccdFormPage.runAccessbility();
+        await browser.sleep(5000)
         if (clickContinue) {
             await this.ccdFormPage.click('Save and continue');
         }
@@ -1112,10 +1113,10 @@ export class StartAppealFlow {
         await this.clickContinueToNextStep(true); // completedGivenAppealGrounds
         await this.clickContinueToNextStep(true); // completeNewMatters
         await this.clickContinueToNextStep(true); // completeOtherAppeals
-        await this.completeLegalRepresentativeDetails(true);
-        await this.completeGivenFee(true, 'hearing fee');
-        await this.completeRemissionDetails(true, 'no remission');
-        await this.completeHowToPayNow(true);
+        await this.clickContinueToNextStep(true); // completeLegalRepresentativeDetails
+        await this.clickContinueToNextStep(true); // completeGivenFee
+        await this.clickContinueToNextStep(true); // completeRemissionDetails
+        await this.clickContinueToNextStep(true); // completeHowToPayNow
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
