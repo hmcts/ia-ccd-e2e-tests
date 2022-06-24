@@ -370,10 +370,10 @@ export class EditBailApplicationPostSubmitFlow {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Name', 'Edited Legal Representative Name');
         await this.ccdFormPage.setFieldValue('Reference', 'Edited this reference');
+        await this.ccdFormPage.setFieldValue('Company', 'Edited Legal Representative Company');
+        await this.ccdFormPage.setFieldValue('Email address', 'editedlegalRep@test.com');
         if (choice !== 'LR') {
             await this.ccdFormPage.typeText('legalRepPhone', '07292929292');
-            await this.ccdFormPage.setFieldValue('Company', 'Edited Legal Representative Company');
-            await this.ccdFormPage.setFieldValue('Email address', 'editedlegalRep@test.com');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -405,13 +405,15 @@ export class EditBailApplicationPostSubmitFlow {
         }
     }
 
-    async editSubmittedApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
+    async editSubmittedApplication(clickContinue = false, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string, previousLegalRepresentativeOrNot: string) {
         await this.ccdFormPage.selectNextStep('Edit the application');
         await this.ccdFormPage.click('Go');
         await this.completePreviousBailApplication(true);
-        if (user === 'Admin Officer') {
-            await this.completeWhichPartySentApplication(true, 'Applicant');
-        }
+
+        // this line needs to be deleted once RIA-5904 fix is done, as this screen shouldn't appear
+        await this.ccdFormPage.click('Continue');
+
+        await this.completeWhichPartySentApplication(true, 'Applicant');
         await this.completeApplicantName(true);
         await this.completeApplicantDOB(true);
         await this.completeApplicantGender(true);
@@ -470,18 +472,16 @@ export class EditBailApplicationPostSubmitFlow {
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {
-            if (user === 'Legal Rep') {
+            await this.completeLegalRepYesNo(true, 'Yes');
+            if (previousLegalRepresentativeOrNot === 'a') {
                 await this.completeLegalRepDetails(true, 'LR');
             } else {
-                await this.completeLegalRepYesNo(true, 'Yes');
                 await this.completeLegalRepDetails(true, 'NonLR');
             }
         } else {
             await this.completeLegalRepYesNo(true, 'No');
         }
-        if (user === 'Admin Officer') {
-            await this.completeB1Upload(true);
-        }
+        await this.completeB1Upload(true);
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {

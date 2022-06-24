@@ -1,14 +1,14 @@
 Feature: Edit application preSubmit
-
-  Given I am signed in as a `Legal Org User Rep A`
-  And I create a new bail application
-  And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
-  And I submit my bail application as a `Legal Rep`
+  Background:
+    Given I am signed in as a `Legal Org User Rep A`
+    And I create a new bail application
+    And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
+    And I submit my bail application as a `Legal Rep`
 
   @bails-edit-application-post-submit @bails @RIA-5868 @bails-edit-application-post-submit-post-submit
   Scenario: Legal Rep Edit application after submitting
     When I switch to be a `Admin Officer`
-    And I edit my submitted application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+    And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Edit the application`
@@ -46,7 +46,7 @@ Feature: Edit application preSubmit
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer`
-    And I edit my submitted application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+    And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Edit the application`
@@ -85,7 +85,7 @@ Feature: Edit application preSubmit
     And I upload the bail summary
     And I switch to be a `Admin Officer`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
-    And I edit my submitted application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+    And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Edit the application`
@@ -125,7 +125,7 @@ Feature: Edit application preSubmit
     And I switch to be a `Admin Officer`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
-    And I edit my submitted application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+    And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button
     Then I should see an alert confirming the case `has been updated with event: Edit the application`
