@@ -10,6 +10,7 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
   @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-hu @RIA-4468-hu @RIA-4468 @RIA-4679 @nightly-test
   Scenario: Pay and submit appeal - successful payment (HU appeal type)
 
+    And I wait for 10 seconds
     And I click the `Close and Return to case details` button
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
