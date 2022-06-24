@@ -2108,7 +2108,7 @@ protractor-retry@^1.2.13:
     xml2js "~0.4.17"
     yargs "^16.1.1"
 
-"protractor-simple-cucumber-html-reporter-plugin@1.0.4\n":
+protractor-simple-cucumber-html-reporter-plugin@1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/protractor-simple-cucumber-html-reporter-plugin/-/protractor-simple-cucumber-html-reporter-plugin-1.0.4.tgz#8818875db922f0eff70330b8b0887e669dc67dad"
   integrity sha512-VONEadqFoD7LAyTnMV8NbnrdhuE25AUAWmaPT4qIo+K7ef6WMTiFwFeyTF3NdSQih5tN9sNLRG26kWHwmaFgKA==
