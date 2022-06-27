@@ -144,7 +144,8 @@ class BaseConfig {
               saveCollectedJSON: true,
               reportName: 'IAC CCD E2E Tests',
               jsonDir: 'reports/tests/functional',
-              reportPath: 'reports/tests/functional'
+              reportPath: 'reports/tests/functional',
+              pageFooter: '<div><p>A custom footer in html</p></div>'
           }
       }
   ]
