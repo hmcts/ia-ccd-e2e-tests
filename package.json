@@ -39,7 +39,7 @@
     "protractor": "^5.4.2",
     "protractor-beautiful-reporter": "^1.2.5",
     "protractor-cucumber-framework": "^6.2.1",
-    "protractor-simple-cucumber-html-reporter-plugin": "1.0.4",
+    "protractor-multiple-cucumber-html-reporter-plugin": "1.8.1",
     "protractor-retry": "^1.2.13",
     "puppeteer": "1.15.0",
     "request-promise": "^4.2.5",
