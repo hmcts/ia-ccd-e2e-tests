@@ -137,7 +137,7 @@ class BaseConfig {
 
     this.plugins = [
       {
-          package: 'protractor-simple-cucumber-html-reporter-plugin',
+          package: 'protractor-multiple-cucumber-html-reporter-plugin',
           options: {
               automaticallyGenerateReport: true,
               removeExistingJsonReportFile: true,
@@ -145,7 +145,7 @@ class BaseConfig {
               reportName: 'IAC CCD E2E Tests',
               jsonDir: 'reports/tests/functional',
               reportPath: 'reports/tests/functional',
-              pageFooter: '<div><p>A custom footer in html</p></div>'
+              pageFooter: '<div><p>hello</p></div>'
           }
       }
   ]
