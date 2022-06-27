@@ -42,14 +42,14 @@ const config = {
 
   plugins: [
     {
-      package: 'protractor-simple-cucumber-html-reporter-plugin',
+      package: 'protractor-multiple-cucumber-html-reporter-plugin',
       options: {
         automaticallyGenerateReport: true,
         removeExistingJsonReportFile: true,
         reportName: 'IA Service Cross Browser Test',
         jsonDir: 'reports/tests/crossbrowser',
-        reportPath: 'reports/tests/crossbrowser'
-
+        reportPath: 'reports/tests/crossbrowser',
+        pageFooter: '<div><p> </p></div>'
       }
     }
   ],
