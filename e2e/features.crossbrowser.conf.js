@@ -48,8 +48,8 @@ const config = {
         removeExistingJsonReportFile: true,
         reportName: 'IA Service Cross Browser Test',
         jsonDir: 'reports/tests/crossbrowser',
-        reportPath: 'reports/tests/crossbrowser'
-
+        reportPath: 'reports/tests/crossbrowser',
+        pageFooter: '<div><p> </p></div>'
       }
     }
   ],

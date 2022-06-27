@@ -145,7 +145,7 @@ class BaseConfig {
               reportName: 'IAC CCD E2E Tests',
               jsonDir: 'reports/tests/functional',
               reportPath: 'reports/tests/functional',
-              pageFooter: '<div><p>hello</p></div>'
+              pageFooter: '<div><p> </p></div>'
           }
       }
   ]
