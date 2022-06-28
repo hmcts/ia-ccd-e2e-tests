@@ -350,3 +350,7 @@ Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]
             )
         ).to.equal(true);
     });
+
+Then(/^I go to the URL `?([^`]+)`?$/, async function (URL) {
+    await ccdFormPage.goToUrl(URL);
+});
