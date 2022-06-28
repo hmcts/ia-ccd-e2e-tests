@@ -19,6 +19,12 @@ export class NoticeOfChangePage {
             .sendKeys(this.noticeOfChangeCaseId);
     }
 
+    async filterBailsByCaseId(shortWait = false) {
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'bailReferenceNumber\']'))
+            .sendKeys(this.noticeOfChangeCaseId);
+    }
+
     async enterFirstName(shortWait = false) {
         browser.driver
             .findElement(By.xpath('//*[@id=\'NoCChallengeQ1\']'))
@@ -91,7 +97,12 @@ export class NoticeOfChangePage {
         let url = await browser.driver.getCurrentUrl();
         let startIndex = url.indexOf('case-details/')
         let endIndex = url.indexOf('/trigger')
-        let caseId = url.substring(startIndex + 13, endIndex)
+        let caseId;
+        if (url.includes('/trigger')) {
+            caseId = url.substring(startIndex + 13, endIndex)
+        } else {
+            caseId = url.substring(startIndex + 13)
+        }
 
         this.noticeOfChangeCaseId = caseId;
         this.latestCaseId = caseId;
