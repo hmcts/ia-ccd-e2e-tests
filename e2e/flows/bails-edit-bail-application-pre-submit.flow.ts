@@ -174,18 +174,6 @@ export class EditBailApplicationPreSubmitFlow {
 
     async completeFinancialConditionSupporterContactDetails(clickContinue = false, number = '') {
         await this.ccdFormPage.runAccessbility();
-        if (number === '1') {
-            await this.ccdFormPage.click('Telephone');
-            await this.ccdFormPage.click('Mobile');
-            await this.ccdFormPage.click('Email');
-            await this.ccdFormPage.setFieldValue('Telephone number', '01182904610');
-            await this.ccdFormPage.setFieldValue('Mobile number', '07930111222');
-            await this.ccdFormPage.setFieldValue('Email address', 'johnSmith@test.com');
-        }
-        if (number === '2') {
-            await this.ccdFormPage.click('Email');
-            await this.ccdFormPage.setFieldValue('Email address', 'janeDoe@test.com');
-        }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -286,12 +274,6 @@ export class EditBailApplicationPreSubmitFlow {
 
     async completeFinancialConditionSupporterUndertaking(clickContinue = false, number = '') {
         await this.ccdFormPage.runAccessbility();
-        if (number === '1') {
-            await this.ccdFormPage.setFieldValue('Financial condition amount (£)', '450');
-        }
-        if (number === '2') {
-            await this.ccdFormPage.setFieldValue('Financial condition amount (£)', '550');
-        }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }

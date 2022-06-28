@@ -163,13 +163,15 @@ export class MakeNewApplicationFlow {
             await this.ccdFormPage.click('Telephone');
             await this.ccdFormPage.click('Mobile');
             await this.ccdFormPage.click('Email');
-            await this.ccdFormPage.setFieldValue('Telephone number', '01182904610');
-            await this.ccdFormPage.setFieldValue('Mobile number', '07930111222');
-            await this.ccdFormPage.setFieldValue('Email address', 'johnSmith@test.com');
+            await browser.sleep(1000);
+            await this.ccdFormPage.typeText('supporterTelephoneNumber1', '01182904610');
+            await this.ccdFormPage.typeText('supporterMobileNumber1', '07930111222');
+            await this.ccdFormPage.typeText('supporterEmailAddress1', 'johnSmith@test.com');
         }
         if (number === '2') {
             await this.ccdFormPage.click('Email');
-            await this.ccdFormPage.setFieldValue('Email address', 'janeDoe@test.com');
+            await browser.sleep(1000);
+            await this.ccdFormPage.typeText('supporter2EmailAddress1', 'janeDoe@test.com');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -272,10 +274,10 @@ export class MakeNewApplicationFlow {
     async completeFinancialConditionSupporterUndertaking(clickContinue = false, number = '') {
         await this.ccdFormPage.runAccessbility();
         if (number === '1') {
-            await this.ccdFormPage.setFieldValue('Financial condition amount (£)', '450');
+            await this.ccdFormPage.typeText('financialAmountSupporterUndertakes1', '450');
         }
         if (number === '2') {
-            await this.ccdFormPage.setFieldValue('Financial condition amount (£)', '550');
+            await this.ccdFormPage.typeText('financialAmountSupporter2Undertakes1', '550');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');

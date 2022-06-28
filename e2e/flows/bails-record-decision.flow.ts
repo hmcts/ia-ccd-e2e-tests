@@ -133,13 +133,13 @@ export class RecordDecision {
     async completeFinancialConditionSupporter(clickContinue = false, numberOfSupporters, yesOrNoForEachSupporter = []) {
         for (let i = 0; i < numberOfSupporters; i++) {
             await this.ccdFormPage.runAccessbility();
-        await browser.sleep(this.waitTime);
+            await browser.sleep(this.waitTime);
             await this.ccdFormPage.setFieldValue('Did the judge agree to accept financial condition supporter ' + (i + 1) + '?', yesOrNoForEachSupporter[i]);
             if (clickContinue) {
                 await this.ccdFormPage.click('Continue');
             }
             await this.ccdFormPage.runAccessbility();
-        await browser.sleep(this.waitTime);
+            await browser.sleep(this.waitTime);
             await this.ccdFormPage.setFieldValue('Amount (£)', '250');
             if (clickContinue) {
                 await this.ccdFormPage.click('Continue');
