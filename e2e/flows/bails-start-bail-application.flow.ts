@@ -125,7 +125,7 @@ export class StartBailApplicationFlow {
     async completeApplicantMobilePhone(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Mobile phone', 'Yes');
-        await this.ccdFormPage.setFieldValue('Mobile phone number', '07930111111');
+        await this.ccdFormPage.typeText('applicantMobileNumber1', '07930111111');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
