@@ -60,9 +60,31 @@ When(/^I get the bails online case reference$/, async function () {
 });
 
 When('I filter by the bails online case reference', async function () {
-    await noticeOfChangePage.enterCaseId();
+    await noticeOfChangePage.filterBailsByCaseId();
 });
 
 When('I enter the bails online case reference for the online case reference number', async function () {
     await noticeOfChangePage.enterCaseId();
+});
+
+When('I enter the correct answers to the challenge questions for bails', async function () {
+    await noticeOfChangePage.enterBailsFirstName();
+    await noticeOfChangePage.enterBailsLastName();
+    await noticeOfChangePage.enterBailsDateOfBirth();
+});
+
+When(/^I enter the incorrect (first name|last name|DoB) answer to the challenge questions for bails$/, async function (incorrectAnswer) {
+    if (incorrectAnswer === 'first name') {
+        await noticeOfChangePage.enterBailsIncorrectFirstName();
+        await noticeOfChangePage.enterBailsLastName();
+        await noticeOfChangePage.enterBailsDateOfBirth();
+    } else if (incorrectAnswer === 'last name') {
+        await noticeOfChangePage.enterBailsFirstName();
+        await noticeOfChangePage.enterBailsIncorrectLastName();
+        await noticeOfChangePage.enterBailsDateOfBirth();
+    } else {
+        await noticeOfChangePage.enterBailsFirstName();
+        await noticeOfChangePage.enterBailsLastName();
+        await noticeOfChangePage.enterBailsIncorrectDateOfBirth();
+    }
 });

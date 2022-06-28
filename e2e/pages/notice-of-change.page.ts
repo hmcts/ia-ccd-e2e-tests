@@ -125,4 +125,52 @@ export class NoticeOfChangePage {
             throw Error('latestCaseId and noticeOfChangeCaseId are the same...')
         }
     }
+
+    async enterBailsFirstName(shortWait = false) {
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'NoCChallengeQ1\']'))
+            .sendKeys(`Harri`);
+    }
+
+    async enterBailsIncorrectFirstName(shortWait = false) {
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'NoCChallengeQ1\']'))
+            .sendKeys(`Harry`);
+    }
+
+    async enterBailsLastName(shortWait = false) {
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'NoCChallengeQ2\']'))
+            .sendKeys(`Pugh`);
+    }
+
+    async enterBailsIncorrectLastName(shortWait = false) {
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'NoCChallengeQ2\']'))
+            .sendKeys(`Pughes`);
+    }
+
+    async enterBailsDateOfBirth(shortWait = false) {
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'function(){return this.idPrefix+this.questionField.question_id}-day\']'))
+            .sendKeys(`10`);
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'function(){return this.idPrefix+this.questionField.question_id}-month\']'))
+            .sendKeys(`02`);
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'function(){return this.idPrefix+this.questionField.question_id}-year\']'))
+            .sendKeys(`1989`);
+    }
+
+    async enterBailsIncorrectDateOfBirth(shortWait = false) {
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'function(){return this.idPrefix+this.questionField.question_id}-day\']'))
+            .sendKeys(`10`);
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'function(){return this.idPrefix+this.questionField.question_id}-month\']'))
+            .sendKeys(`02`);
+        browser.driver
+            .findElement(By.xpath('//*[@id=\'function(){return this.idPrefix+this.questionField.question_id}-year\']'))
+            .sendKeys(`1999`);
+    }
 }
