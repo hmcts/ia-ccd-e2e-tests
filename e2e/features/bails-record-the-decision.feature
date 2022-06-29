@@ -173,13 +173,13 @@ Feature: Record the decision
     When I select `No` for the `Is the financial condition amount correct?` field
     And I click the `Continue` button
     Then I am on the `Confirm financial condition amount` page
-    When I type `500` for the `Amount (£)` field
+    When I type `500` for the field with ID `financialCondAmount1`
     And I click the `Continue` button
     Then I am on the `Financial condition supporter 1` page
     When I select `Yes` for the `Did the judge agree to accept financial condition supporter 1?` field
     And I click the `Continue` button
     Then I am on the `Financial condition supporter 1 details` page
-    When I type `250` for the `Amount (£)` field
+    When I type `250` for the field with ID `financialAmountSupporterUndertakes1`
     And I click the `Continue` button
     Then I am on the `Bail transfer` page
     When I select `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
@@ -197,9 +197,9 @@ Feature: Record the decision
     And I should see `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I should see `Yes` for the `Will the applicant be subject to a financial condition?` field
     And I should see `No` for the `Is the financial condition amount correct?` field
-    And I should see `500` for the first `Amount (£)` field
+    
     And I should see `Yes` for the `Did the judge agree to accept financial condition supporter 1?` field
-    And I should see `250` for the second `Amount (£)` field
+    
     And I should see `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
@@ -314,13 +314,13 @@ Feature: Record the decision
     When I select `No` for the `Is the financial condition amount correct?` field
     And I click the `Continue` button
     Then I am on the `Confirm financial condition amount` page
-    When I type `500` for the `Amount (£)` field
+    When I type `500` for the field with ID `financialCondAmount1`
     And I click the `Continue` button
     Then I am on the `Financial condition supporter 1` page
     When I select `Yes` for the `Did the judge agree to accept financial condition supporter 1?` field
     And I click the `Continue` button
     Then I am on the `Financial condition supporter 1 details` page
-    When I type `250` for the `Amount (£)` field
+    When I type `250` for the field with ID `financialAmountSupporterUndertakes1`
     And I click the `Continue` button
     Then I am on the `Bail transfer` page
     When I select `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
@@ -338,9 +338,9 @@ Feature: Record the decision
     And I should see `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I should see `Yes` for the `Will the applicant be subject to a financial condition?` field
     And I should see `No` for the `Is the financial condition amount correct?` field
-    And I should see `500` for the first `Amount (£)` field
+    
     And I should see `Yes` for the `Did the judge agree to accept financial condition supporter 1?` field
-    And I should see `250` for the second `Amount (£)` field
+    
     And I should see `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
