@@ -124,7 +124,7 @@ export class RecordDecision {
     async completeConfirmFinancialConditionAmount(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
         await browser.sleep(this.waitTime);
-        await this.ccdFormPage.setFieldValue('Amount (£)', '500');
+        await this.ccdFormPage.typeText('financialCondAmount1', '1');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -140,7 +140,7 @@ export class RecordDecision {
             }
             await this.ccdFormPage.runAccessbility();
             await browser.sleep(this.waitTime);
-            await this.ccdFormPage.setFieldValue('Amount (£)', '250');
+            await this.ccdFormPage.typeText('financialAmountSupporterUndertakes' + (i + 1), '1');
             if (clickContinue) {
                 await this.ccdFormPage.click('Continue');
             }
