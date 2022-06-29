@@ -6,11 +6,11 @@
     "postinstall": "webdriver-manager update --versions.chrome=75.0.3770.140",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "e2e": "yarn localTest",
-    "test:fullfunctional": "yarn install && TESTS_FOR_ACCESSIBILITY='true' protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=@nightly-test",
+    "test:fullfunctional": "yarn install && TESTS_FOR_ACCESSIBILITY='true' protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=@bails-edit-documents",
     "localTest": "yarn install && protractor ./e2e/features.conf.js --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelScenarios": "yarn install && protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelFeatures": "yarn install && protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
-    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowsertest' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@x' --cucumberOpts.tags=~@o",
     "test:nsp": "nsp check"
   },
   "pre-commit": [

@@ -20,11 +20,11 @@ Feature: Edit bail documents
     When I click the `Submit` button
     Then I should see an alert confirming the case `has been updated with event: Edit documents`
     When I click the `Documents` tab
-    Then within the `Applicant documents` collection's first item, I should see `GroundsForBailSupportingEvidence.pdf` for the `Document` field
+    Then within the `Applicant documents` collection's first item, I should see `Pugh-bail-application-summary.PDF` for the `Document` field
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field
-    And within the `Case notes` collection's first item, I should see `Document names: [Pugh-bail-application-summary.PDF]` in the `Case note` field
+    And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: These are some reasons for removing documents` in the `Case note` field
 
   @RIA-5770 @bails @bails-edit-documents @bails-edit-documents-edit @bails-testing
@@ -44,7 +44,7 @@ Feature: Edit bail documents
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field
-    And within the `Case notes` collection's first item, I should see `Document names: [Pugh-bail-application-summary.PDF]` in the `Case note` field
+    And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: Here are some reasons for editing documents` in the `Case note` field
 
   @RIA-5770 @bails @bails-edit-documents @bails-edit-documents-add @bails-testing
@@ -124,7 +124,7 @@ Feature: Edit bail documents
     When I click the `Submit` button
     Then I should see an alert confirming the case `has been updated with event: Edit documents`
     When I click the `Documents` tab
-    Then within the `Applicant documents` collection's first item, I should see `GroundsForBailSupportingEvidence.pdf` for the `Document` field
+    Then within the `Applicant documents` collection's first item, I should see `Pugh-bail-application-summary.PDF` for the `Document` field
     Then within the `Applicant documents` collection's first item, I should see `This is a new description that wasn't here before` for the `Description` field
     And within the `Applicant documents` collection's second item, I should see `Somebody testing this` for the `Supplied by` field
     And within the `Applicant documents` collection's second item, I should see `Evidence1.pdf` for the `Document` field
