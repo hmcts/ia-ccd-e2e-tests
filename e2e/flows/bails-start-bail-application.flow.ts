@@ -564,7 +564,9 @@ export class StartBailApplicationFlow {
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+            if (user !== 'Legal Rep') {
+                await this.ccdFormPage.click('Close and Return to case details');
+            }
         }
     }
 }
