@@ -1,7 +1,8 @@
 Feature: Make new application
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I create a new bail application
+    And I wait for 10 seconds
+   And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
 
