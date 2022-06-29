@@ -7,7 +7,7 @@ Feature: Submit bail application as Legal Rep
    And I submit my bail application as a `Legal Rep`
    And I get the bails online case reference
 
-  @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails @bails-regression
+  @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails @bails-regression @bails-testing
   Scenario: Remove Legal Rep
     When I switch to be a `Admin Officer`
     And I select the `Remove legal representative` Next step
@@ -30,7 +30,7 @@ Feature: Submit bail application as Legal Rep
   @bails-NOC @RIA-5911 @bails-notice-of-change @bails @bails-notice-of-change-incorrect
   Scenario: Notice of Change - incorrect details
     When I am signed in as a `Legal Org User Rep A`
-    And I wait for 10 seconds
+    And I wait for 20 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     When I enter the bails online case reference for the online case reference number
@@ -54,10 +54,10 @@ Feature: Submit bail application as Legal Rep
     And I click the `Continue` button
     Then I should see the text `Enter the client details exactly as they're written on the case, including any mistakes`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails @bails-regression @bails-notice-of-change-same-organisation
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails @bails-regression @bails-notice-of-change-same-organisation @bails-testing
   Scenario: Notice of Change - same organisation
     When I am signed in as a `Legal Org User Rep A`
-    And I wait for 10 seconds
+    And I wait for 20 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     When I enter the bails online case reference for the online case reference number
@@ -71,7 +71,7 @@ Feature: Submit bail application as Legal Rep
   @bails-NOC @RIA-5911 @bails-notice-of-change @bails @bails-regression @bails-notice-of-change-happy-path
   Scenario: Notice of Change
     When I am signed in as a `Legal Org User Rep B`
-    And I wait for 10 seconds
+    And I wait for 20 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     When I enter the bails online case reference for the online case reference number
@@ -79,8 +79,8 @@ Feature: Submit bail application as Legal Rep
     Then I should see the `Enter details` page
     When I enter the correct answers to the challenge questions for bails
     And I click the `Continue` button
-    Then I should see the `Check and submit` page
-    And I should see the text `Harri`
+    And I wait for 10 seconds
+    Then I should see the text `Harri`
     And I should see the text `Pugh`
     And I should see the text `1989-02-10`
     When I click the `Submit` button

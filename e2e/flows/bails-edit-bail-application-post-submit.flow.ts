@@ -391,10 +391,7 @@ export class EditBailApplicationPostSubmitFlow {
         await this.ccdFormPage.selectNextStep('Edit the application');
         await this.ccdFormPage.click('Go');
         await this.completePreviousBailApplication(true);
-
-        // this line needs to be deleted once RIA-5904 fix is done, as this screen shouldn't appear
         await this.ccdFormPage.click('Continue');
-
         await this.completeWhichPartySentApplication(true, 'Applicant');
         await this.completeApplicantName(true);
         await this.completeApplicantDOB(true);

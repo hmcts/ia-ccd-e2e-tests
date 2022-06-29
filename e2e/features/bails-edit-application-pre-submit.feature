@@ -1,6 +1,6 @@
 Feature: Edit application preSubmit
 
-  @bails-edit-application-pre-submit @bails @RIA-5867 @bails-edit-application-pre-submit-legal-rep
+  @bails-edit-application-pre-submit @bails @RIA-5867 @bails-edit-application-pre-submit-legal-rep @bails-testing
   Scenario: Legal Rep Edit application Before Submitting
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 10 seconds
@@ -25,7 +25,7 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-    # And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
+    And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
@@ -39,7 +39,7 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-pre-submit @bails @RIA-5867 @bails-edit-application-pre-submit-home-office
+  @bails-edit-application-pre-submit @bails @RIA-5867 @bails-edit-application-pre-submit-home-office @bails-testing
   Scenario: Home Office Edit application Before Submitting
     Given I am signed in as a `Home Office Bails`
     And I wait for 10 seconds
@@ -64,7 +64,7 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-    # And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
+    And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
@@ -78,7 +78,7 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-pre-submit @bails @RIA-5867 @bails-edit-application-pre-submit-admin-officer
+  @bails-edit-application-pre-submit @bails @RIA-5867 @bails-edit-application-pre-submit-admin-officer @bails-testing
   Scenario: Admin Officer Edit application Before Submitting
     Given I am signed in as a `Admin Officer`
     And I wait for 10 seconds
@@ -103,7 +103,7 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-    # And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
+    And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field

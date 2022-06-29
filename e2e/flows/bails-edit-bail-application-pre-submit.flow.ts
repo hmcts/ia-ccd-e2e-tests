@@ -352,10 +352,10 @@ export class EditBailApplicationPreSubmitFlow {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Name', 'Edited Legal Representative Name');
         await this.ccdFormPage.setFieldValue('Reference', 'Edited this reference');
+        await this.ccdFormPage.setFieldValue('Company', 'Edited Legal Representative Company');
+        await this.ccdFormPage.setFieldValue('Email address', 'editedlegalRep@test.com');
         if (choice !== 'LR') {
             await this.ccdFormPage.typeText('legalRepPhone', '07292929292');
-            await this.ccdFormPage.setFieldValue('Company', 'Edited Legal Representative Company');
-            await this.ccdFormPage.setFieldValue('Email address', 'editedlegalRep@test.com');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -391,6 +391,7 @@ export class EditBailApplicationPreSubmitFlow {
         await this.ccdFormPage.selectNextStep('Edit the application');
         await this.ccdFormPage.click('Go');
         await this.completePreviousBailApplication(true);
+        await this.ccdFormPage.click('Continue');
         if (user === 'Admin Officer') {
             await this.completeWhichPartySentApplication(true, 'Applicant');
         }
