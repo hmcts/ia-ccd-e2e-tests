@@ -476,7 +476,7 @@ export class StartBailApplicationFlow {
         await this.ccdFormPage.runAccessbility();
         if (clickContinue) {
             await this.ccdFormPage.click('Save application');
-            await browser.sleep(30000)
+            await browser.sleep(15000)
         }
     }
 
