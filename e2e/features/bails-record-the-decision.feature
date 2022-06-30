@@ -136,7 +136,7 @@ Feature: Record the decision
     And I should see the text `If you want to make another bail application, you must return to this page to make the new application.`
     And I should see the text `If you make a new application within 28 days of this decision, you won't get another hearing unless the applicant's situation has changed materially.`
 
-  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-no-ss-consent @bails-record-the-decision-granted-no-ss-consent @bails
+  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-no-ss-consent @bails-record-the-decision-granted-no-ss-consent @bails @bails-testing
   Scenario: Granted case - SS consent No
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
@@ -277,7 +277,7 @@ Feature: Record the decision
     When I switch to be a `Legal Org User Rep A`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
 
-  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-conditional-grant @bails-record-the-decision-no-ss-consent @bails-record-the-decision-conditional-grant-no-ss-consent @bails
+  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-conditional-grant @bails-record-the-decision-no-ss-consent @bails-record-the-decision-conditional-grant-no-ss-consent @bails @bails-testing
   Scenario: Conditional grant case - SS consent No
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
