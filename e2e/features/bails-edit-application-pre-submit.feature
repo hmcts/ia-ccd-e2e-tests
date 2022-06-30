@@ -1,6 +1,6 @@
 Feature: Edit application preSubmit
 
-  @bails-edit-application-pre-submit @bails @RIA-5867 @bails-edit-application-pre-submit-legal-rep
+  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-legal-rep
   Scenario: Legal Rep Edit application Before Submitting
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 10 seconds
@@ -38,7 +38,7 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-pre-submit @bails @RIA-5867 @bails-edit-application-pre-submit-home-office
+  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-home-office
   Scenario: Home Office Edit application Before Submitting
     Given I am signed in as a `Home Office Bails`
     And I wait for 10 seconds
@@ -76,7 +76,7 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-pre-submit @bails @RIA-5867 @bails-edit-application-pre-submit-admin-officer
+  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-admin-officer
   Scenario: Admin Officer Edit application Before Submitting
     Given I am signed in as a `Admin Officer`
     And I wait for 10 seconds

@@ -10,7 +10,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
 
-  @bails-move-application-to-decided @bails @RIA-5759 @bails-move-application-to-decided-admin-officer
+  @bails-move-application-to-decided @bails-full @RIA-5759 @bails-move-application-to-decided-admin-officer
   Scenario: Move application to decided as Admin Officer
     When I select the `Move application to decided` Next step
     Then I am on the `Move application to decided` page
@@ -22,7 +22,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see the image `progress_application_decided.svg`
 
-  @bails-move-application-to-decided @bails @RIA-5759 @bails-move-application-to-decided-judge @bails-regression
+  @bails-move-application-to-decided @bails-full @RIA-5759 @bails-move-application-to-decided-judge @bails-regression
   Scenario: Move application to decided as Judge
     When I switch to be a `Judge`
     And I select the `Move application to decided` Next step

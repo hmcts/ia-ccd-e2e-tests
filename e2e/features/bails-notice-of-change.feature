@@ -27,7 +27,7 @@ Feature: Notice of Change
     And I wait for 5 seconds
     Then I should see the text `No cases found. Try using different filters.`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails @bails-notice-of-change-incorrect
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-full @bails-notice-of-change-incorrect
   Scenario: Notice of Change - incorrect details
     When I am signed in as a `Legal Org User Rep A`
     And I wait for 20 seconds
@@ -54,7 +54,7 @@ Feature: Notice of Change
     And I click the `Continue` button
     Then I should see the text `Enter the client details exactly as they're written on the case, including any mistakes`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails @bails-regression @bails-notice-of-change-same-organisation 
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-full @bails-regression @bails-notice-of-change-same-organisation
   Scenario: Notice of Change - same organisation
     When I am signed in as a `Legal Org User Rep B`
     And I wait for 20 seconds
