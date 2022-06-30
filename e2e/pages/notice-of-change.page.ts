@@ -153,13 +153,13 @@ export class NoticeOfChangePage {
     async enterBailsDateOfBirth(shortWait = false) {
         browser.driver
             .findElement(By.xpath('//*[@id=\'function(){return this.idPrefix+this.questionField.question_id}-day\']'))
-            .sendKeys(`10`);
+            .sendKeys(`31`);
         browser.driver
             .findElement(By.xpath('//*[@id=\'function(){return this.idPrefix+this.questionField.question_id}-month\']'))
-            .sendKeys(`02`);
+            .sendKeys(`12`);
         browser.driver
             .findElement(By.xpath('//*[@id=\'function(){return this.idPrefix+this.questionField.question_id}-year\']'))
-            .sendKeys(`1989`);
+            .sendKeys(`1999`);
     }
 
     async enterBailsIncorrectDateOfBirth(shortWait = false) {

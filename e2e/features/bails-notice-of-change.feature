@@ -1,4 +1,4 @@
-Feature: Submit bail application as Legal Rep
+Feature: Notice of Change
  Background:
    Given I am signed in as a `Legal Org User Rep A`
    And I wait for 10 seconds
@@ -68,7 +68,7 @@ Feature: Submit bail application as Legal Rep
     Then I should see the text `Your organisation already has access to this case`
     And I should see the text `You or a colleague are already representing this client on this case.`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails @bails-regression @bails-notice-of-change-happy-path
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails @bails-regression @bails-notice-of-change-happy-path @bails-testing
   Scenario: Notice of Change
     When I am signed in as a `Legal Org User Rep B`
     And I wait for 20 seconds

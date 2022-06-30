@@ -1,4 +1,4 @@
-Feature: Edit application preSubmit
+Feature: Edit application postSubmit
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 10 seconds
