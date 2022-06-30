@@ -7,7 +7,7 @@ Feature: Edit application postSubmit
     And I submit my bail application as a `Legal Rep`
 
   @bails-edit-application-post-submit @bails @RIA-5868 @bails-edit-application-post-submit-post-submit @bails-testing
-  Scenario: Legal Rep Edit application after submitting
+  Scenario: Edit application after submitting
     When I switch to be a `Admin Officer`
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
@@ -28,7 +28,6 @@ Feature: Edit application postSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-     And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
@@ -43,7 +42,7 @@ Feature: Edit application postSubmit
     And I should see `Yes` for the `Able to join video hearing` field
 
   @bails-edit-application-post-submit @bails @RIA-5868 @bails-edit-application-post-submit-post-bail-summary @bails-testing
-  Scenario: Legal Rep Edit application after uploading bail summary
+  Scenario: Edit application after uploading bail summary
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer`
@@ -66,7 +65,6 @@ Feature: Edit application postSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-     And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
@@ -81,7 +79,7 @@ Feature: Edit application postSubmit
     And I should see `Yes` for the `Able to join video hearing` field
 
   @bails-edit-application-post-submit @bails @RIA-5868 @bails-edit-application-post-submit-post-record-decision @bails-testing
-  Scenario: Legal Rep Edit application after recording a decision
+  Scenario: Edit application after recording a decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer`
@@ -105,7 +103,6 @@ Feature: Edit application postSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-     And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
@@ -120,7 +117,7 @@ Feature: Edit application postSubmit
     And I should see `Yes` for the `Able to join video hearing` field
 
   @bails-edit-application-post-submit @bails @RIA-5868 @bails-edit-application-post-submit-post-upload-signed-decision-notice @bails-testing
-  Scenario: Legal Rep Edit application after uploading signed decision notice for a conditional bail
+  Scenario: Edit application after uploading signed decision notice for a conditional bail
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer`
@@ -145,7 +142,6 @@ Feature: Edit application postSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-     And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field

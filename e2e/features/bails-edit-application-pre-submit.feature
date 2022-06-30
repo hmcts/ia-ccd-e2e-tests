@@ -25,7 +25,6 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-    And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
@@ -64,7 +63,6 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-    And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
@@ -103,7 +101,6 @@ Feature: Edit application preSubmit
     And I should see `No` for the `Pending appeal hearing` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
-    And I should see `No` for the `Has the applicant been refused immigration bail at a hearing within the last 28 days?` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
