@@ -1,4 +1,4 @@
-Feature: Send direction
+Feature: Change Direction Due Date
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 10 seconds
@@ -8,7 +8,7 @@ Feature: Send direction
     And I switch to be a `Admin Officer`
     And I send a direction to the `Applicant`
 
-  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails @bails-regression
+  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails @bails-regression @bails-testing
   Scenario: Change a direction due date as an Admin Officer
     When I select the `Change direction due date` Next step
     Then I am on the `Select direction` page
@@ -32,7 +32,7 @@ Feature: Send direction
     And within the `Previous dates` collection's first item, I should see `10 Feb 2025` for the `Date due` field
     And within the `Previous dates` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-judge @bails
+  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-judge @bails @bails-testing
   Scenario: Change a direction due date as a Judge
     When I switch to be a `Judge`
     And I select the `Change direction due date` Next step
