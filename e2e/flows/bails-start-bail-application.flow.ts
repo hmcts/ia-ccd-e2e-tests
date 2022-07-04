@@ -569,4 +569,87 @@ export class StartBailApplicationFlow {
             }
         }
     }
+
+    async saveInitialApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
+        await this.completePreviousBailApplication(true);
+        await this.completeRefusedBail(true);
+        await this.completeCreateNewApplication(true);
+        await this.completeBeforeYouStart(true);
+        await this.completeApplicantName(true);
+        await this.completeApplicantDOB(true);
+        await this.completeApplicantGender(true);
+        await this.completeApplicantNationality(true);
+        await this.completeApplicantReferenceNumber(true);
+        await this.completeDetentionFacility(true, detentionFacility);
+        if (detentionFacility === 'Prison') {
+            await this.completeWhichPrison(true);
+        } else {
+            await this.completeWhichIRC(true);
+        }
+        await this.completeDateOfApplicantArrival(true);
+        await this.completeApplicantMobilePhone(true);
+        await this.completeAppealHearingPending(true);
+        await this.completeApplicantPlaceToLive(true);
+        await this.completeApplicantAddress(true);
+        await this.completeFinancialConditionAgree(true);
+        if (noOfSupporters === 'no') {
+            await this.completeFinancialConditionSupporter(true, 'No');
+        } else {
+            await this.completeFinancialConditionSupporter(true, 'Yes');
+            await this.completeFinancialConditionSupporterName(true, '1');
+            await this.completeFinancialConditionSupporterAddress(true, '1');
+            await this.completeFinancialConditionSupporterContactDetails(true, '1');
+            await this.completeFinancialConditionSupporterDOB(true, '1');
+            await this.completeFinancialConditionSupporterRelationship(true, '1');
+            await this.completeFinancialConditionSupporterOccupation(true, '1');
+            await this.completeFinancialConditionSupporterImmigrationStatus(true, '1');
+            await this.completeFinancialConditionSupporterNationality(true, '1');
+            await this.completeFinancialConditionSupporterPassport(true, '1');
+            await this.completeFinancialConditionSupporterPassportNumber(true, '1');
+            await this.completeFinancialConditionSupporterUndertaking(true, '1');
+            if (noOfSupporters === 'one') {
+                await this.completeAnotherFinancialConditionSupporter(true, '1', 'No');
+            } else {
+                await this.completeAnotherFinancialConditionSupporter(true, '1', 'Yes');
+                await this.completeFinancialConditionSupporterName(true, '2');
+                await this.completeFinancialConditionSupporterAddress(true, '2');
+                await this.completeFinancialConditionSupporterContactDetails(true, '2');
+                await this.completeFinancialConditionSupporterDOB(true, '2');
+                await this.completeFinancialConditionSupporterRelationship(true, '2');
+                await this.completeFinancialConditionSupporterOccupation(true, '2');
+                await this.completeFinancialConditionSupporterImmigrationStatus(true, '2');
+                await this.completeFinancialConditionSupporterNationality(true, '2');
+                await this.completeFinancialConditionSupporterPassport(true, '2');
+                await this.completeFinancialConditionSupporterPassportNumber(true, '2');
+                await this.completeFinancialConditionSupporterUndertaking(true, '2');
+                if (noOfSupporters === 'two') {
+                    await this.completeAnotherFinancialConditionSupporter(true, '2', 'No');
+                }
+            }
+        }
+        await this.completeGroundsForBailInfo(true);
+        await this.completeGroundsForBail(true);
+        await this.completeSupportingEvidenceYesNo(true, 'No');
+        await this.completeBailTransfer(true);
+        await this.completeInterpreterRequirements(true);
+        await this.completeDisabilityRequirements(true);
+        await this.completeVideoLinkRequirements(true);
+        if (legalRepresentativeOrNot === 'a') {
+            if (user === 'Legal Rep') {
+                await this.completeLegalRepDetails(true, 'LR');
+            } else {
+                await this.completeLegalRepYesNo(true, 'Yes');
+                await this.completeLegalRepDetails(true, 'NonLR');
+            }
+        } else {
+            await this.completeLegalRepYesNo(true, 'No');
+        }
+        await this.completeCheckYourAnswers(true);
+
+        if (clickContinue) {
+            if (user !== 'Legal Rep') {
+                await this.ccdFormPage.click('Close and Return to case details');
+            }
+        }
+    }
 }

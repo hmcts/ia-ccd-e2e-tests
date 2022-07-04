@@ -3,9 +3,9 @@ Feature: Submit bail application as Legal Rep
    Given I am signed in as a `Legal Org User Rep A`
    And I wait for 10 seconds
    When I create a new bail application
-   Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+   Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative with no files uploaded
 
-  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression
+  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails
   Scenario: Submit bail application as Legal Rep
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
