@@ -4,6 +4,7 @@ import { CcdFormPage } from './ccd-form.page';
 
 const BrowserWaits = require('../support/customWaits');
 const ccdFormPage = new CcdFormPage();
+const iaConfig = require('../ia.conf');
 
 export class ShareCasePage {
 
