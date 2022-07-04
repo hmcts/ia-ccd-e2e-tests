@@ -570,7 +570,7 @@ export class StartBailApplicationFlow {
         }
     }
 
-    async saveInitialApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
+    async saveInitialApplicationNoFiles(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
         await this.completePreviousBailApplication(true);
         await this.completeRefusedBail(true);
         await this.completeCreateNewApplication(true);
