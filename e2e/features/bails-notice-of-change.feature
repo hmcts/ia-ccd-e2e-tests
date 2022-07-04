@@ -18,6 +18,7 @@ Feature: Notice of Change
     Then I should see the text `You have removed the legal representative from this case`
     When I click the `Close and Return to case details` button
     And I am signed in as a `Legal Org User Rep A`
+    And I wait for 10 seconds
     And I Apply case list filter for Bails
     And I wait for 3 seconds
     And I filter by the bails online case reference
