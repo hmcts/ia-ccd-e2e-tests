@@ -10,7 +10,7 @@
     "localTest": "yarn install && protractor ./e2e/features.conf.js --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelScenarios": "yarn install && protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelFeatures": "yarn install && protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
-    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@x' --cucumberOpts.tags=~@o",
+    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowsertestBails' --cucumberOpts.tags=~@o",
     "test:nsp": "nsp check"
   },
   "pre-commit": [
