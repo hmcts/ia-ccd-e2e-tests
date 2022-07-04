@@ -17,9 +17,7 @@ Feature: Notice of Change
     And I click the `Submit` button
     Then I should see the text `You have removed the legal representative from this case`
     When I click the `Close and Return to case details` button
-    And I wait for 5 seconds
-    Then I should see an alert confirming the case `has been updated with event: Remove legal representative`
-    When I am signed in as a `Legal Org User Rep A`
+    And I am signed in as a `Legal Org User Rep A`
     And I Apply case list filter for Bails
     And I wait for 3 seconds
     And I filter by the bails online case reference
