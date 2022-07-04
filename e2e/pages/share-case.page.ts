@@ -248,7 +248,9 @@ export class ShareCasePage {
             '//select[@id="wb-jurisdiction"]' +
             '/option[normalize-space()="Immigration & Asylum"]';
         await element(by.xpath(jurisdictionPath)).click();
-        await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
+        if (iaConfig.CcdWebUrl.includes('aat') ) {
+            await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
+        }
         await browser.sleep(7000);
         let appealRefField = element(by.xpath('//*[@id=\'appealReferenceNumber\']'))
         await appealRefField.clear();
