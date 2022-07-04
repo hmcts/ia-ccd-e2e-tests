@@ -81,7 +81,7 @@ Feature: Notice of Change
     And I wait for 10 seconds
     Then I should see the text `Harri`
     And I should see the text `Pugh`
-    And I should see the text `1989-02-10`
+    And I should see the text `1999-12-31`
     When I click the `Submit` button
     Then I should see the text `There is a problem`
     When I select all the submit checkboxes
