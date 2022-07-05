@@ -30,7 +30,7 @@ Feature: Add a case note to bails application
     Then I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
+
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -73,7 +73,7 @@ Feature: Add a case note to bails application
     Then I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
+
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -111,7 +111,7 @@ Feature: Add a case note to bails application
     Then I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
+
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -149,7 +149,7 @@ Feature: Add a case note to bails application
     Then I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
+
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field

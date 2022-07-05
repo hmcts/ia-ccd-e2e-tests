@@ -22,7 +22,7 @@ Feature: Upload signed decision notice
     And I should see the text `You uploaded the signed decision notice`
     And I should see the text `The signed decision notice is available to view in the documents tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Upload signed decision notice`
+    
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `SignedDecisionNoticeRefused.pdf` for the `Decision document` field
 
@@ -41,7 +41,7 @@ Feature: Upload signed decision notice
     And I should see the text `You uploaded the signed decision notice`
     And I should see the text `The signed decision notice is available to view in the documents tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Upload signed decision notice`
+    
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `SignedDecisionNoticeGranted.pdf` for the `Decision document` field
 
@@ -60,7 +60,7 @@ Feature: Upload signed decision notice
     And I should see the text `You uploaded the signed decision notice`
     And I should see the text `The signed decision notice is available to view in the documents tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Upload signed decision notice`
+    
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `SignedDecisionNoticeGranted.pdf` for the `Decision document` field
 
@@ -80,6 +80,6 @@ Feature: Upload signed decision notice
     And I should see the text `You uploaded the signed decision notice`
     And I should see the text `The signed decision notice is available to view in the documents tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Upload signed decision notice`
+    
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `SignedDecisionNoticeRefused.pdf` for the `Decision document` field

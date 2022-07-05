@@ -9,7 +9,7 @@ Feature: Edit application preSubmit
     When I edit my saved application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Edit the application`
+    
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
     And I should see `Yarlswood` for the `Hearing centre` field
@@ -47,7 +47,7 @@ Feature: Edit application preSubmit
     When I edit my saved application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Edit the application`
+    
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
     And I should see `Yarlswood` for the `Hearing centre` field
@@ -85,7 +85,7 @@ Feature: Edit application preSubmit
     When I edit my saved application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Edit the application`
+    
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
     And I should see `Yarlswood` for the `Hearing centre` field

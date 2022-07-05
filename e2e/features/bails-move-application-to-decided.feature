@@ -18,7 +18,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I click the `Continue` button
     Then I should see the `Submit` button
     When I click the `Submit` button
-    Then I should see an alert confirming the case `has been updated with event: Move application to decided`
+    
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see the image `progress_application_decided.svg`
 
@@ -31,6 +31,6 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I click the `Continue` button
     Then I should see the `Submit` button
     When I click the `Submit` button
-    Then I should see an alert confirming the case `has been updated with event: Move application to decided`
+    
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see the image `progress_application_decided.svg`

@@ -21,7 +21,7 @@ Feature: Upload Documents
     Then I should see the text `Your upload is complete`
     And I should see the text `The document(s) you uploaded are available to view in the documents tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Upload documents`
+    
     When I click the `Documents` tab
     And within the `Applicant documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
     And within the `Applicant documents` collection's first item, I should see `This is the a bails document that is being uploaded by the LR after submitting.` in the `Description` field
@@ -44,7 +44,7 @@ Feature: Upload Documents
     Then I should see the text `Your upload is complete`
     And I should see the text `The document(s) you uploaded are available to view in the documents tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Upload documents`
+    
     When I click the `Documents` tab
     And within the `Home Office documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
     And within the `Home Office documents` collection's first item, I should see `This is the a bails document that is being uploaded by the HO after uploading bail summary.` in the `Description` field
@@ -70,7 +70,7 @@ Feature: Upload Documents
     Then I should see the text `Your upload is complete`
     And I should see the text `The document(s) you uploaded are available to view in the documents tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Upload documents`
+    
     When I click the `Documents` tab
     And within the `Applicant documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
     And within the `Applicant documents` collection's first item, I should see `This is the a bails document that is being uploaded by the AO after recording decision.` in the `Description` field
@@ -97,7 +97,7 @@ Feature: Upload Documents
     Then I should see the text `Your upload is complete`
     And I should see the text `The document(s) you uploaded are available to view in the documents tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Upload documents`
+    
     When I click the `Documents` tab
     And within the `Applicant documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
     And within the `Applicant documents` collection's first item, I should see `This is the a bails document that is being uploaded by the AO after uploading signed decision notice.` in the `Description` field

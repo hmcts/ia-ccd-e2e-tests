@@ -18,7 +18,7 @@ Feature: Edit bail documents
     And I click the `Continue` button
     Then I should see the `Submit` button
     When I click the `Submit` button
-    Then I should see an alert confirming the case `has been updated with event: Edit documents`
+    
     When I click the `Documents` tab
     Then within the `Applicant documents` collection's first item, I should see `Pugh-bail-application-details.PDF` for the `Document` field
     When I click the `Case notes` tab
@@ -38,7 +38,7 @@ Feature: Edit bail documents
     And I click the `Continue` button
     Then I should see the `Submit` button
     When I click the `Submit` button
-    Then I should see an alert confirming the case `has been updated with event: Edit documents`
+    
     When I click the `Documents` tab
     Then within the `Applicant documents` collection's first item, I should see `This is a new description that wasn't here before` for the `Description` field
     When I click the `Case notes` tab
@@ -62,7 +62,7 @@ Feature: Edit bail documents
     And I click the `Continue` button
     Then I should see the `Submit` button
     When I click the `Submit` button
-    Then I should see an alert confirming the case `has been updated with event: Edit documents`
+    
     When I click the `Documents` tab
     Then within the `Applicant documents` collection's third item, I should see `Somebody testing this` for the `Supplied by` field
     And within the `Applicant documents` collection's third item, I should see `Evidence1.pdf` for the `Document` field
@@ -91,7 +91,7 @@ Feature: Edit bail documents
     And I click the `Continue` button
     Then I should see the `Submit` button
     When I click the `Submit` button
-    Then I should see an alert confirming the case `has been updated with event: Edit documents`
+    
     When I click the `Documents` tab
     Then within the `Applicant documents` collection's first item, I should see `Pugh-bail-application-details.PDF` for the `Document` field
     Then within the `Applicant documents` collection's first item, I should see `This is a new description that wasn't here before` for the `Description` field
@@ -122,7 +122,7 @@ Feature: Edit bail documents
     And I click the `Continue` button
     Then I should see the `Submit` button
     When I click the `Submit` button
-    Then I should see an alert confirming the case `has been updated with event: Edit documents`
+    
     When I click the `Documents` tab
     Then within the `Applicant documents` collection's first item, I should see `This is a new description that wasn't here before` for the `Description` field
     And within the `Applicant documents` collection's second item, I should see `Somebody testing this` for the `Supplied by` field

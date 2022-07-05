@@ -16,7 +16,7 @@ Feature: Make new application
     And I move the application to decided
     And I select the `Make new application` Next step
     And I make a new application as a `Admin Officer` for a Prison detention with no financial condition supporters and with no Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Applicant` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -39,7 +39,7 @@ Feature: Make new application
     And I upload the signed decision notice for a grant
     And I select the `Make new application` Next step
     And I make a new application as a `Admin Officer` for a Prison detention with no financial condition supporters and with no Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Applicant` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -62,7 +62,7 @@ Feature: Make new application
     And I upload the signed decision notice for a refusal
     And I select the `Make new application` Next step
     And I make a new application as a `Admin Officer` for a Prison detention with no financial condition supporters and with no Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Applicant` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -82,7 +82,7 @@ Feature: Make new application
     And I end the application
     And I select the `Make new application` Next step
     And I make a new application as a `Admin Officer` for a Prison detention with no financial condition supporters and with no Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Applicant` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -107,7 +107,7 @@ Feature: Make new application
     And I switch to be a `Home Office Bails`
     And I select the `Make new application` Next step
     And I make a new application as a `Home Office Bails` for a Prison detention with no financial condition supporters and with no Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -130,7 +130,7 @@ Feature: Make new application
     And I switch to be a `Home Office Bails`
     And I select the `Make new application` Next step
     And I make a new application as a `Home Office Bails` for a Prison detention with no financial condition supporters and with no Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -153,7 +153,7 @@ Feature: Make new application
     And I switch to be a `Home Office Bails`
     And I select the `Make new application` Next step
     And I make a new application as a `Home Office Bails` for a Prison detention with no financial condition supporters and with no Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -173,7 +173,7 @@ Feature: Make new application
     And I switch to be a `Home Office Bails`
     And I select the `Make new application` Next step
     And I make a new application as a `Home Office Bails` for a Prison detention with no financial condition supporters and with no Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -199,7 +199,7 @@ Feature: Make new application
     And I switch to be a `Legal Org User Rep A`
     And I select the `Make new application` Next step
     And I make a new application as a `Legal Rep` for a Prison detention with no financial condition supporters and with a Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Legal Representative` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -224,7 +224,7 @@ Feature: Make new application
     And I switch to be a `Legal Org User Rep A`
     And I select the `Make new application` Next step
     And I make a new application as a `Legal Rep` for a Prison detention with no financial condition supporters and with a Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Legal Representative` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -249,7 +249,7 @@ Feature: Make new application
     And I switch to be a `Legal Org User Rep A`
     And I select the `Make new application` Next step
     And I make a new application as a `Legal Rep` for a Prison detention with no financial condition supporters and with a Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Legal Representative` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
@@ -271,7 +271,7 @@ Feature: Make new application
     And I switch to be a `Legal Org User Rep A`
     And I select the `Make new application` Next step
     And I make a new application as a `Legal Rep` for a Prison detention with no financial condition supporters and with a Legal Representative
-    Then I should see an alert confirming the case `has been updated with event: Make new application`
+    
     When I click the `Bail application` tab
     Then I should see `Legal Representative` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field

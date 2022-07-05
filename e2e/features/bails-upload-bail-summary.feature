@@ -20,7 +20,6 @@ Feature: Upload Bail Summary
 
     Then I should see the text `You have uploaded the Bail Summary`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Upload Bail Summary`
     And I should see the text `The Bail Summary has been uploaded and is available`
     When I click the `Documents` tab
     Then within the `Home Office documents` collection's first item, I should see `BailSummary.pdf` in the `Document` field
