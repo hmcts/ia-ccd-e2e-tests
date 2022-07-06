@@ -11,9 +11,11 @@ Feature: Edit bail documents
   Scenario: Delete a document
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page
+    And The page is accessible
     When I remove the first item from the `Applicant documents (Optional)` collection
     And I click the `Continue` button
     Then I am on the `Reason for edits` page
+    And The page is accessible
     When I type `These are some reasons for removing documents` for the `Reasons for editing or removing documents` field
     And I click the `Continue` button
     Then I should see the `Submit` button
@@ -31,9 +33,11 @@ Feature: Edit bail documents
   Scenario: Edit a document
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page
+    And The page is accessible
     When within the `Applicant documents (Optional)` collection's first item, I type `This is a new description that wasn't here before` for the `Description (Optional)` field
     And I click the `Continue` button
     Then I am on the `Reason for edits` page
+    And The page is accessible
     When I type `Here are some reasons for editing documents` for the `Reasons for editing or removing documents` field
     And I click the `Continue` button
     Then I should see the `Submit` button
@@ -51,6 +55,7 @@ Feature: Edit bail documents
   Scenario: Add a document
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page
+    And The page is accessible
     When I click the first `Add new` button
     And within the `Applicant documents (Optional)` collection's third item, I type `Somebody testing this` for the `Supplied by (Optional)` field
     And within the `Applicant documents (Optional)` collection's third item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
@@ -58,6 +63,7 @@ Feature: Edit bail documents
     And within the `Applicant documents (Optional)` collection's third item, I type `10-02-2022` for the `Date uploaded (Optional)` field
     And I click the `Continue` button
     Then I am on the `Reason for edits` page
+    And The page is accessible
     When I type `Take some reasons for adding a new document` for the `Reasons for editing or removing documents` field
     And I click the `Continue` button
     Then I should see the `Submit` button
@@ -78,6 +84,7 @@ Feature: Edit bail documents
   Scenario: Delete, edit and add a document
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page
+    And The page is accessible
     When I remove the first item from the `Applicant documents (Optional)` collection
     And within the `Applicant documents (Optional)` collection's first item, I type `This is a new description that wasn't here before` for the `Description (Optional)` field
     And I click the first `Add new` button
@@ -87,6 +94,7 @@ Feature: Edit bail documents
     And within the `Applicant documents (Optional)` collection's second item, I type `10-02-2022` for the `Date uploaded (Optional)` field
     And I click the `Continue` button
     Then I am on the `Reason for edits` page
+    And The page is accessible
     When I type `This is a reason for editing, removing and adding documents` for the `Reasons for editing or removing documents` field
     And I click the `Continue` button
     Then I should see the `Submit` button
@@ -109,6 +117,7 @@ Feature: Edit bail documents
   Scenario: Delete, edit and add a document as a Judge
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page
+    And The page is accessible
     When I remove the first item from the `Applicant documents (Optional)` collection
     And within the `Applicant documents (Optional)` collection's first item, I type `This is a new description that wasn't here before` for the `Description (Optional)` field
     And I click the first `Add new` button
@@ -118,6 +127,7 @@ Feature: Edit bail documents
     And within the `Applicant documents (Optional)` collection's second item, I type `10-02-2022` for the `Date uploaded (Optional)` field
     And I click the `Continue` button
     Then I am on the `Reason for edits` page
+    And The page is accessible
     When I type `This is a reason for editing, removing and adding documents` for the `Reasons for editing or removing documents` field
     And I click the `Continue` button
     Then I should see the `Submit` button

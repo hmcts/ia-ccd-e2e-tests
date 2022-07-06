@@ -13,10 +13,12 @@ Feature: Upload signed decision notice
     When I record a refused decision with SS consent Yes with no financial condition supporters
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
+    And The page is accessible
     When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `SignedDecisionNoticeRefused.pdf` for the `Decision document` field
     When I click the `Upload` button
     And I should see the text `You uploaded the signed decision notice`
@@ -32,10 +34,12 @@ Feature: Upload signed decision notice
     When I record a granted decision with SS consent No with no financial condition supporters
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
+    And The page is accessible
     When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `SignedDecisionNoticeGranted.pdf` for the `Decision document` field
     When I click the `Upload` button
     And I should see the text `You uploaded the signed decision notice`
@@ -51,10 +55,12 @@ Feature: Upload signed decision notice
     When I record a conditional grant decision with SS consent Yes with no financial condition supporters
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
+    And The page is accessible
     When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `SignedDecisionNoticeGranted.pdf` for the `Decision document` field
     When I click the `Upload` button
     And I should see the text `You uploaded the signed decision notice`
@@ -71,10 +77,12 @@ Feature: Upload signed decision notice
     And I switch to be a `Judge`
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
+    And The page is accessible
     When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `SignedDecisionNoticeRefused.pdf` for the `Decision document` field
     When I click the `Upload` button
     And I should see the text `You uploaded the signed decision notice`

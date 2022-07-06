@@ -12,12 +12,15 @@ Feature: Change Direction Due Date
   Scenario: Change a direction due date as an Admin Officer
     When I select the `Change direction due date` Next step
     Then I am on the `Select direction` page
+    And The page is accessible
     When I select `Direction 1` for the `Direction` field
     And I click the `Continue` button
     Then I am on the `Change the date` page
+    And The page is accessible
     When I type `10-02-2030` for the `Date Due` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Direction 1` in the `Direction` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Date Sent` field
     And I should see `10 Feb 2030` in the `Date Due` field
@@ -36,12 +39,15 @@ Feature: Change Direction Due Date
     When I switch to be a `Judge`
     And I select the `Change direction due date` Next step
     Then I am on the `Select direction` page
+    And The page is accessible
     When I select `Direction 1` for the `Direction` field
     And I click the `Continue` button
     Then I am on the `Change the date` page
+    And The page is accessible
     When I type `10-02-2030` for the `Date Due` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Direction 1` in the `Direction` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Date Sent` field
     And I should see `10 Feb 2030` in the `Date Due` field

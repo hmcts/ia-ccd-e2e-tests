@@ -11,6 +11,7 @@ Feature: Add a case note to bails application
     When I switch to be a `Admin Officer`
     When I select the `Add case note` Next step
     Then I am on the `Case note details` page
+    And The page is accessible
     And I should see the text `Enter the details of the case note`
     When I type `some case note subject` for the `Subject` field
     When I type `some case note description` for the `Case note` field
@@ -20,6 +21,7 @@ Feature: Add a case note to bails application
     And I wait for 10 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `some case note subject` in the `Subject` field
     And I should see `some case note description` in the `Case note` field
     And I should see `BailsCaseNote.pdf` in the `Upload a document` field
@@ -54,6 +56,7 @@ Feature: Add a case note to bails application
     When I switch to be a `Judge`
     When I select the `Add case note` Next step
     Then I am on the `Case note details` page
+    And The page is accessible
     And I should see the text `Enter the details of the case note`
     When I type `some case note subject` for the `Subject` field
     When I type `some case note description` for the `Case note` field
@@ -63,6 +66,7 @@ Feature: Add a case note to bails application
     And I wait for 10 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `some case note subject` in the `Subject` field
     And I should see `some case note description` in the `Case note` field
     And I should see `BailsCaseNote.pdf` in the `Upload a document` field
@@ -95,6 +99,7 @@ Feature: Add a case note to bails application
     When I switch to be a `Admin Officer`
     When I select the `Add case note` Next step
     Then I am on the `Case note details` page
+    And The page is accessible
     And I should see the text `Enter the details of the case note`
     When I type `some case note subject` for the `Subject` field
     When I type `some case note description` for the `Case note` field
@@ -102,6 +107,7 @@ Feature: Add a case note to bails application
 
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `some case note subject` in the `Subject` field
     And I should see `some case note description` in the `Case note` field
 
@@ -133,6 +139,7 @@ Feature: Add a case note to bails application
     When I switch to be a `Judge`
     When I select the `Add case note` Next step
     Then I am on the `Case note details` page
+    And The page is accessible
     And I should see the text `Enter the details of the case note`
     When I type `some case note subject` for the `Subject` field
     When I type `some case note description` for the `Case note` field
@@ -140,6 +147,7 @@ Feature: Add a case note to bails application
 
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `some case note subject` in the `Subject` field
     And I should see `some case note description` in the `Case note` field
 

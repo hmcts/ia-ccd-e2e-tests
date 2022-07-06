@@ -13,18 +13,23 @@ Feature: Record the decision
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
+    And The page is accessible
     When I type `Mr Judge Judgerson` for the `Judge name` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent` page
+    And The page is accessible
     When I select `No` for the `Is Secretary of State consent needed?` field
     And I click the `Continue` button
     Then I am on the `Decision` page
+    And The page is accessible
     When I select `Refused` for the `What is the Tribunal's decision?` field
     And I click the `Continue` button
     Then I am on the `Reasons for refusal` page
+    And The page is accessible
     When I type `This is a reason for refusing the application.` for the `Enter the reasons for refusal` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Mr Judge Judgerson` for the `Judge name` field
     And I should see `No` for the `Is Secretary of State consent needed?` field
     And I should see `Refused` for the `What is the Tribunal's decision?` field
@@ -53,18 +58,23 @@ Feature: Record the decision
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
+    And The page is accessible
     When I type `Mr Judge Judgerson` for the `Judge name` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent` page
+    And The page is accessible
     When I select `Yes` for the `Is Secretary of State consent needed?` field
     And I click the `Continue` button
     Then I am on the `Decision` page
+    And The page is accessible
     When I select `Refused` for the `What is the Tribunal's decision?` field
     And I click the `Continue` button
     Then I am on the `Reasons for refusal` page
+    And The page is accessible
     When I type `This is a reason for refusing the application.` for the `Enter the reasons for refusal` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Mr Judge Judgerson` for the `Judge name` field
     And I should see `Yes` for the `Is Secretary of State consent needed?` field
     And I should see `Refused` for the `What is the Tribunal's decision?` field
@@ -93,24 +103,31 @@ Feature: Record the decision
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
+    And The page is accessible
     When I type `Mr Judge Judgerson` for the `Judge name` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent` page
+    And The page is accessible
     When I select `Yes` for the `Is Secretary of State consent needed?` field
     And I click the `Continue` button
     Then I am on the `Decision` page
+    And The page is accessible
     When I select `Minded to grant` for the `What is the Tribunal's decision?` field
     And I click the `Continue` button
     Then I am on the `Reasons for decision` page
+    And The page is accessible
     When I type `This is a reason for minding to grant bail.` for the `Enter the reasons the judge is minded to grant bail` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent decision` page
+    And The page is accessible
     When I select `No` for the `Does the Secretary of State give consent to grant bail?` field
     And I click the `Continue` button
     Then I am on the `Reasons for refusal` page
+    And The page is accessible
     When I should see `The Tribunal was minded to grant bail for the reasons given. The Home Office have refused to consent to the grant of bail so in accordance with paragraph 3(4) of Schedule 10 Immigration Act 2016 bail is refused.` for the `Enter the reasons for refusal` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Mr Judge Judgerson` for the `Judge name` field
     And I should see `Yes` for the `Is Secretary of State consent needed?` field
     And I should see `Minded to grant` for the `What is the Tribunal's decision?` field
@@ -141,18 +158,23 @@ Feature: Record the decision
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
+    And The page is accessible
     When I type `Mr Judge Judgerson` for the `Judge name` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent` page
+    And The page is accessible
     When I select `No` for the `Is Secretary of State consent needed?` field
     And I click the `Continue` button
     Then I am on the `Decision` page
+    And The page is accessible
     When I select `Granted` for the `What is the Tribunal's decision?` field
     And I click the `Continue` button
     Then I am on the `Release Status` page
+    And The page is accessible
     When I select `Yes` for the `Will the applicant be released with immediate effect?` field
     And I click the `Continue` button
     Then I am on the `Conditions` page
+    And The page is accessible
     When I click the `Appearance (where bail is going to be transferred to the Home Office)` label
     And I click the `Activities` label
     And I click the `Residence` label
@@ -167,24 +189,31 @@ Feature: Record the decision
     And I type `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I click the `Continue` button
     Then I am on the `Financial condition` page
+    And The page is accessible
     When I select `Yes` for the `Will the applicant be subject to a financial condition?` field
     And I click the `Continue` button
     Then I am on the `Financial condition details` page
+    And The page is accessible
     When I select `No` for the `Is the financial condition amount correct?` field
     And I click the `Continue` button
     Then I am on the `Confirm financial condition amount` page
+    And The page is accessible
     When I type `500` for the field with ID `financialCondAmount1`
     And I click the `Continue` button
     Then I am on the `Financial condition supporter 1` page
+    And The page is accessible
     When I select `Yes` for the `Did the judge agree to accept financial condition supporter 1?` field
     And I click the `Continue` button
     Then I am on the `Financial condition supporter 1 details` page
+    And The page is accessible
     When I type `250` for the field with ID `financialAmountSupporterUndertakes1`
     And I click the `Continue` button
     Then I am on the `Bail transfer` page
+    And The page is accessible
     When I select `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Mr Judge Judgerson` for the `Judge name` field
     And I should see `No` for the `Is Secretary of State consent needed?` field
     And I should see `Granted` for the `What is the Tribunal's decision?` field
@@ -223,34 +252,44 @@ Feature: Record the decision
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
+    And The page is accessible
     When I type `Mr Judge Judgerson` for the `Judge name` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent` page
+    And The page is accessible
     When I select `Yes` for the `Is Secretary of State consent needed?` field
     And I click the `Continue` button
     Then I am on the `Decision` page
+    And The page is accessible
     When I select `Minded to grant` for the `What is the Tribunal's decision?` field
     And I click the `Continue` button
     Then I am on the `Reasons for decision` page
+    And The page is accessible
     When I type `This is a reason for minding to grant.  This is another reason to grant.` for the `Enter the reasons the judge is minded to grant bail` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent decision` page
+    And The page is accessible
     When I select `Yes` for the `Does the Secretary of State give consent to grant bail?` field
     And I click the `Continue` button
     Then I am on the `Release Status` page
+    And The page is accessible
     When I select `Yes` for the `Will the applicant be released with immediate effect?` field
     And I click the `Continue` button
     Then I am on the `Conditions` page
+    And The page is accessible
     When I click the `Other` label
     When I type `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I click the `Continue` button
     Then I am on the `Financial condition` page
+    And The page is accessible
     When I select `No` for the `Will the applicant be subject to a financial condition?` field
     And I click the `Continue` button
     Then I am on the `Bail transfer` page
+    And The page is accessible
     When I select `No` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Mr Judge Judgerson` for the `Judge name` field
     And I should see `Yes` for the `Is Secretary of State consent needed?` field
     And I should see `Minded to grant` for the `What is the Tribunal's decision?` field
@@ -282,18 +321,23 @@ Feature: Record the decision
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
+    And The page is accessible
     When I type `Mr Judge Judgerson` for the `Judge name` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent` page
+    And The page is accessible
     When I select `No` for the `Is Secretary of State consent needed?` field
     And I click the `Continue` button
     Then I am on the `Decision` page
+    And The page is accessible
     When I select `Granted` for the `What is the Tribunal's decision?` field
     And I click the `Continue` button
     Then I am on the `Release Status` page
+    And The page is accessible
     When I select `No` for the `Will the applicant be released with immediate effect?` field
     And I click the `Continue` button
     Then I am on the `Conditions` page
+    And The page is accessible
     When I click the `Appearance (where bail is going to be transferred to the Home Office)` label
     And I click the `Activities` label
     And I click the `Residence` label
@@ -308,24 +352,31 @@ Feature: Record the decision
     And I type `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I click the `Continue` button
     Then I am on the `Financial condition` page
+    And The page is accessible
     When I select `Yes` for the `Will the applicant be subject to a financial condition?` field
     And I click the `Continue` button
     Then I am on the `Financial condition details` page
+    And The page is accessible
     When I select `No` for the `Is the financial condition amount correct?` field
     And I click the `Continue` button
     Then I am on the `Confirm financial condition amount` page
+    And The page is accessible
     When I type `500` for the field with ID `financialCondAmount1`
     And I click the `Continue` button
     Then I am on the `Financial condition supporter 1` page
+    And The page is accessible
     When I select `Yes` for the `Did the judge agree to accept financial condition supporter 1?` field
     And I click the `Continue` button
     Then I am on the `Financial condition supporter 1 details` page
+    And The page is accessible
     When I type `250` for the field with ID `financialAmountSupporterUndertakes1`
     And I click the `Continue` button
     Then I am on the `Bail transfer` page
+    And The page is accessible
     When I select `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Mr Judge Judgerson` for the `Judge name` field
     And I should see `No` for the `Is Secretary of State consent needed?` field
     And I should see `Granted` for the `What is the Tribunal's decision?` field
@@ -367,34 +418,44 @@ Feature: Record the decision
     When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
+    And The page is accessible
     When I type `Mr Judge Judgerson` for the `Judge name` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent` page
+    And The page is accessible
     When I select `Yes` for the `Is Secretary of State consent needed?` field
     And I click the `Continue` button
     Then I am on the `Decision` page
+    And The page is accessible
     When I select `Minded to grant` for the `What is the Tribunal's decision?` field
     And I click the `Continue` button
     Then I am on the `Reasons for decision` page
+    And The page is accessible
     When I type `This is a reason for minding to grant.  This is another reason to grant.` for the `Enter the reasons the judge is minded to grant bail` field
     And I click the `Continue` button
     Then I am on the `Secretary of State consent decision` page
+    And The page is accessible
     When I select `Yes` for the `Does the Secretary of State give consent to grant bail?` field
     And I click the `Continue` button
     Then I am on the `Release Status` page
+    And The page is accessible
     When I select `No` for the `Will the applicant be released with immediate effect?` field
     And I click the `Continue` button
     Then I am on the `Conditions` page
+    And The page is accessible
     When I click the `Other` label
     When I type `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I click the `Continue` button
     Then I am on the `Financial condition` page
+    And The page is accessible
     When I select `No` for the `Will the applicant be subject to a financial condition?` field
     And I click the `Continue` button
     Then I am on the `Bail transfer` page
+    And The page is accessible
     When I select `No` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Mr Judge Judgerson` for the `Judge name` field
     And I should see `Yes` for the `Is Secretary of State consent needed?` field
     And I should see `Minded to grant` for the `What is the Tribunal's decision?` field

@@ -12,6 +12,7 @@ Feature: Upload Bail Summary
     When I switch to be a `Home Office Bails`
     And I select the `Upload Bail Summary` Next step
     Then I am on the `Upload summary` page
+    And The page is accessible
     When I complete the `Upload Bail Summary` page
     And I click the `Continue` button
     Then I see the text `Check your answers`

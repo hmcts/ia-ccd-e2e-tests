@@ -14,6 +14,7 @@ Feature: Move application to decided after a signed conditional bail decision no
   Scenario: Move application to decided as Admin Officer
     When I select the `Move application to decided` Next step
     Then I am on the `Move application to decided` page
+    And The page is accessible
     When I should see the text `Click Continue to move this application from the Conditional grant state to the Decided state. Once the application is moved to decided, no further action will be required.`
     And I click the `Continue` button
     Then I should see the `Submit` button
@@ -27,6 +28,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     When I switch to be a `Judge`
     And I select the `Move application to decided` Next step
     Then I am on the `Move application to decided` page
+    And The page is accessible
     When I should see the text `Click Continue to move this application from the Conditional grant state to the Decided state. Once the application is moved to decided, no further action will be required.`
     And I click the `Continue` button
     Then I should see the `Submit` button

@@ -11,10 +11,12 @@ Feature: End the application
     When I switch to be a `Admin Officer`
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
+    And The page is accessible
     When I click the `Withdrawn` label
     And I type `Withdrawn because it was needed for the test.` for the `Reasons` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Withdrawn` for the `Outcome` field
     And I should see `Withdrawn because it was needed for the test.` for the `Reasons` field
     When I click the `End application` button
@@ -35,10 +37,12 @@ Feature: End the application
     And I switch to be a `Admin Officer`
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
+    And The page is accessible
     And I click the `Bail dismissed without a hearing` label
     When I type `Dismissed because it was needed for the test.` for the `Reasons` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Bail dismissed without a hearing` for the `Outcome` field
     And I should see `Dismissed because it was needed for the test.` for the `Reasons` field
     When I click the `End application` button
@@ -60,10 +64,12 @@ Feature: End the application
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
+    And The page is accessible
     And I click the `Not in immigration detention` label
     When I type `Not in detention because it was needed for the test.` for the `Reasons` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Not in immigration detention` for the `Outcome` field
     And I should see `Not in detention because it was needed for the test.` for the `Reasons` field
     When I click the `End application` button
@@ -86,10 +92,12 @@ Feature: End the application
     And I upload the signed decision notice for a conditional grant
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
+    And The page is accessible
     And I click the `Not in immigration detention` label
     When I type `Not in detention because it was needed for the test.` for the `Reasons` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
+    And The page is accessible
     And I should see `Not in immigration detention` for the `Outcome` field
     And I should see `Not in detention because it was needed for the test.` for the `Reasons` field
     When I click the `End application` button

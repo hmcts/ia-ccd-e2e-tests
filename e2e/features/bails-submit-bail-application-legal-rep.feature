@@ -9,6 +9,7 @@ Feature: Submit bail application as Legal Rep
   Scenario: Submit bail application as Legal Rep
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
+    And The page is accessible
     When I click the `The applicant has confirmed that the facts stated in this application are true.` label
     And I click the `Continue` button
     And I click the `Submit` button

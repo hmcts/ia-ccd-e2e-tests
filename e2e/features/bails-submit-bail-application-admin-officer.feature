@@ -9,6 +9,7 @@ Feature: Submit bail application as Admin Officer
   Scenario: Submit bail application as Admin Officer
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
+    And The page is accessible
     And I click the `Submit` button
     Then I should see the text `You have submitted this application`
     When I click the `Close and Return to case details` button
