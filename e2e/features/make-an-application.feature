@@ -50,7 +50,6 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Make an application`
 
     When I click the `Applications` tab
     And I should see the `Application` field
@@ -208,7 +207,6 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Make an application`
 
     When I switch to be a `Home Office APC`
     When I click the `Applications` tab
@@ -240,7 +238,6 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Make an application`
 
     When I click the `Applications` tab
     And I should see the `Application` field
