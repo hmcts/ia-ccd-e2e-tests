@@ -56,6 +56,7 @@ Feature: Case officer or Judge make an application
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now update the appeal details`
     When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Decide an application`
 
     When I click the `Applications` tab
     And I should see the `Application` field
@@ -187,6 +188,7 @@ Feature: Case officer or Judge make an application
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now change the direction's due date`
     When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Decide an application`
 
     When I click the `Applications` tab
     And I should see the `Application` field

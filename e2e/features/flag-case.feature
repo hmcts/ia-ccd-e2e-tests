@@ -45,7 +45,8 @@ Feature: Flag a case
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button
-    Then The page is accessible
+    Then I should see an alert confirming the case `has been updated with event: Flag the case`
+    And The page is accessible
 
     # When I click the `Overview` tab
     Then I should see the text `Flags`
@@ -106,6 +107,7 @@ Feature: Flag a case
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Flag the case`
     And The page is accessible
 
     # When I click the `Overview` tab
@@ -144,6 +146,7 @@ Feature: Flag a case
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Flag the case`
     And The page is accessible
 
     # When I click the `Overview` tab
@@ -180,6 +183,7 @@ Feature: Flag a case
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Flag the case`
     When I switch to be a `Legal Rep`
     Then I should not see the text `Flags`
     And I should not see the text `These flags are only visible to the Tribunal.`
@@ -208,6 +212,7 @@ Feature: Flag a case
     And I should see the text `This flag has been removed from the case. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Remove a flag`
 
   @regression @flag-case @remove-flag @RIA-2513 @nightly-test
   Scenario: Remove flag from a case
@@ -234,6 +239,7 @@ Feature: Flag a case
     And I should see the text `This flag has been removed from the case. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Remove a flag`
     And The page is accessible
 
     # When I click the `Overview` tab

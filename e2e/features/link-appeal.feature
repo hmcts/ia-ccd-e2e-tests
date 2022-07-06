@@ -38,6 +38,7 @@ Feature: Link and Unlink appeal
     And I should see the text `The appeal will now be considered as part of a set of linked appeals. You must update the linked appeal spreadsheet to reflect this change.`
 
     When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Link the appeal`
 
     When I click the `Overview` tab
     # Then I should see `Familial` for the `Linked appeal` field
@@ -56,6 +57,7 @@ Feature: Link and Unlink appeal
     And I should see the text `This appeal is now unlinked and will proceed as usual. You must update the linked appeal spreadsheet to reflect this change.`
 
     When I click the `Close and Return to case details` button
+    Then I should see an alert confirming the case `has been updated with event: Unlink the appeal`
 
     When I click the `Overview` tab
     # Then I should not see the `Linked appeal` field
