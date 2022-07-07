@@ -43,6 +43,7 @@
     "protractor-retry": "^1.2.13",
     "puppeteer": "1.15.0",
     "request-promise": "^4.2.5",
+    "request": "^2.34",
     "rxjs": "^6.5.4",
     "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",
