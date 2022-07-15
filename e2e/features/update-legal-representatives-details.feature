@@ -53,7 +53,6 @@ Scenario: update legal representatives details
     Then I should see the text `You've updated the legal representative's details`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Update representative details`
 
     When I click the `Appellant` tab
     Then I should see the text `Update representative's details`
