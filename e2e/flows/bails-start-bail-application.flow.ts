@@ -565,9 +565,9 @@ export class StartBailApplicationFlow {
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
-            if (user !== 'Legal Rep') {
+            if (user !== 'Legal Rep') { // only needed when confirmation screen issue is present for LR
                 await this.ccdFormPage.click('Close and Return to case details');
-            }
+            } // only needed when confirmation screen issue is present for LR
         }
     }
 
@@ -648,7 +648,9 @@ export class StartBailApplicationFlow {
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+            if (user !== 'Legal Rep') { // only needed when confirmation screen issue is present for LR
+                await this.ccdFormPage.click('Close and Return to case details');
+            } // only needed when confirmation screen issue is present for LR
         }
     }
 }
