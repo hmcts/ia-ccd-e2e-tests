@@ -22,11 +22,11 @@ Feature: Edit bail documents
     When I click the `Submit` button
     
     When I click the `Documents` tab
-#    Then within the `Applicant documents` collection's first item, I should see `Pugh-bail-application-details.PDF` for the `Document` field
+    Then within the `Applicant documents` collection's first item, I should see `Pugh-bail-application-details.PDF` for the `Document` field
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field
-#    And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf]` in the `Case note` field
+    And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: These are some reasons for removing documents` in the `Case note` field
 
   @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-edit
@@ -48,7 +48,7 @@ Feature: Edit bail documents
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field
-#    And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf]` in the `Case note` field
+    And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: Here are some reasons for editing documents` in the `Case note` field
 
   @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-add
@@ -77,7 +77,7 @@ Feature: Edit bail documents
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field
-#    And within the `Case notes` collection's first item, I should see `Document names: [Evidence1.pdf]` in the `Case note` field
+    And within the `Case notes` collection's first item, I should see `Document names: [Evidence1.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: Take some reasons for adding a new document` in the `Case note` field
 
   @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-delete @bails-edit-documents-edit @bails-edit-documents-add @bails-edit-documents-delete-edit-add @bails-regression
@@ -101,7 +101,7 @@ Feature: Edit bail documents
     When I click the `Submit` button
     
     When I click the `Documents` tab
-#    Then within the `Applicant documents` collection's first item, I should see `Pugh-bail-application-details.PDF` for the `Document` field
+    Then within the `Applicant documents` collection's first item, I should see `Pugh-bail-application-details.PDF` for the `Document` field
     Then within the `Applicant documents` collection's first item, I should see `This is a new description that wasn't here before` for the `Description` field
     And within the `Applicant documents` collection's second item, I should see `Somebody testing this` for the `Supplied by` field
     And within the `Applicant documents` collection's second item, I should see `Evidence1.pdf` for the `Document` field
@@ -110,7 +110,7 @@ Feature: Edit bail documents
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field
-#    And within the `Case notes` collection's first item, I should see `Document names: [Pugh-bail-application-details.PDF, GroundsForBailSupportingEvidence.pdf, Evidence1.pdf]` in the `Case note` field
+    And within the `Case notes` collection's first item, I should see `Document names: [Pugh-bail-application-details.PDF, GroundsForBailSupportingEvidence.pdf, Evidence1.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: This is a reason for editing, removing and adding documents` in the `Case note` field
 
   @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-delete @bails-edit-documents-edit @bails-edit-documents-add @bails-edit-documents-delete-edit-add-judge
@@ -142,5 +142,5 @@ Feature: Edit bail documents
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `A document was edited or deleted` for the `Subject` field
-#    And within the `Case notes` collection's first item, I should see `Document names: [Pugh-bail-application-details.PDF, GroundsForBailSupportingEvidence.pdf, Evidence1.pdf]` in the `Case note` field
+    And within the `Case notes` collection's first item, I should see `Document names: [Pugh-bail-application-details.PDF, GroundsForBailSupportingEvidence.pdf, Evidence1.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: This is a reason for editing, removing and adding documents` in the `Case note` field
