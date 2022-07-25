@@ -190,4 +190,59 @@ export class AuthenticationFlow {
         await this.idamSignInPage.waitUntilLoaded();
     }
 
+    async signInAsAdminOfficerBails() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        if (iaConfig.CcdWebUrl.includes('localhost') ) {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestAdminOfficerUserName,
+                iaConfig.TestAdminOfficerPassword
+        )} else {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestAdminOfficerBailsUserName,
+                iaConfig.TestAdminOfficerBailsPassword
+        )}
+    }
+
+    async signInAsJudgeBails() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        if (iaConfig.CcdWebUrl.includes('localhost') ) {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestJudgeUserName,
+                iaConfig.TestJudgePassword
+        )} else {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestJudgeBailsUserName,
+                iaConfig.TestJudgeBailsPassword
+        )}
+    }
+
+    async signInAsLawFirmOrgUserABails() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        if (iaConfig.CcdWebUrl.includes('localhost') ) {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestLawFirmOrgAUserName,
+                iaConfig.TestLawFirmOrgAPassword
+        )} else {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestLawFirmOrgABailsUserName,
+                iaConfig.TestLawFirmOrgABailsPassword
+        )}
+    }
+
+    async signInAsLawFirmOrgUserBBails() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        if (iaConfig.CcdWebUrl.includes('localhost') ) {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestLawFirmOrgBUserName,
+                iaConfig.TestLawFirmOrgBPassword
+        )} else {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestLawFirmOrgBBailsUserName,
+                iaConfig.TestLawFirmOrgBBailsPassword
+        )}
+    }
 }

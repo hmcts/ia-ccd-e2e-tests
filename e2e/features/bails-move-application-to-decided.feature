@@ -6,7 +6,7 @@ Feature: Move application to decided after a signed conditional bail decision no
     And I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Home Office Bails`
     And I upload the bail summary
-    And I switch to be a `Admin Officer`
+    And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
 
@@ -25,7 +25,7 @@ Feature: Move application to decided after a signed conditional bail decision no
 
   @bails-move-application-to-decided @bails-full @RIA-5759 @bails-move-application-to-decided-judge @bails-regression
   Scenario: Move application to decided as Judge
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     And I select the `Move application to decided` Next step
     Then I am on the `Move application to decided` page
     And The page is accessible

@@ -1,6 +1,6 @@
 Feature: End the application
   Background:
-    Given I am signed in as a `Legal Org User Rep A`
+    Given I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
@@ -8,7 +8,7 @@ Feature: End the application
 
   @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-withdrawn @bails-end-the-application-post-submit @bails-regression
   Scenario: End Application after submitting
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
     And The page is accessible
@@ -34,7 +34,7 @@ Feature: End the application
   Scenario: End Application after uploading bail summary
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
-    And I switch to be a `Admin Officer`
+    And I switch to be a `Admin Officer Bails`
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
     And The page is accessible
@@ -60,7 +60,7 @@ Feature: End the application
   Scenario: End Application after recording a decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
-    And I switch to be a `Admin Officer`
+    And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
@@ -87,7 +87,7 @@ Feature: End the application
   Scenario: End Application after uploading signed decision notice for a conditional bail
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
-    And I switch to be a `Admin Officer`
+    And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
     And I select the `End the application` Next step

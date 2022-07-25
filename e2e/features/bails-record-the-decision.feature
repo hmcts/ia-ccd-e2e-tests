@@ -1,6 +1,6 @@
 Feature: Record the decision
   Background:
-    Given I am signed in as a `Legal Org User Rep A`
+    Given I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
@@ -10,7 +10,7 @@ Feature: Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full @bails-regression
   Scenario: Refused case - SS consent No
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -46,16 +46,16 @@ Feature: Record the decision
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Legal Org User Rep A`
+    When I switch to be a `Legal Org User Rep A Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     And I should see the text `If you want to make another bail application, you must return to this page to make the new application.`
     And I should see the text `If you make a new application within 28 days of this decision, you won't get another hearing unless the applicant's situation has changed materially.`
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-refused-yes-ss-consent @bails-full
   Scenario: Refused case - SS consent Yes
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -91,16 +91,16 @@ Feature: Record the decision
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Legal Org User Rep A`
+    When I switch to be a `Legal Org User Rep A Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     And I should see the text `If you want to make another bail application, you must return to this page to make the new application.`
     And I should see the text `If you make a new application within 28 days of this decision, you won't get another hearing unless the applicant's situation has changed materially.`
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-refused-yes-ss-consent-minded-to-grant @bails-full
   Scenario: Refused case - SS consent Yes - Minded to grant
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -146,16 +146,16 @@ Feature: Record the decision
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Legal Org User Rep A`
+    When I switch to be a `Legal Org User Rep A Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     And I should see the text `If you want to make another bail application, you must return to this page to make the new application.`
     And I should see the text `If you make a new application within 28 days of this decision, you won't get another hearing unless the applicant's situation has changed materially.`
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-no-ss-consent @bails-record-the-decision-granted-no-ss-consent @bails-full
   Scenario: Granted case - SS consent No
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -242,14 +242,14 @@ Feature: Record the decision
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Legal Org User Rep A`
+    When I switch to be a `Legal Org User Rep A Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-granted-yes-ss-consent @bails-full @bails-regression
   Scenario: Granted case - SS consent Yes
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -311,14 +311,14 @@ Feature: Record the decision
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Legal Org User Rep A`
+    When I switch to be a `Legal Org User Rep A Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-conditional-grant @bails-record-the-decision-no-ss-consent @bails-record-the-decision-conditional-grant-no-ss-consent @bails-full
   Scenario: Conditional grant case - SS consent No
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -408,14 +408,14 @@ Feature: Record the decision
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Legal Org User Rep A`
+    When I switch to be a `Legal Org User Rep A Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-conditional-grant @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-conditional-grant-yes-ss-consent @bails-full
   Scenario: Conditional grant case - SS consent Yes
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -480,7 +480,7 @@ Feature: Record the decision
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
-    When I switch to be a `Legal Org User Rep A`
+    When I switch to be a `Legal Org User Rep A Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`

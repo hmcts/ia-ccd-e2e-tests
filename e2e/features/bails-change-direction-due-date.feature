@@ -1,11 +1,11 @@
 Feature: Change Direction Due Date
   Background:
-    Given I am signed in as a `Legal Org User Rep A`
+    Given I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
-    And I switch to be a `Admin Officer`
+    And I switch to be a `Admin Officer Bails`
     And I send a direction to the `Applicant`
 
   @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails-full @bails-regression @bails-testing
@@ -36,7 +36,7 @@ Feature: Change Direction Due Date
 
   @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-judge @bails-full @bails-testing
   Scenario: Change a direction due date as a Judge
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     And I select the `Change direction due date` Next step
     Then I am on the `Select direction` page
     And The page is accessible

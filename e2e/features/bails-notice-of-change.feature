@@ -1,6 +1,6 @@
 Feature: Notice of Change
  Background:
-   Given I am signed in as a `Legal Org User Rep A`
+   Given I am signed in as a `Legal Org User Rep A Bails`
    And I wait for 10 seconds
    And I create a new bail application
    And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
@@ -9,7 +9,7 @@ Feature: Notice of Change
 
   @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails-regression @bails-full @bails-test
   Scenario: Remove Legal Rep
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Remove legal representative` Next step
     Then I should see the `Remove legal representative` page
     When I select `Legal Representative` for the `Case Role Id` field
@@ -17,7 +17,7 @@ Feature: Notice of Change
     And I click the `Submit` button
     Then I should see the text `You have removed the legal representative from this case`
     When I click the `Close and Return to case details` button
-    And I am signed in as a `Legal Org User Rep A`
+    And I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds
     And I Apply case list filter for Bails
     And I wait for 3 seconds
@@ -28,7 +28,7 @@ Feature: Notice of Change
 
   @bails-NOC @RIA-5911 @bails-notice-of-change @bails-full @bails-notice-of-change-incorrect
   Scenario: Notice of Change - incorrect details
-    When I am signed in as a `Legal Org User Rep A`
+    When I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 20 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
@@ -55,7 +55,7 @@ Feature: Notice of Change
 
   @bails-NOC @RIA-5911 @bails-notice-of-change @bails-full @bails-regression @bails-notice-of-change-same-organisation
   Scenario: Notice of Change - same organisation
-    When I am signed in as a `Legal Org User Rep B`
+    When I am signed in as a `Legal Org User Rep B Bails`
     And I wait for 20 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
@@ -90,7 +90,7 @@ Feature: Notice of Change
     Then I should see the text `Notice of change successful`
     When I click the `View this case` link
     Then I should see the text `Current progress of the case`
-    When I sign back in as a `Legal Org User Rep A`
+    When I sign back in as a `Legal Org User Rep A Bails`
     And I Apply case list filter for Bails
     And I wait for 3 seconds
     And I filter by the bails online case reference

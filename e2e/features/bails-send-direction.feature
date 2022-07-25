@@ -1,6 +1,6 @@
 Feature: Send direction
   Background:
-    Given I am signed in as a `Legal Org User Rep A`
+    Given I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
@@ -8,7 +8,7 @@ Feature: Send direction
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-applicant @bails-send-direction-to-applicant-AO
   Scenario: Send a direction to Applicant as an Admin Officer
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Send direction` Next step
     Then I am on the `Direction details` page
     And The page is accessible
@@ -34,7 +34,7 @@ Feature: Send direction
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-LR @bails-send-direction-to-LR-AO @bails-regression
   Scenario: Send a direction to Legal Representative as an Admin Officer
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Send direction` Next step
     Then I am on the `Direction details` page
     And The page is accessible
@@ -60,7 +60,7 @@ Feature: Send direction
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-HO @bails-send-direction-to-HO-AO
   Scenario: Send a direction to Home Office as an Admin Officer
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Admin Officer Bails`
     And I select the `Send direction` Next step
     Then I am on the `Direction details` page
     And The page is accessible
@@ -86,7 +86,7 @@ Feature: Send direction
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-applicant @bails-send-direction-to-applicant-judge @bails-regression
   Scenario: Send a direction to Applicant as a Judge
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     And I select the `Send direction` Next step
     Then I am on the `Direction details` page
     And The page is accessible
@@ -112,7 +112,7 @@ Feature: Send direction
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-LR @bails-send-direction-to-LR-judge
   Scenario: Send a direction to Legal Representative as a Judge
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     And I select the `Send direction` Next step
     Then I am on the `Direction details` page
     And The page is accessible
@@ -138,7 +138,7 @@ Feature: Send direction
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-HO @bails-send-direction-to-HO-judge
   Scenario: Send a direction to Home Office as a Judge
-    When I switch to be a `Judge`
+    When I switch to be a `Judge Bails`
     And I select the `Send direction` Next step
     Then I am on the `Direction details` page
     And The page is accessible

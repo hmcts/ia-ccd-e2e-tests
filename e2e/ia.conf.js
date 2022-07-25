@@ -58,6 +58,15 @@ module.exports = {
   TestLawFirmOrgDPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_D_PASSWORD,
   TestLawFirmOrgSuccessUserName: process.env.TEST_LAW_FIRM_ORG_SUCCESS_USERNAME,
   TestLawFirmOrgSuccessPassword: process.env.TEST_LAW_FIRM_ORG_SUCCESS_PASSWORD,
+
+  TestAdminOfficerBailsUserName: process.env.TEST_ADMINOFFICER_BAILS_USERNAME,
+  TestAdminOfficerBailsPassword: process.env.TEST_ADMINOFFICER_BAILS_PASSWORD,
+  TestJudgeBailsUserName: process.env.TEST_JUDGE_X_BAILS_USERNAME,
+  TestJudgeBailsPassword: process.env.TEST_JUDGE_X_BAILS_PASSWORD,
+  TestLawFirmOrgABailsUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_A_BAILS_USERNAME,
+  TestLawFirmOrgABailsPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_A_BAILS_PASSWORD,
+  TestLawFirmOrgBBailsUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_B_BAILS_USERNAME,
+  TestLawFirmOrgBBailsPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_B_BAILS_PASSWORD,
   isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
   isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false,
   isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true'

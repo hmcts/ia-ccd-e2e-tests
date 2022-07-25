@@ -9,7 +9,7 @@ Feature: Upload signed decision notice
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-refused @bails-regression
   Scenario: Upload signed decision notice for refused case
-    Given I switch to be a `Admin Officer`
+    Given I switch to be a `Admin Officer Bails`
     When I record a refused decision with SS consent Yes with no financial condition supporters
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
@@ -30,7 +30,7 @@ Feature: Upload signed decision notice
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-granted
   Scenario: Upload signed decision notice for granted case
-    Given I switch to be a `Admin Officer`
+    Given I switch to be a `Admin Officer Bails`
     When I record a granted decision with SS consent No with no financial condition supporters
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
@@ -51,7 +51,7 @@ Feature: Upload signed decision notice
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-conditional-grant
   Scenario: Upload signed decision notice for conditional grant case
-    Given I switch to be a `Admin Officer`
+    Given I switch to be a `Admin Officer Bails`
     When I record a conditional grant decision with SS consent Yes with no financial condition supporters
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
@@ -72,9 +72,9 @@ Feature: Upload signed decision notice
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-judge
   Scenario: Upload signed decision notice as Judge
-    Given I switch to be a `Admin Officer`
+    Given I switch to be a `Admin Officer Bails`
     When I record a refused decision with SS consent Yes with no financial condition supporters
-    And I switch to be a `Judge`
+    And I switch to be a `Judge Bails`
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     And The page is accessible

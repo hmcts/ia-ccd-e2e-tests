@@ -2,7 +2,7 @@ Feature: Edit application preSubmit
 
   @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-legal-rep
   Scenario: Legal Rep Edit application Before Submitting
-    Given I am signed in as a `Legal Org User Rep A`
+    Given I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
@@ -78,7 +78,7 @@ Feature: Edit application preSubmit
 
   @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-admin-officer
   Scenario: Admin Officer Edit application Before Submitting
-    Given I am signed in as a `Admin Officer`
+    Given I am signed in as a `Admin Officer Bails`
     And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Admin Officer` for a Prison detention with one financial condition supporters and with no Legal Representative
