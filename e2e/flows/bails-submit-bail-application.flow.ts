@@ -15,8 +15,10 @@ export class SubmitBailApplicationFlow {
             await this.ccdFormPage.click('Continue');
         }
         await this.ccdFormPage.click('Submit');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+        if (user !== 'Legal Rep') {
+            if (clickContinue) {
+                await this.ccdFormPage.click('Close and Return to case details');
+            }
         }
     }
 }
