@@ -257,6 +257,10 @@ Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| B Bails)`?$/, asy
     await authenticationFlow.signInAsLawFirmOrgUserBBails();
 });
 
+When(/^I sign back in as(?:| a) `?(?:|Legal Org User Rep)(?:| A Bails)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserABails();
+});
+
 Given(/^I switch to be a `?(?:Judge Bails)`?$/, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
