@@ -34,7 +34,7 @@
     "jasmine-core": "^3.2.1",
     "jasmine-spec-reporter": "^4.2.1",
     "json-schema": "^0.4.0",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "nsp": "^3.2.1",
     "pre-commit": "^1.2.2",
     "protractor": "^5.4.2",
