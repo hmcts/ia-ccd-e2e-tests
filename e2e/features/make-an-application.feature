@@ -6,7 +6,6 @@ Feature: Legal representative make an application
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
-    And I click the `Close and Return to case details` button
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
@@ -51,7 +50,6 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Make an application`
 
     When I click the `Applications` tab
     And I should see the `Application` field
@@ -101,7 +99,6 @@ Feature: Legal representative make an application
     And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
-
     # When I switch to be a `Home Office LART`
     # Then I click the `Applications` tab
     # And I should see the `Application` field
@@ -210,7 +207,6 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Make an application`
 
     When I switch to be a `Home Office APC`
     When I click the `Applications` tab
@@ -242,7 +238,6 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Make an application`
 
     When I click the `Applications` tab
     And I should see the `Application` field

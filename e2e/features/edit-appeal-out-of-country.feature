@@ -1,13 +1,14 @@
 Feature: Out of Country - Edit appeal
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
+    And I wait for 30 seconds
     And I create a new case
 
   @edit-appeal-out-of-country-yes @RIA-3878
   Scenario: Edit In country appeal to Out of country
 
-    And I save my initial appeal with appellant living in UK `Yes`
+    And I save my initial EA appeal type without remission and with hearing fee and pay now
 
     When I click the `Overview` tab
     Then I should see `No` for the `Out of country` field
@@ -22,8 +23,9 @@ Feature: Out of Country - Edit appeal
     Then I should see `No` for the `Does the appellant have a fixed address?` field
     And I should see `Text message` for the `Communication Preference` field
     And I should see `07977111111` for the `Mobile phone number` field
-
+    And I wait for 10 seconds
     When I select the `Edit appeal` Next step
+    And I wait for 10 seconds
     And I edit the appeal with appellant living in UK `No`
 
     And I click the `Overview` tab

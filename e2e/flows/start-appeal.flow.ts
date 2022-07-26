@@ -382,6 +382,7 @@ export class StartAppealFlow {
     async completeCheckYourAnswers(clickContinue = false) {
 
         await this.ccdFormPage.runAccessbility();
+        await browser.sleep(5000)
         if (clickContinue) {
             await this.ccdFormPage.click('Save and continue');
         }
@@ -1009,7 +1010,8 @@ export class StartAppealFlow {
         await this.completeOutOfCountryQuestion(true, 'No');
         await this.completeDecisionType(true, 'refusalOfHumanRights');
         await this.completeGlobalWebFormReference(true, 'GWF1234567');
-        await this.completeUploadNoticeDecisionNoUpload(true);
+        // await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.clickContinueToNextStep(true); // completeNotice of decision
         await this.clickContinueToNextStep(true); // completeBasicDetails
         await this.clickContinueToNextStep(true); // completeNationality
         await this.completeClientAddressOutOfCountry(true, true);
@@ -1023,10 +1025,10 @@ export class StartAppealFlow {
         await this.clickContinueToNextStep(true); // completedGivenAppealGrounds
         await this.clickContinueToNextStep(true); // completeNewMatters
         await this.clickContinueToNextStep(true); // completeOtherAppeals
-        await this.completeLegalRepresentativeDetails(true);
-        await this.completeGivenFee(true, 'hearing fee');
-        await this.completeRemissionDetails(true, 'no remission');
-        await this.completeHowToPayNow(true);
+        await this.clickContinueToNextStep(true); // completeLegalRepresentativeDetails
+        await this.clickContinueToNextStep(true); // completeGivenFee
+        await this.clickContinueToNextStep(true); // completeRemissionDetails
+        await this.clickContinueToNextStep(true); // completeHowToPayNow
         await this.completeCheckYourAnswers(true);
     }
 
@@ -1052,7 +1054,8 @@ export class StartAppealFlow {
         await this.completeOutOfCountryQuestion(true, 'No');
         await this.completeDecisionType(true, 'refusalOfHumanRights');
         await this.completeGlobalWebFormReference(true, 'GWF1234567');
-        await this.completeUploadNoticeDecisionNoUpload(true);
+        // await this.completeUploadNoticeDecisionNoUpload(true);
+        await this.clickContinueToNextStep(true); // completeNotice of decision Upload
         await this.clickContinueToNextStep(true); // completeBasicDetails
         await this.clickContinueToNextStep(true); // completeNationality
         await this.completeClientAddressOutOfCountry(true, true);

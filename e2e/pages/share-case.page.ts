@@ -250,8 +250,18 @@ export class ShareCasePage {
             '/option[normalize-space()="Immigration & Asylum"]';
         await element(by.xpath(jurisdictionPath)).click();
         if (iaConfig.CcdWebUrl.includes('aat') ) {
-            await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
+            await ccdFormPage.setFieldValue(
+                'Case type',
+                'Appeal* master'
+            );
         }
+        if (iaConfig.CcdWebUrl.includes('demo') ) {
+            await ccdFormPage.setFieldValue(
+                'Case type',
+                'Appeal* RIA-5126'
+            );
+        }
+        // await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
         await browser.sleep(7000);
         let appealRefField = element(by.xpath('//*[@id=\'appealReferenceNumber\']'))
         await appealRefField.clear();

@@ -6,7 +6,6 @@ Feature: Add a case note
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
-    And I click the `Close and Return to case details` button
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
@@ -42,7 +41,6 @@ Feature: Add a case note
     Then I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -58,7 +56,7 @@ Feature: Add a case note
     Then I am on the `Add case note` page
 
 
-  @regression @add-case-note @RIA-575 @nightly-test
+  @regression @add-case-note @RIA-575
   Scenario: Add a case note without document
 
     And I switch to be a `Case Officer`
@@ -81,7 +79,6 @@ Feature: Add a case note
     Then I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -153,7 +150,6 @@ Feature: Add a case note
     And I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -193,7 +189,6 @@ Feature: Add a case note
     And I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -264,7 +259,6 @@ Feature: Add a case note
     And I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -304,7 +298,6 @@ Feature: Add a case note
     And I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Add case note`
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field

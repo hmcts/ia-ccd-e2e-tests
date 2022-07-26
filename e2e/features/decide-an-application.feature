@@ -6,7 +6,6 @@ Feature: Case officer or Judge make an application
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
-    And I click the `Close and Return to case details` button
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
@@ -56,7 +55,6 @@ Feature: Case officer or Judge make an application
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now update the appeal details`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Decide an application`
 
     When I click the `Applications` tab
     And I should see the `Application` field
@@ -188,7 +186,6 @@ Feature: Case officer or Judge make an application
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now change the direction's due date`
     When I click the `Close and Return to case details` button
-    Then I should see an alert confirming the case `has been updated with event: Decide an application`
 
     When I click the `Applications` tab
     And I should see the `Application` field
