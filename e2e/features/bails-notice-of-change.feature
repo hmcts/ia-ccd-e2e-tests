@@ -7,7 +7,7 @@ Feature: Notice of Change
    And I submit my bail application as a `Legal Rep`
    And I get the bails online case reference
 
-  @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails-regression @bails-full @bails-test
+  @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails-regression @bails-full
   Scenario: Remove Legal Rep
     When I switch to be a `Admin Officer Bails`
     And I select the `Remove legal representative` Next step
@@ -67,7 +67,7 @@ Feature: Notice of Change
     Then I should see the text `Your organisation already has access to this case`
     And I should see the text `You or a colleague are already representing this client on this case.`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full @bails-test
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full
   Scenario: Notice of Change
     When I am signed in as a `Legal Org User Rep C`
     And I wait for 20 seconds

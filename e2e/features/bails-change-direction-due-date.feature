@@ -8,7 +8,7 @@ Feature: Change Direction Due Date
     And I switch to be a `Admin Officer Bails`
     And I send a direction to the `Applicant`
 
-  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails-full @bails-regression @bails-testing
+  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails-full @bails-regression ing
   Scenario: Change a direction due date as an Admin Officer
     When I select the `Change direction due date` Next step
     Then I am on the `Select direction` page
@@ -34,7 +34,7 @@ Feature: Change Direction Due Date
     And within the `Previous dates` collection's first item, I should see `10 Feb 2025` for the `Date due` field
     And within the `Previous dates` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-judge @bails-full @bails-testing
+  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-judge @bails-full
   Scenario: Change a direction due date as a Judge
     When I switch to be a `Judge Bails`
     And I select the `Change direction due date` Next step

@@ -6,7 +6,7 @@ Feature: Make new application
     And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-conditional-grant @bails-regression
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-conditional-grant @bails-regression @bails-test
   Scenario: Make new application as Admin Officer after conditional grant decided
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -30,7 +30,7 @@ Feature: Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted @bails-test
   Scenario: Make new application as Admin Officer after granted decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -53,7 +53,7 @@ Feature: Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused @bails-test
   Scenario: Make new application as Admin Officer after refused decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -76,7 +76,7 @@ Feature: Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test
   Scenario: Make new application as Admin Officer after ended application
     When I switch to be a `Admin Officer Bails`
     And I end the application
@@ -96,7 +96,7 @@ Feature: Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test
   Scenario: Make new application as Home Office after conditional grant decided
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -120,7 +120,7 @@ Feature: Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted @bails-test
   Scenario: Make new application as Home Office after granted decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -143,7 +143,7 @@ Feature: Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused @bails-test
   Scenario: Make new application as Home Office after refused decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -166,7 +166,7 @@ Feature: Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-ended
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-ended @bails-test
   Scenario: Make new application as Home Office after ended application
     When I switch to be a `Admin Officer Bails`
     And I end the application
@@ -188,7 +188,7 @@ Feature: Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-conditional-grant
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-conditional-grant @bails-test
   Scenario: Make new application as Legal Rep after conditional grant decided
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -214,7 +214,7 @@ Feature: Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-granted
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-granted @bails-test
   Scenario: Make new application as Legal Rep after granted decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -239,7 +239,7 @@ Feature: Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-refused @bails-regression
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-refused @bails-regression @bails-test
   Scenario: Make new application as Legal Rep after refused decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -264,7 +264,7 @@ Feature: Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-ended
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-ended @bails-test
   Scenario: Make new application as Legal Rep after ended application
     When I switch to be a `Admin Officer Bails`
     And I end the application
