@@ -5,6 +5,7 @@ Feature: Make new application
    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
+    And I should see the text `What happens next`
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-conditional-grant @bails-regression @bails-test
   Scenario: Make new application as Admin Officer after conditional grant decided
