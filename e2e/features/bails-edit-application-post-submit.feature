@@ -5,6 +5,7 @@ Feature: Edit application postSubmit
    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
+    And I should see the text `What happens next`
 
   @bails-edit-application-post-submit @bails-full @RIA-5868 @bails-edit-application-post-submit-post-submit
   Scenario: Edit application after submitting
