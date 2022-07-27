@@ -8,7 +8,7 @@ Feature: Notice of Change
    And I get the bails online case reference
    And I should see the text `What happens next`
 
-  @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails-regression @bails-full
+  @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails-regression
   Scenario: Remove Legal Rep
     When I switch to be a `Admin Officer Bails`
     And I select the `Remove legal representative` Next step
