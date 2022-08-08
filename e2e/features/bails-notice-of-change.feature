@@ -56,7 +56,7 @@ Feature: Notice of Change
 
   @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-same-organisation @bails-full
   Scenario: Notice of Change - same organisation
-    When I am signed in as a `Legal Org User Rep B`
+    When I am signed in as a `Legal Org User Rep B Bails`
     And I wait for 20 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
@@ -70,7 +70,7 @@ Feature: Notice of Change
 
   @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full
   Scenario: Notice of Change
-    When I am signed in as a `Legal Org User Rep B Bails`
+    When I am signed in as a `Legal Org User Rep C`
     And I wait for 20 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page

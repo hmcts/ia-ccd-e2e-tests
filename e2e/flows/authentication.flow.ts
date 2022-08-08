@@ -235,14 +235,14 @@ export class AuthenticationFlow {
     async signInAsLawFirmOrgUserBBails() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
-        if (iaConfig.CcdWebUrl.includes('localhost') ) {
-            await this.idamSignInPage.signIn(
-                iaConfig.TestLawFirmOrgBUserName,
-                iaConfig.TestLawFirmOrgBPassword
-        )} else {
+        if (iaConfig.CcdWebUrl.includes('demo') ) {
             await this.idamSignInPage.signIn(
                 iaConfig.TestLawFirmOrgBBailsUserName,
                 iaConfig.TestLawFirmOrgBBailsPassword
+        )} else {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestLawFirmOrgBUserName,
+                iaConfig.TestLawFirmOrgBPassword
         )}
     }
 }
