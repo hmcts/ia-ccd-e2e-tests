@@ -77,7 +77,7 @@ Feature: Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test @nightly-test
   Scenario: Make new application as Admin Officer after ended application
     When I switch to be a `Admin Officer Bails`
     And I end the application
@@ -97,7 +97,7 @@ Feature: Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test @nightly-test
   Scenario: Make new application as Home Office after conditional grant decided
     When I switch to be a `Home Office Bails`
     And I upload the bail summary

@@ -7,7 +7,7 @@ Feature: End the application
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
-  @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-withdrawn @bails-end-the-application-post-submit @bails-regression
+  @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-withdrawn @bails-end-the-application-post-submit @bails-regression @nightly-test
   Scenario: End Application after submitting
     When I switch to be a `Admin Officer Bails`
     And I select the `End the application` Next step
