@@ -258,7 +258,7 @@ export class ShareCasePage {
         if (iaConfig.CcdWebUrl.includes('demo') ) {
             await ccdFormPage.setFieldValue(
                 'Case type',
-                'Appeal* RIA-5126'
+                'Appeal* master'
             );
         }
         // await ccdFormPage.setFieldValue('Case type', 'Appeal* master');

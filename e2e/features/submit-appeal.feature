@@ -9,6 +9,7 @@ Feature: Submit appeal application
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
+    And I click the `Close and Return to case details` button
 
   @xbrowsertest
   Scenario: Submit an appeal application
@@ -23,6 +24,7 @@ Feature: Submit appeal application
     When I click the `Pay and submit now` button
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
+    And I click the `Close and Return to case details` button
 
   @regression @submit-appeal @RIA-515 @RIA-3486
   Scenario: Submit an appeal application
