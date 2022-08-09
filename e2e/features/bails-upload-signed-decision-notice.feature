@@ -1,4 +1,4 @@
-Feature: Upload signed decision notice
+Feature: Bails Upload signed decision notice
   Background:
     Given I am signed in as a `Home Office Bails`
     And I wait for 10 seconds

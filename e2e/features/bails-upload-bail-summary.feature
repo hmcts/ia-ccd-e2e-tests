@@ -1,4 +1,4 @@
-Feature: Upload Bail Summary
+Feature: Bails Upload Bail Summary
  Background:
    Given I am signed in as a `Legal Org User Rep A Bails`
    And I wait for 10 seconds

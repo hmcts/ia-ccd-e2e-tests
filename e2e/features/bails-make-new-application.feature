@@ -1,4 +1,4 @@
-Feature: Make new application
+Feature: Bails Make new application
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds
