@@ -1,4 +1,4 @@
-Feature: Move application to decided after a signed conditional bail decision notice has been uploaded
+Feature: Bails Move application to decided after a signed conditional bail decision notice has been uploaded
   Background:
     Given I am signed in as a `Home Office Bails`
     And I wait for 10 seconds

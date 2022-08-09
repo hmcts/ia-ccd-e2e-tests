@@ -1,4 +1,4 @@
-Feature: Add a case note to bails application
+Feature: Bails Add a case note to bails application
  Background:
    Given I am signed in as a `Home Office Bails`
    And I wait for 10 seconds

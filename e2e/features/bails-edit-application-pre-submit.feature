@@ -1,4 +1,4 @@
-Feature: Edit application preSubmit
+Feature: Bails Edit application preSubmit
 
   @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-legal-rep @nightly-test
   Scenario: Legal Rep Edit application Before Submitting

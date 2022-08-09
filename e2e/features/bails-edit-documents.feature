@@ -1,4 +1,4 @@
-Feature: Edit bail documents
+Feature: Bails Edit bail documents
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds

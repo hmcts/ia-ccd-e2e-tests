@@ -1,4 +1,4 @@
-Feature: Submit bail application as Home Office User
+Feature: Bails Submit bail application as Home Office User
  Background:
    Given I am signed in as a `Home Office Bails`
    And I wait for 10 seconds
