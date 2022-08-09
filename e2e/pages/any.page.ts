@@ -324,4 +324,8 @@ export class AnyPage {
     async refresh() {
         browser.refresh();
     }
+
+    async goToUrl(URL) {
+        browser.driver.get(URL);
+    }
 }

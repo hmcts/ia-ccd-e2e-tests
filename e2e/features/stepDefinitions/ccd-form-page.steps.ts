@@ -252,6 +252,17 @@ When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the
         );
     });
 
+When(/^I type `?([^`]+)`? (?:for|from) the field with ID `?([^`]+)`?$/,
+    async function (
+        fieldValue,
+        fieldID
+    ) {
+        await ccdFormPage.typeText(
+            fieldID,
+            fieldValue
+        );
+    });
+
 When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(text|text area|document|)`?\s?field without a label$/,
     async function (
         instanceNumber,

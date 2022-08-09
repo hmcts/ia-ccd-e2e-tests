@@ -42,10 +42,21 @@ def secrets = [
         secret('test-law-firm-share-case-b-password', 'TEST_LAW_FIRM_SHARE_CASE_B_PASSWORD'),
         secret('test-law-firm-share-case-b-username', 'TEST_LAW_FIRM_SHARE_CASE_B_USERNAME'),
         secret('test-law-firm-share-case-a-password', 'TEST_LAW_FIRM_SHARE_CASE_A_PASSWORD'),
+        secret('test-law-firm-org-deleted-username', 'TEST_LAW_FIRM_SHARE_CASE_C_USERNAME'),
+        secret('test-law-firm-org-deleted-password', 'TEST_LAW_FIRM_SHARE_CASE_C_PASSWORD'),
         secret('test-law-firm-org-success-username', 'TEST_LAW_FIRM_ORG_SUCCESS_USERNAME'),
         secret('test-law-firm-org-success-password', 'TEST_LAW_FIRM_ORG_SUCCESS_PASSWORD'),
         secret('test-judge-x-username', 'TEST_JUDGE_X_USERNAME'),
-        secret('test-judge-x-password', 'TEST_JUDGE_X_PASSWORD')
+        secret('test-judge-x-password', 'TEST_JUDGE_X_PASSWORD'),
+
+        secret('test-adminofficer-bails-username', 'TEST_ADMINOFFICER_BAILS_USERNAME'),
+        secret('test-adminofficer-bails-password', 'TEST_ADMINOFFICER_BAILS_PASSWORD'),
+        secret('test-judge-bails-username', 'TEST_JUDGE_X_BAILS_USERNAME'),
+        secret('test-judge-bails-password', 'TEST_JUDGE_X_BAILS_PASSWORD'),
+        secret('test-law-firm-noc-a-bails-username', 'TEST_LAW_FIRM_SHARE_CASE_A_BAILS_USERNAME'),
+        secret('test-law-firm-noc-a-bails-password', 'TEST_LAW_FIRM_SHARE_CASE_A_BAILS_PASSWORD'),
+        secret('test-law-firm-noc-b-bails-username', 'TEST_LAW_FIRM_SHARE_CASE_B_BAILS_USERNAME'),
+        secret('test-law-firm-noc-b-bails-password', 'TEST_LAW_FIRM_SHARE_CASE_B_BAILS_PASSWORD')
     ]
 ]
 

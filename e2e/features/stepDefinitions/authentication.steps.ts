@@ -40,6 +40,10 @@ Given(/^I am signed in as a `?(?:Home Office Generic)`?$/, async function () {
     await authenticationFlow.signInAsHomeOfficeGeneric();
 });
 
+Given(/^I am signed in as a `?(?:Home Office Bails)`?$/, async function () {
+    await authenticationFlow.signInAsHomeOfficeBails();
+});
+
 Given(/^I am signed in as a `?(?:Judge)`?$/, async function () {
     await authenticationFlow.signInAsJudge();
 });
@@ -172,6 +176,15 @@ Given(/^I switch to be a `?(?:Home Office Generic)`?$/, async function () {
     await ccdPage.get(caseUrl);
 });
 
+Given(/^I switch to be a `?(?:Home Office Bails)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsHomeOfficeBails();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+});
+
 Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
     await browser.sleep(100);
     const currentUrl = await ccdPage.getCurrentUrl();
@@ -226,4 +239,78 @@ Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async functi
     await idamSignInPage.waitUntilLoaded();
     expect(await ccdPage.isLoaded()).to.equal(false);
     expect(await idamSignInPage.isLoaded()).to.equal(true);
+});
+
+Given(/^I am signed in as a `?(?:Admin Officer Bails)`?$/, async function () {
+    await authenticationFlow.signInAsAdminOfficerBails();
+});
+
+Given(/^I am signed in as a `?(?:Judge Bails)`?$/, async function () {
+    await authenticationFlow.signInAsJudgeBails();
+});
+
+Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| A Bails)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserABails();
+});
+
+Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| B Bails)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserBBails();
+});
+
+When(/^I sign back in as(?:| a) `?(?:|Legal Org User Rep)(?:| A Bails)`?$/, async function () {
+    await authenticationFlow.signInAsLawFirmOrgUserABails();
+});
+
+Given(/^I switch to be a `?(?:Judge Bails)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsJudgeBails();
+    await browser.sleep(100);
+    // await ccdPage.contentContains('Immigration');
+    await ccdPage.get(caseUrl);
+    // await ccdPage.contentContains('Immigration');
+    await browser.sleep(7000);
+    if (!await ccdPage.overViewContains('Overview')) {
+        await ccdPage.get(caseUrl);
+    }
+});
+
+Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| A Bails)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsLawFirmOrgUserABails();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+    await browser.sleep(7000);
+    if (!await ccdPage.overViewContains('Overview')) {
+        await ccdPage.get(caseUrl);
+    }
+});
+
+Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| B Bails)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsLawFirmOrgUserBBails();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+    await browser.sleep(7000);
+    if (!await ccdPage.overViewContains('Overview')) {
+        await ccdPage.get(caseUrl);
+    }
+});
+
+Given(/^I switch to be a `?(?:Admin Officer Bails)`?$/, async function () {
+    await browser.sleep(100);
+    const currentUrl = await ccdPage.getCurrentUrl();
+    const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+    await authenticationFlow.signInAsAdminOfficerBails();
+    await browser.sleep(100);
+    await ccdPage.get(caseUrl);
+    await browser.sleep(7000);
+    if (!await ccdPage.overViewContains('Overview')) {
+        await ccdPage.get(caseUrl);
+    }
 });
