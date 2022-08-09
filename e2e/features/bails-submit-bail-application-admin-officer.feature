@@ -1,4 +1,4 @@
-Feature: Submit bail application as Admin Officer
+Feature: Bails Submit bail application as Admin Officer
  Background:
    Given I am signed in as a `Admin Officer Bails`
    And I wait for 10 seconds
