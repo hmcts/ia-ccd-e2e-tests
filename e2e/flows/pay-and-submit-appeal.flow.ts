@@ -14,7 +14,7 @@ export class PayAndSubmitAppealFlow {
         await this.ccdFormPage.click('Pay now');
         await browser.sleep(5000);
         await this.ccdFormPage.click('Pay fee using Payment by Account (PBA)');
-        await this.ccdFormPage.setFieldValue('Select a PBA', 'PBA0087535');
+        await this.ccdFormPage.setFieldValue(' Select a PBA ', 'PBA0087535');
         await this.ccdFormPage.setFieldValue('Enter a reference for your PBA account statements', 'Unique Reference');
         await this.ccdFormPage.click('Confirm payment');
 

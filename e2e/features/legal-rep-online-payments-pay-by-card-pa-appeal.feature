@@ -22,15 +22,15 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
 
   @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-pa
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
-    When I type `4444333322221111` for the `Card number` field
-    And I type `10` for the `Month` field
-    And I type `24` for the `Year` field
-    And I type `Test User` for the `Name on card` field
-    And I type `123` for the `Card security code` field
-    And I type `123 Fake Street` for the `Building number or name and street` field
-    And I type `Fakeicester` for the `Town or city` field
-    And I type `FE1 2EF` for the `Postcode` field
-    And I type `test@test.com` for the `Email` field
+    When I type `4444333322221111` for the field with ID `card-no`
+    And I type `10` for the field with ID `expiry-month`
+    And I type `24` for the field with ID `expiry-year`
+    And I type `Test User` for the field with ID `cardholder-name`
+    And I type `123` for the field with ID `cvc`
+    And I type `123 Fake Street` for the field with ID `address-line-1`
+    And I type `Fakeicester` for the field with ID `address-city`
+    And I type `FE1 2EF` for the field with ID `address-postcode`
+    And I type `test@test.com` for the field with ID `email`
     And I click the `Continue` button
     Then I should see the text `Payment summary`
     When I click the `Confirm payment` button
@@ -52,18 +52,16 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
 
   @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-pa-declined
   Scenario: Pay and submit appeal - failed payment - declined (PA appeal type)
-    When I type `6759649826438453` for the `Card number` field
-    Then I should see the text `Maestro is not supported`
 
-    When I type `4000000000000002` for the `Card number` field
-    And I type `10` for the `Month` field
-    And I type `24` for the `Year` field
-    And I type `Test User` for the `Name on card` field
-    And I type `123` for the `Card security code` field
-    And I type `123 Fake Street` for the `Building number or name and street` field
-    And I type `Fakeicester` for the `Town or city` field
-    And I type `FE1 2EF` for the `Postcode` field
-    And I type `test@test.com` for the `Email` field
+    When I type `4000000000000002` for the field with ID `card-no`
+    And I type `10` for the field with ID `expiry-month`
+    And I type `24` for the field with ID `expiry-year`
+    And I type `Test User` for the field with ID `cardholder-name`
+    And I type `123` for the field with ID `cvc`
+    And I type `123 Fake Street` for the field with ID `address-line-1`
+    And I type `Fakeicester` for the field with ID `address-city`
+    And I type `FE1 2EF` for the field with ID `address-postcode`
+    And I type `test@test.com` for the field with ID `email`
     And I click the `Continue` button
     Then I should see the text `Your payment has been declined`
     And I should see the text `No money has been taken from your account.`
@@ -75,15 +73,15 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
   @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-pa-general-error
   Scenario: Pay and submit appeal - failed payment - technical problems (PA appeal type)
 
-    When I type `4000000000000119` for the `Card number` field
-    And I type `10` for the `Month` field
-    And I type `24` for the `Year` field
-    And I type `Test User` for the `Name on card` field
-    And I type `123` for the `Card security code` field
-    And I type `123 Fake Street` for the `Building number or name and street` field
-    And I type `Fakeicester` for the `Town or city` field
-    And I type `FE1 2EF` for the `Postcode` field
-    And I type `test@test.com` for the `Email` field
+    When I type `4000000000000119` for the field with ID `card-no`
+    And I type `10` for the field with ID `expiry-month`
+    And I type `24` for the field with ID `expiry-year`
+    And I type `Test User` for the field with ID `cardholder-name`
+    And I type `123` for the field with ID `cvc`
+    And I type `123 Fake Street` for the field with ID `address-line-1`
+    And I type `Fakeicester` for the field with ID `address-city`
+    And I type `FE1 2EF` for the field with ID `address-postcode`
+    And I type `test@test.com` for the field with ID `email`
     And I click the `Continue` button
     Then I should see the text `We’re experiencing technical problems`
     And I should see the text `No money has been taken from your account.`
