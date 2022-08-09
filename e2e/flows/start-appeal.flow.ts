@@ -594,9 +594,6 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'hearing fee');
         await this.completeRemissionDetails(true, 'no remission');
-        if (appealType === 'PA') {
-            await this.completeHowToPay(true, 'later');
-        }
         await this.completeCheckYourAnswers(true);
     }
 
@@ -728,9 +725,7 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'without')
         await this.completeRemissionDetails(true, 'no remission');
-        if (appealType === 'PA') {
-            await this.completeHowToPay(true, 'later');
-        }
+        await this.completeHowToPay(true, 'later');
         await this.completeCheckYourAnswers(true);
     }
 
@@ -1041,9 +1036,6 @@ export class StartAppealFlow {
         await this.clickContinueToNextStep(true); // completeLegalRepresentativeDetails
         await this.clickContinueToNextStep(true); // completeGivenFee
         await this.clickContinueToNextStep(true); // completeRemissionDetails
-        if (appealType === 'PA') {
-            await this.clickContinueToNextStep(true); // completeHowToPayNow
-        }
         await this.completeCheckYourAnswers(true);
     }
 
