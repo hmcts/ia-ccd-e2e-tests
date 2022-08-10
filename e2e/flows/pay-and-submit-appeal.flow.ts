@@ -14,8 +14,8 @@ export class PayAndSubmitAppealFlow {
         await this.ccdFormPage.click('Pay now');
         await browser.sleep(5000);
         await this.ccdFormPage.click('Pay fee using Payment by Account (PBA)');
-        await this.ccdFormPage.setFieldValue(' Select a PBA ', 'PBA0087535');
-        await this.ccdFormPage.setFieldValue('Enter a reference for your PBA account statements', 'Unique Reference');
+        await this.ccdFormPage.typeText('pbaAccountNumber', 'PBA0087535');
+        await this.ccdFormPage.typeText('pbaAccountRef', 'Unique Reference');
         await this.ccdFormPage.click('Confirm payment');
 
         if (clickContinue) {
@@ -31,15 +31,15 @@ export class PayAndSubmitAppealFlow {
             await browser.sleep(5000);
             await this.ccdFormPage.click('Pay by credit or debit card');
             await this.ccdFormPage.click('Continue');
-            await this.ccdFormPage.setFieldValue('Card number', 'PBA0087535');
-            await this.ccdFormPage.setFieldValue('Month', '10');
-            await this.ccdFormPage.setFieldValue('Year', '23');
-            await this.ccdFormPage.setFieldValue('Name on card', 'Test User');
-            await this.ccdFormPage.setFieldValue('Card security code', '123');
-            await this.ccdFormPage.setFieldValue('Building number or name and street', '123 Fake Street');
-            await this.ccdFormPage.setFieldValue('Town or city', 'Fakeicester');
-            await this.ccdFormPage.setFieldValue('Postcode', 'FE1 2EF');
-            await this.ccdFormPage.setFieldValue('Email', 'test@test.com');
+            await this.ccdFormPage.typeText(`card-no`, `4444333322221111`);
+            await this.ccdFormPage.typeText(`expiry-month`, `10`);
+            await this.ccdFormPage.typeText(`expiry-year`, `24`);
+            await this.ccdFormPage.typeText(`cardholder-name`, `Test User`);
+            await this.ccdFormPage.typeText(`cvc`, `123`);
+            await this.ccdFormPage.typeText(`address-line-1`, `123 Fake Street`);
+            await this.ccdFormPage.typeText(`address-city`, `Fakeicester`);
+            await this.ccdFormPage.typeText(`address-postcode`, `FE1 2EF`);
+            await this.ccdFormPage.typeText(`email`, `test@test.com`);
             await this.ccdFormPage.click('Continue');
             await browser.sleep(5000);
             await this.ccdFormPage.click('Confirm payment');
