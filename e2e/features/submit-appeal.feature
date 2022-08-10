@@ -11,7 +11,7 @@ Feature: Submit appeal application
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button
 
-  @xbrowsertest @testy-test
+  @xbrowsertest
   Scenario: Submit an appeal application
 
     And I select the `Submit your appeal` Next step
@@ -25,10 +25,10 @@ Feature: Submit appeal application
     When I click the `Close and Return to case details` button
     Then I should see the text `You still need to pay for your appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
 
-    @testy-test
+
     Scenario: test
       And I pay for and submit my appeal by PBA
 
-    @testy-test
+
     Scenario: test 2
       And I pay for and submit my appeal by Card
