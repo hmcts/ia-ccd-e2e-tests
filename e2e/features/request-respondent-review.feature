@@ -6,7 +6,7 @@ Feature: Request respondent evidence
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see the text `You still need to pay for your appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
     And I pay for and submit my appeal by PBA
     And I wait for 5 seconds
     And I switch to be a `Case Officer`

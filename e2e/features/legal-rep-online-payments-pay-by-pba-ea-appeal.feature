@@ -29,7 +29,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (EA appea
     Then I should see the text `Payment successful`
     When I click the `View service requests` link
     Then I should see the text `Paid`
-    And I should see the text `José González`
+    And I should see the text `Jose Gonzalez`
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
