@@ -23,6 +23,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (EA appea
     And I select `PBA0087535` from the dropdown with ID `pbaAccountNumber`
     And I wait for 1 seconds
     And I type `Unique Reference` for the field with ID `pbaAccountRef`
+    And I hit Enter in the field with ID `pbaAccountRef`
     And I click the `Confirm payment` button
     And I wait for 5 seconds
     Then I should see the text `Payment successful`

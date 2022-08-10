@@ -95,4 +95,9 @@ export class CcdFormPage extends CcdPage {
             .findElement(By.xpath(`//*[@id='${ ID }']`))
             .sendKeys(text);
     }
+
+    async typeEnter(ID: string) {
+        browser.driver.findElement(By.xpath(`//*[@id='${ ID }']`));
+        browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    }
 }
