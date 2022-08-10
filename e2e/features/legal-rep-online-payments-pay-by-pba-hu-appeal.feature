@@ -16,12 +16,13 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (HU appea
     And I wait for 5 seconds
     Then I should see the text `Pay fee using Payment by Account (PBA)`
     When I click the `Pay fee using Payment by Account (PBA)` label
-    And I wait for 3 seconds
+    And I wait for 1 seconds
 
   @RIA-6104-pay-and-submit-pba-successful @RIA-6104-pay-and-submit-pba-successful-hu
   Scenario: Pay and submit appeal - successful payment (HU appeal type)
-    And I select `PBA0087535` for the ` Select a PBA ` field
-    And I type `Unique Reference` for the ` Enter a reference for your PBA account statements ` field
+    And I select `PBA0087535` from the dropdown with ID `pbaAccountNumber`
+    And I wait for 1 seconds
+    And I type `Unique Reference` for the field with ID `pbaAccountRef`
     And I click the `Confirm payment` button
     And I wait for 5 seconds
     Then I should see the text `Payment successful`
@@ -41,8 +42,8 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (HU appea
 
   @RIA-6104-pay-and-submit-pba-failed @RIA-6104-pay-and-submit-pba-failed-hu
   Scenario: Pay and submit appeal - failed payment (HU appeal type)
-    And I select `PBA0083333` for the ` Select a PBA ` field
-    And I type `Unique Reference` for the ` Enter a reference for your PBA account statements ` field
+    And I select `PBA0083333` from the dropdown with ID `pbaAccountNumber`
+    And I type `Unique Reference` for the field with ID `pbaAccountRef`
     And I click the `Confirm payment` button
     And I wait for 5 seconds
     Then I should see the text `Sorry, there is a problem with the service`
@@ -50,8 +51,8 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (HU appea
   @RIA-6104-pay-and-submit-pba-failed @RIA-6104-pay-and-submit-pba-failed-hu-2
   Scenario: Pay and submit appeal - failed payment 2 (HU appeal type)
 
-    And I select `PBA0080000` for the ` Select a PBA ` field
-    And I type `Unique Reference` for the ` Enter a reference for your PBA account statements ` field
+    And I select `PBA0080000` from the dropdown with ID `pbaAccountNumber`
+    And I type `Unique Reference` for the field with ID `pbaAccountRef`
     And I click the `Confirm payment` button
     And I wait for 5 seconds
     Then I should see the text `Sorry, there is a problem with the service`
