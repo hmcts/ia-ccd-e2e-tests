@@ -2,16 +2,16 @@ Feature: Submit appeal application
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    Then I wait for 10 seconds
+    Then I wait for 5 seconds
     And I refresh the page
-    And I wait for 30 seconds
+    And I wait for 5 seconds
     Then I should see the text `Filters`
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button
 
-  @xbrowsertest
+  @xbrowsertest @submit-appeal
   Scenario: Submit an appeal application
 
     And I select the `Submit your appeal` Next step
