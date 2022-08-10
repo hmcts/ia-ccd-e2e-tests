@@ -1,5 +1,5 @@
 import { CcdPage } from './ccd.page';
-import { $, browser, ExpectedConditions, By } from 'protractor';
+import { $, browser, ExpectedConditions, By, protractor } from 'protractor';
 // import { Wait } from '../enums/wait';
 
 export class CcdFormPage extends CcdPage {
