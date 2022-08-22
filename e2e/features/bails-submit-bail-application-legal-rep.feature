@@ -5,7 +5,7 @@ Feature: Bails Submit bail application as Legal Rep
    When I create a new bail application
    Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative with no files uploaded
 
-  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertest
+  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression
   Scenario: Submit bail application as Legal Rep
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
