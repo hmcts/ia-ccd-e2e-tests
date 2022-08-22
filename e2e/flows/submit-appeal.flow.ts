@@ -32,10 +32,8 @@ export class SubmitAppealFlow {
 
     async submitAppeal(clickContinue = false) {
 
-        await browser.sleep(1000)
         await this.ccdPage.selectNextStep('Submit your appeal');
         await this.ccdPage.click('Go');
-        await browser.sleep(5000)
 
         await this.completeDeclaration(true);
         await this.completeCheckYourAnswers(true);

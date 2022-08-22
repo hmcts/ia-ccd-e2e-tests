@@ -15,7 +15,6 @@ Feature: Submit appeal application
   Scenario: Submit an appeal application
 
     And I select the `Submit your appeal` Next step
-    And I wait for 5 seconds
     Then I should see the `Declaration` page
     And I agree to the declaration
     And I click the `Continue` button
