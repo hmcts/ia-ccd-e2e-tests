@@ -4,7 +4,7 @@ Feature: Upload additional evidence Home Office
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
     And I create a new case
-    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
