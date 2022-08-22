@@ -31,7 +31,7 @@ Given('I create a new case', async function () {
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* ia-ccd-definit'
+            'Appeal* master'
         );
     }
     await ccdPage.doesDropdownHaveValues('Event');

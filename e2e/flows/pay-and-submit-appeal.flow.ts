@@ -14,8 +14,11 @@ export class PayAndSubmitAppealFlow {
         await this.ccdFormPage.click('Pay now');
         await browser.sleep(5000);
         await this.ccdFormPage.click('Pay fee using Payment by Account (PBA)');
+        await browser.sleep(1000);
         await this.ccdFormPage.typeText('pbaAccountNumber', 'PBA0087535');
+        await browser.sleep(1000);
         await this.ccdFormPage.typeText('pbaAccountRef', 'Unique Reference');
+        await this.ccdFormPage.typeEnter('pbaAccountRef');
         await this.ccdFormPage.click('Confirm payment');
 
         if (clickContinue) {
@@ -31,6 +34,7 @@ export class PayAndSubmitAppealFlow {
             await browser.sleep(5000);
             await this.ccdFormPage.click('Pay by credit or debit card');
             await this.ccdFormPage.click('Continue');
+            await browser.sleep(1000);
             await this.ccdFormPage.typeText(`card-no`, `4444333322221111`);
             await this.ccdFormPage.typeText(`expiry-month`, `10`);
             await this.ccdFormPage.typeText(`expiry-year`, `24`);

@@ -1,5 +1,5 @@
 Feature: Pay and submit appeal by card - successful and failed payments (EA appeal type)
-
+ # Note. cant be used in DEMO env
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
@@ -20,7 +20,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     And I wait for 5 seconds
     Then I should see the text `Enter card details`
 
-  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-ea @nightly-test @testy-test
+  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-ea
   Scenario: Pay and submit appeal - successful payment (EA appeal type)
     When I type `4444333322221111` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`
@@ -39,7 +39,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     When I click the `Return to service request` link
 
     Then I should see the text `Paid`
-    And I should see the text `Jose Gonzalez`
+    And I should see the text `José González`
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
