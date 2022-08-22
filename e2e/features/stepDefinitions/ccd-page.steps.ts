@@ -27,7 +27,7 @@ Given('I create a new case', async function () {
     if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr') || iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* ia-ccd-definit'
+            'Appeal* aip-other-rele'
         );
     }
     await ccdPage.doesDropdownHaveValues('Event');
@@ -73,7 +73,7 @@ Given('I Apply case list filter', async function () {
 //     if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* ia-ccd-definit'
+            'Appeal* aip-other-rele'
         );
 //     }
 
