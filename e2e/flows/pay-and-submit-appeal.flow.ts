@@ -1,11 +1,9 @@
 import { CcdPage } from '../pages/ccd.page';
-import { CcdFormPage } from '../pages/ccd-form.page';
 import { browser } from 'protractor';
 
 export class PayAndSubmitAppealFlow {
 
     private ccdPage = new CcdPage();
-    private ccdFormPage = new CcdFormPage();
 
     async payForAppealByPBA(clickContinue = false) {
 
