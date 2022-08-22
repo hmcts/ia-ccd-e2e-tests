@@ -7,7 +7,7 @@ Feature: Add a case note
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see the text `You still need to pay for your appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
     And I pay for and submit my appeal by PBA
     And I wait for 5 seconds
 
