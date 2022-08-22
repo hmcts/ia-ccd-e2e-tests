@@ -18,7 +18,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (PA appea
     When I click the `Pay fee using Payment by Account (PBA)` label
     And I wait for 3 seconds
 
-  @RIA-6104-pay-and-submit-pba-successful @RIA-6104-pay-and-submit-pba-successful-pa
+  @RIA-6104-pay-and-submit-pba-successful @RIA-6104-pay-and-submit-pba-successful-pa @nightly-test
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
     And I select `PBA0087535` for the ` Select a PBA ` field
     And I type `Unique Reference` for the ` Enter a reference for your PBA account statements ` field
