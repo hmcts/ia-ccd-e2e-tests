@@ -1,5 +1,5 @@
 Feature: Pay and submit appeal by card - successful and failed payments (HU appeal type)
- # Note. cant be used in DEMO env
+
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
