@@ -150,10 +150,16 @@ export class AuthenticationFlow {
     async signInAsLawFirmOrgUserC() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
-        await this.idamSignInPage.signIn(
-            iaConfig.TestLawFirmOrgCUserName,
-            iaConfig.TestLawFirmOrgCPassword
-        );
+        if (iaConfig.CcdWebUrl.includes('localhost') ) {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestLawFirmOrg2CreatorUserName,
+                iaConfig.TestLawFirmOrg2CreatorPassword
+        )} else {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestLawFirmOrgCUserName,
+                iaConfig.TestLawFirmOrgCPassword
+            );
+        }
     }
     async signInAsLawFirmOrgUserD() {
         await this.signOut();
@@ -223,8 +229,8 @@ export class AuthenticationFlow {
         await this.idamSignInPage.waitUntilLoaded();
         if (iaConfig.CcdWebUrl.includes('localhost') ) {
             await this.idamSignInPage.signIn(
-                iaConfig.TestLawFirmOrgAUserName,
-                iaConfig.TestLawFirmOrgAPassword
+                iaConfig.TestLawFirmOrgCreatorUserName,
+                iaConfig.TestLawFirmOrgCreatorPassword
         )} else {
             await this.idamSignInPage.signIn(
                 iaConfig.TestLawFirmOrgABailsUserName,
@@ -241,8 +247,8 @@ export class AuthenticationFlow {
                 iaConfig.TestLawFirmOrgBBailsPassword
         )} else {
             await this.idamSignInPage.signIn(
-                iaConfig.TestLawFirmOrgBUserName,
-                iaConfig.TestLawFirmOrgBPassword
+               iaConfig.TestLawFirmOrgBUserName,
+               iaConfig.TestLawFirmOrgBPassword
         )}
     }
 }

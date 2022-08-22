@@ -5,8 +5,9 @@ Feature: Bails Notice of Change
    And I create a new bail application
    And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
    And I submit my bail application as a `Legal Rep`
+   And I wait for 20 seconds
+   And I should see the text `You have submitted this application`
    And I get the bails online case reference
-   And I should see the text `What happens next`
 
   @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails-regression @bails-full
   Scenario: Remove Legal Rep
