@@ -11,23 +11,55 @@ Feature: Submit appeal application
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button
 
-  @xbrowsertest @testy-test
+  @xbrowsertest
   Scenario: Submit an appeal application
 
-    And I select the `Submit your appeal` Next step
-    Then I should see the `Declaration` page
+    And I select the `Pay and submit` Next step
+    Then I should see the `Select PBA number` page
+    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I wait for 5 seconds
+    And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
-    When I click the `Submit` button
+    When I click the `Pay and submit now` button
     And I wait for 30 seconds
+    Then I should see the text `Your appeal has been paid for and submitted`
+    And I click the `Close and Return to case details` button
+
+  @regression @submit-appeal @RIA-515 @RIA-3486
+  Scenario: Submit an appeal application
+
+    When I select the `Submit your appeal` Next step
+    Then I am on the `Submit your appeal` page
+    And the `Continue` button is disabled
+
+    And I should not see the text `You've missed the deadline for appealing.`
+    And I should not see the text `You can ask for permission to appeal outside of the deadline.`
+    And I should not see the text `Explain why you believe your late appeal should be allowed to proceed.`
+    And I should not see the `You can upload a document or fill out the box below. (Optional)` field
+
+    When I agree to the declaration
+    And I click the `Continue` button
+    And I click the `Submit` button
     Then I should see the text `Your appeal has been submitted`
+    And I should see the text `What happens next`
+    And I should see the text `You will receive an email confirming that this appeal has been submitted successfully.`
+
+    And I should not see the image `outOfTimeConfirmation.png`
+    And I should not see the text `You have submitted this appeal beyond the deadline.`
+
     When I click the `Close and Return to case details` button
-    Then I should see the text `You still need to pay for your appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
+    Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
+    #And I see the open case
 
-    @testy-test
-    Scenario: test
-      And I pay for and submit my appeal by PBA
+    When I click the `Appellant` tab
+    Then I should see the appellant's details
+    And I should see the legal representative's details
 
-    @testy-test
-    Scenario: test 2
-      And I pay for and submit my appeal by Card
+    When I click the `Appeal` tab
+    Then I should see the appeal details
+    And I should see the submission details
+
+    When I click the `Overview` tab
+    Then I should see the case details
+    And I should see the legal representative details
