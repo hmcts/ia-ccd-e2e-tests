@@ -24,12 +24,19 @@ Given('I create a new case', async function () {
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
 
-    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr') || iaConfig.CcdWebUrl.includes('demo')) {
+    if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* ia-ccd-definit'
+            'Appeal* master'
         );
     }
+    if (iaConfig.CcdWebUrl.includes('demo') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* aip-other-rele'
+        );
+    }
+
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
     await ccdPage.click('Start');
@@ -73,7 +80,7 @@ Given('I Apply case list filter', async function () {
 //     if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* ia-ccd-definit'
+            'Appeal* aip-other-rele'
         );
 //     }
 
