@@ -39,7 +39,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (HU appe
     When I click the `Return to service request` link
 
     Then I should see the text `Paid`
-    And I should see the text `Jose Gonzalez`
+    And I should see the text `José González`
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
