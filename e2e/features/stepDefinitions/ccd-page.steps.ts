@@ -8,7 +8,7 @@ import { CcdFormPage } from '../../pages/ccd-form.page';
 
 const ccdPage = new CcdPage();
 const ccdFormPage = new CcdFormPage();
-const iaConfig = require('../../ia.conf');
+// const iaConfig = require('../../ia.conf');
 
 Given('I create a new case', async function () {
     // there is loading mask with spinner added by ExUI
