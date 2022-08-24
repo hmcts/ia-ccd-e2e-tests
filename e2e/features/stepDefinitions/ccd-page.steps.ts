@@ -33,7 +33,7 @@ Given('I create a new case', async function () {
     if (iaConfig.CcdWebUrl.includes('demo') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* aip-other-rele'
+            'Appeal* master'
         );
     }
 
@@ -80,7 +80,7 @@ Given('I Apply case list filter', async function () {
 //     if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* aip-other-rele'
+            'Appeal* master'
         );
 //     }
 
