@@ -16,7 +16,7 @@ Feature: Request respondent evidence
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
-    And I request home office data
+#    And I request home office data
 
   @regression @create-direction @RIA-892 @RIA-2694 @nightly-test
   Scenario: Request respondent evidence

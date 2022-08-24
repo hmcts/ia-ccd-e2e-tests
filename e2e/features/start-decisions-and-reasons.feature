@@ -19,7 +19,7 @@ Feature: Start decision and reasons
     And I click the `Close and Return to case details` button
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
-    And I request home office data
+#    And I request home office data
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`

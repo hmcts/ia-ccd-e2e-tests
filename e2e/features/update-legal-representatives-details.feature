@@ -16,7 +16,7 @@ Background:
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
-    And I request home office data
+#    And I request home office data
     And I request respondent evidence
 
 @update-legal-representatives-details @RIA-1358 @nightly-test
