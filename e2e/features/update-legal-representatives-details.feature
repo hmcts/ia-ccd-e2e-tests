@@ -11,7 +11,7 @@ Background:
     And I pay for and submit my appeal by PBA
     And I wait for 5 seconds
     And I switch to be a `Case Officer`
-    And I request home office data
+#    And I request home office data
     And I request respondent evidence
 
 @update-legal-representatives-details @RIA-1358 @nightly-test
