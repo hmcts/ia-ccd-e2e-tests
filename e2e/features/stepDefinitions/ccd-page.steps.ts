@@ -23,6 +23,7 @@ Given('I create a new case', async function () {
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
+
     if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
         await ccdFormPage.setFieldValue(
             'Case type',
@@ -34,6 +35,13 @@ Given('I create a new case', async function () {
             'Appeal* online-card-pa'
         );
     }
+    if (iaConfig.CcdWebUrl.includes('demo') ) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* master'
+        );
+    }
+
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
     await ccdPage.click('Start');
@@ -74,17 +82,12 @@ Given('I Apply case list filter', async function () {
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
-    if (iaConfig.CcdWebUrl.includes('aat') ) {
-        await ccdFormPage.setFieldValue(
-            'Case type',
-            'Appeal* master'
-        );
-    } else if (iaConfig.CcdWebUrl.includes('demo')) {
+//     if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* online-card-pa'
         );
-    }
+//     }
     await ccdPage.doesDropdownHaveValues('State');
     await ccdFormPage.setFieldValue(
         'State',
