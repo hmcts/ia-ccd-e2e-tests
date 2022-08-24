@@ -23,5 +23,5 @@ Feature: Submit appeal application
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been submitted`
     When I click the `Close and Return to case details` button
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see the text `Case record`
 
