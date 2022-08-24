@@ -35,12 +35,6 @@ Given('I create a new case', async function () {
             'Appeal* online-card-pa'
         );
     }
-    if (iaConfig.CcdWebUrl.includes('demo') ) {
-        await ccdFormPage.setFieldValue(
-            'Case type',
-            'Appeal* master'
-        );
-    }
 
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
