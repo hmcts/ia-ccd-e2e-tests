@@ -24,15 +24,10 @@ Given('I create a new case', async function () {
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
 
-    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
+    if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* master'
-        );
-    } else if (iaConfig.CcdWebUrl.includes('demo')) {
-        await ccdFormPage.setFieldValue(
-            'Case type',
-            'Appeal* online-card-pa'
         );
     }
     if (iaConfig.CcdWebUrl.includes('demo') ) {
@@ -85,9 +80,10 @@ Given('I Apply case list filter', async function () {
 //     if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* online-card-pa'
+            'Appeal* master'
         );
 //     }
+
     await ccdPage.doesDropdownHaveValues('State');
     await ccdFormPage.setFieldValue(
         'State',
@@ -357,8 +353,4 @@ Then(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]
 
 Then(/^I go to the URL `?([^`]+)`?$/, async function (URL) {
     await ccdFormPage.goToUrl(URL);
-});
-
-Then(/^I select `?([^`]+)`? from the dropdown with ID `?([^`]+)`?$/, async function (option, ID) {
-    await ccdFormPage.typeText(ID, option);
 });
