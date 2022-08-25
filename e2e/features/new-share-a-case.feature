@@ -9,9 +9,8 @@ Feature: New Share a Case (common component)
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
     And I pay for and submit my appeal by PBA
-    And I wait for 5 seconds
-    When I click the `Close and Return to case details` button
-    Then I should see the text `Case record for PA`
+    And I wait for 15 seconds
+    Then I should see the text `Case record for EA`
     When I get the Appeal Reference
     And I go to the `Case List`
     And I wait for 20 seconds

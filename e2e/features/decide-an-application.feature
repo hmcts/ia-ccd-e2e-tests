@@ -9,7 +9,7 @@ Feature: Case officer or Judge make an application
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
     And I pay for and submit my appeal by PBA
-    And I wait for 5 seconds
+    And I wait for 15 seconds
     And I switch to be a `Legal Org User Rep A`
 
   @Case-officer-decide-an-application @RIA-3451-case-officer-decide-an-application @RIA-3451 @nightly-test

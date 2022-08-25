@@ -10,9 +10,8 @@ Feature: Request respondent evidence
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
     And I pay for and submit my appeal by PBA
-    And I wait for 5 seconds
+    And I wait for 15 seconds
     And I switch to be a `Case Officer`
-    And I request home office data
 
   @regression @create-direction @RIA-892 @RIA-2694 @nightly-test
   Scenario: Request respondent evidence

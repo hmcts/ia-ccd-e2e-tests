@@ -9,7 +9,7 @@ Feature: End appeal
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
     And I pay for and submit my appeal by PBA
-    And I wait for 5 seconds
+    And I wait for 15 seconds
 
   @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test
   Scenario: End appeal after submit appeal case officer
@@ -37,7 +37,9 @@ Feature: End appeal
 
     And I should see the ended appeal details
     And I should not see the hearing details
-    And I should see the case details
+
+#    And I should see the case details
+#    above line only works for PA appeal
 
     When I switch to be a `Admin Officer`
     Then I should only see the `caseOfficer_appealEnded` case progress image
