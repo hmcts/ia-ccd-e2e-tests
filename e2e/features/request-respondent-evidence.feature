@@ -4,44 +4,40 @@ Feature: Request respondent evidence
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
     And I create a new case
+#    And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
-    And I select the `Pay and submit` Next step
-    Then I should see the `Select PBA number` page
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
-    And I click the `Continue` button
-    And I agree to the declaration
-    And I click the `Continue` button
-    When I click the `Pay and submit now` button
-    And I wait for 30 seconds
-    Then I should see the text `Your appeal has been paid for and submitted`
+    And I click the `Close and Return to case details` button
+    Then I should see the text `You still need to submit your appeal.`
+    And I pay for and submit my appeal by PBA
+    And I wait for 5 seconds
     And I switch to be a `Case Officer`
-#    And I request home office data
 
   @regression @create-direction @RIA-892 @RIA-2694 @nightly-test
   Scenario: Request respondent evidence
 
     And I click the `Overview` tab
-    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the Validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
 
-    When I select the `Request Home Office data` Next step
-    And I am on the `Match appellant details` page
-    And I should see the option `No Match` for the `Make a selection` field
-    And I select `No Match` for the `Make a selection` field
-    And I click the `Continue` button
-
-    Then I am on the `Check your answers` page
-    And I should see `No Match` for the `Make a selection` field
-    And I click the `Request Home Office data` button
-
-    Then I should see the text `You have matched the appellant details`
-    And I should see the text `Do this next`
-    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
-
-    When I click the `Close and Return to case details` button
-    And I wait for 5 seconds
-    Then I click the `Validation` tab
-    And I should see the text `There are no matching details for this appellant. You can contact the Home Office if you need more information to validate the appeal.`
+    And I should see the text `You must review the appeal in the documents tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
+#    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the Validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
+#    When I select the `Request Home Office data` Next step
+#    And I am on the `Match appellant details` page
+#    And I should see the option `No Match` for the `Make a selection` field
+#    And I select `No Match` for the `Make a selection` field
+#    And I click the `Continue` button
+#
+#    Then I am on the `Check your answers` page
+#    And I should see `No Match` for the `Make a selection` field
+#    And I click the `Request Home Office data` button
+#
+#    Then I should see the text `You have matched the appellant details`
+#    And I should see the text `Do this next`
+#    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
+#
+#    When I click the `Close and Return to case details` button
+#    And I wait for 5 seconds
+#    Then I click the `Validation` tab
+#    And I should see the text `There are no matching details for this appellant. You can contact the Home Office if you need more information to validate the appeal.`
 
     When I select the `Request respondent evidence` Next step
     Then I am on the `Request respondent evidence` page
@@ -74,7 +70,7 @@ Feature: Request respondent evidence
     And within the `Directions` collection's first item, I should see `{$TODAY+14|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-  @regression @create-direction @RIA-892 
+  @regression @create-direction @RIA-892
   Scenario: Request respondent evidence with changes to default values
 
     When I select the `Request respondent evidence` Next step
