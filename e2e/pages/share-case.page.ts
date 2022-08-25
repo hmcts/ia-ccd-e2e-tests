@@ -258,7 +258,7 @@ export class ShareCasePage {
         if (iaConfig.CcdWebUrl.includes('demo') ) {
             await ccdFormPage.setFieldValue(
                 'Case type',
-                'Appeal* aip-other-rele'
+                'Appeal* ia-ccd-definit'
             );
         }
         // await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
