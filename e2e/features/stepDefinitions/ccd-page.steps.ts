@@ -32,7 +32,7 @@ Given('I create a new case', async function () {
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* online-card-pa'
+            'Appeal* ia-ccd-definit'
         );
     }
 
@@ -79,7 +79,7 @@ Given('I Apply case list filter', async function () {
 //     if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* online-card-pa'
+            'Appeal* ia-ccd-definit'
         );
 //     }
     await ccdPage.doesDropdownHaveValues('State');
