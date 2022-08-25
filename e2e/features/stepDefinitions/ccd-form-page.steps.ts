@@ -263,15 +263,6 @@ When(/^I type `?([^`]+)`? (?:for|from) the field with ID `?([^`]+)`?$/,
         );
     });
 
-When(/^I hit Enter in the field with ID `?([^`]+)`?$/,
-    async function (
-        fieldID
-    ) {
-        await ccdFormPage.typeEnter(
-            fieldID
-        );
-    });
-
 When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(text|text area|document|)`?\s?field without a label$/,
     async function (
         instanceNumber,
