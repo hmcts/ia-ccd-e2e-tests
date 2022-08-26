@@ -96,9 +96,9 @@ export class NoticeOfChangePage {
     async getLatestCaseIdFromUrl(shortWait = false) {
         let url = await browser.driver.getCurrentUrl();
         let startIndex = url.indexOf('case-details/')
-        let endIndex = url.indexOf('#')
+        let endIndex = url.indexOf('/trigger')
         let caseId;
-        if (url.includes('#')) {
+        if (url.includes('/trigger')) {
             caseId = url.substring(startIndex + 13, endIndex)
         } else {
             caseId = url.substring(startIndex + 13)
