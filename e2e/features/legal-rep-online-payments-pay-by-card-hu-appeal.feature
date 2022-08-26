@@ -46,7 +46,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (HU appe
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 
     When I click the `Appeal` tab
-    Then I should see `Refusal of protection claim` for the `Type of appeal` field
+    Then I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I should see `Paid` for the `Payment status` field
 

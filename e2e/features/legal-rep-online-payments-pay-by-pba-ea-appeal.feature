@@ -35,9 +35,9 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (EA appea
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
 
     When I click the `Appeal` tab
-    Then I should see `Refusal of protection claim` for the `Type of appeal` field
+    Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Paid` for the `Payment status` field
+#    And I should see `Paid` for the `Payment status` field
 
   @RIA-6104-pay-and-submit-pba-failed @RIA-6104-pay-and-submit-pba-failed-ea
   Scenario: Pay and submit appeal - failed payment (EA appeal type)
