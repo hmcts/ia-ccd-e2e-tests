@@ -18,4 +18,3 @@ Feature: Bails Submit bail application as Legal Rep
     And I wait for 5 seconds
     Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
     And I wait for 10 seconds
-    And I am not signed in

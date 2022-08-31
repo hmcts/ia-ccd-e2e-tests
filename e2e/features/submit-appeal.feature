@@ -23,7 +23,6 @@ Feature: Submit appeal application
     When I click the `Pay and submit now` button
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been paid for and submitted`
-    Then I am not signed in
 
   @regression @submit-appeal @RIA-515 @RIA-3486
   Scenario: Submit an appeal application
