@@ -10,7 +10,7 @@
     "localTest": "protractor ./e2e/features.conf.js --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelScenarios": "protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelFeatures": "protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
-    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowsertest' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowsertest' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:nsp": "nsp check"
   },
   "pre-commit": [
