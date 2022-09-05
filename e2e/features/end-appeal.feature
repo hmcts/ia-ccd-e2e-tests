@@ -22,6 +22,7 @@ Feature: End appeal
 
     And I switch to be a `Case Officer`
     Then I end the appeal
+    And I wait for 5 seconds
 
     And I click the `Documents` tab
 
