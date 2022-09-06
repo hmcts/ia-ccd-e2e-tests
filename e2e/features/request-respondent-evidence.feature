@@ -68,6 +68,7 @@ Feature: Request respondent evidence
 
     When I click the `Close and Return to case details` button
     #And I see the open case
+    And I wait for 5 seconds
     And I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `A notice of appeal has been lodged against this decision.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `You must now upload all documents to the Tribunal.` in the `Explanation` field

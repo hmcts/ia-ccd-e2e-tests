@@ -30,7 +30,9 @@ Feature: Start decision and reasons
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
     And I request respondent review
+    And I wait for 5 seconds
     And I add the appeal response
+    And I wait for 5 seconds
     And I request hearing requirements
     And I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
