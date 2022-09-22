@@ -37,13 +37,3 @@ Background:
     Then I allocate a role to another Judiciary user
     And  I wait for 5 seconds
     Then I should see an alert confirming the case `You've allocated a role`
-
-
-
-
-
-
-
-
-
-
