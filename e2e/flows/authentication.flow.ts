@@ -182,6 +182,31 @@ export class AuthenticationFlow {
         );
     }
 
+    async signInAsLegalOpsA() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestLegalOpsAUserName,
+            iaConfig.TestLegalOpsAPassword
+        );
+    }
+    async signInAsJudicial() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestJudicialUserName,
+            iaConfig.TestJudicialPassword
+        );
+    }
+    async signInAsWaAdmin() {
+        await this.signOut();
+        await this.idamSignInPage.waitUntilLoaded();
+        await this.idamSignInPage.signIn(
+            iaConfig.TestWaAdminUserName,
+            iaConfig.TestWaAdminPassword
+        );
+    }
+
     async signOut() {
         await browser.waitForAngularEnabled(false);
         await browser.driver.manage().deleteAllCookies();
