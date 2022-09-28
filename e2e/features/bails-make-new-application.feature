@@ -78,8 +78,9 @@ Feature: Bails Make new application
     And I should see the text `This is a new B1 form`
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test @nightly-test
-  Scenario: Make new application as Admin Officer after ended application
+  Scenario: Make new application as Admin Officer after ended application with case note
     When I switch to be a `Admin Officer Bails`
+    And I add a case note for application `1`
     And I end the application
     And I select the `Make new application` Next step
     And I make a new application as a `Admin Officer` for a Prison detention with no financial condition supporters and with no Legal Representative
@@ -96,6 +97,11 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
+    When I click the `Case notes` tab
+    Then within the `Case notes` collection's first item, I should see `Case note subject from application 1` for the `Subject` field
+    And within the `Case notes` collection's first item, I should see `Case note text. This is from application 1` for the `Case note` field
+    And within the `Case notes` collection's first item, I should see `BailsCaseNote.pdf` for the `Document` field
+    And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test @nightly-test
   Scenario: Make new application as Home Office after conditional grant decided
