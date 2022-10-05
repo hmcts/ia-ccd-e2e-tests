@@ -59,7 +59,7 @@ Given('I create a new bail application', async function () {
     // if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Bail* ia-bail-ccd-de'
+            'Bail* RIA-6091-ExUI-'
         );
     // }
 
@@ -108,7 +108,7 @@ Given('I Apply case list filter for Bails', async function () {
     // if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Bail* ia-bail-ccd-de'
+            'Bail* RIA-6091-ExUI-'
         );
     // }
 
