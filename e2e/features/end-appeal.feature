@@ -6,16 +6,10 @@ Feature: End appeal
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
-    And I select the `Pay and submit` Next step
-    Then I should see the `Select PBA number` page
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
-    And I click the `Continue` button
-    And I agree to the declaration
-    And I click the `Continue` button
-    When I click the `Pay and submit now` button
-    And I wait for 30 seconds
-    Then I should see the text `Your appeal has been paid for and submitted`
-    
+    And I click the `Close and Return to case details` button
+    Then I should see the text `You still need to submit your appeal.`
+    And I pay for and submit my appeal by PBA
+    And I wait for 15 seconds
 
   @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test
   Scenario: End appeal after submit appeal case officer

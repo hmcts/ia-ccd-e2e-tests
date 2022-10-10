@@ -17,6 +17,3 @@ Feature: Bails Submit bail application as Legal Rep
     When I click the `Close and Return to case details` button
     And I wait for 5 seconds
     Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
-    And I wait for 10 seconds
-    And I click the `Sign out` link
-    Then I should see the text `Sign in or create an account`

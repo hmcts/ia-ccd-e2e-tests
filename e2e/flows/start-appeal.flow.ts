@@ -307,17 +307,6 @@ export class StartAppealFlow {
         }
     }
 
-    async completeReferenceNumber(clickContinue = false) {
-
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
-        await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
-        await this.ccdFormPage.setFieldValue('Own reference', 'some-ref');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
-
     async completeLegalRepresentativeDetails(clickContinue = false) {
 
         await this.ccdFormPage.runAccessbility();
@@ -343,10 +332,14 @@ export class StartAppealFlow {
         }
     }
 
-    async completeHowToPayNow(clickContinue = false) {
+    async completeHowToPay(clickContinue = false, choice) {
 
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.click('Pay using Payment by Account');
+        if (choice === 'now') {
+            await this.ccdFormPage.click('Pay Now');
+        } else if (choice === 'later') {
+            await this.ccdFormPage.click('Pay Later');
+        }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -435,7 +428,7 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayOffline(true, 'PA');
+        await this.completeHowToPay(true, 'later');
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -453,12 +446,8 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, 'no remission');
-        if (paymentChoice === 'now') {
-            await this.completeHowToPayNow(true);
-        } else if (paymentChoice === 'later') {
-            await this.completeHowToPayLater(true, appealType);
-        } else {
-            await this.completeHowToPayOffline(true, appealType);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, paymentChoice);
         }
         await this.completeCheckYourAnswers(true);
 
@@ -508,7 +497,9 @@ export class StartAppealFlow {
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
         if (remission === 'no remission') {
-            await this.completeHowToPayOffline(true, 'PA');
+            if (appealType === 'PA') {
+                await this.completeHowToPay(true, 'later');
+            }
         }
         await this.completeCheckYourAnswers(true);
 
@@ -580,7 +571,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, 'no remission');
-        await this.completeHowToPayOffline(true, appealType);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
+        }
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -637,7 +630,6 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'hearing fee');
         await this.completeRemissionDetails(true, 'no remission');
-        await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -655,7 +647,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayNow(true);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'now');
+        }
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -673,7 +667,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayNow(true);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'now');
+        }
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -691,7 +687,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayNow(true);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'now');
+        }
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -709,7 +707,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayOffline(true, appealType);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
+        }
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -727,7 +727,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayLater(true, appealType);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
+        }
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -745,7 +747,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayOffline(true, appealType);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
+        }
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -763,7 +767,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayLater(true, appealType);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
+        }
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -787,7 +793,7 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'without')
         await this.completeRemissionDetails(true, 'no remission');
-        await this.completeHowToPayNow(true);
+        await this.completeHowToPay(true, 'later');
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -1070,7 +1076,9 @@ export class StartAppealFlow {
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
         if (remission === 'no remission') {
-            await this.completeHowToPayNow(true);
+            if (appealType === 'PA') {
+                await this.completeHowToPay(true, 'now');
+            }
         }
         await this.completeCheckYourAnswers(true);
 
@@ -1116,7 +1124,6 @@ export class StartAppealFlow {
         await this.clickContinueToNextStep(true); // completeLegalRepresentativeDetails
         await this.clickContinueToNextStep(true); // completeGivenFee
         await this.clickContinueToNextStep(true); // completeRemissionDetails
-        await this.clickContinueToNextStep(true); // completeHowToPayNow
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
@@ -1188,7 +1195,9 @@ export class StartAppealFlow {
             await this.completeCheckYourAnswers(true);
         } else {
             await this.completeGivenFee(true, feeType);
-            await this.completeHowToPayOffline(true, appealType);
+            if (appealType === 'PA') {
+                await this.completeHowToPay(true, 'later');
+            }
             await this.completeCheckYourAnswers(true);
         }
 
