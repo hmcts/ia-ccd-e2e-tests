@@ -24,7 +24,7 @@ Feature: Bails End the application
     Then I should see the text `You have ended the application`
     And I should see the text `A notification has been sent to all parties. No further action is required.`
     When I click the `Close and Return to case details` button
-    Then I should see the text `No further action is required.`
+    Then I should see the text `No further action is required on this application.`
     And I should see `Withdrawn` for the `Outcome` field
     And I should see `Withdrawn because it was needed for the test.` for the `Reasons` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Date application ended` field
