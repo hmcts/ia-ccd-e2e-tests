@@ -8,7 +8,7 @@ Feature: Bails Notice of Change
    And I get the bails online case reference
    And I should see the text `What happens next`
 
-  @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails-regression @bails-full
+  @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails-regression
   Scenario: Remove Legal Rep
     When I switch to be a `Admin Officer Bails`
     And I select the `Remove legal representative` Next step
@@ -27,7 +27,7 @@ Feature: Bails Notice of Change
     And I wait for 5 seconds
     Then I should see the text `No cases found. Try using different filters.`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-notice-of-change-incorrect @bails-full @nightly-test
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-notice-of-change-incorrect @nightly-test
   Scenario: Notice of Change - incorrect details
     When I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 20 seconds
@@ -54,7 +54,7 @@ Feature: Bails Notice of Change
     And I click the `Continue` button
     Then I should see the text `Enter the client details exactly as they're written on the case, including any mistakes`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-same-organisation @bails-full
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-same-organisation
   Scenario: Notice of Change - same organisation
     When I am signed in as a `Legal Org User Rep B Bails`
     And I wait for 20 seconds
@@ -68,7 +68,7 @@ Feature: Bails Notice of Change
     Then I should see the text `Your organisation already has access to this case`
     And I should see the text `You or a colleague are already representing this client on this case.`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full @nightly-test
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @nightly-test
   Scenario: Notice of Change
     When I am signed in as a `Legal Org User Rep C`
     And I wait for 20 seconds
