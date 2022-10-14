@@ -23,7 +23,7 @@ Feature: Bails Move application to decided after a signed conditional bail decis
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see the image `progress_application_decided.svg`
 
-  @bails-move-application-to-decided @bails-full @RIA-5759 @bails-move-application-to-decided-judge @bails-regression
+  @bails-move-application-to-decided @bails-full @RIA-5759 @bails-move-application-to-decided-judge @bails-regression @bails-regression-retest
   Scenario: Move application to decided as Judge
     When I switch to be a `Judge Bails`
     And I select the `Move application to decided` Next step
