@@ -26,7 +26,7 @@ Feature: Bails Upload signed decision notice
     When I click the `Close and Return to case details` button
     
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
-    And I should see `SignedDecisionNoticeRefused.pdf` for the `Decision document` field
+    And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-granted
   Scenario: Upload signed decision notice for granted case
@@ -47,7 +47,7 @@ Feature: Bails Upload signed decision notice
     When I click the `Close and Return to case details` button
     
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
-    And I should see `SignedDecisionNoticeGranted.pdf` for the `Decision document` field
+    And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-conditional-grant
   Scenario: Upload signed decision notice for conditional grant case
@@ -68,7 +68,7 @@ Feature: Bails Upload signed decision notice
     When I click the `Close and Return to case details` button
     
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
-    And I should see `SignedDecisionNoticeGranted.pdf` for the `Decision document` field
+    And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-judge
   Scenario: Upload signed decision notice as Judge
@@ -90,4 +90,4 @@ Feature: Bails Upload signed decision notice
     When I click the `Close and Return to case details` button
     
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
-    And I should see `SignedDecisionNoticeRefused.pdf` for the `Decision document` field
+    And I should see `Pugh-decision-notice.pdf` for the `Decision document` field

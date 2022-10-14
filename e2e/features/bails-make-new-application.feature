@@ -100,7 +100,6 @@ Feature: Bails Make new application
     When I click the `Case notes` tab
     Then within the `Case notes` collection's first item, I should see `Case note subject from application 1` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `Case note text. This is from application 1` for the `Case note` field
-    And within the `Case notes` collection's first item, I should see `BailsCaseNote.pdf` for the `Document` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test @nightly-test
