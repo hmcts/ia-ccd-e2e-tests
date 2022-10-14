@@ -460,10 +460,6 @@ export class EditBailApplicationPostSubmitFlow {
         } else {
             await this.completeLegalRepYesNo(true, 'No');
         }
-        // will need to be removed after fix post mvp from here
-        await this.ccdFormPage.click('Add new');
-        await this.completeB1Upload(true);
-        // to here
         await this.completeCheckYourAnswers(true);
 
         if (clickContinue) {
