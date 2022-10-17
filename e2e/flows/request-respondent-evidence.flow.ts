@@ -17,7 +17,6 @@ export class RequestRespondentEvidenceFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.contentContains('You have sent a direction');
         }
     }
 }
