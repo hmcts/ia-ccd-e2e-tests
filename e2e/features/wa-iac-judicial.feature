@@ -6,6 +6,7 @@ Feature: Work allocation R2 Judicial scenarios
 
     And I save my initial HU appeal type without remission and with hearing fee and pay offline
     And I submit my nonpayment appeal
+    Then I wait for 10 seconds
     And I switch to be a `Judicial`
 
   @Judicial @RIA-4923 @judicial-reserve-to-me @work-allocation
@@ -35,5 +36,5 @@ Feature: Work allocation R2 Judicial scenarios
     And  I wait for 5 seconds
     When I click the `Allocate a role` link for Legal Ops
     And  I wait for 5 seconds
-    Then I Allocate a role from Judicaial to legal ops
+    Then I Allocate a role from Judicial to legal ops
     Then I should see an alert confirming the case `You've allocated a role`

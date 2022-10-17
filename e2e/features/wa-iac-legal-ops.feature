@@ -6,9 +6,10 @@ Background:
 
   And I save my initial HU appeal type without remission and with hearing fee and pay offline
   And I submit my nonpayment appeal
+  Then I wait for 10 seconds
   And I switch to be a `Legal Ops A`
 
-  @legal-Ops @RIA-4923 @legal-ops-reserve-to-me @work-allocation
+  @legal-Ops @RIA-4923 @legal-ops-reserve-to-me 
   Scenario: Legal-Ops allocating a role to himself(Reserve to me)
 
     When I click the `Roles and access` tab
@@ -18,7 +19,7 @@ Background:
     And  I wait for 5 seconds
     Then I should see an alert confirming the case `You've allocated a role`
 
-  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-another-legal-ops @work-allocation
+  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-another-legal-ops 
   Scenario: Legal-Ops allocating a role to another legal ops(Reserve to another user)
 
     When I click the `Roles and access` tab
@@ -28,7 +29,7 @@ Background:
     Then I should see an alert confirming the case `You've allocated a role`
 
 
-  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-judicial @work-allocation
+  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-judicial 
   Scenario: Legal-Ops allocating a role to Judicial user(Reserve to Judicial)
 
     When I click the `Roles and access` tab
