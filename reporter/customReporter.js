@@ -10,10 +10,10 @@ async function generateAccessibilityReport() {
   const destReport = testConfig.TestOutputDir + '/a11y.html';
   const destJson = testConfig.TestOutputDir + '/a11y_output.js';
 
-   fs.copyFileSync(sourceReport, destReport);
-   fs.writeFileSync(destJson, result);
-   copyResources()
-  
+  fs.copyFileSync(sourceReport, destReport);
+  fs.writeFileSync(destJson, result);
+  copyResources();
+
 }
 
 function copyResources() {
