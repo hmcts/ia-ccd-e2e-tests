@@ -7,7 +7,7 @@ Background:
   And I submit my nonpayment appeal
   And I switch to be a `Legal Ops A`
 
-  @legal-Ops @RIA-4923 @legal-ops-reserve-to-me
+  @legal-Ops @RIA-4923 @legal-ops-reserve-to-me @work-allocation
   Scenario: Legal-Ops allocating a role to himself(Reserve to me)
 
     When I click the `Roles and access` tab
@@ -17,7 +17,7 @@ Background:
     And  I wait for 5 seconds
     Then I should see an alert confirming the case `You've allocated a role`
 
-  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-another-legal-ops
+  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-another-legal-ops @work-allocation
   Scenario: Legal-Ops allocating a role to another legal ops(Reserve to another user)
 
     When I click the `Roles and access` tab
@@ -27,7 +27,7 @@ Background:
     Then I should see an alert confirming the case `You've allocated a role`
 
 
-  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-judicial
+  @legal-Ops @RIA-4923 @legal-ops-allocate-a-role-to-judicial @work-allocation
   Scenario: Legal-Ops allocating a role to Judicial user(Reserve to Judicial)
 
     When I click the `Roles and access` tab
