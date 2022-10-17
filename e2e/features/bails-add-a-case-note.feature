@@ -6,7 +6,7 @@ Feature: Bails Add a case note to bails application
    And I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
    And I submit my bail application as a `Home Office Bails`
 
-  @bails-add-case-note @bails-add-case-note-admin-officer @bails-add-case-note-document @bails-add-case-note-document-admin-officer @RIA-5753 @bails-full @bails-regression @bails-regression-retest
+  @bails-add-case-note @bails-add-case-note-admin-officer @bails-add-case-note-document @bails-add-case-note-document-admin-officer @RIA-5753 @bails-full @bails-regression
   Scenario: Add case note with document as Admin Officer
     When I switch to be a `Admin Officer Bails`
     When I select the `Add case note` Next step
