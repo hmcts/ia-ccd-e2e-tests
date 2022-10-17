@@ -42,7 +42,7 @@ Feature: Bails Record the decision
     And I should see `Refused` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.docx` for the `Document` field
     And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice will be uploaded.`
@@ -86,7 +86,7 @@ Feature: Bails Record the decision
     And I should see `Refused` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.docx` for the `Document` field
     And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice will be uploaded.`
@@ -140,7 +140,7 @@ Feature: Bails Record the decision
     And I should see `Refused` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.docx` for the `Document` field
     And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice will be uploaded.`
@@ -235,7 +235,7 @@ Feature: Bails Record the decision
     And I should see `Granted` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.docx` for the `Document` field
     And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice will be uploaded.`
@@ -303,7 +303,7 @@ Feature: Bails Record the decision
     And I should see `Granted` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.docx` for the `Document` field
     And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice will be uploaded.`
@@ -400,7 +400,7 @@ Feature: Bails Record the decision
     And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.docx` for the `Document` field
     And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice will be uploaded.`
@@ -472,7 +472,7 @@ Feature: Bails Record the decision
     And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.docx` for the `Document` field
     And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
     Then I should see the text `The application has been decided. The decision notice will be uploaded.`
