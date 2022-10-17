@@ -2,14 +2,14 @@ Feature: Bails Record the decision
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds
-   And I create a new bail application
+    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
     And I switch to be a `Home Office Bails`
     And I upload the bail summary
 
-  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full @bails-regression
+  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full @bails-regression @bails-regression-retest
   Scenario: Refused case - SS consent No
     When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
@@ -40,17 +40,16 @@ Feature: Bails Record the decision
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Refused` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Legal Org User Rep A Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     And I should see the text `If you want to make another bail application, you must return to this page to make the new application.`
     And I should see the text `If you make a new application within 28 days of this decision, you won't get another hearing unless the applicant's situation has changed materially.`
 
@@ -85,17 +84,16 @@ Feature: Bails Record the decision
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Refused` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Legal Org User Rep A Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     And I should see the text `If you want to make another bail application, you must return to this page to make the new application.`
     And I should see the text `If you make a new application within 28 days of this decision, you won't get another hearing unless the applicant's situation has changed materially.`
 
@@ -140,17 +138,16 @@ Feature: Bails Record the decision
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Refused` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Legal Org User Rep A Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     And I should see the text `If you want to make another bail application, you must return to this page to make the new application.`
     And I should see the text `If you make a new application within 28 days of this decision, you won't get another hearing unless the applicant's situation has changed materially.`
 
@@ -227,28 +224,27 @@ Feature: Bails Record the decision
     And I should see `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I should see `Yes` for the `Will the applicant be subject to a financial condition?` field
     And I should see `No` for the `Is the financial condition amount correct?` field
-    
+
     And I should see `Yes` for the `Did the judge agree to accept financial condition supporter 1?` field
-    
+
     And I should see `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Granted` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Legal Org User Rep A Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
 
-  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-granted-yes-ss-consent @bails-full @bails-regression
+  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-granted-yes-ss-consent @bails-full @bails-regression @bails-regression-retest
   Scenario: Granted case - SS consent Yes
     When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
@@ -305,17 +301,16 @@ Feature: Bails Record the decision
     When I click the `Close and Return to case details` button
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Granted` for the `Decision` field
-    And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Legal Org User Rep A Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-conditional-grant @bails-record-the-decision-no-ss-consent @bails-record-the-decision-conditional-grant-no-ss-consent @bails-full
   Scenario: Conditional grant case - SS consent No
@@ -390,9 +385,9 @@ Feature: Bails Record the decision
     And I should see `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I should see `Yes` for the `Will the applicant be subject to a financial condition?` field
     And I should see `No` for the `Is the financial condition amount correct?` field
-    
+
     And I should see `Yes` for the `Did the judge agree to accept financial condition supporter 1?` field
-    
+
     And I should see `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
@@ -405,14 +400,14 @@ Feature: Bails Record the decision
     And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Legal Org User Rep A Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-conditional-grant @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-conditional-grant-yes-ss-consent @bails-full
   Scenario: Conditional grant case - SS consent Yes
@@ -477,11 +472,11 @@ Feature: Bails Record the decision
     And I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Tribunal document` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
     When I click the `Documents` tab
-    Then within the `Tribunal documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
-    And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    Then within the `Decision documents` collection's first item, I should see `Pugh-decision-notice-UNSIGNED.PDF` for the `Document` field
+    And within the `Decision documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     When I switch to be a `Home Office Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
     When I switch to be a `Judge Bails`
     Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
     When I switch to be a `Legal Org User Rep A Bails`
-    Then I should see the text `The application has been decided. The decision notice is available in the documents tab.`
+    Then I should see the text `The application has been decided. The decision notice will be uploaded.`
