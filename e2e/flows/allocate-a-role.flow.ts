@@ -7,9 +7,14 @@ export class AllocateARoleFlow {
     private ccdFormPage = new CcdFormPage();
     private workAllocationPage = new WorkAllocationPage();
 
-    async allocateARoleLink(clickContinue = false, user, index) {
-        await this.ccdFormPage.headingContains(user);
-        await this.ccdFormPage.click('Allocate a role', index);
+    async allocateARoleLink(clickContinue = false, user) {
+        if (user === 'Legal Ops') {
+            await this.ccdFormPage.click('Allocate a legal ops role');
+        } else if (user === 'Judiciary') {
+            await this.ccdFormPage.click('Allocate a judicial role');
+        } else if (user === 'Admin Officer') {
+            await this.ccdFormPage.click('Allocate an admin role ');
+        }
     }
 
     async reserveToMe(clickContinue = false, userRole: string) {
@@ -62,7 +67,7 @@ export class AllocateARoleFlow {
         await this.ccdFormPage.headingContains('Choose a role');
         await this.ccdFormPage.click('Lead Judge');
         await this.ccdFormPage.click('Continue');
-        await this.workAllocationPage.enterAllocateUserEmailInput('Vim');
+        await this.workAllocationPage.enterAllocateUserEmailInput('patel');
         await browser.sleep(2000);
         await this.workAllocationPage.selectUser()
         await browser.sleep(3000)
@@ -92,7 +97,7 @@ export class AllocateARoleFlow {
         await this.ccdFormPage.click( 'Allocate to another person');
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.headingContains('Find the person');
-        await this.workAllocationPage.enterAllocateUserEmailInput('Vim');
+        await this.workAllocationPage.enterAllocateUserEmailInput('patel');
         await browser.sleep(3000)
         await this.workAllocationPage.selectUser()
         await browser.sleep(5000)
