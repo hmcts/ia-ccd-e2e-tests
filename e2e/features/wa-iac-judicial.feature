@@ -21,7 +21,7 @@ Feature: Work allocation R2 Judicial scenarios
     And  I wait for 5 seconds
     Then I should see an alert confirming the case `You've allocated a role`
 
-  @judicial @RIA-4923 @Judicial-allocate-a-role-to-another-judicial @work-allocation @nightly-test
+  @judicial @RIA-4923 @Judicial-allocate-a-role-to-another-judicial @work-allocation
   Scenario: Judicial allocating a role to another judicial user(Reserve to another user)
 
     When I click the `Roles and access` tab
