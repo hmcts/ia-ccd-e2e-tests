@@ -7,7 +7,7 @@ Feature: Bails Send direction
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
-  @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-applicant @bails-send-direction-to-applicant-AO @nightly-test
+  @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-applicant @bails-send-direction-to-applicant-AO
   Scenario: Send a direction to Applicant as an Admin Officer
     When I switch to be a `Admin Officer Bails`
     And I select the `Send direction` Next step

@@ -27,7 +27,7 @@ Feature: Bails Notice of Change
     And I wait for 5 seconds
     Then I should see the text `No cases found. Try using different filters.`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-notice-of-change-incorrect @bails-full @nightly-test
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-notice-of-change-incorrect @bails-full
   Scenario: Notice of Change - incorrect details
     When I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 20 seconds
@@ -68,7 +68,7 @@ Feature: Bails Notice of Change
     Then I should see the text `Your organisation already has access to this case`
     And I should see the text `You or a colleague are already representing this client on this case.`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full @nightly-test
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full
   Scenario: Notice of Change
     When I am signed in as a `Legal Org User Rep C`
     And I wait for 20 seconds
