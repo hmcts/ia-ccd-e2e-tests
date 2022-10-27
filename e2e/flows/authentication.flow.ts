@@ -254,8 +254,8 @@ export class AuthenticationFlow {
         await this.idamSignInPage.waitUntilLoaded();
         if (iaConfig.CcdWebUrl.includes('localhost') ) {
             await this.idamSignInPage.signIn(
-                iaConfig.TestLawFirmOrgCreatorUserName,
-                iaConfig.TestLawFirmOrgCreatorPassword
+                iaConfig.TestLawFirmOrgAUserName,
+                iaConfig.TestLawFirmOrgAPassword
         )} else {
             await this.idamSignInPage.signIn(
                 iaConfig.TestLawFirmOrgABailsUserName,
@@ -272,8 +272,8 @@ export class AuthenticationFlow {
                 iaConfig.TestLawFirmOrgBBailsPassword
         )} else {
             await this.idamSignInPage.signIn(
-               iaConfig.TestLawFirmOrgBUserName,
-               iaConfig.TestLawFirmOrgBPassword
+                iaConfig.TestLawFirmOrgBUserName,
+                iaConfig.TestLawFirmOrgBPassword
         )}
     }
 }

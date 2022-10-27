@@ -1,9 +1,9 @@
 Feature: Bails Submit bail application as Legal Rep
-  Background:
-    Given I am signed in as a `Legal Org User Rep A Bails`
-    And I wait for 10 seconds
-    When I create a new bail application
-    Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative with no files uploaded
+ Background:
+   Given I am signed in as a `Legal Org User Rep A Bails`
+   And I wait for 10 seconds
+   When I create a new bail application
+   Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative with no files uploaded
 
   @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @xbrowsertest
   Scenario: Submit bail application as Legal Rep

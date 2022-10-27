@@ -8,7 +8,6 @@ export class ExclusionsFlow {
     private workAllocationPage = new WorkAllocationPage();
 
     async clickAddLink(clickContinue = false) {
-        await this.ccdFormPage.headingContains('Exclusions');
         await this.ccdFormPage.click('Add');
     }
     async excludeMe(clickContinue = false) {
@@ -42,8 +41,6 @@ export class ExclusionsFlow {
     }
 
     async JudicialExclusion(clickContinue = false) {
-        await this.ccdFormPage.headingContains('Exclusions');
-        await this.ccdFormPage.click('Add');
         await this.ccdFormPage.headingContains('Choose who the exclusion is for');
         await this.ccdFormPage.click('Exclude me');
         await this.ccdFormPage.click('Continue');
@@ -58,8 +55,6 @@ export class ExclusionsFlow {
 
     }
     async judicialExcludeAnotherJudicial(clickContinue = false) {
-        await this.ccdFormPage.headingContains('Exclusions');
-        await this.ccdFormPage.click('Add');
         await this.ccdFormPage.headingContains('Choose who the exclusion is for');
         await this.ccdFormPage.click( 'Exclude another person');
         await this.ccdFormPage.click('Continue');
@@ -76,8 +71,6 @@ export class ExclusionsFlow {
     }
 
     async adminExclusion(clickContinue = false) {
-        await this.ccdFormPage.headingContains('Exclusions');
-        await this.ccdFormPage.click('Add');
         await this.ccdFormPage.headingContains('Choose who the exclusion is for');
         await this.ccdFormPage.click('Exclude me');
         await this.ccdFormPage.click('Continue');
@@ -93,8 +86,6 @@ export class ExclusionsFlow {
     }
 
     async adminExcludeAnotherAdmin(clickContinue = false) {
-        await this.ccdFormPage.headingContains('Exclusions');
-        await this.ccdFormPage.click('Add');
         await this.ccdFormPage.headingContains('Choose who the exclusion is for');
         await this.ccdFormPage.click( 'Exclude another person');
         await this.ccdFormPage.click('Continue');
