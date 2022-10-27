@@ -8,7 +8,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     And I click the `Close and Return to case details` button
     And I submit my appeal before paying
     And I wait for 10 seconds
-    Then I should see the text `You still need to pay for your appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
+    Then I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
     When I click the `pay for your appeal` link
     And I wait for 5 seconds
     Then I should see the text `Not paid`

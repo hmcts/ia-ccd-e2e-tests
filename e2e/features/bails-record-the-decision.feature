@@ -9,7 +9,7 @@ Feature: Bails Record the decision
     And I switch to be a `Home Office Bails`
     And I upload the bail summary
 
-  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full @bails-regression @bails-regression-retest
+  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full @bails-regression
   Scenario: Refused case - SS consent No
     When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
