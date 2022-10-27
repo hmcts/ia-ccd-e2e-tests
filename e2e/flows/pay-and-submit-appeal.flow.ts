@@ -7,9 +7,12 @@ export class PayAndSubmitAppealFlow {
     private ccdPage = new CcdPage();
     private ccdFormPage = new CcdFormPage();
 
-    async payForAppealByPBA(clickContinue = false) {
-
-        await this.ccdFormPage.click('Service request');
+    async payForAppealByPBA(clickContinue = false, appealType) {
+        if (appealType === 'PA') {
+            await this.ccdFormPage.click('Service request');
+        } else {
+            await this.ccdFormPage.click('pay for your appeal');
+        }
         await browser.sleep(5000);
         await this.ccdFormPage.click('Pay now');
         await browser.sleep(5000);
@@ -26,9 +29,13 @@ export class PayAndSubmitAppealFlow {
         }
     }
 
-    async payForAppealByCard(clickContinue = false) {
+    async payForAppealByCard(clickContinue = false, appealType) {
 
-            await this.ccdFormPage.click('Service request');
+            if (appealType === 'PA') {
+                await this.ccdFormPage.click('Service request');
+            } else {
+                await this.ccdFormPage.click('pay for your appeal');
+            }
             await browser.sleep(5000);
             await this.ccdFormPage.click('Pay now');
             await browser.sleep(5000);
