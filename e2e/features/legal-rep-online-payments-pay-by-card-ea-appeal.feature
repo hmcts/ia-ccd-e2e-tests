@@ -8,7 +8,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     And I click the `Close and Return to case details` button
     And I submit my appeal before paying
     And I wait for 10 seconds
-    Then I should see the text `You have submitted your appeal. Your remission details will be reviewed and you may be asked to provide more information. Once the review is complete, you will be notified if there is any fee to pay.`
+    Then I should see the text `You need to pay for your appeal or the Tribunal will end the appeal.`
     When I click the `pay for your appeal` link
     And I wait for 5 seconds
     Then I should see the text `Not paid`
@@ -48,7 +48,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Paid` for the `Payment status` field
+
 
   @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-ea-declined
   Scenario: Pay and submit appeal - failed payment - declined (EA appeal type)

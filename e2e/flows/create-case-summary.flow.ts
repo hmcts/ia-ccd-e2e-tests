@@ -28,7 +28,6 @@ export class CaseSummaryFlow {
 
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.contentContains('You have uploaded the case summary');
         }
     }
 }

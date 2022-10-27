@@ -8,7 +8,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (EA appea
     And I click the `Close and Return to case details` button
     And I submit my appeal before paying
     And I wait for 10 seconds
-    Then I should see the text `You need to pay for your appeal within 14 days of receiving the notification or the Tribunal will end the appeal.`
+    Then I should see the text `You need to pay for your appeal or the Tribunal will end the appeal.`
     When I click the `pay for your appeal` link
     And I wait for 5 seconds
     Then I should see the text `Not paid`
@@ -37,7 +37,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (EA appea
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-#    And I should see `Paid` for the `Payment status` field
+#
 
   @RIA-6104-pay-and-submit-pba-failed @RIA-6104-pay-and-submit-pba-failed-ea
   Scenario: Pay and submit appeal - failed payment (EA appeal type)

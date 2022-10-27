@@ -48,7 +48,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Paid` for the `Payment status` field
+
 
   @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-pa-declined
   Scenario: Pay and submit appeal - failed payment - declined (PA appeal type)

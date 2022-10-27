@@ -36,7 +36,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (PA appea
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Paid` for the `Payment status` field
+
 
   @RIA-6104-pay-and-submit-pba-failed @RIA-6104-pay-and-submit-pba-failed-pa
   Scenario: Pay and submit appeal - failed payment (PA appeal type)
