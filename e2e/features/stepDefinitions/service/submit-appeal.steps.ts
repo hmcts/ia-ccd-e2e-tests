@@ -13,7 +13,7 @@ When(/^I agree to the declaration$/, async function () {
 Then(/^I submit my appeal$/, async function () {
     await submitAppealFlow.submitAppeal(true);
     if (isfeePaymentEnabled) {
-        await payAndSubmitAppealFlow.payForAppealByPBA(true);
+        await payAndSubmitAppealFlow.payForAppealByPBA(true, PAorNot);
     }
 });
 
