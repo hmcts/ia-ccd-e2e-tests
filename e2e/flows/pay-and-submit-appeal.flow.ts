@@ -9,7 +9,7 @@ export class PayAndSubmitAppealFlow {
 
     async payForAppealByPBA(clickContinue = false) {
 
-        await this.ccdFormPage.click('pay for your appeal');
+        await this.ccdFormPage.click('Service request');
         await browser.sleep(5000);
         await this.ccdFormPage.click('Pay now');
         await browser.sleep(5000);
@@ -28,7 +28,7 @@ export class PayAndSubmitAppealFlow {
 
     async payForAppealByCard(clickContinue = false) {
 
-            await this.ccdFormPage.click('pay for your appeal');
+            await this.ccdFormPage.click('Service request');
             await browser.sleep(5000);
             await this.ccdFormPage.click('Pay now');
             await browser.sleep(5000);
