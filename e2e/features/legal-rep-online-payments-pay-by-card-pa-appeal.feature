@@ -1,5 +1,5 @@
 Feature: Pay and submit appeal by card - successful and failed payments (PA appeal type)
- # Note. cant be used in DEMO env
+
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
@@ -9,7 +9,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
     And I submit my appeal before paying
     And I wait for 10 seconds
     Then I should see the text `You still need to pay for your appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
-    When I click the `pay for your appeal` link
+    When I click the `Service request` link
     And I wait for 5 seconds
     Then I should see the text `Not paid`
     When I click the `Pay now` link
@@ -20,7 +20,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
     And I wait for 5 seconds
     Then I should see the text `Enter card details`
 
-  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-pa
+  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-pa @nightly-test
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
     When I type `4444333322221111` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`

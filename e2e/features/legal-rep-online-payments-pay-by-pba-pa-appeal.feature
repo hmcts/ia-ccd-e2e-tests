@@ -9,7 +9,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (PA appea
     And I submit my appeal before paying
     And I wait for 10 seconds
     Then I should see the text `You still need to pay for your appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
-    When I click the `pay for your appeal` link
+    When I click the `Service request` link
     And I wait for 5 seconds
     Then I should see the text `Not paid`
     When I click the `Pay now` link
