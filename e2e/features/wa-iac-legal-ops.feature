@@ -11,7 +11,7 @@ Background:
   Then I wait for 10 seconds
   And I switch to be a `Legal Ops A`
 
-  @legal-Ops @RIA-4923 @legal-ops-reserve-to-me
+  @legal-Ops @RIA-4923 @legal-ops-reserve-to-me 
   Scenario: Legal-Ops allocating a role to himself(Reserve to me)
 
     When I click the `Roles and access` tab
