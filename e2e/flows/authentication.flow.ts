@@ -150,10 +150,16 @@ export class AuthenticationFlow {
     async signInAsLawFirmOrgUserC() {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
-        await this.idamSignInPage.signIn(
-            iaConfig.TestLawFirmOrgCUserName,
-            iaConfig.TestLawFirmOrgCPassword
-        );
+        if (iaConfig.CcdWebUrl.includes('localhost') ) {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestLawFirmOrg2CreatorUserName,
+                iaConfig.TestLawFirmOrg2CreatorPassword
+        )} else {
+            await this.idamSignInPage.signIn(
+                iaConfig.TestLawFirmOrgCUserName,
+                iaConfig.TestLawFirmOrgCPassword
+            );
+        }
     }
     async signInAsLawFirmOrgUserD() {
         await this.signOut();

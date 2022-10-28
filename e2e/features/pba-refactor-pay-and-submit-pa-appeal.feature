@@ -5,8 +5,9 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I click the `Close and Return to case details` button
 
-  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa @RIA-4468-pa @RIA-4468 @RIA-4679 @nightly-test
+  @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa @RIA-4468-pa @RIA-4468 @RIA-4679
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
     And I wait for 10 seconds
     And I select the `Pay and submit` Next step

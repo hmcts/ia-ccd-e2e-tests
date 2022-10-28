@@ -307,17 +307,6 @@ export class StartAppealFlow {
         }
     }
 
-    async completeReferenceNumber(clickContinue = false) {
-
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
-        await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
-        await this.ccdFormPage.setFieldValue('Own reference', 'some-ref');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
-
     async completeLegalRepresentativeDetails(clickContinue = false) {
 
         await this.ccdFormPage.runAccessbility();
@@ -343,10 +332,14 @@ export class StartAppealFlow {
         }
     }
 
-    async completeHowToPayNow(clickContinue = false) {
+    async completeHowToPay(clickContinue = false, choice) {
 
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.click('Pay using Payment by Account');
+        if (choice === 'now') {
+            await this.ccdFormPage.click('Pay Now');
+        } else if (choice === 'later') {
+            await this.ccdFormPage.click('Pay Later');
+        }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -403,10 +396,6 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hasFixedAddress = false, address = '', postcode = '', hearingOption = '') {
@@ -419,10 +408,6 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeHearingOption(true, hearingOption);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -435,12 +420,8 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayOffline(true, 'PA');
+        await this.completeHowToPay(true, 'later');
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -453,18 +434,10 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, 'no remission');
-        if (paymentChoice === 'now') {
-            await this.completeHowToPayNow(true);
-        } else if (paymentChoice === 'later') {
-            await this.completeHowToPayLater(true, appealType);
-        } else {
-            await this.completeHowToPayOffline(true, appealType);
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, paymentChoice);
         }
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveInitialNonPaymentAppealOutOfCountry(clickContinue = false, appealType = '', appellantInUk = '') {
@@ -483,10 +456,6 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveInitialAppealWithFeeOutOfCountry(clickContinue = false, appealType = '', remission = '', feeType = '', appellantInUk = '') {
@@ -508,13 +477,11 @@ export class StartAppealFlow {
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
         if (remission === 'no remission') {
-            await this.completeHowToPayOffline(true, 'PA');
+            if (appealType === 'PA') {
+                await this.completeHowToPay(true, 'later');
+            }
         }
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveInitialNonPaymentAppealOutOfCountryWithDecision(clickContinue = false, appealType = '', appellantInUk = '', decisionType = '', lateAppeal = '', hasAddress = 'Yes', hasSponsor = 'Yes') {
@@ -545,10 +512,6 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     // tslint:disable-next-line:max-line-length
@@ -580,12 +543,10 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, 'no remission');
-        await this.completeHowToPayOffline(true, appealType);
-        await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
         }
+        await this.completeCheckYourAnswers(true);
     }
 
     async saveInitialNonPaymentAppealOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
@@ -609,10 +570,6 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveInitialAppealWithFeeOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
@@ -637,12 +594,7 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'hearing fee');
         await this.completeRemissionDetails(true, 'no remission');
-        await this.completeHowToPayOffline(true, 'PA');
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveInitialAppealPayNowWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -655,12 +607,10 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayNow(true);
-        await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'now');
         }
+        await this.completeCheckYourAnswers(true);
     }
 
     async saveInitialAppealPayNowWithFeeOutOfTime(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -673,12 +623,10 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayNow(true);
-        await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'now');
         }
+        await this.completeCheckYourAnswers(true);
     }
 
     async saveInitialAppealWithFeeOutOfTime(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -691,12 +639,10 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayNow(true);
-        await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'now');
         }
+        await this.completeCheckYourAnswers(true);
     }
 
     async saveInitialAppealWithFeePayOffline(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -709,12 +655,10 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayOffline(true, appealType);
-        await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
         }
+        await this.completeCheckYourAnswers(true);
     }
 
     async saveInitialAppealWithFeePayLater(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -727,12 +671,10 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayLater(true, appealType);
-        await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
         }
+        await this.completeCheckYourAnswers(true);
     }
 
     async saveInitialOutOfTimeAppealWithFeePayOffline(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -745,12 +687,10 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayOffline(true, appealType);
-        await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
         }
+        await this.completeCheckYourAnswers(true);
     }
 
     async saveInitialOutOfTimeAppealWithFeePayLater(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -763,12 +703,10 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
-        await this.completeHowToPayLater(true, appealType);
-        await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+        if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
         }
+        await this.completeCheckYourAnswers(true);
     }
 
     async saveOutOfTimeAppeal(clickContinue = false) {
@@ -787,12 +725,8 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'without')
         await this.completeRemissionDetails(true, 'no remission');
-        await this.completeHowToPayNow(true);
+        await this.completeHowToPay(true, 'later');
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async completeClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
@@ -830,10 +764,6 @@ export class StartAppealFlow {
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async completeHearingOption(clickContinue = false, hearingOption = '') {
@@ -1059,10 +989,6 @@ export class StartAppealFlow {
         await this.clickContinueToNextStep(true); // completeOtherAppeals
         await this.clickContinueToNextStep(true); // legalDetails
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async editInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
@@ -1070,22 +996,16 @@ export class StartAppealFlow {
         await this.completeGivenFee(true, feeType);
         await this.completeRemissionDetails(true, remission);
         if (remission === 'no remission') {
-            await this.completeHowToPayNow(true);
+            if (appealType === 'PA') {
+                await this.completeHowToPay(true, 'now');
+            }
         }
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async editInitialNonPaymentAppeal(clickContinue = false, appealType = '', ) {
         await this.editClientDetails(false);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async clickContinueToNextStep(clickContinue = false) {
@@ -1116,12 +1036,7 @@ export class StartAppealFlow {
         await this.clickContinueToNextStep(true); // completeLegalRepresentativeDetails
         await this.clickContinueToNextStep(true); // completeGivenFee
         await this.clickContinueToNextStep(true); // completeRemissionDetails
-        await this.clickContinueToNextStep(true); // completeHowToPayNow
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async editInitialAppealAfterSubmitWithFeeOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
@@ -1140,10 +1055,6 @@ export class StartAppealFlow {
         await this.clickContinueToNextStep(true); // completeOtherAppeals
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async editInitialNonPaymentAppealOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
@@ -1167,19 +1078,11 @@ export class StartAppealFlow {
         await this.clickContinueToNextStep(true); // completeOtherAppeals
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveLegalRepAndContinueNonPaymentAppeal(clickContinue = false) {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
     }
 
     async saveLegalRepAndContinueWithFee(clickContinue = false, feeType = '', appealType = '') {
@@ -1188,7 +1091,9 @@ export class StartAppealFlow {
             await this.completeCheckYourAnswers(true);
         } else {
             await this.completeGivenFee(true, feeType);
-            await this.completeHowToPayOffline(true, appealType);
+            if (appealType === 'PA') {
+                await this.completeHowToPay(true, 'later');
+            }
             await this.completeCheckYourAnswers(true);
         }
 
