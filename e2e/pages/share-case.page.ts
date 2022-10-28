@@ -252,7 +252,7 @@ export class ShareCasePage {
         if (iaConfig.CcdWebUrl.includes('aat') ) {
             await ccdFormPage.setFieldValue(
                 'Case type',
-                'Appeal* master'
+                'Appeal* aip-noc-releas'
             );
         }
         if (iaConfig.CcdWebUrl.includes('demo') ) {
