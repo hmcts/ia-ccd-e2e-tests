@@ -1,5 +1,5 @@
 Feature: Pay and submit appeal by card - successful and failed payments (HU appeal type)
- # Note. cant be used in DEMO env
+
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
@@ -8,7 +8,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (HU appe
     And I click the `Close and Return to case details` button
     And I submit my appeal before paying
     And I wait for 10 seconds
-    Then I should see the text `You still need to pay for your appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
+    Then I should see the text `Then I should see the text `You need to pay for your appeal or the Tribunal will end the appeal.``
     When I click the `pay for your appeal` link
     And I wait for 5 seconds
     Then I should see the text `Not paid`
@@ -48,9 +48,9 @@ Feature: Pay and submit appeal by card - successful and failed payments (HU appe
     When I click the `Appeal` tab
     Then I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Paid` for the `Payment status` field
 
-  @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-hu-declined @nightly-test
+
+  @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-hu-declined
   Scenario: Pay and submit appeal - failed payment - declined (HU appeal type)
 
     When I type `4000000000000002` for the field with ID `card-no`

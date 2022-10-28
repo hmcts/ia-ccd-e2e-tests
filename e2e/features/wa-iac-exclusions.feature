@@ -5,10 +5,12 @@ Feature: Work allocation R2 exclusion scenarios
     And I create a new case
 
     And I save my initial HU appeal type without remission and with hearing fee and pay offline
+    And I click the `Close and Return to case details` button
+    Then I wait for 5 seconds
     And I submit my nonpayment appeal
     Then I wait for 10 seconds
 
-  @legal-Ops @RIA-4923 @legal-ops-exclude-himself 
+  @legal-Ops @RIA-4923 @legal-ops-exclude-himself
   Scenario: Legal-Ops excluding himself(exclude me)
 
     And  I switch to be a `Legal Ops A`
@@ -35,7 +37,7 @@ Feature: Work allocation R2 exclusion scenarios
     When I click the `Add` link for Exclusions
     Then I exclude my self from case
 
-  @judicial @RIA-4923 @judicial-exclude-another-person 
+  @judicial @RIA-4923 @judicial-exclude-another-person
   Scenario: Judicial excluding another person(exclude another person)
 
     And  I switch to be a `Judicial`

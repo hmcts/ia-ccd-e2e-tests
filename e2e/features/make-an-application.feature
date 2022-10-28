@@ -8,7 +8,7 @@ Feature: Legal representative make an application
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA
+    And I pay for and submit my appeal by PBA for a PA appeal type
     And I wait for 15 seconds
 
   @Make-an-application-at-appeal-submitted @RIA-3457-make-an-application-at-appeal-submitted @RIA-3457 @nightly-test

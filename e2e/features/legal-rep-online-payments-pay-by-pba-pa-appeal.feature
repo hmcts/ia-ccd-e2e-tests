@@ -8,8 +8,8 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (PA appea
     And I click the `Close and Return to case details` button
     And I submit my appeal before paying
     And I wait for 10 seconds
-    Then I should see the text `You still need to pay for your appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
-    When I click the `pay for your appeal` link
+    Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+    When I click the `Service request` link
     And I wait for 5 seconds
     Then I should see the text `Not paid`
     When I click the `Pay now` link
@@ -23,6 +23,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (PA appea
     And I select `PBA0087535` from the dropdown with ID `pbaAccountNumber`
     And I wait for 1 seconds
     And I type `Unique Reference` for the field with ID `pbaAccountRef`
+    And I hit Enter in the field with ID `pbaAccountRef`
     And I click the `Confirm payment` button
     And I wait for 5 seconds
     Then I should see the text `Payment successful`
@@ -36,7 +37,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (PA appea
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
-    And I should see `Paid` for the `Payment status` field
+
 
   @RIA-6104-pay-and-submit-pba-failed @RIA-6104-pay-and-submit-pba-failed-pa
   Scenario: Pay and submit appeal - failed payment (PA appeal type)

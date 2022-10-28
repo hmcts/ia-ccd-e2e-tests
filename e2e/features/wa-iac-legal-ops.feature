@@ -5,11 +5,13 @@ Background:
   And I create a new case
 
   And I save my initial HU appeal type without remission and with hearing fee and pay offline
+  And I click the `Close and Return to case details` button
+  Then I wait for 5 seconds
   And I submit my nonpayment appeal
   Then I wait for 10 seconds
   And I switch to be a `Legal Ops A`
 
-  @legal-Ops @RIA-4923 @legal-ops-reserve-to-me 
+  @legal-Ops @RIA-4923 @legal-ops-reserve-to-me
   Scenario: Legal-Ops allocating a role to himself(Reserve to me)
 
     When I click the `Roles and access` tab

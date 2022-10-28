@@ -352,3 +352,7 @@ Then(/^I go to the URL `?([^`]+)`?$/, async function (URL) {
 Then(/^I select `?([^`]+)`? from the dropdown with ID `?([^`]+)`?$/, async function (option, ID) {
     await ccdFormPage.typeText(ID, option);
 });
+
+Given('I restart the browser', async function () {
+    await browser.restart();
+});

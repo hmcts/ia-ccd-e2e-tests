@@ -13,18 +13,18 @@ When(/^I agree to the declaration$/, async function () {
 Then(/^I submit my appeal$/, async function () {
     await submitAppealFlow.submitAppeal(true);
     if (isfeePaymentEnabled) {
-        await payAndSubmitAppealFlow.payForAppealByPBA(true);
+        await payAndSubmitAppealFlow.payForAppealByPBA(true, 'PA');
     }
 });
 
-Then(/^I pay for and submit my appeal by PBA$/, async function () {
+Then(/^I pay for and submit my appeal by PBA for a (PA|non PA) appeal type$/, async function (PAorNot) {
     await submitAppealFlow.submitAppeal(true);
-    await payAndSubmitAppealFlow.payForAppealByPBA(true);
+    await payAndSubmitAppealFlow.payForAppealByPBA(true, PAorNot);
 });
 
-Then(/^I pay for and submit my appeal by Card$/, async function () {
+Then(/^I pay for and submit my appeal by Card for a (PA|non PA) appeal type$/, async function (PAorNot) {
     await submitAppealFlow.submitAppeal(true);
-    await payAndSubmitAppealFlow.payForAppealByCard(true);
+    await payAndSubmitAppealFlow.payForAppealByCard(true, PAorNot);
 });
 
 Then(/^I submit my nonpayment appeal$/, async function () {
