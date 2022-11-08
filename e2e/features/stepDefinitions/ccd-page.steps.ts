@@ -32,7 +32,7 @@ Given('I create a new case', async function () {
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* master'
+            'Appeal* aip-noc-releas'
         );
     }
 
@@ -79,7 +79,7 @@ Given('I Apply case list filter', async function () {
 //     if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* RIA-6377-Dupli'
+            'Appeal* aip-noc-releas'
         );
 //     }
     await ccdPage.doesDropdownHaveValues('State');

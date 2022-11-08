@@ -252,13 +252,13 @@ export class ShareCasePage {
         if (iaConfig.CcdWebUrl.includes('aat') ) {
             await ccdFormPage.setFieldValue(
                 'Case type',
-                'Appeal* aip-noc-releas'
+                'Appeal* master'
             );
         }
         if (iaConfig.CcdWebUrl.includes('demo') ) {
             await ccdFormPage.setFieldValue(
                 'Case type',
-                'Appeal* RIA-6377-Dupli'
+                'Appeal* aip-noc-releas'
             );
         }
         // await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
