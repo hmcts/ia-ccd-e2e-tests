@@ -24,4 +24,5 @@ Feature: Submit appeal application
     Then I should see the text `Your appeal has been submitted`
     When I click the `Close and Return to case details` button
     Then I should see the text `Case record`
+    And I restart the browser
 
