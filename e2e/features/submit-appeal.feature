@@ -11,7 +11,7 @@ Feature: Submit appeal application
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button
 
-  @xbrowsertest
+  @xbrowsertestappeals
   Scenario: Submit an appeal application
 
     And I select the `Submit your appeal` Next step
@@ -24,4 +24,5 @@ Feature: Submit appeal application
     Then I should see the text `Your appeal has been submitted`
     When I click the `Close and Return to case details` button
     Then I should see the text `Case record`
+    And I restart the browser
 
