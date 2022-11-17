@@ -20,7 +20,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I wait for 5 seconds
     Then I should see the text `Enter card details`
 
-  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-ea
+  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-eu
   Scenario: Pay and submit appeal - successful payment (EU appeal type)
     When I type `4444333322221111` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`
@@ -49,7 +49,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
 
 
-  @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-ea-declined
+  @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-eu-declined
   Scenario: Pay and submit appeal - failed payment - declined (EU appeal type)
 
     When I type `4000000000000002` for the field with ID `card-no`
@@ -69,7 +69,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     When I click the `Return to service request` link
     Then I should see the text `Not paid`
 
-  @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-ea-general-error
+  @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-eu-general-error
   Scenario: Pay and submit appeal - failed payment - technical problems (EU appeal type)
 
     When I type `4000000000000119` for the field with ID `card-no`
