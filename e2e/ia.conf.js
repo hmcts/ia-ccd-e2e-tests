@@ -58,6 +58,12 @@ module.exports = {
   TestLawFirmOrgDPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_D_PASSWORD,
   TestLawFirmOrgSuccessUserName: process.env.TEST_LAW_FIRM_ORG_SUCCESS_USERNAME,
   TestLawFirmOrgSuccessPassword: process.env.TEST_LAW_FIRM_ORG_SUCCESS_PASSWORD,
+  TestJudicialUserName: '330127EMP-@ejudiciary.net',
+  TestJudicialPassword: 'Hmcts1234',
+  TestLegalOpsAUserName: 'CRD_func_test_demo_stcwuser1@justice.gov.uk',
+  TestLegalOpsAPassword: 'AldgateT0wer',
+  TestWaAdminUserName: 'CRD_func_test_demo_adm44@justice.gov.uk',
+  TestWaAdminPassword: 'AldgateT0wer',
 
   TestAdminOfficerBailsUserName: process.env.TEST_ADMINOFFICER_BAILS_USERNAME,
   TestAdminOfficerBailsPassword: process.env.TEST_ADMINOFFICER_BAILS_PASSWORD,
