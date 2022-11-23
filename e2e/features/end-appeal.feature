@@ -4,14 +4,14 @@ Feature: End appeal
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
     And I create a new case
-    And I save my initial EU appeal type without remission and with hearing fee and pay now
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA for a PA appeal type
     And I wait for 15 seconds
 
-  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test @euss-failed-scenarios-rerun
+  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test
   Scenario: End appeal after submit appeal case officer
 
     And I switch to be a `Case Officer`
@@ -37,7 +37,7 @@ Feature: End appeal
 
     And I should see the ended appeal details
     And I should not see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Admin Officer`
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -45,7 +45,7 @@ Feature: End appeal
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should not see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     # When I switch to be a `Judge`
     # Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -53,7 +53,7 @@ Feature: End appeal
     # And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     # And I should see the ended appeal details
     # And I should not see the hearing details
-    # #And I should see the case details
+    # And I should see the case details
 
     # When I switch to be a `Legal Org User Rep A`
     # And I click the `Overview` tab
@@ -63,7 +63,7 @@ Feature: End appeal
     # And I should see the `Tell us what you think about the appeals service` link
     # And I should see the ended appeal details
     # And I should not see the hearing details
-    # #And I should see the case details
+    # And I should see the case details
 
     # When I switch to be a `<IAUser>`
     # And I click the `Overview` tab
@@ -72,7 +72,7 @@ Feature: End appeal
     # And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
     # And I should see the ended appeal details
     # And I should not see the hearing details
-    # #And I should see the case details
+    # And I should see the case details
 
     # Examples:
     #   | IAUser                |
@@ -108,7 +108,7 @@ Feature: End appeal
 
     And I should see the ended appeal details
     And I should not see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Admin Officer`
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -116,7 +116,7 @@ Feature: End appeal
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should not see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Judge`
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -124,7 +124,7 @@ Feature: End appeal
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should not see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
@@ -134,7 +134,7 @@ Feature: End appeal
     And I should see the `Tell us what you think about the appeals service` link
     And I should see the ended appeal details
     And I should not see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a <IAUser>
     And I click the `Overview` tab
@@ -143,7 +143,7 @@ Feature: End appeal
     And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should not see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     Examples:
       | IAUser                |
@@ -189,7 +189,7 @@ Feature: End appeal
 
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Admin Officer`
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -197,7 +197,7 @@ Feature: End appeal
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Judge`
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -205,7 +205,7 @@ Feature: End appeal
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
@@ -215,7 +215,7 @@ Feature: End appeal
     And I should see the `Tell us what you think about the appeals service` link
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a <IAUser>
     And I click the `Overview` tab
@@ -224,7 +224,7 @@ Feature: End appeal
     And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     Examples:
       | IAUser                |
@@ -270,7 +270,7 @@ Feature: End appeal
 
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Admin Officer`
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -278,7 +278,7 @@ Feature: End appeal
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Judge`
     Then I should only see the `caseOfficer_appealEnded` case progress image
@@ -286,7 +286,7 @@ Feature: End appeal
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
@@ -296,7 +296,7 @@ Feature: End appeal
     And I should see the `Tell us what you think about the appeals service` link
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     When I switch to be a <IAUser>
     And I click the `Overview` tab
@@ -305,7 +305,7 @@ Feature: End appeal
     And I should see the text `If a case worker has approved this decision, you can ask for it to be reviewed by a judge.`
     And I should see the ended appeal details
     And I should see the hearing details
-    #And I should see the case details
+    And I should see the case details
 
     Examples:
       | IAUser                |

@@ -5,8 +5,7 @@ Feature: Start decision and reasons
     Given I am signed in as a `Legal Org User Rep A`
     Then I wait for 30 seconds
     And I create a new case
-    And I wait for 15 seconds
-    And I save my initial EU appeal type without remission and with hearing fee and pay now
+    And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
@@ -19,8 +18,9 @@ Feature: Start decision and reasons
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
-    And I wait for 8 seconds
+    And I wait for 2 seconds
     And I build my case
+    And I submit my case
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
     And I request respondent review
@@ -43,7 +43,7 @@ Feature: Start decision and reasons
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
 
-  @regression @start-decision-and-reasons-yes-path @RIA-574 @nightly-test @euss-failed-scenarios-rerun
+  @regression @start-decision-and-reasons-yes-path @RIA-574 @nightly-test
   Scenario: Start decision and reasons
     When I select the `Start decision and reasons` Next step
     Then I should see the text `Start decision and reasons`

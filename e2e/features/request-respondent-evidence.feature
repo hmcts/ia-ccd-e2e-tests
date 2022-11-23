@@ -4,16 +4,16 @@ Feature: Request respondent evidence
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
     And I create a new case
-    And I wait for 15 seconds
-    And I save my initial EU appeal type without remission and with hearing fee and pay now
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA for a PA appeal type
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
+    And I request home office data
 
-  @regression @create-direction @RIA-892 @RIA-2694 @nightly-test @euss-failed-scenarios-rerun
+  @regression @create-direction @RIA-892 @RIA-2694 @nightly-test
   Scenario: Request respondent evidence
 
     And I click the `Overview` tab
