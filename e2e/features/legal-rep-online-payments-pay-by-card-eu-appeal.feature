@@ -20,7 +20,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I wait for 5 seconds
     Then I should see the text `Enter card details`
 
-  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-eu @nightly-test
+  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-eu
   Scenario: Pay and submit appeal - successful payment (EU appeal type)
     When I type `4444333322221111` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`

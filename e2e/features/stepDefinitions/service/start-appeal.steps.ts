@@ -63,9 +63,9 @@ Given('I complete the `Type of appeal` page', async function () {
     await startAppealFlow.completeAppealType(true);
 });
 
-Given('I complete the `EU appeal type` page', async function () {
+Given('I complete the `EA appeal type` page', async function () {
     expect(await ccdFormPage.headingContains('Type of appeal')).to.equal(true);
-    await startAppealFlow.completeGivenAppealType(true, 'EU');
+    await startAppealFlow.completeGivenAppealType(true, 'EA');
 });
 
 Given('I complete the `The grounds of your appeal` page', async function () {
