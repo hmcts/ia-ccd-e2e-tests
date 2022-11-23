@@ -5,7 +5,7 @@ Feature: Notice of Change (common component)
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
     And I create a new case
-    And I save my initial EA appeal type without remission and with hearing fee and pay now
+    And I save my initial EU appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`

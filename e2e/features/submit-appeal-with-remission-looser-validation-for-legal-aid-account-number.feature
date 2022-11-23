@@ -10,8 +10,7 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
     And I complete the `Tell us about your client's nationality` page
     And I complete the `Your client's address` page
     And I complete the `The appellant's contact preference` page
-    And I complete the `EA appeal type` page
-    And I complete the `EA appeal grounds` page
+    And I complete the `EU appeal type` page
     And I complete the `Deportation order` page
     And I complete the `New matters` page
     And I complete the `Has your client appealed against any other UK immigration decisions?` page

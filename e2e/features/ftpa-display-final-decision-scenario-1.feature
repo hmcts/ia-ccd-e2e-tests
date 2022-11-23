@@ -4,13 +4,12 @@ Feature: Final display for FTPA decision and reasons
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
     And I create a new case
-    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I save my initial EU appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA for a PA appeal type
+    And I pay for and submit my appeal by PBA for a non PA appeal type
     And I wait for 15 seconds
-    And I click the `Close and Return to case details` button
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
     And I request home office data
@@ -73,7 +72,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
-  @RIA-2919 @RIA-2919-scenario1 @nightly-test
+  @RIA-2919 @RIA-2919-scenario1 @nightly-test @euss-failed-scenarios-rerun
     #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 
