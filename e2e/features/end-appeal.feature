@@ -11,7 +11,7 @@ Feature: End appeal
     And I pay for and submit my appeal by PBA for a non PA appeal type
     And I wait for 15 seconds
 
-  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test
+  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test @euss-failed-scenarios-rerun
   Scenario: End appeal after submit appeal case officer
 
     And I switch to be a `Case Officer`
