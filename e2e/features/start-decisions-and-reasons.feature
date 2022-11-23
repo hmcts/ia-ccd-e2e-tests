@@ -19,9 +19,8 @@ Feature: Start decision and reasons
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
-    And I wait for 2 seconds
+    And I wait for 8 seconds
     And I build my case
-    And I submit my case
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
     And I request respondent review
