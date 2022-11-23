@@ -22,7 +22,6 @@ export class StartAppealFlow {
             await this.ccdFormPage.runAccessbility();
             await this.ccdFormPage.click('My client is living in the UK');
             await this.ccdFormPage.click('My client is not in detention');
-            await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
         }
 
         if (clickContinue) {
@@ -33,7 +32,6 @@ export class StartAppealFlow {
     async completeScreeningQuestionsOutOfCountry(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.click('My client is not in detention');
-        await this.ccdFormPage.click('My client is not appealing an EU Settlement Scheme decision');
 
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -217,6 +215,9 @@ export class StartAppealFlow {
         if (appealType === 'DC') {
             await this.ccdFormPage.setFieldValue('Type of appeal', 'Deprivation of citizenship');
         }
+        if (appealType === 'EU') {
+            await this.ccdFormPage.setFieldValue('Type of appeal', 'EU Settlement Scheme');
+        }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -351,7 +352,7 @@ export class StartAppealFlow {
         if (appealType === 'PA') {
             await this.ccdFormPage.setFieldValue('Select a payment method', 'Pay after submitting the appeal by card');
         }
-        if (appealType === 'EA' || appealType === 'HU') {
+        if (appealType === 'EA' || appealType === 'HU' || appealType === 'EU') {
             await this.ccdFormPage.click('Pay by card');
         }
 
@@ -401,7 +402,9 @@ export class StartAppealFlow {
     async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hasFixedAddress = false, address = '', postcode = '', hearingOption = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -413,7 +416,9 @@ export class StartAppealFlow {
     async saveInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false, hasFixedAddress, address, postcode);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -427,7 +432,9 @@ export class StartAppealFlow {
     async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false, hasFixedAddress, address, postcode);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -450,7 +457,9 @@ export class StartAppealFlow {
         await this.completeClientAddress(true, false, '', '');
         await this.completeContactPreference(true);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -469,7 +478,9 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeSponsorQuestion(true);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -488,7 +499,7 @@ export class StartAppealFlow {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, appellantInUk);
         await this.completeDecisionType(true, decisionType);
-        if (decisionType === 'refusalOfHumanRights') {
+        if (decisionType === 'refusalOfHumanRights' || decisionType === 'refusePermitOfEUSS') {
             await this.completeGlobalWebFormReference(true, 'GWF1234567', lateAppeal);
         } else if (decisionType === 'refusalOfProtection') {
             await this.completeDepartureDate(true, lateAppeal);
@@ -504,7 +515,9 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeSponsorQuestion(true, hasSponsor)
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         if (decisionType !== 'refusalOfHumanRights') {
             await this.completedDeportationOrder(true, appealType)
         }
@@ -534,7 +547,9 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeSponsorQuestion(true, hasSponsor);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         if (decisionType !== 'refusalOfHumanRights') {
             await this.completedDeportationOrder(true, appealType)
         }
@@ -600,7 +615,9 @@ export class StartAppealFlow {
     async saveInitialAppealPayNowWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -616,7 +633,9 @@ export class StartAppealFlow {
     async saveInitialAppealPayNowWithFeeOutOfTime(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeOutOfTimeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -632,7 +651,9 @@ export class StartAppealFlow {
     async saveInitialAppealWithFeeOutOfTime(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeOutOfTimeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -648,7 +669,9 @@ export class StartAppealFlow {
     async saveInitialAppealWithFeePayOffline(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completedDeportationOrder(true, appealType);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -664,7 +687,9 @@ export class StartAppealFlow {
     async saveInitialAppealWithFeePayLater(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completedDeportationOrder(true, appealType);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -680,7 +705,9 @@ export class StartAppealFlow {
     async saveInitialOutOfTimeAppealWithFeePayOffline(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeOutOfTimeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -696,7 +723,9 @@ export class StartAppealFlow {
     async saveInitialOutOfTimeAppealWithFeePayLater(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
         await this.completeOutOfTimeClientDetails(false);
         await this.completeGivenAppealType(true, appealType);
-        await this.completedGivenAppealGrounds(true, appealType);
+        if (appealType !== 'EU') {
+            await this.completedGivenAppealGrounds(true, appealType);
+        }
         await this.completeDeportationOrder(true);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
@@ -854,6 +883,10 @@ export class StartAppealFlow {
         if (decisionOption === 'removeClient') {
             await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
                 , 'A decision to remove your client under the Immigration (European Economic Area) Regulations 2016');
+        }
+        if (decisionOption === 'refusePermitOfEUSS') {
+            await this.ccdFormPage.setFieldValue('What type of decision are you appealing?'
+                , 'A decision to refuse a permit to enter the UK under the immigration rules and/or the EU Settlement Scheme.');
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
