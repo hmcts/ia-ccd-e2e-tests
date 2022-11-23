@@ -4,11 +4,11 @@ Feature: Legal representative make an application
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
     And I create a new case
-    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I save my initial EU appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA for a PA appeal type
+    And I pay for and submit my appeal by PBA for a non PA appeal type
     And I wait for 15 seconds
 
   @Make-an-application-at-appeal-submitted @RIA-3457-make-an-application-at-appeal-submitted @RIA-3457 @nightly-test

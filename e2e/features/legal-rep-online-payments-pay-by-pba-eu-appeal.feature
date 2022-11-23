@@ -18,7 +18,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (EU appea
     When I click the `Pay fee using Payment by Account (PBA)` label
     And I wait for 1 seconds
 
-  @RIA-6104-pay-and-submit-pba-successful @RIA-6104-pay-and-submit-pba-successful-eu
+  @RIA-6104-pay-and-submit-pba-successful @RIA-6104-pay-and-submit-pba-successful-eu @nightly-test
   Scenario: Pay and submit appeal - successful payment (EU appeal type)
     And I select `PBA0087535` from the dropdown with ID `pbaAccountNumber`
     And I wait for 1 seconds
