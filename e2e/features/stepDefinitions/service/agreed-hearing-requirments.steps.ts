@@ -41,7 +41,8 @@ Then(/^I should (see|not see) the requests for additional adjustments (yes|no) p
             expect(await ccdPage.contentContains('Explain in detail how any past experiences may affect them on the day?', Wait.instant)).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Do you have multimedia evidence?', 'Yes')).to.equal(true);
             expect(await ccdPage.contentContains(
-                'You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you\'ll need to play it.',
+                'You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you\'ll need to play it. (Optional)
+',
                 Wait.instant)).to.equal(true);
             expect(await ccdPage.isFieldValueDisplayed('Does the appellant need a single-sex court?', 'Yes')).to.equal(true);
             expect(await ccdPage.contentContains('What type of court do they need?', Wait.instant)).to.equal(true);
@@ -71,7 +72,8 @@ Then(/^I should (see|not see) the requests for additional adjustments (yes|no) p
         expect(await ccdPage.contentContains('Explain in detail how any past experiences may affect them on the day?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Do you have multimedia evidence?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains(
-            'You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you\'ll need to play it.',
+            'You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you\'ll need to play it. (Optional)
+',
             Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Does the appellant need a single-sex court?', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('What type of court do they need?', Wait.instant)).to.equal(false);

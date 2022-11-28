@@ -146,7 +146,8 @@ Feature: Record agreed hearing requirements
     And I type `Physical or mental health conditions will be reviewed` for the `Adjustments to accommodate vulnerabilities` field
     And I click the `Continue` button
     And I should see `Yes` in the `Do you have multimedia evidence?` field
-    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
+    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)
+` field
     And I should see the text `Tribunal response`
     And I type `Multimedia equipment requirement will be reviewed` for the `Multimedia equipment` field
     And I click the `Continue` button
