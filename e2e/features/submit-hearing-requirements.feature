@@ -252,8 +252,7 @@ Feature: Submit hearing requirements
     When I click the `Continue` button
     And I select `Yes` for the `Do you have multimedia evidence?` field
     Then the `Continue` button is disabled
-    When I type `The appellant has a video recording on a memory stick which needs to be played on a computer` for the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)
-` field
+    When I type `The appellant has a video recording on a memory stick which needs to be played on a computer` for the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)` field
     Then the `Continue` button is enabled
 
     When I click the `Continue` button
@@ -303,8 +302,7 @@ Feature: Submit hearing requirements
     And I should see `Yes` in the `Has the appellant had any past experiences that may impact them on the day?` field
     And I should see `The appellant is fearful of the law` in the `Explain in detail how any past experiences may affect them on the day?` field
     And I should see `Yes` in the `Do you have multimedia evidence?` field
-    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)
-` field
+    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)` field
     And I should see `Yes` in the `Does the appellant need a single-sex court?` field
     And I should see `All female` in the `What type of court do they need?` field
     And I should see `The appellant is fearful of men` in the `Explain in detail why the appellant needs a single-sex court.` field
