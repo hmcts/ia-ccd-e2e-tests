@@ -10,7 +10,7 @@ Feature: Work allocation R2 exclusion scenarios
     And I submit my nonpayment appeal
     Then I wait for 10 seconds
 
-  @legal-Ops @RIA-4923 @legal-ops-exclude-himself @work-allocation-3 @nightly-test
+  @legal-Ops @RIA-4923 @legal-ops-exclude-himself @work-allocation-3
   Scenario: Legal-Ops excluding himself(exclude me)
 
     And  I switch to be a `Legal Ops A`
@@ -19,7 +19,7 @@ Feature: Work allocation R2 exclusion scenarios
     When I click the `Add` link for Exclusions
     Then I exclude my self from case
 
-  @legal-Ops @RIA-4923 @legal-ops-exclude-another-person @work-allocation-3 @nightly-test
+  @legal-Ops @RIA-4923 @legal-ops-exclude-another-person @work-allocation-3
   Scenario: Legal-Ops excluding another person(exclude another person)
 
     And  I switch to be a `Legal Ops A`
@@ -28,7 +28,7 @@ Feature: Work allocation R2 exclusion scenarios
     When I click the `Add` link for Exclusions
     Then I Exclude another `Legal Ops` from case email text `IAC`
 
-  @judicial @RIA-4923 @judicial-exclude-himself @work-allocation-3 @nightly-test
+  @judicial @RIA-4923 @judicial-exclude-himself @work-allocation-3
   Scenario: Judicial excluding himself(exclude me)
 
     And  I switch to be a `Judicial`
@@ -37,7 +37,7 @@ Feature: Work allocation R2 exclusion scenarios
     When I click the `Add` link for Exclusions
     Then I exclude my self from case
 
-  @judicial @RIA-4923 @judicial-exclude-another-person@work-allocation-3 @nightly-test
+  @judicial @RIA-4923 @judicial-exclude-another-person@work-allocation-3
   Scenario: Judicial excluding another person(exclude another person)
 
     And  I switch to be a `Judicial`
@@ -47,7 +47,7 @@ Feature: Work allocation R2 exclusion scenarios
     Then I Exclude another `Judicial` from case email text `patel`
 
 
-  @admin @RIA-4923 @admin-exclude-himself @work-allocation-3 @nightly-test
+  @admin @RIA-4923 @admin-exclude-himself @work-allocation-3
   Scenario: Admin excluding himself(exclude me)
 
     And  I switch to be a `WaAdmin`
@@ -56,7 +56,7 @@ Feature: Work allocation R2 exclusion scenarios
     When I click the `Add` link for Exclusions
     Then I exclude my self from case
 
-  @admin @RIA-4923 @admin-exclude-another-person @work-allocation-3 @nightly-test
+  @admin @RIA-4923 @admin-exclude-another-person @work-allocation-3
   Scenario: Admin excluding another person(exclude another person)
 
     And  I switch to be a `Judicial`
