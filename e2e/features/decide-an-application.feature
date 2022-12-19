@@ -49,6 +49,7 @@ Feature: Case officer or Judge make an application
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now update the appeal details`
     When I click the `Close and Return to case details` button
+    And I wait for 5 seconds
 
     When I click the `Applications` tab
     And I should see the `Application` field

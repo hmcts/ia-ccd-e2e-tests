@@ -14,6 +14,7 @@ Feature: Upload additional evidence Home Office
     And I wait for 2 seconds
 #    And I request home office data
     And I request respondent evidence
+    And I wait for 5 seconds
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I wait for 5 seconds
