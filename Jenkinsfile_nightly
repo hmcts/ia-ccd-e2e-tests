@@ -82,7 +82,7 @@ withNightlyPipeline("nodejs", product, component) {
     enableCrossBrowserTest()
     enableFullFunctionalTest(240)
 
-    after('crossBrowserTest') {
+    afterAlways('crossBrowserTest') {
         publishHTML([
             allowMissing         : true,
             alwaysLinkToLastBuild: true,
@@ -93,7 +93,7 @@ withNightlyPipeline("nodejs", product, component) {
         ])
     }
 
-        after('fullFunctionalTest') {
+    afterAlways('fullFunctionalTest') {
         publishHTML([
             allowMissing         : true,
             alwaysLinkToLastBuild: true,

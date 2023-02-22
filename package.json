@@ -64,6 +64,7 @@
     "mixin-deep": "^2.0.1",
     "set-value": "^4.0.1",
     "yargs-parser": "^18.1.2",
-    "yargs": "^15.0.0"
+    "yargs": "^15.0.0",
+    "jszip": "^3.8.0"
   }
 }
