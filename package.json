@@ -31,8 +31,10 @@
     "codelyzer": "^4.5.0",
     "cucumber": "^6.0.0",
     "cucumber-pretty": "^6.0.0",
+    "decode-uri-component": "0.2.1",
     "jasmine-core": "^3.2.1",
     "jasmine-spec-reporter": "^4.2.1",
+    "minimist": "^1.2.3",
     "moment": "^2.29.4",
     "nsp": "^3.2.1",
     "pre-commit": "^1.2.2",
@@ -66,5 +68,6 @@
     "set-value": "^4.0.1",
     "yargs-parser": "^18.1.2",
     "yargs": "^15.0.0"
-  }
+  },
+  "packageManager": "yarn@3.6.0"
 }
