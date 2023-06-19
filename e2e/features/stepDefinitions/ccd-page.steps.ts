@@ -32,7 +32,7 @@ Given('I create a new case', async function () {
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* master'
+            'Appeal* ia-ccd-definit'
         );
     }
 
@@ -58,7 +58,7 @@ Given('I create a new bail application', async function () {
     // if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Bail* master'
+            'Bail* ia-bail-ccd-de'
         );
     // }
 
@@ -79,7 +79,7 @@ Given('I Apply case list filter', async function () {
     if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo') || iaConfig.CcdWebUrl.includes('pr')) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* master'
+            'Appeal* ia-ccd-definit'
         );
     }
     await ccdPage.doesDropdownHaveValues('State');
@@ -106,7 +106,7 @@ Given('I Apply case list filter for Bails', async function () {
     // if (iaConfig.CcdWebUrl.includes('aat') ) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Bail* master'
+            'Bail* ia-bail-ccd-de'
         );
     // }
 
