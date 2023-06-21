@@ -19,7 +19,7 @@ Feature: Bails Submit bail application as Legal Rep
     Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
     And I restart the browser
 
-  @xbrowsertest
+  @xbrowser
   Scenario: Submit a bails application then an appeal application
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
