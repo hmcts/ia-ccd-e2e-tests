@@ -5,20 +5,22 @@ Feature: End appeal
     And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 10 seconds
+    And I wait for 12 seconds
     And I click the `Close and Return to case details` button
+    And I wait for 4 seconds
     Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA for a PA appeal type
+    And I wait for 2 seconds
+    And I pay for and submit my appeal by Card for a PA appeal type
     And I wait for 15 seconds
 
-  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test
+  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test 
   Scenario: End appeal after submit appeal case officer
 
     And I switch to be a `Case Officer`
     Then I end the appeal
     And I wait for 5 seconds
 
-    And I click the `Documents` tab
+    And I goto the `Documents` tab
 
     And I should not see the `Upload additional evidence` link
     And I should not see the `Add additional evidence as an addendum` link
@@ -26,10 +28,10 @@ Feature: End appeal
     And within the `Tribunal documents` collection's first item, I should see `-Gonzlez-NoticeOfEndedAppeal.PDF` in the `Document` field
     And within the `Tribunal documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
 
-    When I click the `Directions` tab
+    When I goto the `Directions` tab
     And I should not see the `Send a new direction` link
     And I should not see the `Change a direction due date` link
-    When I click the `Overview` tab
+    When I goto the `Overview` tab
 
     Then I should only see the `caseOfficer_appealEnded` case progress image
 

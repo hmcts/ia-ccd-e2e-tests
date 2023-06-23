@@ -31,15 +31,16 @@ export class SubmitAppealFlow {
     }
 
     async submitAppeal(clickContinue = false) {
-
         await browser.sleep(1000)
         await this.ccdPage.selectNextStep('Submit your appeal');
+        await browser.sleep(1000);
         await this.ccdPage.click('Go');
+        // await this.ccdPage.click('Submit');
         await browser.sleep(5000)
-
-        await this.completeDeclaration(true);
-        await this.completeCheckYourAnswers(true);
-
+        await this.completeDeclaration(false);
+        await this.ccdPage.click('Submit');
+        await browser.sleep(5000);
+        // await this.completeCheckYourAnswers(true);
         if (clickContinue) {
             await this.ccdPage.click('Close and Return to case details');
         }
