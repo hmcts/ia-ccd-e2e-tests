@@ -4,6 +4,7 @@ import { ValueExpander } from '../helpers/value-expander';
 const AxeRunner = require('../helpers/accessibility/axe-runner');
 const iaConfig = require('../ia.conf');
 const BrowserWaits = require('../support/customWaits');
+const caseUrlMatcher = /^.*?\/cases\/case-details\/\d{16}/g;
 
 export class AnyPage {
 
@@ -327,5 +328,14 @@ export class AnyPage {
 
     async goToUrl(URL) {
         browser.driver.get(URL);
+    }
+
+    async gotoTabs(match: string) {
+        await browser.sleep(100);
+        const currentUrl = await this.getCurrentUrl();
+        let tabUrl = match.replace(/ /g, '%20');
+        const url = currentUrl.match(caseUrlMatcher)[0] + `#${tabUrl}`;
+        await this.goToUrl(url);
+        await this.refresh();
     }
 }

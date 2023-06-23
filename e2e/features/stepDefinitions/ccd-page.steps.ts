@@ -170,6 +170,10 @@ When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (link
     await ccdPage.hideSpinner();
     await ccdPage.click(linkText);
 });
+When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
+    await ccdPage.hideSpinner();
+    await ccdPage.gotoTabs(linkText);
+});
 
 When(/^I click the `?(first|second|third|)`?\s`?([^`]+)`? (?:button|link|tab|label)$/, async function (instanceNumber, linkText) {
 
