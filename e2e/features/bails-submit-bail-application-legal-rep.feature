@@ -11,7 +11,6 @@ Feature: Bails Submit bail application as Legal Rep
     Then I am on the `Submit the application` page
     And The page is accessible
     When I click the `The applicant has confirmed that the facts stated in this application are true.` label
-    And I click the `Continue` button
     And I click the `Submit` button
     Then I should see the text `You have submitted this application`
     When I click the `Close and Return to case details` button
@@ -25,7 +24,6 @@ Feature: Bails Submit bail application as Legal Rep
     Then I am on the `Submit the application` page
     And The page is accessible
     When I click the `The applicant has confirmed that the facts stated in this application are true.` label
-    And I click the `Continue` button
     And I click the `Submit` button
     Then I should see the text `You have submitted this application`
     When I click the `Close and Return to case details` button
@@ -40,7 +38,6 @@ Feature: Bails Submit bail application as Legal Rep
     And I wait for 5 seconds
     Then I should see the `Declaration` page
     And I agree to the declaration
-    And I click the `Continue` button
     When I click the `Submit` button
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been submitted`
