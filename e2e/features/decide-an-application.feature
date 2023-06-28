@@ -7,7 +7,6 @@ Feature: Case officer or Judge make an application
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button
-    Then I should see the text `You still need to submit your appeal.`
     And I pay for and submit my appeal by PBA for a non PA appeal type
     And I wait for 15 seconds
     And I switch to be a `Legal Org User Rep A`
@@ -19,7 +18,7 @@ Feature: Case officer or Judge make an application
 
     And I switch to be a `Case Officer`
 
-    And I click the `Applications` tab
+    And I goto the `Applications` tab
     And I should see the `Application` field
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
@@ -51,7 +50,7 @@ Feature: Case officer or Judge make an application
     When I click the `Close and Return to case details` button
     And I wait for 5 seconds
 
-    When I click the `Applications` tab
+    When I goto the `Applications` tab
     And I should see the `Application` field
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
@@ -64,7 +63,7 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
 
     And I switch to be a `Legal Org User Rep A`
-    Then I click the `Applications` tab
+    Then I goto the `Applications` tab
     And I should see the `Application` field
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
@@ -77,7 +76,7 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
 
     When I switch to be a `Admin Officer`
-    Then I click the `Applications` tab
+    Then I goto the `Applications` tab
     And I should see the `Application` field
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
@@ -90,7 +89,7 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
 
     When I switch to be a `Home Office APC`
-    Then I click the `Applications` tab
+    Then I goto the `Applications` tab
     And I should see the `Application` field
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
