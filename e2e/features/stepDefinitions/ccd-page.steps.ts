@@ -168,7 +168,15 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
 
 When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
     await ccdPage.hideSpinner();
-    await ccdPage.click(linkText);
+    if ( linkText === 'tab') {
+        await ccdPage.gotoTabs(linkText);
+    } else {
+        await ccdPage.click(linkText);
+    }
+});
+When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
+    await ccdPage.hideSpinner();
+    await ccdPage.gotoTabs(linkText);
 });
 When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
     await ccdPage.hideSpinner();

@@ -12,7 +12,7 @@ Feature: Link and Unlink appeal
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
 
-  @RIA-3291 @nightly-test
+  @RIA-3291 
   Scenario: Link and unlink an appeal
 
     When I select the `Link the appeal` Next step
@@ -54,7 +54,7 @@ Feature: Link and Unlink appeal
     When I click the `Overview` tab
     # Then I should not see the `Linked appeal` field
 
-  @RIA-3291 @nightly-test
+  @RIA-3291 
   Scenario: Unlink an appeal that is not already linked
 
     When I select the `Unlink the appeal` Next step
