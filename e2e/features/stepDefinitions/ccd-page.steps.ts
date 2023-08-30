@@ -172,7 +172,15 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
 
 When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
     await ccdPage.hideSpinner();
-    await ccdPage.click(linkText);
+    if ( linkText === 'tab') {
+        await ccdPage.gotoTabs(linkText);
+    } else {
+        await ccdPage.click(linkText);
+    }
+});
+When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
+    await ccdPage.hideSpinner();
+    await ccdPage.gotoTabs(linkText);
 });
 
 When(/^I click the `?(first|second|third|)`?\s`?([^`]+)`? (?:button|link|tab|label)$/, async function (instanceNumber, linkText) {
@@ -359,4 +367,14 @@ Then(/^I select `?([^`]+)`? from the dropdown with ID `?([^`]+)`?$/, async funct
 
 Given('I restart the browser', async function () {
     await browser.restart();
+});
+
+Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/, async function (flag, type) {
+    await ccdFormPage.click(type);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Complex Case');
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Create Flag');
+
 });

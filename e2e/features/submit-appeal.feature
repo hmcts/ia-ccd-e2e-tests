@@ -11,14 +11,14 @@ Feature: Submit appeal application
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button
 
-  @xbrowser
+  @xbrowser @nightly-test
   Scenario: Submit an appeal application
 
     And I select the `Submit your appeal` Next step
     And I wait for 5 seconds
     Then I should see the `Declaration` page
     And I agree to the declaration
-    And I click the `Continue` button
+    # And I click the `Continue` button
     When I click the `Submit` button
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been submitted`
