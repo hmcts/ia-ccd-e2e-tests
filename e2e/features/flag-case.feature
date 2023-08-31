@@ -51,7 +51,7 @@ Feature: Flag a case
 
   @RIA-3298
   Scenario: Additional information dialog is populated empty for non-existing flags
-    
+
     When I select the `Flag the case` Next step
     And I wait for 5 seconds
     Then I am on the `Flag the case` page
@@ -69,8 +69,8 @@ Feature: Flag a case
     And the `Additional information (Optional)` field should be empty
     And The page is accessible
 
-  
-  @regression @flag-case @RIA-1742 @nightly-test
+
+  @regression @flag-case @RIA-1742
   Scenario: Flag a case with multiple flags and additional information
 
     When I select the `Flag the case` Next step
@@ -111,7 +111,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-1742 
+  @regression @flag-case @RIA-1742
   Scenario: Flag a case with multiple flags and only single additional information
 
     When I select the `Flag the case` Next step
@@ -149,7 +149,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should not see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-3865 
+  @regression @flag-case @RIA-3865
   Scenario: Flag a case with 94B flag and additional information
 
     When I select the `Flag the case` Next step
@@ -203,7 +203,7 @@ Feature: Flag a case
 
     When I click the `Close and Return to case details` button
 
-  @regression @flag-case @remove-flag @RIA-2513 @nightly-test
+  @regression @flag-case @remove-flag @RIA-2513
   Scenario: Remove flag from a case
 
     When I select the `Remove a flag` Next step

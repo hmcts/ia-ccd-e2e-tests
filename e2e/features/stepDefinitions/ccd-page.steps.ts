@@ -372,9 +372,19 @@ Given('I restart the browser', async function () {
 Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/, async function (flag, type) {
     await ccdFormPage.click(type);
     await ccdFormPage.click('Next');
+    await browser.sleep(3000);
     await ccdFormPage.click('Complex Case');
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Create Flag');
 
+});
+
+Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
+    await ccdFormPage.click(flagtype);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.typeText(`flagComments`, `test case flage make it inactive`);
+    await ccdFormPage.click('Make inactive');
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Manage Flags');
 });

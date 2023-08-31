@@ -370,7 +370,7 @@ export class SubmitHearingRequirementsFlow {
             'Yes'
         );
         await this.ccdFormPage.setFieldValue(
-            'You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you\'ll need to play it.',
+            'You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you\'ll need to play it. (Optional)',
             'The appellant has a video recording on a memory stick which needs to be played on a computer',
             'text area'
         );
