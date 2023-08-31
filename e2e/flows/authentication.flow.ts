@@ -133,8 +133,8 @@ export class AuthenticationFlow {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
-            iaConfig.TestLawFirmOrgCreatorUserName,
-            iaConfig.TestLawFirmOrgCreatorPassword
+            iaConfig.TestLawFirmOrgAUserName,
+            iaConfig.TestLawFirmOrgAPassword
         );
     }
 
