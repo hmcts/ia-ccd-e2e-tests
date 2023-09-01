@@ -67,5 +67,17 @@ module.exports = {
   TestLawFirmOrgBBailsPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_B_BAILS_PASSWORD,
   isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
   isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false,
-  isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true'
+  isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true',
+
+  TestLawFirmOrgABailsUserName:'ia.legalrep.orgcreator@mailnesia.com',
+  TestLawFirmOrgABailsPassword:'AldgateT0wer',
+
+  TestHomeOfficeBailsUserName: 'ia.respondentbail.ccd1@mailnesia.com',
+  TestHomeOfficeBailsPassword: 'AldgateT0wer',
+
+  TestAdminOfficerBailsUserName: 'ia.adm1nofficer.4.ccd@mailnesia.com',
+  TestAdminOfficerBailsPassword: 'AldgateT0wer',
+
+  TestJudgeBailsUserName:'ia.iacjudge.4.ccd@mailnesia.com',
+  TestJudgeBailsPassword:'AldgateT0wer'
 };

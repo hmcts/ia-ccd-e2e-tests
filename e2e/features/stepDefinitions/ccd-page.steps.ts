@@ -386,3 +386,9 @@ Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/, async function (flag,
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Create Flag');
 });
+
+Then(/^I will update s94b flag$/, async function () {
+    await ccdFormPage.setFieldValue('Mark appeal as s94b?', 'Yes');
+    await ccdFormPage.click('Continue');
+    await ccdFormPage.click('Submit');
+});

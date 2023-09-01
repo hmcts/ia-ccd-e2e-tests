@@ -43,7 +43,7 @@ Feature: Add a case note
     And within the `Case notes` collection's first item, I should see `some case note subject` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `some case note description` for the `Case note` field
     And within the `Case notes` collection's first item, I should see `test.doc` for the `Document` field
-    And within the `Case notes` collection's first item, I should see `Case Officer` for the `User` field
+    And within the `Case notes` collection's first item, I should see `IAC Demo Stcw` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
     # When I click the `Add case note` link
