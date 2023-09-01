@@ -3,8 +3,12 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
-    And I save my initial appeal with appellant living in UK `Yes`
-    And I submit my appeal
+    And I save my initial HU appeal type without remission and with hearing fee and pay now
+    And I wait for 10 seconds
+    And I click the `Close and Return to case details` button
+    And I pay for and submit my appeal by Card for a non PA appeal type
+    And I wait for 15 seconds
+    # And I submit my appeal
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
@@ -15,7 +19,7 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
-
+    And I wait for 5 seconds
   @RIA-3825 @RIA-3825-in-country-no @in-country-submit-hearing-requirements-giving-evidence-no-path
   Scenario: Submit & update hearing requirements - Giving evidence from outside the UK (in country appeal)
 

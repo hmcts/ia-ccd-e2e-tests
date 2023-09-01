@@ -9,7 +9,6 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Close and Return to case details` button
     And I pay for and submit my appeal by PBA for a PA appeal type
     And I wait for 15 seconds
-    And I click the `Close and Return to case details` button
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
     And I request home office data
@@ -24,6 +23,7 @@ Feature: Final display for FTPA decision and reasons
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
+    And I wait for 5 seconds
     And I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
     And I submit hearing requirements with all yes when in country
@@ -73,7 +73,7 @@ Feature: Final display for FTPA decision and reasons
     And I wait for 2 seconds
 
   @RIA-2919 @RIA-2919-scenario1 @nightly-test
-    #  Granted / Granted (Final Decision: Granted - Scenario 1)
+  #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 
     Then I apply for appellant FTPA
@@ -167,14 +167,14 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
-    # When I switch to be a `Home Office LART`
-    # And I click the `Overview` tab
-    # And I should see the image `ftpaGranted.png`
+# When I switch to be a `Home Office LART`
+# And I click the `Overview` tab
+# And I should see the image `ftpaGranted.png`
 
-    # When I switch to be a `Home Office POU`
-    # And I click the `Overview` tab
-    # And I should see the image `ftpaGranted.png`
+# When I switch to be a `Home Office POU`
+# And I click the `Overview` tab
+# And I should see the image `ftpaGranted.png`
 
-    # When I switch to be a `Home Office APC`
-    # And I click the `Overview` tab
-    # And I should see the image `ftpaGranted.png`
+# When I switch to be a `Home Office APC`
+# And I click the `Overview` tab
+# And I should see the image `ftpaGranted.png`
