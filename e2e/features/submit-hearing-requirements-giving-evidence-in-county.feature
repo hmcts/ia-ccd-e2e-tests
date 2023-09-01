@@ -20,7 +20,7 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     And I request hearing requirements
     And I wait for 5 seconds
 
-  @RIA-3825 @RIA-3825-in-country-no @in-country-submit-hearing-requirements-giving-evidence-no-path @nightly-test43210
+  @RIA-3825 @RIA-3825-in-country-no @in-country-submit-hearing-requirements-giving-evidence-no-path
   Scenario: Submit & update hearing requirements - Giving evidence from outside the UK (in country appeal)
 
     And I switch to be a `Legal Org User Rep A`
