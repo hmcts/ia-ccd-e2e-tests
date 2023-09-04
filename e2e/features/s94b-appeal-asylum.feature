@@ -5,7 +5,7 @@ Feature: s94b appeal
         And I wait for 30 seconds
         And I create a new case
 
-    @regression  @nightly-test @nightly-test
+    @regression @caseflag @nightly-test @nightly-test
     Scenario: S94B appeal for PA Case
         And I save my initial PA appeal type without remission and with hearing fee and pay now
         And I wait for 12 seconds
@@ -30,7 +30,7 @@ Feature: s94b appeal
         When I goto the `Appeal` tab
         And I should see `Yes` in the `S94B appeal` field
 
-    @regression  @nightly-test @nightly-test43210
+    @regression @caseflag @nightly-test @nightly-test43210
     Scenario: S94B appeal for RP Case
         And I save my initial EA appeal type without remission and with hearing fee and pay now
         And I wait for 12 seconds
@@ -40,6 +40,7 @@ Feature: s94b appeal
         And I pay for and submit my appeal by PBA for a non PA appeal type
         And I wait for 15 seconds
         And I switch to be a `Case Officer`
+        And I refresh the page
         When I select the `Update s94b status` Next step
         Then I am on the `Update s94b status` page
         # And I will update s94b flag

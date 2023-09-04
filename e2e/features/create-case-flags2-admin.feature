@@ -1,4 +1,4 @@
-Feature: Create and manage Case Flags
+Feature: Create and manage Case Flags For Admin
 
     Background:
         Given I am signed in as a `Legal Org User Rep A`
