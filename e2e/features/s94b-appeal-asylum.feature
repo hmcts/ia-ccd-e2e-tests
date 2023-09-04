@@ -5,7 +5,7 @@ Feature: s94b appeal
         And I wait for 30 seconds
         And I create a new case
 
-    @regression @caseflag @nightly-test @nightly-test
+    @regression @caseflag @nightly-test
     Scenario: S94B appeal for PA Case
         And I save my initial PA appeal type without remission and with hearing fee and pay now
         And I wait for 12 seconds
@@ -30,7 +30,7 @@ Feature: s94b appeal
         When I goto the `Appeal` tab
         And I should see `Yes` in the `S94B appeal` field
 
-    @regression @caseflag @nightly-test @nightly-test43210
+    @regression @caseflag @nightly-test
     Scenario: S94B appeal for RP Case
         And I save my initial EA appeal type without remission and with hearing fee and pay now
         And I wait for 12 seconds

@@ -27,7 +27,10 @@ Feature: Create and manage Case Flags For Admin
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page
         And I have created a `Complex Case` Flag in `Case level`
+        Then I should see an alert confirming the case `has been updated with event: Create Flag`
         When I select the `Manage Flags` Next step
-        And I will make `RRO (Restricted Reporting Order / Anonymisation)` as In Active
+        And I will make `Complex Case` as In Active
+        Then I should see an alert confirming the case `has been updated with event: Manage Flag`
+
 
 
