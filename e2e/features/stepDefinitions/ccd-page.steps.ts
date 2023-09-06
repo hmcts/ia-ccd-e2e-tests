@@ -27,7 +27,7 @@ Given('I create a new case', async function () {
     if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* master'
+            'Appeal* ia-ccd-definit'
         );
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
@@ -55,12 +55,17 @@ Given('I create a new bail application', async function () {
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
 
-    // if (iaConfig.CcdWebUrl.includes('aat') ) {
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Bail* master'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Bail* ia-bail-ccd-de'
         );
-    // }
+    }
 
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
@@ -76,7 +81,12 @@ Given('I Apply case list filter', async function () {
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
-    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo') || iaConfig.CcdWebUrl.includes('pr')) {
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* ia-ccd-definit'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* ia-ccd-definit'
@@ -103,12 +113,17 @@ Given('I Apply case list filter for Bails', async function () {
             'Immigration & Asylum'
         );
     await ccdPage.doesDropdownHaveValues('Case type');
-    // if (iaConfig.CcdWebUrl.includes('aat') ) {
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Bail* master'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Bail* ia-bail-ccd-de'
         );
-    // }
+    }
 
     await ccdPage.doesDropdownHaveValues('State');
     await ccdFormPage.setFieldValue(

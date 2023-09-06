@@ -249,13 +249,12 @@ export class ShareCasePage {
             '//select[@id="wb-jurisdiction"]' +
             '/option[normalize-space()="Immigration & Asylum"]';
         await element(by.xpath(jurisdictionPath)).click();
-        if (iaConfig.CcdWebUrl.includes('aat') ) {
+        if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
             await ccdFormPage.setFieldValue(
                 'Case type',
-                'Appeal* master'
+                'Appeal* ia-ccd-definit'
             );
-        }
-        if (iaConfig.CcdWebUrl.includes('demo') ) {
+        } else if (iaConfig.CcdWebUrl.includes('demo')) {
             await ccdFormPage.setFieldValue(
                 'Case type',
                 'Appeal* ia-ccd-definit'
