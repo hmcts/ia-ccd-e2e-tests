@@ -9,7 +9,6 @@ export class AuthenticationFlow {
 
     async signInAsCaseOfficer() {
         await this.signOut();
-        await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(
             iaConfig.TestCaseOfficerUserName,
             iaConfig.TestCaseOfficerPassword
@@ -216,7 +215,7 @@ export class AuthenticationFlow {
     async signOut() {
         await browser.waitForAngularEnabled(false);
         await browser.driver.manage().deleteAllCookies();
-        await browser.get(iaConfig.CcdGatewayUrl + '/logout');
+        await browser.get(iaConfig.CcdWebUrl + '/auth/logout');
         await browser.get(iaConfig.CcdWebUrl + '/');
         await this.idamSignInPage.waitUntilLoaded();
     }
