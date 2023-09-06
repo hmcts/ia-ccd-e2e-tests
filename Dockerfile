@@ -1,4 +1,4 @@
-FROM hmcts.azurecr.io/hmcts/base/node/stretch-slim-lts-8
+FROM hmcts.azurecr.io/hmcts/base/node/18-buster-slim
 
 RUN apt-get update \
     && apt-get install -yyq ca-certificates \
