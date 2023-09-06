@@ -252,7 +252,7 @@ export class ShareCasePage {
         if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
             await ccdFormPage.setFieldValue(
                 'Case type',
-                'Appeal* ia-ccd-definit'
+                'Appeal* master'
             );
         } else if (iaConfig.CcdWebUrl.includes('demo')) {
             await ccdFormPage.setFieldValue(
