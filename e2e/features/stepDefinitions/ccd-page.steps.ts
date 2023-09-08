@@ -16,6 +16,8 @@ Given('I create a new case', async function () {
     await ccdPage.hideSpinner();
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
+    await ccdPage.acceptCookies();
+    await ccdPage.RetryableException();
     await browser.sleep(3000);
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);

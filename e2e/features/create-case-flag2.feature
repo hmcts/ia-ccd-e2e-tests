@@ -9,7 +9,7 @@ Feature: Create and manage Case Flags for TCW
         And I click the `Close and Return to case details` button
         Then I should see the text `You still need to submit your appeal.`
         And I pay for and submit my appeal by Card for a non PA appeal type
-        And I wait for 15 seconds
+        And I wait for 30 seconds
 
     @nightly-test @caseflag
     Scenario: Create a case Flag

@@ -142,4 +142,20 @@ export class CcdPage extends AnyPage {
             return false;
         }
     }
+
+    async acceptCookies() {
+      try {
+        await element(by.css('button[value=\'accept\']')).click();
+      } catch { }
+    }
+
+    async hideErrorMessages() {
+      while (true) {
+        try {
+          await element(by.xpath('//a[text()=\'Hide message\']')).click();
+        } catch (error) {
+          break;
+        }
+      }
+    }
 }
