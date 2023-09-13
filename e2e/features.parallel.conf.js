@@ -103,7 +103,7 @@ class BaseConfig {
       'fail-fast': iaConfig.FailFast,
       'nightly-tag': iaConfig.NightlyTag,
       'no-source': true,
-      retry: 2
+      retry: 10
     };
 
     this.onCleanUp = (results) => {
