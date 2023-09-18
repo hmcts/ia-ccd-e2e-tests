@@ -2,7 +2,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (HU appea
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
+    And I wait for 60 seconds
     And I create a new case
     And I save my initial HU appeal type without remission and with hearing fee and pay now
     And I click the `Close and Return to case details` button

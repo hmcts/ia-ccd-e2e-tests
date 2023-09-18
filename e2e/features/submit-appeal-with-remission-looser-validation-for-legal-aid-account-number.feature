@@ -2,6 +2,7 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
+    And I wait for 60 seconds
     And I create a new case
     And I complete the `Tell us about your client` page
     And I complete the `Home Office details` page

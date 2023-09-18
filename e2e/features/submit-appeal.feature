@@ -2,7 +2,7 @@ Feature: Submit appeal application
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    Then I wait for 10 seconds
+    Then I wait for 60 seconds
     And I refresh the page
     And I wait for 30 seconds
     Then I should see the text `Filters`

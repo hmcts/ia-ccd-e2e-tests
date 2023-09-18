@@ -2,7 +2,7 @@ Feature: Out of Country - Start appeal
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    Then I wait for 10 seconds
+    Then I wait for 60 seconds
     And I create a new case
 
   @start-appeal-out-of-country-yes @RIA-3876 

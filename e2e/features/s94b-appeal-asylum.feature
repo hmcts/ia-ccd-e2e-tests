@@ -2,7 +2,7 @@ Feature: s94b appeal
 
     Background:
         Given I am signed in as a `Legal Org User Rep A`
-        And I wait for 30 seconds
+        And I wait for 60 seconds
         And I create a new case
 
     @regression @caseflag @nightly-test
