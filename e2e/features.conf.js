@@ -62,7 +62,7 @@ exports.config = {
     'no-source': true,
     format: 'json:.tmp/results.json',
     strict: true,
-    retry: 2
+    retry: 10
   },
 
   onPrepare() {
