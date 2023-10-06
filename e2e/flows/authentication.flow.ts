@@ -1,4 +1,4 @@
-import { browser } from 'protractor';
+import { browser, element, protractor, by } from 'protractor';
 import { IdamSignInPage } from '../pages/idam-sign-in.page';
 
 const iaConfig = require('../ia.conf');
@@ -274,5 +274,24 @@ export class AuthenticationFlow {
                iaConfig.TestLawFirmOrgBUserName,
                iaConfig.TestLawFirmOrgBPassword
         )}
+    }
+
+    async checkExUiLoaded() {
+        let EC = protractor.ExpectedConditions;
+        await browser.wait(EC.visibilityOf(element(by.linkText('Sign out'))), 30000);
+        await browser.wait(EC.visibilityOf(element(by.linkText('Filters'))), 30000);
+        await browser.wait(EC.invisibilityOf(element(by.css('div.spinner'))), 30000);
+    }
+
+    async signInWithExUiLoad(signInType) {
+        for (let i = 0; i < 5; i++) {
+            try {
+                await signInType();
+                await this.checkExUiLoaded();
+                break;
+            } catch {
+                console.log('Unsuccessful log in');
+            }
+        }
     }
 }

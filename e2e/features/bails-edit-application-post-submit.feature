@@ -1,8 +1,7 @@
 Feature: Bails Edit application postSubmit
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
-    And I wait for 60 seconds
-   And I create a new bail application
+    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`

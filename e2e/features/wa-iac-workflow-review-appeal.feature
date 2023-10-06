@@ -2,7 +2,6 @@ Feature: Work allocation Task list and Task Manager for review appeal
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    Then I wait for 10 seconds
     And I create a new case
 
   @Task-created @RIA-4605-DC-AppealSubmitted

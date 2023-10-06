@@ -2,7 +2,6 @@ Feature: Out of Country - Edit appeal
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
     And I create a new case
 
   @edit-appeal-out-of-country-yes @RIA-3878

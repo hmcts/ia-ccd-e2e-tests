@@ -2,7 +2,6 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
     And I create a new case
     And I save my initial EU appeal type without remission and with hearing fee and pay now
     And I click the `Close and Return to case details` button

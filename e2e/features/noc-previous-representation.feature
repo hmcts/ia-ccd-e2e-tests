@@ -48,7 +48,6 @@ Feature: Notice of Change (common component) - Previous Representation
     And I get the most recent case id for removing representation
 
     Given I am signed in as a `Legal Org User Rep C`
-    And I wait for 5 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
@@ -122,7 +121,6 @@ Feature: Notice of Change (common component) - Previous Representation
     And I click the `Close and Return to case details` button
 
     Given I am signed in as a `Legal Org User Rep C`
-    And I wait for 5 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
@@ -197,7 +195,6 @@ Feature: Notice of Change (common component) - Previous Representation
     Given I am signed in as a `Case Officer`
 
     Given I am signed in as a `Legal Org User Rep C`
-    And I wait for 5 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number

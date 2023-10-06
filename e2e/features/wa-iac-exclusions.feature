@@ -1,7 +1,6 @@
 Feature: Work allocation R2 exclusion scenarios
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    Then I wait for 10 seconds
     And I create a new case
 
     And I save my initial HU appeal type without remission and with hearing fee and pay offline
