@@ -289,8 +289,9 @@ export class AuthenticationFlow {
                 await signInType();
                 await this.checkExUiLoaded();
                 break;
-            } catch {
+            } catch (err) {
                 console.log('Unsuccessful log in');
+                console.log(err);
             }
         }
     }
