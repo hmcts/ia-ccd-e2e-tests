@@ -122,7 +122,7 @@ Feature: SnL Flow submit hearing requirements
     And I should see the text `Requests for additional adjustments`
     And I should see the text `Record of requirements and requests`
 
-  @nightly-test43210
+ 
   Scenario: SnL flow Submit hearing requirements with 'Yes' options selected
 
     When I click the `Continue` button

@@ -16,7 +16,7 @@ export class CcdWriteMultiSelectListFieldFinder implements FieldFinder {
         const fieldContainer =
             container
                 .all(by.xpath(
-                    './/span[contains(@class, "form-label") and normalize-space()="' + fieldLabel + '"]' +'/ancestor::ccd-field-write[position()=1]'
+                    './/span[contains(@class, "form-label") and normalize-space()="' + fieldLabel + '"]' + '/ancestor::ccd-field-write[position()=1]'
                 ))
                 .get(instanceNumber - 1);
 

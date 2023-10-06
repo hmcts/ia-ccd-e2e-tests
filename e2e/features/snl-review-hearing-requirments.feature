@@ -26,7 +26,7 @@ Feature: SnL Flow submit hearing requirements
     And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
     And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
-@nightly-test43210
+  @nightly-test43210
   Scenario: SnL flow Review hearing requirements with 'Agreed' options selected
 
     When I click the `Continue` button
@@ -184,5 +184,68 @@ Feature: SnL Flow submit hearing requirements
     When I click the `Submit` button
     When I click the `Close and Return to case details` button
 
+    # Review hearing requirements (placeholder)
+    # This flow requires testing for the field display changes
     And I switch to be a `Case Officer`
     When I select the `Hearing requirements` Next step
+    And I should see the `Hearing requirements` page
+    And I should see `3 hours` in the `Length` field
+    And I click the `Continue` button
+    And I click the `Granted` button
+    And I type `Remote hearing requirement will be reviewed` for the `Remote hearing` field
+    And I click the `Continue` button
+    And I click the `Granted` button
+    And I type `Physical or mental health conditions will be reviewed` for the `Adjustments to accommodate vulnerabilities` field
+    And I click the `Continue` button
+    And I click the `Granted` button
+    And I type `Multimedia equipment requirement will be reviewed` for the `Multimedia equipment` field
+    And I click the `Continue` button
+    And I click the `Granted` button
+    And I type `Single sex court requirement will be reviewed` for the `Single-sex court` field
+    And I click the `Continue` button
+    And I click the `Granted` button
+    And I type `Private hearing requirement will be reviewed` for the `In camera court` field
+    And I click the `Continue` button
+    And I click the `Granted` button
+    And I type `Additional adjustments requirement will be reviewed` for the `Other adjustments` field
+    And I click the `Continue` button
+    And I should see the text `What type of hearing is required?`
+    And I should see the text `In Person`
+    And I should see the text `Not in Attendance`
+    And I should see the text `On the Papers`
+    And I should see the text `Telephone`
+    And I should see the text `Video`
+    And I click the `In Person` button
+    And I click the `Continue` button
+    And I select `Yes` for the `Are there any additional instructions for the hearing?` field    
+    And I type `Adding Additional instructions for the test` for the `Additional Instructions` field
+    And I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And I should see `3 hours` for the `Length` field
+    And I should see `Granted` for the `Remote hearing decision` field
+    And I should see `Remote hearing requirement will be reviewed` for the `Remote hearing` field
+
+    And I should see `Granted` for the `Vulnerabilities decision` field
+    And I should see `Physical or mental health conditions will be reviewed` for the `Adjustments to accommodate vulnerabilities` field
+   
+   And I should see `Granted` for the `Multimedia decision` field
+    And I should see `Multimedia equipment requirement will be reviewed` for the `Multimedia equipment` field
+   
+   And I should see `Granted` for the `Single-sex court decision` field
+    And I should see `Single sex court requirement will be reviewed` for the `Single-sex court` field
+   
+   And I should see `Granted` for the `In camera court decision` field
+    And I should see `Private hearing requirement will be reviewed` for the `In camera court` field
+   
+   And I should see `Granted` for the `Other adjustments decision` field
+    And I should see `Additional adjustments requirement will be reviewed` for the `Other adjustments` field
+   
+   And I should see `In Person` for the `What type of hearing is required?` field
+    
+    And I should see `Yes` for the `Are there any additional instructions for the hearing?` field
+    And I should see `Adding Additional instructions for the test` for the `Additional Instructions` field
+   
+    And I click the `Submit` button
+    And I click the `Close and Return to case details` button
+
+    

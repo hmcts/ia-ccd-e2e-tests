@@ -42,7 +42,6 @@ export class Fields {
     ];
 
     private readonly fieldFinders: FieldFinder[] = [
-
         // TL;DR *order is important*
 
         // the following fields are searched in order of
