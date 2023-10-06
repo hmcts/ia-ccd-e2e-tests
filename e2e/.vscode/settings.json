@@ -1,0 +1,18 @@
+{
+
+    "cucumber.features": ["e2e/features/*.feature"],
+    "cucumber.glue": ["e2e/features/stepDefinitions/*.ts",
+    "e2e/features/stepDefinitions/service/*.ts",],
+    "cucumberautocomplete.steps": [
+     "e2e/features/stepDefinitions/*.ts",
+    "e2e/features/stepDefinitions/service/*.ts",
+    ],
+    "cucumberautocomplete.syncfeatures": "e2e/features/*.feature",
+    "cucumberautocomplete.strictGherkinCompletion": false,
+    "cucumberautocomplete.smartSnippets": true,
+    "cucumberautocomplete.stepsInvariants": true,
+    "editor.fontSize": 18,
+    "cucumberautocomplete.customParameters": [
+        
+    ],
+}

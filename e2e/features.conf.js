@@ -8,7 +8,7 @@ const path = require('path');
 exports.config = {
 
   baseUrl: iaConfig.CcdWebUrl,
-  specs: ['./features/*.feature'],
+  specs: ['./features/*.feature','./features/schedulingAndListing/*.feature'],
   allScriptsTimeout: 120000,
   getPageTimeout: 120000,
 
@@ -58,7 +58,7 @@ exports.config = {
     tags: false,
     profile: false,
     'fail-fast': iaConfig.FailFast,
-    'nightly-tag': iaConfig.NightlyTag,
+    'nightly-tag': '@nightly-test43210',
     'no-source': true,
     format: 'json:.tmp/results.json',
     strict: true,

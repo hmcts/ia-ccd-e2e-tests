@@ -29,7 +29,7 @@ Given('I create a new case', async function () {
     if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
         await ccdFormPage.setFieldValue(
             'Case type',
-            'Appeal* master'
+            'Appeal* ia-ccd-definit'
         );
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
         await ccdFormPage.setFieldValue(
@@ -269,7 +269,7 @@ Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?(?:answ
         ).to.equal(true);
     });
 
-Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field)$/,
+Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|fourth|fifth|)`?\s?`?([^`]+)`? (?:answer|field)$/,
     async function (
         fieldMatch,
         inOrFor,

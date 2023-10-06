@@ -312,7 +312,9 @@ export class StartAppealFlow {
 
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
-        await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
+        await this.ccdFormPage.setFieldValue('Given names', 'Stephen Fenn');
+        await this.ccdFormPage.setFieldValue('Family name', 'Fenn');
+        await this.ccdFormPage.setFieldValue('Contact number', '07060021700');
         await this.ccdFormPage.setFieldValue('Own reference', 'ia-legal-fenn');
 
         if (clickContinue) {
