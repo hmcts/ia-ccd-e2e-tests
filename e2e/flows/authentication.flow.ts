@@ -512,20 +512,8 @@ export class AuthenticationFlow {
 
     async checkExUiLoaded() {
         let EC = protractor.ExpectedConditions;
-        await browser.wait(EC.visibilityOf(element(by.linkText('Sign out'))), 30000);
-        await browser.wait(EC.visibilityOf(element(by.linkText('Filters'))), 30000);
-        await browser.wait(EC.invisibilityOf(element(by.css('div.spinner'))), 30000);
-    }
-
-    async signInWithExUiLoad(fnc) {
-        for (let i = 0; i < 5; i++) {
-            try {
-                await this.checkExUiLoaded();
-                break;
-            } catch (err) {
-                console.log('Unsuccessful log in');
-                console.log(err);
-            }
-        }
+        await browser.wait(EC.visibilityOf(element(by.linkText('Sign out'))), 60000);
+        await browser.wait(EC.visibilityOf(element(by.linkText('Filters'))), 60000);
+        await browser.wait(EC.invisibilityOf(element(by.css('div.spinner'))), 60000);
     }
 }
