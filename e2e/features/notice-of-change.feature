@@ -9,7 +9,7 @@ Feature: Notice of Change (common component)
     And I click the `Close and Return to case details` button
     Then I should see the text `You still need to submit your appeal.`
     And I get the most recent case id for the notice of change case
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 15 seconds
 
   @notice-of-change @noc-incorrect-answers-same-org @noc-incorrect-firstname-same-org @RIA-3745 @nightly-test

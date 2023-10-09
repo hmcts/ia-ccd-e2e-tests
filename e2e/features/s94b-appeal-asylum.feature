@@ -12,7 +12,7 @@ Feature: s94b appeal
         And I click the `Close and Return to case details` button
         And I wait for 5 second
         Then I should see the text `You still need to submit your appeal.`
-        And I pay for and submit my appeal by PBA for a PA appeal type
+        And I pay for and submit my appeal by Card for a PA appeal type
         And I wait for 15 seconds
         And I switch to be a `Case Officer`
         When I select the `Update s94b status` Next step
@@ -37,7 +37,7 @@ Feature: s94b appeal
         And I click the `Close and Return to case details` button
         And I wait for 5 second
         Then I should see the text `You still need to submit your appeal.`
-        And I pay for and submit my appeal by PBA for a non PA appeal type
+        And I pay for and submit my appeal by Card for a non PA appeal type
         And I wait for 15 seconds
         And I switch to be a `Case Officer`
         And I refresh the page

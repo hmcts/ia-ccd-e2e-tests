@@ -8,7 +8,7 @@ Feature: Add a case note
     And I click the `Close and Return to case details` button
     And I wait for 5 second
     Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 15 seconds
 
   @regression @add-case-note @RIA-575 @nightly-test
