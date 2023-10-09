@@ -41,6 +41,5 @@ export class ForceACaseProgressionFlow {
         if (clickContinue) {
             await this.ccdFormPage.click('Close and Return to case details');
         }
-    }
-    
+    }    
 }

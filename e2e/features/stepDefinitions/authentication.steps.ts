@@ -94,7 +94,7 @@ Given(/^I am signed in as(?:| a) `?(?:|Legal Org2 User Rep)(?:| Creator)`?$/, as
 
 Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
     await browser.sleep(100);
-    const currentUrl = "https://xui-ia-case-api-pr-1497.preview.platform.hmcts.net/cases/case-details/1696592711411390";
+    const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsCaseOfficer();
     await browser.sleep(100);

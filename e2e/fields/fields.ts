@@ -28,7 +28,6 @@ import { AnyPage } from '../pages/any.page';
 import { CcdWriteMultiSelectListFieldFinder } from './ccd-write-multi-select-list-field-finder';
 import { CcdWriteTelFieldFinder } from './ccd-write-tel-field-finder';
 
-
 export class Fields {
 
     private readonly collectionItemFinders: CollectionItemFinder[] = [
