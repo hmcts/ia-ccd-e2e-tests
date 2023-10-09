@@ -20,6 +20,10 @@ Given(/^I am signed in as a `?Case (?:Officer|Worker)`?$/, async function () {
     await authenticationFlow.signInWithExUiLoad(authenticationFlow.signInAsCaseOfficer);
 });
 
+Given('I test this thing', async function () {
+    await authenticationFlow.testfunction(authenticationFlow.testvariable);
+});
+
 Given(/^I am signed in as a `?(?:Admin Officer)`?$/, async function () {
     await authenticationFlow.signInWithExUiLoad(authenticationFlow.signInAsAdminOfficer);
 });

@@ -295,4 +295,12 @@ export class AuthenticationFlow {
             }
         }
     }
+
+    async testfunction(b) {
+        await b();
+    }
+
+    async testvariable() {
+        console.log('hello');
+    }
 }
