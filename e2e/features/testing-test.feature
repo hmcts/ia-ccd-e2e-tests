@@ -2,5 +2,5 @@ Feature: Testytest
 
   @testy-test
   Scenario: Testytest
-    Given I test this thing
+    Given I am signed in as a `Case Officer`
 
