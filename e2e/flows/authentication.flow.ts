@@ -283,10 +283,10 @@ export class AuthenticationFlow {
         await browser.wait(EC.invisibilityOf(element(by.css('div.spinner'))), 30000);
     }
 
-    async signInWithExUiLoad(signInType) {
+    async signInWithExUiLoad(fnc) {
         for (let i = 0; i < 5; i++) {
             try {
-                await signInType();
+                await fnc();
                 await this.checkExUiLoaded();
                 break;
             } catch (err) {
