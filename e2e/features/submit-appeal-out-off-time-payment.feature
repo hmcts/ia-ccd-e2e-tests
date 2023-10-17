@@ -14,7 +14,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I should see the text `You've missed the deadline for appealing.`
     And I should see the text `You can ask for permission to appeal outside of the deadline.`
@@ -32,7 +32,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `Payment successful`
     And I should see the text `Payment reference number`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button
@@ -48,7 +48,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I should see the text `You've missed the deadline for appealing.`
     And I should see the text `You can ask for permission to appeal outside of the deadline.`
@@ -66,7 +66,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `Payment successful`
     And I should see the text `Payment reference number`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button
@@ -82,7 +82,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I should see the text `You've missed the deadline for appealing.`
     And I should see the text `You can ask for permission to appeal outside of the deadline.`
@@ -100,7 +100,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `Payment successful`
     And I should see the text `Payment reference number`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button

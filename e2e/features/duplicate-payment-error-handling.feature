@@ -72,7 +72,7 @@ Feature: Duplicate payment error handling
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     When I click the `Pay now` button
@@ -95,7 +95,7 @@ Feature: Duplicate payment error handling
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     And I click the `I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.` label
@@ -120,7 +120,7 @@ Feature: Duplicate payment error handling
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     And I click the `I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.` label

@@ -5,7 +5,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I create a new case
 
   @successful-payment-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
-  Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087535)
+  Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087412)
 
     And I save my initial PA appeal type with no remission and with hearing fee and pay later
     And I submit my nonpayment appeal
@@ -15,7 +15,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     When I click the `Pay now` button
@@ -25,7 +25,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `Payment successful`
     And I should see the text `Payment reference number`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button
@@ -86,7 +86,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
   @successful-payment-for-PA-appeal-type-without-hearing-fee @RIA-3163-PA @RIA-3163
-  Scenario: Make a successful payment for PA appeal type without hearing fee after appeal submitted state (PBA0087535)
+  Scenario: Make a successful payment for PA appeal type without hearing fee after appeal submitted state (PBA0087412)
 
     And I save my initial PA appeal type with no remission and without hearing fee and pay later
     And I submit my nonpayment appeal
@@ -96,7 +96,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `The fee for an appeal without a hearing is £80`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     When I click the `Pay now` button
@@ -106,7 +106,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `Payment successful`
     And I should see the text `Payment reference number`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£80`
     And I click the `Close and Return to case details` button
@@ -168,7 +168,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
 
 
   @failed-payment-account-deleted-for-PA-appeal-type-with-hearing-fee @RIA-3163-PA @RIA-3163
-  Scenario: Failed payment for PA appeal type with hearing fee after appeal submitted state - account deleted (PBA0087535)
+  Scenario: Failed payment for PA appeal type with hearing fee after appeal submitted state - account deleted (PBA0087412)
 
     And I save my initial PA appeal type with no remission and with hearing fee and pay later
     And I submit my nonpayment appeal
@@ -178,7 +178,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     When I click the `Pay now` button
@@ -189,7 +189,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `Payment reference number`
     And I should see the text `RC-1590-6786-1063-9996`
     And I should see the text `Payment by account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I should see the text `Reason for failed payment`
@@ -336,7 +336,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see `Pay after submitting the appeal using Payment by Account` for the `Payment method` field
 
   @pay-later-avoid-pay-twice @RIA-3409
-  Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087535)
+  Scenario: Make a successful payment for PA appeal type with hearing fee after appeal submitted state (PBA0087412)
 
     And I save my initial PA appeal type with no remission and with hearing fee and pay later
     And I submit my nonpayment appeal
@@ -346,7 +346,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `The fee for an appeal with a hearing is £140`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     When I click the `Pay now` button
@@ -356,7 +356,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `Payment successful`
     And I should see the text `Payment reference number`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button

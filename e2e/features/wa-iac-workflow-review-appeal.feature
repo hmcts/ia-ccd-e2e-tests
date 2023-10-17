@@ -56,7 +56,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
     Then I should see the `Select PBA number` page
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
@@ -79,7 +79,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
@@ -119,7 +119,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
@@ -138,7 +138,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
@@ -151,7 +151,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
 
     And I switch to be a `Legal Org User Rep A`
     And I select the `Make a payment` Next step
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I click the `Continue` button
     And I click the `Pay now` button
@@ -168,7 +168,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
@@ -181,7 +181,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
 
     And I switch to be a `Legal Org User Rep A`
     And I select the `Make a payment` Next step
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I click the `Continue` button
     And I click the `Pay now` button
@@ -198,7 +198,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
@@ -233,7 +233,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button

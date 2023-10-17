@@ -19,7 +19,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (EA appea
 
   @RIA-6104-pay-and-submit-pba-successful @RIA-6104-pay-and-submit-pba-successful-ea
   Scenario: Pay and submit appeal - successful payment (EA appeal type)
-    And I select `PBA0087535` from the dropdown with ID `pbaAccountNumber`
+    And I select `PBA0087412` from the dropdown with ID `pbaAccountNumber`
     And I wait for 1 seconds
     And I type `Unique Reference` for the field with ID `pbaAccountRef`
     And I hit Enter in the field with ID `pbaAccountRef`
