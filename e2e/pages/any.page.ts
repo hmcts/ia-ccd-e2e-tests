@@ -347,9 +347,6 @@ export class AnyPage {
     }
 
     async stopSpinnerLoad() {
-      [].forEach.call(document.querySelectorAll('.spinner-container'), function (el) {
-        el.style.visibility = 'hidden';
-        el.style.display = 'none';
-      });
+        await browser.executeScript(`[].forEach.call(document.querySelectorAll('.spinner-container'), function (el) { el.style.visibility = 'hidden'; el.style.display = 'none'; });`);
     }
 }
