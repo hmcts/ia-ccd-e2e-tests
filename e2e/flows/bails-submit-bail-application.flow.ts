@@ -11,7 +11,7 @@ export class SubmitBailApplicationFlow {
         await this.ccdFormPage.selectNextStep('Submit the application');
         await this.ccdFormPage.click('Go');
         if (user === 'Legal Rep') {
-            await this.ccdPage.contentContains('The applicant has confirmed that the facts stated in this application are true.');
+            await this.ccdFormPage.contentContains('The applicant has confirmed that the facts stated in this application are true.');
             await this.ccdFormPage.click('The applicant has confirmed that the facts stated in this application are true.');
         }
         await this.ccdFormPage.click('Submit');
