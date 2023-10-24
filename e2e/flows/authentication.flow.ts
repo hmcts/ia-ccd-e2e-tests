@@ -513,7 +513,8 @@ export class AuthenticationFlow {
     async checkExUiLoaded() {
         let EC = protractor.ExpectedConditions;
         await browser.wait(EC.visibilityOf(element(by.linkText('Sign out'))), 30000);
-        await browser.wait(EC.visibilityOf(element(by.css('h2#search-result-heading__text'))), 30000);
+        await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 30000);
+        await browser.wait(EC.presenceOf(element(by.css('a.search-result-reset-link'))), 30000);
         await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 30000);
     }
 }

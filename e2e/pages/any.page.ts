@@ -321,6 +321,11 @@ export class AnyPage {
         await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 30000);
     }
 
+    async createCaseClickable() {
+        let EC = protractor.ExpectedConditions;
+        await browser.wait(EC.elementToBeClickable(elm), 30000);
+    }
+
     async refresh() {
         browser.refresh();
     }

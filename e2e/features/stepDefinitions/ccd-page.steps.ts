@@ -19,6 +19,7 @@ Given('I create a new case', async function () {
     await ccdPage.acceptCookies();
     await ccdPage.hideErrorMessages();
     await browser.sleep(3000);
+    await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
