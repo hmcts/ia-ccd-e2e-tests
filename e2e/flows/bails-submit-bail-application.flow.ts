@@ -1,5 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser, protractor } from 'protractor';
+import { browser, protractor, element, by } from 'protractor';
 
 export class SubmitBailApplicationFlow {
 
