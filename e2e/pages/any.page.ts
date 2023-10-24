@@ -329,16 +329,6 @@ export class AnyPage {
         await browser.executeScript(`const matches = document.getElementsByClassName('spinner-container'); while (matches.length > 0) { matches.item(0).remove(); }`);
     }
 
-    async waitForElementWithId(elementId) {
-        let EC = protractor.ExpectedConditions;
-        await browser.wait(EC.visibilityOf(element(by.css('#' + elementId))), 30000);
-    }
-
-    async waitForElementWithClass(elementClass) {
-        let EC = protractor.ExpectedConditions;
-        await browser.wait(EC.visibilityOf(element(by.css('.' + elementClass))), 30000);
-    }
-
     async refresh() {
         browser.refresh();
     }

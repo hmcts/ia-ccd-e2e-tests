@@ -36,7 +36,7 @@ export class SubmitAppealFlow {
         await browser.sleep(1000);
         await this.ccdPage.click('Go');
         await browser.sleep(5000)
-        await this.ccdPage.waitForElementWithId('legalRepDeclaration-hasDeclared');
+        await this.ccdPage.contentContains('I the representative am giving notice of appeal in accordance with the appellant\'s instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.');
         await this.completeDeclaration(false);
         await browser.sleep(5000);
         await this.completeCheckYourAnswers(true);
