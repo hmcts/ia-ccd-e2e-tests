@@ -345,4 +345,11 @@ export class AnyPage {
         await this.goToUrl(url);
         await this.refresh();
     }
+
+    async stopSpinnerLoad() {
+      [].forEach.call(document.querySelectorAll('.spinner-container'), function (el) {
+        el.style.visibility = 'hidden';
+        el.style.display = 'none';
+      });
+    }
 }
