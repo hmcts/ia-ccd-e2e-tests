@@ -1,6 +1,6 @@
 import { CcdPage } from '../pages/ccd.page';
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
+import { browser, protractor } from 'protractor';
 
 export class SubmitAppealFlow {
 
@@ -36,6 +36,7 @@ export class SubmitAppealFlow {
         await browser.sleep(1000);
         await this.ccdPage.click('Go');
         await browser.sleep(5000)
+        await this.ccdPage.waitForElementWithId('legalRepDeclaration-hasDeclared');
         await this.completeDeclaration(false);
         await browser.sleep(5000);
         await this.completeCheckYourAnswers(true);

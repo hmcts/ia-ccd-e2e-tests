@@ -52,7 +52,6 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
 
 
     When I agree to the declaration
-    And I click the `Continue` button
     And I click the `Submit` button
 
     Then I should see the text `Your appeal has been submitted`
