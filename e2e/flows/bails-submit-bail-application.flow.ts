@@ -12,7 +12,7 @@ export class SubmitBailApplicationFlow {
         await this.ccdFormPage.click('Go');
         if (user === 'Legal Rep') {
             let EC = protractor.ExpectedConditions;
-            await browser.wait(EC.visibilityOf(element(by.css('#declarationOnSubmit-declarationOnSubmit'))), 10000);
+            await this.ccdPage.contentContains('The applicant has confirmed that the facts stated in this application are true.');
             await this.ccdFormPage.click('The applicant has confirmed that the facts stated in this application are true.');
         }
         await this.ccdFormPage.click('Submit');
