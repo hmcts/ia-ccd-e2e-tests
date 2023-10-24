@@ -317,12 +317,18 @@ export class AnyPage {
     }
 
     async hideSpinner() {
+        let protractor2: Protractor = (global as any)['protractor'];
+        let $ = protractor2.$;
+
         let EC = protractor.ExpectedConditions;
         await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 30000);
         await browser.executeScript(`$('.spinner-container').remove();`);
     }
 
     async createCaseClickable() {
+        let protractor2: Protractor = (global as any)['protractor'];
+        let $ = protractor2.$;
+
         let EC = protractor.ExpectedConditions;
         await browser.wait(EC.elementToBeClickable(element(by.linkText('Create case'))), 30000);
         await browser.executeScript(`$('.spinner-container').remove();`);
