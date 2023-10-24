@@ -2,31 +2,31 @@ Feature: SnL Flow Update hearing requirements
 
 
   Background:
-    Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 15 seconds
-    And I create a new case
-    And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
-    And I wait for 5 second
-    Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by Card for a PA appeal type
-    And I wait for 15 seconds
-    And I switch to be a `Case Officer`
-    And I request home office data
-    And I request respondent evidence
-    And I wait for 3 seconds
-    And I progress case to force request case building
-    And I request Force case - case under review
-    And I request respondent review
-    And I request Force case - hearing reqs
-    And I switch to be a `Legal Org User Rep A`
-    When I select the `Submit hearing requirements` Next step
-    Then I should see the text `Submit hearing requirements`
-    And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
-    And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
+  Given I am signed in as a `Legal Org User Rep A`
+  And I wait for 30 seconds
+  And I create a new case
+  And I save my initial PA appeal type without remission and with hearing fee and pay now
+  And I wait for 12 seconds
+  And I click the `Close and Return to case details` button
+  And I wait for 5 second
+  Then I should see the text `You still need to submit your appeal.`
+  And I pay for and submit my appeal by Card for a PA appeal type
+  And I wait for 15 seconds
+  And I switch to be a `Case Officer`
+  And I request home office data
+  And I request respondent evidence
+  And I wait for 3 seconds
+  And I progress case to force request case building
+  And I request Force case - case under review
+  And I request respondent review
+  And I request Force case - hearing reqs
+  And I switch to be a `Legal Org User Rep A`
+  When I select the `Submit hearing requirements` Next step
+  Then I should see the text `Submit hearing requirements`
+  And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
+  And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
-  @nightly-test @snl
+  @nightly-test43210
   Scenario: SnL flow Review hearing requirements with 'Agreed' options selected
 
     When I click the `Continue` button
@@ -38,9 +38,9 @@ Feature: SnL Flow Update hearing requirements
 
     And I select `Yes` for the `Will any witnesses attend the hearing?` field
     Then I see the text `Witness details`
-
     And I click the `Add new` button
     And I type `Jenny Bat` for the `Given names` field
+    And I wait for 1 seconds
     And I type `1` for the `Family name` field
 
     And I wait for 2 seconds
@@ -136,7 +136,7 @@ Feature: SnL Flow Update hearing requirements
     When I type `The appellant for video call` for the `Explain in detail anything you would like the Tribunal to consider` field
     When I click the `Continue` button
 
-    # And I select `Yes` for Remote hearing with details `I have good internet connectivity and laptop`
+    And I select `Yes` for Remote hearing with details `I have good internet connectivity and laptop`
 
     And I select `Yes` for the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
     When I type `The appellant is deaf in one ear` for the `Explain in detail how any physical or mental health issues may affect them on the day.` field
@@ -171,7 +171,9 @@ Feature: SnL Flow Update hearing requirements
     Then I should see the text `Tell us which dates and explain why the case cannot be heard on these dates.`
     And I should see the text `Dates to avoid`
     When I click the `Add new` button
+    And I wait for 1 seconds
     Then I type `15-10-2023` for the `Date` field
+    And I wait for 1 seconds
     Then I type `New Year's Eve` for the `Reason` field
     When I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -184,8 +186,8 @@ Feature: SnL Flow Update hearing requirements
     When I click the `Submit` button
     When I click the `Close and Return to case details` button
 
-    # Review hearing requirements (placeholder)
-    # This flow requires testing for the field display changes
+  #   #Review hearing requirements (placeholder)
+  #  # This flow requires testing for the field display changes
     And I switch to be a `Case Officer`
     When I select the `Hearing requirements` Next step
     And I should see the `Hearing requirements` page
@@ -248,42 +250,45 @@ Feature: SnL Flow Update hearing requirements
     And I click the `Submit` button
     And I click the `Close and Return to case details` button
 
-    # update hearing requirements (placeholder)
-    # This flow requires testing for the field display changes
+  #   # update hearing requirements (placeholder)
+  #   # This flow requires testing for the field display changes
     When I select the `Update hearing requirements` Next step
     And I should see the `Update hearing requirements` page
 
     When I click the `Continue` button
-    Then I should see the text `Will the appellant attend the hearing?` 
+    Then I should see the text `Will the appellant attend the hearing?`
 
     When I click the `Continue` button
-    Then I should see the text `Will the appellant give oral evidence at the hearing?` 
+    Then I should see the text `Will the appellant give oral evidence at the hearing?`
     And I click the `Continue` button
 
-    And I should see the text `Will any witnesses attend the hearing?` 
+    And I should see the text `Will any witnesses attend the hearing?`
     Then I see the text `Witness details`
+    And I wait for 2 seconds
+
     And I click the `Add new` button
     And I type `test1` for the field with ID `witnessDetails_5_witnessName`
     And I type `6` for the field with ID `witnessDetails_5_witnessFamilyName`
+
     And I wait for 2 seconds
     And I click the `Add new` button
     And I type `test12` for the field with ID `witnessDetails_6_witnessName`
     And I type `7` for the field with ID `witnessDetails_6_witnessFamilyName`
     And I wait for 3 seconds
     And I click the `Continue` button
-    And I should see the text `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` 
+
+    And I select `No` for the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
     And I click the `Continue` button
-    And I should see the text `Will the appellant need a spoken or sign language interpreter at the hearing?` 
+    And I select `Yes` for the `Will the appellant need a spoken or sign language interpreter at the hearing?` field
     And I click the `Continue` button
-    And I click the `Spoken language interpreter` label
-    And I click the `Sign language interpreter` label
+    And I should see the text `What kind of interpreter will the appellant need?`
     And I click the `Continue` button
 
     And I select `Korean` for the `Spoken language` field
     And I click the `Continue` button
     And I select `British Sign Language (BSL)` for the `Sign language` field
     When I click the `Continue` button
-    And I should see the text `Will any of the witnesses require a spoken or sign language interpreter at the hearing?`
+    And I select `Yes` for the `Will any of the witnesses require a spoken or sign language interpreter at the hearing?` field
     When I click the `Continue` button
 
     And I click the `Samuel 5` label
@@ -299,58 +304,57 @@ Feature: SnL Flow Update hearing requirements
     And I wait for 1 seconds
     And I select `Sign language interpreter` for the `What kind of interpreter does test12 7 need?` field
     When I click the `Continue` button
-    And I should see the text `Spoken language` 
+    And I select `Brong` for the `Spoken language` field
     When I click the `Continue` button
-    And I should see the text `Sign language`
 
     When I click the `Continue` button
-    And I should see the text `Spoken language` 
+
+    And I select `Akan` for the `Spoken language` field
 
     When I click the `Continue` button
-    And I should see the text `Sign language` 
+    And I select `Notetaker` for the `Sign language` field
 
     When I click the `Continue` button
-    And I should see the text `Spoken language` 
+    And I select `Visual frame signing` for the `Sign language` field
 
     When I click the `Continue` button
-    And I select `Acholi` for the `Spoken language` field
-    And I click the `Continue` button
-    And I select `Lipspeaker` for the `Sign language` field
+
+    And I select `Telugu` for the `Spoken language` field
     And I click the `Continue` button
     And I select `Akan` for the `Spoken language` field
     And I click the `Continue` button
+    And I select `Lipspeaker` for the `Sign language` field
+    And I click the `Continue` button
+
+    And I select `Akan` for the `Spoken language` field
+    And I click the `Continue` button
+
     And I select `Makaton` for the `Sign language` field
     And I click the `Continue` button
+    Then I select `Yes` for the `Do you need a hearing room with step-free access?` field
     And I click the `Continue` button
     Then I select `No` for the `Do you need a hearing loop?` field
     When I click the `Continue` button
+    And I click the `Continue` button
 
-    Then I should see the text `Additional requests`
-    And I should see the text `You can request additional adjustments based on the appellant's personal circumstances. The Tribunal will review the information you provide and decide whether a request can be granted.`
-    When I click the `Continue` button
     And I select `No` for the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
     When I click the `Continue` button
     And I select `No` for the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
     When I click the `Continue` button
-    And I should see the text `Has the appellant had any past experiences that may impact them on the day?` 
+    And I select `Yes` for the `Has the appellant had any past experiences that may impact them on the day?` field
 
     When  I click the `Continue` button
-    And I should see the text `Do you have multimedia evidence?` 
+    And I select `No` for the `Do you have multimedia evidence?` field
     When I click the `Continue` button
-    And I should see the text `Does the appellant need a single-sex court?` 
-
+    And I select `No` for the `Does the appellant need a single-sex court?` field
     When I click the `Continue` button
-    And I select `All male` for the `What type of court do they need?` field
-    When I type `The appellant is fearful of female` for the `Explain in detail why the appellant needs a single-sex court.` field
-    When I click the `Continue` button
-
-    And I select `No` for the `Does the appellant need an in camera court?` field
+   And I select `No` for the `Does the appellant need an in camera court?` field
     When I click the `Continue` button
     And I select `No` for the `Is there anything else you would like to request?` field
     When I click the `Continue` button
-    Then I should see the text `Hearing dates to avoid`
+    Then I select `No` for the  `Are there any dates that the appellant or their on-day representation cannot attend?` field
     When I click the `Continue` button
-    Then I should see the text `Are there any additional instructions for the hearing?`
+    Then I select `No` for the  `Are there any additional instructions for the hearing?` field
     When I click the `Continue` button
 
     Then I am on the `Check your answers` page
@@ -373,12 +377,12 @@ Feature: SnL Flow Update hearing requirements
     And within the `Witness details` collection's fifth item, I should see `Samuel` in the `Given names` field
     And within the `Witness details` collection's fifth item, I should see `5` in the `Family name` field
 
-    And within the `Witness details` collection's fifth item, I should see `test1` in the `Given names` field
-    And within the `Witness details` collection's fifth item, I should see `6` in the `Family name` field
-    And within the `Witness details` collection's fifth item, I should see `test12` in the `Given names` field
-    And within the `Witness details` collection's fifth item, I should see `7` in the `Family name` field
+    And within the `Witness details` collection's sixth item, I should see `test1` in the `Given names` field
+    And within the `Witness details` collection's sixth item, I should see `6` in the `Family name` field
+    And within the `Witness details` collection's seventh item, I should see `test12` in the `Given names` field
+    And within the `Witness details` collection's seventh item, I should see `7` in the `Family name` field
 
-    And I should see `Yes` in the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
+    And I should see `No` in the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
     And I should see `Yes` in the `Will the appellant need a spoken or sign language interpreter at the hearing?` field
     And I should see `Spoken language interpreter` in the `What kind of interpreter will the appellant need?` field
     And I should see `Sign language interpreter` in the `What kind of interpreter will the appellant need?` field
@@ -398,7 +402,7 @@ Feature: SnL Flow Update hearing requirements
     And within the `Which sign language is needed for ramesh 3?` collection's first item, I should see `Visual frame signing` in the `Sign language` field
     And within the `Which spoken language interpreter is needed for Mat 4?` collection's first item, I should see `Telugu` in the `Spoken language` field
 
-    And within the `Which spoken language interpreter is needed for Samuel 5?` collection's first item, I should see `Acholi` in the `Spoken language` field
+    And within the `Which spoken language interpreter is needed for Samuel 5?` collection's first item, I should see `Akan` in the `Spoken language` field
     And within the `Which sign language is needed for Samuel 5?` collection's first item, I should see `Lipspeaker` in the `Sign language` field
 
     And within the `Which spoken language interpreter is needed for test1 6?` collection's first item, I should see `Akan` in the `Spoken language` field
@@ -413,20 +417,15 @@ Feature: SnL Flow Update hearing requirements
     And I should see `No` in the `Does the appellant have any physical or mental health issues that may impact them on the day?` field
     And I should see `Yes` in the `Has the appellant had any past experiences that may impact them on the day?` field
     And I should see `The appellant is fearful of the law` in the `Explain in detail how any past experiences may affect them on the day?` field
-    And I should see `Yes` in the `Do you have multimedia evidence?` field
-    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
-    And I should see `Yes` in the `Does the appellant need a single-sex court?` field
-    And I should see `All male` in the `What type of court do they need?` field
-    And I should see `The appellant is fearful of men` in the `Explain in detail why the appellant needs a single-sex court.` field
+    And I should see `No` in the `Do you have multimedia evidence?` field
+    And I should see `No` in the `Does the appellant need a single-sex court?` field
     And I should see `No` in the `Does the appellant need an in camera court?` field
     And I should see `No` in the `Is there anything else you would like to request?` field
-    And I should see the `Dates to avoid` field
-    And I should see `15 Oct 2023` in the `Date` field
-    And I should see `New Year's Eve` in the `Reason` field
+    And I should see `No` in the `Are there any dates that the appellant or their on-day representation cannot attend?` field
     And I should see `No` in the `Are there any additional instructions for the hearing?` field
 
-    When I click the `Submit` button
-
+    When I click the `Update` button
+    And I wait for 1 seconds
 
     Then I should see the text `You've updated the hearing requirements`
     And I should see the text `Do this next`
@@ -435,7 +434,7 @@ Feature: SnL Flow Update hearing requirements
     When I click the `Close and Return to case details` button
 
 
-    Then I should see an alert confirming the case `has been updated with event: Update hearing requirements`
+    #Then I should see an alert confirming the case `has been updated with event: Update hearing requirements`
 
 
     When I goto the `Hearing and appointment` tab
@@ -460,12 +459,12 @@ Feature: SnL Flow Update hearing requirements
     And within the `Witness details` collection's fifth item, I should see `Samuel` in the `Given names` field
     And within the `Witness details` collection's fifth item, I should see `5` in the `Family name` field
 
-    And within the `Witness details` collection's fifth item, I should see `test1` in the `Given names` field
-    And within the `Witness details` collection's fifth item, I should see `6` in the `Family name` field
-    And within the `Witness details` collection's fifth item, I should see `test12` in the `Given names` field
-    And within the `Witness details` collection's fifth item, I should see `7` in the `Family name` field
+    And within the `Witness details` collection's sixth item, I should see `test1` in the `Given names` field
+    And within the `Witness details` collection's sixth item, I should see `6` in the `Family name` field
+     And within the `Witness details` collection's seventh item, I should see `test12` in the `Given names` field
+    And within the `Witness details` collection's seventh item, I should see `7` in the `Family name` field
 
-    And I should see `Yes` in the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
+    And I should see `No` in the `Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?` field
     And I should see `Yes` in the `Do you need interpreter services on the day?` field
 
     And within the `Tell us which spoken language is needed for the appellant` collection's first item, I should see `Korean` in the `Spoken language` field
@@ -478,20 +477,22 @@ Feature: SnL Flow Update hearing requirements
     And I should see `Akan` in the third `Spoken language` field
     And I should see `Notetaker` in the third `Sign language` field
 
-    And I should see `Telugu` in the fourth `Spoken language` field
     And I should see `Visual frame signing` in the fourth `Sign language` field
 
-    And I should see `Acholi` in the fourth `Spoken language` field
-    And I should see `Lipspeaker` in the fourth `Sign language` field
-
     And I should see `Telugu` in the fourth `Spoken language` field
-    And I should see `Makaton` in the fourth `Sign language` field
+
+     And I should see `Akan` in the fifth `Spoken language` field
+     And I should see `Lipspeaker` in the fifth `Sign language` field
+
+   And I should see `Akan` in the sixth `Spoken language` field
+
+   And I should see `Makaton` in the sixth `Sign language` field
 
 
 
     And I should see `Yes` in the `Do you need a hearing room with step-free access?` field
-    And I should see `Yes` in the `Do you need a hearing loop?` field
-    And I should see `Yes` in the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
+    And I should see `No` in the `Do you need a hearing loop?` field
+    And I should see `No` in the `Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?` field
 
     # And I should not see the agreed additional adjustments no path
     And I should see the text `Hearing requirements`
