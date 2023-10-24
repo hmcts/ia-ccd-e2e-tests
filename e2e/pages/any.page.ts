@@ -1,4 +1,4 @@
-import { browser, by, element, protractor, Protractor } from 'protractor';
+import { browser, by, element, protractor } from 'protractor';
 import { Wait } from '../enums/wait';
 import { ValueExpander } from '../helpers/value-expander';
 const AxeRunner = require('../helpers/accessibility/axe-runner');
@@ -317,21 +317,18 @@ export class AnyPage {
     }
 
     async hideSpinner() {
-        let protractor2: Protractor = (global as any)['protractor'];
-        let $ = protractor2.$;
-
         let EC = protractor.ExpectedConditions;
         await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 30000);
-        await browser.executeScript(`$('.spinner-container').remove();`);
+        let el = element(by.css('.spinner-container'));
+        await browser.executeScript('arguments[0].remove();', el);
+
     }
 
     async createCaseClickable() {
-        let protractor2: Protractor = (global as any)['protractor'];
-        let $ = protractor2.$;
-
         let EC = protractor.ExpectedConditions;
         await browser.wait(EC.elementToBeClickable(element(by.linkText('Create case'))), 30000);
-        await browser.executeScript(`$('.spinner-container').remove();`);
+        let el = element(by.css('.spinner-container'));
+        await browser.executeScript('arguments[0].remove();', el);
     }
 
     async refresh() {
