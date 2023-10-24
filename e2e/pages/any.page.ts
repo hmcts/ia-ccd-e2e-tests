@@ -323,7 +323,7 @@ export class AnyPage {
 
     async createCaseClickable() {
         let EC = protractor.ExpectedConditions;
-        await browser.wait(EC.elementToBeClickable(elm), 30000);
+        await browser.wait(EC.elementToBeClickable(element(by.linkText('Create case'))), 30000);
     }
 
     async refresh() {
