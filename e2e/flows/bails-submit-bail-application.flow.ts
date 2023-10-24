@@ -1,5 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
+import { browser, protractor } from 'protractor';
 
 export class SubmitBailApplicationFlow {
 
@@ -11,8 +11,9 @@ export class SubmitBailApplicationFlow {
         await this.ccdFormPage.selectNextStep('Submit the application');
         await this.ccdFormPage.click('Go');
         if (user === 'Legal Rep') {
+            let EC = protractor.ExpectedConditions;
+            await browser.wait(EC.visibilityOf(element(by.css('#declarationOnSubmit-declarationOnSubmit'))), 10000);
             await this.ccdFormPage.click('The applicant has confirmed that the facts stated in this application are true.');
-            // await this.ccdFormPage.click('Continue');
         }
         await this.ccdFormPage.click('Submit');
         if (user !== 'Legal Rep') {
