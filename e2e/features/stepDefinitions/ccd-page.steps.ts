@@ -1,6 +1,6 @@
 import { CcdPage } from '../../pages/ccd.page';
 import { Given, Then, When } from 'cucumber';
-import { browser } from 'protractor';
+import { browser, by, element } from 'protractor';
 import { expect } from 'chai';
 import { Wait } from '../../enums/wait';
 import { OrdinalToCardinal } from '../../helpers/ordinal-to-cardinal';
@@ -18,10 +18,12 @@ Given('I create a new case', async function () {
     await ccdPage.runAccessbility();
     await ccdPage.acceptCookies();
     await ccdPage.hideErrorMessages();
-    await browser.sleep(3000);
+    await browser.sleep(8000);
     await ccdPage.click('Create case');
+    await browser.sleep(3000);
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
+    await browser.sleep(3000);
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
@@ -395,10 +397,14 @@ Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
 });
 
 Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/, async function (flag, type) {
+    console.log("Appleant::"+type);
+    await browser.sleep(8000);
+
     await ccdFormPage.click(type);
+    await browser.sleep(2000);
     await ccdFormPage.click('Next');
     await browser.sleep(3000);
-    await ccdFormPage.click('Complex Case');
+    await ccdFormPage.click(flag);
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Create Flag');
@@ -409,3 +415,23 @@ Then(/^I will update s94b flag$/, async function () {
     await ccdFormPage.click('Continue');
     await ccdFormPage.click('Submit');
 });
+
+Then(/^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? and comments `?([^`]+)`? creation date `?([^`]+)`? last modified `?([^`]+)`? flag status `?([^`]+)`?$/, async function (partie, caseFlagName, comments='', creationDate, lastModifiedDate, flagStatus) {
+    // await ccdPage.validateCaseFlags(partie, caseFlagName, comments, creationDate, lastModifiedDate, flagStatus );
+    let field = '//caption[normalize-space()="' + partie + '"]' + '/ancestor::ccd-case-flag-table[position()=1]/table/tbody/tr/td[normalize-space()="' + caseFlagName + '"]' + '/ancestor::tr[position()=1]//td'
+    let tds =await element.all(by.xpath(field));
+    let tdCount =await element.all(by.xpath(field)).count(); 
+    let createdDate = await ccdPage.getTodayDate(creationDate);
+    let ModifiedDate = await ccdPage.getTodayDate(lastModifiedDate);
+
+    console.log("ModifiedDate:::"+ModifiedDate);
+    for (let td = 0; td < tdCount; td++) {
+        let tdValue = await tds[td];
+        let caseFlagValue = JSON.stringify(await tdValue.getText());
+            if(td==0){ expect(JSON.stringify(caseFlagName)).to.equal(caseFlagValue);}
+            if(td==1){ expect(comments).to.equal(caseFlagValue);}
+            if(td==2){ expect(JSON.stringify(createdDate)).to.equal(caseFlagValue);}
+            if(td==3){ expect(JSON.stringify(ModifiedDate)).to.equal(caseFlagValue);}
+            if(td==4){ expect(JSON.stringify(flagStatus)).to.equal(caseFlagValue);}
+        }
+})

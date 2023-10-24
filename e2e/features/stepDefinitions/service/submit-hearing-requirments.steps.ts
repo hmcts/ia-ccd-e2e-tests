@@ -3,9 +3,11 @@ import { expect } from 'chai';
 import { Wait } from '../../../enums/wait';
 import { CcdPage } from '../../../pages/ccd.page';
 import { SubmitHearingRequirementsFlow } from '../../../flows/submit-hearing-requirements.flow';
+import { CcdFormPage } from '../../../pages/ccd-form.page';
 
 const submitHearingRequirementsFlow = new SubmitHearingRequirementsFlow();
 const ccdPage = new CcdPage();
+const ccdFormPage = new CcdFormPage();
 
 Then(/^I submit hearing requirements with all no$/, async function () {
     await submitHearingRequirementsFlow.submitHearingRequirements(true, false);
@@ -154,3 +156,40 @@ Then(/^I should (see|not see) the reheard hearing requirements (yes|no) path$/, 
 Given(/^I select `?([^\s`]+)`? for Remote hearing with details `?([^`]+)`?$/, async function (isYesPath, details) {
         await submitHearingRequirementsFlow.setRemoteHearingRequirement(true, isYesPath, details);
 });
+
+Then(/^I Add the interpreter details$/, async function () {
+
+    await ccdPage.click("Add new");
+    await ccdFormPage.setFieldValue(
+        'Booking reference',
+        'Test-32123'
+    );
+    await ccdFormPage.setFieldValue(
+        'Given names',
+        'Thomas'
+    );
+    await ccdFormPage.setFieldValue(
+        'Family name',
+        'chals'
+    );
+    await ccdFormPage.setFieldValue(
+        'Phone number',
+        '09878999878'
+    );
+    await ccdFormPage.setFieldValue(
+        'Email',
+        'TestInterpreter@gmail.com'
+    );
+    await ccdFormPage.setFieldValue(
+        'Note (Optional)',
+        'Adding new spoken or sign language intrpreter'
+    );
+
+    await ccdFormPage.click("Continue");
+
+    await ccdFormPage.click("Update");
+
+
+});
+
+

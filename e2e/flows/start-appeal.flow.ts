@@ -611,6 +611,9 @@ export class StartAppealFlow {
         await this.completeLegalRepresentativeDetails(true);
         await this.completeGivenFee(true, 'hearing fee');
         await this.completeRemissionDetails(true, 'no remission');
+        // if (appealType === 'PA') {
+            await this.completeHowToPay(true, 'later');
+        // }
         await this.completeCheckYourAnswers(true);
     }
 

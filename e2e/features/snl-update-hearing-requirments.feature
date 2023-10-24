@@ -3,11 +3,11 @@ Feature: SnL Flow Update hearing requirements
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
+    And I wait for 15 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 12 seconds
-    # And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button
     And I wait for 5 second
     Then I should see the text `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card for a PA appeal type
@@ -26,7 +26,7 @@ Feature: SnL Flow Update hearing requirements
     And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
     And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
-  @nightly-test43210
+  @nightly-test @snl
   Scenario: SnL flow Review hearing requirements with 'Agreed' options selected
 
     When I click the `Continue` button

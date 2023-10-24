@@ -26,7 +26,7 @@ Feature: SnL Flow submit hearing requirements
     And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
     And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
-  @nightly-test @snl 
+  @nightly-test @snl
   Scenario: SnL flow Review hearing requirements with 'Agreed' options selected
 
     When I click the `Continue` button
@@ -247,5 +247,11 @@ Feature: SnL Flow submit hearing requirements
    
     And I click the `Submit` button
     And I click the `Close and Return to case details` button
+
+    # Update interpreter details (placeholder)
+
+    When I select the `Update interpreter details` Next step
+    Then I should see the text `Update interpreter details`
+    And I Add the interpreter details
 
     

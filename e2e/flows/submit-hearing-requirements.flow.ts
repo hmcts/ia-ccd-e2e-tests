@@ -121,7 +121,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Add new');
         await this.ccdFormPage.setFieldValue(
             'Name',
-            'Jenny button'
+            'Jenny Bat'
         );
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.setFieldValue(
@@ -278,9 +278,44 @@ export class SubmitHearingRequirementsFlow {
             );
             await browser.sleep(2000);
             await this.ccdFormPage.click('Add new');
+            await browser.sleep(2000);
             await this.ccdFormPage.setFieldValue(
-                'Name',
-                'Jenny button'
+                'Given names',
+                'Jenny Bat'
+            );
+            await this.ccdFormPage.setFieldValue(
+                'Family name',
+                '1'
+            );
+            await this.ccdFormPage.click('Add new');
+            await browser.sleep(2000);
+            await this.ccdFormPage.typeText(
+                "witnessDetails_1_witnessName",
+                "krish"
+            );
+            await this.ccdFormPage.typeText(
+                "witnessDetails_1_witnessFamilyName",
+                "2"
+            );
+            await this.ccdFormPage.click('Add new');
+            await browser.sleep(2000);
+            await this.ccdFormPage.typeText(
+                "witnessDetails_2_witnessName",
+                "ramesh"
+            );
+            await this.ccdFormPage.typeText(
+                "witnessDetails_2_witnessFamilyName",
+                "3"
+            );
+            await this.ccdFormPage.click('Add new');
+            await browser.sleep(2000);
+            await this.ccdFormPage.typeText(
+                "witnessDetails_3_witnessName",
+                "Mat"
+            );
+            await this.ccdFormPage.typeText(
+                "witnessDetails_3_witnessFamilyName",
+                "4"
             );
             await this.ccdFormPage.click('Continue');
 
@@ -305,27 +340,118 @@ export class SubmitHearingRequirementsFlow {
             await browser.sleep(2000);
             await this.ccdFormPage.click('Add new');
             await this.ccdFormPage.setFieldValue(
-                'Name',
-                'Jenny button'
+                'Given names',
+                'Jenny Bat'
+            );
+            await this.ccdFormPage.setFieldValue(
+                'Family name',
+                '1'
             );
             await this.ccdFormPage.click('Continue');
         }
 
         await this.ccdFormPage.setFieldValue(
-            'Do you need interpreter services on the day?',
+            'Will the appellant need a spoken or sign language interpreter at the hearing?',
             'Yes'
         );
+        await this.ccdFormPage.click('Continue');
+
         await browser.sleep(2000);
-        await this.ccdFormPage.click('Add new');
+        await this.ccdFormPage.click('Spoken language interpreter');
+        await this.ccdFormPage.click('Sign language interpreter');
+        await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.setFieldValue(
-            'Language',
-            'Zulu'
-        );
-        await this.ccdFormPage.setFieldValue(
-            'Dialect',
-            'Kwabe'
+            'Spoken language',
+            'Korean'
         );
         await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Sign language',
+            'British Sign Language (BSL)'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Will any of the witnesses require a spoken or sign language interpreter at the hearing?',
+            'Yes'
+        );
+        await this.ccdFormPage.click('Continue');
+        await browser.sleep(1000);
+
+        await this.ccdFormPage.click('Jenny Bat 1');
+        await browser.sleep(1000);
+
+        await this.ccdFormPage.setFieldValue(
+            'What kind of interpreter does Jenny Bat 1 need?',
+            'Spoken language interpreter'
+        );
+
+        await this.ccdFormPage.setFieldValue(
+            'What kind of interpreter does Jenny Bat 1 need?',
+            'Sign language interpreter'
+        );
+
+        await this.ccdFormPage.click('krish 2');
+        await browser.sleep(1000);
+
+        await this.ccdFormPage.setFieldValue(
+            'What kind of interpreter does krish 2 need?',
+            'Spoken language interpreter'
+        );
+
+        await this.ccdFormPage.setFieldValue(
+            'What kind of interpreter does krish 2 need?',
+            'Sign language interpreter'
+        );
+
+        await this.ccdFormPage.click('ramesh 3');
+        await browser.sleep(1000);
+
+        await this.ccdFormPage.setFieldValue(
+            'What kind of interpreter does ramesh 3 need?',
+            'Sign language interpreter'
+        );
+
+        await this.ccdFormPage.click('Continue');
+        await browser.sleep(1000);
+
+        await this.ccdFormPage.setFieldValue(
+            'Spoken language',
+            'Brong'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Sign language',
+            'Lipspeaker'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Spoken language',
+            'Akan'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Sign language',
+            'Notetaker'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Sign language',
+            'Visual frame signing'
+        );
+        await this.ccdFormPage.click('Continue');
+
+        // await this.ccdFormPage.setFieldValue(
+        //     'Spoken language',
+        //     'Telugu'
+        // );
+        // await this.ccdFormPage.click('Continue');
+
 
         await this.ccdFormPage.setFieldValue(
             'Do you need a hearing room with step-free access?',
@@ -423,7 +549,7 @@ export class SubmitHearingRequirementsFlow {
         await browser.sleep(500);
         await this.ccdFormPage.setFieldValue(
             'Date',
-            '31-12-2019'
+            '15-10-2019'
         );
         await this.ccdFormPage.setFieldValue(
             'Reason',
@@ -458,7 +584,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Add new');
         await this.ccdFormPage.setFieldValue(
             'Name',
-            'Jenny button'
+            'Jenny Bat'
         );
         await this.ccdFormPage.click('Continue');
 
@@ -610,7 +736,7 @@ export class SubmitHearingRequirementsFlow {
                 await this.ccdFormPage.click('Add new');
                 await this.ccdFormPage.setFieldValue(
                     'Name',
-                    'Jenny button'
+                    'Jenny Bat'
                 );
             }
             await this.ccdFormPage.click('Continue');
@@ -638,7 +764,7 @@ export class SubmitHearingRequirementsFlow {
                 await this.ccdFormPage.click('Add new');
                 await this.ccdFormPage.setFieldValue(
                     'Name',
-                    'Jenny button'
+                    'Jenny Bat'
                 );
             }
             await this.ccdFormPage.click('Continue');

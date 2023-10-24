@@ -338,4 +338,33 @@ export class AnyPage {
         await this.goToUrl(url);
         await this.refresh();
     }
+    async validateCaseFlags(partie, caseFlagName, comments, creationDate, lastModifiedDate, flagStatus ){
+        await browser.sleep(2000);
+
+        let field = '//caption[normalize-space()="' + partie + '"]' + '/ancestor::ccd-case-flag-table[position()=1]/table/tbody/tr/td[normalize-space()="' + caseFlagName + '"]' + '/ancestor::tr[position()=1]//td'
+        let tds =await element.all(by.xpath(field));
+        let tdCount =await element.all(by.xpath(field)).count();       
+
+        for (let td = 0; td < tdCount; td++) {
+            let tdValue = await tds[td];
+            let caseFlagValue = JSON.stringify(await tdValue.getText());
+            console.log("caseFlagValue:"+caseFlagValue+"td:"+td);
+                if(td==0){
+                    caseFlagName==caseFlagValue;
+
+                }
+                if(td==1){
+                    comments==caseFlagValue;
+                }
+                if(td==2){
+                    creationDate==caseFlagValue;
+                }
+                if(td==3){
+                    lastModifiedDate==caseFlagValue;
+                }
+                if(td==3){
+                    flagStatus==caseFlagValue;
+                }
+            }
+    }
 }

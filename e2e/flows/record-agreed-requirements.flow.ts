@@ -11,12 +11,18 @@ export class RecordAgreedRequirementsFlow {
 
         await this.ccdFormPage.setFieldValue(
             'Length',
-            '6 hours'
+            '3 hours'
         );
 
         await this.ccdFormPage.click('Continue');
 
+        await this.ccdFormPage.click('Granted');
+
+        
+
         await this.setRemoteHearingAdjustment(true, true, 'Remote hearing requirement will be reviewed');
+
+        await this.ccdFormPage.click('Granted');
 
         await this.ccdFormPage.setFieldValue(
             'Adjustments to accommodate vulnerabilities',
@@ -25,12 +31,16 @@ export class RecordAgreedRequirementsFlow {
 
         await this.ccdFormPage.click('Continue');
 
+        await this.ccdFormPage.click('Granted');
+
         await this.ccdFormPage.setFieldValue(
             'Multimedia equipment',
             'Multimedia equipment requirement will be reviewed'
         );
 
         await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.click('Granted');
 
         await this.ccdFormPage.setFieldValue(
             'Single-sex court',
@@ -39,6 +49,8 @@ export class RecordAgreedRequirementsFlow {
 
         await this.ccdFormPage.click('Continue');
 
+        await this.ccdFormPage.click('Granted');
+
         await this.ccdFormPage.setFieldValue(
             'In camera court',
             'Private hearing requirement will be reviewed'
@@ -46,9 +58,24 @@ export class RecordAgreedRequirementsFlow {
 
         await this.ccdFormPage.click('Continue');
 
+        await this.ccdFormPage.click('Granted');
+
         await this.ccdFormPage.setFieldValue(
             'Other adjustments',
             'Additional adjustments requirement will be reviewed'
+        );
+
+        await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.click('In Person');
+        await this.ccdFormPage.click('Continue');
+        await this.ccdFormPage.setFieldValue(
+            'Are there any additional instructions for the hearing?',
+            'Yes'
+        );
+        await this.ccdFormPage.setFieldValue(
+            'Additional Instructions',
+            'Adding Additional instructions for the test'
         );
 
         await this.ccdFormPage.click('Continue');

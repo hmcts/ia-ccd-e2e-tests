@@ -37,6 +37,11 @@ export class CcdPage extends AnyPage {
             .click();
     }
 
+    async getTodayDate(date){
+        const expandedMatch = await this.valueExpander.expand(date);
+        return expandedMatch;
+    }
+
     async selectNextStep(nextStep: string) {
 
         const nextStepPath =
