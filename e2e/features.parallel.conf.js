@@ -16,6 +16,7 @@ const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
 const path = require('path');
+const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
   browserName: 'chrome',
@@ -117,7 +118,9 @@ class BaseConfig {
         .browser
         .getProcessedConfig()
         .then({
-          // noop
+          beforeEach(async function() {
+            await AxeRunner.runAndReportAccessibility();
+          });
         });
 
       tsNode.register({
