@@ -6,7 +6,7 @@ Feature: Request respondent evidence
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see the text `Do this next`
     And I pay for and submit my appeal by PBA for a PA appeal type
     And I wait for 15 seconds
     And I switch to be a `Case Officer`

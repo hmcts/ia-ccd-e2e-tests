@@ -7,7 +7,7 @@ Feature: Add a case note
     And I wait for 12 seconds
     And I click the `Close and Return to case details` button
     And I wait for 5 second
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see the text `Do this next`
     And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 15 seconds
 

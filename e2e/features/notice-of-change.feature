@@ -7,7 +7,7 @@ Feature: Notice of Change (common component)
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see the text `Do this next`
     And I get the most recent case id for the notice of change case
     And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 15 seconds
