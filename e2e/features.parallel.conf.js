@@ -118,7 +118,7 @@ class BaseConfig {
         .browser
         .getProcessedConfig()
         .then({
-          beforeEach(async () {
+          beforeEach(async () => {
             await AxeRunner.runAndReportAccessibility();
           });
         });

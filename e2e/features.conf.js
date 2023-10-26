@@ -73,7 +73,7 @@ exports.config = {
       .browser
       .getProcessedConfig()
       .then({
-        beforeEach(async () {
+        beforeEach(async () => {
           await AxeRunner.runAndReportAccessibility();
         });
       });
