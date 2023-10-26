@@ -5,6 +5,8 @@ const argv = minimist(process.argv.slice(2));
 const iaConfig = require('./ia.conf');
 const browserPlatformMatrix = require('./browser.platform.matrix');
 const retry = require('protractor-retry').retry;
+const { setDefaultTimeout } = require('cucumber');
+setDefaultTimeout(720 * 1000 * 1);
 
 const config = {
   framework: 'custom',
