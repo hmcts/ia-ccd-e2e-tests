@@ -47,11 +47,13 @@ Given('I create a new case', async function () {
 
 Given('I create a new bail application', async function () {
     // there is loading mask with spinner added by ExUI
+    await ccdPage.stopSpinnerLoad();
     await browser.sleep(7000);
     await ccdPage.hideSpinner();
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
     await browser.sleep(3000);
+    await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
