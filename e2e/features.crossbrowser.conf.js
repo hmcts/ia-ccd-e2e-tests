@@ -44,6 +44,7 @@ const config = {
     {
       package: 'protractor-multiple-cucumber-html-reporter-plugin',
       options: {
+        saveCollectedJSON: true,
         automaticallyGenerateReport: true,
         removeExistingJsonReportFile: true,
         reportName: 'IA Service Cross Browser Test',

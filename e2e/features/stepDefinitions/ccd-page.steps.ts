@@ -18,12 +18,12 @@ Given('I create a new case', async function () {
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
     await ccdPage.acceptCookies();
-    await ccdPage.hideErrorMessages();
     await browser.sleep(3000);
     await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
+    await ccdPage.hideErrorMessages();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
@@ -53,12 +53,11 @@ Given('I create a new bail application', async function () {
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
     await ccdPage.acceptCookies();
-    await ccdPage.hideErrorMessages();
-    await browser.sleep(3000);
     await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
+    await ccdPage.hideErrorMessages();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
