@@ -52,6 +52,8 @@ Given('I create a new bail application', async function () {
     await ccdPage.hideSpinner();
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
+    await ccdPage.acceptCookies();
+    await ccdPage.hideErrorMessages();
     await browser.sleep(3000);
     await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
