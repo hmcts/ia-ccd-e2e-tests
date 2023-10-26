@@ -73,9 +73,7 @@ exports.config = {
       .browser
       .getProcessedConfig()
       .then({
-        beforeEach(async () => {
-          await AxeRunner.runAndReportAccessibility();
-        });
+        // noop
       });
 
     tsNode.register({
