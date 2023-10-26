@@ -46,7 +46,7 @@ const config = {
       options: {
         saveCollectedJSON: true,
         automaticallyGenerateReport: true,
-        removeExistingJsonReportFile: true,
+        removeExistingJsonReportFile: false,
         reportName: 'IA Service Cross Browser Test',
         jsonDir: 'reports/tests/crossbrowser',
         reportPath: 'reports/tests/crossbrowser',
