@@ -10,7 +10,7 @@ Feature: Start decision and reasons
     And I click the `Close and Return to case details` button
     Then I should see the text `Do this next`
     And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
+    And I wait for 25 seconds
 #    And I click the `Close and Return to case details` button
     And I switch to be a `Case Officer`
     And I wait for 2 seconds

@@ -13,7 +13,7 @@ Feature: s94b appeal
         And I wait for 5 second
         Then I should see the text `Do this next`
         And I pay for and submit my appeal by Card for a PA appeal type
-        And I wait for 15 seconds
+        And I wait for 25 seconds
         And I switch to be a `Case Officer`
         When I select the `Update s94b status` Next step
         Then I am on the `Update s94b status` page
@@ -38,7 +38,7 @@ Feature: s94b appeal
         And I wait for 5 second
         Then I should see the text `Do this next`
         And I pay for and submit my appeal by Card for a non PA appeal type
-        And I wait for 15 seconds
+        And I wait for 25 seconds
         And I switch to be a `Case Officer`
         And I refresh the page
         When I select the `Update s94b status` Next step
