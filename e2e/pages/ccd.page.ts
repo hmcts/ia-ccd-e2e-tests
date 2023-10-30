@@ -153,7 +153,7 @@ export class CcdPage extends AnyPage {
       while (true) {
         try {
           await element(by.xpath('//a[text()=\'Hide message\']')).click();
-        } catch (error) {
+        } catch {
           break;
         }
       }
