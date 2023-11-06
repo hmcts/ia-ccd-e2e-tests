@@ -26,7 +26,7 @@ Feature: SnL Flow Update hearing requirements
   And I should see the text `If the appellant needs interpreter services, step-free access or a hearing loop, these will be provided.`
   And I should see the text `You'll also be able to request additional adjustments based on the appellant's personal circumstances. The tribunal will review these and decide whether a request can be granted.`
 
-  @nightly-test43210
+  @nightly-test
   Scenario: SnL flow Review hearing requirements with 'Agreed' options selected
 
     When I click the `Continue` button
@@ -85,23 +85,23 @@ Feature: SnL Flow Update hearing requirements
     And I select `Yes` for the `Will any of the witnesses require a spoken or sign language interpreter at the hearing?` field
     And I click the `Continue` button
 
-    And I click the `Jenny Bat 1` label
+    # And I click the `Jenny Bat 1` label
     And I wait for 1 seconds
-    And I select `Spoken language interpreter` for the `What kind of interpreter does Jenny Bat 1 need?` field
-    And I select `Sign language interpreter` for the `What kind of interpreter does Jenny Bat 1 need?` field
+    And I select `Spoken language interpreter` for the `What kind of interpreter does Jenny Bat 1 need? (Optional)` field
+    And I select `Sign language interpreter` for the `What kind of interpreter does Jenny Bat 1 need? (Optional)` field
 
-    And I click the `krish 2` label
+    # And I click the `krish 2` label
     And I wait for 1 seconds
-    And I select `Spoken language interpreter` for the `What kind of interpreter does krish 2 need?` field
-    And I select `Sign language interpreter` for the `What kind of interpreter does krish 2 need?` field
+    And I select `Spoken language interpreter` for the `What kind of interpreter does krish 2 need? (Optional)` field
+    And I select `Sign language interpreter` for the `What kind of interpreter does krish 2 need? (Optional)` field
 
-    And I click the `ramesh 3` label
+    # And I click the `ramesh 3` label
     And I wait for 1 seconds
-    And I select `Sign language interpreter` for the `What kind of interpreter does ramesh 3 need?` field
+    And I select `Sign language interpreter` for the `What kind of interpreter does ramesh 3 need? (Optional)` field
 
-    And I click the `Mat 4` label
+    # And I click the `Mat 4` label
     And I wait for 1 seconds
-    And I select `Spoken language interpreter` for the `What kind of interpreter does Mat 4 need?` field
+    And I select `Spoken language interpreter` for the `What kind of interpreter does Mat 4 need? (Optional)` field
     And I click the `Continue` button
 
     And I select `Brong` for the `Spoken language` field
@@ -291,18 +291,18 @@ Feature: SnL Flow Update hearing requirements
     And I select `Yes` for the `Will any of the witnesses require a spoken or sign language interpreter at the hearing?` field
     When I click the `Continue` button
 
-    And I click the `Samuel 5` label
+    # And I click the `Samuel 5` label
     And I wait for 1 seconds
-    And I select `Spoken language interpreter` for the `What kind of interpreter does Samuel 5 need?` field
-    And I select `Sign language interpreter` for the `What kind of interpreter does Samuel 5 need?` field
+    And I select `Spoken language interpreter` for the `What kind of interpreter does Samuel 5 need? (Optional)` field
+    And I select `Sign language interpreter` for the `What kind of interpreter does Samuel 5 need? (Optional)` field
 
-    And I click the `test1 6` label
+    # And I click the `test1 6` label
     And I wait for 1 seconds
-    And I select `Spoken language interpreter` for the `What kind of interpreter does test1 6 need?` field
+    And I select `Spoken language interpreter` for the `What kind of interpreter does test1 6 need? (Optional)` field
 
-    And I click the `test12 7` label
+    # And I click the `test12 7` label
     And I wait for 1 seconds
-    And I select `Sign language interpreter` for the `What kind of interpreter does test12 7 need?` field
+    And I select `Sign language interpreter` for the `What kind of interpreter does test12 7 need? (Optional)` field
     When I click the `Continue` button
     And I select `Brong` for the `Spoken language` field
     When I click the `Continue` button

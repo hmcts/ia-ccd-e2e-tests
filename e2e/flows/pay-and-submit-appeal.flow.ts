@@ -68,7 +68,8 @@ export class PayAndSubmitAppealFlow {
 
         if (clickContinue) {
             await this.ccdPage.click('Return to service request');
-            await this.ccdPage.click('Overview');
+            await browser.sleep(3000);
+            await this.ccdPage.gotoTabs('Overview');
             let i = 0;
             while (i < 6) {
                 let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'))

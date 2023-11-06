@@ -86,23 +86,23 @@ Feature: SnL Flow submit hearing requirements
     And I select `Yes` for the `Will any of the witnesses require a spoken or sign language interpreter at the hearing?` field
     And I click the `Continue` button
 
-    And I click the `Jenny Bat 1` label
+    # And I click the `Jenny Bat 1` label
     And I wait for 1 seconds
-    And I select `Spoken language interpreter` for the `What kind of interpreter does Jenny Bat 1 need?` field
-    And I select `Sign language interpreter` for the `What kind of interpreter does Jenny Bat 1 need?` field
+    And I select `Spoken language interpreter` for the `What kind of interpreter does Jenny Bat 1 need? (Optional)` field
+    And I select `Sign language interpreter` for the `What kind of interpreter does Jenny Bat 1 need? (Optional)` field
 
-    And I click the `krish 2` label
+    # And I click the `krish 2` label
     And I wait for 1 seconds
-    And I select `Spoken language interpreter` for the `What kind of interpreter does krish 2 need?` field
-    And I select `Sign language interpreter` for the `What kind of interpreter does krish 2 need?` field
+    And I select `Spoken language interpreter` for the `What kind of interpreter does krish 2 need? (Optional)` field
+    And I select `Sign language interpreter` for the `What kind of interpreter does krish 2 need? (Optional)` field
 
-    And I click the `ramesh 3` label
+    # And I click the `ramesh 3` label
     And I wait for 1 seconds
-    And I select `Sign language interpreter` for the `What kind of interpreter does ramesh 3 need?` field
+    And I select `Sign language interpreter` for the `What kind of interpreter does ramesh 3 need? (Optional)` field
 
-    And I click the `Mat 4` label
+    # And I click the `Mat 4` label
     And I wait for 1 seconds
-    And I select `Spoken language interpreter` for the `What kind of interpreter does Mat 4 need?` field
+    And I select `Spoken language interpreter` for the `What kind of interpreter does Mat 4 need? (Optional)` field
     And I click the `Continue` button
 
     And I select `Brong` for the `Spoken language` field

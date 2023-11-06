@@ -379,37 +379,38 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Continue');
         await browser.sleep(1000);
 
-        await this.ccdFormPage.click('Jenny Bat 1');
+       
+        // await this.ccdFormPage.click('Jenny Bat 1');
         await browser.sleep(1000);
 
         await this.ccdFormPage.setFieldValue(
-            'What kind of interpreter does Jenny Bat 1 need?',
+            'What kind of interpreter does Jenny Bat 1 need? (Optional)',
             'Spoken language interpreter'
         );
 
         await this.ccdFormPage.setFieldValue(
-            'What kind of interpreter does Jenny Bat 1 need?',
+            'What kind of interpreter does Jenny Bat 1 need? (Optional)',
             'Sign language interpreter'
         );
 
-        await this.ccdFormPage.click('krish 2');
+        // await this.ccdFormPage.click('krish 2');
         await browser.sleep(1000);
 
         await this.ccdFormPage.setFieldValue(
-            'What kind of interpreter does krish 2 need?',
+            'What kind of interpreter does krish 2 need? (Optional)',
             'Spoken language interpreter'
         );
 
         await this.ccdFormPage.setFieldValue(
-            'What kind of interpreter does krish 2 need?',
+            'What kind of interpreter does krish 2 need? (Optional)',
             'Sign language interpreter'
         );
 
-        await this.ccdFormPage.click('ramesh 3');
+        // await this.ccdFormPage.click('ramesh 3');
         await browser.sleep(1000);
 
         await this.ccdFormPage.setFieldValue(
-            'What kind of interpreter does ramesh 3 need?',
+            'What kind of interpreter does ramesh 3 need? (Optional)',
             'Sign language interpreter'
         );
 
