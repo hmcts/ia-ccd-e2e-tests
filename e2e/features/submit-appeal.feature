@@ -7,7 +7,7 @@ Feature: Submit appeal application
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button
 
-  @xbrowser @nightly-test
+  @nightly-test
   Scenario: Submit an appeal application
 
     And I select the `Submit your appeal` Next step
