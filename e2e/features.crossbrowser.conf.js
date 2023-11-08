@@ -35,10 +35,10 @@ const config = {
 
   specs: ['./features/*.feature'],
   baseUrl: iaConfig.CcdWebUrl,
-  allScriptsTimeout: 220000,
+  allScriptsTimeout: 240000,
   useAllAngular2AppRoots: true,
   multiCapabilities: browserPlatformMatrix.multiCapabilities,
-  maxSessions: 1,
+  maxSessions: 4,
 
   plugins: [
     {
