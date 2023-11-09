@@ -11,6 +11,7 @@ export class RequestHearingRequirementsFlow {
 
         await this.ccdFormPage.headingContains('Request hearing requirements');
         await this.ccdFormPage.click('Submit');
-        // await this.ccdFormPage.click('Send direction');
+        await this.ccdFormPage.headingContains('Case details');
+
     }
 }
