@@ -11,6 +11,7 @@ export class AuthenticationFlow {
         await browser.waitForAngularEnabled(false);
         await browser.driver.manage().deleteAllCookies();
         await browser.get(iaConfig.CcdWebUrl + '/auth/logout');
+        await browser.sleep(1000);
         await browser.get(iaConfig.CcdWebUrl + '/');
         await this.idamSignInPage.waitUntilLoaded();
     }
