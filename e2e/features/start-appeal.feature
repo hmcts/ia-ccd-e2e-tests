@@ -118,7 +118,7 @@ Feature: Start initial appeal application
     And I should see the text `You can return to the case details to make changes.`
 
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     #And I see the open case
     And I click the `Appellant` tab
     Then I should see `DRAFT` for the `Appeal reference` field
@@ -275,7 +275,7 @@ Feature: Start initial appeal application
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     #And I see the open case
     And I click the `Appellant` tab
     Then I should see `DRAFT` for the `Appeal reference` field

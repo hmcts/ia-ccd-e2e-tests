@@ -31,7 +31,7 @@ Background:
     And I click the `Continue` button
 
     Then I click the `Record application` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_changeHearingCentre` case progress image
@@ -60,6 +60,6 @@ Scenario: submit change hearing centre
     When I click the `Update` button
     Then I should see the text `You've updated the designated hearing centre`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Change hearing centre`
     And I should only see the `caseOfficer_awaitingRespondentEvidence_preUpload` case progress image

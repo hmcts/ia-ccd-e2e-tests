@@ -159,7 +159,7 @@ Feature: Submit hearing requirements
     And I should see the text `The Tribunal will review your hearing requirements and any additional requests for adjustments.`
     And I should see the text `We'll notify you when the hearing is listed. You'll then be able to review the hearing requirements.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
     When I click the `Documents` tab
@@ -320,7 +320,7 @@ Feature: Submit hearing requirements
     And I should see the text `The Tribunal will review your hearing requirements and any additional requests for adjustments.`
     And I should see the text `We'll notify you when the hearing is listed. You'll then be able to review the hearing requirements.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
     When I click the `Documents` tab

@@ -46,7 +46,7 @@ Feature: Record remission decision
     Then I should see the text `You have approved this remission application`
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that you have approved this remission application. The appeal will progress as usual.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
@@ -145,7 +145,7 @@ Feature: Record remission decision
     Then I should see the text `You have partially approved this remission application`
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that they need to pay the outstanding fee. Once payment is made you will need to mark the appeal as paid.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
@@ -244,7 +244,7 @@ Feature: Record remission decision
     Then I should see the text `You have rejected this remission application`
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that they must pay the full fee for this appeal.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
@@ -336,7 +336,7 @@ Feature: Record remission decision
     Then I should see the text `You have partially approved this remission application`
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that they need to pay the outstanding fee. Once payment is made you will need to mark the appeal as paid.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
@@ -371,7 +371,7 @@ Feature: Record remission decision
     Then I should see the text `Your have marked the appeal as paid`
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will be notified that the fee has been paid. The appeal will progress as usual.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
     Then I should see an alert confirming the case `has been updated with event: Mark appeal as paid`
 

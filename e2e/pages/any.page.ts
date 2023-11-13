@@ -320,7 +320,14 @@ export class AnyPage {
         let EC = protractor.ExpectedConditions;
         await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 30000);
         await browser.executeScript(`const matches = document.getElementsByClassName('spinner-container'); while (matches.length > 0) { matches.item(0).remove(); }`);
+    }
 
+    async clickIfVisible(linkText) {
+        let EC = protractor.ExpectedConditions;
+        let visible = await EC.visibilityOf(element(by.xpath('//button[text()=\"' + linkText + '\"]')));
+        if (visible) {
+          element(by.xpath('//button[text()=\"' + linkText + '\"]')).click();
+        }
     }
 
     async createCaseClickable() {

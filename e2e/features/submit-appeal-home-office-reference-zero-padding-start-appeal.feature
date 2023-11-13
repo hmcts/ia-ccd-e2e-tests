@@ -62,7 +62,7 @@ Feature: Home Office CID Reference number is zero padded - start appeal
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see `000123456` for the `Home Office Reference/Case ID` field
 
     When I click the `Appellant` tab

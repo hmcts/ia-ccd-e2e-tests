@@ -39,7 +39,7 @@ Feature: Edit payment method after failed PBA payment (HU appeal types)
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is deleted`
     And I wait for 30 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image

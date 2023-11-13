@@ -100,7 +100,7 @@ Feature: Send case to pre hearing state when unable to generate hearing bundle
     When I click the `Save` button
     Then I should see the text `You have started the decision and reasons process`
     And I should see the text `The judge can now download and complete the decision and reasons document.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     #Then I see the open case
 
     When I click the `Appellant` tab

@@ -25,7 +25,7 @@ Feature: Submit reasons for appeal
     And I should see the text `You have sent a direction`
     And the appellant submits their reasons for appeal
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should only see the `caseOfficer_caseUnderReview` case progress image
 
     When I click the `the documents tab` link

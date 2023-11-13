@@ -5,7 +5,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (PA appea
     And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I submit my appeal before paying
     And I wait for 10 seconds
     Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`

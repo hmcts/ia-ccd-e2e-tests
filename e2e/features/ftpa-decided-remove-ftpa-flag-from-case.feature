@@ -49,7 +49,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
     And I type `These are list of instructions` for the `Listing instructions (Optional)` field
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
 
   @ftpa-reheard-feature @remove-ftpa-flag-co @RIA-3651
@@ -80,7 +80,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
     And I should see the text `What happens next`
     And I should see the text `This flag has been removed from the case. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
     And I should see the image `appeal_reheard.png`
     And I should see the text `Do this next`
@@ -117,7 +117,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
     And I should see the text `What happens next`
     And I should see the text `This flag has been removed from the case. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
     And I should see the image `appeal_reheard.png`
     And I should see the text `What happens next`

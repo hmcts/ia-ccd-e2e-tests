@@ -9,7 +9,7 @@ Feature: s94b appeal
     Scenario: S94B appeal for PA Case
         And I save my initial PA appeal type without remission and with hearing fee and pay now
         And I wait for 12 seconds
-        And I click the `Close and Return to case details` button
+        And I click the `Close and Return to case details` button if present
         And I wait for 5 second
         Then I should see the text `Do this next`
         And I pay for and submit my appeal by Card for a PA appeal type
@@ -34,7 +34,7 @@ Feature: s94b appeal
     Scenario: S94B appeal for RP Case
         And I save my initial EA appeal type without remission and with hearing fee and pay now
         And I wait for 12 seconds
-        And I click the `Close and Return to case details` button
+        And I click the `Close and Return to case details` button if present
         And I wait for 5 second
         Then I should see the text `Do this next`
         And I pay for and submit my appeal by Card for a non PA appeal type

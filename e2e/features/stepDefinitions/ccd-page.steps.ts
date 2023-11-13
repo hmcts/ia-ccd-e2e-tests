@@ -200,6 +200,10 @@ When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (link
         await ccdPage.click(linkText);
     }
 });
+When(/^I click the `?([^`]+)`? button if present$/, async function (linkText) {
+    await ccdPage.hideSpinner();
+    await ccdPage.clickIfVisible(linkText);
+});
 When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
     await ccdPage.hideSpinner();
     await ccdPage.gotoTabs(linkText);

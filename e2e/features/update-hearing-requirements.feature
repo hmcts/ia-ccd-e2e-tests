@@ -99,7 +99,7 @@ Feature: Update hearing requirements
     And I should see the text `Do this next`
     And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update hearing requirements`
 
     When I click the `Hearing and appointment` tab
@@ -250,7 +250,7 @@ Feature: Update hearing requirements
     And I should see the text `Do this next`
     And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update hearing requirements`
 
     When I click the `Hearing and appointment` tab

@@ -5,7 +5,7 @@ Feature: Add a case note
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
     Then I should see the text `Do this next`
     And I pay for and submit my appeal by Card for a non PA appeal type
@@ -35,7 +35,7 @@ Feature: Add a case note
     Then I should see the text `What happens next`
     Then I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
     When I goto the `Case notes` tab
     Then I should see the `Case notes` field
@@ -73,7 +73,7 @@ Feature: Add a case note
     Then I should see the text `What happens next`
     Then I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -95,14 +95,14 @@ Feature: Add a case note
     And I type `old case note description` for the `Case note` field
     And I click the `Continue` button
     And I click the `Save note` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I select the `Add case note` Next step
     And I type `latest case note subject` for the `Subject` field
     And I type `latest case note description` for the `Case note` field
     And I click the `Continue` button
     And I click the `Save note` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -144,7 +144,7 @@ Feature: Add a case note
     And I should see the text `What happens next`
     And I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -183,7 +183,7 @@ Feature: Add a case note
     And I should see the text `What happens next`
     And I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -204,14 +204,14 @@ Feature: Add a case note
     And I type `old case note description` for the `Case note` field
     And I click the `Continue` button
     And I click the `Save note` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I select the `Add case note` Next step
     And I type `latest case note subject` for the `Subject` field
     And I type `latest case note description` for the `Case note` field
     And I click the `Continue` button
     And I click the `Save note` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -253,7 +253,7 @@ Feature: Add a case note
     And I should see the text `What happens next`
     And I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -292,7 +292,7 @@ Feature: Add a case note
     And I should see the text `What happens next`
     And I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field
@@ -313,14 +313,14 @@ Feature: Add a case note
     And I type `old case note description` for the `Case note` field
     And I click the `Continue` button
     And I click the `Save note` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I select the `Add case note` Next step
     And I type `latest case note subject` for the `Subject` field
     And I type `latest case note description` for the `Case note` field
     And I click the `Continue` button
     And I click the `Save note` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I click the `Case notes` tab
     Then I should see the `Case notes` field

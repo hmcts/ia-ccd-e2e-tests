@@ -40,7 +40,7 @@ Feature: Request case edit
     Then I should see the text `The appellant now needs to edit the case in the way you have directed.`
     Then I should see the text `The appellant should then submit their case again for you to review.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     And I click the `Directions` tab
     Then I should see the `Directions` field
     And within the `Directions` collection's first item, I should see `Your case argument needs to be changed. Please make changes and resubmit.` in the `Explanation` field

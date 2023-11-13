@@ -5,7 +5,7 @@ Feature: Final display for FTPA decision and reasons
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I pay for and submit my appeal by Card for a PA appeal type
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
@@ -64,7 +64,7 @@ Feature: Final display for FTPA decision and reasons
     When I click the `Save` button
     Then I should see the text `You have started the decision and reasons process`
     And I should see the text `The judge can now download and complete the decision and reasons document.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I prepare decision and reasons
     And I send decision and reasons
@@ -95,7 +95,7 @@ Feature: Final display for FTPA decision and reasons
     And I am on the `Check your answers` page
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
@@ -149,7 +149,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I am on the `Check your answers` page
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`

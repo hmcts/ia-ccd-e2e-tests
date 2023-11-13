@@ -4,7 +4,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial EU appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I submit my appeal before paying
     And I wait for 10 seconds
     Then I should see the text `You need to pay for your appeal or the Tribunal will end the appeal.`

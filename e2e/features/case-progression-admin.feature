@@ -34,7 +34,7 @@ Feature: Case progression - Admin Officer
     And I should see the text `Do this next`
     And I should see the text `You must review the appeal data and cross reference it with Home Office data in the validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
     Then I click the `Validation` tab
     And I should see the text `There are no matching details for this appellant. You can contact the Home Office if you need more information to validate the appeal.`
@@ -56,7 +56,7 @@ Feature: Case progression - Admin Officer
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
@@ -118,7 +118,7 @@ Feature: Case progression - Admin Officer
     And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
@@ -236,7 +236,7 @@ Feature: Case progression - Admin Officer
     And I select `All participants at the hearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     And I click the `Save details` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I click the `Overview` tab
 
     Then I should only see the `appeal_allowed` case progress image

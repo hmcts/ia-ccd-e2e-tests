@@ -79,7 +79,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
     And I should see the `Overview` page
     And I should only see the `caseOfficer_prepareForHearing` case progress image
@@ -149,7 +149,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
     And I should see the `Overview` page
     And I should only see the `caseOfficer_prepareForHearing` case progress image
@@ -232,7 +232,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
     And I should see the `Overview` page
     And I should only see the `caseOfficer_prepareForHearing` case progress image
@@ -301,7 +301,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
     And I should see the `Overview` page
     And I should only see the `caseOfficer_prepareForHearing` case progress image

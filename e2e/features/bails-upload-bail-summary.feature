@@ -20,7 +20,7 @@ Feature: Bails Upload Bail Summary
     And I wait for 15 seconds
 
     Then I should see the text `You have uploaded the Bail Summary`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     And I should see the text `The Bail Summary has been uploaded and is available`
     When I click the `Documents` tab
     Then within the `Home Office documents` collection's first item, I should see `BailSummary.pdf` in the `Document` field

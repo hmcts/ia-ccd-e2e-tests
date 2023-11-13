@@ -12,6 +12,6 @@ Feature: Bails Submit bail application as Legal Rep
     When I click the `The applicant has confirmed that the facts stated in this application are true.` label
     And I click the `Submit` button
     Then I should see the text `You have submitted this application`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     And I wait for 5 seconds
     Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`

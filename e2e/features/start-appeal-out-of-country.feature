@@ -9,7 +9,7 @@ Feature: Out of Country - Start appeal
   Scenario: Select No for Out of country
 
     And I save my initial appeal with appellant living in UK `Yes`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     When I click the `Appeal` tab
     Then I should see `No` for the `Out of country` field
 

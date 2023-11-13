@@ -92,7 +92,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -124,7 +124,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -160,7 +160,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -201,7 +201,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -224,7 +224,7 @@ Feature: Reinstate appeal
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I switch to be a `Case Officer`
     And I request appellant review
@@ -261,7 +261,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -284,7 +284,7 @@ Feature: Reinstate appeal
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I switch to be a `Case Officer`
     And I request appellant review
@@ -331,7 +331,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -354,7 +354,7 @@ Feature: Reinstate appeal
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I switch to be a `Case Officer`
     And I request appellant review
@@ -399,7 +399,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -422,7 +422,7 @@ Feature: Reinstate appeal
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I switch to be a `Case Officer`
     And I request appellant review
@@ -468,7 +468,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -491,7 +491,7 @@ Feature: Reinstate appeal
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I switch to be a `Case Officer`
     And I request appellant review
@@ -536,7 +536,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -559,7 +559,7 @@ Feature: Reinstate appeal
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I switch to be a `Case Officer`
     And I request appellant review
@@ -608,7 +608,7 @@ Feature: Reinstate appeal
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And  I click the `Close and Return to case details` button
+    And  I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     And I upload respondent evidence
@@ -631,7 +631,7 @@ Feature: Reinstate appeal
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     And I switch to be a `Case Officer`
     And I request appellant review
@@ -665,7 +665,7 @@ Feature: Reinstate appeal
     Then I should see the text `The hearing has been adjourned`
     And I should see the text `A new Notice of Hearing has been generated.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     And I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
     And I should see the text `The hearing has been adjourned and there is no scheduled date for the hearing. You can view the reasons for this in the hearing tab.`

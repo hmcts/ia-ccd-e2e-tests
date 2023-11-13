@@ -41,7 +41,7 @@ Feature: Case Officer reviews hearing requirements - FTPA reheard decision (resi
     And within the `Recordings` collection's first item, I type `some description` for the `Describe the file` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
@@ -52,7 +52,7 @@ Feature: Case Officer reviews hearing requirements - FTPA reheard decision (resi
     And I type `Judge Fudge` for the `Judge assigned to the application` field
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I click the `Overview` tab
     And I select the `Record attendees and duration` Next step
     And I should see the `Record attendees and duration` page
@@ -65,7 +65,7 @@ Feature: Case Officer reviews hearing requirements - FTPA reheard decision (resi
     And I select `All participants at the hearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     And I click the `Save details` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I switch to be a Judge
     Then I select the `Resident judge FTPA decision` Next step
@@ -85,7 +85,7 @@ Feature: Case Officer reviews hearing requirements - FTPA reheard decision (resi
     And I type `These are list of instructions` for the `Listing instructions (Optional)` field
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     Then I click the `submit any new requirements` link
@@ -129,7 +129,7 @@ Feature: Case Officer reviews hearing requirements - FTPA reheard decision (resi
     Then I should see the text `You've recorded the agreed hearing adjustments`
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
     And I click the `Overview` tab

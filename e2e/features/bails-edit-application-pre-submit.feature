@@ -7,7 +7,7 @@ Feature: Bails Edit application preSubmit
     And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
     When I edit my saved application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
@@ -44,7 +44,7 @@ Feature: Bails Edit application preSubmit
     And I save my initial application as a `Home Office Bails` for a Prison detention with one financial condition supporters and with no Legal Representative
     When I edit my saved application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
@@ -81,7 +81,7 @@ Feature: Bails Edit application preSubmit
     And I save my initial application as a `Admin Officer` for a Prison detention with one financial condition supporters and with no Legal Representative
     When I edit my saved application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field

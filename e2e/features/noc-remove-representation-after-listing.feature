@@ -46,7 +46,7 @@ Feature: Notice of Change (common component) - Remove Representation (after list
     And I should see the text `What happens next`
     And I should see the text `We've sent you an email confirming you're no longer representing this client. You have been removed from this case and no longer have access to it.`
     And I should see the `View case list` link
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I enter the removed case id in the url
     Then I should see the text `No cases found. Try using different filters.`

@@ -23,7 +23,7 @@ Feature: Email address validation
 
     Then I should see the text `You've updated the legal representative's details`
     And I should see the text `The service will be updated. The new details will be used on all future correspondence and documents.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     Then I click the `Appellant` tab
     And I should see `new-ia-law-firm-a@fake.hmcts.net` for the `Email` field

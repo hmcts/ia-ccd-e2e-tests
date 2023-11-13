@@ -35,7 +35,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Pay and submit`
 
   @successful-payment-for-HU-appeal-type-pay-now-with-hearing-fee-out-of-time @RIA-3471-HU-PAY-NOW @RIA-3471
@@ -69,7 +69,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Pay and submit`
 
   @successful-payment-for-PA-appeal-type-pay-now-with-hearing-fee-out-of-time @RIA-3471-PA-PAY-NOW @RIA-3471 @RIA-3014
@@ -103,7 +103,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Pay and submit`
 
   @submit-appeal-with-paylater-payment-for-PA-appeal-type-with-hearing-fee-out-of-time @RIA-3471-PA-PAY-LATER @RIA-3471 @RIA-3014
@@ -125,7 +125,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `What happens next`
     And I should see the text `You still have to pay for this appeal. You can do this by selecting Make a payment from the dropdown on the`
     And I should see the text `Once you have paid for the appeal, a Tribunal Caseworker will review the reasons your appeal was out of time and you will be notified if it can proceed.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
     When I click the `Appeal` tab
@@ -151,7 +151,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the image `outOfTimeConfirmation.png`
     And I should see the text `You still have to pay for this appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
     And I should see the text `Once you have paid for the appeal, a Tribunal Caseworker will review the reasons your appeal was out of time and you will be notified if it can proceed.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
     When I click the `Appeal` tab
@@ -177,7 +177,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the image `outOfTimeConfirmation.png`
     And I should see the text `You still have to pay for this appeal. You will soon receive a notification with instructions on how to pay by card online. You need to pay within 14 days of receiving the notification or the Tribunal will end the appeal.`
     And I should see the text `Once you have paid for the appeal, a Tribunal Caseworker will review the reasons your appeal was out of time and you will be notified if it can proceed.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
     When I click the `Appeal` tab
@@ -204,7 +204,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `What happens next`
     And I should see the text `You still have to pay for this appeal. You will soon receive a notification with instructions on how to pay by card online.`
     And I should see the text `Once you have paid for the appeal, a Tribunal Caseworker will review the reasons your appeal was out of time and you will be notified if it can proceed.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
     When I click the `Appeal` tab

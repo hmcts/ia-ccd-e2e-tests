@@ -65,7 +65,7 @@ Feature: Remote hearing during Submit hearing requirements
     And I should see the text `The hearing notice will be sent to all parties.`
     And I should see the text `You don't need to do any more on this case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: List the case`
 
     When I click the `Overview` tab

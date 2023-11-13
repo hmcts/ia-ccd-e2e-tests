@@ -51,7 +51,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I am on the `Check your answers` page
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_allowed.png`
@@ -102,7 +102,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I am on the `Check your answers` page
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
@@ -160,7 +160,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I am on the `Check your answers` page
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_allowed.png`
@@ -206,7 +206,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I am on the `Check your answers` page
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`

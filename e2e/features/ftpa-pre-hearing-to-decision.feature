@@ -41,7 +41,7 @@ Feature: TCW progresses case from pre-hearing to Decision - FTPA reheard decisio
     And within the `Recordings` collection's first item, I type `some description` for the `Describe the file` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
@@ -52,7 +52,7 @@ Feature: TCW progresses case from pre-hearing to Decision - FTPA reheard decisio
     And I type `Judge Fudge` for the `Judge assigned to the application` field
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I click the `Overview` tab
     And I select the `Record attendees and duration` Next step
     And I should see the `Record attendees and duration` page
@@ -62,7 +62,7 @@ Feature: TCW progresses case from pre-hearing to Decision - FTPA reheard decisio
     And I select `All participants at the hearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     And I click the `Save details` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I switch to be a Judge
     Then I select the `Resident judge FTPA decision` Next step
@@ -82,7 +82,7 @@ Feature: TCW progresses case from pre-hearing to Decision - FTPA reheard decisio
     And I type `These are list of instructions` for the `Listing instructions (Optional)` field
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     Then I click the `submit any new requirements` link
@@ -102,7 +102,7 @@ Feature: TCW progresses case from pre-hearing to Decision - FTPA reheard decisio
     And I click the `Continue` button
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I switch to be a `Admin Officer`
     Then I select the `List the case` Next step
@@ -113,7 +113,7 @@ Feature: TCW progresses case from pre-hearing to Decision - FTPA reheard decisio
     And I select `{$TODAY+20|DD-MM-YYYY} 09:30:00` for the `Date and time` field
     And I click the `Continue` button
     And I click the `List case` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I switch to be a `Case Officer`
     Then I create case summary
@@ -278,7 +278,7 @@ Feature: TCW progresses case from pre-hearing to Decision - FTPA reheard decisio
     And I select `All participants at the hearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     And I click the `Save details` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I click the `Hearing and appointment` tab
     And I should see the text `Hearing attendance`
     And I should see `José González` for the `The appellant` field

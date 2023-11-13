@@ -11,7 +11,7 @@ Feature: Bails Edit application postSubmit
     When I switch to be a `Admin Officer Bails`
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
@@ -48,7 +48,7 @@ Feature: Bails Edit application postSubmit
     And I switch to be a `Admin Officer Bails`
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
     And I should see `Yarlswood` for the `Hearing centre` field
@@ -85,7 +85,7 @@ Feature: Bails Edit application postSubmit
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
@@ -124,7 +124,7 @@ Feature: Bails Edit application postSubmit
     And I upload the signed decision notice for a conditional grant
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field

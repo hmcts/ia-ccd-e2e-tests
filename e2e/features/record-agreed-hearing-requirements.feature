@@ -81,7 +81,7 @@ Feature: Record agreed hearing requirements
     Then I should see the text `You've recorded the agreed hearing adjustments`
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
     And I click the `Overview` tab
@@ -168,7 +168,7 @@ Feature: Record agreed hearing requirements
     Then I should see the text `You've recorded the agreed hearing adjustments`
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
     And I click the `Overview` tab

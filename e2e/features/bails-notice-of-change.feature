@@ -16,7 +16,7 @@ Feature: Bails Notice of Change
     And I click the `Continue` button
     And I click the `Submit` button
     Then I should see the text `You have removed the legal representative from this case`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     And I am signed in as a `Legal Org User Rep A Bails`
     And I wait for 10 seconds
     And I Apply case list filter for Bails

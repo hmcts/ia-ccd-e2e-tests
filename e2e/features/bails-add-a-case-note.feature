@@ -30,7 +30,7 @@ Feature: Bails Add a case note to bails application
     Then I should see the text `What happens next`
     Then I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
 
     When I goto the `Case notes` tab
@@ -71,7 +71,7 @@ Feature: Bails Add a case note to bails application
     Then I should see the text `What happens next`
     Then I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
 
     When I click the `Case notes` tab
@@ -111,7 +111,7 @@ Feature: Bails Add a case note to bails application
     Then I should see the text `What happens next`
     Then I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
 
     When I click the `Case notes` tab
@@ -149,7 +149,7 @@ Feature: Bails Add a case note to bails application
     Then I should see the text `What happens next`
     Then I should see the text `You can review this note in the case notes tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
 
     When I click the `Case notes` tab

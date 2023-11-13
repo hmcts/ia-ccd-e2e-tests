@@ -52,7 +52,7 @@ Feature: FTPA Appellant and Respondent application refused and not-admitted
     When I click the `Submit` button
     Then I should see the text `You've recorded the First-tier permission to appeal decision`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
 
     When I switch to be a `Case Officer`
@@ -140,7 +140,7 @@ Feature: FTPA Appellant and Respondent application refused and not-admitted
     When I click the `Submit` button
     Then I should see the text `You've recorded the First-tier permission to appeal decision`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
 
     When I switch to be a `Case Officer`
@@ -232,7 +232,7 @@ Feature: FTPA Appellant and Respondent application refused and not-admitted
     When I click the `Submit` button
     Then I should see the text `You've recorded the First-tier permission to appeal decision`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
 
     When I switch to be a `Case Officer`
@@ -330,7 +330,7 @@ Feature: FTPA Appellant and Respondent application refused and not-admitted
     When I click the `Submit` button
     Then I should see the text `You've recorded the First-tier permission to appeal decision`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
 
     When I switch to be a `Case Officer`

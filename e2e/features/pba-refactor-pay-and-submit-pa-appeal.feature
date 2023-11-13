@@ -5,7 +5,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
   @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa @RIA-4468-pa @RIA-4468 @RIA-4679
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
@@ -34,7 +34,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -124,7 +124,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is deleted`
     And I wait for 30 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -188,7 +188,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is on hold`
     And I wait for 30 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image

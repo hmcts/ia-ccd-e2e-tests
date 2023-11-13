@@ -32,7 +32,7 @@ Feature: Notice of Change (common component) - Previous Representation
     And I should see the text `You've updated the legal representative's details`
     And I should see the text `The service will be updated. The new details will be used on all future correspondence and documents.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update representative details`
 
     And I click the `Appellant` tab
@@ -85,7 +85,7 @@ Feature: Notice of Change (common component) - Previous Representation
     And I should see the text `You've updated the legal representative's details`
     And I should see the text `The service will be updated. The new details will be used on all future correspondence and documents.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update representative details`
 
     And I click the `Appellant` tab
@@ -118,7 +118,7 @@ Feature: Notice of Change (common component) - Previous Representation
     And I should see the text `What happens next`
     And I should see the text `We've sent you an email confirming you're no longer representing this client. You have been removed from this case and no longer have access to it.`
     And I should see the `View case list` link
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
     Given I am signed in as a `Legal Org User Rep C`
     And I click the `Notice of change` link
@@ -158,7 +158,7 @@ Feature: Notice of Change (common component) - Previous Representation
     And I should see the text `You've updated the legal representative's details`
     And I should see the text `The service will be updated. The new details will be used on all future correspondence and documents.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update representative details`
 
     And I click the `Appellant` tab
@@ -191,7 +191,7 @@ Feature: Notice of Change (common component) - Previous Representation
     And I should see the text `You have removed the legal representative from this appeal`
     And I should see the text `What happens next`
     And I should see the text `All parties will be notified.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     Given I am signed in as a `Case Officer`
 
     Given I am signed in as a `Legal Org User Rep C`
@@ -232,7 +232,7 @@ Feature: Notice of Change (common component) - Previous Representation
     And I should see the text `You've updated the legal representative's details`
     And I should see the text `The service will be updated. The new details will be used on all future correspondence and documents.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     Then I should see an alert confirming the case `has been updated with event: Update representative details`
 
     And I click the `Appellant` tab

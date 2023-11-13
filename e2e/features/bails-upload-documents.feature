@@ -5,7 +5,7 @@ Feature: Bails Upload Documents
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
     And I should see the text `You have submitted this application`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see the text `What happens next`
 
   @bails-upload-documents @bails-full @RIA-5769 @bails-upload-documents-post-submit @bails-regression @nightly-test
@@ -24,7 +24,7 @@ Feature: Bails Upload Documents
     When I click the `Upload` button
     Then I should see the text `Your upload is complete`
     And I should see the text `The document(s) you uploaded are available to view in the documents tab.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     When I click the `Documents` tab
     And within the `Applicant documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
@@ -49,7 +49,7 @@ Feature: Bails Upload Documents
     When I click the `Upload` button
     Then I should see the text `Your upload is complete`
     And I should see the text `The document(s) you uploaded are available to view in the documents tab.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     When I click the `Documents` tab
     And within the `Home Office documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
@@ -77,7 +77,7 @@ Feature: Bails Upload Documents
     When I click the `Upload` button
     Then I should see the text `Your upload is complete`
     And I should see the text `The document(s) you uploaded are available to view in the documents tab.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     When I click the `Documents` tab
     And within the `Applicant documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
@@ -106,7 +106,7 @@ Feature: Bails Upload Documents
     When I click the `Upload` button
     Then I should see the text `Your upload is complete`
     And I should see the text `The document(s) you uploaded are available to view in the documents tab.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     When I click the `Documents` tab
     And within the `Applicant documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field

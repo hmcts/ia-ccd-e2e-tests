@@ -25,7 +25,7 @@ Feature: Pay now and Submit feature
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -54,7 +54,7 @@ Feature: Pay now and Submit feature
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -83,7 +83,7 @@ Feature: Pay now and Submit feature
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -115,7 +115,7 @@ Feature: Pay now and Submit feature
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -148,7 +148,7 @@ Feature: Pay now and Submit feature
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -177,7 +177,7 @@ Feature: Pay now and Submit feature
     And I click the `Continue` button
 
     When I click the `Pay and submit now` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
