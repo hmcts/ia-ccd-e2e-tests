@@ -6,6 +6,7 @@ Feature: Upload additional evidence Home Office
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `Do this next`
     And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 15 seconds
@@ -46,6 +47,7 @@ Feature: Upload additional evidence Home Office
     And I should see the text `The evidence is now available in the documents tab.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `HomeOfficeEvidence.pdf` in the `Document` field

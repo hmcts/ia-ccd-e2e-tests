@@ -43,6 +43,7 @@ Feature: Start an appeal application alternate paths
 
     Given I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I am on the `DRAFT` page
 
     When I click the `Appellant` tab
@@ -77,6 +78,7 @@ Feature: Start an appeal application alternate paths
     Given I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I am on the `DRAFT` page
     When I click the `Appeal` tab
     Then I should see `Yes, but I don't have an appeal number` for the `Previous appeals` field
@@ -98,6 +100,7 @@ Feature: Start an appeal application alternate paths
     Given I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I am on the `DRAFT` page
     When I click the `Appeal` tab
     Then I should see `No` for the `Previous appeals` field
@@ -118,6 +121,7 @@ Feature: Start an appeal application alternate paths
     Given I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I am on the `DRAFT` page
     When I click the `Appeal` tab
     Then I should see `I'm not sure` for the `Previous appeals` field

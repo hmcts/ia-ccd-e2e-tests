@@ -42,6 +42,7 @@ Feature: Build case
     Then I should see the text `If you're not yet ready for your case to be reviewed, continue to build your case.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Documents` tab
 
@@ -64,6 +65,7 @@ Feature: Build case
     Then I should see the text `The case officer will now review your appeal.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Appellant documents` collection's first item, I should see `2020-González-appeal-skeleton-argument.PDF` in the `Document` field

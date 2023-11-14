@@ -156,6 +156,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     And I click the `Pay now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.'
 
     And I switch to be a Sr `Case Officer`
@@ -186,6 +187,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     And I click the `Pay now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.'
 
     And I switch to be a Sr `Case Officer`

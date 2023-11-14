@@ -6,6 +6,7 @@ Feature: Legal representative make an application
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `Do this next`
     And I pay for and submit my appeal by Card for a PA appeal type
     And I wait for 15 seconds
@@ -42,6 +43,7 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Applications` tab
     And I should see the `Application` field
@@ -199,6 +201,7 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Home Office APC`
     When I click the `Applications` tab
@@ -230,6 +233,7 @@ Feature: Legal representative make an application
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Applications` tab
     And I should see the `Application` field

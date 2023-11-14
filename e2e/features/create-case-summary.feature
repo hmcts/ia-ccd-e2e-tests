@@ -42,6 +42,7 @@ Feature: Create case summary
     Then I should see the text `Generate the hearing ready bundle if you are ready to do so.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Documents` tab
 

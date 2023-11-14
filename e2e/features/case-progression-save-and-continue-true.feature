@@ -102,6 +102,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `You must review the appeal data and cross reference it with Home Office data in the validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Validation` tab
     And I should see the text `There are no matching details for this appellant. You can contact the Home Office if you need more information to validate the appeal.`
@@ -198,6 +199,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `What happens next`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review.`
     And  I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I click the `Overview` tab
     Then I should only see the `homeOffice_awaitAppealSkeletonArgument` case progress image
@@ -284,6 +286,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field
@@ -333,6 +336,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `What happens next`
     And I should see the text `Legal representative will be notified by email.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I click the `Overview` tab
     And I should see `Legally Represented` tag
@@ -516,6 +520,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `What happens next`
     And I should see the text `Wait for the respondent to complete the direction. You must upload the response as soon as you receive it.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     ### respondent review, no appeal response
 
@@ -610,6 +615,7 @@ Feature: Case progression path when save and continue is enabled
     Then I should see the text `Providing there are no issues, the response will be shared with the appellant.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
@@ -669,6 +675,7 @@ Feature: Case progression path when save and continue is enabled
     Then I should see the text `You can see the status of the direction in the directions tab`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should only see the `caseOfficer_respondentReview_amendResponse` case progress image
     And I should see the text `Do this next`
     And I should see the text `The respondent has been directed to make changes with their response`
@@ -715,6 +722,7 @@ Feature: Case progression path when save and continue is enabled
     Then I should see the text `Providing there are no issues, the response will be shared with the appellant.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `AppealResponseUpdated.pdf` in the `Document` field
@@ -761,6 +769,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `Legal representative will be notified by email.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to review the Home Office response.`
@@ -1050,6 +1059,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `We'll notify you when the hearing is listed. You'll then be able to review the hearing requirements.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
     When I click the `Hearing and appointment` tab
@@ -1158,6 +1168,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
     When I select the `Hearing requirements` Next step
@@ -1577,6 +1588,7 @@ Feature: Case progression path when save and continue is enabled
     Then I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Add case note`
 
     When I click the `Case notes` tab
@@ -1617,6 +1629,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see the text `The application decision has been recorded and is now available in the applications tab. A notification will be sent to both parties, informing them that an application was requested and refused. The case will progress as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     When I click the `Applications` tab
@@ -1775,6 +1788,7 @@ Feature: Case progression path when save and continue is enabled
     And I click the `Continue` button
     And I click the `Save details` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Overview` tab
 
     Then I should only see the `appeal_allowed` case progress image

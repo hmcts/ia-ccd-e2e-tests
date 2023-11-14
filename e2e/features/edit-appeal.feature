@@ -75,6 +75,7 @@ Feature: Edit appeal application
     And I should see the text `You can return to the case details to make changes.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Appellant` tab
     Then I should see `DRAFT` for the `Appeal reference` field
@@ -159,6 +160,7 @@ Feature: Edit appeal application
     And I should see the text `The application decision has been recorded and is available in the applications tab. You must now edit the appeal details based on the new information provided in the application.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
     And I should see the text `The application decision has been recorded and is available in the applications tab.`
     And I should see the text `You must now edit the appeal details based on the new information provided in the application.`
@@ -233,6 +235,7 @@ Feature: Edit appeal application
     And I should see the text `The new details will be used on all future correspondence and documents.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should only see the `caseOfficer_awaitingRespondentEvidence` case progress image
     And I should see an alert confirming the case `has been updated with event: Edit appeal`
 
@@ -295,6 +298,7 @@ Feature: Edit appeal application
     And I should see the text `The application decision has been recorded and is available in the applications tab. You must now edit the appeal details based on the new information provided in the application.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
     And I should see the text `The application decision has been recorded and is available in the applications tab.`
     And I should see the text `You must now edit the appeal details based on the new information provided in the application.`
@@ -372,6 +376,7 @@ Feature: Edit appeal application
     And I should see the text `The new details will be used on all future correspondence and documents.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should only see the `caseOfficer_awaitingRespondentEvidence` case progress image
     And I should see an alert confirming the case `has been updated with event: Edit appeal`
 

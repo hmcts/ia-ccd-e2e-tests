@@ -7,6 +7,7 @@ Feature: Link and Unlink appeal
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `Do this next`
     And I pay for and submit my appeal by PBA for a PA appeal type
     And I wait for 15 seconds
@@ -32,6 +33,7 @@ Feature: Link and Unlink appeal
     And I should see the text `The appeal will now be considered as part of a set of linked appeals. You must update the linked appeal spreadsheet to reflect this change.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     # Then I should see `Familial` for the `Linked appeal` field
@@ -50,6 +52,7 @@ Feature: Link and Unlink appeal
     And I should see the text `This appeal is now unlinked and will proceed as usual. You must update the linked appeal spreadsheet to reflect this change.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     # Then I should not see the `Linked appeal` field

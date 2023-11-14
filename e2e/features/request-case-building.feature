@@ -53,6 +53,7 @@ Feature: Request case edit
     And I should see the text `Legal representative will be notified by email.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `You must now build your case to enable the respondent to conduct a thorough review of their decision.` in the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` in the `Parties` field

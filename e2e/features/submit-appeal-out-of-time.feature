@@ -22,6 +22,7 @@ Feature: Submit appeal application
     And I should see the image `outOfTimeConfirmation.png`
     And I should see the text `You have submitted this appeal beyond the deadline. The Tribunal Case Officer will decide if it can proceed. You'll get an email telling you whether your appeal can go ahead`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
     When I click the `Appeal` tab
@@ -45,6 +46,7 @@ Feature: Submit appeal application
     And I should see the image `outOfTimeConfirmation.png`
     And I should see the text `You have submitted this appeal beyond the deadline. The Tribunal Case Officer will decide if it can proceed. You'll get an email telling you whether your appeal can go ahead`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
     When I click the `Appeal` tab
@@ -67,6 +69,7 @@ Feature: Submit appeal application
     And I should see the image `outOfTimeConfirmation.png`
     And I should see the text `You have submitted this appeal beyond the deadline. The Tribunal Case Officer will decide if it can proceed. You'll get an email telling you whether your appeal can go ahead`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Submit your appeal`
 
     When I click the `Appeal` tab

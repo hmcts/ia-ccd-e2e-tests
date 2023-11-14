@@ -51,6 +51,7 @@ Feature: Generate Upper Tribunal Bundle (FTPA not admitted)
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_dismissed.png`
@@ -77,6 +78,7 @@ Feature: Generate Upper Tribunal Bundle (FTPA not admitted)
     And I should see the text `If the bundle fails to generate, you will be notified and must follow the same steps to generate the bundle again.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see the text `What happens next`
     And I should see the text `You will soon be able to view and download the bundle under Upper Tribunal documents in the documents tab.`
     And I should see the text `If the bundle fails to generate, you will be notified and must follow the same steps to generate the bundle again.`
@@ -131,6 +133,7 @@ Feature: Generate Upper Tribunal Bundle (FTPA not admitted)
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_dismissed.png`
@@ -157,6 +160,7 @@ Feature: Generate Upper Tribunal Bundle (FTPA not admitted)
     And I should see the text `If the bundle fails to generate, you will be notified and must follow the same steps to generate the bundle again.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see the text `What happens next`
     And I should see the text `You will soon be able to view and download the bundle under Upper Tribunal documents in the documents tab.`
     And I should see the text `If the bundle fails to generate, you will be notified and must follow the same steps to generate the bundle again.`

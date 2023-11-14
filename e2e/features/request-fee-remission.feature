@@ -45,6 +45,7 @@ Feature: Apply for a late remission
     And I should see the text `The Tribunal will review the remission request. The decision details will be available to`
     And I should see the text `view in the appeal tab when a decision has been made.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal` page

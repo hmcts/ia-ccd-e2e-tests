@@ -43,5 +43,6 @@ Feature: Mark appeal as paid after listing
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will be notified that the fee has been paid. The appeal will progress as usual.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I should see an alert confirming the case `has been updated with event: Mark appeal as paid`

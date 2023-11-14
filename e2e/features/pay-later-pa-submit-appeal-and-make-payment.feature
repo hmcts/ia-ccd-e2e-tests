@@ -29,6 +29,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Make a payment`
 
     And I click the `Appeal` tab
@@ -110,6 +111,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `Fee`
     And I should see the text `£80`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Make a payment`
 
     When I click the `Appeal` tab
@@ -195,6 +197,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is deleted`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Make a payment`
 
     And I click the `Appeal` tab
@@ -279,6 +282,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is on hold`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Make a payment`
 
     And I click the `Appeal` tab
@@ -360,6 +364,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I select the `Make a payment` Next step
     Then I should see the text `Unable to proceed because there are one or more callback Errors or Warnings`

@@ -56,6 +56,7 @@ Feature: Remove repeated tab titles
     Then I should see the text `You can review this note in the case notes tab.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Add case note`
 
     When I click the `Case notes` tab
@@ -95,6 +96,7 @@ Feature: Remove repeated tab titles
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Make an application`
 
     When I click the `Applications` tab

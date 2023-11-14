@@ -6,6 +6,7 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     And I save my initial HU appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 15 seconds
     # And I submit my appeal
@@ -104,6 +105,7 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     And I should see the text `We'll notify you when the hearing is listed. You'll then be able to review the hearing requirements.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
     When I click the `Hearing and appointment` tab
@@ -142,6 +144,7 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     And I should see `6 hours` for the `Length` field
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     # Update hearing requirements
     And I switch to be a `Admin Officer`
@@ -226,6 +229,7 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update hearing requirements`
 
     When I click the `Hearing and appointment` tab
@@ -250,3 +254,4 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     And I click the `Continue` button
     And I click the `Update` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds

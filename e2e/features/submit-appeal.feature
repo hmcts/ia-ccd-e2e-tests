@@ -6,6 +6,7 @@ Feature: Submit appeal application
     And I save my initial PA appeal type without remission and with hearing fee and pay later
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
   @nightly-test
   Scenario: Submit an appeal application
@@ -19,5 +20,6 @@ Feature: Submit appeal application
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been submitted`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `Case record`
 

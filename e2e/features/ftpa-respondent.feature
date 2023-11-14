@@ -69,6 +69,7 @@ Feature: FTPA Respondent application to the Upper Tribunal
     Then I should see the text `The First-tier Tribunal will review your application and decide shortly.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Overview` tab
     And I should see the image `ftpaInProgress.png`
     And I should see the text `What happens next`

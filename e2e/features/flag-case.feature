@@ -7,6 +7,7 @@ Feature: Flag a case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `Do this next`
     And I pay for and submit my appeal by PBA for a non PA appeal type
     And I wait for 15 seconds
@@ -39,6 +40,7 @@ Feature: Flag a case
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And The page is accessible
 
     # When I click the `Overview` tab
@@ -100,6 +102,7 @@ Feature: Flag a case
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And The page is accessible
 
     # When I click the `Overview` tab
@@ -138,6 +141,7 @@ Feature: Flag a case
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And The page is accessible
 
     # When I click the `Overview` tab
@@ -174,6 +178,7 @@ Feature: Flag a case
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     When I switch to be a `Legal Rep`
     Then I should not see the text `Flags`
     And I should not see the text `These flags are only visible to the Tribunal.`
@@ -202,6 +207,7 @@ Feature: Flag a case
     And I should see the text `This flag has been removed from the case. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
   @regression @flag-case @remove-flag @RIA-2513
   Scenario: Remove flag from a case
@@ -228,6 +234,7 @@ Feature: Flag a case
     And I should see the text `This flag has been removed from the case. The case will proceed as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And The page is accessible
 
     # When I click the `Overview` tab

@@ -34,6 +34,7 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -75,6 +76,7 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is on hold`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I should see the `pay for and submit your appeal` link
 
@@ -113,6 +115,7 @@ Feature: Submit appeal application failed payment (PA, EA and HU appeal types)
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is deleted`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I should see the `pay for and submit your appeal` link
 

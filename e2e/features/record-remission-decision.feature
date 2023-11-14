@@ -47,6 +47,7 @@ Feature: Record remission decision
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that you have approved this remission application. The appeal will progress as usual.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
@@ -146,6 +147,7 @@ Feature: Record remission decision
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that they need to pay the outstanding fee. Once payment is made you will need to mark the appeal as paid.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
@@ -245,6 +247,7 @@ Feature: Record remission decision
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that they must pay the full fee for this appeal.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
@@ -337,6 +340,7 @@ Feature: Record remission decision
     And I should see the text `What happens next`
     And I should see the text `The appellant will be notified that they need to pay the outstanding fee. Once payment is made you will need to mark the appeal as paid.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I should see an alert confirming the case `has been updated with event: Record remission decision`
 
@@ -372,6 +376,7 @@ Feature: Record remission decision
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will be notified that the fee has been paid. The appeal will progress as usual.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I should see an alert confirming the case `has been updated with event: Mark appeal as paid`
 

@@ -101,6 +101,7 @@ Feature: Upload appeal response - Home Office user
     Then I should see the text `Providing there are no issues, the response will be shared with the appellant.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `AppealResponse.pdf` in the `Document` field
@@ -218,6 +219,7 @@ Feature: Upload appeal response - Home Office user
     Then I should see the text `Providing there are no issues, the response will be shared with the appellant.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `AppealResponseUpdated.pdf` in the `Document` field

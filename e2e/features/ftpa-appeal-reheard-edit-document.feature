@@ -56,6 +56,7 @@ Feature: Case Officer edits reheard hearing document - FTPA reheard decision (re
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Case Officer`
     Then I click the `submit any new requirements` link
@@ -76,6 +77,7 @@ Feature: Case Officer edits reheard hearing document - FTPA reheard decision (re
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Admin Officer`
     Then I select the `List the case` Next step
@@ -86,6 +88,7 @@ Feature: Case Officer edits reheard hearing document - FTPA reheard decision (re
     And I click the `Continue` button
     And I click the `List case` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field

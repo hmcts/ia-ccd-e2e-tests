@@ -41,6 +41,7 @@ Feature: Add respondent response
     Then I should see the text `The legal representative will now get an email directing them to review the response.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should only see the `caseOfficer_respondentReview_appealResponseAvailable` case progress image
     And I should see the text `What happens next`
     And I should see the text `The appellant has been directed to review the Home Office response.`

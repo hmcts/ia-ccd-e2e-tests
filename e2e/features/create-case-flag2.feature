@@ -6,6 +6,7 @@ Feature: Create and manage Case Flags for TCW
         And I save my initial EA appeal type without remission and with hearing fee and pay now
         And I wait for 10 seconds
         And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
         Then I should see the text `Do this next`
         And I pay for and submit my appeal by Card for a non PA appeal type
         And I wait for 30 seconds

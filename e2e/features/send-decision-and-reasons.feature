@@ -55,6 +55,7 @@ Feature: Send decision and reasons
     Then I should see the text `You have sent the decision and reasons`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Complete decision and reasons`
 
     When I click the `Documents` tab
@@ -92,6 +93,7 @@ Feature: Send decision and reasons
     Then I should see the text `You have sent the decision and reasons`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Complete decision and reasons`
 
     When I click the `Documents` tab

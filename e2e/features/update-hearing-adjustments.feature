@@ -81,6 +81,7 @@ Feature: Update hearing adjustments after updating hearing requirements
 
     ## Update hearing adjustments:
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I select the `Update hearing adjustments` Next step
     Then I am on the `Update hearing adjustments` page
 
@@ -127,6 +128,7 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
     And I should only see the `caseOfficer_prepareForHearing` case progress image
     And I should see the text `Do this next`

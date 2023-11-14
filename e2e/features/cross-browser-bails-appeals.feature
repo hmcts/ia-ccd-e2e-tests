@@ -13,6 +13,7 @@ Feature: Cross-browser submit a bails application then an appeal application
     And I click the `Submit` button
     Then I should see the text `You have submitted this application`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I wait for 5 seconds
     Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
 
@@ -20,6 +21,7 @@ Feature: Cross-browser submit a bails application then an appeal application
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I select the `Submit your appeal` Next step
     And I wait for 5 seconds
     Then I should see the `Declaration` page

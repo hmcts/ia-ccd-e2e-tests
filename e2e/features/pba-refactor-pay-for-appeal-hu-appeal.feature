@@ -40,6 +40,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (HU appeal typ
     And I should see the text `Your account is deleted`
     And I wait for 30 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -76,6 +77,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (HU appeal typ
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -120,6 +122,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (HU appeal typ
     And I should see the text `Your account is deleted`
     And I wait for 30 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -162,6 +165,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (HU appeal typ
     And I should see the text `Your account is deleted`
     And I wait for 30 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image

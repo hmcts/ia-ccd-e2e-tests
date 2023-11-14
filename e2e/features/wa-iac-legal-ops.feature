@@ -6,6 +6,7 @@ Background:
 
   And I save my initial HU appeal type without remission and with hearing fee and pay offline
   And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
   Then I wait for 5 seconds
   And I submit my nonpayment appeal
   Then I wait for 10 seconds

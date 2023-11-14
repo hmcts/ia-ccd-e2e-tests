@@ -41,4 +41,5 @@ Feature: Generate hearing bundle
     Then I should see the text `You will soon be able to view the hearing bundle in the documents tab.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 

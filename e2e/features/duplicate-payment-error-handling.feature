@@ -77,6 +77,7 @@ Feature: Duplicate payment error handling
 
     When I click the `Pay now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Make a payment`
 
     Then I click the `Overview` tab
@@ -103,6 +104,7 @@ Feature: Duplicate payment error handling
 
     When I click the `Pay and submit now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I select the `Make a payment` Next step
@@ -128,6 +130,7 @@ Feature: Duplicate payment error handling
 
     When I click the `Pay and submit now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I select the `Make a payment` Next step

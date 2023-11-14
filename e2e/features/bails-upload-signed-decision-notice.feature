@@ -24,6 +24,7 @@ Feature: Bails Upload signed decision notice
     And I should see the text `You uploaded the signed decision notice`
     And I should see the text `The signed decision notice is available to view in the documents tab.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
@@ -45,6 +46,7 @@ Feature: Bails Upload signed decision notice
     And I should see the text `You uploaded the signed decision notice`
     And I should see the text `The signed decision notice is available to view in the documents tab.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
@@ -66,6 +68,7 @@ Feature: Bails Upload signed decision notice
     And I should see the text `You uploaded the signed decision notice`
     And I should see the text `The signed decision notice is available to view in the documents tab.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
@@ -88,6 +91,7 @@ Feature: Bails Upload signed decision notice
     And I should see the text `You uploaded the signed decision notice`
     And I should see the text `The signed decision notice is available to view in the documents tab.`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `Pugh-decision-notice.pdf` for the `Decision document` field

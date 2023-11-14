@@ -31,6 +31,7 @@ Feature: Upload respondent evidence
     Then I should see the text `The legal representative will now get an email`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Documents` tab
 
@@ -63,6 +64,7 @@ Feature: Upload respondent evidence
     When I click the `Continue` button
     When I click the `Upload` button
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
 
     When I select the `Add additional evidence` Next step
@@ -79,6 +81,7 @@ Feature: Upload respondent evidence
     When I click the `Continue` button
     When I click the `Upload` button
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
 
     And I click the `Documents` tab

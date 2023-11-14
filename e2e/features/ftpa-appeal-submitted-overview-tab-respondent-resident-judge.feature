@@ -73,6 +73,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I should see the text `Both parties will be notified of the decision. A Caseworker will review any Tribunal`
     And I should see the text `instructions and then relist the case.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
@@ -350,6 +351,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I should see the text `instructions and then relist the case.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -637,6 +639,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I should see the text `Both parties have been notified that permission was refused. They'll also be able to access this information in the FTPA tab.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page

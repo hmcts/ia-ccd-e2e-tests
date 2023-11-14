@@ -26,6 +26,7 @@ Feature: Pay now and Submit feature
 
     When I click the `Pay and submit now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -55,6 +56,7 @@ Feature: Pay now and Submit feature
 
     When I click the `Pay and submit now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -84,6 +86,7 @@ Feature: Pay now and Submit feature
 
     When I click the `Pay and submit now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -116,6 +119,7 @@ Feature: Pay now and Submit feature
 
     When I click the `Pay and submit now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -149,6 +153,7 @@ Feature: Pay now and Submit feature
 
     When I click the `Pay and submit now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab
@@ -178,6 +183,7 @@ Feature: Pay now and Submit feature
 
     When I click the `Pay and submit now` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Pay and submit`
 
     When I click the `Appeal` tab

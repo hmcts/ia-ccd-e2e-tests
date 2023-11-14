@@ -11,6 +11,7 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
 
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
     And I should see the text `The fee for an appeal with a hearing is £140`
@@ -36,6 +37,7 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
     And I should see the text `Fee`
     And I should see the text `£140`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -87,6 +89,7 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
     And I should see the text `Your account is deleted`
     And I wait for 30 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -150,6 +153,7 @@ Feature: Pay and submit appeal - successful and failed payments (HU appeal type)
     And I should see the text `Your account is on hold`
     And I wait for 30 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image

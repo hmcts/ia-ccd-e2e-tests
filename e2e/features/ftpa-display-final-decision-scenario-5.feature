@@ -52,6 +52,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_dismissed.png`
@@ -101,6 +102,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_allowed.png`
@@ -160,6 +162,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_dismissed.png`
@@ -209,6 +212,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `appeal_dismissed.png`

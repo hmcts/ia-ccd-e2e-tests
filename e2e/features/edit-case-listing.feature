@@ -66,6 +66,7 @@ Feature: Edit case listing
     And I should see the text `A new hearing notice has been generated. All parties will be notified by email.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab

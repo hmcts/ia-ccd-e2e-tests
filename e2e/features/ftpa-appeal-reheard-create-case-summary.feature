@@ -42,6 +42,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I click the `Continue` button
     And I click the `Upload` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
@@ -53,6 +54,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Overview` tab
     And I select the `Record attendees and duration` Next step
     And I should see the `Record attendees and duration` page
@@ -63,6 +65,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I click the `Continue` button
     And I click the `Save details` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a Judge
     Then I select the `Resident judge FTPA decision` Next step
@@ -85,6 +88,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Case Officer`
     Then I click the `submit any new requirements` link
@@ -105,6 +109,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Admin Officer`
     Then I should only see the `caseOfficer_listing` case progress image
@@ -150,6 +155,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     And I should see the text `You don't need to do any more on this case.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: List the case`
 
     When I switch to be a `Case Officer`
@@ -171,6 +177,7 @@ Feature: Admin Officer lists reheard case - FTPA reheard decision (resident judg
     Then I should see the text `Generate the hearing ready bundle if you are ready to do so.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Documents` tab
 

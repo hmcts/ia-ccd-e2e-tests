@@ -57,6 +57,7 @@ Feature: Add addendum evidence
     Then I should see the text `The evidence is now available in the documents tab. This is not included in the hearing bundle, it is added as an addendum.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Upload additional evidence`
 
     When I click the `Documents` tab

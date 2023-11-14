@@ -18,6 +18,7 @@ Feature: Generate skeleton bundle
     And I am on the `Submit your case` page
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Appellant documents` collection's first item, I should see `-González-appeal-skeleton-argument.PDF` in the `Document` field

@@ -77,6 +77,7 @@ Feature: List case
     And I should see the text `You don't need to do any more on this case.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: List the case`
 
     When I click the `Documents` tab
@@ -159,6 +160,7 @@ Feature: List case
     And I should see the text `You don't need to do any more on this case.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: List the case`
 
     When I click the `Documents` tab

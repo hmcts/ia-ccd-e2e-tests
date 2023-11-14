@@ -58,6 +58,7 @@ Feature: Request respondent evidence
     Then I should see the text `Wait for the respondent to complete the direction`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `You have until the date indicated below to review the appellant's argument and evidence` in the `Explanation` field
@@ -92,6 +93,7 @@ Feature: Request respondent evidence
     Then I should see the text `You have sent a direction`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `Something else` for the `Explanation` field

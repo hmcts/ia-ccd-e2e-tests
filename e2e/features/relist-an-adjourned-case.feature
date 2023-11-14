@@ -41,6 +41,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the text `A new Notice of Hearing has been generated.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Adjourn hearing without a date`
     And I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
@@ -105,6 +106,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the text `A new Notice of Hearing has been generated. All parties will be notified by email.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab
@@ -133,6 +135,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the text `A new Notice of Hearing has been generated.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Adjourn hearing without a date`
     And I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
@@ -197,6 +200,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the text `A new Notice of Hearing has been generated. All parties will be notified by email.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab
@@ -225,6 +229,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the text `A new Notice of Hearing has been generated.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Adjourn hearing without a date`
     And I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
@@ -290,6 +295,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the text `A new Notice of Hearing has been generated. All parties will be notified by email.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab
@@ -317,6 +323,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the text `A new Notice of Hearing has been generated.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Adjourn hearing without a date`
     And I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`
@@ -382,6 +389,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the text `A new Notice of Hearing has been generated. All parties will be notified by email.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     When I click the `Overview` tab

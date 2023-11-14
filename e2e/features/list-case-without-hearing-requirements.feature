@@ -61,6 +61,7 @@ Feature: Case Officer: List case without hearing requirements
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should only see the `caseOfficer_listing` case progress image
     And I should see the text `Do this next`
     And I should see the text `The agreed hearing requirements and adjustments have been recorded.`

@@ -51,6 +51,7 @@ Feature: Upload hearing recording
     And I should see the text `This file is now available in the Documents tab and the Hearing tab.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Upload hearing recording`
 
     When I click the `Documents` tab

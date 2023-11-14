@@ -36,6 +36,7 @@ Feature: Force case progression to submit hearing requirements
     And I should see the text `Respondent will be notified by email.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Force case - hearing reqs`
     And I should see the image `caseOfficer_submitHearingRequirements.png`
 

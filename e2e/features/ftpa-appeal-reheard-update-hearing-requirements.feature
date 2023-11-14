@@ -42,6 +42,7 @@ Feature: Update hearing requirements for appeal submitted - FTPA reheard decisio
     And I click the `Continue` button
     And I click the `Upload` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
@@ -53,6 +54,7 @@ Feature: Update hearing requirements for appeal submitted - FTPA reheard decisio
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Overview` tab
     And I select the `Record attendees and duration` Next step
     And I should see the `Record attendees and duration` page
@@ -66,6 +68,7 @@ Feature: Update hearing requirements for appeal submitted - FTPA reheard decisio
     And I click the `Continue` button
     And I click the `Save details` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a Judge
     Then I select the `Resident judge FTPA decision` Next step
@@ -86,6 +89,7 @@ Feature: Update hearing requirements for appeal submitted - FTPA reheard decisio
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Case Officer`
     Then I click the `submit any new requirements` link
@@ -186,6 +190,7 @@ Feature: Update hearing requirements for appeal submitted - FTPA reheard decisio
     And I should see the text `We'll notify you when the hearing is listed. You'll then be able to review the hearing requirements.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Submit hearing requirements`
 
     When I click the `Hearing and appointment` tab
@@ -267,6 +272,7 @@ Feature: Update hearing requirements for appeal submitted - FTPA reheard decisio
     And I should see the text `Do this next`
     And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Hearing and appointment` tab
     And I should see the `Record of requirements and requests` field
     And within the `Record of requirements and requests` collection's first item, I should see `-Gonzlez-hearing-requirements.PDF` in the `Document` field

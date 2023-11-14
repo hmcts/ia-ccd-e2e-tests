@@ -143,6 +143,7 @@ Feature: Hearing tab details after Submit hearing requirements journey
     And I should see the text `The hearing notice will be sent to all parties.`
     And I should see the text `You don't need to do any more on this case.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I click the `Hearing and appointment` tab
     And I should see `LP/12345/2019` for the `Listing reference` field

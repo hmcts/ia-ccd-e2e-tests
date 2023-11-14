@@ -8,10 +8,12 @@ Feature: Start decision and reasons
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `Do this next`
     And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 25 seconds
 #    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
 #    And I request home office data
@@ -92,6 +94,7 @@ Feature: Start decision and reasons
     Then I should see the text `You have started the decision and reasons process`
     And I should see the text `The judge can now download and complete the decision and reasons document.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #Then I see the open case
 
     When I click the `Appellant` tab
@@ -157,6 +160,7 @@ Feature: Start decision and reasons
     Then I should see the text `You have started the decision and reasons process`
     And I should see the text `The judge can now download and complete the decision and reasons document.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #Then I see the open case
 
     When I click the `Appellant` tab

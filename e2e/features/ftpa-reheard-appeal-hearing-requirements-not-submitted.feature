@@ -42,6 +42,7 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
     And I click the `Continue` button
     And I click the `Upload` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
@@ -53,6 +54,7 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Overview` tab
     And I select the `Record attendees and duration` Next step
     And I should see the `Record attendees and duration` page
@@ -66,6 +68,7 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
     And I click the `Continue` button
     And I click the `Save details` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a Judge
     And I select the `Resident judge FTPA decision` Next step
@@ -86,6 +89,7 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
     And I click the `Continue` button
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Case Officer`
     Then I click the `submit any new requirements` link
@@ -119,6 +123,7 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should only see the `caseOfficer_listing` case progress image
     And I should see the text `What happens next`
     And I should see the text `The agreed hearing requirements and adjustments have been recorded.`

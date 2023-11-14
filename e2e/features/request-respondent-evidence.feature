@@ -6,6 +6,7 @@ Feature: Request respondent evidence
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `Do this next`
     And I pay for and submit my appeal by Card for a PA appeal type
     And I wait for 15 seconds
@@ -33,6 +34,7 @@ Feature: Request respondent evidence
     And I should see the text `You must review the appeal data and cross reference it with Home Office data in the validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I wait for 5 seconds
     Then I click the `Validation` tab
     And I should see the text `There are no matching details for this appellant. You can contact the Home Office if you need more information to validate the appeal.`
@@ -59,6 +61,7 @@ Feature: Request respondent evidence
     Then I should see the text `Wait for the respondent to complete the direction`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I wait for 5 seconds
     And I click the `Directions` tab
@@ -87,6 +90,7 @@ Feature: Request respondent evidence
     Then I should see the text `You have sent a direction`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `Something else` for the `Explanation` field

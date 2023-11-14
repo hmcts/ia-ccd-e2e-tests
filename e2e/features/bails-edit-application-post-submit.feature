@@ -12,6 +12,7 @@ Feature: Bails Edit application postSubmit
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
@@ -49,6 +50,7 @@ Feature: Bails Edit application postSubmit
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
     And I should see `Yarlswood` for the `Hearing centre` field
@@ -86,6 +88,7 @@ Feature: Bails Edit application postSubmit
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
@@ -125,6 +128,7 @@ Feature: Bails Edit application postSubmit
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field

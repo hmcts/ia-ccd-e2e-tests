@@ -6,6 +6,7 @@ Feature: End appeal
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 12 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I wait for 4 seconds
     Then I should see the text `Do this next`
     And I wait for 2 seconds

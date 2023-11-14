@@ -29,6 +29,7 @@ Feature: Record out of time decision feature
     And I should see the text `This appeal will proceed as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
@@ -65,6 +66,7 @@ Feature: Record out of time decision feature
     And I should see the text `This appeal will proceed as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal` page
@@ -101,6 +103,7 @@ Feature: Record out of time decision feature
     And I should see the text `This appeal is out time and cannot proceed. You must end the appeal.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Overview` tab
     And I should see the text `Do this next`

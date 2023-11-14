@@ -6,6 +6,7 @@ Feature: Case officer or Judge make an application
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 15 seconds
     And I switch to be a `Legal Org User Rep A`
@@ -47,6 +48,7 @@ Feature: Case officer or Judge make an application
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now update the appeal details`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I wait for 5 seconds
 
     When I goto the `Applications` tab
@@ -179,6 +181,7 @@ Feature: Case officer or Judge make an application
     And I should see the text `What happens next`
     And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now change the direction's due date`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Applications` tab
     And I should see the `Application` field

@@ -12,5 +12,6 @@ Feature: Bails Submit bail application as Admin Officer
     And I click the `Submit` button
     Then I should see the text `You have submitted this application`
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I wait for 5 seconds
     Then I should see the text `The case is ready to be listed`

@@ -44,6 +44,7 @@ Feature: Record application
     And I should see the text `The application decision has been recorded and is now available in the applications tab. A notification will be sent to both parties, informing them that an application was requested and refused. The case will progress as usual.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     When I click the `Applications` tab
@@ -98,6 +99,7 @@ Feature: Record application
     And I should see the text `You must now change the direction due date. You can also view the application decision in the Applications tab.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     When I click the `Overview` tab
@@ -147,6 +149,7 @@ Feature: Record application
     And I should see the text `The application decision has been recorded and is now available in the applications tab. You must now end the appeal.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     When I click the `Overview` tab
@@ -189,6 +192,7 @@ Feature: Record application
     And I should see the text `A notification has been sent to all parties.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I should see an alert confirming the case `has been updated with event: End the appeal`
 
@@ -262,6 +266,7 @@ Feature: Record application
     And I should see the text `The application decision has been recorded and is now available in the applications tab. Contact the listing team to relist the case. Once the case has been relisted, a new hearing notice will be issued.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     When I click the `Overview` tab
@@ -279,6 +284,7 @@ Feature: Record application
     And I click the `Continue` button
     And I click the `List case` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Overview` tab
 
     Then I should only see the `caseOfficer_prepareForHearing` case progress image

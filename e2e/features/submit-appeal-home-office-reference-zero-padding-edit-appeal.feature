@@ -44,6 +44,7 @@ Feature: Home Office CID Reference number is padded - edit appeal
     And I should see the text `You can return to the case details to make changes.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see `000001234` for the `Home Office Reference/Case ID` field
 
     When I click the `Appellant` tab

@@ -81,6 +81,7 @@ Feature: List case and edit case listing after agreed hearing requirements stage
     And I should see the text `The hearing notice will be sent to all parties.`
     And I should see the text `You don't need to do any more on this case.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     # edit case listing
     When I select the `Edit case listing` Next step
@@ -99,6 +100,7 @@ Feature: List case and edit case listing after agreed hearing requirements stage
     And I should see the text `What happens next`
     And I should see the text `A new Notice of Hearing has been generated. All parties will be notified by email.`
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I click the `Hearing and appointment` tab
     And I should not see the requests for additional adjustments yes path

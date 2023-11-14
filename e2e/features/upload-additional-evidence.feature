@@ -48,6 +48,7 @@ Feature: Submit case
     Then I should see the text `The document is now available in the documents tab.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Documents` tab
 
@@ -112,6 +113,7 @@ Feature: Submit case
     ### additional evidence is visible to Legal Rep
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     #And I see the open case
     And I click the `Documents` tab
 

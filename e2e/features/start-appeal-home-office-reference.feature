@@ -63,6 +63,7 @@ Feature: Home Office Reference/Case ID number is validated
     And I should see the text `You can return to the case details to make changes.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see `1234-5678-8765-0000` for the `Home Office Reference/Case ID` field
 
     When I click the `Appellant` tab

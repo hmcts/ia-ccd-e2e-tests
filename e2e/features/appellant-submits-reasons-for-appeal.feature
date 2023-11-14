@@ -26,6 +26,7 @@ Feature: Submit reasons for appeal
     And the appellant submits their reasons for appeal
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should only see the `caseOfficer_caseUnderReview` case progress image
 
     When I click the `the documents tab` link

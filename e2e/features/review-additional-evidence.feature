@@ -14,6 +14,7 @@ Feature: Review Additional Evidence
     And I click the `Continue` button
     And I click the `Request Home Office data` button
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
@@ -48,6 +49,7 @@ Feature: Review Additional Evidence
 
     When I click the `Upload` button
     And  I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I switch to be a `Case Officer`
     And I select the `Mark evidence as reviewed` Next step

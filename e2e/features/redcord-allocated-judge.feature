@@ -57,6 +57,7 @@ Feature: Record allocated Judge
     And I should see the text `The judge will consider the application.`
 
     When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `FTPA` tab
 
     Then I should see the text `Tribunal notes`
@@ -77,6 +78,7 @@ Feature: Record allocated Judge
 
     When I click the `Submit` button
     And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `FTPA` tab
 
     Then I should see `Judge nr 2` for the `Judge assigned to the application` field

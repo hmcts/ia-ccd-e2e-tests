@@ -42,6 +42,7 @@ Feature: Edit case listing and change the hearing centre to Belfast
     And I should see the text `The case has been re-listed`
 
     Then I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Edit case listing`
 
     Then I click the `Hearing and appointment` tab
