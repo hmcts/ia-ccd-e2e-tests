@@ -27,6 +27,6 @@ Feature: Cross-browser submit a bails application then an appeal application
     When I click the `Submit` button
     And I wait for 30 seconds
     Then I should see the text `Your appeal has been submitted`
-    When I click the `Close and Return to case details` button if present
+    When I click the `Close and Return to case details` button
     Then I should see the text `Case record`
     And I restart the browser
