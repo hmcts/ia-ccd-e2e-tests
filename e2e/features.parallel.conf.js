@@ -103,12 +103,11 @@ class BaseConfig {
       profile: false,
       'fail-fast': iaConfig.FailFast,
       'nightly-tag': iaConfig.NightlyTag,
-      'no-source': true,
-      retry: 5
+      'no-source': true
     };
 
     this.onCleanUp = (results) => {
-      //retry.onCleanUp(results);
+      retry.onCleanUp(results);
     }
 
     this.onPrepare = () => {
@@ -125,11 +124,11 @@ class BaseConfig {
         project: path.join(__dirname, './tsconfig.e2e.json')
       });
 
-      //retry.onPrepare();
+      retry.onPrepare();
     };
 
     //this.afterLaunch = () => {
-      //return retry.afterLaunch(0);
+      return retry.afterLaunch(5);
     //}
 
     this.onComplete = () => {
