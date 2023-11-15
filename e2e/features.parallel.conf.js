@@ -111,6 +111,7 @@ class BaseConfig {
     }
 
     this.onPrepare = () => {
+      retry.onPrepare();
       // returning the promise makes protractor wait for
       // the reporter config before executing tests
       global
@@ -124,12 +125,11 @@ class BaseConfig {
         project: path.join(__dirname, './tsconfig.e2e.json')
       });
 
-      retry.onPrepare();
     };
 
-    //this.afterLaunch = () => {
+    this.afterLaunch = () => {
       return retry.afterLaunch(5);
-    //}
+    }
 
     this.onComplete = () => {
        generateAccessibilityReport();
