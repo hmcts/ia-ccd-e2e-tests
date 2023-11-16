@@ -127,9 +127,9 @@ class BaseConfig {
 
     };
 
-    this.afterLaunch = () => {
-      return retry.afterLaunch(2);
-    }
+//    this.afterLaunch = () => {
+//      return retry.afterLaunch(2);
+//    }
 
     this.onComplete = () => {
        generateAccessibilityReport();
