@@ -66,7 +66,7 @@ class BaseConfig {
             let config = {
               specs: featureFile,
               shardTestFiles: true,
-              maxInstances: 1
+              maxInstances: 4
             };
             return _.merge(config, capabilities);
           });
