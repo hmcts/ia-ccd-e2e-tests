@@ -108,27 +108,27 @@ withNightlyPipeline("nodejs", product, component) {
             def passedPercentage = jsonContent.scenarios.passedPercentage
 
             if (passedPercentage == "100.00") {
-                currentBuild.currentResult = 'SUCCESS'
+                currentBuild.setResult('SUCCESS')
             }
         }
-        withGroovy {
-            def jsonContent = readJSON file: 'reports/tests/functional/enriched-output.json'
-            def passedPercentage = jsonContent.scenarios.passedPercentage
-
-            if (passedPercentage == "100.00") {
-                currentBuild.currentResult = 'SUCCESS'
-            }
-        }
-        sh '''
-            jsonContent=\$(cat reports/tests/functional/enriched-output.json)
-            passedPercentage=\$(echo "$jsonContent" | jq -r '.scenarios.passedPercentage')
-            if [ "$passedPercentage" == "100.00" ]; then
-                echo "Setting currentBuild.currentResult to SUCCESS"
-                export currentBuild_currentResult="SUCCESS"
-            else
-                echo "Passed percentage is not 100.00. Doing nothing."
-            fi
-        '''
+//        withGroovy {
+//            def jsonContent = readJSON file: 'reports/tests/functional/enriched-output.json'
+//            def passedPercentage = jsonContent.scenarios.passedPercentage
+//
+//            if (passedPercentage == "100.00") {
+//                currentBuild.currentResult = 'SUCCESS'
+//            }
+//        }
+//        sh '''
+//            jsonContent=\$(cat reports/tests/functional/enriched-output.json)
+//            passedPercentage=\$(echo "$jsonContent" | jq -r '.scenarios.passedPercentage')
+//            if [ "$passedPercentage" == "100.00" ]; then
+//                echo "Setting currentBuild.currentResult to SUCCESS"
+//                export currentBuild_currentResult="SUCCESS"
+//            else
+//                echo "Passed percentage is not 100.00. Doing nothing."
+//            fi
+//        '''
 
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests-results/functional/*'
 
