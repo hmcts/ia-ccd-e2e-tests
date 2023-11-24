@@ -111,14 +111,14 @@ withNightlyPipeline("nodejs", product, component) {
                 currentBuild.setResult('SUCCESS')
             }
         }
-//        withGroovy {
-//            def jsonContent = readJSON file: 'reports/tests/functional/enriched-output.json'
-//            def passedPercentage = jsonContent.scenarios.passedPercentage
-//
-//            if (passedPercentage == "100.00") {
-//                currentBuild.currentResult = 'SUCCESS'
-//            }
-//        }
+        withGroovy {
+            def jsonContent = readJSON file: 'reports/tests/functional/enriched-output.json'
+            def passedPercentage = jsonContent.scenarios.passedPercentage
+
+            if (passedPercentage == "100.00") {
+                currentBuild.setResult('SUCCESS')
+            }
+        }
 //        sh '''
 //            jsonContent=\$(cat reports/tests/functional/enriched-output.json)
 //            passedPercentage=\$(echo "$jsonContent" | jq -r '.scenarios.passedPercentage')
