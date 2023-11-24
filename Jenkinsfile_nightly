@@ -91,7 +91,7 @@ withNightlyPipeline("nodejs", product, component) {
             reportFiles          : 'index.html',
             reportName           : 'IA Service Cross Browser Tests'
         ])
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests-results/crossbrowser/*'
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/crossbrowser/*'
     }
 
     afterAlways('fullFunctionalTest') {
@@ -112,7 +112,7 @@ withNightlyPipeline("nodejs", product, component) {
             }
         }
 
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests-results/functional/*'
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
 
         publishHTML([
             allowMissing         : true,
@@ -122,7 +122,7 @@ withNightlyPipeline("nodejs", product, component) {
             reportFiles          : 'a11y.html',
             reportName           : 'IAC - Manage Cases a11y Test Report'
         ])
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/a11y-results/functional/*'
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/**/*'
 
     }
 
