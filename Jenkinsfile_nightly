@@ -103,14 +103,6 @@ withNightlyPipeline("nodejs", product, component) {
             reportFiles          : 'index.html',
             reportName           : 'IAC - Manage Cases Functional Test'
         ])
-        script {
-            def jsonContent = readJSON file: 'reports/tests/functional/enriched-output.json'
-            def passedPercentage = jsonContent.scenarios.passedPercentage
-
-            if (passedPercentage == "100.00") {
-                currentBuild.setResult('SUCCESS')
-            }
-        }
 
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
 
@@ -122,7 +114,6 @@ withNightlyPipeline("nodejs", product, component) {
             reportFiles          : 'a11y.html',
             reportName           : 'IAC - Manage Cases a11y Test Report'
         ])
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/**/*'
 
     }
 
