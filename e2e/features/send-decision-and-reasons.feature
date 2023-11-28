@@ -41,7 +41,7 @@ Feature: Send decision and reasons
     Then I should see the text `Complete decision and reasons`
     And I should see the text `Upload your decision and reasons`
 
-    When I upload `{@test.docx}` for the `Decision and reasons` field
+    When I upload `{@test.pdf}` for the `Decision and reasons` field
     And I click the `I confirm this document is signed with today's date.` label
     And I click the `Ensure that the fee award is consistent with your decision.` label
     And I click the `Continue` button
@@ -49,7 +49,7 @@ Feature: Send decision and reasons
     And I should see the text `Check your answers`
     And I should see the text `Check the information below carefully.`
     And I should see the text `Allowed`
-    And I should see the `test.docx` link
+    And I should see the `test.pdf` link
 
     When I click the `Upload` button
     Then I should see the text `You have sent the decision and reasons`
@@ -79,7 +79,7 @@ Feature: Send decision and reasons
     Then I should see the text `Complete decision and reasons`
     And I should see the text `Upload your decision and reasons`
 
-    When I upload `{@test.docx}` for the `Decision and reasons` field
+    When I upload `{@test.pdf}` for the `Decision and reasons` field
     And I click the `I confirm this document is signed with today's date.` label
     And I click the `Ensure that the fee award is consistent with your decision.` label
     And I click the `Continue` button
@@ -87,7 +87,7 @@ Feature: Send decision and reasons
     And I should see the text `Check your answers`
     And I should see the text `Check the information below carefully.`
     And I should see the text `Dismissed on all grounds`
-    And I should see the `test.docx` link
+    And I should see the `test.pdf` link
 
     When I click the `Upload` button
     Then I should see the text `You have sent the decision and reasons`
