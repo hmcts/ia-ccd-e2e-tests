@@ -54,7 +54,8 @@ Feature: Prepare decision and reasons
     When I click the `Generate` button
     Then I should see the text `The Decision and Reasons document is ready to download`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Prepare Decision and Reasons`
 
     When I click the `Documents` tab
@@ -150,7 +151,8 @@ Feature: Prepare decision and reasons
     Then I should see the text `What happens next`
     Then I should see the text `Go to the documents tab to download the Decision and Reasons document.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Prepare Decision and Reasons`
 
     When I click the `Documents` tab

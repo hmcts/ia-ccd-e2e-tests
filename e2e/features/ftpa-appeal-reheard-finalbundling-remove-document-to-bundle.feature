@@ -40,7 +40,8 @@ Feature: Case Officer remove document from final bundle for a reheard case
     And within the `Recordings` collection's first item, I type `some description` for the `Describe the file` field
     And I click the `Continue` button
     And I click the `Upload` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
@@ -51,7 +52,8 @@ Feature: Case Officer remove document from final bundle for a reheard case
     And I type `Judge Fudge` for the `Judge assigned to the application` field
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Overview` tab
     And I select the `Record attendees and duration` Next step
     And I should see the `Record attendees and duration` page
@@ -61,7 +63,8 @@ Feature: Case Officer remove document from final bundle for a reheard case
     And I select `All participants at the hearing centre` for the `How was the hearing conducted?` field
     And I click the `Continue` button
     And I click the `Save details` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a Judge
     Then I select the `Resident judge FTPA decision` Next step
@@ -95,7 +98,8 @@ Feature: Case Officer remove document from final bundle for a reheard case
     And I should see the text `What happens next`
     And I should see the text `Both parties will be notified of the decision. A Caseworker will review any Tribunal`
     And I should see the text `instructions and then relist the case.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
@@ -126,7 +130,8 @@ Feature: Case Officer remove document from final bundle for a reheard case
     And I click the `Continue` button
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Admin Officer`
     Then I should only see the `caseOfficer_listing` case progress image
@@ -168,7 +173,8 @@ Feature: Case Officer remove document from final bundle for a reheard case
     And I should see the text `The hearing notice will be sent to all parties.`
     And I should see the text `You don't need to do any more on this case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: List the case`
 
     When I switch to be a `Case Officer`
@@ -195,7 +201,8 @@ Feature: Case Officer remove document from final bundle for a reheard case
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and will need to generate the bundle again.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The hearing bundle is being generated. You will soon be able to view the hearing bundle in the documents tab.`
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`

@@ -2,14 +2,15 @@ Feature: Out of Country - Start appeal
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    Then I wait for 10 seconds
+    Then I wait for 60 seconds
     And I create a new case
 
   @start-appeal-out-of-country-yes @RIA-3876 
   Scenario: Select No for Out of country
 
     And I save my initial appeal with appellant living in UK `Yes`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     When I click the `Appeal` tab
     Then I should see `No` for the `Out of country` field
 

@@ -2,13 +2,13 @@ Feature: Upload additional evidence Home Office
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
-    And I click the `Close and Return to case details` button
-    Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
+    Then I should see the text `Do this next`
+    And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
@@ -46,7 +46,8 @@ Feature: Upload additional evidence Home Office
     Then I should see the text `What happens next`
     And I should see the text `The evidence is now available in the documents tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `HomeOfficeEvidence.pdf` in the `Document` field

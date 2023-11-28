@@ -81,7 +81,8 @@ Feature: Record agreed hearing requirements
     Then I should see the text `You've recorded the agreed hearing adjustments`
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
     And I click the `Overview` tab
@@ -146,7 +147,7 @@ Feature: Record agreed hearing requirements
     And I type `Physical or mental health conditions will be reviewed` for the `Adjustments to accommodate vulnerabilities` field
     And I click the `Continue` button
     And I should see `Yes` in the `Do you have multimedia evidence?` field
-    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
+    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)` field
     And I should see the text `Tribunal response`
     And I type `Multimedia equipment requirement will be reviewed` for the `Multimedia equipment` field
     And I click the `Continue` button
@@ -168,7 +169,8 @@ Feature: Record agreed hearing requirements
     Then I should see the text `You've recorded the agreed hearing adjustments`
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Hearing requirements`
 
     And I click the `Overview` tab

@@ -1,7 +1,6 @@
 Feature: Bails Record the decision
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
-    And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
@@ -37,7 +36,8 @@ Feature: Bails Record the decision
     And I should see `This is a reason for refusing the application.` for the `Enter the reasons for refusal` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Refused` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
@@ -81,7 +81,8 @@ Feature: Bails Record the decision
     And I should see `This is a reason for refusing the application.` for the `Enter the reasons for refusal` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Refused` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
@@ -135,7 +136,8 @@ Feature: Bails Record the decision
     And I should see `The Tribunal was minded to grant bail for the reasons given. The Home Office have refused to consent to the grant of bail so in accordance with paragraph 3(4) of Schedule 10 Immigration Act 2016 bail is refused.` for the `Enter the reasons for refusal` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Refused` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
@@ -230,7 +232,8 @@ Feature: Bails Record the decision
     And I should see `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Granted` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
@@ -298,7 +301,8 @@ Feature: Bails Record the decision
     And I should see `No` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     And I should see `Granted` for the `Decision` field
     And I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
@@ -391,7 +395,8 @@ Feature: Bails Record the decision
     And I should see `Yes` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     Then I should see the text `Depending on the circumstance of the application, you can:`
     Then I should see the text `Relist the case`
@@ -463,7 +468,8 @@ Feature: Bails Record the decision
     And I should see `No` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
     When I click the `Record decision` button
     Then I should see the text `You have recorded the decision`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The application has been decided. Download the decision notice from the documents tab and distribute to anyone who needs to sign it. Upload the signed decision notice when it is ready.`
     Then I should see the text `Depending on the circumstance of the application, you can:`
     Then I should see the text `Relist the case`

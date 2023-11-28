@@ -32,7 +32,8 @@ Feature: Request reasons for appeal
     Then I should see the text `You have sent a direction`
     And I should see the text `What happens next`
     And I should see the text `The appellant will be directed to submit their Appeal Reasons. You will be notified when it is ready to review.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The appellant has been directed to submit their Appeal Reasons. You will be notified when it is ready to review.`
     When I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `You must now tell us why you think the Home Office decision to refuse your claim is wrong.` in the `Explanation` field

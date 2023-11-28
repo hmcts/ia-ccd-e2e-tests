@@ -5,7 +5,8 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
   @RIA-4468-pay-and-submit-successful @RIA-4468-pay-and-submit-successful-pa @RIA-4468-pa @RIA-4468 @RIA-4679
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
@@ -16,7 +17,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I should see the `edit your appeal` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     And I agree to the declaration
@@ -31,10 +32,11 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `Payment reference number`
     # And I should see the text `RC-1627-6545-0718-4880`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -62,7 +64,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I should see the `edit your appeal` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     And I agree to the declaration
@@ -79,7 +81,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `Payment reference number`
     And I should see the text `RC-1590-6786-1063-9996`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I should see the text `Reason for failed payment`
@@ -101,7 +103,7 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I should see the `edit your appeal` link
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
 
     And I agree to the declaration
@@ -118,13 +120,14 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `Payment reference number`
     And I should see the text `RC-1590-6786-1063-9996`
     And I should see the text `Payment by Account number`
-    And I should see the text `PBA0087535`
+    And I should see the text `PBA0087412`
     And I should see the text `Fee`
     And I should see the text `£140`
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is deleted`
     And I wait for 30 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
@@ -188,7 +191,8 @@ Feature: Pay and submit appeal - successful and failed payments (PA appeal type)
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is on hold`
     And I wait for 30 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image

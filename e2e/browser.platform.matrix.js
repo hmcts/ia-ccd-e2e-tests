@@ -20,7 +20,7 @@ module.exports = {
           extendedDebugging: true,
           sharedTestFiles: false,
           capturePerformance: true,
-          maxInstances: 1
+          maxInstances: 2
         },
         // {
         //   browserName: 'chrome',
@@ -42,7 +42,7 @@ module.exports = {
           extendedDebugging: true,
           sharedTestFiles: false,
           capturePerformance: true,
-          maxInstances: 1
+          maxInstances: 2
         },
         {
           browserName: 'safari',
@@ -53,7 +53,7 @@ module.exports = {
           extendedDebugging: true,
           sharedTestFiles: false,
           capturePerformance: true,
-          maxInstances: 1,
+          maxInstances: 2
         },
         {
           browserName: 'MicrosoftEdge',
@@ -64,7 +64,7 @@ module.exports = {
           extendedDebugging: true,
           sharedTestFiles: false,
           capturePerformance: true,
-          maxInstances: 1
+          maxInstances: 2
         },
       ],
 };

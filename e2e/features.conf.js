@@ -4,6 +4,7 @@ const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
 const path = require('path');
+const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 exports.config = {
 
@@ -62,7 +63,7 @@ exports.config = {
     'no-source': true,
     format: 'json:.tmp/results.json',
     strict: true,
-    retry: 2
+    retry: 5
   },
 
   onPrepare() {

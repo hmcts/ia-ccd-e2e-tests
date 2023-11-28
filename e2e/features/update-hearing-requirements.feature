@@ -99,7 +99,8 @@ Feature: Update hearing requirements
     And I should see the text `Do this next`
     And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update hearing requirements`
 
     When I click the `Hearing and appointment` tab
@@ -183,7 +184,7 @@ Feature: Update hearing requirements
     When I click the `Continue` button
     And I select `Yes` for the `Do you have multimedia evidence?` field
     Then the `Continue` button is disabled
-    When I type `The appellant has a video recording on a memory stick which needs to be played on a computer` for the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
+    When I type `The appellant has a video recording on a memory stick which needs to be played on a computer` for the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)` field
     Then the `Continue` button is enabled
 
     When I click the `Continue` button
@@ -233,7 +234,7 @@ Feature: Update hearing requirements
     And I should see `Yes` in the `Has the appellant had any past experiences that may impact them on the day?` field
     And I should see `The appellant is fearful of the law` in the `Explain in detail how any past experiences may affect them on the day?` field
     And I should see `Yes` in the `Do you have multimedia evidence?` field
-    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
+    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)` field
     And I should see `Yes` in the `Does the appellant need a single-sex court?` field
     And I should see `All female` in the `What type of court do they need?` field
     And I should see `The appellant is fearful of men` in the `Explain in detail why the appellant needs a single-sex court.` field
@@ -250,7 +251,8 @@ Feature: Update hearing requirements
     And I should see the text `Do this next`
     And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update hearing requirements`
 
     When I click the `Hearing and appointment` tab

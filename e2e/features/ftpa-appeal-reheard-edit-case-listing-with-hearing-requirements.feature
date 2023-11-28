@@ -55,7 +55,8 @@ Feature: Admin Officer edits case listing - FTPA reheard decision (listed with h
     And I type `These are list of instructions` for the `Listing instructions (Optional)` field
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Case Officer`
     Then I click the `submit any new requirements` link
@@ -75,7 +76,8 @@ Feature: Admin Officer edits case listing - FTPA reheard decision (listed with h
     And I click the `Continue` button
     And I click the `Continue` button
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Admin Officer`
     Then I select the `List the case` Next step
@@ -85,7 +87,8 @@ Feature: Admin Officer edits case listing - FTPA reheard decision (listed with h
     And I select `{$TODAY+20|DD-MM-YYYY} 09:30:00` for the `Date and time` field
     And I click the `Continue` button
     And I click the `List case` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
     And I should see the `Reheard hearing documents` field
     And within the `Reheard hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
@@ -107,7 +110,8 @@ Feature: Admin Officer edits case listing - FTPA reheard decision (listed with h
     And I should see the text `The case has been re-listed`
     And I should see the text `What happens next`
     And I should see the text `A new Notice of Hearing has been generated. All parties will be notified by email.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I click the `Documents` tab
     And I should see the `Reheard hearing documents` field

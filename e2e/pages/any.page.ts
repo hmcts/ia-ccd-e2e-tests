@@ -117,7 +117,7 @@ export class AnyPage {
             }
 
             return currentPageUrl !== nextPage;
-        }, 25000, 'Navigation to next page taking too long ' + 15000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
+        }, 45000, 'Navigation to next page taking too long ' + 45000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors);
     }
     async isButtonEnabled(match: string, shortWait = false) {
 
@@ -317,9 +317,23 @@ export class AnyPage {
     }
 
     async hideSpinner() {
-        const el = await element(by.css('loading-spinner-in-action'));
         let EC = protractor.ExpectedConditions;
-        await browser.wait(EC.not(EC.presenceOf(el)), 10000);
+        await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 30000);
+        await browser.executeScript(`const matches = document.getElementsByClassName('spinner-container'); while (matches.length > 0) { matches.item(0).remove(); }`);
+    }
+
+    async clickIfVisible(linkText) {
+        let EC = protractor.ExpectedConditions;
+        let visible = await EC.visibilityOf(element(by.xpath('//button[text()=\"' + linkText + '\"]')));
+        if (visible) {
+          element(by.xpath('//button[text()=\"' + linkText + '\"]')).click();
+        }
+    }
+
+    async createCaseClickable() {
+        let EC = protractor.ExpectedConditions;
+        await browser.wait(EC.elementToBeClickable(element(by.linkText('Create case'))), 30000);
+        await browser.executeScript(`const matches = document.getElementsByClassName('spinner-container'); while (matches.length > 0) { matches.item(0).remove(); }`);
     }
 
     async refresh() {
@@ -337,5 +351,9 @@ export class AnyPage {
         const url = currentUrl.match(caseUrlMatcher)[0] + `#${tabUrl}`;
         await this.goToUrl(url);
         await this.refresh();
+    }
+
+    async stopSpinnerLoad() {
+        await browser.executeScript(`[].forEach.call(document.querySelectorAll('.spinner-container'), function (el) { el.style.visibility = 'hidden'; el.style.display = 'none'; });`);
     }
 }

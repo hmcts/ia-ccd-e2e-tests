@@ -6,11 +6,11 @@
     "postinstall": "webdriver-manager update",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "e2e": "yarn localTest",
-    "test:fullfunctional": "TESTS_FOR_ACCESSIBILITY='true' protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+    "test:fullfunctional": "TESTS_FOR_ACCESSIBILITY='true' NODE_OPTIONS='--max-old-space-size=8192' protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "localTest": "protractor ./e2e/features.conf.js --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelScenarios": "protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelFeatures": "protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
-    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowsertest' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowser' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:nsp": "nsp check"
   },
   "pre-commit": [
@@ -19,13 +19,13 @@
   "dependencies": {
     "@angular/compiler": "^7.0.0",
     "@angular/core": "^11.0.5",
+    "@axe-core/webdriverjs": "^4.1.1",
     "@hmcts/eslint-config": "^1.4.0",
     "@types/axe-core": "^2.0.7",
     "@types/chai": "^4.1.6",
     "@types/cucumber": "^4.0.4",
     "@types/jasmine": "^2.8.9",
     "@types/node": "^10.12.0",
-    "@axe-core/webdriverjs": "^4.1.1",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "codelyzer": "^4.5.0",
@@ -62,6 +62,7 @@
     "minimatch": "^3.0.5",
     "minimist": "^1.2.3",
     "mixin-deep": "^2.0.1",
+    "semver": "^5.7.2",
     "set-value": "^4.0.1",
     "yargs-parser": "^18.1.2",
     "yargs": "^15.0.0"

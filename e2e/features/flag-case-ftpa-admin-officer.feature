@@ -29,7 +29,8 @@ Feature: Flag a FTPA case
     And I should see the text `What happens next`
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Flag the case`
 
     When I click the `Overview` tab
@@ -60,7 +61,8 @@ Feature: Flag a FTPA case
     And I should see the text `What happens next`
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Flag the case`
 
     When I click the `Overview` tab
@@ -89,7 +91,8 @@ Feature: Flag a FTPA case
     And I should see the text `What happens next`
     And I should see the text `This flag has been removed from the case. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Remove a flag`
 
     When I click the `Overview` tab

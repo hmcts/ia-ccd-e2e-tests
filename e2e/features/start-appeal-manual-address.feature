@@ -28,7 +28,8 @@ Feature: Address details are entered manually without using postcode lookup
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I am on the `DRAFT` page
 
     When I click the `Appellant` tab

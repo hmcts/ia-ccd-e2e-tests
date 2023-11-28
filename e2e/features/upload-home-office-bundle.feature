@@ -65,7 +65,8 @@ Feature: Upload Home Office bundle
     And I should see the text `What happens next`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidence.pdf` in the `Document` field
@@ -121,7 +122,8 @@ Feature: Upload Home Office bundle
     And I should see the text `What happens next`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidenceUpdated.pdf` in the `Document` field

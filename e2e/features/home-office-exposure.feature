@@ -117,7 +117,8 @@ Feature: Different Home Office roles have different functionality
     And I should see the text `What happens next`
     And I should see the text `The Home Office will be notified when the Appeal Skeleton Argument is ready to review.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I click the `Documents` tab
 
     And within the `Respondent documents` collection's first item, I should see `RespondentEvidence.pdf` in the `Document` field
@@ -190,7 +191,8 @@ Feature: Different Home Office roles have different functionality
     Then I am on the `Request case building` page
     And I click the `Continue` button
     And I click the `Send direction` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     # HO APC
     When I switch to be a `Home Office APC`

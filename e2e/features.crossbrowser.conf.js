@@ -11,7 +11,7 @@ const config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
     require: [
-      './cucumber.conf.js',
+      './cucumber.crossbrowser.conf.js',
       './features/stepDefinitions/**/*.steps.ts'
     ],
     keepAlive: false,
@@ -35,7 +35,7 @@ const config = {
 
   specs: ['./features/*.feature'],
   baseUrl: iaConfig.CcdWebUrl,
-  allScriptsTimeout: 220000,
+  allScriptsTimeout: 240000,
   useAllAngular2AppRoots: true,
   multiCapabilities: browserPlatformMatrix.multiCapabilities,
   maxSessions: 4,
@@ -44,6 +44,7 @@ const config = {
     {
       package: 'protractor-multiple-cucumber-html-reporter-plugin',
       options: {
+        saveCollectedJSON: true,
         automaticallyGenerateReport: true,
         removeExistingJsonReportFile: true,
         reportName: 'IA Service Cross Browser Test',

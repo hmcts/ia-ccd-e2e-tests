@@ -78,7 +78,8 @@ Feature: Decision without a hearing from respondent review
   Then I should see the text `The hearing has been adjourned`
   And I should see the text `Both parties will be notified and a Notice of Adjournment will be generated.`
 
-  When I click the `Close and Return to case details` button
+  When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
   Then I select the `Decision without a hearing` Next step
   Then I am on the `Decision without a hearing` page
   And I click the `Decision` button

@@ -60,7 +60,8 @@ Feature: Record grant update hearing requirements
     And I should see the text `What happens next`
     And I should see the text `You must now update the hearing requirements based on the new information provided in the application. The application decision is available to view in the Application tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     And I click the `Overview` tab
@@ -101,7 +102,8 @@ Feature: Record grant update hearing requirements
     And I type `some application decision reason` for the `Reasons for decision` field
     And I click the `Continue` button
     And I click the `Record application` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     And I click the `Overview` tab
@@ -179,7 +181,8 @@ Feature: Record grant update hearing requirements
     And I should see the text `What happens next`
     And I should see the text `You must now change the designated hearing centre based on the new information provided in the application. The application decision is available to view in the Application tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record an application`
 
     And I click the `Overview` tab

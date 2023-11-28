@@ -30,7 +30,8 @@ Feature: Force case progression to case under review
     And I should see the text `What happens next`
     And I should see the text `Legal representative will be notified by email.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Force case - case under review`
     And I should see the image `caseOfficer_caseUnderReview.png`
 

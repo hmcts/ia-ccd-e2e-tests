@@ -56,7 +56,8 @@ Feature: Record hearing attendees and duration
     And I should see the text `What happens next`
     And I should see the text `You don't need to do anything more with this case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Record attendees and duration`
     And I click the `Hearing and appointment` tab
     And I should see the `Hearing` page

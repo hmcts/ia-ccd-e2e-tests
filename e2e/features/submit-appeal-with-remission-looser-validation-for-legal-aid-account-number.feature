@@ -46,13 +46,13 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I select the `Submit your appeal` Next step
 
 
     When I agree to the declaration
-    And I click the `Continue` button
     And I click the `Submit` button
 
     Then I should see the text `Your appeal has been submitted`
@@ -60,4 +60,5 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
     And I should see the text `You have submitted an appeal with a remission application.`
     And I should see the text `Your remission details will be reviewed and you may be asked to provide more information.`
     And I should see the text `Once the review is complete you will be notified if there is any fee to pay.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds

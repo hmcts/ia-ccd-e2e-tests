@@ -81,7 +81,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `Both parties have been notified of the decision. The Upper Tribunal has also been`
     And I should see the text `notified, and will now proceed with the case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -377,7 +378,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `Both parties have been notified of the decision. The Upper Tribunal has also been`
     And I should see the text `notified, and will now proceed with the case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -446,7 +448,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `Both parties have been notified of the decision. The Upper Tribunal has also been`
     And I should see the text `notified, and will now proceed with the case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -676,7 +679,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `Both parties have been notified of the decision. The Upper Tribunal has also been`
     And I should see the text `notified, and will now proceed with the case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -727,7 +731,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `What happens next`
     And I should see the text `Both parties have been notified that permission was refused. They'll also be able to access this information in the FTPA tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -940,7 +945,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `What happens next`
     And I should see the text `Both parties have been notified that permission was refused. They'll also be able to access this information in the FTPA tab.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -993,7 +999,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `Both parties will be notified of the decision. A Caseworker will review any Tribunal`
     And I should see the text `instructions and then relist the case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -1227,7 +1234,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `Both parties will be notified of the decision. A Caseworker will review any Tribunal`
     And I should see the text `instructions and then relist the case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -1273,7 +1281,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `Both parties will be notified of the decision. A Caseworker will review any Tribunal`
     And I should see the text `instructions and then relist the case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -1481,7 +1490,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `Both parties will be notified of the decision. A Caseworker will review any Tribunal`
     And I should see the text `instructions and then relist the case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -1524,7 +1534,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `What happens next`
     And I should see the text `Both parties have been notified of the decision.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page
@@ -1747,7 +1758,8 @@ Feature: Resident judge record the appellant decision and reasons
     And I should see the text `What happens next`
     And I should see the text `Both parties have been notified of the decision.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `FTPA` tab
     And I should see the `FTPA` page

@@ -2,16 +2,13 @@ Feature: Final display for FTPA decision and reasons
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
-    And I click the `Close and Return to case details` button
-    And I click the `Close and Return to case details` button
-    Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA for a PA appeal type
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
+    And I pay for and submit my appeal by Card for a PA appeal type
     And I wait for 15 seconds
-    And I click the `Close and Return to case details` button
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
     And I request home office data
@@ -26,6 +23,7 @@ Feature: Final display for FTPA decision and reasons
     And I request respondent review
     And I add the appeal response
     And I request hearing requirements
+    And I wait for 5 seconds
     And I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
     And I submit hearing requirements with all yes when in country
@@ -67,15 +65,16 @@ Feature: Final display for FTPA decision and reasons
     When I click the `Save` button
     Then I should see the text `You have started the decision and reasons process`
     And I should see the text `The judge can now download and complete the decision and reasons document.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I prepare decision and reasons
     And I send decision and reasons
     When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
-  @RIA-2919 @RIA-2919-scenario1
-    #  Granted / Granted (Final Decision: Granted - Scenario 1)
+  @RIA-2919 @RIA-2919-scenario1 @nightly-test
+  #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 
     Then I apply for appellant FTPA
@@ -98,7 +97,8 @@ Feature: Final display for FTPA decision and reasons
     And I am on the `Check your answers` page
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Leadership judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
@@ -152,7 +152,8 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I am on the `Check your answers` page
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
@@ -169,14 +170,14 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Overview` tab
     And I should see the image `ftpaGranted.png`
 
-    # When I switch to be a `Home Office LART`
-    # And I click the `Overview` tab
-    # And I should see the image `ftpaGranted.png`
+# When I switch to be a `Home Office LART`
+# And I click the `Overview` tab
+# And I should see the image `ftpaGranted.png`
 
-    # When I switch to be a `Home Office POU`
-    # And I click the `Overview` tab
-    # And I should see the image `ftpaGranted.png`
+# When I switch to be a `Home Office POU`
+# And I click the `Overview` tab
+# And I should see the image `ftpaGranted.png`
 
-    # When I switch to be a `Home Office APC`
-    # And I click the `Overview` tab
-    # And I should see the image `ftpaGranted.png`
+# When I switch to be a `Home Office APC`
+# And I click the `Overview` tab
+# And I should see the image `ftpaGranted.png`

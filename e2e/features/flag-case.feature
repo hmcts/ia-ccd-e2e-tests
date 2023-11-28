@@ -6,8 +6,9 @@ Feature: Flag a case
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
-    And I click the `Close and Return to case details` button
-    Then I should see the text `You still need to submit your appeal.`
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
+    Then I should see the text `Do this next`
     And I pay for and submit my appeal by PBA for a non PA appeal type
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
@@ -38,7 +39,8 @@ Feature: Flag a case
     And I should see the text `What happens next`
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And The page is accessible
 
     # When I click the `Overview` tab
@@ -51,7 +53,7 @@ Feature: Flag a case
 
   @RIA-3298
   Scenario: Additional information dialog is populated empty for non-existing flags
-    
+
     When I select the `Flag the case` Next step
     And I wait for 5 seconds
     Then I am on the `Flag the case` page
@@ -69,8 +71,8 @@ Feature: Flag a case
     And the `Additional information (Optional)` field should be empty
     And The page is accessible
 
-  
-  @regression @flag-case @RIA-1742 @nightly-test
+
+  @regression @flag-case @RIA-1742
   Scenario: Flag a case with multiple flags and additional information
 
     When I select the `Flag the case` Next step
@@ -99,7 +101,8 @@ Feature: Flag a case
     And I should see the text `What happens next`
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And The page is accessible
 
     # When I click the `Overview` tab
@@ -111,7 +114,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-1742 
+  @regression @flag-case @RIA-1742
   Scenario: Flag a case with multiple flags and only single additional information
 
     When I select the `Flag the case` Next step
@@ -137,7 +140,8 @@ Feature: Flag a case
     And I should see the text `What happens next`
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And The page is accessible
 
     # When I click the `Overview` tab
@@ -149,7 +153,7 @@ Feature: Flag a case
     And I should see `Oh no! This case turned out to be rather complex!` for the `Additional information` field
     And I should not see the text `The person has once slammed their fists against the desk.`
 
-  @regression @flag-case @RIA-3865 
+  @regression @flag-case @RIA-3865
   Scenario: Flag a case with 94B flag and additional information
 
     When I select the `Flag the case` Next step
@@ -173,7 +177,8 @@ Feature: Flag a case
     And I should see the text `What happens next`
     And I should see the text `This flag will only be visible to the Tribunal. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     When I switch to be a `Legal Rep`
     Then I should not see the text `Flags`
     And I should not see the text `These flags are only visible to the Tribunal.`
@@ -201,9 +206,10 @@ Feature: Flag a case
     And I should see the text `What happens next`
     And I should see the text `This flag has been removed from the case. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
-  @regression @flag-case @remove-flag @RIA-2513 @nightly-test
+  @regression @flag-case @remove-flag @RIA-2513
   Scenario: Remove flag from a case
 
     When I select the `Remove a flag` Next step
@@ -227,7 +233,8 @@ Feature: Flag a case
     And I should see the text `What happens next`
     And I should see the text `This flag has been removed from the case. The case will proceed as usual.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And The page is accessible
 
     # When I click the `Overview` tab

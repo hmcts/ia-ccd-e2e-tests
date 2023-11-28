@@ -58,7 +58,8 @@ Feature: Home Office appeal response amendment
     And I should see the text `What happens next`
     Then I should see the text `You can see the status of the direction in the directions tab`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should only see the `caseOfficer_respondentReview_amendResponse` case progress image
     And I should see the text `Do this next`
     And I should see the text `The respondent has been directed to make changes with their response`

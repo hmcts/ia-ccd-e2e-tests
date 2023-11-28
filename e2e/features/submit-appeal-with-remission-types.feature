@@ -52,7 +52,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I select the `Submit your appeal` Next step
 
@@ -66,7 +67,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `You have submitted an appeal with a remission application.`
     And I should see the text `Your remission details will be reviewed and you may be asked to provide more information.`
     And I should see the text `Once the review is complete you will be notified if there is any fee to pay.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -125,7 +127,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -143,7 +146,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `You have submitted an appeal with a remission application.`
     And I should see the text `Your remission details will be reviewed and you may be asked to provide more information.`
     And I should see the text `Once the review is complete you will be notified if there is any fee to pay.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -223,7 +227,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -241,7 +246,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `You have submitted an appeal with a remission application.`
     And I should see the text `Your remission details will be reviewed and you may be asked to provide more information.`
     And I should see the text `Once the review is complete you will be notified if there is any fee to pay.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -320,7 +326,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -338,7 +345,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `You have submitted an appeal with a remission application.`
     And I should see the text `Your remission details will be reviewed and you may be asked to provide more information.`
     And I should see the text `Once the review is complete you will be notified if there is any fee to pay.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -417,7 +425,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -435,7 +444,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `You have submitted an appeal with a remission application.`
     And I should see the text `Your remission details will be reviewed and you may be asked to provide more information.`
     And I should see the text `Once the review is complete you will be notified if there is any fee to pay.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -509,7 +519,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -527,7 +538,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `You have submitted an appeal with a remission application.`
     And I should see the text `Your remission details will be reviewed and you may be asked to provide more information.`
     And I should see the text `Once the review is complete you will be notified if there is any fee to pay.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Overview` tab
     And I should see the text `Do this next`
@@ -607,7 +619,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
@@ -626,7 +639,8 @@ Feature: Submit appeal with asylum support remission
     And I should see the text `You have submitted an appeal with a remission application.`
     And I should see the text `Your remission details will be reviewed and you may be asked to provide more information.`
     And I should see the text `Once the review is complete you will be notified if there is any fee to pay.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page

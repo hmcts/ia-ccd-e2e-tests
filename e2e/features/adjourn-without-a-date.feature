@@ -42,7 +42,8 @@ Feature: Adjourn hearing without a date
     Then I should see the text `The hearing has been adjourned`
     And I should see the text `A new Notice of Hearing has been generated.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Adjourn hearing without a date`
     And I should only see the `caseOfficer_hearing_adjourned` case progress image
     And I should see the text `Do this next`

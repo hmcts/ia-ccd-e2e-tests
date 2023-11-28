@@ -43,7 +43,8 @@ Feature: Update Representative's Details - NoC banner prompt and previous repres
     And I should see the text `You've updated the legal representative's details`
     And I should see the text `The service will be updated. The new details will be used on all future correspondence and documents.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update representative details`
 
     And I should not see the image `legalRep_doThisNow_updateDetails.svg`
@@ -112,7 +113,8 @@ Feature: Update Representative's Details - NoC banner prompt and previous repres
     And I should see the text `You've updated the legal representative's details`
     And I should see the text `The service will be updated. The new details will be used on all future correspondence and documents.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update representative details`
 
     And I should not see the image `legalRep_doThisNow_updateDetails.svg`

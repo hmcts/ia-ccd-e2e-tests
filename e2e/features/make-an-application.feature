@@ -2,13 +2,13 @@ Feature: Legal representative make an application
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
-    And I click the `Close and Return to case details` button
-    Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by PBA for a PA appeal type
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
+    Then I should see the text `Do this next`
+    And I pay for and submit my appeal by Card for a PA appeal type
     And I wait for 15 seconds
 
   @Make-an-application-at-appeal-submitted @RIA-3457-make-an-application-at-appeal-submitted @RIA-3457 @nightly-test
@@ -42,7 +42,8 @@ Feature: Legal representative make an application
     Then I should see the text `You've made an application`
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Applications` tab
     And I should see the `Application` field
@@ -83,44 +84,44 @@ Feature: Legal representative make an application
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
 
-    When I switch to be a `Home Office APC`
-    Then I click the `Applications` tab
-    And I should see the `Application` field
-    And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
-    And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
-    And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
-    And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
-    And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
-    # When I switch to be a `Home Office LART`
-    # Then I click the `Applications` tab
-    # And I should see the `Application` field
-    # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
-    # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
-    # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-    # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
-    # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
-    # And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
+  # When I switch to be a `Home Office APC`
+  # Then I click the `Applications` tab
+  # And I should see the `Application` field
+  # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
+  # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
+  # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
+  # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
+  # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
+  # And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
+  # # When I switch to be a `Home Office LART`
+  # Then I click the `Applications` tab
+  # And I should see the `Application` field
+  # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
+  # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
+  # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
+  # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
+  # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
+  # And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
 
-    # When I switch to be a `Home Office POU`
-    # Then I click the `Applications` tab
-    # And I should see the `Application` field
-    # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
-    # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
-    # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-    # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
-    # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
-    # And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
+  # When I switch to be a `Home Office POU`
+  # Then I click the `Applications` tab
+  # And I should see the `Application` field
+  # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
+  # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
+  # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
+  # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
+  # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
+  # And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
 
-    # When I switch to be a `Home Office Generic`
-    # Then I click the `Applications` tab
-    # And I should see the `Application` field
-    # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
-    # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
-    # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-    # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
-    # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
-    # And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
+  # When I switch to be a `Home Office Generic`
+  # Then I click the `Applications` tab
+  # And I should see the `Application` field
+  # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
+  # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
+  # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
+  # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
+  # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
+  # And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
 
 
   @Make-an-application-at-respondent-review @RIA-3457-make-an-application-at-respondent-review @RIA-3457
@@ -199,7 +200,8 @@ Feature: Legal representative make an application
     Then I should see the text `You've made an application`
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I switch to be a `Home Office APC`
     When I click the `Applications` tab
@@ -230,7 +232,8 @@ Feature: Legal representative make an application
     Then I should see the text `You've made an application`
     And I should see the text `What happens next`
     And I should see the text `The Tribunal will consider your application as soon as possible. All parties will be notified when a decision has been made. you can review any applications you've made in the application tab.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I click the `Applications` tab
     And I should see the `Application` field

@@ -16,6 +16,7 @@ const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
 const path = require('path');
+const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
   browserName: 'chrome',
@@ -65,7 +66,7 @@ class BaseConfig {
             let config = {
               specs: featureFile,
               shardTestFiles: true,
-              maxInstances: 1
+              maxInstances: 4
             };
             return _.merge(config, capabilities);
           });
@@ -103,14 +104,15 @@ class BaseConfig {
       'fail-fast': iaConfig.FailFast,
       'nightly-tag': iaConfig.NightlyTag,
       'no-source': true,
-      retry: 2
+      retry: 5
     };
 
     this.onCleanUp = (results) => {
-      //retry.onCleanUp(results);
+      retry.onCleanUp(results);
     }
 
     this.onPrepare = () => {
+      retry.onPrepare();
       // returning the promise makes protractor wait for
       // the reporter config before executing tests
       global
@@ -124,12 +126,11 @@ class BaseConfig {
         project: path.join(__dirname, './tsconfig.e2e.json')
       });
 
-      //retry.onPrepare();
     };
 
-    //this.afterLaunch = () => {
-      //return retry.afterLaunch(0);
-    //}
+//    this.afterLaunch = () => {
+//      return retry.afterLaunch(2);
+//    }
 
     this.onComplete = () => {
        generateAccessibilityReport();

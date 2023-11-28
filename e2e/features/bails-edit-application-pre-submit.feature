@@ -3,12 +3,11 @@ Feature: Bails Edit application preSubmit
   @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-legal-rep @nightly-test
   Scenario: Legal Rep Edit application Before Submitting
     Given I am signed in as a `Legal Org User Rep A Bails`
-    And I wait for 10 seconds
-   And I create a new bail application
+    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Prison detention with one financial condition supporters and with a Legal Representative
     When I edit my saved application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
@@ -41,12 +40,12 @@ Feature: Bails Edit application preSubmit
   @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-home-office
   Scenario: Home Office Edit application Before Submitting
     Given I am signed in as a `Home Office Bails`
-    And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Home Office Bails` for a Prison detention with one financial condition supporters and with no Legal Representative
     When I edit my saved application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
@@ -79,12 +78,12 @@ Feature: Bails Edit application preSubmit
   @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-admin-officer
   Scenario: Admin Officer Edit application Before Submitting
     Given I am signed in as a `Admin Officer Bails`
-    And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Admin Officer` for a Prison detention with one financial condition supporters and with no Legal Representative
     When I edit my saved application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field

@@ -29,7 +29,8 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
     And I should see the text `You've recorded the agreed hearing adjustments`
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I switch to be a `Admin Officer`
     And I list the case
     And I relist the case as a remote hearing

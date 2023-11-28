@@ -45,7 +45,8 @@ Feature: Notice of Change (common component) - Remove Representation by TCW and 
     And I should see the text `You have removed the legal representative from this appeal`
     And I should see the text `What happens next`
     And I should see the text `All parties will be notified.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Given I am signed in as a `Legal Org User Rep A`
     When I enter the removed case id in the url
@@ -87,7 +88,8 @@ Feature: Notice of Change (common component) - Remove Representation by TCW and 
     And I should see the text `You have removed the legal representative from this appeal`
     And I should see the text `What happens next`
     And I should see the text `All parties will be notified.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Given I am signed in as a `Legal Org User Rep A`
     When I enter the removed case id in the url

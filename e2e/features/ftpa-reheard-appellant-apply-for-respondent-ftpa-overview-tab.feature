@@ -49,7 +49,8 @@ Feature: New Overview tab - FTPA resident judge records the appellant Reheard De
     And I am on the `Check your answers` page
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
 
     When I switch to be a `Home Office POU`
@@ -177,7 +178,8 @@ Feature: New Overview tab - FTPA resident judge records the appellant Reheard De
     And I click the `Continue` button
     And I am on the `Check your answers` page
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see an alert confirming the case `has been updated with event: Resident judge FTPA decision`
 
     When I switch to be a `Home Office POU`

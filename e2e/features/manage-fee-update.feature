@@ -31,7 +31,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -114,7 +115,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -172,7 +174,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -224,7 +227,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -317,7 +321,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -367,7 +372,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -413,7 +419,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -443,7 +450,8 @@ Feature: Manage fee update
     And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
     And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
     And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -489,7 +497,8 @@ Feature: Manage fee update
     Then I should see the text `You have marked the refund as instructed`
     And I should see the text `What happens next`
     And I should see the text `The legal representative will be notified that the refund has been instructed.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -541,7 +550,8 @@ Feature: Manage fee update
     And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
     And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
     And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -599,7 +609,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -629,7 +640,8 @@ Feature: Manage fee update
     And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
     And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
     And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -681,7 +693,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -711,7 +724,8 @@ Feature: Manage fee update
     And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
     And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
     And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -763,7 +777,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -793,7 +808,8 @@ Feature: Manage fee update
     And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
     And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
     And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -824,7 +840,8 @@ Feature: Manage fee update
     And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
     And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
     And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -884,7 +901,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -914,7 +932,8 @@ Feature: Manage fee update
     And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
     And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
     And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -943,7 +962,8 @@ Feature: Manage fee update
     Then I should see the text `You have marked the refund as instructed`
     And I should see the text `What happens next`
     And I should see the text `The legal representative will be notified that the refund has been instructed.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -976,7 +996,8 @@ Feature: Manage fee update
     And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
     And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
     And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -1034,7 +1055,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
@@ -1052,7 +1074,8 @@ Feature: Manage fee update
     And I should see the text `Additional fee requested`
     And I click the `Submit` button
 
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
@@ -1076,7 +1099,8 @@ Feature: Manage fee update
     And I should see the text `If you have recorded that a refund has been approved, you must now instruct the refund.`
     And I should see the text `If you have recorded that an additional fee has been requested, the legal representative will be instructed to pay the fee.`
     And I should see the text `If you have recorded that no fee update is required, you need to contact the legal representative and tell them why the fee update is no longer required.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -1131,7 +1155,8 @@ Feature: Manage fee update
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
     And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
@@ -1149,7 +1174,8 @@ Feature: Manage fee update
     And I should see the text `Additional fee requested`
     And I click the `Submit` button
 
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page

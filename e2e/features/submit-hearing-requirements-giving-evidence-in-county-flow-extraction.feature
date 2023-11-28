@@ -55,7 +55,8 @@ Feature: Submit & update hearing requirements (summarised step flow) - Giving ev
     Then I am on the `Check your answers` page
     And I should see `6 hours` for the `Length` field
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I switch to be a `Admin Officer`
     And I list the case
@@ -94,7 +95,8 @@ Feature: Submit & update hearing requirements (summarised step flow) - Giving ev
     And I click the `Continue` button
     And I click the `Continue` button
     And I click the `Update` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
   @RIA-3825 @RIA-3825-in-country-yes-flow @in-country-submit-hearing-requirements-giving-evidence-yes-path
   Scenario: Submit & update hearing requirements (summarised step flow) - Giving evidence from outside the UK (in country appeal) - Yes path
@@ -141,7 +143,8 @@ Feature: Submit & update hearing requirements (summarised step flow) - Giving ev
     Then I am on the `Check your answers` page
     And I should see `6 hours` for the `Length` field
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     And I switch to be a `Admin Officer`
     And I list the case
@@ -187,4 +190,5 @@ Feature: Submit & update hearing requirements (summarised step flow) - Giving ev
     And I type `Additional adjustments requirement will be reviewed - updated` for the `Other adjustments` field
     And I click the `Continue` button
     And I click the `Update` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds

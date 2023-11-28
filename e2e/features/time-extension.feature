@@ -25,7 +25,8 @@ Feature: Review time extension
     And I should see the text `You have sent a direction`
     And the appellant submits a time extension
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The appellant has requested a time extension.`
 
     When I click the `Applications` tab

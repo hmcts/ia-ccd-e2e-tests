@@ -1,7 +1,6 @@
 Feature: Bails Upload Bail Summary
  Background:
    Given I am signed in as a `Legal Org User Rep A Bails`
-   And I wait for 10 seconds
    And I create a new bail application
    And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
    And I submit my bail application as a `Legal Rep`
@@ -21,7 +20,8 @@ Feature: Bails Upload Bail Summary
     And I wait for 15 seconds
 
     Then I should see the text `You have uploaded the Bail Summary`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I should see the text `The Bail Summary has been uploaded and is available`
     When I click the `Documents` tab
     Then within the `Home Office documents` collection's first item, I should see `BailSummary.pdf` in the `Document` field

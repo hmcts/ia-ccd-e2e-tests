@@ -12,22 +12,31 @@ const iaConfig = require('../../ia.conf');
 
 Given('I create a new case', async function () {
     // there is loading mask with spinner added by ExUI
+    await ccdPage.stopSpinnerLoad();
     await browser.sleep(7000);
     await ccdPage.hideSpinner();
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
+    await ccdPage.acceptCookies();
     await browser.sleep(3000);
+    await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
+    await ccdPage.hideErrorMessages();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
 
-    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo') || iaConfig.CcdWebUrl.includes('pr')) {
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* master'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('demo')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* ia-ccd-definit'
         );
     }
 
@@ -38,24 +47,32 @@ Given('I create a new case', async function () {
 
 Given('I create a new bail application', async function () {
     // there is loading mask with spinner added by ExUI
+    await ccdPage.stopSpinnerLoad();
     await browser.sleep(7000);
     await ccdPage.hideSpinner();
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
-    await browser.sleep(3000);
+    await ccdPage.acceptCookies();
+    await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
+    await ccdPage.hideErrorMessages();
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
 
-    // if (iaConfig.CcdWebUrl.includes('aat') ) {
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Bail* master'
         );
-    // }
+    } else if (iaConfig.CcdWebUrl.includes('demo')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Bail* ia-bail-ccd-de'
+        );
+    }
 
     await ccdPage.doesDropdownHaveValues('Event');
     await ccdPage.isButtonEnabled('Start');
@@ -71,13 +88,17 @@ Given('I Apply case list filter', async function () {
     await ccdPage.doesDropdownHaveValues('Jurisdiction');
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
-    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo') || iaConfig.CcdWebUrl.includes('pr')) {
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* master'
         );
+    } else if (iaConfig.CcdWebUrl.includes('demo')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* ia-ccd-definit'
+        );
     }
-
     await ccdPage.doesDropdownHaveValues('State');
     await ccdFormPage.setFieldValue(
         'State',
@@ -99,12 +120,17 @@ Given('I Apply case list filter for Bails', async function () {
             'Immigration & Asylum'
         );
     await ccdPage.doesDropdownHaveValues('Case type');
-    // if (iaConfig.CcdWebUrl.includes('aat') ) {
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Bail* master'
         );
-    // }
+    } else if (iaConfig.CcdWebUrl.includes('demo')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Bail* ia-bail-ccd-de'
+        );
+    }
 
     await ccdPage.doesDropdownHaveValues('State');
     await ccdFormPage.setFieldValue(
@@ -174,9 +200,9 @@ When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (link
         await ccdPage.click(linkText);
     }
 });
-When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
+When(/^I click the `?([^`]+)`? button if present$/, async function (linkText) {
     await ccdPage.hideSpinner();
-    await ccdPage.gotoTabs(linkText);
+    await ccdPage.clickIfVisible(linkText);
 });
 When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
     await ccdPage.hideSpinner();
@@ -367,4 +393,28 @@ Then(/^I select `?([^`]+)`? from the dropdown with ID `?([^`]+)`?$/, async funct
 
 Given('I restart the browser', async function () {
     await browser.restart();
+});
+Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
+    await ccdFormPage.click(flagtype);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.typeText(`flagComments`, `test case flage make it inactive`);
+    await ccdFormPage.click('Make inactive');
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Manage Flags');
+});
+
+Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/, async function (flag, type) {
+    await ccdFormPage.click(type);
+    await ccdFormPage.click('Next');
+    await browser.sleep(3000);
+    await ccdFormPage.click('Complex Case');
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Create Flag');
+});
+
+Then(/^I will update s94b flag$/, async function () {
+    await ccdFormPage.setFieldValue('Mark appeal as s94b?', 'Yes');
+    await ccdFormPage.click('Continue');
+    await ccdFormPage.click('Submit');
 });

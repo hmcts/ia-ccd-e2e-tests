@@ -1,8 +1,7 @@
 Feature: Bails Change Direction Due Date
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
-    And I wait for 10 seconds
-   And I create a new bail application
+    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
@@ -28,7 +27,8 @@ Feature: Bails Change Direction Due Date
     When I click the `Change bail direction due date` button
     Then I should see the text `You have changed the direction due date`
     And I should see the text `All parties will be notified that the direction due date has changed. You can see the status of the direction in the directions tab.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     When I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `10 Feb 2030` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
@@ -55,7 +55,8 @@ Feature: Bails Change Direction Due Date
     When I click the `Change bail direction due date` button
     Then I should see the text `You have changed the direction due date`
     And I should see the text `All parties will be notified that the direction due date has changed. You can see the status of the direction in the directions tab.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     When I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `10 Feb 2030` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

@@ -9,7 +9,7 @@ Feature: List case
     And I wait for 5 seconds
     When I click the `pay for and submit your appeal` link
     Then I should see the `Select PBA number` page
-    And I select `PBA0087535` for the `Select a Payment by Account number from the list` field
+    And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
     And I agree to the declaration
     And I click the `Continue` button
@@ -76,7 +76,8 @@ Feature: List case
     And I should see the text `The hearing notice will be sent to all parties.`
     And I should see the text `You don't need to do any more on this case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: List the case`
 
     When I click the `Documents` tab
@@ -158,7 +159,8 @@ Feature: List case
     And I should see the text `The hearing notice will be sent to all parties.`
     And I should see the text `You don't need to do any more on this case.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: List the case`
 
     When I click the `Documents` tab

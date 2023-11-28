@@ -25,7 +25,8 @@ Feature: Submit reasons for appeal
     And I should see the text `You have sent a direction`
     And the appellant submits their reasons for appeal
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should only see the `caseOfficer_caseUnderReview` case progress image
     And I should see the text `If you don't think it is ready, you should direct the appellant to answer clarifying questions or attend a case management appointment.`
 
@@ -40,7 +41,8 @@ Feature: Submit reasons for appeal
     And I should see `{$TODAY+7|D MMM YYYY}` for the `By what date must they comply?` answer
     When I click the `Send direction` button
     Then I should see the text `The appellant will be directed to submit requirements for a case management appointment. You will be notified when they are ready to review.`
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The appellant will be directed to submit requirements for a case management appointment. You will be notified when they are ready to review.`
 
     When I click the `Directions` tab

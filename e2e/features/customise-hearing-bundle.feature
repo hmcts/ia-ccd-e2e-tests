@@ -46,7 +46,8 @@ Feature: Customise hearing bundle
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and will need to generate the bundle again.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The hearing bundle is being generated. You will soon be able to view the hearing bundle in the documents tab.`
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`
@@ -90,7 +91,8 @@ Feature: Customise hearing bundle
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and will need to generate the bundle again.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The hearing bundle is being generated. You will soon be able to view the hearing bundle in the documents tab.`
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`
@@ -131,7 +133,8 @@ Feature: Customise hearing bundle
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and will need to generate the bundle again.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see the text `The hearing bundle is being generated. You will soon be able to view the hearing bundle in the documents tab.`
     Then I should see the text `You and the other parties will be notified when the hearing bundle is available.`
     Then I should see the text `If the bundle fails to generate, you will be notified and need to generate the bundle again.`

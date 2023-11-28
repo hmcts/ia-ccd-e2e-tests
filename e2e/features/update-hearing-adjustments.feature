@@ -80,7 +80,8 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I should see the text `You must now update the hearing adjustments or confirm they haven't changed.`
 
     ## Update hearing adjustments:
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I select the `Update hearing adjustments` Next step
     Then I am on the `Update hearing adjustments` page
 
@@ -103,7 +104,7 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I type `Physical or mental health conditions will be reviewed - updated` for the `Physical or mental health conditions` field
     And I click the `Continue` button
     And I should see `Yes` in the `Do you have multimedia evidence?` field
-    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it.` field
+    And I should see `The appellant has a video recording on a memory stick which needs to be played on a computer` in the `You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)` field
     And I should see the text `Tribunal response`
     And I type `Multimedia equipment requirement will be reviewed - updated` for the `Multimedia equipment` field
     And I click the `Continue` button
@@ -126,7 +127,8 @@ Feature: Update hearing adjustments after updating hearing requirements
     And I should see the text `What happens next`
     And I should see the text `The listing team will now list the case. All parties will be notified when the Hearing Notice is available to view.`
 
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
     And I should only see the `caseOfficer_prepareForHearing` case progress image
     And I should see the text `Do this next`

@@ -2,11 +2,11 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 5 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
     And I submit my appeal before paying
     And I wait for 10 seconds
     Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
@@ -41,12 +41,12 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
 
     Then I should see the text `Paid`
     And I should see the text `José González`
-    When I click the `Overview` tab
+    When I goto the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
     And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
 
-    When I click the `Appeal` tab
+    When I goto the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
 
