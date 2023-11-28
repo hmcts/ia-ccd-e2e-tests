@@ -13,7 +13,7 @@ export class SendDecisionAndReasonsFlow {
         await this.ccdFormPage.setFieldValue('Decision', 'Allowed');
         await this.ccdFormPage.click('Continue');
 
-        await this.ccdFormPage.setFieldValue('Decision and reasons', '{@test.docx}');
+        await this.ccdFormPage.setFieldValue('Decision and reasons', '{@test.pdf}');
         await browser.sleep(5000);
         await this.ccdFormPage.click('I confirm this document is signed with today\'s date.');
         await this.ccdFormPage.click('Ensure that the fee award is consistent with your decision.');
@@ -32,7 +32,7 @@ export class SendDecisionAndReasonsFlow {
         await this.ccdFormPage.setFieldValue('Decision', 'Dismissed on all grounds');
         await this.ccdFormPage.click('Continue');
 
-        await this.ccdFormPage.setFieldValue('Decision and reasons', '{@test.docx}');
+        await this.ccdFormPage.setFieldValue('Decision and reasons', '{@test.pdf}');
         await browser.sleep(5000);
         await this.ccdFormPage.click('I confirm this document is signed with today\'s date.');
         await this.ccdFormPage.click('Ensure that the fee award is consistent with your decision.');
