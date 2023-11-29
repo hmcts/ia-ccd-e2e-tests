@@ -136,8 +136,8 @@ export class StartAppealFlow {
 
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Title', 'Mr');
-        await this.ccdFormPage.setFieldValue('Given names', 'José');
-        await this.ccdFormPage.setFieldValue('Family name', 'González');
+        await this.ccdFormPage.setFieldValue('Given names', 'Jose');
+        await this.ccdFormPage.setFieldValue('Family name', 'Gonzalez');
         await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
 
         if (clickContinue) {
@@ -170,7 +170,8 @@ export class StartAppealFlow {
             await this.ccdFormPage.click('Find address');
             await this.ccdFormPage.doesDropdownHaveValues('Select an address');
             await this.ccdFormPage.setFieldValue('Select an address', address);
-            await this.ccdFormPage.click('Continue');
+            await browser.sleep(2000);
+            // await this.ccdFormPage.click('Continue');
         }
 
         if (clickContinue) {
@@ -179,7 +180,7 @@ export class StartAppealFlow {
     }
 
     async completeContactPreference(clickContinue = false) {
-
+        await browser.sleep(2000);
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Communication Preference', 'Text message');
         await this.ccdFormPage.setFieldValue('Mobile phone number', '07977111111');
@@ -431,7 +432,7 @@ export class StartAppealFlow {
         await this.completeCheckYourAnswers(true);
     }
 
-    async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
+    async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = true, address = '44 Millhouse Drive, Glasgow', postcode = 'G20 0UE') {
         await this.completeClientDetails(false, hasFixedAddress, address, postcode);
         await this.completeGivenAppealType(true, appealType);
         if (appealType !== 'EU') {
@@ -566,7 +567,7 @@ export class StartAppealFlow {
         await this.completeCheckYourAnswers(true);
     }
 
-    async saveInitialNonPaymentAppealOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
+    async saveInitialNonPaymentAppealOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '', appealType='') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, 'No');
         await this.completeDecisionType(true, 'refusalOfHumanRights');
@@ -581,15 +582,15 @@ export class StartAppealFlow {
         await this.completeSponsorAddress(true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
         await this.completeSponsorContactPreference(true, contactPreference);
         await this.completeSponsorAuthorisation(true, authorisation);
-        await this.completeGivenAppealType(true, 'PA');
-        await this.completedGivenAppealGrounds(true, 'PA');
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);
         await this.completeCheckYourAnswers(true);
     }
 
-    async saveInitialAppealWithFeeOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
+    async saveInitialAppealWithFeeOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '', appealType='') {
         await this.completeScreeningQuestionsOutOfCountry(true);
         await this.completeOutOfCountryQuestion(true, 'No');
         await this.completeDecisionType(true, 'refusalOfHumanRights');
@@ -604,8 +605,8 @@ export class StartAppealFlow {
         await this.completeSponsorAddress(true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
         await this.completeSponsorContactPreference(true, contactPreference);
         await this.completeSponsorAuthorisation(true, authorisation);
-        await this.completeGivenAppealType(true, 'PA');
-        await this.completedGivenAppealGrounds(true, 'PA');
+        await this.completeGivenAppealType(true, appealType);
+        await this.completedGivenAppealGrounds(true, appealType);
         await this.completeNewMatters(true);
         await this.completeOtherAppeals(true);
         await this.completeLegalRepresentativeDetails(true);

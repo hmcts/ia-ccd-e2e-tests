@@ -1,4 +1,4 @@
-import { Given, Then } from 'cucumber';
+import { Given, Then, When } from 'cucumber';
 import { expect } from 'chai';
 import { Wait } from '../../../enums/wait';
 import { CcdPage } from '../../../pages/ccd.page';
@@ -191,5 +191,8 @@ Then(/^I Add the interpreter details$/, async function () {
 
 
 });
+When(/^I add the `?([^`]+)`? hearing location$/, async function (location) {
+    await submitHearingRequirementsFlow.setHearingLocation(true, location);
 
+});
 

@@ -69,6 +69,13 @@ export class RecordAgreedRequirementsFlow {
 
         await this.ccdFormPage.click('In Person');
         await this.ccdFormPage.click('Continue');
+
+        await this.ccdFormPage.setFieldValue(
+            'Is the appeal suitable to float?',
+            'Yes'
+        );
+        await this.ccdFormPage.click('Continue');
+        
         await this.ccdFormPage.setFieldValue(
             'Are there any additional instructions for the hearing?',
             'Yes'

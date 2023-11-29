@@ -34,7 +34,7 @@ Feature: Out of Country - Start appeal
 
   @start-appeal-out-of-country-with-sponsor-set-hearing-centre @RIA-3761-ooc @RIA-3761
   Scenario: Select Out of country with sponsor
-    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes`
+    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `PA` appeal
     And I submit my nonpayment appeal
 
     When I click the `Appellant` tab

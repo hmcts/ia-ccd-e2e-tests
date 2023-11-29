@@ -184,18 +184,18 @@ Given(/^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s
 });
 
 // tslint:disable-next-line:max-line-length
-Given(/^I save my out of country appeal with sponsor given name `?([^\s`]+)`? family name `?([^`]+)`? contactPreference `?([^`]+)`? authorisation `?([^`]+)`?$/, async function (givenName, familyName, contactPreference, authorisation) {
+Given(/^I save my out of country appeal with sponsor given name `?([^\s`]+)`? family name `?([^`]+)`? contactPreference `?([^`]+)`? authorisation `?([^`]+)`? for `?([^`]+)`? appeal$/, async function (givenName, familyName, contactPreference, authorisation,appealType) {
     if (isOutOfCountryEnabled) {
         if (isfeePaymentEnabled) {
-            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithSponsor(true, givenName, familyName, contactPreference, authorisation);
+            await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithSponsor(true, givenName, familyName, contactPreference, authorisation, appealType);
         } else {
-            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithSponsor(true, givenName, familyName, contactPreference, authorisation);
+            await startAppealFlow.saveInitialNonPaymentAppealOutOfCountryWithSponsor(true, givenName, familyName, contactPreference, authorisation, appealType);
         }
     } else {
         if (isfeePaymentEnabled) {
-            await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'no remission', 'hearing fee');
+            await startAppealFlow.saveInitialAppealWithFee(true, appealType, 'no remission', 'hearing fee');
         } else {
-            await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA');
+            await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType);
         }
     }
 });

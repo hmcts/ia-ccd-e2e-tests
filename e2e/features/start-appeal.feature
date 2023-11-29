@@ -142,7 +142,7 @@ Feature: Start initial appeal application
 
     When I click the `Appeal` tab
     Then I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant name` field
+    And I should see `Jose Gonzalez` for the `Appellant name` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
@@ -156,7 +156,7 @@ Feature: Start initial appeal application
     And I should see the `Submit your appeal` link
     And I should see the `Edit appeal` link
     And I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant name` field
+    And I should see `Jose Gonzalez` for the `Appellant name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
     And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
@@ -294,7 +294,7 @@ Feature: Start initial appeal application
 
     When I click the `Appeal` tab
     Then I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant name` field
+    And I should see `Jose Gonzalez` for the `Appellant name` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
@@ -308,7 +308,7 @@ Feature: Start initial appeal application
     And I should see the `Submit your appeal` link
     And I should see the `Edit appeal` link
     And I should see `DRAFT` for the `Appeal reference` field
-    And I should see `José González` for the `Appellant name` field
+    And I should see `Jose Gonzalez` for the `Appellant name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
     And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field

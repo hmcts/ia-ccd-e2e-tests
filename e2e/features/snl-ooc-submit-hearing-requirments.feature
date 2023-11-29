@@ -5,7 +5,7 @@ Feature: SnL Flow submit hearing requirements
     Given I am signed in as a `Legal Org User Rep A`
     And I wait for 30 seconds
     And I create a new case
-    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes`
+    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `PA` appeal
     # And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 12 seconds
     And I click the `Close and Return to case details` button
@@ -31,8 +31,8 @@ Feature: SnL Flow submit hearing requirements
   Scenario: SnL flow Review hearing requirements with 'Agreed' options selected
 
     When I click the `Continue` button
-    Then I select `Yes` for the `Will the appellant attend the hearing?` field
-    When I click the `Continue` button
+    # Then I select `Yes` for the `Will the appellant attend the hearing?` field
+    # When I click the `Continue` button
 
     Then I select `Yes` for the `Will the appellant give oral evidence at the hearing?` field
     And I click the `Continue` button

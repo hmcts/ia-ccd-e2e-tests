@@ -50,7 +50,7 @@ Feature: Out of Country - Edit appeal
 
   @edit-appeal-out-of-country-no @RIA-3878
   Scenario: Edit Out of country appeal to In country
-    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes`
+    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `PA` appeal
 
     And I click the `Overview` tab
     And I should see `Yes` for the `Out of country` field

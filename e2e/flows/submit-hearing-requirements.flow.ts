@@ -339,6 +339,7 @@ export class SubmitHearingRequirementsFlow {
             );
             await browser.sleep(2000);
             await this.ccdFormPage.click('Add new');
+            await browser.sleep(2000);
             await this.ccdFormPage.setFieldValue(
                 'Given names',
                 'Jenny Bat'
@@ -346,6 +347,36 @@ export class SubmitHearingRequirementsFlow {
             await this.ccdFormPage.setFieldValue(
                 'Family name',
                 '1'
+            );            await this.ccdFormPage.click('Add new');
+            await browser.sleep(2000);
+            await this.ccdFormPage.typeText(
+                "witnessDetails_1_witnessName",
+                "krish"
+            );
+            await this.ccdFormPage.typeText(
+                "witnessDetails_1_witnessFamilyName",
+                "2"
+            );
+            await browser.sleep(5000);
+            await this.ccdFormPage.click('Add new');
+            await browser.sleep(2000);
+            await this.ccdFormPage.typeText(
+                "witnessDetails_2_witnessName",
+                "ramesh"
+            );
+            await this.ccdFormPage.typeText(
+                "witnessDetails_2_witnessFamilyName",
+                "3"
+            );
+            await this.ccdFormPage.click('Add new');
+            await browser.sleep(2000);
+            await this.ccdFormPage.typeText(
+                "witnessDetails_3_witnessName",
+                "Mat"
+            );
+            await this.ccdFormPage.typeText(
+                "witnessDetails_3_witnessFamilyName",
+                "4"
             );
             await this.ccdFormPage.click('Continue');
         }
@@ -376,6 +407,7 @@ export class SubmitHearingRequirementsFlow {
             'Will any of the witnesses require a spoken or sign language interpreter at the hearing?',
             'Yes'
         );
+        await browser.sleep(1000);
         await this.ccdFormPage.click('Continue');
         await browser.sleep(1000);
 
@@ -1137,5 +1169,16 @@ export class SubmitHearingRequirementsFlow {
                 await this.ccdFormPage.click('Continue');
             }
         }
+    }
+
+    async setHearingLocation(clickContinue = false, location = ''){
+        await browser.sleep(3000);
+        await this.ccdFormPage.typeTextBasedOnClass(
+            'mat-autocomplete-trigger',
+            location
+        );
+        await browser.sleep(3000);
+        await this.ccdFormPage.click('Atlantic Quay - Glasgow');
+        await this.ccdFormPage.click('Add location');
     }
 }
