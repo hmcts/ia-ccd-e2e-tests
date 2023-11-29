@@ -84,10 +84,10 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
-    if (!params.skipCrossBrowserTest) {
+    if (!params.skipCrossBrowserTests) {
         enableCrossBrowserTest()
     }
-    if (!params.skipFullFunctionalTest) {
+    if (!params.skipFullFunctionalTests) {
         enableFullFunctionalTest(240)
     }
 
