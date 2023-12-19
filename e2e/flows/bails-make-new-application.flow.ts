@@ -346,14 +346,14 @@ export class MakeNewApplicationFlow {
         }
     }
 
-    async completeInterpreterRequirements(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Interpreter', 'No');
-        await browser.sleep(1000)
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
+    // async completeInterpreterRequirements(clickContinue = false) {
+    //     await this.ccdFormPage.runAccessbility();
+    //     await this.ccdFormPage.setFieldValue('Interpreter', 'No');
+    //     await browser.sleep(1000)
+    //     if (clickContinue) {
+    //         await this.ccdFormPage.click('Continue');
+    //     }
+    // }
 
     async completeDisabilityRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
@@ -480,7 +480,7 @@ export class MakeNewApplicationFlow {
         await this.completeSupportingEvidenceYesNo(true, 'Yes');
         await this.completeSupportingEvidenceUpload(true);
         await this.completeBailTransfer(true);
-        await this.completeInterpreterRequirements(true);
+       // await this.completeInterpreterRequirements(true);
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {

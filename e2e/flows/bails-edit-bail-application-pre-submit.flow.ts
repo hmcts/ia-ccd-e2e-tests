@@ -316,13 +316,13 @@ export class EditBailApplicationPreSubmitFlow {
         }
     }
 
-    async completeInterpreterRequirements(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Interpreter', 'No');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
+    // async completeInterpreterRequirements(clickContinue = false) {
+    //     await this.ccdFormPage.runAccessbility();
+    //     await this.ccdFormPage.setFieldValue('Interpreter', 'No');
+    //     if (clickContinue) {
+    //         await this.ccdFormPage.click('Continue');
+    //     }
+    // }
 
     async completeDisabilityRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
@@ -449,7 +449,7 @@ export class EditBailApplicationPreSubmitFlow {
         await this.completeGroundsForBail(true);
         await this.completeSupportingEvidenceYesNo(true);
         await this.completeBailTransfer(true);
-        await this.completeInterpreterRequirements(true);
+       //await this.completeInterpreterRequirements(true);
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {
