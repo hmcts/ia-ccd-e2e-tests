@@ -170,6 +170,111 @@ export class StartBailApplicationFlow {
         }
     }
 
+    async completeApplicantHearingReqInterpreterDetailsWithYes(clickContinue = false) {
+        await this.ccdFormPage.runAccessbility();
+        await this.ccdFormPage.setFieldValue('Will the applicant need a spoken or sign language interpreter at the hearing?', 'Yes');
+        await browser.sleep(1000);
+        await this.ccdFormPage.click('Continue');
+        await this.ccdFormPage.click('Spoken language interpreter');
+        await this.ccdFormPage.click('Sign language interpreter');
+        await browser.sleep(1000);
+        await this.ccdFormPage.click('Continue');
+        await this.ccdFormPage.setFieldValue(
+            'Spoken language',
+            'Korean'
+        );
+        await this.ccdFormPage.click('Continue');
+        await browser.sleep(1000);
+        await this.ccdFormPage.setFieldValue(
+            'Sign language',
+            'British Sign Language (BSL)'
+        );
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+    async completeFCSHearingReqInterpreterDetailsWithYes(clickContinue = false,noOfSupporters:string) {
+        await this.ccdFormPage.runAccessbility();
+        if(noOfSupporters === 'two'){
+            await this.ccdFormPage.setFieldValue('Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?', 'Yes');
+            await browser.sleep(1000);
+            await this.ccdFormPage.click('Continue');
+            await browser.sleep(3000);
+            await this.ccdFormPage.setFieldValue(
+                'What kind of interpreter does John Smith need? (Optional)',
+                'Spoken language interpreter'
+            );
+            await browser.sleep(2000);
+            await this.ccdFormPage.setFieldValue(
+                'What kind of interpreter does John Smith need? (Optional)',
+                'Sign language interpreter'
+            );
+            
+            await browser.sleep(2000);
+            await this.ccdFormPage.setFieldValue(
+                'What kind of interpreter does Jane Doe need? (Optional)',
+                'Spoken language interpreter'
+            );
+            await browser.sleep(2000);
+            await this.ccdFormPage.setFieldValue(
+                'What kind of interpreter does Jane Doe need? (Optional)',
+                'Sign language interpreter'
+            );
+           
+            await browser.sleep(1000);
+       
+            await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue(
+                'Spoken language',
+                'Telugu'
+            );
+            await this.ccdFormPage.click('Continue');
+    
+            await this.ccdFormPage.setFieldValue(
+                'Sign language',
+                'British Sign Language (BSL)'
+            );
+            await this.ccdFormPage.click('Continue');
+
+            await this.ccdFormPage.setFieldValue(
+                'Spoken language',
+                'Hindi'
+            );
+            await this.ccdFormPage.click('Continue');
+    
+            await this.ccdFormPage.setFieldValue(
+                'Sign language',
+                'British Sign Language (BSL)'
+            );
+            
+            if (clickContinue) {
+                await this.ccdFormPage.click('Continue');
+            } 
+        }
+        else if(noOfSupporters === 'one'){
+            await this.ccdFormPage.setFieldValue('Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?', 'Yes');
+            await browser.sleep(1000);
+            await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.click('Spoken language interpreter');
+            await this.ccdFormPage.click('Sign language interpreter');
+            await browser.sleep(1000);
+            await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.setFieldValue(
+                'Spoken language',
+                'Korean'
+            );
+            await this.ccdFormPage.click('Continue');
+    
+            await this.ccdFormPage.setFieldValue(
+                'Sign language',
+                'British Sign Language (BSL)'
+            );
+           
+            if (clickContinue) {
+                await this.ccdFormPage.click('Continue');
+            } 
+        }
+    }
     async completeFinancialConditionSupporter(clickContinue = false, choice) {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Financial condition supporter', choice);
@@ -188,6 +293,7 @@ export class StartBailApplicationFlow {
             await this.ccdFormPage.setFieldValue('Given names', 'Jane');
             await this.ccdFormPage.setFieldValue('Family name', 'Doe');
         }
+  
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -207,6 +313,18 @@ export class StartBailApplicationFlow {
             await this.ccdFormPage.doesDropdownHaveValues('Select an address');
             await this.ccdFormPage.setFieldValue('Select an address', 'Buckingham Palace, London');
         }
+        // if (number === '3') {
+        //     await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'CH5 3QW');
+        //     await this.ccdFormPage.click('Find address');
+        //     await this.ccdFormPage.doesDropdownHaveValues('Select an address');
+        //     await this.ccdFormPage.setFieldValue('Select an address', 'J & P Engineering Services Ltd, Wellington House, Manor Lane, Penarlag Hawarden Industrial Park Airfield View, Glannau Dyfrdwy');
+        // }
+        // if (number === '4') {
+        //     await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'SW1A 1AA');
+        //     await this.ccdFormPage.click('Find address');
+        //     await this.ccdFormPage.doesDropdownHaveValues('Select an address');
+        //     await this.ccdFormPage.setFieldValue('Select an address', 'Buckingham Palace, London');
+        // }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -225,9 +343,13 @@ export class StartBailApplicationFlow {
         }
         if (number === '2') {
             await this.ccdFormPage.click('Email');
+            await this.ccdFormPage.click('Mobile');
             await browser.sleep(1000);
             await this.ccdFormPage.typeText('supporter2EmailAddress1', 'janeDoe@test.com');
+            await this.ccdFormPage.typeText('supporter2MobileNumber1', '07930111222');
+
         }
+      
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -241,6 +363,7 @@ export class StartBailApplicationFlow {
         if (number === '2') {
             await this.ccdFormPage.setFieldValue('Date of birth', '29-12-1999');
         }
+       
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -254,6 +377,7 @@ export class StartBailApplicationFlow {
         if (number === '2') {
             await this.ccdFormPage.setFieldValue('Relationship to the applicant', 'Aunt');
         }
+     
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -267,6 +391,7 @@ export class StartBailApplicationFlow {
         if (number === '2') {
             await this.ccdFormPage.setFieldValue('Occupation', 'Lawyer');
         }
+       
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -280,6 +405,7 @@ export class StartBailApplicationFlow {
         if (number === '2') {
             await this.ccdFormPage.setFieldValue('Immigration status', 'Immigrant');
         }
+       
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -297,6 +423,7 @@ export class StartBailApplicationFlow {
             await this.ccdFormPage.setFieldValue('Nationality', 'Armenian', 'select list', 'first', 'Nationality', 'first');
             await browser.sleep(2000);
         }
+    
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -310,6 +437,7 @@ export class StartBailApplicationFlow {
         if (number === '2') {
             await this.ccdFormPage.setFieldValue('Passport', 'Yes');
         }
+       
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -346,6 +474,9 @@ export class StartBailApplicationFlow {
         }
         if (number === '2') {
             await this.ccdFormPage.setFieldValue('Financial condition supporter 3', choice);
+        }
+        if (number === '3') {
+            await this.ccdFormPage.setFieldValue('Financial condition supporter 4', choice);
         }
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -402,17 +533,17 @@ export class StartBailApplicationFlow {
         }
     }
 
-    async completeInterpreterRequirements(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Interpreter', 'Yes');
-        await browser.sleep(1000)
-        await this.ccdFormPage.click('Add new');
-        await this.ccdFormPage.setFieldValue('Language', 'Bambara');
-        await this.ccdFormPage.setFieldValue('Dialect', 'N/A');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
-    }
+    // async completeInterpreterRequirements(clickContinue = false) {
+    //     await this.ccdFormPage.runAccessbility();
+    //     await this.ccdFormPage.setFieldValue('Interpreter', 'Yes');
+    //     await browser.sleep(1000)
+    //     await this.ccdFormPage.click('Add new');
+    //     await this.ccdFormPage.setFieldValue('Language', 'Bambara');
+    //     await this.ccdFormPage.setFieldValue('Dialect', 'N/A');
+    //     if (clickContinue) {
+    //         await this.ccdFormPage.click('Continue');
+    //     }
+    // }
 
     async completeDisabilityRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
@@ -442,7 +573,8 @@ export class StartBailApplicationFlow {
 
     async completeLegalRepDetails(clickContinue = false, choice) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Name', 'Legal Representative Name');
+         await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
+         await this.ccdFormPage.setFieldValue('Family name', 'Fenn');
         await this.ccdFormPage.typeText('legalRepPhone', '07292929292');
         await this.ccdFormPage.setFieldValue('Reference', 'This is a reference');
         if (choice !== 'LR') {
@@ -546,7 +678,7 @@ export class StartBailApplicationFlow {
         await this.completeSupportingEvidenceYesNo(true, 'Yes');
         await this.completeSupportingEvidenceUpload(true);
         await this.completeBailTransfer(true);
-        await this.completeInterpreterRequirements(true);
+   // await this.completeInterpreterRequirements(true);
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {
@@ -591,6 +723,7 @@ export class StartBailApplicationFlow {
         await this.completeApplicantPlaceToLive(true);
         await this.completeApplicantAddress(true);
         await this.completeFinancialConditionAgree(true);
+        
         if (noOfSupporters === 'no') {
             await this.completeFinancialConditionSupporter(true, 'No');
         } else {
@@ -624,13 +757,19 @@ export class StartBailApplicationFlow {
                 if (noOfSupporters === 'two') {
                     await this.completeAnotherFinancialConditionSupporter(true, '2', 'No');
                 }
+                
+               
             }
         }
         await this.completeGroundsForBailInfo(true);
         await this.completeGroundsForBail(true);
         await this.completeSupportingEvidenceYesNo(true, 'No');
         await this.completeBailTransfer(true);
-        await this.completeInterpreterRequirements(true);
+        await this.completeApplicantHearingReqInterpreterDetailsWithYes(true);
+        if (noOfSupporters === 'one' || noOfSupporters === 'two') { 
+        await this.completeFCSHearingReqInterpreterDetailsWithYes(true,noOfSupporters);
+        } 
+   // await this.completeInterpreterRequirements(true);
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {

@@ -2,9 +2,9 @@ Feature: Bails Submit bail application as Legal Rep
  Background:
    Given I am signed in as a `Legal Org User Rep A Bails`
    When I create a new bail application
-   Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative with no files uploaded
+   Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with two financial condition supporters and with a Legal Representative with no files uploaded
 
-  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @nightly-test
+  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @nightly-test @bail-test
   Scenario: Submit bail application as Legal Rep
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
