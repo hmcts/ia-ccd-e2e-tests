@@ -6,7 +6,7 @@ Feature: SnL Flow DC hearing request
     And I create a new case
     
   @nightly-test @snl 
-  Scenario: SnL hearing request out in country flow for DC appeal
+  Scenario: SnL hearing request in country flow for DC appeal
   
     When I save my initial DC appeal for nonPayment with hearing
     And I wait for 12 seconds
@@ -14,7 +14,6 @@ Feature: SnL Flow DC hearing request
     And I wait for 12 seconds
     And I switch to be a `Case Officer`
     And I wait for 10 seconds
-    And I request home office data
     And I request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
@@ -74,7 +73,6 @@ Feature: SnL Flow DC hearing request
 #     And I wait for 15 seconds
 #     And I switch to be a `Case Officer`
 #     And I wait for 10 seconds
-#     And I request home office data
 #     And I request respondent evidence
 #       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
 #     When I select the `Create Flag` Next step

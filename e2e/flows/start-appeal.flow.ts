@@ -602,7 +602,7 @@ export class StartAppealFlow {
         await this.completeContactPreference(true);
         await this.completeSponsorQuestion(true, 'Yes');
         await this.completeSponsorNames(true, givenName, familyName);
-        await this.completeSponsorAddress(true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
+        await this.completeSponsorAddress(true, '44 Millhouse Drive, Glasgow', 'G20 0UE');
         await this.completeSponsorContactPreference(true, contactPreference);
         await this.completeSponsorAuthorisation(true, authorisation);
         await this.completeGivenAppealType(true, appealType);

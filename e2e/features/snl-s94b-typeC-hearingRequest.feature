@@ -1,4 +1,4 @@
-Feature: SnL Flow PA hearing request
+Feature: SnL Flow S94B flag with Type-C facility in hearing request
 
    Background:
     Given I am signed in as a `Legal Org User Rep A`
@@ -6,7 +6,7 @@ Feature: SnL Flow PA hearing request
     And I create a new case
     
   @nightly-test @snl
-  Scenario: SnL hearing request in country flow for PA appeal
+  Scenario: SnL hearing request in country flow for S94B flag with Type-C facility for PA appeal
   
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 12 seconds
@@ -19,6 +19,11 @@ Feature: SnL Flow PA hearing request
     And I wait for 10 seconds
     And I request home office data
     And I request respondent evidence
+    And I wait for 4 seconds
+    When I select the `Update s94b status` Next step
+    Then I am on the `Update s94b status` page
+    And I will update s94b flag
+    And I wait for 4 seconds
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
     And I have created a `Unacceptable/disruptive customer behaviour` Flag in `Jose Gonzalez`
@@ -66,8 +71,8 @@ Feature: SnL Flow PA hearing request
     And I click the `view the status of this hearing in the hearings tab` link
     And I wait for 10 seconds
 
-  @nightly-test @snl
-  Scenario: SnL hearing request out off country flow for PA appeal
+  @nightly-test @snl 
+  Scenario: SnL hearing request out off country flow for S94B flag with Type-C facility for PA appeal
     And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `PA` appeal
     And I wait for 12 seconds
     And I click the `Close and Return to case details` button
@@ -78,6 +83,11 @@ Feature: SnL Flow PA hearing request
     And I switch to be a `Case Officer`
     And I wait for 10 seconds
     And I request respondent evidence
+    And I wait for 4 seconds
+    When I select the `Update s94b status` Next step
+    Then I am on the `Update s94b status` page
+    And I will update s94b flag
+    And I wait for 4 seconds
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
     And I have created a `Unacceptable/disruptive customer behaviour` Flag in `Jose Gonzalez`
