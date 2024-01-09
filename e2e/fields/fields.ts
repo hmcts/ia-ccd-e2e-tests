@@ -25,6 +25,7 @@ import { CreateCaseFixedListFieldFinder } from './create-case-fixed-list-field-f
 import { CcdWriteDocumentFieldFinder } from './ccd-write-document-field-finder';
 import { CcdWriteFixedRadioListFieldFinder } from './ccd-write-fixed-radio-list-field-finder';
 import { AnyPage } from '../pages/any.page';
+import { CcdWriteMultiSelectListFieldFinder } from './ccd-write-multi-select-list-field-finder';
 
 export class Fields {
 
@@ -51,6 +52,7 @@ export class Fields {
         new CcdWriteFixedListFieldFinder(),
         new CcdWriteFixedRadioListFieldFinder(),
         new CcdWriteTextFieldFinder(),
+        new CcdWriteMultiSelectListFieldFinder(),
         new CcdWriteTextAreaFieldFinder(),
         new CcdWriteYesNoFieldFinder(),
 
