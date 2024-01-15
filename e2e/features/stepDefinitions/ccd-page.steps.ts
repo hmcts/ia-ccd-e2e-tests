@@ -407,11 +407,21 @@ Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/, async function (flag,
     await ccdFormPage.click(type);
     await ccdFormPage.click('Next');
     await browser.sleep(3000);
-    await ccdFormPage.click('Complex Case');
+    await ccdFormPage.click(flag);
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Create Flag');
 });
+Then(/^I have interpreter created a `?([^`]+)`? Flag in `?([^`]+)`?$/, async function (flag, type) {
+    await ccdFormPage.click(type);
+    await ccdFormPage.click('Next');
+    await browser.sleep(3000);
+    await ccdFormPage.click(flag);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Create Flag');
+});
+
 
 Then(/^I will update s94b flag$/, async function () {
     await ccdFormPage.setFieldValue('Mark appeal as s94b?', 'Yes');

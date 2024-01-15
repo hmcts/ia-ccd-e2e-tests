@@ -4,7 +4,7 @@ Feature: Bails Submit bail application as Admin Officer
    When I create a new bail application
    Then I save my initial application as a `Admin Officer` for a Prison detention with two financial condition supporters and with no Legal Representative
 
-  @submit-bail-application @RIA-5662 @submit-bail-application-admin-officer @bails-full @bails-regression @nightly-test
+  @submit-bail-application @RIA-5662 @submit-bail-application-admin-officer @bails-full @bails-regression @nightly-test @bail-test
   Scenario: Submit bail application as Admin Officer
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
@@ -12,6 +12,11 @@ Feature: Bails Submit bail application as Admin Officer
     And I click the `Submit` button
     Then I should see the text `You have submitted this application`
     When I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-    And I wait for 5 seconds
+    And I wait for 10 seconds
     Then I should see the text `The case is ready to be listed`
+    When I select the `Create Flag` Next step
+    And I have created a `Urgent case` Flag in `Case level`
+    And I wait for 10 seconds
+    When I select the `Create Flag` Next step
+    And I have interpreter created a `Language Interpreter` Flag in `Harri Pugh (Applicant)`
+

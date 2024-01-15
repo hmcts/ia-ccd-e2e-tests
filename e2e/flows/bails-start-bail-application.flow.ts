@@ -196,10 +196,11 @@ export class StartBailApplicationFlow {
     async completeFCSHearingReqInterpreterDetailsWithYes(clickContinue = false,noOfSupporters:string) {
         await this.ccdFormPage.runAccessbility();
         if(noOfSupporters === 'two'){
+
             await this.ccdFormPage.setFieldValue('Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?', 'Yes');
-            await browser.sleep(1000);
             await this.ccdFormPage.click('Continue');
             await browser.sleep(3000);
+
             await this.ccdFormPage.setFieldValue(
                 'What kind of interpreter does John Smith need? (Optional)',
                 'Spoken language interpreter'
@@ -678,6 +679,10 @@ export class StartBailApplicationFlow {
         await this.completeSupportingEvidenceYesNo(true, 'Yes');
         await this.completeSupportingEvidenceUpload(true);
         await this.completeBailTransfer(true);
+        await this.completeApplicantHearingReqInterpreterDetailsWithYes(true);
+        if (noOfSupporters === 'one' || noOfSupporters === 'two') { 
+        await this.completeFCSHearingReqInterpreterDetailsWithYes(true,noOfSupporters);
+        } 
    // await this.completeInterpreterRequirements(true);
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
@@ -769,7 +774,7 @@ export class StartBailApplicationFlow {
         if (noOfSupporters === 'one' || noOfSupporters === 'two') { 
         await this.completeFCSHearingReqInterpreterDetailsWithYes(true,noOfSupporters);
         } 
-   // await this.completeInterpreterRequirements(true);
+   //await this.completeInterpreterRequirements(true);
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {
