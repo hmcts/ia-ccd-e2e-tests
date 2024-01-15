@@ -94,10 +94,26 @@ export class CcdFormPage extends CcdPage {
         browser.driver
             .findElement(By.xpath(`//*[@id='${ ID }']`))
             .sendKeys(text);
+            
+    }
+    async typeTextBasedOnClass(className: string, text: string) {
+        browser.driver
+            .findElement(By.xpath(`//*[contains(@class,'${ className }')]`))
+            .sendKeys(text);
     }
 
     async typeEnter(ID: string) {
         browser.driver.findElement(By.xpath(`//*[@id='${ ID }']`));
         browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    }
+    async selectInterpreterLanguage(Language = ''){
+        await browser.sleep(3000);
+        await this.typeTextBasedOnClass(
+            'mat-autocomplete-trigger',
+            Language
+        );
+        await browser.sleep(3000);
+        await this.click(Language);
+       
     }
 }

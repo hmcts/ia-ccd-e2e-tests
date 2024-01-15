@@ -527,8 +527,8 @@ export class StartBailApplicationFlow {
 
     async completeBailTransfer(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Transfer bail management', 'No');
-        await this.ccdFormPage.setFieldValue('Explain why the applicant does not consent to bail being transferred', 'They do not consent to bail being transferred');
+        await this.ccdFormPage.setFieldValue('Transfer bail management', 'Yes');
+       //await this.ccdFormPage.setFieldValue('Explain why the applicant does not consent to bail being transferred', 'They do not consent to bail being transferred');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -557,8 +557,8 @@ export class StartBailApplicationFlow {
 
     async completeVideoLinkRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Able to join video hearing', 'No');
-        await this.ccdFormPage.setFieldValue('Explain why the applicant would not be able to join the hearing by video link', 'They can\'t join video');
+        await this.ccdFormPage.setFieldValue('Able to join video hearing', 'Yes');
+       // await this.ccdFormPage.setFieldValue('Explain why the applicant would not be able to join the hearing by video link', 'They can\'t join video');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
