@@ -154,3 +154,8 @@ Then(/^I should (see|not see) the reheard hearing requirements (yes|no) path$/, 
 Given(/^I select `?([^\s`]+)`? for Remote hearing with details `?([^`]+)`?$/, async function (isYesPath, details) {
         await submitHearingRequirementsFlow.setRemoteHearingRequirement(true, isYesPath, details);
 });
+
+Given(/^I add the `?([^`]+)`? hearing location$/, async function (location) {
+    await submitHearingRequirementsFlow.setHearingLocation(true, location);
+
+});

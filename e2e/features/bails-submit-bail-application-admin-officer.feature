@@ -49,7 +49,7 @@ Feature: Bails Submit bail application as Admin Officer
     And I click the `Bails` button
     And I click the `Continue` button
     And I click the `Continue` button
-   # And I add the `Hatton Cross` hearing location
+    And I add the `Hatton Cross` hearing location
     And I click the `Continue` button
     And I should see the text `Do you want a specific judge?`
     And I click the `No` button
