@@ -1,5 +1,5 @@
 import { CaseSummaryFlow } from '../../../flows/create-case-summary.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const caseSummaryFlow = new CaseSummaryFlow();
 
