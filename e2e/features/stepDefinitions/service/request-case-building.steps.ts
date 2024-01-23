@@ -1,4 +1,4 @@
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { RequestCaseBuildingFlow } from '../../../flows/request-case-building.flow';
 
 const requestCaseBuildingFlow = new RequestCaseBuildingFlow();

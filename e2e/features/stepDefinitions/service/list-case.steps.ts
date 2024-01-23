@@ -1,5 +1,5 @@
 import { ListCaseFlow } from '../../../flows/list-case.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const listCaseFlow = new ListCaseFlow();
 

@@ -1,6 +1,6 @@
 import { SubmitCaseFlow } from '../../../flows/submit-case.flow';
 import { Logger } from '../../../helpers/logger';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const isSaveAndContinueEnabled = require('../../../ia.conf').isSaveAndContinueEnabled === 'true';
 

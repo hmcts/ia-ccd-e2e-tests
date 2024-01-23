@@ -1,5 +1,5 @@
 import { RequestHomeOfficeDataFlow } from '../../../flows/request-home-office-data.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const requestHomeOfficeDataFlow = new RequestHomeOfficeDataFlow();
 

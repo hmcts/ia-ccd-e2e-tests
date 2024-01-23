@@ -1,4 +1,4 @@
-import { Given, Then, When } from 'cucumber';
+import { Given, Then, When } from '@cucumber/cucumber';
 import { CcdService, Events } from '../../../aip/ccd-service';
 import { CcdPage } from '../../../pages/ccd.page';
 import { expect } from 'chai';
