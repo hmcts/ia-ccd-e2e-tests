@@ -1,6 +1,6 @@
 import { SubmitAppealFlow } from '../../../flows/submit-appeal.flow';
 import { PayAndSubmitAppealFlow } from '../../../flows/pay-and-submit-appeal.flow';
-import { Then, When } from 'cucumber';
+import { Then, When } from '@cucumber/cucumber';
 
 const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 'true';
 const submitAppealFlow = new SubmitAppealFlow();

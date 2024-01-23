@@ -1,4 +1,4 @@
-import { When } from 'cucumber';
+import { When } from '@cucumber/cucumber';
 import { CcdService, Events } from '../../../aip/ccd-service';
 
 When(/^the appellant submits clarifying answers$/, async function () {

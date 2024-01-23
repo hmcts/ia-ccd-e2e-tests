@@ -1,4 +1,4 @@
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { PrepareDecisionAndReasonsFlow } from '../../../flows/prepare-decision-and-reasons.flow';
 
 const prepareDecisionAndReasonsFlow = new PrepareDecisionAndReasonsFlow();

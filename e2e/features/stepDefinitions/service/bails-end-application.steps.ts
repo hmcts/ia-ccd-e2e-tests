@@ -1,5 +1,5 @@
 import { EndApplication } from '../../../flows/bails-end-application.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const endApplication = new EndApplication();
 

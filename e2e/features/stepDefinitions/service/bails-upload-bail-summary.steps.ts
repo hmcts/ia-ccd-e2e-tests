@@ -1,6 +1,6 @@
 import { UploadBailSummary } from '../../../flows/bails-upload-bail-summary.flow';
 import { CcdFormPage } from '../../../pages/ccd-form.page';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 import { expect } from 'chai';
 
 const ccdFormPage = new CcdFormPage();
