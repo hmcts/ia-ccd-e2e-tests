@@ -17,8 +17,8 @@ Feature: Bails Submit bail application as Home Office User
      And I switch to be a `Admin Officer Bails`
     And I wait for 20 seconds
 
-  #  Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
- When I select the `Create Flag` Next step
+    #  Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
+    When I select the `Create Flag` Next step
     And I have created a `Urgent case` Flag in `Case level`
     And I wait for 10 seconds
     When I select the `Create Flag` Next step

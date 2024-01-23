@@ -1,6 +1,6 @@
 import { AuthenticationFlow } from '../../flows/authentication.flow';
 import { CcdPage } from '../../pages/ccd.page';
-import { Given, Then, When } from 'cucumber';
+import { Given, Then, When } from '@cucumber/cucumber';
 import { IdamSignInPage } from '../../pages/idam-sign-in.page';
 import { expect } from 'chai';
 import { browser } from 'protractor';

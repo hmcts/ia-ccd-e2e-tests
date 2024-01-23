@@ -1,5 +1,5 @@
 import { CcdPage } from '../../../pages/ccd.page';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { Wait } from '../../../enums/wait';
 import { expect } from 'chai';
 import { browser } from 'protractor';

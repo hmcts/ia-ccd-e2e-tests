@@ -1,4 +1,4 @@
-import { Then, When } from 'cucumber';
+import { Then, When } from '@cucumber/cucumber';
 import { ExclusionsFlow } from '../../flows/exclusions.flow';
 
 const legalOpsExclusionFlow = new ExclusionsFlow();

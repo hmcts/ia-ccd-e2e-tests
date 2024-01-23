@@ -1,6 +1,6 @@
 import { AddAppealResponseFlow } from '../../../flows/add-appeal-response.flow';
 import { RequestRespondentReviewFlow } from '../../../flows/request-respondent-review.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { UploadAppealResponseFlow } from '../../../flows/upload-appeal-response-flow';
 
 const addAppealResponseFlow = new AddAppealResponseFlow();
