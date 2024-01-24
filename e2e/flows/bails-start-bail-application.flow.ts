@@ -179,12 +179,18 @@ export class StartBailApplicationFlow {
         await this.ccdFormPage.click('Sign language interpreter');
         await browser.sleep(1000);
         await this.ccdFormPage.click('Continue');
+        //await this.ccdFormPage.setFieldValue('Tell us which spoken language is needed for the applicant', 'Select spoken language');
+        await this.ccdFormPage.click('Select spoken language');
+
         await this.ccdFormPage.setFieldValue(
             'Spoken language',
             'Korean'
         );
         await this.ccdFormPage.click('Continue');
         await browser.sleep(1000);
+        //await this.ccdFormPage.setFieldValue('Tell us which sign language is needed for the applicant', 'Select sign language');
+        await this.ccdFormPage.click('Select sign language');
+
         await this.ccdFormPage.setFieldValue(
             'Sign language',
             'British Sign Language (BSL)'
@@ -225,24 +231,30 @@ export class StartBailApplicationFlow {
             await browser.sleep(1000);
        
             await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.click('Select spoken language');
+
             await this.ccdFormPage.setFieldValue(
                 'Spoken language',
                 'Telugu'
             );
             await this.ccdFormPage.click('Continue');
-    
+            await this.ccdFormPage.click('Select sign language');
+
             await this.ccdFormPage.setFieldValue(
                 'Sign language',
                 'British Sign Language (BSL)'
             );
             await this.ccdFormPage.click('Continue');
 
+            await this.ccdFormPage.click('Select spoken language');
+
             await this.ccdFormPage.setFieldValue(
                 'Spoken language',
                 'Hindi'
             );
             await this.ccdFormPage.click('Continue');
-    
+            await this.ccdFormPage.click('Select sign language');
+
             await this.ccdFormPage.setFieldValue(
                 'Sign language',
                 'British Sign Language (BSL)'
@@ -261,11 +273,18 @@ export class StartBailApplicationFlow {
             await browser.sleep(1000);
             await this.ccdFormPage.click('Continue');
             await this.ccdFormPage.setFieldValue(
+                'Which spoken language is needed for John Smith',
+                'Select spoken language'
+            );
+            await this.ccdFormPage.setFieldValue(
                 'Spoken language',
                 'Korean'
             );
             await this.ccdFormPage.click('Continue');
-    
+            await this.ccdFormPage.setFieldValue(
+                'Which sign language is needed for John Smith',
+                'Select sign language'
+            );
             await this.ccdFormPage.setFieldValue(
                 'Sign language',
                 'British Sign Language (BSL)'

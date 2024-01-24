@@ -50,7 +50,7 @@ Feature: Bails Submit bail application as Home Office User
     And I wait for 3 seconds
     And I should see the text `Do you require any additional facilities?`
     When I click the `Continue` button
-    And I click the `Bails` button
+    And I click the `Bail` button
     And I click the `Continue` button
     And I click the `Continue` button
     And I add the `Hatton Cross` hearing location
