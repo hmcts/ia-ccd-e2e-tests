@@ -9,7 +9,7 @@ const AxeRunner = require('./helpers/accessibility/axe-runner');
 exports.config = {
 
   baseUrl: iaConfig.CcdWebUrl,
-  specs: ['./features/*.feature'],
+  specs: ['./features/**/*.feature'],
   allScriptsTimeout: 120000,
   getPageTimeout: 120000,
 
