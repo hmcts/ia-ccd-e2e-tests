@@ -11,8 +11,11 @@ When(/^I agree to the declaration$/, async function () {
 });
 
 Then(/^I submit my appeal$/, async function () {
+    console.log('in 1......................................');
     await submitAppealFlow.submitAppeal(true);
+    console.log('in 2......................................');
     if (isfeePaymentEnabled) {
+        console.log('in 3......................................');
         await payAndSubmitAppealFlow.payForAppealByPBA(true, 'PA');
     }
 });

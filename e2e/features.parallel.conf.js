@@ -73,7 +73,7 @@ class BaseConfig {
         });
       };
     } else {
-      this.specs = './features/*.feature';
+      this.specs = './features/**/*.feature';
       this.capabilities = capabilities;
     }
 

@@ -4,7 +4,7 @@ Feature: Record remission decision
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
-  @record-remission-decision-approved @RIA-3517-approved @RIA-3517 @RIA-3829
+  @record-remission-decision-approved @RIA-3517-approved @RIA-3517 @RIA-3829-1
   Scenario: Record remission decision approved
 
     And I save my initial `EA` appeal type with `a remission` and `with` hearing fee
@@ -552,7 +552,7 @@ Feature: Record remission decision
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
 
-  @record-remission-decision-submitted-with-remission-and-late-remission @RIA-3830
+  @record-remission-decision-submitted-with-remission-and-late-remission @RIA-3830-1
   Scenario: Appeal submitted with remission and request a fee remission
 
     And I save my initial `EA` appeal type with `a remission` and `with` hearing fee

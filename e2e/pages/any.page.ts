@@ -349,6 +349,7 @@ export class AnyPage {
         const currentUrl = await this.getCurrentUrl();
         let tabUrl = match.replace(/ /g, '%20');
         const url = currentUrl.match(caseUrlMatcher)[0] + `#${tabUrl}`;
+        console.log('url -------> ' + url);
         await this.goToUrl(url);
         await this.refresh();
     }

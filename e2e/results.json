@@ -1,0 +1,188 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "set-aside-decide-ftpa-application;remove-leadership-judge-ftpa-decision-event-and-rename-resident-judge-ftpa-decision-event",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Remove Leadership judge FTPA Decision event and rename Resident judge FTPA Decision event",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I am signed in as a `Judge`",
+            "match": {
+              "location": "features\\stepDefinitions\\authentication.steps.ts:47"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14835902700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I go to the `Case List`",
+            "match": {
+              "location": "features\\stepDefinitions\\service\\case-list-page.steps.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 186438700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I filter the cases by `FTPA submitted` state",
+            "match": {
+              "location": "features\\stepDefinitions\\service\\case-list-page.steps.ts:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2025964700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I wait for 5 seconds",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:157"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5016406999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click case at row 1 and navigate to case view page",
+            "match": {
+              "location": "features\\stepDefinitions\\service\\case-list-page.steps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1734758700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see the text `Do this next`",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:186"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37282899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I should see the text `Review the application for permission to appeal in the FTPA tab. When you are ready, record the application decision.`",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:186"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39651599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I should see the text `If the application should be treated in a different way`",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:186"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44430300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I should see the text `You can remove the case from the FTPA process when recording the application decision. A Judge will then update the Tribunal decision.`",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:186"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69759200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I should see the text `If you are pursuing a rule 35 decision to be set aside`",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:186"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40377199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I should see the text `This can only be done by a Resident Judge. You must send the Notice of Intention to Set Aside to both parties offline and await any objections before recording the application decision.`",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:186"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38872100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 18231700
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@set-aside-dlrm",
+            "line": 11
+          },
+          {
+            "name": "@RIA-8101",
+            "line": 11
+          },
+          {
+            "name": "@dlrm",
+            "line": 11
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "set-aside-decide-ftpa-application",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Set Aside Decide FTPA Application",
+    "tags": [],
+    "uri": "features\\dlrm\\set-aside-decide-ftpa-application.feature"
+  }
+]

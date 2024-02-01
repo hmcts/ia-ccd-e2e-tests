@@ -1,0 +1,136 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "set-aside-decide-ftpa-application;ftpa-tab---update-the-label-to-application-instead-of-appellant",
+        "keyword": "Scenario",
+        "line": 64,
+        "name": "FTPA tab - update the label to Application instead of Appellant",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I am signed in as a `Judge`",
+            "match": {
+              "location": "features\\stepDefinitions\\authentication.steps.ts:47"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12923576300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I go to the `Case List`",
+            "match": {
+              "location": "features\\stepDefinitions\\service\\case-list-page.steps.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 240974199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I filter the cases by `FTPA submitted` state",
+            "match": {
+              "location": "features\\stepDefinitions\\service\\case-list-page.steps.ts:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2993691999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I wait for 2 seconds",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:162"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2004963499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click case at row 1 and navigate to case view page",
+            "match": {
+              "location": "features\\stepDefinitions\\service\\case-list-page.steps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2182231000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 65,
+            "name": "I should see the `FTPA tab` link",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:196"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 34004599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 66,
+            "name": "I click the `FTPA tab` link",
+            "match": {
+              "location": "features\\stepDefinitions\\ccd-page.steps.ts:205"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5570951499
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 15136399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@set-aside-dlrm",
+            "line": 63
+          },
+          {
+            "name": "@RIA-8116",
+            "line": 63
+          },
+          {
+            "name": "@dlrm",
+            "line": 63
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "set-aside-decide-ftpa-application",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Set Aside Decide FTPA Application",
+    "tags": [],
+    "uri": "features\\dlrm\\set-aside-decide-ftpa-application.feature"
+  }
+]
