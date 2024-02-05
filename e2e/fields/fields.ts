@@ -25,6 +25,7 @@ import { CreateCaseFixedListFieldFinder } from './create-case-fixed-list-field-f
 import { CcdWriteDocumentFieldFinder } from './ccd-write-document-field-finder';
 import { CcdWriteFixedRadioListFieldFinder } from './ccd-write-fixed-radio-list-field-finder';
 import { AnyPage } from '../pages/any.page';
+import { CcdWriteTelFieldFinder } from './ccd-write-tel-field-finder';
 import { CcdWriteMultiSelectListFieldFinder } from './ccd-write-multi-select-list-field-finder';
 
 export class Fields {
@@ -61,7 +62,7 @@ export class Fields {
         new CcdWriteMoneyGBPFieldFinder(),
         new CcdWriteEmailFieldFinder(),
         new CcdWriteDynamicListFieldFinder(),
-
+        new CcdWriteTelFieldFinder(),
         // the following fields are not specific to one type
         // and so are searched last in order of specificity
         // which affects the selection for label-less fields

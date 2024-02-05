@@ -268,28 +268,32 @@ export class StartBailApplicationFlow {
             await this.ccdFormPage.setFieldValue('Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?', 'Yes');
             await browser.sleep(1000);
             await this.ccdFormPage.click('Continue');
-            await this.ccdFormPage.click('Spoken language interpreter');
-            await this.ccdFormPage.click('Sign language interpreter');
-            await browser.sleep(1000);
-            await this.ccdFormPage.click('Continue');
+
             await this.ccdFormPage.setFieldValue(
-                'Which spoken language is needed for John Smith',
-                'Select spoken language'
+                'What kind of interpreter does John Smith need? (Optional)',
+                'Spoken language interpreter'
             );
+            await browser.sleep(2000);
+            await this.ccdFormPage.setFieldValue(
+                'What kind of interpreter does John Smith need? (Optional)',
+                'Sign language interpreter'
+            );
+            await browser.sleep(2000);
+
+            await this.ccdFormPage.click('Continue');
+            await this.ccdFormPage.click('Select spoken language');
+
             await this.ccdFormPage.setFieldValue(
                 'Spoken language',
-                'Korean'
+                'Malayalam'
             );
             await this.ccdFormPage.click('Continue');
-            await this.ccdFormPage.setFieldValue(
-                'Which sign language is needed for John Smith',
-                'Select sign language'
-            );
+            await this.ccdFormPage.click('Select sign language');
+
             await this.ccdFormPage.setFieldValue(
                 'Sign language',
-                'British Sign Language (BSL)'
+                'American Sign Language (ASL)'
             );
-           
             if (clickContinue) {
                 await this.ccdFormPage.click('Continue');
             } 

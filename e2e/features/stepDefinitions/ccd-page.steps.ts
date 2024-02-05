@@ -450,3 +450,66 @@ Then(/^I will update s94b flag$/, async function () {
     await ccdFormPage.click('Continue');
     await ccdFormPage.click('Submit');
 });
+Then(/^I Add the interpreter details$/, async function () {
+
+    await ccdPage.click("Add new");
+    await ccdFormPage.setFieldValue(
+        'Booking reference',
+        'Test-32123'
+    );
+    await ccdFormPage.setFieldValue(
+        'Given names',
+        'David'
+    );
+    await ccdFormPage.setFieldValue(
+        'Family name',
+        'Test'
+    );
+  await ccdFormPage.setFieldValue(
+   'Phone number',
+    '09878999878'
+    );
+    await ccdFormPage.setFieldValue(
+        'Email',
+        'TestInterpreter@gmail.com'
+    );
+    await ccdFormPage.setFieldValue(
+        'Note (Optional)',
+        'Adding new spoken or sign language intrpreter'
+    );
+
+    await ccdFormPage.click("Continue");
+
+    await ccdFormPage.click("Update");
+
+});
+Then(/^I update interpreter booking status$/, async function () {
+    await ccdFormPage.setFieldValue(
+        'Harri Pugh - Applicant - Korean',
+        'Booked'
+    );
+    await ccdFormPage.setFieldValue(
+        'Harri Pugh - Applicant - British Sign Language (BSL)',
+        'Booked'
+    );
+   await browser.sleep(3000);
+    await ccdFormPage.setFieldValue(
+        'John Smith - FCS - Telugu',
+        'Booked'
+    );
+    await ccdFormPage.setFieldValue(
+        'John Smith - FCS - British Sign Language (BSL)',
+        'Requested'
+    );
+    await ccdFormPage.setFieldValue(
+        'Jane Doe - FCS - Hindi',
+        'Requested'
+    );
+    await ccdFormPage.setFieldValue(
+        'Jane Doe - FCS - British Sign Language (BSL)',
+        'Cancelled'
+    );
+    await ccdFormPage.click("Continue");
+    await browser.sleep(3000);
+    await ccdFormPage.click("Update");
+});
