@@ -330,6 +330,7 @@ Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| B Bails)`?$/, async funct
 
 Given(/^I switch to be a `?(?:Admin Officer Bails)`?$/, async function () {
     await browser.sleep(100);
+    //const currentUrl="https://manage-case.demo.platform.hmcts.net/cases/case-details/1707144407230879#Overview";
     const currentUrl = await ccdPage.getCurrentUrl();
     const caseUrl = currentUrl.match(caseUrlMatcher)[0];
     await authenticationFlow.signInAsAdminOfficerBails();

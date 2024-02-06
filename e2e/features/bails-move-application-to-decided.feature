@@ -4,7 +4,15 @@ Feature: Bails Move application to decided after a signed conditional bail decis
    And I create a new bail application
     And I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Home Office Bails`
+    And I should see the text `What happens next`
+    And I wait for 5 seconds
+    And I switch to be a `Admin Officer Bails`
+    And I wait for 5 seconds
+    And I list the bail case
+    And I wait for 5 seconds
+     When I switch to be a `Home Office Bails`
     And I upload the bail summary
+    And I wait for 5 seconds
     And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
