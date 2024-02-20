@@ -61,10 +61,28 @@ exports.config = {
     'fail-fast': iaConfig.FailFast,
     'nightly-tag': iaConfig.NightlyTag,
     'no-source': true,
-    format: 'json:.tmp/results.json',
+    // format: 'json:.tmp/results.json',
+    //format: ['json:reports/cucumber_report.json'],
+    format: [ 'json:/tmp/results.json'],
     strict: true,
-    retry: 2
+    // retry: 2
   },
+
+  plugins: [
+    {
+      package: 'protractor-multiple-cucumber-html-reporter-plugin',
+      options: {
+        automaticallyGenerateReport: true,
+        removeExistingJsonReportFile: true,
+        reportName: 'XUI Manage Cases Functional Tests',
+        // openReportInBrowser: true,
+        jsonDir: '/tmp',
+        reportPath: '/tmp',
+        displayDuration: true,
+        durationInMS: false
+      }
+    }
+  ],
 
   onPrepare() {
     // returning the promise makes protractor wait for

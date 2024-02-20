@@ -60,26 +60,41 @@ Feature: Set Aside Decide FTPA Application
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button
 
-  @set-aside-dlrm @RIA-8104 @dlrm
-  Scenario: Rule31/Rule32 decisions
+  @set-aside-dlrm @RIA-8104  @RIA-8206 @dlrm
+  Scenario Outline: Rule31/Rule32 decisions
     When I select the `Decide FTPA application` Next step
     And I should see the text `Decide FTPA application`
     And I should see the text `Applicant`
     And I select `Appellant` for the `Who made the application?` field
     And I click the `Continue` button
     And I should see the text `Decision`
-    And I select `Dispose of application under rule 31` for the `The outcome of the application` field
+    And I select <decision> for the `The outcome of the application` field
     And I click the `Continue` button
     And I should see the text `Reasoning`
     And I type `Test reason for application` for the `Explain why the application should be disposed` field
     And I click the `Continue` button
     And I should see the text `Check your answers`
-    And I should see the text `Dispose of FTPA under rule 31`
-    And I should see the text `est reason for application`
+    And I should see the text <decision>
+    And I should see the text `Test reason for application`
     And I click the `Submit` button
     And I should see the text `What happens next`
     And I should see the text `A Judge will update the decision`
     And I click the `Close and Return to case details` button
+    And I should see the text `The appeal was removed from the FTPA process. See the details in the FTPA tab.`
+    And I should see the text `When you are ready, update the appeal decision.`
+    And I switch to be a `Legal Org User Rep A`
+    And I should see the text `An application for permission to appeal to the Upper Tribunal was removed from the FTPA process`
+    And I should see the text `The Tribunal will contact you when the application has been decided.`
+    And I switch to be a `Case Officer`
+    And I should see the text `An application for permission to appeal to the Upper Tribunal was removed from the FTPA process and Judge will decide it separately.`
+    And I switch to be a `Admin Officer`
+    And I should see the text `An application for permission to appeal to the Upper Tribunal was removed from the FTPA process and Judge will decide it separately.`
+    And I switch to be a `Home Office Generic`
+    And I should see the text `An application for permission to appeal to the Upper Tribunal was removed from the FTPA process and Judge will decide it separately.`
+    Examples:
+      | decision                             |
+      | Dispose of application under rule 31 |
+      | Dispose of application under rule 32 |
 
   @set-aside-dlrm @RIA-8116 @dlrm
   Scenario: FTPA tab - update the label to Application instead of Appellant
