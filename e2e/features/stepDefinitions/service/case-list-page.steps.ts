@@ -1,6 +1,6 @@
 import { CaseListFlow } from '../../../flows/case-list.flow';
 import { CcdFormPage } from '../../../pages/ccd-form.page';
-import { When } from 'cucumber';
+import { When } from '@cucumber/cucumber';
 import { expect } from 'chai';
 
 const caseListFlow = new CaseListFlow();

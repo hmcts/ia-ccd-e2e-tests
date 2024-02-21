@@ -1011,4 +1011,14 @@ export class SubmitHearingRequirementsFlow {
             }
         }
     }
+    async setHearingLocation(clickContinue = false, location = ''){
+        await browser.sleep(3000);
+        await this.ccdFormPage.typeTextBasedOnClass(
+            'mat-autocomplete-trigger',
+            location
+        );
+        await browser.sleep(3000);
+        await this.ccdFormPage.click('Hatton Cross');
+        await this.ccdFormPage.click('Add location');
+    }
 }

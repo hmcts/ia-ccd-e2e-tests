@@ -1,4 +1,4 @@
-import { Then, When } from 'cucumber';
+import { Then, When } from '@cucumber/cucumber';
 import { NoticeOfChangePage } from '../../../pages/notice-of-change.page';
 
 const noticeOfChangePage = new NoticeOfChangePage();

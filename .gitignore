@@ -5,3 +5,5 @@ yarn-error.log
 *.iml
 package-lock.json
 .DS_Store
+.yarn/
+.yarn

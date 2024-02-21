@@ -1,5 +1,5 @@
 import { CcdPage } from '../../pages/ccd.page';
-import { Given, Then, When } from 'cucumber';
+import { Given, Then, When } from '@cucumber/cucumber';
 import { browser } from 'protractor';
 import { expect } from 'chai';
 import { Wait } from '../../enums/wait';
@@ -407,14 +407,109 @@ Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/, async function (flag,
     await ccdFormPage.click(type);
     await ccdFormPage.click('Next');
     await browser.sleep(3000);
-    await ccdFormPage.click('Complex Case');
+    await ccdFormPage.click(flag);
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Create Flag');
 });
+Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and language name is `?([^`]+)`?$/, async function (flag, type, language) {
+    await ccdFormPage.click(type);
+    await ccdFormPage.click('Next');
+    await browser.sleep(3000);
+    await ccdFormPage.click(flag);
+    await ccdFormPage.click('Next');
+   await ccdFormPage.selectInterpreterLanguage(language);
+   await browser.sleep(3000);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.typeText(`flagComments`, `just comment for interpreter languages`);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Create Flag');
+});
+Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and signlanguage name is `?([^`]+)`?$/, async function (flag, type, language) {
+    await ccdFormPage.click(type);
+    await ccdFormPage.click('Next');
+    await browser.sleep(3000);
+    await ccdFormPage.click(flag);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('I need help communicating and understanding');
+    await browser.sleep(3000);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Sign Language Interpreter');
+    await browser.sleep(3000);
+    await ccdFormPage.click('Next');
+   await ccdFormPage.selectInterpreterLanguage(language);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.typeText(`flagComments`, `just comment for interpreter languages`);
+    await ccdFormPage.click('Next');
+    await ccdFormPage.click('Create Flag');
+});
+
 
 Then(/^I will update s94b flag$/, async function () {
     await ccdFormPage.setFieldValue('Mark appeal as s94b?', 'Yes');
     await ccdFormPage.click('Continue');
     await ccdFormPage.click('Submit');
+});
+Then(/^I Add the interpreter details$/, async function () {
+
+    await ccdPage.click("Add new");
+    await ccdFormPage.setFieldValue(
+        'Booking reference',
+        'Test-32123'
+    );
+    await ccdFormPage.setFieldValue(
+        'Given names',
+        'David'
+    );
+    await ccdFormPage.setFieldValue(
+        'Family name',
+        'Test'
+    );
+  await ccdFormPage.setFieldValue(
+   'Phone number',
+    '09878999878'
+    );
+    await ccdFormPage.setFieldValue(
+        'Email',
+        'TestInterpreter@gmail.com'
+    );
+    await ccdFormPage.setFieldValue(
+        'Note (Optional)',
+        'Adding new spoken or sign language intrpreter'
+    );
+
+    await ccdFormPage.click("Continue");
+
+    await ccdFormPage.click("Update");
+
+});
+Then(/^I update interpreter booking status$/, async function () {
+    await ccdFormPage.setFieldValue(
+        'Harri Pugh - Applicant - Korean',
+        'Booked'
+    );
+    await ccdFormPage.setFieldValue(
+        'Harri Pugh - Applicant - British Sign Language (BSL)',
+        'Booked'
+    );
+   await browser.sleep(3000);
+    await ccdFormPage.setFieldValue(
+        'John Smith - FCS - Telugu',
+        'Booked'
+    );
+    await ccdFormPage.setFieldValue(
+        'John Smith - FCS - British Sign Language (BSL)',
+        'Requested'
+    );
+    await ccdFormPage.setFieldValue(
+        'Jane Doe - FCS - Hindi',
+        'Requested'
+    );
+    await ccdFormPage.setFieldValue(
+        'Jane Doe - FCS - British Sign Language (BSL)',
+        'Cancelled'
+    );
+    await ccdFormPage.click("Continue");
+    await browser.sleep(3000);
+    await ccdFormPage.click("Update");
 });

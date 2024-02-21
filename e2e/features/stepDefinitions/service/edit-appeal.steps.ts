@@ -1,5 +1,5 @@
 import { StartAppealFlow } from '../../../flows/start-appeal.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 'true';
 const isOutOfCountryEnabled = require('../../../ia.conf').isOutOfCountryEnabled === 'true';

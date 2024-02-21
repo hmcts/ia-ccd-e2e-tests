@@ -1,4 +1,4 @@
-import { Given, Then } from 'cucumber';
+import { Given, Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
 import { Wait } from '../../../enums/wait';
 import { CcdPage } from '../../../pages/ccd.page';
@@ -153,4 +153,9 @@ Then(/^I should (see|not see) the reheard hearing requirements (yes|no) path$/, 
 
 Given(/^I select `?([^\s`]+)`? for Remote hearing with details `?([^`]+)`?$/, async function (isYesPath, details) {
         await submitHearingRequirementsFlow.setRemoteHearingRequirement(true, isYesPath, details);
+});
+
+Given(/^I add the `?([^`]+)`? hearing location$/, async function (location) {
+    await submitHearingRequirementsFlow.setHearingLocation(true, location);
+
 });

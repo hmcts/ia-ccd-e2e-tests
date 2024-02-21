@@ -1,5 +1,5 @@
 import { BuildCaseFlow } from '../../../flows/build-case.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const buildCaseFlow = new BuildCaseFlow();
 
