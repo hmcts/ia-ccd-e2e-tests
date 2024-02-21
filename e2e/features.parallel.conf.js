@@ -19,15 +19,24 @@ const path = require('path');
 const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
-  browserName: 'firefox',
-  "moz:firefoxOptions": {
-    "args": [
-      "-headless"
+  browserName: 'chrome',
+  chromeOptions: {
+    args: [
+      '--disable-dev-shm-usage',
+      '--disable-gpu',
+      '--no-sandbox',
+      iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
+      iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
     ],
     binary: puppeteer.executablePath()
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
+  proxy: (!iaConfig.UseProxy) ? null : {
+    proxyType: 'manual',
+    httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
+    sslProxy: iaConfig.ProxyUrl.replace('http://', '')
+  },
   loggingPrefs: {
     driver: 'INFO',
     browser: 'INFO'
