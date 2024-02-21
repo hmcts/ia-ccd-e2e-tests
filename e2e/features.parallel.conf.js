@@ -19,18 +19,23 @@ const path = require('path');
 const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
-  browserName: 'firefox',
-  "moz:firefoxOptions": {
+  browserName: 'chrome',
+  chromeOptions: {
     args: [
       '--disable-dev-shm-usage',
       '--disable-gpu',
       '--no-sandbox',
       iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
       iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
-    ]
+    ],
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
+  proxy: (!iaConfig.UseProxy) ? null : {
+    proxyType: 'manual',
+    httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
+    sslProxy: iaConfig.ProxyUrl.replace('http://', '')
+  },
   loggingPrefs: {
     driver: 'INFO',
     browser: 'INFO'
@@ -126,8 +131,8 @@ class BaseConfig {
 //      return retry.afterLaunch(2);
 //    }
 
-    this.onComplete = () => {
-       generateAccessibilityReport();
+    this.onComplete = async () => {
+      await generateAccessibilityReport();
     };
 
     this.plugins = [
