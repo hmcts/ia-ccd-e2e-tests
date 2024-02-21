@@ -28,6 +28,7 @@ let capabilities = {
       iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
       iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
     ],
+    binary:  './node_modules/protractor/node_modules/webdriver-manager/selenium/geckodriver-v0.34.0'
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
