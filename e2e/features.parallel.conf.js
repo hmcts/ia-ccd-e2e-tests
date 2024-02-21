@@ -27,7 +27,7 @@ let capabilities = {
       '--no-sandbox',
       iaConfig.UseHeadlessBrowser ? '-headless' : '-noop',
     ],
-    binary:  'a'
+    binary:  'node_modules/protractor/node_modules/webdriver-manager/selenium/geckodriver-v0.34.0'
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
