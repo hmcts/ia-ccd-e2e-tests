@@ -19,8 +19,8 @@ const path = require('path');
 const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
-  browserName: 'chrome',
-  chromeOptions: {
+  browserName: 'firefox',
+  "moz:firefoxOptions": {
     args: [
       '--disable-dev-shm-usage',
       '--disable-gpu',
@@ -31,11 +31,6 @@ let capabilities = {
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
-  proxy: (!iaConfig.UseProxy) ? null : {
-    proxyType: 'manual',
-    httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
-    sslProxy: iaConfig.ProxyUrl.replace('http://', '')
-  },
   loggingPrefs: {
     driver: 'INFO',
     browser: 'INFO'
