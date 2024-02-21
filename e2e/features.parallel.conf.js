@@ -25,18 +25,11 @@ let capabilities = {
       '--disable-dev-shm-usage',
       '--disable-gpu',
       '--no-sandbox',
-      iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
-      iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
+      iaConfig.UseHeadlessBrowser ? '-headless' : '-noop',
     ],
-    binary:  './node_modules/protractor/node_modules/webdriver-manager/selenium/geckodriver-v0.34.0'
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
-  loggingPrefs: {
-    driver: 'INFO',
-    browser: 'INFO'
-  },
-  shardTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1)
 };
 
 class BaseConfig {
