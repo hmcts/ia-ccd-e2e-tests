@@ -20,7 +20,6 @@ const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
   browserName: 'chrome',
-  version: 'latest',
   chromeOptions: {
     args: [
       '--disable-dev-shm-usage',
