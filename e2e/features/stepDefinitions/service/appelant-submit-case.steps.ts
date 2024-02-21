@@ -1,4 +1,4 @@
-import { Given, Then } from 'cucumber';
+import { Given, Then } from '@cucumber/cucumber';
 import { getS2sToken } from '../../../aip/s2s';
 import { CcdService, Events } from '../../../aip/ccd-service';
 import { createUser, getUserId, getUserToken } from '../../../aip/idam-service';

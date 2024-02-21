@@ -1,5 +1,5 @@
 import { EditBailApplicationPostSubmitFlow } from '../../../flows/bails-edit-bail-application-post-submit.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const editBailApplicationPostSubmitFlow = new EditBailApplicationPostSubmitFlow();
 

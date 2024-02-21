@@ -1,5 +1,5 @@
 import { CcdPage } from '../../pages/ccd.page';
-import { Given, Then, When } from 'cucumber';
+import { Given, Then, When } from '@cucumber/cucumber';
 import { browser } from 'protractor';
 import { expect } from 'chai';
 import { Wait } from '../../enums/wait';
@@ -28,12 +28,22 @@ Given('I create a new case', async function () {
     await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
     await ccdPage.doesDropdownHaveValues('Case type');
 
-    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
+    if (iaConfig.CcdWebUrl.includes('xui-ia-case-api-pr')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* ia-ccd-definit'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* master'
         );
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* ia-ccd-definit'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('pr-')) {
         await ccdFormPage.setFieldValue(
             'Case type',
             'Appeal* ia-ccd-definit'

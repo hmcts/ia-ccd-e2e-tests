@@ -1,5 +1,5 @@
 import { BailsAddCaseNoteFlow } from '../../../flows/bails-add-a-case-note.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const bailsAddCaseNoteFlow = new BailsAddCaseNoteFlow();
 

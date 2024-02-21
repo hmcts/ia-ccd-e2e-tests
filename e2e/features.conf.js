@@ -9,7 +9,7 @@ const AxeRunner = require('./helpers/accessibility/axe-runner');
 exports.config = {
 
   baseUrl: iaConfig.CcdWebUrl,
-  specs: ['./features/*.feature'],
+  specs: ['./features/**/*.feature'],
   allScriptsTimeout: 120000,
   getPageTimeout: 120000,
 
@@ -61,10 +61,28 @@ exports.config = {
     'fail-fast': iaConfig.FailFast,
     'nightly-tag': iaConfig.NightlyTag,
     'no-source': true,
-    format: 'json:.tmp/results.json',
+    // format: 'json:.tmp/results.json',
+    //format: ['json:reports/cucumber_report.json'],
+    format: [ 'json:/tmp/results.json'],
     strict: true,
-    retry: 5
+    // retry: 2
   },
+
+  plugins: [
+    {
+      package: 'protractor-multiple-cucumber-html-reporter-plugin',
+      options: {
+        automaticallyGenerateReport: true,
+        removeExistingJsonReportFile: true,
+        reportName: 'XUI Manage Cases Functional Tests',
+        // openReportInBrowser: true,
+        jsonDir: '/tmp',
+        reportPath: '/tmp',
+        displayDuration: true,
+        durationInMS: false
+      }
+    }
+  ],
 
   onPrepare() {
     // returning the promise makes protractor wait for
