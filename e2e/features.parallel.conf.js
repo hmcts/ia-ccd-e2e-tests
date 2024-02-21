@@ -20,6 +20,7 @@ const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
   browserName: 'chrome',
+  version: 'latest',
   chromeOptions: {
     args: [
       '--disable-dev-shm-usage',
@@ -27,8 +28,7 @@ let capabilities = {
       '--no-sandbox',
       iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
       iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
-    ],
-    binary: puppeteer.executablePath()
+    ]
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
