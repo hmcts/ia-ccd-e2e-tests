@@ -25,9 +25,8 @@ let capabilities = {
       '--disable-dev-shm-usage',
       '--disable-gpu',
       '--no-sandbox',
-      iaConfig.UseHeadlessBrowser ? '-headless' : '-noop',
     ],
-    binary:  'node_modules/protractor/node_modules/webdriver-manager/selenium/geckodriver-v0.34.0'
+    binary:  'node_modules/protractor/node_modules/webdriver-manager/selenium/geckodriver-v0.29.0'
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
