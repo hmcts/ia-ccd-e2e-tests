@@ -249,7 +249,7 @@ Given(/^I save my initial appeal with `?([^`]+)`? address and `?([^`]+)`? postco
 });
 
 Given(/^I save my initial `?([^\s`]+)`? appeal for nonPayment `?([^\s`]+)`? hearing$/, async function (appealType, hearingOption) {
-    await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType, hearingOption);
+    await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType, false, '', '', hearingOption);
 });
 
 Given('I wait for any found addresses to load', async function () {
