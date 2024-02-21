@@ -20,9 +20,9 @@ const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
   browserName: 'firefox',
-  'moz:firefoxOptions': {
-    args: [
-      iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
+  "moz:firefoxOptions": {
+    "args": [
+      "--headless"
     ],
     binary: puppeteer.executablePath()
   },
