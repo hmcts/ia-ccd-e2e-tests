@@ -19,24 +19,18 @@ const path = require('path');
 const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
-  browserName: 'chrome',
-  chromeOptions: {
+  browserName: 'firefox',
+  "moz:firefoxOptions": {
     args: [
       '--disable-dev-shm-usage',
       '--disable-gpu',
       '--no-sandbox',
       iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
       iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
-    ],
-    binary: './node_modules/webdriver-manager/selenium/chromedriver_114.0.5735.90'
+    ]
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
-  proxy: (!iaConfig.UseProxy) ? null : {
-    proxyType: 'manual',
-    httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
-    sslProxy: iaConfig.ProxyUrl.replace('http://', '')
-  },
   loggingPrefs: {
     driver: 'INFO',
     browser: 'INFO'
