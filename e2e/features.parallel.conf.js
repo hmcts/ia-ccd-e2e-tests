@@ -27,6 +27,7 @@ let capabilities = {
       '--no-sandbox',
       iaConfig.UseHeadlessBrowser ? '-headless' : '-noop',
     ],
+    binary:  'a'
   },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
