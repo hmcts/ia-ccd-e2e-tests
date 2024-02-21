@@ -20,15 +20,14 @@ const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
   browserName: 'firefox',
-  version: 'latest',
-  platform: 'macOS 10.13',
+  "moz:firefoxOptions": {
+    "args": [
+      "-headless"
+    ],
+    binary: puppeteer.executablePath()
+  },
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
-  proxy: (!iaConfig.UseProxy) ? null : {
-    proxyType: 'manual',
-    httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
-    sslProxy: iaConfig.ProxyUrl.replace('http://', '')
-  },
   loggingPrefs: {
     driver: 'INFO',
     browser: 'INFO'
