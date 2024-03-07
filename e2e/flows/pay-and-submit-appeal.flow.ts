@@ -41,7 +41,7 @@ export class PayAndSubmitAppealFlow {
     }
 
     async payForAppealByCard(clickContinue = false, appealType) {
-
+        const currentUrl = await this.ccdPage.getCurrentUrl();
         if (appealType === 'PA') {
             await this.ccdFormPage.click('Service request');
         } else {
@@ -68,6 +68,9 @@ export class PayAndSubmitAppealFlow {
 
         if (clickContinue) {
             await this.ccdPage.click('Return to service request');
+            if (!currentUrl.includes('aat')) {
+                await this.ccdPage.goToUrl(currentUrl);
+            }
             await this.ccdPage.click('Overview');
             let i = 0;
             while (i < 6) {
