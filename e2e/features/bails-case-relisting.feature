@@ -9,7 +9,7 @@ Feature: Bails case relisting bails application
     And I switch to be a `Admin Officer Bails`
     And I wait for 5 seconds
     And I list the bail case
-@bails-end-the-application @bails-relist
+@bails-end-the-application @bails-relist @bails
 Scenario: case relising after bails upload summary
   When I switch to be a `Home Office Bails`
     And I select the `Upload Bail Summary` Next step

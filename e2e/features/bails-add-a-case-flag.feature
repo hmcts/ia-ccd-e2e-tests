@@ -1,12 +1,12 @@
 Feature: Bails Add a case flag to bails application
     Background:
-       #Given I am signed in as a `Legal Org User Rep A Bails`
-       #And I create a new bail application
-        #And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
-        #And I submit my bail application as a `Legal Rep`
-        #And I should see the text `What happens next`
+       Given I am signed in as a `Legal Org User Rep A Bails`
+       And I create a new bail application
+        And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+        And I submit my bail application as a `Legal Rep`
+        And I should see the text `What happens next`
 
-    @nightly-test @caseflag 
+    @nightly-test @caseflag @bails
     Scenario: Create a case Flag
         And I switch to be a `Admin Officer Bails`
         When I select the `Create Flag` Next step
@@ -18,7 +18,7 @@ Feature: Bails Add a case flag to bails application
         Then I should see the text `Case level flags`
         Then I should see the text `Complex Case`
 
-    @nightly-test @caseflag @test
+    @nightly-test @caseflag @test @bails
     Scenario: Create a case Flag and make In Active
         And I switch to be a `Admin Officer Bails`
         When I select the `Create Flag` Next step

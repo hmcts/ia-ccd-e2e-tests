@@ -11,7 +11,7 @@ Feature: Bails Upload Bail Summary
     And I wait for 10 seconds
     And I list the bail case
     
-   @upload-bail-summary @RIA-5707 @bails-full @bails-regression @bails-summarytest
+   @upload-bail-summary @RIA-5707 @bails-full @bails-regression @bails-summarytest @bails
   Scenario: Upload the Bail Summary as the Home Office
     When I switch to be a `Home Office Bails`
     And I select the `Upload Bail Summary` Next step

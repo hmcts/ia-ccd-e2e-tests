@@ -15,7 +15,7 @@ Feature: Bails Upload signed decision notice
     And I upload the bail summary
    
 
-  @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-refused @bails-regression
+  @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-refused @bails-regression @bails
   Scenario: Upload signed decision notice for refused case
     Given I switch to be a `Admin Officer Bails`
     When I record a refused decision with SS consent Yes with no financial condition supporters
@@ -37,7 +37,7 @@ Feature: Bails Upload signed decision notice
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
 
-  @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-granted
+  @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-granted @bails
   Scenario: Upload signed decision notice for granted case
     Given I switch to be a `Admin Officer Bails`
     When I record a granted decision with SS consent No with no financial condition supporters
@@ -59,7 +59,7 @@ Feature: Bails Upload signed decision notice
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
 
-  @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-conditional-grant
+  @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-conditional-grant @bails
   Scenario: Upload signed decision notice for conditional grant case
    Given I switch to be a `Admin Officer Bails`
     When I record a conditional grant decision with SS consent Yes with no financial condition supporters
@@ -81,7 +81,7 @@ Feature: Bails Upload signed decision notice
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
 
-  @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-judge
+  @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-judge @bails
   Scenario: Upload signed decision notice as Judge
     Given I switch to be a `Admin Officer Bails`
     When I record a refused decision with SS consent Yes with no financial condition supporters

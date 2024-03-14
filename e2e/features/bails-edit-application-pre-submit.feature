@@ -1,6 +1,6 @@
 Feature: Bails Edit application preSubmit
 
-  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-legal-rep @nightly-test
+  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-legal-rep @nightly-test @bails
   Scenario: Legal Rep Edit application Before Submitting
     Given I am signed in as a `Legal Org User Rep A Bails`
     And I create a new bail application
@@ -37,7 +37,7 @@ Feature: Bails Edit application preSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-home-office
+  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-home-office @bails
   Scenario: Home Office Edit application Before Submitting
     Given I am signed in as a `Home Office Bails`
    And I create a new bail application
@@ -75,7 +75,7 @@ Feature: Bails Edit application preSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-admin-officer
+  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-admin-officer @bails
   Scenario: Admin Officer Edit application Before Submitting
     Given I am signed in as a `Admin Officer Bails`
    And I create a new bail application
