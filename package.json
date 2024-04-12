@@ -65,6 +65,7 @@
     "semver": "^5.7.2",
     "set-value": "^4.0.1",
     "yargs-parser": "^18.1.2",
-    "yargs": "^15.0.0"
+    "yargs": "^15.0.0",
+    "tough-cookie": "4.1.3"
   }
 }
