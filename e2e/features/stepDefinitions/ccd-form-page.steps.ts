@@ -1,5 +1,5 @@
 import { CcdFormPage } from '../../pages/ccd-form.page';
-import { Then, When } from 'cucumber';
+import { Then, When } from '@cucumber/cucumber';
 import { expect } from 'chai';
 
 const ccdFormPage = new CcdFormPage();
@@ -341,5 +341,14 @@ When(/^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]
             collectionItemNumber
         );
     });
+
+When(/^I validate the options displayed for `?([^`]+)`? field/, async function (heading, datatable) {
+    const datatableHashes = datatable.hashes();
+    const fieldOptions = await ccdFormPage.getFieldOptions(heading);
+    for (const tableHash of datatableHashes) {
+        const column = tableHash.options;
+        expect(fieldOptions).to.include(column);
+    };
+});
 
 // tslint:enable:max-line-length
