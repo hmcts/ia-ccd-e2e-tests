@@ -1,6 +1,6 @@
 import { CcdFormPage } from '../../../pages/ccd-form.page';
 import { StartAppealFlow } from '../../../flows/start-appeal.flow';
-import { Given, Then } from 'cucumber';
+import { Given, Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
 
 const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 'true';
