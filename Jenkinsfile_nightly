@@ -104,6 +104,7 @@ withNightlyPipeline("nodejs", product, component) {
                             reportFiles          : 'index.html',
                             reportName           : 'IAC - Manage Cases Functional Test'
                     ])
+                    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
 
                     publishHTML([
                             allowMissing         : true,
