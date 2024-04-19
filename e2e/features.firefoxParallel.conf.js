@@ -49,10 +49,10 @@ let config = {
   allScriptsTimeout: 240000,
   useAllAngular2AppRoots: true,
   multiCapabilities: [{
-    browserName: 'firefox',
+    browserName: 'chrome',
     version: 'latest',
     platform: 'macOS 10.13',
-    name: 'ia-firefox-mac-test',
+    name: 'ia-chrome-mac-test',
     tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
     extendedDebugging: true,
     sharedTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1),
