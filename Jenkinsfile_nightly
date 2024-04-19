@@ -87,6 +87,13 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
     afterAlways('DependencyCheckNightly') {
+        stage('Full Functional Tests') {
+            sh('which firefox')
+            sh('curl http://mozilla.mirrors.tds.net/pub/mozilla.org/firefox/releases/latest/mac/en-US/Firefox%2025.0.1.dmg -o firefox25.dmg')
+            sh('hdiutil attach firefox25.dmg')
+            sh('cp /Volumes/FirefoxFirefox.app /Applications/Firefox.app')
+            sh('hdiutil detach /Volumes/Firefox')
+        }
         if (!params.skipFullFunctionalTests) {
             stage('Full Functional Tests') {
                 try {
