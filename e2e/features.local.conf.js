@@ -100,15 +100,6 @@ class BaseConfig {
       retry: 5
     };
 
-    this.sauceSeleniumAddress = 'ondemand.eu-central-1.saucelabs.com:443/wd/hub';
-    this.host = 'ondemand.eu-central-1.saucelabs.com';
-    this.sauceRegion = 'eu';
-    this.port = 80;
-    this.sauceConnect = true;
-    this.sauceUser = process.env.SAUCE_USERNAME;
-    this.sauceKey = process.env.SAUCE_ACCESS_KEY;
-    this.SAUCE_REST_ENDPOINT = 'https://eu-central-1.saucelabs.com/rest/v1/';
-
     this.onCleanUp = (results,files) => {
       retry.onCleanUp(results,files);
     }
@@ -118,11 +109,11 @@ class BaseConfig {
       // returning the promise makes protractor wait for
       // the reporter config before executing tests
       global
-        .browser
-        .getProcessedConfig()
-        .then({
-          // noop
-        });
+          .browser
+          .getProcessedConfig()
+          .then({
+            // noop
+          });
 
       tsNode.register({
         project: path.join(__dirname, './tsconfig.e2e.json')
@@ -135,7 +126,7 @@ class BaseConfig {
 //    }
 
     this.onComplete = () => {
-       generateAccessibilityReport();
+      generateAccessibilityReport();
       return browser.getProcessedConfig().then(function (c) {
         return browser.getSession().then(function (session) {
           // required to be here so saucelabs picks up reports to put in jenkins
@@ -146,18 +137,18 @@ class BaseConfig {
 
     this.plugins = [
       {
-          package: 'protractor-multiple-cucumber-html-reporter-plugin',
-          options: {
-              automaticallyGenerateReport: true,
-              removeExistingJsonReportFile: true,
-              saveCollectedJSON: true,
-              reportName: 'IAC CCD E2E Tests',
-              jsonDir: 'reports/tests/functional',
-              reportPath: 'reports/tests/functional',
-              pageFooter: '<div><p> </p></div>'
-          }
+        package: 'protractor-multiple-cucumber-html-reporter-plugin',
+        options: {
+          automaticallyGenerateReport: true,
+          removeExistingJsonReportFile: true,
+          saveCollectedJSON: true,
+          reportName: 'IAC CCD E2E Tests',
+          jsonDir: 'reports/tests/functional',
+          reportPath: 'reports/tests/functional',
+          pageFooter: '<div><p> </p></div>'
+        }
       }
-  ]
+    ]
   }
 
   /*
