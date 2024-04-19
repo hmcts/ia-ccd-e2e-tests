@@ -27,11 +27,6 @@ let capabilities = {
   capturePerformance: false,
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
-  proxy: (!iaConfig.UseProxy) ? null : {
-    proxyType: 'manual',
-    httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
-    sslProxy: iaConfig.ProxyUrl.replace('http://', '')
-  },
   loggingPrefs: {
     driver: 'INFO',
     browser: 'INFO'
