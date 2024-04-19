@@ -17,7 +17,9 @@ export class PayAndSubmitAppealFlow {
         await this.ccdFormPage.typeText('pbaAccountNumber', 'PBA0087412');
         await browser.sleep(1000);
         await this.ccdFormPage.typeText('pbaAccountRef', 'Unique Reference');
-        await this.ccdFormPage.click('Confirm payment');
+        await this.ccdFormPage.typeEnter('pbaAccountRef');
+        let confirmPaymentButton = element(by.css('button.pba-payments-19-font'));
+        await confirmPaymentButton.click();
         await this.ccdPage.waitForCssElementVisible('div.pba-payments--confirmation')
         if (clickContinue) {
             await this.ccdPage.click('View service requests');
