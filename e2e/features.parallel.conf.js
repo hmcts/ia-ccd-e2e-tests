@@ -22,6 +22,9 @@ let capabilities = {
   browserName: 'firefox',
   version: 'latest',
   platform: 'macOS 10.13',
+  'moz:firefoxOptions': {
+    binary: '/firefox/linux-nightly_127.0a1/firefox/firefox'
+  },
   name: 'ia-firefox-mac-test',
   extendedDebugging: true,
   capturePerformance: false,
