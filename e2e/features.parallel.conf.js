@@ -23,16 +23,19 @@ let capabilities = {
   version: 'latest',
   platform: 'macOS 10.13',
   name: 'ia-firefox-mac-test',
-  tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
   extendedDebugging: true,
   capturePerformance: false,
   acceptInsecureCerts: true,
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
+  proxy: (!iaConfig.UseProxy) ? null : {
+    proxyType: 'manual',
+    httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
+    sslProxy: iaConfig.ProxyUrl.replace('http://', '')
+  },
   loggingPrefs: {
     driver: 'INFO',
     browser: 'INFO'
   },
-  sharedTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1),
   shardTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1)
 };
 
@@ -85,7 +88,6 @@ class BaseConfig {
     this.cucumberOpts = {
       strict: true,
       format: ['node_modules/cucumber-pretty', 'json:reports/tests/functionTestResult.json'],
-      // format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
       require: [
         './cucumber.conf.js',
         './features/stepDefinitions/**/*.steps.ts',
@@ -100,17 +102,8 @@ class BaseConfig {
       retry: 5
     };
 
-    this.sauceSeleniumAddress = 'ondemand.eu-central-1.saucelabs.com:443/wd/hub';
-    this.host = 'ondemand.eu-central-1.saucelabs.com';
-    this.sauceRegion = 'eu';
-    this.port = 80;
-    this.sauceConnect = true;
-    this.sauceUser = process.env.SAUCE_USERNAME;
-    this.sauceKey = process.env.SAUCE_ACCESS_KEY;
-    this.SAUCE_REST_ENDPOINT = 'https://eu-central-1.saucelabs.com/rest/v1/';
-
-    this.onCleanUp = (results,files) => {
-      retry.onCleanUp(results,files);
+    this.onCleanUp = (results) => {
+      retry.onCleanUp(results);
     }
 
     this.onPrepare = () => {
@@ -136,12 +129,6 @@ class BaseConfig {
 
     this.onComplete = () => {
        generateAccessibilityReport();
-      return browser.getProcessedConfig().then(function (c) {
-        return browser.getSession().then(function (session) {
-          // required to be here so saucelabs picks up reports to put in jenkins
-          console.log('SauceOnDemandSessionID=' + session.getId() + ' job-name=ia-ccd-e2e-tests');
-        });
-      });
     };
 
     this.plugins = [
