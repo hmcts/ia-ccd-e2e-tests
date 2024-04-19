@@ -39,6 +39,7 @@ let config = {
   sauceRegion: 'eu',
   port: 80,
   directConnect: true,
+
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   SAUCE_REST_ENDPOINT: 'https://eu-central-1.saucelabs.com/rest/v1/',
@@ -49,9 +50,9 @@ let config = {
   allScriptsTimeout: 240000,
   useAllAngular2AppRoots: true,
   multiCapabilities: [{
-    browserName: 'firefox',
-    version: 'latest',
-    platform: 'macOS 10.13',
+    browserName: 'chrome',
+    version: '115',
+    platform: 'macOS 10.15',
     name: 'ia-firefox-mac-test',
     'moz:firefoxOptions': {
       binary: '/firefox/linux-nightly_127.0a1/firefox/firefox'
