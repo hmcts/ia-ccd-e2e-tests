@@ -19,13 +19,14 @@ const path = require('path');
 const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 let capabilities = {
-  browserName: 'firefox',
-  version: 'latest',
+  browserName: 'chrome',
+  version: '115.0.5790.170',
   platform: 'macOS 10.13',
-  'moz:firefoxOptions': {
-    binary: '/firefox/linux-nightly_127.0a1/firefox/firefox'
+  chromeOptions: {
+    binary: process.cwd() + '/chrome/linux-115.0.5790.170/chrome-linux64/chrome'
   },
-  name: 'ia-firefox-mac-test',
+  name: 'ia-chrome-mac-test',
+  chromeDriver: process.cwd() + '/chromedriver/linux-115.0.5790.170/chromedriver-linux64/chromedriver',
   extendedDebugging: true,
   capturePerformance: false,
   acceptInsecureCerts: true,
