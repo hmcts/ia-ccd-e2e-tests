@@ -39,7 +39,7 @@ let config = {
   sauceRegion: 'eu',
   port: 80,
   directConnect: true,
-
+  chromeDriver: process.cwd() + '/chromedriver/linux-115.0.5790.170/chromedriver-linux64/chromedriver',
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   SAUCE_REST_ENDPOINT: 'https://eu-central-1.saucelabs.com/rest/v1/',
@@ -64,7 +64,6 @@ let config = {
       binary: process.cwd() + '/chrome/linux-115.0.5790.170/chrome-linux64/chrome'
     },
     name: 'ia-chrome-mac-test',
-    chromeDriver: process.cwd() + '/chromedriver/linux-115.0.5790.170/chromedriver-linux64/chromedriver',
     tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
     extendedDebugging: true,
     sharedTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1),
