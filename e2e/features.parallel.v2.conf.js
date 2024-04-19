@@ -1,18 +1,11 @@
 const tsNode = require('ts-node');
-const _ = require('lodash');
-const glob = require('glob');
 const path = require('path');
-const argv = require('yargs').argv;
 const iaConfig = require('./ia.conf');
 const {generateAccessibilityReport} = require("../reporter/customReporter");
-const {getTestCasesFromFilesystem, PickleFilter} = require("cucumber");
 const retry = require('protractor-retry').retry;
 const cucumberTaggedFiles = require('../cucumberTaggedFiles.json');
 
-const {
-  EventEmitter
-} = require('events');
-const eventBroadcaster = new EventEmitter();
+let chromeVersion = '123.0.6312.122'
 
 let config = {
   framework: 'custom',
@@ -34,15 +27,8 @@ let config = {
     retry: 0
   },
 
-  sauceSeleniumAddress: 'ondemand.eu-central-1.saucelabs.com:443/wd/hub',
-  host: 'ondemand.eu-central-1.saucelabs.com',
-  sauceRegion: 'eu',
-  port: 80,
   directConnect: true,
-  chromeDriver: process.cwd() + '/chromedriver/linux-115.0.5790.170/chromedriver-linux64/chromedriver',
-  sauceUser: process.env.SAUCE_USERNAME,
-  sauceKey: process.env.SAUCE_ACCESS_KEY,
-  SAUCE_REST_ENDPOINT: 'https://eu-central-1.saucelabs.com/rest/v1/',
+  chromeDriver: process.cwd() + '/chromedriver/linux-' + chromeVersion + '/chromedriver-linux64/chromedriver',
 
   specs: cucumberTaggedFiles,
 
@@ -61,10 +47,9 @@ let config = {
         iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
         iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
       ],
-      binary: process.cwd() + '/chrome/linux-115.0.5790.170/chrome-linux64/chrome'
+      binary: process.cwd() + '/chrome/linux-' + chromeVersion + '/chrome-linux64/chrome'
     },
     name: 'ia-chrome-mac-test',
-    tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
     extendedDebugging: true,
     sharedTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1),
     shardTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1),
@@ -109,12 +94,6 @@ let config = {
   // },
   onComplete() {
     generateAccessibilityReport();
-    return browser.getProcessedConfig().then(function (c) {
-      return browser.getSession().then(function (session) {
-        // required to be here so saucelabs picks up reports to put in jenkins
-        console.log('SauceOnDemandSessionID=' + session.getId() + ' job-name=ia-ccd-e2e-tests');
-      });
-    });
   }
 };
 
