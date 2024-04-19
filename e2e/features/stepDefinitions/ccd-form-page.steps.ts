@@ -1,5 +1,5 @@
 import { CcdFormPage } from '../../pages/ccd-form.page';
-import { Then, When } from '@cucumber/cucumber';
+import { Then, When } from 'cucumber';
 import { expect } from 'chai';
 
 const ccdFormPage = new CcdFormPage();
