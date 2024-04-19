@@ -93,9 +93,9 @@ let config = {
     });
     retry.onPrepare();
   },
-  afterLaunch() {
-    return retry.afterLaunch(1);
-  },
+  // afterLaunch() {
+  //   return retry.afterLaunch(1);
+  // },
   onComplete() {
     generateAccessibilityReport();
     return browser.getProcessedConfig().then(function (c) {
