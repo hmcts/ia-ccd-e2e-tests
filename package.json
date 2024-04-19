@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "postinstall": "webdriver-manager update",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "e2e": "yarn localTest",
     "test:fullfunctional": "npx @puppeteer/browsers install chrome@115; npx @puppeteer/browsers install chromedriver@115; node e2e/cucumberTagSearcher.js @testy-test; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; protractor e2e/features.firefoxParallel.conf.js --webdriverUpdate=false --cucumberOpts.tags=@testy-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
