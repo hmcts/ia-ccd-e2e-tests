@@ -54,7 +54,7 @@ let config = {
     version: '115',
     platform: 'macOS 10.15',
     name: 'ia-firefox-mac-test',
-    'moz:firefoxOptions': {
+    chromeOptions: {
       binary: '/firefox/linux-nightly_127.0a1/firefox/firefox'
     },
     tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
