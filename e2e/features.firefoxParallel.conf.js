@@ -51,12 +51,13 @@ let config = {
   useAllAngular2AppRoots: true,
   multiCapabilities: [{
     browserName: 'chrome',
-    version: '115',
-    platform: 'macOS 10.15',
-    name: 'ia-firefox-mac-test',
+    version: '115.0.5790.170',
+    platform: 'macOS 10.13',
     chromeOptions: {
-      binary: '/firefox/linux-nightly_127.0a1/firefox/firefox'
+      binary: process.cwd() + '/chrome/linux-115.0.5790.170/chrome-linux64/chrome'
     },
+    name: 'ia-chrome-mac-test',
+    chromeDriver: process.cwd() + '/chromedriver/linux-115.0.5790.170/chromedriver-linux64/chromedriver',
     tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
     extendedDebugging: true,
     sharedTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1),
