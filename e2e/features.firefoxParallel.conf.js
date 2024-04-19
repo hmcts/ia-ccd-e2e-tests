@@ -31,7 +31,7 @@ let config = {
     'no-source': true,
     strict: true,
     format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
-    retry: 2
+    retry: 0
   },
 
   sauceSeleniumAddress: 'ondemand.eu-central-1.saucelabs.com:443/wd/hub',
@@ -49,10 +49,10 @@ let config = {
   allScriptsTimeout: 240000,
   useAllAngular2AppRoots: true,
   multiCapabilities: [{
-    browserName: 'chrome',
+    browserName: 'firefox',
     version: 'latest',
     platform: 'macOS 10.13',
-    name: 'ia-chrome-mac-test',
+    name: 'ia-firefox-mac-test',
     tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
     extendedDebugging: true,
     sharedTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1),
