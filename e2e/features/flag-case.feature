@@ -9,7 +9,7 @@ Feature: Flag a case
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     Then I should see the text `Do this next`
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
     And I wait for 5 seconds

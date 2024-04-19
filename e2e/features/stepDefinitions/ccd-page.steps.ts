@@ -198,6 +198,10 @@ Then(/^I (?:should |)(see|not see) the `?([^`]+)`? (?:button|link|tab|label)$/, 
     expect(await ccdPage.linkContains(linkText, shortWait)).to.equal(seeOrNotSee === 'see');
 });
 
+Then('I should be on the overview page', async function () {
+    await ccdPage.waitForOverviewPage()
+});
+
 Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function (buttonText, enabledOrDisabled) {
     expect(await ccdPage.isButtonEnabled(buttonText, enabledOrDisabled !== 'enabled')).to.equal(enabledOrDisabled === 'enabled');
 });

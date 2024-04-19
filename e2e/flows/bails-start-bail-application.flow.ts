@@ -412,8 +412,8 @@ export class StartBailApplicationFlow {
 
     async completeInterpreterLanguageCategory(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('What kind of interpreter will the applicant need?', 'Spoken language interpreter');
-        await this.ccdFormPage.setFieldValue('What kind of interpreter will the applicant need?', 'Sign language interpreter');
+        await element(by.css('#applicantInterpreterLanguageCategory-spokenLanguageInterpreter')).click()
+        await element(by.css('#applicantInterpreterLanguageCategory-signLanguageInterpreter')).click()
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -421,11 +421,11 @@ export class StartBailApplicationFlow {
 
     async completeInterpreterSpokenLanguage(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Tell us which spoken language is needed for the applicant', 'Manually enter spoken language');
+        await element(by.css('#applicantInterpreterSpokenLanguage_languageManualEntry-Yes')).click();
         await browser.sleep(1000);
         await browser.isElementPresent(element(by.css('#applicantInterpreterSpokenLanguage_languageManualEntryDescription')));
-        await this.ccdFormPage.setFieldValue('Tell us which spoken language is needed for the applicant', 'Select spoken language');
-        await browser.findElement(element(by.css('#applicantInterpreterSpokenLanguage_languageRefData')));
+        await element(by.css('#applicantInterpreterSpokenLanguage_languageManualEntry-No')).click()
+        await browser.sleep(1000);
         await this.ccdFormPage.setFieldValue('Spoken language', 'Bambara');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -434,11 +434,11 @@ export class StartBailApplicationFlow {
 
     async completeInterpreterSignLanguage(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Tell us which sign language is needed for the applicant', 'Manually enter sign language');
+        await element(by.css('#applicantInterpreterSignLanguage_languageManualEntry-Yes')).click();
         await browser.sleep(1000);
         await browser.isElementPresent(element(by.css('#applicantInterpreterSignLanguage_languageManualEntryDescription')));
-        await this.ccdFormPage.setFieldValue('Tell us which sign language is needed for the applicant', 'Select sign language');
-        await browser.findElement(element(by.css('#applicantInterpreterSignLanguage_languageRefData')));
+        await element(by.css('#applicantInterpreterSignLanguage_languageManualEntry-No')).click();
+        await browser.sleep(1000);
         await this.ccdFormPage.setFieldValue('Sign language', 'Makaton');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -473,7 +473,8 @@ export class StartBailApplicationFlow {
 
     async completeLegalRepDetails(clickContinue = false, choice) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Name', 'Legal Representative Name');
+        await this.ccdFormPage.setFieldValue('Name', 'Legal Representative');
+        await this.ccdFormPage.setFieldValue('Family name', 'The Second');
         await this.ccdFormPage.typeText('legalRepPhone', '07292929292');
         await this.ccdFormPage.setFieldValue('Reference', 'This is a reference');
         if (choice !== 'LR') {

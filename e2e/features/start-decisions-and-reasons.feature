@@ -3,20 +3,13 @@ Feature: Start decision and reasons
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    Then I wait for 60 seconds
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-    Then I should see the text `Do this next`
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 25 seconds
-#    And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
+    Then I should be on the overview page
+    And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
-#    And I request home office data
     And I request respondent evidence
     And I wait for 5 seconds
     And I upload respondent evidence
