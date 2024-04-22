@@ -4,7 +4,6 @@ import { ValueExpander } from '../helpers/value-expander';
 const AxeRunner = require('../helpers/accessibility/axe-runner');
 const iaConfig = require('../ia.conf');
 const BrowserWaits = require('../support/customWaits');
-const caseUrlMatcher = /^.*?\/cases\/case-details\/\d{16}/g;
 
 export class AnyPage {
 
@@ -104,6 +103,7 @@ export class AnyPage {
 
             await BrowserWaits.waitForelementToBeClickable(link)
              await link.click();
+        await this.waitForSpinner();
     }
 
     async waitForPageNavigation(currentPageUrl: string) {
@@ -316,10 +316,9 @@ export class AnyPage {
         }
     }
 
-    async hideSpinner() {
+    async waitForSpinner() {
         let EC = protractor.ExpectedConditions;
-        await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 30000);
-        await browser.executeScript(`const matches = document.getElementsByClassName('spinner-container'); while (matches.length > 0) { matches.item(0).remove(); }`);
+        await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 60000);
     }
 
     async clickIfVisible(linkText) {
@@ -332,8 +331,7 @@ export class AnyPage {
 
     async createCaseClickable() {
         let EC = protractor.ExpectedConditions;
-        await browser.wait(EC.elementToBeClickable(element(by.linkText('Create case'))), 30000);
-        await browser.executeScript(`const matches = document.getElementsByClassName('spinner-container'); while (matches.length > 0) { matches.item(0).remove(); }`);
+        await browser.wait(EC.elementToBeClickable(element(by.linkText('Create case'))), 60000);
     }
 
     async refresh() {
@@ -346,11 +344,7 @@ export class AnyPage {
 
     async gotoTabs(match: string) {
         await browser.sleep(100);
-        const currentUrl = await this.getCurrentUrl();
-        let tabUrl = match.replace(/ /g, '%20');
-        const url = currentUrl.match(caseUrlMatcher)[0] + `#${tabUrl}`;
-        await this.goToUrl(url);
-        await this.refresh();
+        await element(by.xpath(`//div[contains(text(), '${match}')]`)).click()
     }
 
     async stopSpinnerLoad() {

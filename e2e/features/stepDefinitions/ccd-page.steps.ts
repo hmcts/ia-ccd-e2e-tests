@@ -12,9 +12,8 @@ const iaConfig = require('../../ia.conf');
 
 Given('I create a new case', async function () {
     // there is loading mask with spinner added by ExUI
-    await ccdPage.stopSpinnerLoad();
     await browser.sleep(7000);
-    await ccdPage.hideSpinner();
+    await ccdPage.waitForSpinner();
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
     await ccdPage.acceptCookies();
@@ -57,9 +56,8 @@ Given('I create a new case', async function () {
 
 Given('I create a new bail application', async function () {
     // there is loading mask with spinner added by ExUI
-    await ccdPage.stopSpinnerLoad();
     await browser.sleep(7000);
-    await ccdPage.hideSpinner();
+    await ccdPage.waitForSpinner();
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
     await ccdPage.acceptCookies();
@@ -207,7 +205,7 @@ Then(/^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/, async function
 });
 
 When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
-    await ccdPage.hideSpinner();
+    await ccdPage.waitForSpinner();
     if ( linkText === 'tab') {
         await ccdPage.gotoTabs(linkText);
     } else {
@@ -215,11 +213,11 @@ When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (link
     }
 });
 When(/^I click the `?([^`]+)`? button if present$/, async function (linkText) {
-    await ccdPage.hideSpinner();
+    await ccdPage.waitForSpinner();
     await ccdPage.clickIfVisible(linkText);
 });
 When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
-    await ccdPage.hideSpinner();
+    await ccdPage.waitForSpinner();
     await ccdPage.gotoTabs(linkText);
 });
 
@@ -411,7 +409,7 @@ Given('I restart the browser', async function () {
 Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
     await ccdFormPage.click(flagtype);
     await ccdFormPage.click('Next');
-    await ccdFormPage.typeText(`flagComments`, `test case flage make it inactive`);
+    await ccdFormPage.typeText(`flagComment`, `test case flage make it inactive`);
     await ccdFormPage.click('Make inactive');
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Manage Flags');

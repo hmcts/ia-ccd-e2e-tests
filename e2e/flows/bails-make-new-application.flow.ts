@@ -348,8 +348,7 @@ export class MakeNewApplicationFlow {
 
     async completeInterpreterRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Interpreter', 'No');
-        await browser.sleep(1000)
+        await this.ccdFormPage.setFieldValue('Will the applicant need a spoken or sign language interpreter at the hearing?', 'No');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }

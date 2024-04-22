@@ -42,7 +42,7 @@ export class AddAppealResponseFlow {
             'Evidence (Optional)',
             'first'
         );
-        await this.ccdFormPage.hideSpinner();
+        await this.ccdFormPage.waitForSpinner();
         await this.ccdFormPage.click('Continue');
         await this.ccdFormPage.click('Upload');
 

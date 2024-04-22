@@ -224,8 +224,10 @@ export class StartBailApplicationFlow {
             await this.ccdFormPage.typeText('supporterEmailAddress1', 'johnSmith@test.com');
         }
         if (number === '2') {
+            await this.ccdFormPage.click('Mobile');
             await this.ccdFormPage.click('Email');
             await browser.sleep(1000);
+            await this.ccdFormPage.typeText('supporter2MobileNumber1', '07930111333');
             await this.ccdFormPage.typeText('supporter2EmailAddress1', 'janeDoe@test.com');
         }
         if (clickContinue) {
@@ -666,6 +668,9 @@ export class StartBailApplicationFlow {
         await this.completeSupportingEvidenceYesNo(true, 'No');
         await this.completeBailTransfer(true);
         await this.completeInterpreterRequirements(true);
+        await this.completeInterpreterLanguageCategory(true);
+        await this.completeInterpreterSpokenLanguage(true);
+        await this.completeInterpreterSignLanguage(true);
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {
