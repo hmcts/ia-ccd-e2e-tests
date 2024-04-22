@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class FtpaAppealFlow {
 
@@ -7,7 +8,8 @@ export class FtpaAppealFlow {
   async submitAppellantAppeal(clickContinue = false) {
 
     await this.ccdFormPage.selectNextStep('Apply for permission to appeal');
-    await this.ccdFormPage.click('Go');
+    let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
     await this.ccdFormPage.addCollectionItem('Grounds of the application');
 
@@ -40,7 +42,8 @@ export class FtpaAppealFlow {
   async submitRespondentAppeal(clickContinue = false) {
 
     await this.ccdFormPage.selectNextStep('Apply for permission to appeal');
-    await this.ccdFormPage.click('Go');
+    let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
     await this.ccdFormPage.addCollectionItem('Grounds of the application');
 

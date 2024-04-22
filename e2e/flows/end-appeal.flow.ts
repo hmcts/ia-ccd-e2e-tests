@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class EndAppealFlow {
 
@@ -7,7 +8,8 @@ export class EndAppealFlow {
     async endAppeal(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('End the appeal');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('End the appeal');
         await this.ccdFormPage.click('Struck out');

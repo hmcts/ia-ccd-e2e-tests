@@ -106,7 +106,7 @@ export class AnyPage {
              await link.click();
     }
 
-    async waitForPageNavigation(currentPageUrl) {
+    async waitForPageNavigation(currentPageUrl: string) {
         let nextPage = '';
         let pageErrors = '';
         await browser.wait(async () => {

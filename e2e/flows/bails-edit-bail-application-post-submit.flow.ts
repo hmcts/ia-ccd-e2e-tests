@@ -389,7 +389,8 @@ export class EditBailApplicationPostSubmitFlow {
 
     async editSubmittedApplication(clickContinue = false, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string, previousLegalRepresentativeOrNot: string) {
         await this.ccdFormPage.selectNextStep('Edit the application');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
         await this.completePreviousBailApplication(true);
         await this.ccdFormPage.click('Continue');
         await this.completeWhichPartySentApplication(true, 'Applicant');

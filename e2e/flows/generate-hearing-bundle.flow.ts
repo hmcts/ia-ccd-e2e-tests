@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class HearingBundleFlow {
 
@@ -7,7 +8,8 @@ export class HearingBundleFlow {
     async generateHearingBundle(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Generate hearing bundle');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.click('Generate');
 

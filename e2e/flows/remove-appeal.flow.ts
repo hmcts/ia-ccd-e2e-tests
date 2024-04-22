@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class RemoveAppealFlow {
 
@@ -7,7 +8,8 @@ export class RemoveAppealFlow {
     async removeAppeal(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Move appeal offline');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.click('Continue');
 

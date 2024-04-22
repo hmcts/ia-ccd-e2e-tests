@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class AddAppealResponseFlow {
 
@@ -7,7 +8,8 @@ export class AddAppealResponseFlow {
     async addAppealResponse(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Add appeal response');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Add appeal response');
         await this.ccdFormPage.setFieldValue(

@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class ReinstateAppealFlow {
 
@@ -7,7 +8,8 @@ export class ReinstateAppealFlow {
     async reinstateAppeal(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Reinstate the appeal');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Reinstate the appeal');
         await this.ccdFormPage.setFieldValue(

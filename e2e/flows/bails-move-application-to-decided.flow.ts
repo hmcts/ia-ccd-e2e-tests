@@ -9,7 +9,8 @@ export class MoveToDecided {
         await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.selectNextStep('Move application to decided');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
         await this.ccdFormPage.click('Continue');
         await browser.sleep(5000)
         if (clickContinue) {

@@ -18,7 +18,8 @@ export class SendDirection {
     async sendDirection(clickContinue = false, receiver) {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.selectNextStep('Send direction');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
         await this.sendDirectionPage(true, receiver);
         await this.ccdFormPage.click('Send the direction');
         await browser.sleep(5000)

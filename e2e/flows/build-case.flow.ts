@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 const isSaveAndContinueEnabled = require('../ia.conf').isSaveAndContinueEnabled === 'true';
 
@@ -9,7 +10,8 @@ export class BuildCaseFlow {
     async buildCase(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Build your case');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.setFieldValue(
             'Appeal skeleton argument',

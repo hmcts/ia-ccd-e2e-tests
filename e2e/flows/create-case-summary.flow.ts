@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class CaseSummaryFlow {
 
@@ -7,7 +8,8 @@ export class CaseSummaryFlow {
     async createCaseSummary(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Create case summary');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Create case summary');
 

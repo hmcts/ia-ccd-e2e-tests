@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class RecordRemissionDecisionFlow {
 
@@ -7,7 +8,8 @@ export class RecordRemissionDecisionFlow {
     async partiallyApproved(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Record remission decision');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Record remission decision');
         await this.ccdFormPage.click('Partially approved');

@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class RequestHearingRequirementsFlow {
 
@@ -7,7 +8,8 @@ export class RequestHearingRequirementsFlow {
     async requestHearingRequirements() {
 
         await this.ccdFormPage.selectNextStep('Request hearing requirements');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Request hearing requirements');
         await this.ccdFormPage.click('Submit');

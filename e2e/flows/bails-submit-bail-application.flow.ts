@@ -9,7 +9,8 @@ export class SubmitBailApplicationFlow {
         await browser.sleep(5000)
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.selectNextStep('Submit the application');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
         if (user === 'Legal Rep') {
             let loaded = false;
             for (let i = 0; i < 3; i++) {

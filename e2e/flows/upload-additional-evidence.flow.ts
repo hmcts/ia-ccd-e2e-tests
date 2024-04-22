@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class UploadAdditionalEvidenceFlow {
 
@@ -7,7 +8,8 @@ export class UploadAdditionalEvidenceFlow {
     async uploadAdditionalEvidence(clickContinue = false) {
 
             await this.ccdFormPage.selectNextStep('Upload additional evidence');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
         await this.ccdFormPage.addCollectionItem('Upload documents');
         await this.ccdFormPage.setFieldValue(
             'Document',

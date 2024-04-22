@@ -8,7 +8,8 @@ export class UploadRespondentEvidenceFlow {
     async uploadRespondentEvidence(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Upload respondent evidence');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.addCollectionItem('Upload case documents');
         await this.ccdFormPage.setFieldValue(
@@ -41,7 +42,8 @@ export class UploadRespondentEvidenceFlow {
     async uploadHomeOfficeBundle(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Upload Home Office bundle');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.addCollectionItem('Upload Home Office bundle');
         await this.ccdFormPage.setFieldValue(

@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class RequestHomeOfficeDataFlow {
 
@@ -7,7 +8,8 @@ export class RequestHomeOfficeDataFlow {
     async requestHomeOfficeData(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Request Home Office data');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         // await this.ccdFormPage.headingContains('Request Home Office data');
         await this.ccdFormPage.setFieldValue('Make a selection', 'No Match');

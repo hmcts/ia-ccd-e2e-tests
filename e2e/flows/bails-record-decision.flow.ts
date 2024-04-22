@@ -183,7 +183,8 @@ export class RecordDecision {
         await this.ccdFormPage.runAccessbility();
         await browser.sleep(this.waitTime);
         await this.ccdFormPage.selectNextStep('Record the decision');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
         await this.completeJudgeName(true);
         await this.completeSsConsent(true, SsConsentYesOrNo)
         await this.completeTribunalDecision(true, tribunalDecision)

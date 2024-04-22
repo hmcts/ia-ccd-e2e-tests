@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class MakeAnApplication {
 
@@ -12,7 +13,8 @@ export class MakeAnApplication {
     async chooseMakeAnApplicationType(clickContinue = false, applicationType) {
 
         await this.ccdFormPage.selectNextStep('Make an application');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.setFieldValue('Type of application', applicationType);
 

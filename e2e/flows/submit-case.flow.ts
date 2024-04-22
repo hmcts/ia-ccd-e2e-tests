@@ -1,5 +1,6 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { Logger } from '../helpers/logger';
+import { browser } from 'protractor';
 
 const isSaveAndContinueEnabled = require('../ia.conf').isSaveAndContinueEnabled === 'true';
 
@@ -11,7 +12,8 @@ export class SubmitCaseFlow {
 
       if (isSaveAndContinueEnabled) {
         await this.ccdFormPage.selectNextStep('Submit your case');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.click('Submit');
 

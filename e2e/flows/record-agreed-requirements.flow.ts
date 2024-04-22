@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class RecordAgreedRequirementsFlow {
 
@@ -7,7 +8,8 @@ export class RecordAgreedRequirementsFlow {
     async recordAgreedRequirementsYesPath(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Hearing requirements');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.setFieldValue(
             'Length',
@@ -63,7 +65,8 @@ export class RecordAgreedRequirementsFlow {
     async recordUpdatedHearingRequirementsYesPath(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Update hearing adjustments');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.setFieldValue(
             'Length',
@@ -121,7 +124,8 @@ export class RecordAgreedRequirementsFlow {
     async recordAgreedRequirementsNoPath(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Hearing requirements');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.setFieldValue(
             'Length',

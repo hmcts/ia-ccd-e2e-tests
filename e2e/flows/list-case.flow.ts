@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class ListCaseFlow {
 
@@ -7,7 +8,8 @@ export class ListCaseFlow {
     async listTheCase(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('List the case');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.setFieldValue(
             'Listing reference',
@@ -39,7 +41,8 @@ export class ListCaseFlow {
     async listTheCaseAsRemoteHearing(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('List the case');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.setFieldValue(
             'Listing reference',
@@ -71,7 +74,8 @@ export class ListCaseFlow {
     async reListTheCase(clickContinue = false, lengthOfHearingInHours = '6') {
 
         await this.ccdFormPage.selectNextStep('Edit case listing');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Edit case listing');
         await this.ccdFormPage.setFieldValue(
@@ -101,7 +105,8 @@ export class ListCaseFlow {
     async reListTheCaseAsRemoteHearing(clickContinue = false, lengthOfHearingInHours = '3') {
 
         await this.ccdFormPage.selectNextStep('Edit case listing');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Edit case listing');
         await this.ccdFormPage.setFieldValue(
@@ -131,7 +136,8 @@ export class ListCaseFlow {
     async reListTheCaseAsRemoteHearingWithNoChanges(clickContinue = false, lengthOfHearingInHours = '6') {
 
         await this.ccdFormPage.selectNextStep('Edit case listing');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Edit case listing');
         await this.ccdFormPage.setFieldValue(

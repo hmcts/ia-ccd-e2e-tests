@@ -20,7 +20,8 @@ export class SubmitAppealFlow {
     async submitAppeal(clickContinue = false) {
         await this.ccdPage.selectNextStep('Submit your appeal');
         await browser.sleep(500);
-        await this.ccdPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdPage.flakeyClick('Go', overviewUrl)
         await this.ccdPage.contentContains('I the representative am giving notice of appeal in accordance with the appellant\'s instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.');
         let currentUrl = await browser.getCurrentUrl();
         await this.completeDeclaration(true);

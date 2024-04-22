@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class RequestRespondentEvidenceFlow {
 
@@ -7,7 +8,8 @@ export class RequestRespondentEvidenceFlow {
     async requestRespondentEvidence(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Request respondent evidence');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Request respondent evidence');
         await this.ccdFormPage.click('Continue');

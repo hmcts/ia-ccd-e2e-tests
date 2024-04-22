@@ -1,4 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from 'protractor';
 
 export class RequestFeeRemissionFlow {
 
@@ -7,7 +8,8 @@ export class RequestFeeRemissionFlow {
     async legalAid(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Request a fee remission');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Request a fee remission');
         await this.ccdFormPage.click('My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20');
@@ -31,7 +33,8 @@ export class RequestFeeRemissionFlow {
     async helpWithFees(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Request a fee remission');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Request a fee remission');
         await this.ccdFormPage.click('My client has a Help with Fees reference number');

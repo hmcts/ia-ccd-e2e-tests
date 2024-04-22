@@ -39,7 +39,8 @@ export class PayAndSubmitAppealFlow {
 
     async createServiceRequest(clickContinue = false) {
         await this.ccdFormPage.selectNextStep('Create a service request');
-        await this.ccdFormPage.click('Go');
+        let overviewUrl = await browser.getCurrentUrl();
+        await this.ccdFormPage.flakeyClick('Go', overviewUrl)
 
         await this.ccdFormPage.headingContains('Pay for this appeal');
         let currentUrl = await browser.getCurrentUrl();
