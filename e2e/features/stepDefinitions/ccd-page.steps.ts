@@ -24,36 +24,35 @@ Given('I create a new case', async function () {
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
     await ccdPage.hideErrorMessages();
-    await browser.get(iaConfig.CcdWebUrl + '/cases/case-create/IA/Asylum/startAppeal/startAppealchecklist')
-    // await ccdPage.doesDropdownHaveValues('Jurisdiction');
-    // await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
-    // await ccdPage.doesDropdownHaveValues('Case type');
-    //
-    // if (iaConfig.CcdWebUrl.includes('xui-ia-case-api-pr')) {
-    //     await ccdFormPage.setFieldValue(
-    //         'Case type',
-    //         'Appeal* ia-ccd-definit'
-    //     );
-    // } else if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
-    //     await ccdFormPage.setFieldValue(
-    //         'Case type',
-    //         'Appeal* master'
-    //     );
-    // } else if (iaConfig.CcdWebUrl.includes('demo')) {
-    //     await ccdFormPage.setFieldValue(
-    //         'Case type',
-    //         'Appeal* ia-ccd-definit'
-    //     );
-    // } else if (iaConfig.CcdWebUrl.includes('pr-')) {
-    //     await ccdFormPage.setFieldValue(
-    //         'Case type',
-    //         'Appeal* ia-ccd-definit'
-    //     );
-    // }
-    //
-    // await ccdPage.doesDropdownHaveValues('Event');
-    // await ccdPage.isButtonEnabled('Start');
-    // await ccdPage.click('Start');
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
+    await ccdPage.doesDropdownHaveValues('Case type');
+
+    if (iaConfig.CcdWebUrl.includes('xui-ia-case-api-pr')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* ia-ccd-definit'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* master'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('demo')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* ia-ccd-definit'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('pr-')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Appeal* ia-ccd-definit'
+        );
+    }
+
+    await ccdPage.doesDropdownHaveValues('Event');
+    await ccdPage.isButtonEnabled('Start');
+    await ccdPage.click('Start');
 });
 
 Given('I create a new bail application', async function () {
@@ -69,26 +68,25 @@ Given('I create a new bail application', async function () {
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
     await ccdPage.runAccessbility();
     await ccdPage.hideErrorMessages();
-    await browser.get(iaConfig.ccdWebUrl + '/cases/case-create/IA/Bail/startApplication/startApplicationhasPreviousBailApplication')
-    // await ccdPage.doesDropdownHaveValues('Jurisdiction');
-    // await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
-    // await ccdPage.doesDropdownHaveValues('Case type');
-    //
-    // if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
-    //     await ccdFormPage.setFieldValue(
-    //         'Case type',
-    //         'Bail* master'
-    //     );
-    // } else if (iaConfig.CcdWebUrl.includes('demo')) {
-    //     await ccdFormPage.setFieldValue(
-    //         'Case type',
-    //         'Bail* ia-bail-ccd-de'
-    //     );
-    // }
-    //
-    // await ccdPage.doesDropdownHaveValues('Event');
-    // await ccdPage.isButtonEnabled('Start');
-    // await ccdPage.click('Start');
+    await ccdPage.doesDropdownHaveValues('Jurisdiction');
+    await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
+    await ccdPage.doesDropdownHaveValues('Case type');
+
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Bail* master'
+        );
+    } else if (iaConfig.CcdWebUrl.includes('demo')) {
+        await ccdFormPage.setFieldValue(
+            'Case type',
+            'Bail* ia-bail-ccd-de'
+        );
+    }
+
+    await ccdPage.doesDropdownHaveValues('Event');
+    await ccdPage.isButtonEnabled('Start');
+    await ccdPage.click('Start');
 });
 
 Given('I Apply case list filter', async function () {
