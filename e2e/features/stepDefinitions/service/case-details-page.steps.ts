@@ -15,7 +15,7 @@ Then(/^I select the `?([^`]+)`? Next step$/, async function (nextStep) {
     await ccdPage.runAccessbility();
     await ccdPage.selectNextStep(nextStep);
     let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdPage.flakeyClick('Go', overviewUrl)
+    await ccdPage.flakeyClick('Go', overviewUrl)
 });
 
 Then(/^I should not see the decision fields$/, async function () {
