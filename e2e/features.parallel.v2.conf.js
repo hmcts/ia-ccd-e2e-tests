@@ -24,7 +24,7 @@ let config = {
     'no-source': true,
     strict: true,
     format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
-    retry: 3
+    retry: 5
   },
 
   directConnect: true,
@@ -33,7 +33,8 @@ let config = {
   specs: cucumberTaggedFiles,
 
   baseUrl: iaConfig.CcdWebUrl,
-  allScriptsTimeout: 240000,
+  allScriptsTimeout: 120000,
+  getPageTimeout: 120000,
   useAllAngular2AppRoots: true,
   multiCapabilities: [{
     browserName: 'chrome',
