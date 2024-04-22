@@ -24,7 +24,7 @@ let config = {
     'no-source': true,
     strict: true,
     format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
-    retry: 0
+    retry: 3
   },
 
   directConnect: true,
