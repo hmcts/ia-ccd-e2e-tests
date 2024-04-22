@@ -1,6 +1,6 @@
 import { CcdPage } from '../../pages/ccd.page';
 import { Given, Then, When } from 'cucumber';
-import { browser } from 'protractor';
+import { browser, by, element, protractor } from 'protractor';
 import { expect } from 'chai';
 import { Wait } from '../../enums/wait';
 import { OrdinalToCardinal } from '../../helpers/ordinal-to-cardinal';
@@ -12,7 +12,8 @@ const iaConfig = require('../../ia.conf');
 
 Given('I create a new case', async function () {
     // there is loading mask with spinner added by ExUI
-    await browser.sleep(7000);
+    let EC = protractor.ExpectedConditions;
+    await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 60000, 'Spinner did not appear.');
     await ccdPage.waitForSpinner();
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
@@ -56,7 +57,8 @@ Given('I create a new case', async function () {
 
 Given('I create a new bail application', async function () {
     // there is loading mask with spinner added by ExUI
-    await browser.sleep(7000);
+    let EC = protractor.ExpectedConditions;
+    await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 60000, 'Spinner did not appear.');
     await ccdPage.waitForSpinner();
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();

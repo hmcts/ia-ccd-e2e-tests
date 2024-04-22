@@ -406,7 +406,7 @@ export class StartBailApplicationFlow {
 
     async completeInterpreterRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Will the applicant need a spoken or sign language interpreter at the hearing?', 'Yes');
+        await this.ccdFormPage.click('#interpreterYesNo_Yes');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
