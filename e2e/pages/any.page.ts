@@ -1,4 +1,4 @@
-import { browser, by, element, protractor } from 'protractor';
+import  { browser, by, element, ElementFinder, protractor } from 'protractor';
 import { Wait } from '../enums/wait';
 import { ValueExpander } from '../helpers/value-expander';
 const AxeRunner = require('../helpers/accessibility/axe-runner');
@@ -330,7 +330,9 @@ export class AnyPage {
     }
 
     async createCaseClickable() {
-        await BrowserWaits.waitForelementToBeClickable(element(by.xpath('//a[contains(text(), "Create case")]')));
+        let createCase: ElementFinder = element(by.xpath('//a[contains(text(), "Create case")]'))
+        await BrowserWaits.waitForElement(createCase)
+        await BrowserWaits.waitForelementToBeClickable(createCase);
     }
 
     async refresh() {
