@@ -1,4 +1,4 @@
-import { browser, element } from 'protractor';
+import { browser, by, element } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class MakeNewApplicationFlow {
@@ -348,7 +348,7 @@ export class MakeNewApplicationFlow {
 
     async completeInterpreterRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await element('#interpreterYesNo_No').click();
+        await element(by.css('#interpreterYesNo_No')).click();
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
