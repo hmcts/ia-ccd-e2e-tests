@@ -324,6 +324,14 @@ export class EditBailApplicationPreSubmitFlow {
         }
     }
 
+    async completeFinancialConditionSupporterInterpreterRequirements(clickContinue = false) {
+        await this.ccdFormPage.runAccessbility();
+        await element(by.css('#fcsInterpreterYesNo_No')).click()
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeDisabilityRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.setFieldValue('Disability', 'No');
@@ -451,6 +459,9 @@ export class EditBailApplicationPreSubmitFlow {
         await this.completeSupportingEvidenceYesNo(true);
         await this.completeBailTransfer(true);
         await this.completeInterpreterRequirements(true);
+        if (noOfSupporters !== 'no') {
+            await this.completeFinancialConditionSupporterInterpreterRequirements(true);
+        }
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {

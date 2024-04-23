@@ -412,6 +412,14 @@ export class StartBailApplicationFlow {
         }
     }
 
+    async completeFinancialConditionSupporterInterpreterRequirements(clickContinue = false) {
+        await this.ccdFormPage.runAccessbility();
+        await element(by.css('#fcsInterpreterYesNo_No')).click()
+        if (clickContinue) {
+            await this.ccdFormPage.click('Continue');
+        }
+    }
+
     async completeInterpreterLanguageCategory(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
         await element(by.css('#applicantInterpreterLanguageCategory-spokenLanguageInterpreter')).click()
@@ -584,6 +592,9 @@ export class StartBailApplicationFlow {
         await this.completeInterpreterLanguageCategory(true);
         await this.completeInterpreterSpokenLanguage(true);
         await this.completeInterpreterSignLanguage(true);
+        if (noOfSupporters !== 'no') {
+            await this.completeFinancialConditionSupporterInterpreterRequirements(true);
+        }
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {
@@ -671,6 +682,9 @@ export class StartBailApplicationFlow {
         await this.completeInterpreterLanguageCategory(true);
         await this.completeInterpreterSpokenLanguage(true);
         await this.completeInterpreterSignLanguage(true);
+        if (noOfSupporters !== 'no') {
+            await this.completeFinancialConditionSupporterInterpreterRequirements(true);
+        }
         await this.completeDisabilityRequirements(true);
         await this.completeVideoLinkRequirements(true);
         if (legalRepresentativeOrNot === 'a') {

@@ -33,8 +33,8 @@ let config = {
   specs: cucumberTaggedFiles,
 
   baseUrl: iaConfig.CcdWebUrl,
-  allScriptsTimeout: 120000,
-  getPageTimeout: 120000,
+  allScriptsTimeout: 300000,
+  getPageTimeout: 300000,
   useAllAngular2AppRoots: true,
   multiCapabilities: [{
     browserName: 'chrome',
