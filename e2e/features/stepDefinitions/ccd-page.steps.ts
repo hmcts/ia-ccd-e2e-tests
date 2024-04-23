@@ -18,7 +18,8 @@ Given('I create a new case', async function () {
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
     await ccdPage.acceptCookies();
-    await browser.sleep(3000);
+    await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 60000, 'Spinner did not appear.');
+    await ccdPage.waitForSpinner();
     await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
@@ -63,6 +64,8 @@ Given('I create a new bail application', async function () {
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
     await ccdPage.acceptCookies();
+    await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 60000, 'Spinner did not appear.');
+    await ccdPage.waitForSpinner();
     await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
