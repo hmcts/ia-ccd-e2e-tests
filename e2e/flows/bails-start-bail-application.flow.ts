@@ -406,7 +406,7 @@ export class StartBailApplicationFlow {
 
     async completeInterpreterRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.click('#interpreterYesNo_Yes');
+        await element('#interpreterYesNo_Yes').click()
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
