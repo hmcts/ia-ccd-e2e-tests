@@ -3,6 +3,7 @@ import { Fields } from '../fields/fields';
 import { Wait } from '../enums/wait';
 import { $, browser, by, element, ExpectedConditions } from 'protractor';
 import { expect } from 'chai';
+const iaConfig = require('../ia.conf');
 
 export class CcdPage extends AnyPage {
 
@@ -145,9 +146,11 @@ export class CcdPage extends AnyPage {
     }
 
     async acceptCookies() {
-      try {
-        await element(by.css('button[value=\'accept\']')).click();
-      } catch { }
+        let userID = browser.manage().getCookie('__userid__');
+        let cookieName = `hmcts-exui-cookies-${userID}-mc-accepted`
+        let cookieValue = 'true'
+        let cookieDomain = iaConfig.CcdWebUrl.split('/')[iaConfig.CcdWebUrl.split('/').length - 1]
+        await browser.manage().addCookie({ name: cookieName, value: cookieValue, domain: cookieDomain })
     }
 
     async hideErrorMessages() {
