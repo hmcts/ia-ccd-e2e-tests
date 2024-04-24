@@ -39,6 +39,7 @@ export class UploadBailSummary {
         await this.ccdFormPage.selectNextStep('Upload Bail Summary');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
         await this.uploadBailSummaryFile(true);
         await this.ccdFormPage.click('Upload');
         await browser.sleep(5000)

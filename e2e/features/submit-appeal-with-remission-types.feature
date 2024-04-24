@@ -46,7 +46,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Evidence1.pdf` in the `Asylum Support confirmation letter` field
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
@@ -121,7 +121,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `1A234B` for the `Legal Aid account number` answer
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
@@ -221,7 +221,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Evidence1.pdf` in the `Local authority letter` field
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
@@ -320,7 +320,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Evidence1.pdf` in the `Local authority letter` field
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
@@ -419,7 +419,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Evidence1.pdf` in the `Home Office fee waiver letter` field
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
@@ -513,7 +513,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` answer
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
@@ -613,7 +613,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`

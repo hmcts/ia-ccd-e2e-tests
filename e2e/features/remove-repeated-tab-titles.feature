@@ -73,7 +73,7 @@ Feature: Remove repeated tab titles
     And I should see the option `Update appeal details` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
     And I select `Update appeal details` for the `Type of application` field
     And I click the `Continue` button

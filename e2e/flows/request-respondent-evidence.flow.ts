@@ -10,6 +10,7 @@ export class RequestRespondentEvidenceFlow {
         await this.ccdFormPage.selectNextStep('Request respondent evidence');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Request respondent evidence');
         await this.ccdFormPage.click('Continue');

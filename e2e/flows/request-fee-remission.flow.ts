@@ -10,6 +10,7 @@ export class RequestFeeRemissionFlow {
         await this.ccdFormPage.selectNextStep('Request a fee remission');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Request a fee remission');
         await this.ccdFormPage.click('My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20');
@@ -35,6 +36,7 @@ export class RequestFeeRemissionFlow {
         await this.ccdFormPage.selectNextStep('Request a fee remission');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Request a fee remission');
         await this.ccdFormPage.click('My client has a Help with Fees reference number');

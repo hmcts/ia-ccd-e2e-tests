@@ -14,6 +14,7 @@ export class SubmitCaseFlow {
         await this.ccdFormPage.selectNextStep('Submit your case');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.click('Submit');
 

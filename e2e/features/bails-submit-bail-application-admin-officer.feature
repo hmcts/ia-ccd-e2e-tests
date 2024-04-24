@@ -14,4 +14,4 @@ Feature: Bails Submit bail application as Admin Officer
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     And I wait for 5 seconds
-    Then I should see the text `The case is ready to be listed`
+    Then I should see the text `Please Confirm location where Applicant is detained is correct, and they are held on immigration matters, before listing the case for hearing in List Assist.`

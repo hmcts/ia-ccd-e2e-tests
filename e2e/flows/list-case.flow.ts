@@ -10,6 +10,7 @@ export class ListCaseFlow {
         await this.ccdFormPage.selectNextStep('List the case');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.setFieldValue(
             'Listing reference',
@@ -43,6 +44,7 @@ export class ListCaseFlow {
         await this.ccdFormPage.selectNextStep('List the case');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.setFieldValue(
             'Listing reference',
@@ -76,6 +78,7 @@ export class ListCaseFlow {
         await this.ccdFormPage.selectNextStep('Edit case listing');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Edit case listing');
         await this.ccdFormPage.setFieldValue(
@@ -107,6 +110,7 @@ export class ListCaseFlow {
         await this.ccdFormPage.selectNextStep('Edit case listing');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Edit case listing');
         await this.ccdFormPage.setFieldValue(
@@ -138,6 +142,7 @@ export class ListCaseFlow {
         await this.ccdFormPage.selectNextStep('Edit case listing');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Edit case listing');
         await this.ccdFormPage.setFieldValue(

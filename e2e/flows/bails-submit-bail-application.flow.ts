@@ -11,6 +11,7 @@ export class SubmitBailApplicationFlow {
         await this.ccdFormPage.selectNextStep('Submit the application');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
         if (user === 'Legal Rep') {
             let loaded = false;
             for (let i = 0; i < 3; i++) {

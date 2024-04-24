@@ -46,6 +46,7 @@ export class PayAndSubmitAppealFlow {
         await this.ccdFormPage.selectNextStep('Create a service request');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Pay for this appeal');
         let currentUrl = await browser.getCurrentUrl();
@@ -94,7 +95,7 @@ export class PayAndSubmitAppealFlow {
             let i = 0;
             while (i < 6) {
                 let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'))
-                if (nextText) {
+                if (await nextText.isPresent()) {
                     break;
                 } else {
                     await browser.sleep(10000);

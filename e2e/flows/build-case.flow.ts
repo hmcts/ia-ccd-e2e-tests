@@ -12,6 +12,7 @@ export class BuildCaseFlow {
         await this.ccdFormPage.selectNextStep('Build your case');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.setFieldValue(
             'Appeal skeleton argument',

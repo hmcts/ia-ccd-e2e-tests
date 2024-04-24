@@ -111,7 +111,7 @@ Feature: Start initial appeal application
     And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`
@@ -270,7 +270,7 @@ Feature: Start initial appeal application
     And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
     And I should see the text `If you're ready to proceed submit your appeal.`
     And I should see the text `Not ready to submit yet?`

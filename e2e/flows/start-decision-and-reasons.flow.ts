@@ -13,6 +13,7 @@ export class StartDecisionAndReasonsFlow {
         await this.ccdFormPage.selectNextStep('Start decision and reasons');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.setFieldValue('Introduction (Optional)', 'some introduction');
         await this.ccdFormPage.click('Continue');

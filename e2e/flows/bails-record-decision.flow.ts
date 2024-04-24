@@ -185,6 +185,7 @@ export class RecordDecision {
         await this.ccdFormPage.selectNextStep('Record the decision');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
         await this.completeJudgeName(true);
         await this.completeSsConsent(true, SsConsentYesOrNo)
         await this.completeTribunalDecision(true, tribunalDecision)

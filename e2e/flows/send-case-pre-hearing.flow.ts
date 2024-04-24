@@ -10,6 +10,7 @@ export class SendCasePreHearingFlow {
     await this.ccdFormPage.selectNextStep('Send to pre hearing');
     let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
     await this.ccdFormPage.click('Submit');
   }
 }

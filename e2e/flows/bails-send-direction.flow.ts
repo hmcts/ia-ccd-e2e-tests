@@ -20,6 +20,7 @@ export class SendDirection {
         await this.ccdFormPage.selectNextStep('Send direction');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
         await this.sendDirectionPage(true, receiver);
         await this.ccdFormPage.click('Send the direction');
         await browser.sleep(5000)

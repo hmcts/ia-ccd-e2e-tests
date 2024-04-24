@@ -11,6 +11,7 @@ export class MoveToDecided {
         await this.ccdFormPage.selectNextStep('Move application to decided');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
         await this.ccdFormPage.click('Continue');
         await browser.sleep(5000)
         if (clickContinue) {

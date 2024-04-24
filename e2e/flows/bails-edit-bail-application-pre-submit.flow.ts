@@ -399,6 +399,7 @@ export class EditBailApplicationPreSubmitFlow {
         await this.ccdFormPage.selectNextStep('Edit the application');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
         await this.completePreviousBailApplication(true);
         await this.ccdFormPage.click('Continue');
         if (user === 'Admin Officer') {

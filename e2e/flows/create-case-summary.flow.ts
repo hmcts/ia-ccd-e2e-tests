@@ -10,6 +10,7 @@ export class CaseSummaryFlow {
         await this.ccdFormPage.selectNextStep('Create case summary');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Create case summary');
 

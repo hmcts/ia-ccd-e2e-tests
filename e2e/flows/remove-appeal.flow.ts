@@ -10,6 +10,7 @@ export class RemoveAppealFlow {
         await this.ccdFormPage.selectNextStep('Move appeal offline');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.click('Continue');
 

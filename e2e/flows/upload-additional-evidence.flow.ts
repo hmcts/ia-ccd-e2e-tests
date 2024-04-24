@@ -10,6 +10,7 @@ export class UploadAdditionalEvidenceFlow {
             await this.ccdFormPage.selectNextStep('Upload additional evidence');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
         await this.ccdFormPage.addCollectionItem('Upload documents');
         await this.ccdFormPage.setFieldValue(
             'Document',

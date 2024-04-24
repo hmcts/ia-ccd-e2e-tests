@@ -10,6 +10,7 @@ export class RecordAgreedRequirementsFlow {
         await this.ccdFormPage.selectNextStep('Hearing requirements');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.setFieldValue(
             'Length',
@@ -67,6 +68,7 @@ export class RecordAgreedRequirementsFlow {
         await this.ccdFormPage.selectNextStep('Update hearing adjustments');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.setFieldValue(
             'Length',
@@ -126,6 +128,7 @@ export class RecordAgreedRequirementsFlow {
         await this.ccdFormPage.selectNextStep('Hearing requirements');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.setFieldValue(
             'Length',

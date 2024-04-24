@@ -103,11 +103,9 @@ Feature: Notice of Change (common component)
     And I click the `Continue` button
     And I select all the submit checkboxes
     And I click the `Submit` button
-    And I should see the text `Notice of change successful`
-    And I should see the text `You're now representing a client on case`
-    And I should see the `View this case` link
-    And I should see the `View case list` link
-    When I click the `View this case` link
+    And I should see the text `Notice of change request submitted`
+    And I should see the text `Wait for us to review this request`
+    When I enter the removed case id in the url
     Then I should see the `Overview` page
 
     Given I am signed in as a `Legal Org User Rep A`

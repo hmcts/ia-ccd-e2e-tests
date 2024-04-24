@@ -10,6 +10,8 @@ export class PrepareDecisionAndReasonsFlow {
         await this.ccdFormPage.selectNextStep('Prepare Decision and Reasons');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Prepare Decision and Reasons');
         await this.ccdFormPage.contentContains('Are you giving an anonymity direction?');

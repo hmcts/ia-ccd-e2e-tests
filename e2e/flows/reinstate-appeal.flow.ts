@@ -10,6 +10,7 @@ export class ReinstateAppealFlow {
         await this.ccdFormPage.selectNextStep('Reinstate the appeal');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Reinstate the appeal');
         await this.ccdFormPage.setFieldValue(

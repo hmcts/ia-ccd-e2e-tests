@@ -17,7 +17,7 @@ Feature: Legal representative make an application
     And I should see the option `Update appeal details` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
     And I select `Update appeal details` for the `Type of application` field
     And I click the `Continue` button
@@ -134,7 +134,7 @@ Feature: Legal representative make an application
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 
     When I switch to be a `Home Office APC`
@@ -144,7 +144,7 @@ Feature: Legal representative make an application
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 
     When I switch to be a `Home Office LART`
@@ -154,7 +154,7 @@ Feature: Legal representative make an application
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 
     When I switch to be a `Home Office Generic`
@@ -164,7 +164,7 @@ Feature: Legal representative make an application
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 
     When I switch to be a `Legal Org User Rep A`
@@ -175,7 +175,7 @@ Feature: Legal representative make an application
     And I should see the option `Update appeal details` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
     And I select `Update appeal details` for the `Type of application` field
     And I click the `Continue` button
@@ -207,7 +207,7 @@ Feature: Legal representative make an application
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
     And I select `Time extension` for the `Type of application` field
     And I click the `Continue` button
@@ -336,7 +336,7 @@ Feature: Legal representative make an application
     Then I select the `Make an application` Next step
     And I should see the `Make an application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     Then I select `Reinstate an ended appeal` for the `Type of application` field
     And I click the `Continue` button
@@ -347,9 +347,9 @@ Feature: Legal representative make an application
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
     And I should see the `Make an application` page
-    Then I select `Judge's review of application decision` for the `Type of application` field
+    Then I select `Judge's review of Legal Officer decision` for the `Type of application` field
     And I click the `Continue` button
-    And I should see the text `Judge's review of application decision`
+    And I should see the text `Judge's review of Legal Officer decision`
     And I type `A reason for Judge's review` for the `Tell us which application decision you want to be reviewed by a Judge and explain why you think the original decision was wrong.` field
     And I click the `Cancel` link
 
@@ -358,7 +358,7 @@ Feature: Legal representative make an application
     Then I select the `Make an application` Next step
     And I should see the `Make an application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     Then I select `Reinstate an ended appeal` for the `Type of application` field
     And I click the `Continue` button
@@ -369,9 +369,9 @@ Feature: Legal representative make an application
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
     And I should see the `Make an application` page
-    Then I select `Judge's review of application decision` for the `Type of application` field
+    Then I select `Judge's review of Legal Officer decision` for the `Type of application` field
     And I click the `Continue` button
-    And I should see the text `Judge's review of application decision`
+    And I should see the text `Judge's review of Legal Officer decision`
     And I type `A reason for Judge's review` for the `Tell us which application decision you want to be reviewed by a Judge and explain why you think the original decision was wrong.` field
     And I click the `Cancel` link
 
@@ -380,21 +380,21 @@ Feature: Legal representative make an application
     Then I select the `Make an application` Next step
     And I should see the `Make an application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     When I switch to be a `Home Office POU`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
     And I should see the `Make an application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     When I switch to be a `Home Office Generic`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
     And I should see the `Make an application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
 
   @Make-an-application-at-listing @RIA-3457-make-an-application-at-listing @RIA-3457
@@ -423,7 +423,7 @@ Feature: Legal representative make an application
     And I should see the option `Update hearing requirements` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     When I switch to be a `Home Office APC`
     Then I click the `Applications` tab
@@ -431,7 +431,7 @@ Feature: Legal representative make an application
     And I should see the `Make an application` page
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     When I switch to be a `Home Office LART`
     Then I click the `Applications` tab
@@ -439,7 +439,7 @@ Feature: Legal representative make an application
     And I should see the `Make an application` page
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     When I switch to be a `Home Office POU`
     Then I click the `Applications` tab
@@ -447,7 +447,7 @@ Feature: Legal representative make an application
     And I should see the `Make an application` page
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     When I switch to be a `Home Office Generic`
     Then I click the `Applications` tab
@@ -455,7 +455,7 @@ Feature: Legal representative make an application
     And I should see the `Make an application` page
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
   @Make-an-application-at-prepare-for-hearing @RIA-3457-make-an-application-at-prepare-for-hearing @RIA-3457
   Scenario: Make an application in prepare for hearing state
@@ -488,7 +488,7 @@ Feature: Legal representative make an application
     And I should see the option `Update hearing requirements` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 
     Then I select `Adjourn` for the `Type of application` field
@@ -514,9 +514,9 @@ Feature: Legal representative make an application
     And I type `A reason to link or unlink` for the `Explain why you want to link or unlink this appeal. You must include the appellant name and HMCTS appeal reference of each appeal you want to link to or unlink from.` field
     And I click the `Previous` button
 
-    Then I select `Judge's review of application decision` for the `Type of application` field
+    Then I select `Judge's review of Legal Officer decision` for the `Type of application` field
     And I click the `Continue` button
-    And I should see the text `Judge's review of application decision`
+    And I should see the text `Judge's review of Legal Officer decision`
     And I type `A reason for Judge's review` for the `Tell us which application decision you want to be reviewed by a Judge and explain why you think the original decision was wrong.` field
     And I click the `Previous` button
 
@@ -534,7 +534,7 @@ Feature: Legal representative make an application
     And I should see the option `Transfer` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 
     When I switch to be a `Home Office LART`
@@ -546,7 +546,7 @@ Feature: Legal representative make an application
     And I should see the option `Transfer` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 
     When I switch to be a `Home Office POU`
@@ -558,7 +558,7 @@ Feature: Legal representative make an application
     And I should see the option `Transfer` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 
     When I switch to be a `Home Office Generic`
@@ -570,6 +570,6 @@ Feature: Legal representative make an application
     And I should see the option `Transfer` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
 

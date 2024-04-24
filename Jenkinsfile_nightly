@@ -105,7 +105,7 @@ withNightlyPipeline("nodejs", product, component) {
                             reportName           : 'IAC - Manage Cases Functional Test'
                     ])
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
-                    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/*'
+                    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
                     publishHTML([
                             allowMissing         : true,
                             alwaysLinkToLastBuild: true,

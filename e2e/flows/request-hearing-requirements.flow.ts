@@ -10,6 +10,7 @@ export class RequestHearingRequirementsFlow {
         await this.ccdFormPage.selectNextStep('Request hearing requirements');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Request hearing requirements');
         await this.ccdFormPage.click('Submit');

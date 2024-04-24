@@ -22,6 +22,7 @@ export class EndApplication {
         await this.ccdFormPage.selectNextStep('End the application');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
         await this.outcomeReasons(true);
         await this.ccdFormPage.click('End application');
         await browser.sleep(5000)

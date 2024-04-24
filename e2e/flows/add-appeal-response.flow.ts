@@ -10,6 +10,7 @@ export class AddAppealResponseFlow {
         await this.ccdFormPage.selectNextStep('Add appeal response');
         let overviewUrl = await browser.getCurrentUrl();
         await this.ccdFormPage.flakeyClick('Go', overviewUrl)
+        await this.ccdFormPage.waitForSpinner();
 
         await this.ccdFormPage.headingContains('Add appeal response');
         await this.ccdFormPage.setFieldValue(
