@@ -168,7 +168,7 @@ export class CcdPage extends AnyPage {
 
     async waitForCssElementVisible(locator: string) {
         await browser.wait(async () => {
-            return await element(by.css(locator)).isPresent();
+            return expect(await element(by.css(locator)).isPresent());
         }, 30000, `Expected element ${locator} to be present within 30 seconds`);
         expect(await element(by.css(locator)).isPresent()).to.equal(true);
     }
@@ -176,7 +176,7 @@ export class CcdPage extends AnyPage {
     async waitForOverviewPage() {
         await this.waitForCssElementVisible('#next-step');
         await browser.wait(async () => {
-            return await element(by.css('#next-step')).isEnabled();
+            return expect(await element(by.css('#next-step')).isEnabled());
         }, 15000, 'Expected element #next-step to be enabled within 15 seconds');
         expect(await element(by.css('#next-step')).isEnabled()).to.equal(true);
         await this.waitForCssElementVisible('#case-viewer-field-read--caseDetailsTitle');

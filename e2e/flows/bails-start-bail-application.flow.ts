@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class StartBailApplicationFlow {
@@ -406,7 +406,7 @@ export class StartBailApplicationFlow {
 
     async completeInterpreterRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await element(by.css('#interpreterYesNo_Yes')).click()
+        await this.ccdFormPage.setFieldValue('Will the applicant need a spoken or sign language interpreter at the hearing?', 'Yes');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -414,7 +414,7 @@ export class StartBailApplicationFlow {
 
     async completeFinancialConditionSupporterInterpreterRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await element(by.css('#fcsInterpreterYesNo_No')).click()
+        await this.ccdFormPage.setFieldValue('Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?', 'No');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -422,8 +422,8 @@ export class StartBailApplicationFlow {
 
     async completeInterpreterLanguageCategory(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await element(by.css('#applicantInterpreterLanguageCategory-spokenLanguageInterpreter')).click()
-        await element(by.css('#applicantInterpreterLanguageCategory-signLanguageInterpreter')).click()
+        await this.ccdFormPage.click('Spoken language interpreter');
+        await this.ccdFormPage.click('Sign language interpreter');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -431,11 +431,10 @@ export class StartBailApplicationFlow {
 
     async completeInterpreterSpokenLanguage(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await element(by.css('#applicantInterpreterSpokenLanguage_languageManualEntry-Yes')).click();
-        await browser.sleep(1000);
-        await browser.isElementPresent(element(by.css('#applicantInterpreterSpokenLanguage_languageManualEntryDescription')));
-        await element(by.css('#applicantInterpreterSpokenLanguage_languageManualEntry-No')).click()
-        await browser.sleep(1000);
+        await this.ccdFormPage.click('Manually enter spoken language');
+        await this.ccdFormPage.waitForCssElementVisible('#applicantInterpreterSpokenLanguage_languageManualEntryDescription');
+        await this.ccdFormPage.click('Select spoken language');
+        await this.ccdFormPage.waitForCssElementVisible('#applicantInterpreterSpokenLanguage_languageRefData');
         await this.ccdFormPage.setFieldValue('Spoken language', 'Bambara');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
@@ -444,11 +443,10 @@ export class StartBailApplicationFlow {
 
     async completeInterpreterSignLanguage(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await element(by.css('#applicantInterpreterSignLanguage_languageManualEntry-Yes')).click();
-        await browser.sleep(1000);
-        await browser.isElementPresent(element(by.css('#applicantInterpreterSignLanguage_languageManualEntryDescription')));
-        await element(by.css('#applicantInterpreterSignLanguage_languageManualEntry-No')).click();
-        await browser.sleep(1000);
+        await this.ccdFormPage.click('Manually enter sign language');
+        await this.ccdFormPage.waitForCssElementVisible('#applicantInterpreterSignLanguage_languageManualEntryDescription');
+        await this.ccdFormPage.click('Select sign language');
+        await this.ccdFormPage.waitForCssElementVisible('#applicantInterpreterSignLanguage_languageRefData');
         await this.ccdFormPage.setFieldValue('Sign language', 'Makaton');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');

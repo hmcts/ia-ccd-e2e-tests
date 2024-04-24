@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class MakeNewApplicationFlow {
@@ -348,7 +348,7 @@ export class MakeNewApplicationFlow {
 
     async completeInterpreterRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await element(by.css('#interpreterYesNo_No')).click();
+        await this.ccdFormPage.setFieldValue('Will the applicant need a spoken or sign language interpreter at the hearing?', 'No');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
@@ -356,7 +356,7 @@ export class MakeNewApplicationFlow {
 
     async completeFinancialConditionSupporterInterpreterRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await element(by.css('#fcsInterpreterYesNo_No')).click()
+        await this.ccdFormPage.setFieldValue('Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?', 'No');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
