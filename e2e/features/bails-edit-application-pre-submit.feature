@@ -25,7 +25,8 @@ Feature: Bails Edit application preSubmit
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
     And I should see `No` for the `Financial condition` field
-    And I should see `No` for the `Financial condition supporter` field
+#    TODO uncomment on deployment of https://tools.hmcts.net/jira/browse/DIAC-398
+#    And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
     And I should see `Yes` for the `Transfer bail management` field
     And I should see `No` for the `Supporting evidence` field

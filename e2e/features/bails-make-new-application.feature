@@ -91,7 +91,8 @@ Feature: Bails Make new application
     And I should see `01234567` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
-    And I should see `No` for the `Financial condition supporter` field
+#    TODO uncomment on deployment of https://tools.hmcts.net/jira/browse/DIAC-398
+#    And I should see `No` for the `Financial condition supporter` field
     And I should see `New grounds for bail` for the `Enter the bail grounds` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`

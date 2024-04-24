@@ -11,7 +11,12 @@ export class PayAndSubmitAppealFlow {
         await element(by.xpath('//div[text()="Service Request"]')).click();
         await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
         await this.ccdFormPage.click('Pay now');
-        await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+        try {
+            await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+        } catch {
+            await this.ccdFormPage.click('Pay now');
+            await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+        }
         await this.ccdFormPage.click('Pay fee using Payment by Account (PBA)');
         await this.ccdPage.waitForCssElementVisible('#pbaAccountNumber');
         await this.ccdFormPage.typeText('pbaAccountNumber', 'PBA0087412');
@@ -57,7 +62,12 @@ export class PayAndSubmitAppealFlow {
         await element(by.xpath('//div[text()="Service Request"]')).click();
         await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
         await this.ccdFormPage.click('Pay now');
-        await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+        try {
+            await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+        } catch {
+            await this.ccdFormPage.click('Pay now');
+            await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+        }
         await this.ccdFormPage.click('Pay by credit or debit card');
         await this.ccdFormPage.click('Continue');
         await this.ccdPage.waitForPageNavigation(currentUrl)
