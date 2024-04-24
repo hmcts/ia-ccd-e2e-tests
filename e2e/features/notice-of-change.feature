@@ -90,7 +90,7 @@ Feature: Notice of Change (common component)
     And I click the `Back` link
     And I click the `Back` link
 
-  @notice-of-change @noc-correct-answers-different-org @RIA-3745
+  @notice-of-change @noc-correct-answers-different-org @RIA-3745 @nightly-test
   Scenario: NoC request as a user from a different organisation (correct answers)
 
     When I switch to be a `Legal Org User Rep C`
