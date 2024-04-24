@@ -35,11 +35,11 @@ Feature: Bails Edit application postSubmit
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
     And I should see `Yes` for the `Transfer bail management` field
     And I should see `No` for the `Supporting evidence` field
-    And I should see `No` for the `Interpreter` field
+    And I should see `No` for the `Will the applicant need a spoken or sign language interpreter at the hearing?` field
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
-    When I click the `Hearing` tab
-    Then I should see `No` for the `Interpreter` field
+    When I click the `Hearing and appointment` tab
+    Then I should see `No` for the `Will the applicant need a spoken or sign language interpreter at the hearing?` field
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
@@ -72,11 +72,11 @@ Feature: Bails Edit application postSubmit
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
     And I should see `Yes` for the `Transfer bail management` field
     And I should see `No` for the `Supporting evidence` field
-    And I should see `No` for the `Interpreter` field
+    And I should see `No` for the `Will the applicant need a spoken or sign language interpreter at the hearing?` field
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
-    When I click the `Hearing` tab
-    Then I should see `No` for the `Interpreter` field
+    When I click the `Hearing and appointment` tab
+    Then I should see `No` for the `Will the applicant need a spoken or sign language interpreter at the hearing?` field
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
@@ -111,11 +111,11 @@ Feature: Bails Edit application postSubmit
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
     And I should see `Yes` for the `Transfer bail management` field
     And I should see `No` for the `Supporting evidence` field
-    And I should see `No` for the `Interpreter` field
+    And I should see `No` for the `Will the applicant need a spoken or sign language interpreter at the hearing?` field
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
-    When I click the `Hearing` tab
-    Then I should see `No` for the `Interpreter` field
+    When I click the `Hearing and appointment` tab
+    Then I should see `No` for the `Will the applicant need a spoken or sign language interpreter at the hearing?` field
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
@@ -151,10 +151,10 @@ Feature: Bails Edit application postSubmit
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
     And I should see `Yes` for the `Transfer bail management` field
     And I should see `No` for the `Supporting evidence` field
-    And I should see `No` for the `Interpreter` field
+    And I should see `No` for the `Will the applicant need a spoken or sign language interpreter at the hearing?` field
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
-    When I click the `Hearing` tab
-    Then I should see `No` for the `Interpreter` field
+    When I click the `Hearing and appointment` tab
+    Then I should see `No` for the `Will the applicant need a spoken or sign language interpreter at the hearing?` field
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
