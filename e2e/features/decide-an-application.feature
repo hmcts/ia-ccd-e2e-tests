@@ -58,7 +58,7 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-    And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+    And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
     And I switch to be a `Legal Org User Rep A`
     Then I goto the `Applications` tab
@@ -71,7 +71,7 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-    And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+    And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
     When I switch to be a `Admin Officer`
     Then I goto the `Applications` tab
@@ -84,7 +84,7 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-    And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+    And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   # When I switch to be a `Home Office APC`
   # Then I goto the `Applications` tab
@@ -97,7 +97,7 @@ Feature: Case officer or Judge make an application
   # And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
   # And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-  # And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+  # And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   # When I switch to be a `Home Office LART`
   # Then I click the `Applications` tab
@@ -110,7 +110,7 @@ Feature: Case officer or Judge make an application
   # And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
   # And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-  # And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+  # And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   # When I switch to be a `Home Office POU`
   # Then I click the `Applications` tab
@@ -123,7 +123,7 @@ Feature: Case officer or Judge make an application
   # And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
   # And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-  # And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+  # And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   # When I switch to be a `Home Office Generic`
   # Then I click the `Applications` tab
@@ -136,7 +136,7 @@ Feature: Case officer or Judge make an application
   # And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
   # And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-  # And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+  # And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   @Judge-decide-an-application @RIA-3451-judge-decide-an-application @RIA-3451
   Scenario: Judge decide an application

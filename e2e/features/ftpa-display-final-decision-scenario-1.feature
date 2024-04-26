@@ -94,6 +94,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I am on the `Check your answers` page
     And I click the `Submit` button
+    And I wait for the spinner
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds

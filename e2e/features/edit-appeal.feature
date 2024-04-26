@@ -70,7 +70,7 @@ Feature: Edit appeal application
     When I click the `Save and continue` button
     Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
-    And I should see the text `If you're ready to proceed submit your appeal.`
+    And I should see the text `If you're ready to proceed submit the appeal.`
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 

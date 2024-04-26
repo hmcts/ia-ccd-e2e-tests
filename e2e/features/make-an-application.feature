@@ -28,6 +28,7 @@ Feature: Legal representative make an application
     And I add an item to the `Supporting evidence (Optional)` collection
     And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
     And I wait for 3 seconds
+    And I wait for the spinner
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -186,6 +187,7 @@ Feature: Legal representative make an application
     And I add an item to the `Supporting evidence (Optional)` collection
     And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
     And I wait for 3 seconds
+    And I wait for the spinner
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -218,6 +220,7 @@ Feature: Legal representative make an application
     And I add an item to the `Supporting evidence (Optional)` collection
     And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
     And I wait for 3 seconds
+    And I wait for the spinner
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page

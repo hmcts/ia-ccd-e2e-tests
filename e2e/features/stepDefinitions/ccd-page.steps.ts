@@ -443,3 +443,7 @@ Then(/^I will update s94b flag$/, async function () {
     await ccdFormPage.click('Continue');
     await ccdFormPage.click('Submit');
 });
+
+Given('I wait for the spinner', async function () {
+    await ccdPage.waitForSpinner();
+})

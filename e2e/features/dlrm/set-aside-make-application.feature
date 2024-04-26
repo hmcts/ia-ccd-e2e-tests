@@ -19,6 +19,7 @@ Feature: Set Aside Make an Appplication for rule 31 and 32
         And I add an item to the `Supporting evidence (Optional)` collection
         And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
         And I wait for 3 seconds
+        And I wait for the spinner
         And I click the `Continue` button
         Then I am on the `Check your answers` page
         And I should see `Application under rule 31 or rule 32` in the `Type of application` field

@@ -28,7 +28,7 @@ Feature: Upload additional evidence Home Office
     When I select the `Upload additional evidence` Next step
     Then I am on the `Upload additional evidence` page
     And I see the text `Files should be:`
-    And I see the text `You’ll need to explain why this evidence is being submitted late.`
+    And I see the text `You'll need to explain why this evidence is being submitted late.`
 
     When I add an item to the `Additional evidence` collection
     And within the `Additional evidence` collection's first item, I upload `{@HomeOfficeEvidence.pdf}` for the `Document` field
