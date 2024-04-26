@@ -9,7 +9,7 @@ Feature: Bails Upload Documents
     And I wait for 2 seconds
     And I should see the text `What happens next`
 
-  @bails-upload-documents @bails-full @RIA-5769 @bails-upload-documents-post-submit @bails-regression @nightly-test
+  @bails-upload-documents @bails-full @RIA-5769 @bails-upload-documents-post-submit @bails-regression
   Scenario: Upload Documents after submitting
     When I select the `Upload documents` Next step
     Then I am on the `Upload` page

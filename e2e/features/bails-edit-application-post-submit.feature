@@ -6,7 +6,7 @@ Feature: Bails Edit application postSubmit
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
-  @bails-edit-application-post-submit @bails-full @RIA-5868 @bails-edit-application-post-submit-post-submit @nightly-test
+  @bails-edit-application-post-submit @bails-full @RIA-5868 @bails-edit-application-post-submit-post-submit
   Scenario: Edit application after submitting
     When I switch to be a `Admin Officer Bails`
     And I edit my submitted application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative that had a Legal Representative before

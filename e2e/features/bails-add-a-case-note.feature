@@ -91,7 +91,7 @@ Feature: Bails Add a case note to bails application
     And within the `Case notes` collection's first item, I should see `BailsCaseNote.pdf` for the `Document` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
-  @bails-add-case-note @bails-add-case-note-admin-officer @RIA-5753 @bails-full @nightly-test
+  @bails-add-case-note @bails-add-case-note-admin-officer @RIA-5753 @bails-full
   Scenario: Add case note without document as Admin Officer
     When I switch to be a `Admin Officer Bails`
     When I select the `Add case note` Next step

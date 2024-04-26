@@ -1,6 +1,6 @@
 Feature: Bails Edit application preSubmit
 
-  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-legal-rep @nightly-test
+  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-legal-rep
   Scenario: Legal Rep Edit application Before Submitting
     Given I am signed in as a `Legal Org User Rep A Bails`
     And I create a new bail application
