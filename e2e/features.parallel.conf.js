@@ -2,16 +2,11 @@ const _ = require('lodash');
 const glob = require('glob');
 const argv = require('yargs').argv;
 const retry = require('protractor-retry').retry;
-const {
-  PickleFilter,
-  getTestCasesFromFilesystem
-} = require('cucumber');
-const {
-  EventEmitter
-} = require('events');
+const { PickleFilter, getTestCasesFromFilesystem } = require('cucumber');
+const { EventEmitter } = require('events');
 const eventBroadcaster = new EventEmitter();
 
-const {generateAccessibilityReport} = require('../reporter/customReporter');
+const { generateAccessibilityReport } = require('../reporter/customReporter');
 const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
@@ -23,14 +18,8 @@ let capabilities = {
   version: '115.0.5790.170',
   platform: 'macOS 10.13',
   chromeOptions: {
-    args: [
-      '--disable-dev-shm-usage',
-      '--disable-gpu',
-      '--no-sandbox',
-      iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
-      iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
-    ],
-    binary: process.cwd() + '/chrome/linux-115.0.5790.170/chrome-linux64/chrome'
+    args: ['--disable-dev-shm-usage', '--disable-gpu', '--no-sandbox', iaConfig.UseHeadlessBrowser ? '--headless' : '--noop', iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'],
+    binary: process.cwd() + '/chrome/linux-115.0.5790.170/chrome-linux64/chrome',
   },
   name: 'ia-chrome-mac-test',
   chromeDriver: process.cwd() + '/chromedriver/linux-115.0.5790.170/chromedriver-linux64/chromedriver',
@@ -40,9 +29,9 @@ let capabilities = {
   maxInstances: iaConfig.RunWithNumberOfBrowsers,
   loggingPrefs: {
     driver: 'INFO',
-    browser: 'INFO'
+    browser: 'INFO',
   },
-  shardTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1)
+  shardTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
 };
 
 class BaseConfig {
@@ -56,18 +45,18 @@ class BaseConfig {
         let self = this;
         return this.getFeaturesByTagExpression().then((results) => {
           let files;
-          console.log("List of tests to run : " + JSON.stringify(results, null, 2));
+          console.log('List of tests to run : ' + JSON.stringify(results, null, 2));
           if (argv.parallelFeatures) {
             files = results.features;
           } else {
             files = results.scenarios;
           }
           return _.map(files, function (file, i) {
-            let featureFile = file.replace(/^e2e/, ".");
+            let featureFile = file.replace(/^e2e/, '.');
             let config = {
               specs: featureFile,
               shardTestFiles: true,
-              maxInstances: 4
+              maxInstances: 4,
             };
             return _.merge(config, capabilities);
           });
@@ -94,63 +83,55 @@ class BaseConfig {
     this.cucumberOpts = {
       strict: true,
       format: ['node_modules/cucumber-pretty', 'json:reports/tests/functionTestResult.json'],
-      require: [
-        './cucumber.conf.js',
-        './features/stepDefinitions/**/*.steps.ts',
-        './support/hooks.js'
-      ],
+      require: ['./cucumber.conf.js', './features/stepDefinitions/**/*.steps.ts', './support/hooks.js'],
       keepAlive: false,
       tags: false,
       profile: false,
       'fail-fast': iaConfig.FailFast,
       'nightly-tag': iaConfig.NightlyTag,
       'no-source': true,
-      retry: 5
+      retry: 5,
     };
 
     this.onCleanUp = (results) => {
       retry.onCleanUp(results);
-    }
+    };
 
     this.onPrepare = () => {
       retry.onPrepare();
       // returning the promise makes protractor wait for
       // the reporter config before executing tests
-      global
-        .browser
-        .getProcessedConfig()
-        .then({
-          // noop
-        });
-
-      tsNode.register({
-        project: path.join(__dirname, './tsconfig.e2e.json')
+      global.browser.getProcessedConfig().then({
+        // noop
       });
 
+      tsNode.register({
+        project: path.join(__dirname, './tsconfig.e2e.json'),
+      });
     };
 
-//    this.afterLaunch = () => {
-//      return retry.afterLaunch(2);
-//    }
+    //    this.afterLaunch = () => {
+    //      return retry.afterLaunch(2);
+    //    }
 
     this.onComplete = () => {
-       generateAccessibilityReport();
+      generateAccessibilityReport();
     };
 
     this.plugins = [
       {
-          package: 'protractor-multiple-cucumber-html-reporter-plugin',
-          options: {
-              automaticallyGenerateReport: true,
-              removeExistingJsonReportFile: true,
-              saveCollectedJSON: true,
-              reportName: 'IAC CCD E2E Tests',
-              jsonDir: 'reports/tests/functional',
-              reportPath: 'reports/tests/functional',
-              pageFooter: '<div><p> </p></div>'
-          }
-      }
-  ]
+        package: 'protractor-multiple-cucumber-html-reporter-plugin',
+        options: {
+          automaticallyGenerateReport: true,
+          removeExistingJsonReportFile: true,
+          saveCollectedJSON: true,
+          reportName: 'IAC CCD E2E Tests',
+          jsonDir: 'reports/tests/functional',
+          reportPath: 'reports/tests/functional',
+          pageFooter: '<div><p> </p></div>',
+        },
+      },
+    ];
   }
 
   /*
@@ -172,9 +153,9 @@ class BaseConfig {
       eventBroadcaster: eventBroadcaster,
       featurePaths: this.getFeatures(),
       pickleFilter: new PickleFilter({
-        tagExpression: this.getCucumberCliTags()
+        tagExpression: this.getCucumberCliTags(),
       }),
-      order: 'defined'
+      order: 'defined',
     }).then(function (results) {
       let features = [];
       let scenarios = [];
@@ -191,7 +172,7 @@ class BaseConfig {
 
       return {
         features: _.sortedUniq(features),
-        scenarios: scenarios
+        scenarios: scenarios,
       };
     });
   }
@@ -199,15 +180,13 @@ class BaseConfig {
   getCucumberCliTags() {
     let cucumberOptsTags = _.get(argv, 'cucumberOpts.tags');
     if (typeof cucumberOptsTags === 'string' || cucumberOptsTags instanceof String) {
-      console.log("cucumber opts tags : " + cucumberOptsTags);
+      console.log('cucumber opts tags : ' + cucumberOptsTags);
       return cucumberOptsTags;
     } else {
-      console.log("cucumber opts tags : " + cucumberOptsTags);
-      return cucumberOptsTags.join(" or ") || '';
+      console.log('cucumber opts tags : ' + cucumberOptsTags);
+      return cucumberOptsTags.join(' or ') || '';
     }
   }
-
 }
-
 
 exports.config = new BaseConfig();

@@ -1,21 +1,17 @@
 const tsNode = require('ts-node');
 const path = require('path');
 const iaConfig = require('./ia.conf');
-const {generateAccessibilityReport} = require("../reporter/customReporter");
+const { generateAccessibilityReport } = require('../reporter/customReporter');
 const retry = require('protractor-retry').retry;
 const cucumberTaggedFiles = require('../cucumberTaggedFiles.json');
 
-let chromeVersion = '123.0.6312.122'
+let chromeVersion = '123.0.6312.122';
 
 let config = {
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
-    require: [
-      './cucumber.conf.js',
-      './features/stepDefinitions/**/*.steps.ts',
-      './support/hooks.js'
-    ],
+    require: ['./cucumber.conf.js', './features/stepDefinitions/**/*.steps.ts', './support/hooks.js'],
     keepAlive: false,
     tags: false,
     profile: false,
@@ -24,7 +20,7 @@ let config = {
     'no-source': true,
     strict: true,
     format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
-    retry: 3
+    retry: 3,
   },
 
   directConnect: true,
@@ -36,27 +32,23 @@ let config = {
   allScriptsTimeout: 300000,
   getPageTimeout: 300000,
   useAllAngular2AppRoots: true,
-  multiCapabilities: [{
-    browserName: 'chrome',
-    version: '115.0.5790.170',
-    platform: 'macOS 10.13',
-    chromeOptions: {
-      args: [
-        '--disable-dev-shm-usage',
-        '--disable-gpu',
-        '--no-sandbox',
-        iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
-        iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
-      ],
-      binary: process.cwd() + '/chrome/linux-' + chromeVersion + '/chrome-linux64/chrome'
+  multiCapabilities: [
+    {
+      browserName: 'chrome',
+      version: '115.0.5790.170',
+      platform: 'macOS 10.13',
+      chromeOptions: {
+        args: ['--disable-dev-shm-usage', '--disable-gpu', '--no-sandbox', iaConfig.UseHeadlessBrowser ? '--headless' : '--noop', iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'],
+        binary: process.cwd() + '/chrome/linux-' + chromeVersion + '/chrome-linux64/chrome',
+      },
+      name: 'ia-chrome-mac-test',
+      extendedDebugging: true,
+      sharedTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
+      shardTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
+      capturePerformance: false,
+      maxInstances: iaConfig.RunWithNumberOfBrowsers,
     },
-    name: 'ia-chrome-mac-test',
-    extendedDebugging: true,
-    sharedTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1),
-    shardTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1),
-    capturePerformance: false,
-    maxInstances: iaConfig.RunWithNumberOfBrowsers
-  }],
+  ],
   maxSessions: parseInt(iaConfig.RunWithNumberOfBrowsers, 10),
 
   plugins: [
@@ -69,24 +61,22 @@ let config = {
         reportName: 'IAC CCD E2E Tests',
         jsonDir: 'reports/tests/functional',
         reportPath: 'reports/tests/functional',
-        pageFooter: '<div><p> </p></div>'
-      }
-    }
+        pageFooter: '<div><p> </p></div>',
+      },
+    },
   ],
 
-  onCleanUp(results,files) {
+  onCleanUp(results, files) {
     retry.onCleanUp(results, files);
   },
 
-  onPrepare: async() => {
+  onPrepare: async () => {
     const caps = browser.getCapabilities();
-    browser.manage()
-      .window()
-      .maximize();
+    browser.manage().window().maximize();
     browser.waitForAngularEnabled(true);
 
     tsNode.register({
-      project: path.join(__dirname, './tsconfig.e2e.json')
+      project: path.join(__dirname, './tsconfig.e2e.json'),
     });
     retry.onPrepare();
   },
@@ -95,7 +85,7 @@ let config = {
   // },
   onComplete() {
     generateAccessibilityReport();
-  }
+  },
 };
 
 exports.config = config;

@@ -6,13 +6,11 @@ async function getS2sToken() {
     uri: `${iaConfig.s2sUrl}/testing-support/lease`,
     json: true,
     body: {
-      microservice: 'iac'
-    }
+      microservice: 'iac',
+    },
   });
 
   return 'Bearer ' + response;
 }
 
-export {
-  getS2sToken
-};
+export { getS2sToken };

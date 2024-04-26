@@ -2,61 +2,51 @@ import { Field } from './field';
 import { by, ElementFinder } from 'protractor';
 
 export class CcdWriteFixedListField implements Field {
+  private readonly container: ElementFinder;
+  private readonly fieldLabel: string;
 
-    private readonly container: ElementFinder;
-    private readonly fieldLabel: string;
+  public constructor(container: ElementFinder, fieldLabel: string) {
+    this.container = container;
+    this.fieldLabel = fieldLabel;
+  }
 
-    public constructor(
-        container: ElementFinder,
-        fieldLabel: string
-    ) {
-        this.container = container;
-        this.fieldLabel = fieldLabel;
+  public getLabel() {
+    return this.fieldLabel;
+  }
+
+  public async getOptions() {
+    return await this.container.all(by.xpath('.//option')).map(async (option) => (await option.getText()).trim());
+  }
+
+  public async getValue() {
+    return await this.getSelectedOptionElement().getText();
+  }
+
+  public async setValue(value) {
+    if (value === '') {
+      value = '--Select a value--';
     }
 
-    public getLabel() {
-        return this.fieldLabel;
-    }
+    await this.container.element(by.xpath('.//option[normalize-space()="' + value + '"]')).click();
+  }
 
-    public async getOptions() {
+  public async isDisplayed() {
+    return await this.getSelectElement().isDisplayed();
+  }
 
-        return await this.container
-            .all(by.xpath('.//option'))
-            .map(async (option) => (await option.getText()).trim());
-    }
+  public async isEnabled() {
+    return await this.getSelectElement().isEnabled();
+  }
 
-    public async getValue() {
-        return await (this.getSelectedOptionElement()).getText();
-    }
+  public isReadOnly() {
+    return false;
+  }
 
-    public async setValue(value) {
+  private getSelectElement() {
+    return this.container.element(by.xpath('.//select'));
+  }
 
-        if (value === '') {
-            value = '--Select a value--';
-        }
-
-        await this.container
-            .element(by.xpath('.//option[normalize-space()="' + value + '"]'))
-            .click();
-    }
-
-    public async isDisplayed() {
-        return await (this.getSelectElement()).isDisplayed();
-    }
-
-    public async isEnabled() {
-        return await (this.getSelectElement()).isEnabled();
-    }
-
-    public isReadOnly() {
-        return false;
-    }
-
-    private getSelectElement() {
-        return this.container.element(by.xpath('.//select'));
-    }
-
-    private getSelectedOptionElement() {
-        return this.container.element(by.css('option:checked'));
-    }
+  private getSelectedOptionElement() {
+    return this.container.element(by.css('option:checked'));
+  }
 }

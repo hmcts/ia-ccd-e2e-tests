@@ -1,5 +1,4 @@
 module.exports = {
-
   CcdGatewayUrl: process.env.TEST_E2E_URL_GATEWAY || 'https://gateway-ccd.aat.platform.hmcts.net',
   CcdWebUrl: process.env.TEST_E2E_URL_WEB || 'https://manage-case.aat.platform.hmcts.net',
   CcdApiUrl: process.env.TEST_E2E_CCD_API_URL || 'http://ccd-data-store-api-aat.service.core-compute-aat.internal',

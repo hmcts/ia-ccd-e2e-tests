@@ -10,10 +10,7 @@ const config = {
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
-    require: [
-      './cucumber.crossbrowser.conf.js',
-      './features/stepDefinitions/**/*.steps.ts'
-    ],
+    require: ['./cucumber.crossbrowser.conf.js', './features/stepDefinitions/**/*.steps.ts'],
     keepAlive: false,
     tags: false,
     profile: false,
@@ -22,7 +19,7 @@ const config = {
     'no-source': true,
     strict: true,
     format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
-    retry: 2
+    retry: 2,
   },
 
   sauceSeleniumAddress: 'ondemand.eu-central-1.saucelabs.com:443/wd/hub',
@@ -51,27 +48,24 @@ const config = {
         reportName: 'IA Service Cross Browser Test',
         jsonDir: 'reports/tests/crossbrowser',
         reportPath: 'reports/tests/crossbrowser',
-        pageFooter: '<div><p> </p></div>'
-      }
-    }
+        pageFooter: '<div><p> </p></div>',
+      },
+    },
   ],
 
-  onCleanUp(results,files) {
+  onCleanUp(results, files) {
     retry.onCleanUp(results, files);
   },
 
   onPrepare() {
     const caps = browser.getCapabilities();
-    browser.manage()
-      .window()
-      .maximize();
+    browser.manage().window().maximize();
     browser.waitForAngularEnabled(true);
 
     tsNode.register({
-      project: path.join(__dirname, './tsconfig.e2e.json')
+      project: path.join(__dirname, './tsconfig.e2e.json'),
     });
     retry.onPrepare();
-
   },
   afterLaunch() {
     return retry.afterLaunch(1);
@@ -83,8 +77,7 @@ const config = {
         console.log('SauceOnDemandSessionID=' + session.getId() + ' job-name=ia-ccd-e2e-tests');
       });
     });
-  }
+  },
 };
-
 
 exports.config = config;
