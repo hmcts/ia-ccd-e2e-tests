@@ -34,7 +34,7 @@ Feature: Notice of Change (common component) - Remove Representation by TCW and 
 
     Given I am signed in as a `Legal Org User Rep A`
     When I enter the removed case id in the url
-    Then I should see the text `No cases found. Try using different filters.`
+    Then I should be redirected to the case list page
 
   @notice-of-change @noc-remove-representation-by-admin-officer @RIA-3951
   Scenario: Notice of Change (common component) - Remove representation by admin officer
@@ -61,4 +61,4 @@ Feature: Notice of Change (common component) - Remove Representation by TCW and 
 
     Given I am signed in as a `Legal Org User Rep A`
     When I enter the removed case id in the url
-    Then I should see the text `No cases found. Try using different filters.`
+    Then I should be redirected to the case list page

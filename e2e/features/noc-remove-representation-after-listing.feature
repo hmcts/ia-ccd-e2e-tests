@@ -50,4 +50,4 @@ Feature: Notice of Change (common component) - Remove Representation (after list
     And I wait for 2 seconds
 
     When I enter the removed case id in the url
-    Then I should see the text `No cases found. Try using different filters.`
+    Then I should be redirected to the case list page

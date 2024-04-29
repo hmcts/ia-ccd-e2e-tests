@@ -104,6 +104,17 @@ export class NoticeOfChangePage {
     browser.driver.get(`${ccdUrl}/cases/case-details/` + this.latestCaseId);
   }
 
+  async checkCaseRemoved(shortWait = false) {
+    await browser.wait(
+      async () => {
+        let url = await browser.getCurrentUrl();
+        return url === `${ccdUrl}/cases`;
+      },
+      60000,
+      'User was not redirected to the case list.',
+    );
+  }
+
   async setCaseRoleId(shortWait = false) {
     await element(by.id('changeOrganisationRequestField_CaseRoleId')).$("[value='1: [LEGALREPRESENTATIVE]']").click();
   }
