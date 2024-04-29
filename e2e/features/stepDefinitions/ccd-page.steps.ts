@@ -186,6 +186,16 @@ When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (link
     await ccdPage.click(linkText);
   }
 });
+
+When(/^I click the `?([^`]+)`? (?:button|link|tab|label) and wait for a long time$/, async function (linkText) {
+  await ccdPage.waitForSpinner();
+  if (linkText === 'tab') {
+    await ccdPage.gotoTabs(linkText);
+  } else {
+    await ccdPage.click(linkText, 0, 120000);
+  }
+});
+
 When(/^I click the `?([^`]+)`? button if present$/, async function (linkText) {
   await ccdPage.waitForSpinner();
   await ccdPage.clickIfVisible(linkText);

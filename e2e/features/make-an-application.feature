@@ -28,7 +28,7 @@ Feature: Legal representative make an application
     And I add an item to the `Supporting evidence (Optional)` collection
     And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `document` field without a label
 
-    When I click the `Continue` button
+    When I click the `Continue` button and wait for a long time
     Then I am on the `Check your answers` page
     And I should see `Update appeal details` in the `Type of application` field
     And I should see `A reason to update appeal details` in the `Tell us which appeal details you want to update and explain why the changes are necessary.` field

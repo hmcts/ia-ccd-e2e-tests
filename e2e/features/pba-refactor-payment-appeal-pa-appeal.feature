@@ -82,7 +82,7 @@ Feature: Payment appeal (Make a payment) after failed PBA payment (PA appeal typ
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
-    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+    And I should see the overview for a paid appeal
 
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field

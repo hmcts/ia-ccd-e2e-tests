@@ -53,7 +53,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
-    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+    And I should see the overview for a paid appeal
 
     When I click the `Appeal` tab
     And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field

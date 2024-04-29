@@ -28,15 +28,19 @@ export class PayAndSubmitAppealFlow {
     if (clickContinue) {
       await this.ccdPage.click('View service requests');
       await this.ccdPage.click('Overview');
-      let i = 0;
-      while (i < 6) {
-        let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'));
-        if (nextText) {
-          break;
-        } else {
-          await browser.sleep(10000);
-          await this.ccdPage.refresh();
-        }
+      await this.waitForPaymentRecognition();
+    }
+  }
+
+  async waitForPaymentRecognition() {
+    let i = 0;
+    while (i < 6) {
+      let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'));
+      if (nextText) {
+        break;
+      } else {
+        await browser.sleep(10000);
+        await this.ccdPage.refresh();
       }
     }
   }
