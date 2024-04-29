@@ -82,7 +82,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
-    And I should see the `Overview` page
+    And I should be on the overview page
     And I should only see the `caseOfficer_prepareForHearing` case progress image
     And I should see the text `Do this next`
     And I should see the text `You must create a case summary for the judge to use at the hearing.`
@@ -153,7 +153,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
-    And I should see the `Overview` page
+    And I should be on the overview page
     And I should only see the `caseOfficer_prepareForHearing` case progress image
     And I should see the text `Do this next`
     And I should see the text `You must create a case summary for the judge to use at the hearing.`
@@ -237,7 +237,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
-    And I should see the `Overview` page
+    And I should be on the overview page
     And I should only see the `caseOfficer_prepareForHearing` case progress image
     And I should see the text `What happens next`
     And I should see the text `The Notice of Hearing will be sent to all parties.`
@@ -307,7 +307,7 @@ Feature: Remote hearing - TCW and Judge update hearing requirements & update hea
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Update hearing adjustments`
-    And I should see the `Overview` page
+    And I should be on the overview page
     And I should only see the `caseOfficer_prepareForHearing` case progress image
     And I should see the text `What happens next`
     And I should see the text `The Notice of Hearing will be sent to all parties.`

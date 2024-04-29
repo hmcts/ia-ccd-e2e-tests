@@ -109,7 +109,7 @@ Feature: Notice of Change (common component)
     And I should see the `View this case` link
     And I should see the `View case list` link
     When I click the `View this case` link
-    Then I should see the `Overview` page
+    Then I should be on the overview page
 
     Given I am signed in as a `Legal Org User Rep A`
     When I enter the removed case id in the url

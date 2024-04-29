@@ -7,7 +7,7 @@ Feature: Notice of Change (common component) - Remove Representation (after list
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Legal Org User Rep A`
-    And I should see the `Overview` page
+    And I should be on the overview page
 
   @notice-of-change @noc-remove-representation-after-listing @RIA-3731
   Scenario: Notice of Change (common component) - Remove representation by legal representative (after listing)

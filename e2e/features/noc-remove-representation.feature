@@ -8,7 +8,7 @@ Feature: Notice of Change (common component) - Remove Representation (before lis
     And I submit my appeal
     And I get the most recent case id for removing representation
     And I switch to be a `Legal Org User Rep A`
-    And I should see the `Overview` page
+    And I should be on the overview page
 
   @notice-of-change @noc-remove-representation @RIA-3731
   Scenario: Notice of Change (common component) - Remove representation by legal representative (before listing)

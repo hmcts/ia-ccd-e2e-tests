@@ -7,7 +7,7 @@ Feature: Notice of Change (common component) - Remove Representation by TCW and 
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Legal Org User Rep A`
-    And I should see the `Overview` page
+    And I should be on the overview page
 
   @notice-of-change @noc-remove-representation-by-tcw-after-listing @RIA-3951
   Scenario: Notice of Change (common component) - Remove representation by case officer (after listing)
