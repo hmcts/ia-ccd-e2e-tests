@@ -300,5 +300,4 @@ Given('I wait for the spinner', async function () {
   let EC = protractor.ExpectedConditions;
   await browser.wait(EC.presenceOf(element(by.css('div.spinner'))), 5000, 'Spinner element taking too long to appear in the DOM');
   await ccdPage.waitForSpinner();
-
 });
