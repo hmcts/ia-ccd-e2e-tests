@@ -110,4 +110,17 @@ export class PayAndSubmitAppealFlow {
       }
     }
   }
+
+  async checkCasePaidCaseOfficer() {
+    let i = 0;
+    while (i < 3) {
+      let badNextText = element(by.xpath('//p[contains(text(),"This appeal is awaiting payment.")]'));
+      if (await badNextText.isPresent()) {
+        await browser.sleep(10000);
+        await this.ccdPage.refresh();
+      } else {
+        break;
+      }
+    }
+  }
 }

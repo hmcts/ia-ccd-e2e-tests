@@ -11,6 +11,7 @@ Feature: Create and manage Case Flags for TCW
     @nightly-test @caseflag
     Scenario: Create a case Flag
         And I switch to be a `Case Officer`
+        And I check the case has been paid for
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page
         And I have created a `Complex Case` Flag in `Case level`

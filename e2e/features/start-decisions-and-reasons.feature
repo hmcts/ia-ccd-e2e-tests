@@ -9,6 +9,7 @@ Feature: Start decision and reasons
     Then I should be on the overview page
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     And I wait for 2 seconds
     And I request respondent evidence
     And I wait for 5 seconds

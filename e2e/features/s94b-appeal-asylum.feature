@@ -11,6 +11,7 @@ Feature: s94b appeal
         Then I should be on the overview page
         And I pay for and submit my appeal by Card
         And I switch to be a `Case Officer`
+        And I check the case has been paid for
         When I select the `Update s94b status` Next step
         Then I am on the `Update s94b status` page
         And I will update s94b flag
@@ -33,7 +34,7 @@ Feature: s94b appeal
         Then I should be on the overview page
         And I pay for and submit my appeal by Card
         And I switch to be a `Case Officer`
-        And I refresh the page
+        And I check the case has been paid for
         When I select the `Update s94b status` Next step
         Then I am on the `Update s94b status` page
         # And I will update s94b flag
