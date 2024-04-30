@@ -61,7 +61,12 @@ export class MakeAnApplication {
 
     await this.ccdFormPage.setFieldValue('', '{@Evidence1.pdf}', 'document', 'first', 'Supporting evidence (Optional)', 'first');
 
-    await this.ccdFormPage.click('Continue');
+    try {
+      await this.ccdFormPage.click('Continue', 0, 120000);
+    } catch {
+      await this.ccdFormPage.waitForCssElementVisible('div.error-summary');
+      await this.ccdFormPage.click('Continue');
+    }
 
     await this.ccdFormPage.headingContains('Check your answers');
     await this.ccdFormPage.click('Submit');

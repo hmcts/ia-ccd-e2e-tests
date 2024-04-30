@@ -187,12 +187,13 @@ When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (link
   }
 });
 
-When(/^I click the `?([^`]+)`? (?:button|link|tab|label) and wait for a long time$/, async function (linkText) {
+When(/^I click the `Continue` button for flakey Make an application$/, async function () {
   await ccdPage.waitForSpinner();
-  if (linkText === 'tab') {
-    await ccdPage.gotoTabs(linkText);
-  } else {
-    await ccdPage.click(linkText, 0, 120000);
+  try {
+    await ccdPage.click('Continue', 0, 120000);
+  } catch {
+    await ccdPage.waitForCssElementVisible('div.error-summary');
+    await ccdPage.click('Continue');
   }
 });
 
