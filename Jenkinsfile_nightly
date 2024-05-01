@@ -121,18 +121,17 @@ withNightlyPipeline("nodejs", product, component) {
 
     if (!params.skipCrossBrowserTests) {
         enableCrossBrowserTest()
-    }
-
-    afterAlways('crossBrowserTest') {
-        publishHTML([
-                allowMissing         : true,
-                alwaysLinkToLastBuild: true,
-                keepAll              : true,
-                reportDir            : "reports/tests/crossbrowser/",
-                reportFiles          : 'index.html',
-                reportName           : 'IA Service Cross Browser Tests'
-        ])
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/crossbrowser/*'
+        afterAlways('crossBrowserTest') {
+            publishHTML([
+                    allowMissing         : true,
+                    alwaysLinkToLastBuild: true,
+                    keepAll              : true,
+                    reportDir            : "reports/tests/crossbrowser/",
+                    reportFiles          : 'index.html',
+                    reportName           : 'IA Service Cross Browser Tests'
+            ])
+            steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/crossbrowser/*'
+        }
     }
 
     enableSlackNotifications('#ia-tech')

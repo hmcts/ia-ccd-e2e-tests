@@ -10,6 +10,7 @@ After(async function (scenario) {
   if (scenario.result.status === 'failed') {
     if (count === parseInt(retryCount)) {
       global.failed = true;
+      count = 0;
     }
     count++;
     const stream = await browser.takeScreenshot();
@@ -36,5 +37,8 @@ After(async function (scenario) {
     } catch (err) {
       console.log('Error occurred adding message to report. ' + err.stack);
     }
+  }
+  if (scenario.result.status === 'passed') {
+    count = 0;
   }
 });

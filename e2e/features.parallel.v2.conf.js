@@ -80,9 +80,6 @@ let config = {
     });
     retry.onPrepare();
   },
-  // afterLaunch() {
-  //   return retry.afterLaunch(1);
-  // },
   afterLaunch: async () => {
     await generateAccessibilityReport();
     if (global.failed === true) {
