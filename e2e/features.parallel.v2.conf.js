@@ -56,7 +56,7 @@ let config = {
       package: 'protractor-multiple-cucumber-html-reporter-plugin',
       options: {
         saveCollectedJSON: true,
-        automaticallyGenerateReport: true,
+        automaticallyGenerateReport: false,
         removeExistingJsonReportFile: true,
         reportName: 'IAC CCD E2E Tests',
         jsonDir: 'reports/tests/functional',

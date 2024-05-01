@@ -35,6 +35,7 @@
     "jasmine-spec-reporter": "^4.2.1",
     "json-schema": "^0.4.0",
     "moment": "^2.29.2",
+    "multiple-cucumber-html-reporter": "^3.6.2",
     "nsp": "^3.2.1",
     "pre-commit": "^1.2.2",
     "protractor": "^5.4.2",
