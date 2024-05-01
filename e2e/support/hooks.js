@@ -41,14 +41,14 @@ After(async function (scenario) {
 });
 
 AfterAll(async function () {
-  await setup();
-  await onPrepare();
-  await postResults();
-  if (global.failed === true) {
-    console.log('Tests failed including retries.');
-    process.exit(1);
-  } else {
-    console.log('Tests passed after retries.');
-    process.exit(0);
-  }
+  // await setup();
+  // await onPrepare();
+  // await postResults();
+  // if (global.failed === true) {
+  //   console.log('Tests failed including retries.');
+  //   process.exit(1);
+  // } else {
+  //   console.log('Tests passed after retries.');
+  //   process.exit(0);
+  // }
 });
