@@ -80,8 +80,10 @@ let config = {
     });
     retry.onPrepare();
   },
-  afterLaunch: async () => {
+  onComplete: async () => {
     await generateAccessibilityReport();
+  },
+  afterLaunch: async () => {
     if (global.failed === true) {
       console.log('Tests failed including retries.');
       process.exit(1);
