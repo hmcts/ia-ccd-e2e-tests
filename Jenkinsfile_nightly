@@ -92,9 +92,7 @@ withNightlyPipeline("nodejs", product, component) {
         if (!params.skipFullFunctionalTests) {
             stage('Full Functional Tests') {
                 try {
-                    withSauceConnect("reform_tunnel") {
-                        yarnBuilder.yarn("test:fullfunctional")
-                    }
+                    yarnBuilder.yarn("test:fullfunctional")
                 } catch (Error) {
                     unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
@@ -106,6 +104,7 @@ withNightlyPipeline("nodejs", product, component) {
                             reportFiles          : 'index.html',
                             reportName           : 'IAC - Manage Cases Functional Test'
                     ])
+                    steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/**'
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
                     publishHTML([
