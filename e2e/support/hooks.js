@@ -42,11 +42,8 @@ After(async function (scenario) {
 
 AfterAll(async function () {
   report.generate({
-    jsonDir: "reports/tests/functional",
-    reportPath: "reports/tests/functional",
-    customData: {
-      title: "IAC CCD E2E Tests",
-    }
+    jsonDir: process.cwd() + "/reports/tests/functional",
+    reportPath: process.cwd() + "/reports/tests/functional",
   });
 
   if (global.failed === true) {
