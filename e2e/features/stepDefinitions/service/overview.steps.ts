@@ -73,6 +73,7 @@ Then(/^I should (see|not see) the hearing details$/, async function (seeOrNotSee
 
 Then('I pass this test', function () {
   let randomInt = Math.floor(Math.random() * 3);
+  console.log(randomInt);
   assert(randomInt === 1);
 });
 
