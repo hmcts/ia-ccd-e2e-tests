@@ -598,7 +598,12 @@ export class StartBailApplicationFlow {
     await this.completeCheckYourAnswers(true);
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      try {
+        await this.ccdFormPage.click('Close and Return to case details');
+      } catch {
+        await this.ccdFormPage.click('Close and Return to case details');
+      } finally {}
+
     }
   }
 
