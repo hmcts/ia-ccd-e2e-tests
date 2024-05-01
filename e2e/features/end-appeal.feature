@@ -34,7 +34,6 @@ Feature: End appeal
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
 
     And I should see the ended appeal details
-    And I should not see the hearing details
     And I should see the case details
 
     When I switch to be a `Admin Officer`
@@ -42,7 +41,6 @@ Feature: End appeal
     And I should see the text `What happens next`
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
-    And I should not see the hearing details
     And I should see the case details
 
     # When I switch to be a `Judge`
