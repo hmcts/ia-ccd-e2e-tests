@@ -72,7 +72,14 @@ Then(/^I should (see|not see) the hearing details$/, async function (seeOrNotSee
 });
 
 Then('I pass this test', function () {
-  assert(true);
+  // @ts-ignore
+  console.log(global.retryCount);
+  // @ts-ignore
+  if (global.retryCount > 1) {
+    assert(true);
+  } else {
+    assert(false);
+  }
 });
 
 Then(/^I should (see|not see) the ended appeal details$/, async function (seeOrNotSee) {

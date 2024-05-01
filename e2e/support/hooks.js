@@ -10,6 +10,7 @@ After(async function (scenario) {
   if (scenario.result.status === 'failed') {
     if (count === parseInt(retryCount)) {
       global.failed = true;
+      global.retryCount = count;
       count = 0;
     }
     count++;
