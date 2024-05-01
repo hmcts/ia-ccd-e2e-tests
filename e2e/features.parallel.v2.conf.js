@@ -67,6 +67,7 @@ let config = {
   ],
 
   onCleanUp(results, files) {
+    console.log('global.failed value equals' + global.failed);
     retry.onCleanUp(results, files);
   },
 
@@ -81,9 +82,11 @@ let config = {
     retry.onPrepare();
   },
   onComplete: async () => {
+    console.log('global.failed value equals' + global.failed);
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
+    console.log('global.failed value equals' + global.failed);
     if (global.failed === true) {
       console.log('Tests failed including retries.');
       process.exit(1);
