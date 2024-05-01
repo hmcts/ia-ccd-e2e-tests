@@ -1,10 +1,10 @@
-var { After, AfterAll} = require('cucumber');
+var { After, AfterAll } = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
 
 let count = 0;
-let retryCount =  process.env.RETRIES || 5
+let retryCount = process.env.RETRIES || 5;
 After(async function (scenario) {
   console.log(`Scenario results are ################ ${scenario.result.status}`);
   if (scenario.result.status === 'failed') {
