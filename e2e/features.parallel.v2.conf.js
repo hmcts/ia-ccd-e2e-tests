@@ -83,8 +83,15 @@ let config = {
   // afterLaunch() {
   //   return retry.afterLaunch(1);
   // },
-  onComplete() {
-    generateAccessibilityReport();
+  onComplete: async () => {
+    await generateAccessibilityReport();
+    if (global.failed === true) {
+      console.log('Tests failed including retries.');
+      process.exit(1);
+    } else {
+      console.log('Tests passed after retries.');
+      process.exit(0);
+    }
   },
 };
 

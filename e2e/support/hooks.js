@@ -2,7 +2,6 @@ var { After, AfterAll} = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
-const { setup, onPrepare, postResults } = require('protractor-multiple-cucumber-html-reporter-plugin');
 
 let count = 0;
 let retryCount =  process.env.RETRIES || 5
@@ -38,17 +37,4 @@ After(async function (scenario) {
       console.log('Error occurred adding message to report. ' + err.stack);
     }
   }
-});
-
-AfterAll(async function () {
-  // await setup();
-  // await onPrepare();
-  // await postResults();
-  // if (global.failed === true) {
-  //   console.log('Tests failed including retries.');
-  //   process.exit(1);
-  // } else {
-  //   console.log('Tests passed after retries.');
-  //   process.exit(0);
-  // }
 });
