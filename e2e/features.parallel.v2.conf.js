@@ -93,7 +93,7 @@ let config = {
       console.log('Tests failed including retries: ' + failedTests);
       process.exit(1);
     } else {
-      console.log('Tests passed after retries.');
+      console.log(`Tests passed after retries. Number of total tests: ${totalTests.length}. Number of passed tests: ${passedTests.length}.`);
       process.exit(0);
     }
   },
