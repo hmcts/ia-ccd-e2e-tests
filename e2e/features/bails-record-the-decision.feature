@@ -5,6 +5,8 @@ Feature: Bails Record the decision
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
     And I switch to be a `Home Office Bails`
     And I upload the bail summary
 

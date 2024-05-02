@@ -8,8 +8,8 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-conditional-grant @bails-regression @bails-test
   Scenario: Make new application as Admin Officer after conditional grant decided
-    When I switch to be a `Home Office Bails`
-    And I upload the bail summary
+    And I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
     And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
@@ -32,7 +32,9 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted @bails-test
   Scenario: Make new application as Admin Officer after granted decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a granted decision with SS consent Yes with no financial condition supporters
@@ -55,7 +57,9 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused @bails-test
   Scenario: Make new application as Admin Officer after refused decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a refused decision with SS consent Yes with no financial condition supporters
@@ -104,7 +108,11 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test @nightly-test @fix-test
   Scenario: Make new application as Home Office after conditional grant decided
-    When I switch to be a `Home Office Bails`
+    And I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
@@ -128,7 +136,9 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted @bails-test
   Scenario: Make new application as Home Office after granted decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a granted decision with SS consent Yes with no financial condition supporters
@@ -151,7 +161,9 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused @bails-test
   Scenario: Make new application as Home Office after refused decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a refused decision with SS consent Yes with no financial condition supporters
@@ -196,7 +208,9 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-conditional-grant @bails-test
   Scenario: Make new application as Legal Rep after conditional grant decided
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
@@ -222,7 +236,9 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-granted @bails-test
   Scenario: Make new application as Legal Rep after granted decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a granted decision with SS consent Yes with no financial condition supporters
@@ -247,7 +263,9 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-refused @bails-regression @bails-test
   Scenario: Make new application as Legal Rep after refused decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a refused decision with SS consent Yes with no financial condition supporters
