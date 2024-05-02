@@ -4,7 +4,7 @@ const iaConfig = require('./ia.conf');
 const { generateAccessibilityReport } = require('../reporter/customReporter');
 const retry = require('protractor-retry').retry;
 const cucumberTaggedFiles = require('../cucumberTaggedFiles.json');
-const { testCounter } = require('./helpers/test-counter')
+const testCounter= require('./helpers/test-counter.js').testCounter
 
 let chromeVersion = '123.0.6312.122';
 

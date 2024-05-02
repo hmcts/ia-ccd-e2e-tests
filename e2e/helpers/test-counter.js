@@ -1,22 +1,19 @@
-type TestCounter = {
-  totalTests: string[];
-  passedTests: string[];
-  addToTotalTests(testName: string): void;
-  addToPassedTests(testName: string): void;
-};
-const testCounter: TestCounter = {
+const testCounter = {
   totalTests: [],
   passedTests: [],
-  addToTotalTests(testName: string) {
+  addToTotalTests(testName) {
     if (!this.totalTests.includes(testName)) {
       console.log(`Adding scenario to total list of tests`);
       this.totalTests.push(testName);
     }
   },
-  addToPassedTests(testName: string) {
+  addToPassedTests(testName) {
     console.log(`Adding scenario to passed list of tests`);
     this.passedTests.push(testName);
   }
 };
 
-export { testCounter };
+module.exports = {
+  testCounter: testCounter
+};
+
