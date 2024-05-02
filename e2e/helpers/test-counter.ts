@@ -19,4 +19,4 @@ const testCounter: TestCounter = {
   }
 };
 
-export default testCounter;
+export { testCounter };

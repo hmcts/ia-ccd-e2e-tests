@@ -2,7 +2,7 @@ var { After, Before} = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
-import testCounter from "../helpers/test-counter";
+const { testCounter } = require('../helpers/test-counter')
 let count = 0;
 
 Before(async function (scenario) {
