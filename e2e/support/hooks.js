@@ -2,14 +2,12 @@ var { After, Before} = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
+const testCounter = require('../helpers/test-counter')
 let count = 0;
 
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
-  if (!global.totalTests.includes(test)) {
-    console.log(`Adding scenario to total list of scenarios`);
-    global.totalTests.push(test);
-  }
+  testCounter.addToTotalTests(test);
 });
 
 After(async function (scenario) {
@@ -43,6 +41,6 @@ After(async function (scenario) {
   }
   if (scenario.result.status === 'passed') {
     let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
-    global.passedTests.push(test);
+    testCounter.addToPassedTests(test);
   }
 });
