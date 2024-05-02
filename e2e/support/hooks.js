@@ -46,4 +46,6 @@ After(async function (scenario) {
     let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
     config.params.passedTests.push(test);
   }
+  console.log(config.params.passedTests)
+  console.log(config.params.totalTests)
 });
