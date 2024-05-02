@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "e2e": "yarn localTest",
-    "test:fullfunctional": "npx @puppeteer/browsers install chrome@123; npx @puppeteer/browsers install chromedriver@123; node e2e/cucumberTagSearcher.js @nightly-test; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; protractor e2e/features.parallel.v2.conf.js --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+    "test:fullfunctional": "npx @puppeteer/browsers install chrome@123; npx @puppeteer/browsers install chromedriver@123; node e2e/cucumberTagSearcher.js @testing-test; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; protractor e2e/features.parallel.v2.conf.js --cucumberOpts.tags=@testing-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:localfullfunctional": "protractor ./e2e/features.local.conf.js --parallel-features --cucumberOpts.tags=@testing-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "localTest": "protractor ./e2e/features.conf.js --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelScenarios": "protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
