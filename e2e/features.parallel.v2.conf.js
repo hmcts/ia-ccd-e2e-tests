@@ -67,11 +67,13 @@ let config = {
   ],
 
   onCleanUp(results, files) {
-    console.log('global.failed value equals' + global.failed);
+    console.log('global.passedTests value equals: ' + global.passedTests);
     retry.onCleanUp(results, files);
   },
 
   onPrepare: async () => {
+    global.passedTests = [];
+    global.totalTests = [];
     const caps = browser.getCapabilities();
     browser.manage().window().maximize();
     browser.waitForAngularEnabled(true);
@@ -82,12 +84,12 @@ let config = {
     retry.onPrepare();
   },
   onComplete: async () => {
-    console.log('global.failed value equals' + global.failed);
+    console.log('global.passedTests value equals: ' + global.passedTests);
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
-    console.log('global.failed value equals' + global.failed);
-    if (global.failed === true) {
+    console.log('global.passedTests value equals: ' + global.passedTests);
+    if (global.passedTests.length !== global.totalTests.length) {
       console.log('Tests failed including retries.');
       process.exit(1);
     } else {

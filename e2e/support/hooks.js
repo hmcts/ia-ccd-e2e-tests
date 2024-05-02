@@ -1,19 +1,19 @@
-var { After, AfterAll } = require('cucumber');
+var { After, Before} = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
 
-let count = 0;
-let retryCount = process.env.RETRIES || 5;
+Before(async function (scenario) {
+  console.log(`Scenario name is ${scenario.pickle.name}`);
+  if (!(scenario.pickle.name in global.totalTests)) {
+    console.log(`Adding scenario to total list of scenarios`);
+    global.totalTests.push(scenario.pickle.name);
+  }
+});
+
 After(async function (scenario) {
   console.log(`Scenario results are ################ ${scenario.result.status}`);
   if (scenario.result.status === 'failed') {
-    if (count === parseInt(retryCount)) {
-      console.log('Setting global.failed to true')
-      global.failed = true;
-      count = 0;
-    }
-    count++;
     const stream = await browser.takeScreenshot();
     const decodedImage = new Buffer(stream.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64');
     this.attach(decodedImage, 'image/png');
@@ -40,6 +40,6 @@ After(async function (scenario) {
     }
   }
   if (scenario.result.status === 'passed') {
-    count = 0;
+    global.passedTests.push(scenario.pickle.name);
   }
 });
