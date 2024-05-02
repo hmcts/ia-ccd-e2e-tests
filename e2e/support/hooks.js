@@ -7,10 +7,7 @@ const config = require('../features.parallel.v2.conf').config
 
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
-  if (!config.params.totalTests.includes(test)) {
-    console.log(`Adding scenario to total list of tests`);
-    config.params.totalTests.push(test);
-  }
+  addToTotalTestsIfNotExists(test);
 });
 
 After(async function (scenario) {
@@ -44,8 +41,54 @@ After(async function (scenario) {
   }
   if (scenario.result.status === 'passed') {
     let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
-    config.params.passedTests.push(test);
+    addToPassedTests(test);
   }
-  console.log(config.params.passedTests)
-  console.log(config.params.totalTests)
 });
+
+function addToTotalTestsIfNotExists(stringVar) {
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  fs.readFile(testCounterPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading file:', err);
+      return;
+    }
+    try {
+      const counterData = JSON.parse(data);
+      if (!counterData.totalTests.includes(stringVar)) {
+        counterData.totalTests.push(stringVar);
+        fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
+          if (err) {
+            console.error('Error writing file:', err);
+            return;
+          }
+          console.log('String variable added to totalTests array:', stringVar);
+        });
+      } else {
+        console.log('String variable already exists in totalTests array:', stringVar);
+      }
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+    }
+  });
+}
+
+function addToPassedTests(stringVar) {
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  try {
+    const counterData = JSON.parse(data);
+    if (!counterData.passedTests.includes(stringVar)) {
+      counterData.passedTests.push(stringVar);
+      fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
+        if (err) {
+          console.error('Error writing file:', err);
+          return;
+        }
+        console.log('String variable added to passedTests array:', stringVar);
+      });
+    } else {
+      console.log('String variable already exists in passedTests array:', stringVar);
+    }
+  } catch (error) {
+    console.error('Error parsing JSON:', error);
+  }
+}

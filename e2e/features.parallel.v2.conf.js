@@ -4,6 +4,7 @@ const iaConfig = require('./ia.conf');
 const { generateAccessibilityReport } = require('../reporter/customReporter');
 const retry = require('protractor-retry').retry;
 const cucumberTaggedFiles = require('../cucumberTaggedFiles.json');
+const fs = require('fs');
 
 let chromeVersion = '123.0.6312.122';
 
@@ -89,7 +90,7 @@ let config = {
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
-    console.log('afterLaunch Total tests: ' + this.params.totalTests);
+    console.log('afterLaunch Total tests: ' + getTotalTestsArray());
     console.log('afterLaunch Passed tests: ' + this.params.passedTests);
     if (this.passedTests.length !== this.totalTests.length) {
       const failedTests = this.totalTests.filter(item => !this.passedTests.includes(item));
@@ -101,5 +102,17 @@ let config = {
     }
   },
 };
+
+function getTotalTestsArray() {
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  try {
+    const data = fs.readFileSync(testCounterPath, 'utf8');
+    const counterData = JSON.parse(data);
+    return counterData.totalTests;
+  } catch (err) {
+    console.error('Error reading file:', err);
+    return [];
+  }
+}
 
 exports.config = config;
