@@ -68,10 +68,11 @@ let config = {
   ],
 
   onCleanUp(results, files) {
+    console.log('results: ' + results)
     retry.onCleanUp(results, files);
   },
 
-  onPrepare: async () => {
+  onPrepare: () => {
     const caps = browser.getCapabilities();
     browser.manage().window().maximize();
     browser.waitForAngularEnabled(true);
@@ -84,7 +85,7 @@ let config = {
   onComplete: async () => {
     await generateAccessibilityReport();
   },
-  afterLaunch: async () => {
+  afterLaunch: () => {
     let passedTests = getPassedTestsArray();
     let totalTests = getTotalTestsArray();
     console.log('afterLaunch Passed tests: ' + passedTests);

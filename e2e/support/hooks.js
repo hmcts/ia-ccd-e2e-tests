@@ -6,7 +6,7 @@ let count = 0;
 
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
-  addToTotalTestsIfNotExists(test);
+  await addToTotalTestsIfNotExists(test);
 });
 
 After(async function (scenario) {
@@ -40,13 +40,13 @@ After(async function (scenario) {
   }
   if (scenario.result.status === 'passed') {
     let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
-    addToPassedTests(test);
+    await addToPassedTests(test);
   }
 });
 
-function addToTotalTestsIfNotExists(stringVar) {
+async function addToTotalTestsIfNotExists(stringVar) {
   let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
-  fs.readFile(testCounterPath, 'utf8', (err, data) => {
+  await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
       return;
@@ -55,7 +55,7 @@ function addToTotalTestsIfNotExists(stringVar) {
       const counterData = JSON.parse(data);
       if (!counterData.totalTests.includes(stringVar)) {
         counterData.totalTests.push(stringVar);
-        fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
+        await fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
           if (err) {
             console.error('Error writing file:', err);
             return;
@@ -69,11 +69,12 @@ function addToTotalTestsIfNotExists(stringVar) {
       console.error('Error parsing JSON:', error);
     }
   });
+  sleep(1000);
 }
 
-function addToPassedTests(stringVar) {
+async function addToPassedTests(stringVar) {
   let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
-  fs.readFile(testCounterPath, 'utf8', (err, data) => {
+  await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
       return;
@@ -81,7 +82,7 @@ function addToPassedTests(stringVar) {
     try {
       const counterData = JSON.parse(data);
       counterData.passedTests.push(stringVar);
-      fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
+      await fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
         if (err) {
           console.error('Error writing file:', err);
           return;
@@ -92,4 +93,14 @@ function addToPassedTests(stringVar) {
       console.error('Error parsing JSON:', error);
     }
   });
+  sleep(1000);
+}
+
+function sleep(milliseconds) {
+  let start = new Date().getTime();
+  for (let i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }
