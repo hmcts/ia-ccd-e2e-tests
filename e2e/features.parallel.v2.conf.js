@@ -81,8 +81,6 @@ let config = {
       project: path.join(__dirname, './tsconfig.e2e.json'),
     });
     retry.onPrepare();
-    process.env.PASSED_TESTS = '0';
-    process.env.TOTAL_TESTS = '0';
   },
   onComplete: async () => {
     await generateAccessibilityReport();
@@ -90,10 +88,6 @@ let config = {
   afterLaunch: () => {
     let passedTests = getPassedTestsArray();
     let totalTests = getTotalTestsArray();
-    console.log('afterLaunch Passed tests: ' + passedTests);
-    console.log('afterLaunch Total tests: ' + totalTests);
-    console.log('test total: ' + process.env.TOTAL_TESTS)
-    console.log('passed total: ' + process.env.PASSED_TESTS)
     if (passedTests.length !== totalTests.length) {
       const failedTests = totalTests.filter(item => !passedTests.includes(item));
       console.log('Tests failed including retries: ' + failedTests);
