@@ -9,6 +9,7 @@ After(async function (scenario) {
   console.log(`Scenario results are ################ ${scenario.result.status}`);
   if (scenario.result.status === 'failed') {
     if (count === parseInt(retryCount)) {
+      console.log('Setting global.failed to true')
       global.failed = true;
       count = 0;
     }
