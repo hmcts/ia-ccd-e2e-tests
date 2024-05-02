@@ -85,8 +85,7 @@ let config = {
     retry.onPrepare();
   },
   onComplete: async () => {
-    console.log('onComplete Total tests: ' + this.totalTests);
-    console.log('onComplete Passed tests: ' + this.passedTests);
+    this.totalTests = ['hello!']
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
