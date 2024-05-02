@@ -4,11 +4,14 @@ const iaConfig = require('./ia.conf');
 const { generateAccessibilityReport } = require('../reporter/customReporter');
 const retry = require('protractor-retry').retry;
 const cucumberTaggedFiles = require('../cucumberTaggedFiles.json');
-const testCounter= require('./helpers/test-counter.js').testCounter
 
 let chromeVersion = '123.0.6312.122';
 
 let config = {
+  params: {
+    totalTests: [],
+    passedTests: []
+  },
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
@@ -68,8 +71,6 @@ let config = {
   ],
 
   onCleanUp(results, files) {
-    console.log('onCleanUp Total tests: ' + testCounter.totalTests);
-    console.log('onCleanUp Passed tests: ' + testCounter.totalTests);
     retry.onCleanUp(results, files);
   },
 
@@ -84,15 +85,13 @@ let config = {
     retry.onPrepare();
   },
   onComplete: async () => {
-    console.log('onComplete Total tests: ' + testCounter.totalTests);
-    console.log('onComplete Passed tests: ' + testCounter.totalTests);
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
-    console.log('afterLaunch Total tests: ' + testCounter.totalTests);
-    console.log('afterLaunch Passed tests: ' + testCounter.totalTests);
-    if (global.passedTests.length !== global.totalTests.length) {
-      const failedTests = global.totalTests.filter(item => !global.passedTests.includes(item));
+    console.log('afterLaunch Total tests: ' + this.totalTests);
+    console.log('afterLaunch Passed tests: ' + this.passedTests);
+    if (this.passedTests.length !== this.totalTests.length) {
+      const failedTests = this.totalTests.filter(item => !this.passedTests.includes(item));
       console.log('Tests failed including retries: ' + failedTests);
       process.exit(1);
     } else {

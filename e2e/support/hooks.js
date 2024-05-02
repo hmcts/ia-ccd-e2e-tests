@@ -2,12 +2,15 @@ var { After, Before} = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
-const { testCounter } = require('../helpers/test-counter')
 let count = 0;
+const config = require('../features.parallel.v2.conf').config
 
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
-  testCounter.addToTotalTests(test);
+  if (!config.params.totalTests.includes(test)) {
+    console.log(`Adding scenario to total list of tests`);
+    config.params.totalTests.push(test);
+  }
 });
 
 After(async function (scenario) {
@@ -41,6 +44,6 @@ After(async function (scenario) {
   }
   if (scenario.result.status === 'passed') {
     let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
-    testCounter.addToPassedTests(test);
+    config.params.passedTests.push(test);
   }
 });
