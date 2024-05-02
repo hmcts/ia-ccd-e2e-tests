@@ -45,10 +45,6 @@ Then('I fail this test', function () {
   assert(false);
 });
 
-Then('I pass this test', function () {
-  assert(true);
-});
-
 Then(/^I should (see|not see) the legal representative details$/, async function (seeOrNotSee) {
   const isDisplayed = seeOrNotSee === 'see';
 
