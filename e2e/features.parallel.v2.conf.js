@@ -85,12 +85,11 @@ let config = {
     retry.onPrepare();
   },
   onComplete: async () => {
-    this.totalTests = ['hello!']
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
-    console.log('afterLaunch Total tests: ' + this.totalTests);
-    console.log('afterLaunch Passed tests: ' + this.passedTests);
+    console.log('afterLaunch Total tests: ' + this.params.totalTests);
+    console.log('afterLaunch Passed tests: ' + this.params.passedTests);
     if (this.passedTests.length !== this.totalTests.length) {
       const failedTests = this.totalTests.filter(item => !this.passedTests.includes(item));
       console.log('Tests failed including retries: ' + failedTests);
