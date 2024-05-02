@@ -1,7 +1,7 @@
 import { CcdPage } from '../../../pages/ccd.page';
 import { Then } from 'cucumber';
 import { Wait } from '../../../enums/wait';
-import { assert, expect } from 'chai';
+import { expect } from 'chai';
 import { browser } from 'protractor';
 const iaConfig = require('../../../ia.conf');
 
@@ -39,10 +39,6 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
     expect(await ccdPage.contentContains('Hearing centre', Wait.instant)).to.equal(false);
     expect(await ccdPage.contentContains('Home Office Reference/Case ID', Wait.instant)).to.equal(false);
   }
-});
-
-Then('I fail this test', function () {
-  assert(false);
 });
 
 Then(/^I should (see|not see) the legal representative details$/, async function (seeOrNotSee) {
