@@ -67,13 +67,11 @@ let config = {
   ],
 
   onCleanUp(results, files) {
-    console.log('global.totalTests value equals: ' + global.totalTests);
-    console.log('global.passedTests value equals: ' + global.passedTests);
     retry.onCleanUp(results, files);
   },
 
   onPrepare: async () => {
-    global.passedTests = 0;
+    global.passedTests = [];
     global.totalTests = [];
     const caps = browser.getCapabilities();
     browser.manage().window().maximize();
@@ -85,15 +83,14 @@ let config = {
     retry.onPrepare();
   },
   onComplete: async () => {
-    console.log('global.totalTests value equals: ' + global.totalTests);
-    console.log('global.passedTests value equals: ' + global.passedTests);
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
-    console.log('global.totalTests value equals: ' + global.totalTests);
-    console.log('global.passedTests value equals: ' + global.passedTests);
+    console.log('Total tests: ' + global.totalTests);
+    console.log('Passed tests: ' + global.passedTests);
     if (global.passedTests.length !== global.totalTests.length) {
-      console.log('Tests failed including retries.');
+      const failedTests = global.totalTests.filter(item => !global.passedTests.includes(item));
+      console.log('Tests failed including retries: ' + failedTests);
       process.exit(1);
     } else {
       console.log('Tests passed after retries.');

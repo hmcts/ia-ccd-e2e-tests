@@ -199,7 +199,7 @@ When(/^I click the `Continue` button for flakey Make an application$/, async fun
 
 When(/^I click the `?([^`]+)`? button if present$/, async function (linkText) {
   await ccdPage.waitForSpinner();
-  await ccdPage.clickIfVisible(linkText);
+  await ccdPage.clickButtonIfVisible(linkText);
 });
 When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
   await ccdPage.waitForSpinner();

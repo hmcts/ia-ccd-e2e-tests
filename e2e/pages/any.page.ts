@@ -313,12 +313,13 @@ export class AnyPage {
     await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 60000, 'Spinner did not stop.');
   }
 
-  async clickIfVisible(linkText) {
-    let EC = protractor.ExpectedConditions;
-    let visible = await EC.visibilityOf(element(by.xpath('//button[text()="' + linkText + '"]')));
-    if (visible) {
-      element(by.xpath('//button[text()="' + linkText + '"]')).click();
-    }
+  async clickButtonIfVisible(linkText: string) {
+    let button = element(by.xpath('//button[text()="' + linkText + '"]'));
+    try {
+      await BrowserWaits.waitForElement(button);
+      await BrowserWaits.waitForelementToBeClickable(button);
+      await button.click();
+    } catch {}
   }
 
   async createCaseClickable() {

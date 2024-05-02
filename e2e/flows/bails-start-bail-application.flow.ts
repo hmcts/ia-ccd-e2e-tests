@@ -599,11 +599,9 @@ export class StartBailApplicationFlow {
 
     if (clickContinue) {
       try {
+        await this.ccdFormPage.waitForCssElementVisible('#confirmation-body');
         await this.ccdFormPage.click('Close and Return to case details');
-      } catch {
-        await this.ccdFormPage.click('Close and Return to case details');
-      } finally {}
-
+      } catch {}
     }
   }
 

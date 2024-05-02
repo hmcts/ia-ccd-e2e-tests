@@ -42,6 +42,7 @@ After(async function (scenario) {
     }
   }
   if (scenario.result.status === 'passed') {
-    global.passedTests++;
+    let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
+    global.passedTests.push(test);
   }
 });
