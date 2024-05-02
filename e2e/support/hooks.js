@@ -73,9 +73,13 @@ async function addToTotalTestsIfNotExists(stringVar) {
 
 async function addToPassedTests(stringVar) {
   let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
-  try {
-    const counterData = JSON.parse(data);
-    if (!counterData.passedTests.includes(stringVar)) {
+  await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
+    if (err) {
+      console.error('Error reading file:', err);
+      return;
+    }
+    try {
+      const counterData = JSON.parse(data);
       counterData.passedTests.push(stringVar);
       await fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
         if (err) {
@@ -84,10 +88,8 @@ async function addToPassedTests(stringVar) {
         }
         console.log('String variable added to passedTests array:', stringVar);
       });
-    } else {
-      console.log('String variable already exists in passedTests array:', stringVar);
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
     }
-  } catch (error) {
-    console.error('Error parsing JSON:', error);
-  }
+  });
 }

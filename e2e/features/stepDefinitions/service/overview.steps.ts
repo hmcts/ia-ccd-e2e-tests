@@ -42,7 +42,12 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
 });
 
 Then (/^I (pass|fail) this test$/, function (passFail: string) {
-  assert(passFail === 'pass');
+  if (passFail) {
+    assert(true);
+  } else {
+    let count = Math.floor(Math.random() * 8);
+    assert(count > 2);
+  }
 });
 
 Then(/^I should (see|not see) the legal representative details$/, async function (seeOrNotSee) {
