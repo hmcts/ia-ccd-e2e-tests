@@ -183,6 +183,10 @@ Given(/^I switch to be a `?(?:Home Office Bails)`?$/, async function () {
   await authenticationFlow.signInAsHomeOfficeBails();
   await browser.sleep(100);
   await ccdPage.get(caseUrl);
+  await browser.sleep(7000);
+  if (!(await ccdPage.overViewContains('Overview'))) {
+    await ccdPage.get(caseUrl);
+  }
 });
 
 Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
