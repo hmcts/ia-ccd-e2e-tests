@@ -6,10 +6,10 @@ let count = 0;
 const config = require('../features.parallel.v2.conf').config
 
 Before(async function (scenario) {
-  let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
-  if (!config.params.totalTests.includes(test)) {
+  let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
+  if (!browser.params.totalTests.includes(test)) {
     console.log(`Adding scenario to total list of tests`);
-    config.params.totalTests.push(test);
+    browser.params.totalTests.push(test);
   }
 });
 
@@ -43,9 +43,9 @@ After(async function (scenario) {
     }
   }
   if (scenario.result.status === 'passed') {
-    let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
-    config.params.passedTests.push(test);
+    let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
+    browser.params.passedTests.push(test);
   }
-  console.log(config.params.passedTests)
-  console.log(config.params.totalTests)
+  console.log(browser.params.passedTests)
+  console.log(browser.params.totalTests)
 });

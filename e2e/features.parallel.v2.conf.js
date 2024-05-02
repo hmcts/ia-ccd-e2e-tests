@@ -4,6 +4,7 @@ const iaConfig = require('./ia.conf');
 const { generateAccessibilityReport } = require('../reporter/customReporter');
 const retry = require('protractor-retry').retry;
 const cucumberTaggedFiles = require('../cucumberTaggedFiles.json');
+const { browser } = require("protractor");
 
 let chromeVersion = '123.0.6312.122';
 
@@ -88,8 +89,8 @@ let config = {
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
-    console.log('afterLaunch Total tests: ' + this.params.totalTests);
-    console.log('afterLaunch Passed tests: ' + this.params.passedTests);
+    console.log('afterLaunch Total tests: ' + browser.params.totalTests);
+    console.log('afterLaunch Passed tests: ' + browser.params.passedTests);
     if (this.passedTests.length !== this.totalTests.length) {
       const failedTests = this.totalTests.filter(item => !this.passedTests.includes(item));
       console.log('Tests failed including retries: ' + failedTests);
