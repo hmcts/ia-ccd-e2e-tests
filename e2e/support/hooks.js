@@ -6,6 +6,7 @@ let count = 0;
 
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
+  process.env.TOTAL_TESTS = (parseInt(process.env.TOTAL_TESTS) + 1).toString();
   await addToTotalTestsIfNotExists(test);
 });
 
@@ -39,6 +40,7 @@ After(async function (scenario) {
     }
   }
   if (scenario.result.status === 'passed') {
+    process.env.PASSED_TESTS = (parseInt(process.env.PASSED_TESTS) + 1).toString();
     let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
     await addToPassedTests(test);
   }
