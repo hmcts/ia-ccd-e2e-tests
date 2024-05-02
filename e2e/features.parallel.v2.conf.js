@@ -67,6 +67,7 @@ let config = {
   ],
 
   onCleanUp(results, files) {
+    console.log('global.totalTests value equals: ' + global.totalTests);
     console.log('global.passedTests value equals: ' + global.passedTests);
     retry.onCleanUp(results, files);
   },
@@ -84,10 +85,12 @@ let config = {
     retry.onPrepare();
   },
   onComplete: async () => {
+    console.log('global.totalTests value equals: ' + global.totalTests);
     console.log('global.passedTests value equals: ' + global.passedTests);
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
+    console.log('global.totalTests value equals: ' + global.totalTests);
     console.log('global.passedTests value equals: ' + global.passedTests);
     if (global.passedTests.length !== global.totalTests.length) {
       console.log('Tests failed including retries.');

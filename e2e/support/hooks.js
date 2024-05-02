@@ -2,6 +2,7 @@ var { After, Before} = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
+let count = 0;
 
 Before(async function (scenario) {
   console.log(`Scenario name is ${scenario.pickle.name}`);
@@ -14,6 +15,7 @@ Before(async function (scenario) {
 After(async function (scenario) {
   console.log(`Scenario results are ################ ${scenario.result.status}`);
   if (scenario.result.status === 'failed') {
+    count++;
     const stream = await browser.takeScreenshot();
     const decodedImage = new Buffer(stream.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64');
     this.attach(decodedImage, 'image/png');
