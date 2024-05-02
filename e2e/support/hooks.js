@@ -6,7 +6,7 @@ let count = 0;
 
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
-  await addToTotalTestsIfNotExists(test);
+  addToTotalTestsIfNotExists(test);
 });
 
 After(async function (scenario) {
@@ -40,13 +40,13 @@ After(async function (scenario) {
   }
   if (scenario.result.status === 'passed') {
     let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
-    await addToPassedTests(test);
+    addToPassedTests(test);
   }
 });
 
-async function addToTotalTestsIfNotExists(stringVar) {
+function addToTotalTestsIfNotExists(stringVar) {
   let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
-  await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
+  fs.readFile(testCounterPath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
       return;
@@ -55,7 +55,7 @@ async function addToTotalTestsIfNotExists(stringVar) {
       const counterData = JSON.parse(data);
       if (!counterData.totalTests.includes(stringVar)) {
         counterData.totalTests.push(stringVar);
-        await fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
+        fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
           if (err) {
             console.error('Error writing file:', err);
             return;
@@ -71,9 +71,9 @@ async function addToTotalTestsIfNotExists(stringVar) {
   });
 }
 
-async function addToPassedTests(stringVar) {
+function addToPassedTests(stringVar) {
   let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
-  await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
+  fs.readFile(testCounterPath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
       return;
@@ -81,7 +81,7 @@ async function addToPassedTests(stringVar) {
     try {
       const counterData = JSON.parse(data);
       counterData.passedTests.push(stringVar);
-      await fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
+      fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
         if (err) {
           console.error('Error writing file:', err);
           return;
