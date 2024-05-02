@@ -28,7 +28,7 @@ let config = {
   },
 
   directConnect: true,
-  chromeDriver: '/Users/nilay/hmcts/iac/ia-ccd-e2e-tests/chromedriver/mac_arm-123.0.6312.122/chromedriver-mac-arm64/chromedriver',
+  chromeDriver: process.cwd() + '/chromedriver/linux-' + chromeVersion + '/chromedriver-linux64/chromedriver',
 
   specs: cucumberTaggedFiles,
 
@@ -43,7 +43,7 @@ let config = {
       platform: 'macOS 10.13',
       chromeOptions: {
         args: ['--disable-dev-shm-usage', '--disable-gpu', '--no-sandbox', iaConfig.UseHeadlessBrowser ? '--headless' : '--noop', iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'],
-        binary: '/Users/nilay/hmcts/iac/ia-ccd-e2e-tests/chrome/mac_arm-123.0.6312.122/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing',
+        binary: process.cwd() + '/chrome/linux-' + chromeVersion + '/chrome-linux64/chrome',
       },
       name: 'ia-chrome-mac-test',
       extendedDebugging: true,
