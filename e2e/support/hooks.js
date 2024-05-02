@@ -5,7 +5,7 @@ const path = require('path');
 let count = 0;
 
 Before(async function (scenario) {
-  let test = `${scenario.sourceLocation.uri}:${scenario.pickle.name}::${scenario.sourceLocation.line}`
+  let test = `${scenario.sourceLocation.uri}::${scenario.pickle.name}:${scenario.sourceLocation.line}`
   if (!global.totalTests.includes(test)) {
     console.log(`Adding scenario to total list of scenarios`);
     global.totalTests.push(test);
