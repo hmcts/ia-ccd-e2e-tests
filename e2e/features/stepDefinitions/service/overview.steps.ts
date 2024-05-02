@@ -46,7 +46,7 @@ Then (/^I (pass|fail) this test$/, function (passFail: string) {
     assert(true);
   } else {
     let count = Math.floor(Math.random() * 8);
-    assert(count > 2);
+    assert(count < 3);
   }
 });
 
