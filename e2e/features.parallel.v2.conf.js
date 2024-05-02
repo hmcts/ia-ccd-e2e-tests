@@ -9,10 +9,6 @@ const fs = require('fs');
 let chromeVersion = '123.0.6312.122';
 
 let config = {
-  params: {
-    totalTests: [],
-    passedTests: []
-  },
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
@@ -86,12 +82,10 @@ let config = {
     retry.onPrepare();
   },
   onComplete: async () => {
-    this.params.totalTests = ['hello!']
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
     console.log('afterLaunch Total tests: ' + getTotalTestsArray());
-    console.log('afterLaunch Passed tests: ' + this.params.passedTests);
     if (this.passedTests.length !== this.totalTests.length) {
       const failedTests = this.totalTests.filter(item => !this.passedTests.includes(item));
       console.log('Tests failed including retries: ' + failedTests);
