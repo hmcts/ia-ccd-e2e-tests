@@ -73,7 +73,7 @@ let config = {
   },
 
   onPrepare: async () => {
-    global.passedTests = [];
+    global.passedTests = 0;
     global.totalTests = [];
     const caps = browser.getCapabilities();
     browser.manage().window().maximize();
