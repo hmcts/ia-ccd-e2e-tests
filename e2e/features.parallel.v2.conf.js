@@ -85,9 +85,12 @@ let config = {
     await generateAccessibilityReport();
   },
   afterLaunch: async () => {
-    console.log('afterLaunch Total tests: ' + getTotalTestsArray());
-    if (this.passedTests.length !== this.totalTests.length) {
-      const failedTests = this.totalTests.filter(item => !this.passedTests.includes(item));
+    let passedTests = getPassedTestsArray();
+    let totalTests = getTotalTestsArray();
+    console.log('afterLaunch Passed tests: ' + passedTests);
+    console.log('afterLaunch Total tests: ' + totalTests);
+    if (passedTests.length !== totalTests.length) {
+      const failedTests = totalTests.filter(item => !passedTests.includes(item));
       console.log('Tests failed including retries: ' + failedTests);
       process.exit(1);
     } else {
@@ -103,6 +106,18 @@ function getTotalTestsArray() {
     const data = fs.readFileSync(testCounterPath, 'utf8');
     const counterData = JSON.parse(data);
     return counterData.totalTests;
+  } catch (err) {
+    console.error('Error reading file:', err);
+    return [];
+  }
+}
+
+function getPassedTestsArray() {
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  try {
+    const data = fs.readFileSync(testCounterPath, 'utf8');
+    const counterData = JSON.parse(data);
+    return counterData.passedTests;
   } catch (err) {
     console.error('Error reading file:', err);
     return [];
