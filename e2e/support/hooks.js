@@ -5,10 +5,10 @@ const path = require('path');
 let count = 0;
 
 Before(async function (scenario) {
-  console.log(`Scenario name is ${scenario.pickle.name}`);
-  if (!(scenario.pickle.name in global.totalTests)) {
+  let test = `${scenario.sourceLocation.uri}:${scenario.pickle.name}`
+  if (!global.totalTests.includes(test)) {
     console.log(`Adding scenario to total list of scenarios`);
-    global.totalTests.push(scenario.pickle.name);
+    global.totalTests.push(test);
   }
 });
 
@@ -20,12 +20,12 @@ After(async function (scenario) {
     const decodedImage = new Buffer(stream.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64');
     this.attach(decodedImage, 'image/png');
     let folderPath = `${process.cwd()}/reports/tests/failedScreenshots/${scenario.pickle.name}`;
-    fs.mkdir(folderPath, { recursive: true }, (err) => {
+    await fs.mkdir(folderPath, { recursive: true }, (err) => {
       if (err) {
         console.error(`Error creating failed screenshot folder: ${scenario.pickle.name}`, err);
       }
     });
-    fs.writeFileSync(path.join(folderPath, `failedScreenshot${count}.png`), decodedImage, { encoding: 'base64' });
+    await fs.writeFileSync(path.join(folderPath, `failedScreenshot${count}.png`), decodedImage, { encoding: 'base64' });
 
     //fetch browser logs
     let browserLog = await browser.manage().logs().get('browser');
