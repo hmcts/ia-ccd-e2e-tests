@@ -42,7 +42,7 @@ let config = {
         args: ['--disable-dev-shm-usage', '--disable-gpu', '--no-sandbox', iaConfig.UseHeadlessBrowser ? '--headless' : '--noop', iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'],
         binary: process.cwd() + '/chrome/linux-' + chromeVersion + '/chrome-linux64/chrome',
       },
-      name: 'ia-chrome-mac-test',
+      name: 'ia-chrome-linux-test',
       extendedDebugging: true,
       sharedTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
       shardTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
