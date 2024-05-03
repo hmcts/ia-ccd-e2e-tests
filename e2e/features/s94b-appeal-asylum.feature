@@ -4,7 +4,7 @@ Feature: s94b appeal
         Given I am signed in as a `Legal Org User Rep A`
         And I create a new case
 
-    @regression @caseflag @nightly-test
+    @regression @caseflag @appeal-nightly-test
     Scenario: S94B appeal for PA Case
         And I save my initial PA appeal type without remission and with hearing fee and pay now
         And I click the `Close and Return to case details` button if present
@@ -27,7 +27,7 @@ Feature: s94b appeal
         When I goto the `Appeal` tab
         And I should see `Yes` in the `S94B appeal` field
 
-    @regression @caseflag @nightly-test
+    @regression @caseflag @appeal-nightly-test
     Scenario: S94B appeal for RP Case
         And I save my initial EA appeal type without remission and with hearing fee and pay now
         And I click the `Close and Return to case details` button if present

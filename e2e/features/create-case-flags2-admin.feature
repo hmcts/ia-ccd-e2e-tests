@@ -8,7 +8,7 @@ Feature: Create and manage Case Flags For Admin
         Then I should be on the overview page
         And I pay for and submit my appeal by Card
 
-    @nightly-test @caseflag
+    @appeal-nightly-test @caseflag
     Scenario: Create a case Flag
         And I switch to be a `Admin Officer`
         When I select the `Create Flag` Next step
@@ -18,7 +18,7 @@ Feature: Create and manage Case Flags For Admin
         Then I should see the text `Case level flags`
         Then I should see the text `Complex Case`
 
-    @nightly-test @caseflag
+    @appeal-nightly-test @caseflag
     Scenario: Create a case Flag and make In Active
         And I switch to be a `Admin Officer`
         When I select the `Create Flag` Next step

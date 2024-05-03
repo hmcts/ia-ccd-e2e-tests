@@ -11,7 +11,7 @@ Feature: Request respondent evidence
     And I check the case has been paid for
     And I request home office data
 
-  @regression @create-direction @RIA-892 @RIA-2694 @nightly-test
+  @regression @create-direction @RIA-892 @RIA-2694 @appeal-nightly-test
   Scenario: Request respondent evidence
 
     And I click the `Overview` tab

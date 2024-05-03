@@ -8,7 +8,7 @@ Feature: End appeal
     Then I should be on the overview page
     And I pay for and submit my appeal by Card
 
-  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test 
+  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @appeal-nightly-test
   Scenario: End appeal after submit appeal case officer
 
     And I switch to be a `Case Officer`

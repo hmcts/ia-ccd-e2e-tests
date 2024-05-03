@@ -27,7 +27,7 @@ Feature: Out of Country - Start appeal
     When I click the `Overview` tab
     Then I should see `Yes` for the `Out of country` field
 
-  @start-appeal-out-of-country-sponsor @RIA-3851 @nightly-test1
+  @start-appeal-out-of-country-sponsor @RIA-3851
   Scenario: Select sponsor for Out of country
     And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes`
     And I submit my nonpayment appeal

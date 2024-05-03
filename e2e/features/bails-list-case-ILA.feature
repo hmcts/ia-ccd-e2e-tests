@@ -6,7 +6,7 @@ Feature: Bails Send direction
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
-  @bails-full @nightly-test @fix-test
+  @bails-full @bail-nightly-test @fix-test
   Scenario: List case via ILA
     When I switch to be a `Admin Officer Bails`
     Then I should see the text `Please Confirm location where Applicant is detained is correct, and they are held on immigration matters, before listing the case for hearing in List Assist.`
