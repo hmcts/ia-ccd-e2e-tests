@@ -30,7 +30,7 @@ Feature: Bails Add a case flag to bails application
         And I click the `Complex Case` label
         And I click the `Next` button
         Then I should see the text `Add comments for this flag (optional)`
-        And I type `Test Complex case` from the field with ID `flagComment`
+        And I type `Test Complex case` from the field with ID `flagComments`
         And I click the `Next` button
         Then I am on the `Review flag details` page
         And I click the `Create Flag` button

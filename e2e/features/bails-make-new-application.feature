@@ -80,7 +80,7 @@ Feature: Bails Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test @bail-nightly-test @fix-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test @bail-nightly-test
   Scenario: Make new application as Admin Officer after ended application with case note
     When I switch to be a `Admin Officer Bails`
     And I add a case note for application `1`

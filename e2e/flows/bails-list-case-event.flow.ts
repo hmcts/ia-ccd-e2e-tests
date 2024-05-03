@@ -9,7 +9,7 @@ export class ListCaseThroughEvent {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Listing event', 'Initial listing');
     await this.ccdFormPage.setFieldValue('Location', 'Manchester');
-    await this.ccdFormPage.setFieldValue('Length in minutes', '100');
+    await element(by.css('#listingHearingDuration')).sendKeys('100');
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
     await browser.sleep(1000);
 

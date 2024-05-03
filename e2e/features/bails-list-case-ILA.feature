@@ -1,4 +1,4 @@
-Feature: Bails Send direction
+Feature: Bails List Case
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
     And I create a new bail application
@@ -22,7 +22,7 @@ Feature: Bails Send direction
     Then I should see an alert confirming the case `has been updated with event: Confirm detention location`
     And I should see the text `You must now add any case flags for interpreter or hearing requirement.`
     When I click the `Hearings` tab
-    Then I should see the text `Request a hearing`
+    Then I should see the text `Current and upcoming`
     When I click the `Request a hearing` button
     Then I should see the text `Request a hearing for Harri Pugh`
     And The page is accessible
@@ -58,4 +58,5 @@ Feature: Bails Send direction
     When I click the `view the status of this hearing in the hearings tab` link
     Then I should see the hearings tab
     And I should see the text `Current and upcoming`
+    And I should see the `View details` link
 
