@@ -147,7 +147,7 @@ withNightlyPipeline("nodejs", product, component) {
                 try {
                     yarnBuilder.yarn("test:setupFunctional")
                     script {
-                        "node e2e/cucumberTagSearcher.js ${params.SPECIFIC_TAGS}; protractor e2e/features.parallel.v2.conf.js --cucumberOpts.tags=${params.SPECIFIC_TAGS}"
+                        sh "node e2e/cucumberTagSearcher.js ${params.SPECIFIC_TAGS}; protractor e2e/features.parallel.v2.conf.js --cucumberOpts.tags=${params.SPECIFIC_TAGS}"
                     }
                 } catch (Error) {
                     unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
@@ -158,18 +158,9 @@ withNightlyPipeline("nodejs", product, component) {
                             keepAll              : true,
                             reportDir            : "reports/tests/functional/",
                             reportFiles          : 'index.html',
-                            reportName           : 'IAC - Bail E2E Test Report'
+                            reportName           : "IAC - ${params.SPECIFIC_TAGS} E2E Test Report"
                     ])
-                    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
-                    publishHTML([
-                            allowMissing         : true,
-                            alwaysLinkToLastBuild: true,
-                            keepAll              : true,
-                            reportDir            : "reports/tests/",
-                            reportFiles          : 'a11y.html',
-                            reportName           : 'IAC - Bail a11y Test Report'
-                    ])
                 }
             }
         }
