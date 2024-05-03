@@ -146,7 +146,9 @@ withNightlyPipeline("nodejs", product, component) {
             stage('Specifically Tagged Full Functional Tests') {
                 try {
                     yarnBuilder.yarn("test:setupFunctional")
-                    sh(echo "it worked! specific tag is this: ${params.SPECIFIC_TAGS}")
+                    script {
+                        echo("it worked! specific tag is this: ${params.SPECIFIC_TAGS}")
+                    }
                 } catch (Error) {
                     unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
