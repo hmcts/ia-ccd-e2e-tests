@@ -37,5 +37,13 @@ Feature: Bails Add a case flag to bails application
         Then I should see an alert confirming the case `has been updated with event: Create Flag`
         And I should see the text `There is 1 active flag on this case.`
         When I select the `Manage Flags` Next step
-        And I will make `Complex Case` as In Active
+        Then I should see the text `Manage case flags`
+        When I click the `Case level - Complex Case (Test Complex case)` label
+        And I click the `Next` button
+        Then I should see the text `Update flag "Complex Case"`
+        When I click the `Make inactive` button
+        And I click the `Next` button
+        Then I should see the text `Review flag details`
+        When I click the `Manage Flags` button
         Then I should see an alert confirming the case `has been updated with event: Manage Flags`
+        And I should not see the text `There is 1 active flag on this case.`
