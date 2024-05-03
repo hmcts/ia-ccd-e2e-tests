@@ -68,7 +68,6 @@ let config = {
   ],
 
   onCleanUp(results, files) {
-    console.log('results: ' + results)
     retry.onCleanUp(results, files);
   },
 
