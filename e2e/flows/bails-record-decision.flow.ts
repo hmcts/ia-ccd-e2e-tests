@@ -65,7 +65,7 @@ export class RecordDecision {
     async completeReleaseStatus(clickContinue = false, releaseStatusYesOrNo) {
         await this.ccdFormPage.runAccessbility();
         await browser.sleep(this.waitTime);
-        await this.ccdFormPage.setFieldValue('Will the applicant be released with immediate effect?', releaseStatusYesOrNo);
+        await this.ccdFormPage.setFieldValue('Will the applicant be released with immediate effect? This includes a situation where the individual will be subject to electronic monitoring.', releaseStatusYesOrNo);
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }
