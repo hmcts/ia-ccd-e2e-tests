@@ -142,7 +142,7 @@ withNightlyPipeline("nodejs", product, component) {
                 }
             }
         }
-        if (params.SPECIFIC_TAGS !== '') {
+        if (params.SPECIFIC_TAGS != '') {
             stage('Specifically Tagged Full Functional Tests') {
                 try {
                     yarnBuilder.yarn("test:setupFunctional")
