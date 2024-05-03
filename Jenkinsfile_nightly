@@ -6,12 +6,11 @@ properties([
         booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-        string(name: 'sleepTimer', defaultValue: "0", description: 'Wait x seconds until the pipeline is run'),
         string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
         string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
         string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
         string(name: 'RETRIES', defaultValue: '5', description: 'The number of retries to set for tests'),
-        string(name: 'NIGHTLY_TAG', defaultValue: '--cucumberOpts.tags=@nightly-test', description: 'Tag for nightly build'),
+        string(name: 'SPECIFIC_TAGS', defaultValue: '', description: 'Tag for a specific run of tests'),
     ])
 ])
 
@@ -77,9 +76,6 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
 withNightlyPipeline("nodejs", product, component) {
-    script {
-        sleep(params.sleepTimer)
-    }
     loadVaultSecrets(secrets)
 
     env.TEST_E2E_URL_WEB = params.URL_TO_TEST
@@ -122,6 +118,35 @@ withNightlyPipeline("nodejs", product, component) {
             stage('Bail Full Functional Tests') {
                 try {
                     yarnBuilder.yarn("test:bailFullfunctional")
+                } catch (Error) {
+                    unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
+                } finally {
+                    publishHTML([
+                            allowMissing         : true,
+                            alwaysLinkToLastBuild: true,
+                            keepAll              : true,
+                            reportDir            : "reports/tests/functional/",
+                            reportFiles          : 'index.html',
+                            reportName           : 'IAC - Bail E2E Test Report'
+                    ])
+                    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
+                    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
+                    publishHTML([
+                            allowMissing         : true,
+                            alwaysLinkToLastBuild: true,
+                            keepAll              : true,
+                            reportDir            : "reports/tests/",
+                            reportFiles          : 'a11y.html',
+                            reportName           : 'IAC - Bail a11y Test Report'
+                    ])
+                }
+            }
+        }
+        if (params.SPECIFIC_TAGS !== '') {
+            stage('Specifically Tagged Full Functional Tests') {
+                try {
+                    yarnBuilder.yarn("test:setupFunctional")
+                    sh(echo "it worked! specific tag is this: ${params.SPECIFIC_TAGS}")
                 } catch (Error) {
                     unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
