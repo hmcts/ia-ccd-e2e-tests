@@ -22,7 +22,7 @@ Feature: Bails List Case
     Then I should see an alert confirming the case `has been updated with event: Confirm detention location`
     And I should see the text `You must now add any case flags for interpreter or hearing requirement.`
     When I click the `Hearings` tab
-    Then I should see the text `Current and upcoming`
+    Then I should see the `Request a hearing` button
     When I click the `Request a hearing` button
     Then I should see the text `Request a hearing for Harri Pugh`
     And The page is accessible
