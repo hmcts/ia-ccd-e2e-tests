@@ -10,7 +10,6 @@ Feature: Bails Make new application
   Scenario: Make new application as Admin Officer after conditional grant decided
     And I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
-    And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
     And I move the application to decided
