@@ -108,8 +108,6 @@ Feature: Bails Make new application
 
   @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test @bail-nightly-test @fix-test
   Scenario: Make new application as Home Office after conditional grant decided
-    And I switch to be a `Admin Officer Bails`
-    And I list the bails case through Case Listing event
     When I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
     And I switch to be a `Home Office Bails`
