@@ -143,15 +143,19 @@ export class NoticeOfChangePage {
     browser.driver.findElement(By.xpath("//*[@id='NoCChallengeQ2']")).sendKeys(`Pughes`);
   }
 
-  async enterBailsDateOfBirth(shortWait = false) {
-    browser.driver.findElement(By.xpath("//*[@id='id(){return this.idPrefix+this.questionField.question_id}-day']")).sendKeys(`31`);
-    browser.driver.findElement(By.xpath("//*[@id='id(){return this.idPrefix+this.questionField.question_id}-month']")).sendKeys(`12`);
-    browser.driver.findElement(By.xpath("//*[@id='id(){return this.idPrefix+this.questionField.question_id}-year']")).sendKeys(`1999`);
+  async enterBailsDateOfBirth() {
+    let elements = element(by.css('exui-noc-date-field')).all(by.css('input.form-control.govuk-input.govuk-input--width-10.ng-untouched.ng-pristine.ng-invalid'));
+    expect(elements.count).toEqual(3);
+    await elements.get(0).sendKeys(`31`);
+    await elements.get(1).sendKeys(`12`);
+    await elements.get(2).sendKeys(`1999`);
   }
 
-  async enterBailsIncorrectDateOfBirth(shortWait = false) {
-    browser.driver.findElement(By.xpath("//*[@id='function(){return this.idPrefix+this.questionField.question_id}-day']")).sendKeys(`10`);
-    browser.driver.findElement(By.xpath("//*[@id='function(){return this.idPrefix+this.questionField.question_id}-month']")).sendKeys(`02`);
-    browser.driver.findElement(By.xpath("//*[@id='function(){return this.idPrefix+this.questionField.question_id}-year']")).sendKeys(`1999`);
+  async enterBailsIncorrectDateOfBirth() {
+    let elements = element(by.css('exui-noc-date-field')).all(by.css('input.form-control.govuk-input.govuk-input--width-10.ng-untouched.ng-pristine.ng-invalid'));
+    expect(elements.count).toEqual(3);
+    await elements.get(0).sendKeys(`10`);
+    await elements.get(1).sendKeys(`02`);
+    await elements.get(2).sendKeys(`1999`);
   }
 }
