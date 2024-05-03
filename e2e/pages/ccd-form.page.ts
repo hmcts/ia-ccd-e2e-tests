@@ -49,6 +49,10 @@ export class CcdFormPage extends CcdPage {
     await element(By.css(`#${ID}`)).sendKeys(text);
   }
 
+  async clickElement(ID: string) {
+    await element(By.css(`#${ID}`)).click();
+  }
+
   async typeEnter(ID: string) {
     browser.driver.findElement(By.xpath(`//*[@id='${ID}']`));
     browser.actions().sendKeys(protractor.Key.ENTER).perform();
