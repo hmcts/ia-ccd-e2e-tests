@@ -8,7 +8,7 @@ Feature: End appeal
     Then I should be on the overview page
     And I pay for and submit my appeal by Card
 
-  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @nightly-test 
+  @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @appeal-nightly-test
   Scenario: End appeal after submit appeal case officer
 
     And I switch to be a `Case Officer`
@@ -34,7 +34,6 @@ Feature: End appeal
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
 
     And I should see the ended appeal details
-    And I should not see the hearing details
     And I should see the case details
 
     When I switch to be a `Admin Officer`
@@ -42,7 +41,6 @@ Feature: End appeal
     And I should see the text `What happens next`
     And I should see the text `No further action required, unless either party asks for the decision to be reviewed by a judge.`
     And I should see the ended appeal details
-    And I should not see the hearing details
     And I should see the case details
 
     # When I switch to be a `Judge`

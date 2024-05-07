@@ -186,9 +186,20 @@ When(/^I click the `?([^`]+)`? (?:button|link|tab|label)$/, async function (link
     await ccdPage.click(linkText);
   }
 });
+
+When(/^I click the `Continue` button for flakey Make an application$/, async function () {
+  await ccdPage.waitForSpinner();
+  try {
+    await ccdPage.click('Continue', 0, 120000);
+  } catch {
+    await ccdPage.waitForCssElementVisible('div.error-summary');
+    await ccdPage.click('Continue');
+  }
+});
+
 When(/^I click the `?([^`]+)`? button if present$/, async function (linkText) {
   await ccdPage.waitForSpinner();
-  await ccdPage.clickIfVisible(linkText);
+  await ccdPage.clickButtonIfVisible(linkText);
 });
 When(/^I goto the `?([^`]+)`? (?:button|link|tab|label)$/, async function (linkText) {
   await ccdPage.waitForSpinner();
@@ -274,7 +285,7 @@ Given('I restart the browser', async function () {
 Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
   await ccdFormPage.click('Next');
-  await ccdFormPage.typeText(`flagComment`, `test case flage make it inactive`);
+  await ccdFormPage.typeText(`flagComments`, `test case flage make it inactive`);
   await ccdFormPage.click('Make inactive');
   await ccdFormPage.click('Next');
   await ccdFormPage.click('Manage Flags');
@@ -297,7 +308,5 @@ Then(/^I will update s94b flag$/, async function () {
 });
 
 Given('I wait for the spinner', async function () {
-  let EC = protractor.ExpectedConditions;
-  await browser.wait(EC.presenceOf(element(by.css('div.spinner'))), 5000, 'Spinner element taking too long to appear in the DOM');
   await ccdPage.waitForSpinner();
 });

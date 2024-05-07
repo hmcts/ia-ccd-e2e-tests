@@ -8,7 +8,7 @@ Feature: Upload additional evidence Home Office
     Then I should be on the overview page
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
-    And I wait for 2 seconds
+    And I check the case has been paid for
 #    And I request home office data
     And I request respondent evidence
     And I wait for 5 seconds
@@ -17,7 +17,7 @@ Feature: Upload additional evidence Home Office
     And I wait for 5 seconds
     And I build my case
 
-  @regression @upload-additional-evidence-home-office @RIA-1278 @nightly-test
+  @regression @upload-additional-evidence-home-office @RIA-1278 @appeal-nightly-test
   Scenario: Upload additional evidence Home Office to the case
 
     When I switch to be a `Home Office APC`

@@ -7,7 +7,7 @@ Feature: Submit appeal application
     And I click the `Close and Return to case details` button if present
     Then I should be on the overview page
 
-  @nightly-test
+  @appeal-nightly-test
   Scenario: Submit an appeal application
 
     And I select the `Submit your appeal` Next step

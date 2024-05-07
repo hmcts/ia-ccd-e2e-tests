@@ -8,7 +8,7 @@ Feature: Final display for FTPA decision and reasons
     Then I should be on the overview page
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
-    And I wait for 2 seconds
+    And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
     And I upload respondent evidence
@@ -71,7 +71,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
-  @RIA-2919 @RIA-2919-scenario1 @nightly-test
+  @RIA-2919 @RIA-2919-scenario1 @appeal-nightly-test
   #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 

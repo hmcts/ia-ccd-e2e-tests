@@ -10,7 +10,7 @@ Feature: Notice of Change (common component)
     And I pay for and submit my appeal by Card
     And I get the most recent case id for the notice of change case
 
-  @notice-of-change @noc-incorrect-answers-same-org @noc-incorrect-firstname-same-org @RIA-3745 @nightly-test
+  @notice-of-change @noc-incorrect-answers-same-org @noc-incorrect-firstname-same-org @RIA-3745 @appeal-nightly-test
   Scenario: NoC request as a user from the same organisation (incorrect firstname anwser)
 
     When I switch to be a `Legal Org User Rep B`
@@ -90,7 +90,7 @@ Feature: Notice of Change (common component)
     And I click the `Back` link
     And I click the `Back` link
 
-  @notice-of-change @noc-correct-answers-different-org @RIA-3745 @nightly-test
+  @notice-of-change @noc-correct-answers-different-org @RIA-3745 @appeal-nightly-test
   Scenario: NoC request as a user from a different organisation (correct answers)
 
     When I am signed in as a `Legal Org User Rep C`
@@ -113,6 +113,6 @@ Feature: Notice of Change (common component)
 
     Given I am signed in as a `Legal Org User Rep A`
     When I enter the removed case id in the url
-    Then I should see the text `No cases found. Try using different filters.`
+    Then I should be redirected to the case list page
 
 

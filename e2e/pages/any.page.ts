@@ -42,7 +42,7 @@ export class AnyPage {
     }
   }
 
-  async click(linkText: string, xpathIndex = 0) {
+  async click(linkText: string, xpathIndex = 0, waitForNavigationTime?: number) {
     const expandedLinkText = await this.valueExpander.expand(linkText);
 
     const buttonPath = '//button[normalize-space()="' + expandedLinkText + '"]';
@@ -75,7 +75,7 @@ export class AnyPage {
       let thisPageUrl = await browser.getCurrentUrl();
       await button.click();
       if (linkText === 'Continue') {
-        await this.waitForPageNavigation(thisPageUrl);
+        await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
       }
       return;
     }
@@ -102,7 +102,7 @@ export class AnyPage {
     await this.waitForSpinner();
   }
 
-  async waitForPageNavigation(currentPageUrl: string) {
+  async waitForPageNavigation(currentPageUrl: string, waitForNavigationTime?: number) {
     let nextPage = '';
     let pageErrors = '';
     await browser.wait(
@@ -115,8 +115,8 @@ export class AnyPage {
 
         return currentPageUrl !== nextPage;
       },
-      60000,
-      'Navigation to next page taking too long ' + 60000 + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors,
+      waitForNavigationTime ? waitForNavigationTime : 60000,
+      'Navigation to next page taking too long ' + (waitForNavigationTime ? waitForNavigationTime : 60000) + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors,
     );
   }
   async isButtonEnabled(match: string, shortWait = false) {
@@ -313,12 +313,13 @@ export class AnyPage {
     await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 60000, 'Spinner did not stop.');
   }
 
-  async clickIfVisible(linkText) {
-    let EC = protractor.ExpectedConditions;
-    let visible = await EC.visibilityOf(element(by.xpath('//button[text()="' + linkText + '"]')));
-    if (visible) {
-      element(by.xpath('//button[text()="' + linkText + '"]')).click();
-    }
+  async clickButtonIfVisible(linkText: string) {
+    let button = element(by.xpath('//button[text()="' + linkText + '"]'));
+    try {
+      await BrowserWaits.waitForElement(button);
+      await BrowserWaits.waitForelementToBeClickable(button);
+      await button.click();
+    } catch {}
   }
 
   async createCaseClickable() {

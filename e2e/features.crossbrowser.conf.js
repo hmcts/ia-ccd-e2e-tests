@@ -19,7 +19,7 @@ const config = {
     'no-source': true,
     strict: true,
     format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
-    retry: 2,
+    retry: 1,
   },
 
   sauceSeleniumAddress: 'ondemand.eu-central-1.saucelabs.com:443/wd/hub',
@@ -36,7 +36,7 @@ const config = {
   allScriptsTimeout: 240000,
   useAllAngular2AppRoots: true,
   multiCapabilities: browserPlatformMatrix.multiCapabilities,
-  maxSessions: 4,
+  maxSessions: 1,
 
   plugins: [
     {

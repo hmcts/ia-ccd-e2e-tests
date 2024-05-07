@@ -28,15 +28,19 @@ export class PayAndSubmitAppealFlow {
     if (clickContinue) {
       await this.ccdPage.click('View service requests');
       await this.ccdPage.click('Overview');
-      let i = 0;
-      while (i < 6) {
-        let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'));
-        if (nextText) {
-          break;
-        } else {
-          await browser.sleep(10000);
-          await this.ccdPage.refresh();
-        }
+      await this.waitForPaymentRecognition();
+    }
+  }
+
+  async waitForPaymentRecognition() {
+    let i = 0;
+    while (i < 6) {
+      let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'));
+      if (nextText) {
+        break;
+      } else {
+        await browser.sleep(10000);
+        await this.ccdPage.refresh();
       }
     }
   }
@@ -44,9 +48,12 @@ export class PayAndSubmitAppealFlow {
   async createServiceRequest(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Create a service request');
     let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
-
+    overviewUrl = overviewUrl.split('#')[0];
+    if (overviewUrl[overviewUrl.length - 1] !== '/') {
+      overviewUrl += '/';
+    }
+    overviewUrl += 'trigger/generateServiceRequest/generateServiceRequestcreateAServiceRequest';
+    await browser.get(overviewUrl);
     await this.ccdFormPage.headingContains('Pay for this appeal');
     let currentUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
@@ -100,6 +107,19 @@ export class PayAndSubmitAppealFlow {
           await browser.sleep(10000);
           await this.ccdPage.refresh();
         }
+      }
+    }
+  }
+
+  async checkCasePaidCaseOfficer() {
+    let i = 0;
+    while (i < 3) {
+      let badNextText = element(by.xpath('//p[contains(text(),"This appeal is awaiting payment.")]'));
+      if (await badNextText.isPresent()) {
+        await browser.sleep(10000);
+        await this.ccdPage.refresh();
+      } else {
+        break;
       }
     }
   }

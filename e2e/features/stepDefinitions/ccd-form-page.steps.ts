@@ -94,6 +94,10 @@ When(/^I type `?([^`]+)`? (?:for|from) the field with ID `?([^`]+)`?$/, async fu
   await ccdFormPage.typeText(fieldID, fieldValue);
 });
 
+When(/^I click the element with ID `?([^`]+)`?$/, async function (fieldID) {
+  await ccdFormPage.clickElement(fieldID);
+});
+
 When(/^I hit Enter in the field with ID `?([^`]+)`?$/, async function (fieldID) {
   await ccdFormPage.typeEnter(fieldID);
 });

@@ -30,6 +30,14 @@ Then(/^I pay for and submit my appeal by Card$/, async function () {
   await payAndSubmitAppealFlow.payForAppealByCard(true);
 });
 
+When('I check the case has been paid for', async function () {
+  await payAndSubmitAppealFlow.checkCasePaidCaseOfficer();
+});
+
+Then('I should see the overview for a paid appeal', async function () {
+  await payAndSubmitAppealFlow.waitForPaymentRecognition();
+});
+
 Then(/^I submit my nonpayment appeal$/, async function () {
   await submitAppealFlow.submitAppeal(true);
 });

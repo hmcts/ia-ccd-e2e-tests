@@ -8,7 +8,7 @@ Feature: Legal representative make an application
     Then I should be on the overview page
     And I pay for and submit my appeal by Card
 
-  @Make-an-application-at-appeal-submitted @RIA-3457-make-an-application-at-appeal-submitted @RIA-3457 @nightly-test
+  @Make-an-application-at-appeal-submitted @RIA-3457-make-an-application-at-appeal-submitted @RIA-3457 @appeal-nightly-test
   Scenario: Make an application in appeal submitted state
 
     When I click the `Applications` tab
@@ -21,15 +21,14 @@ Feature: Legal representative make an application
     And I should see the option `Other` for the `Type of application` field
     And I select `Update appeal details` for the `Type of application` field
     And I click the `Continue` button
-
+    And I wait for the spinner
     Then I should see the text `Update appeal details`
     #And the `Continue` button is disabled
     And I type `A reason to update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
     And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
-    And I wait for the spinner
+    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `document` field without a label
 
-    When I click the `Continue` button
+    When I click the `Continue` button for flakey Make an application
     Then I am on the `Check your answers` page
     And I should see `Update appeal details` in the `Type of application` field
     And I should see `A reason to update appeal details` in the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
@@ -184,7 +183,7 @@ Feature: Legal representative make an application
     # And the `Continue` button is disabled
     And I type `A reason to update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
     And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
+    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `document` field without a label
     And I wait for the spinner
 
     When I click the `Continue` button
@@ -216,7 +215,7 @@ Feature: Legal representative make an application
     #And the `Continue` button is disabled
     And I type `A reason for time extension` for the `Tell us which task you need more time to complete, explain why you need more time and include how much more time you will need.` field
     And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
+    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `document` field without a label
     And I wait for the spinner
 
     When I click the `Continue` button

@@ -4,6 +4,7 @@ const iaConfig = require('./ia.conf');
 const { generateAccessibilityReport } = require('../reporter/customReporter');
 const retry = require('protractor-retry').retry;
 const cucumberTaggedFiles = require('../cucumberTaggedFiles.json');
+const fs = require('fs');
 
 let chromeVersion = '123.0.6312.122';
 
@@ -19,8 +20,8 @@ let config = {
     'nightly-tag': iaConfig.NightlyTag,
     'no-source': true,
     strict: true,
-    format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
-    retry: 3,
+    format: ['node_modules/cucumber-pretty', 'json:./reports/tests/functional/results.json'],
+    retry: process.env.RETRIES || 5,
   },
 
   directConnect: true,
@@ -41,7 +42,7 @@ let config = {
         args: ['--disable-dev-shm-usage', '--disable-gpu', '--no-sandbox', iaConfig.UseHeadlessBrowser ? '--headless' : '--noop', iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'],
         binary: process.cwd() + '/chrome/linux-' + chromeVersion + '/chrome-linux64/chrome',
       },
-      name: 'ia-chrome-mac-test',
+      name: 'ia-chrome-linux-test',
       extendedDebugging: true,
       sharedTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
       shardTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
@@ -70,7 +71,7 @@ let config = {
     retry.onCleanUp(results, files);
   },
 
-  onPrepare: async () => {
+  onPrepare: () => {
     const caps = browser.getCapabilities();
     browser.manage().window().maximize();
     browser.waitForAngularEnabled(true);
@@ -80,12 +81,45 @@ let config = {
     });
     retry.onPrepare();
   },
-  // afterLaunch() {
-  //   return retry.afterLaunch(1);
-  // },
-  onComplete() {
-    generateAccessibilityReport();
+  onComplete: async () => {
+    await generateAccessibilityReport();
+  },
+  afterLaunch: () => {
+    let passedTests = getPassedTestsArray();
+    let totalTests = getTotalTestsArray();
+    if (passedTests.length !== totalTests.length) {
+      const failedTests = totalTests.filter(item => !passedTests.includes(item));
+      console.log('Tests failed including retries: ' + failedTests);
+      process.exit(1);
+    } else {
+      console.log(`Tests passed after retries. Number of total tests: ${totalTests.length}. Number of passed tests: ${passedTests.length}.`);
+      process.exit(0);
+    }
   },
 };
+
+function getTotalTestsArray() {
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  try {
+    const data = fs.readFileSync(testCounterPath, 'utf8');
+    const counterData = JSON.parse(data);
+    return counterData.totalTests;
+  } catch (err) {
+    console.error('Error reading file:', err);
+    return [];
+  }
+}
+
+function getPassedTestsArray() {
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  try {
+    const data = fs.readFileSync(testCounterPath, 'utf8');
+    const counterData = JSON.parse(data);
+    return counterData.passedTests;
+  } catch (err) {
+    console.error('Error reading file:', err);
+    return [];
+  }
+}
 
 exports.config = config;

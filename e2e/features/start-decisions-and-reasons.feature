@@ -9,6 +9,7 @@ Feature: Start decision and reasons
     Then I should be on the overview page
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     And I wait for 2 seconds
     And I request respondent evidence
     And I wait for 5 seconds
@@ -41,7 +42,7 @@ Feature: Start decision and reasons
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
 
-  @regression @start-decision-and-reasons-yes-path @RIA-574 @nightly-test
+  @regression @start-decision-and-reasons-yes-path @RIA-574 @appeal-nightly-test
   Scenario: Start decision and reasons
     When I select the `Start decision and reasons` Next step
     Then I should see the text `Start decision and reasons`

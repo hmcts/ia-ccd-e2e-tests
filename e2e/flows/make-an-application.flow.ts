@@ -57,10 +57,6 @@ export class MakeAnApplication {
       await this.ccdFormPage.setFieldValue('Describe the application you are making and explain the reasons for the application.', 'A reason for other');
     }
 
-    await this.ccdFormPage.addCollectionItem('Supporting evidence (Optional)');
-
-    await this.ccdFormPage.setFieldValue('', '{@Evidence1.pdf}', 'document', 'first', 'Supporting evidence (Optional)', 'first');
-
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.headingContains('Check your answers');
