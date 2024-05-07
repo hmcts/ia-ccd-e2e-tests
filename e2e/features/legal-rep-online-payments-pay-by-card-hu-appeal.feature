@@ -5,12 +5,22 @@ Feature: Pay and submit appeal by card - successful and failed payments (HU appe
     And I create a new case
     And I save my initial HU appeal type without remission and with hearing fee and pay now
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
+    Then I should be on the overview page
     And I submit my appeal before paying
-    And I wait for 10 seconds
-    # Then I should see the text `Then I should see the text `You need to pay for your appeal or the Tribunal will end the appeal.``
-    When I click the `pay for your appeal` link
-    And I wait for 5 seconds
+    Then I should see the text `You must now pay for this appeal. First create a service request, you can do this by selecting 'Create a service request' from the 'Next step' dropdown list. Then select 'Go'.`
+    When I click the `create a service request` link
+    Then I should see the `Pay for this appeal` page
+    And I should see the text `Next step - payment`
+    And I should see the text `Select 'Submit' to create the service request`
+    And I should see the text `Fee to pay`
+    And I should see the text `£140.00`
+    When I click the `Submit` button
+    Then I should see the text `You have created a service request`
+    Then I should see the text `What happens next`
+    Then I should see the text `You can now pay for this appeal in the 'Service Request' tab on the case details screen.`
+    When I click the `Close and Return to case details` button if present
+    Then I should see the text `You must now pay for this appeal. You can do this via the Service Request tab.`
+    And I click the `Service Request` link
     Then I should see the text `Not paid`
     When I click the `Pay now` link
     And I wait for 5 seconds
@@ -43,7 +53,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (HU appe
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
-    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+    And I should see the overview for a paid appeal
 
     When I click the `Appeal` tab
     Then I should see `Refusal of a human rights claim` for the `Type of appeal` field

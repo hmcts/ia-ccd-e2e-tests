@@ -1,4 +1,3 @@
 export interface CollectionItemFinder {
-
-    findCollectionItem(collectionContainer, collectionItemNumber);
+  findCollectionItem(collectionContainer, collectionItemNumber);
 }

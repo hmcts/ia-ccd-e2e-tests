@@ -4,13 +4,11 @@ Feature: Final display for FTPA decision and reasons
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-    And I pay for and submit my appeal by Card for a PA appeal type
-    And I wait for 15 seconds
+    Then I should be on the overview page
+    And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
-    And I wait for 2 seconds
+    And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
     And I upload respondent evidence
@@ -73,7 +71,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
-  @RIA-2919 @RIA-2919-scenario1 @nightly-test
+  @RIA-2919 @RIA-2919-scenario1 @appeal-nightly-test
   #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 
@@ -96,6 +94,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I am on the `Check your answers` page
     And I click the `Submit` button
+    And I wait for the spinner
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds

@@ -70,7 +70,7 @@ Feature: Remote hearing during Submit hearing requirements
     Then I should see an alert confirming the case `has been updated with event: List the case`
 
     When I click the `Overview` tab
-    Then I should see the `Overview` page
+    Then I should be on the overview page
     And I should see the `Hearing details` field
     And I should see `Remote hearing` for the `Location` field
     And I should see `3 hours` for the `Length` field

@@ -20,9 +20,9 @@ Given(/^the appellant submits a time extension$/, async function () {
         reason: reasonForTimeExtension,
         status: 'submitted',
         state: 'awaitingReasonsForAppeal',
-        evidence: []
-      }
-    }
+        evidence: [],
+      },
+    },
   ];
   usersCase.case_data.reviewTimeExtensionRequired = 'Yes';
 
@@ -36,15 +36,8 @@ Then(/^I can review the appellants time extension$/, async function () {
 When(/^I refuse the time extension$/, async function () {
   const ccdFormPage = new CcdFormPage();
 
-  await ccdFormPage.setFieldValue(
-    'Decision',
-    'Application refused'
-  );
-  await ccdFormPage.setFieldValue(
-    'Reason for decision',
-    'decision reason',
-    'text area'
-  );
+  await ccdFormPage.setFieldValue('Decision', 'Application refused');
+  await ccdFormPage.setFieldValue('Reason for decision', 'decision reason', 'text area');
 
   await ccdPage.click('Continue');
 });

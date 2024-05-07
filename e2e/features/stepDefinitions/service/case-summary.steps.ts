@@ -4,5 +4,5 @@ import { Then } from '@cucumber/cucumber';
 const caseSummaryFlow = new CaseSummaryFlow();
 
 Then(/^I create case summary$/, async function () {
-    await caseSummaryFlow.createCaseSummary(true);
+  await caseSummaryFlow.createCaseSummary(true);
 });

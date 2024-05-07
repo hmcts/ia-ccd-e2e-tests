@@ -8,7 +8,7 @@ Feature: Manage fee update
   Scenario: Case officer manage fee update
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA
 
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
@@ -201,7 +201,7 @@ Feature: Manage fee update
   Scenario: Case officer manage fee update
 
     When I save my initial PA appeal type with no remission and with hearing fee
-    Then I pay for and submit my appeal by PBA for a PA appeal type
+    Then I pay for and submit my appeal by PBA
 
     And I switch to be a `Case Officer`
     And I end the appeal
@@ -396,7 +396,7 @@ Feature: Manage fee update
   Scenario: Admin officer manage fee update refund approved, refund instructed and additional fee requested
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA
 
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
@@ -586,7 +586,7 @@ Feature: Manage fee update
   Scenario: Admin officer manage fee update additional fee requested
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA
 
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
@@ -670,7 +670,7 @@ Feature: Manage fee update
   Scenario: Admin officer manage fee update not required
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA
 
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
@@ -754,7 +754,7 @@ Feature: Manage fee update
   Scenario: Admin officer manage fee update refund approved and fee update not required
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA
 
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
@@ -878,7 +878,7 @@ Feature: Manage fee update
   Scenario: Admin officer manage fee update refund approved,refund instructed and fee update not required
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA
 
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
@@ -1032,7 +1032,7 @@ Feature: Manage fee update
   Scenario: Admin officer journey chooses fee update not required after additional fee required
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA
 
     When I switch to be a `Admin Officer`
     Then I select the `Manage a fee update` Next step
@@ -1132,7 +1132,7 @@ Feature: Manage fee update
   Scenario: Admin officer selects refund approved after additional fee requested
 
     Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I pay for and submit my appeal by PBA
 
     When I switch to be a `Admin Officer`
     Then I select the `Manage a fee update` Next step

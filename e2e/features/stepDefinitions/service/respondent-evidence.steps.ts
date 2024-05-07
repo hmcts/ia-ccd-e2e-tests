@@ -8,17 +8,17 @@ const uploadAdditionalEvidenceFlow = new UploadAdditionalEvidenceFlow();
 const uploadRespondentEvidenceFlow = new UploadRespondentEvidenceFlow();
 
 Then(/^I request respondent evidence$/, async function () {
-    await requestRespondentEvidenceFlow.requestRespondentEvidence(true);
+  await requestRespondentEvidenceFlow.requestRespondentEvidence(true);
 });
 
 Then(/^I upload respondent evidence$/, async function () {
-    await uploadRespondentEvidenceFlow.uploadRespondentEvidence(true);
+  await uploadRespondentEvidenceFlow.uploadRespondentEvidence(true);
 });
 
 Then(/^I upload additional evidence$/, async function () {
-    await uploadAdditionalEvidenceFlow.uploadAdditionalEvidence(true);
+  await uploadAdditionalEvidenceFlow.uploadAdditionalEvidence(true);
 });
 
 Then(/^I upload Home Office bundle$/, async function () {
-    await uploadRespondentEvidenceFlow.uploadHomeOfficeBundle(true);
+  await uploadRespondentEvidenceFlow.uploadHomeOfficeBundle(true);
 });

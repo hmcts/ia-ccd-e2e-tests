@@ -4,17 +4,15 @@ Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-    Then I should see the text `Do this next`
-    And I pay for and submit my appeal by Card for a PA appeal type
-    And I wait for 15 seconds
+    Then I should be on the overview page
+    And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
 
-@update-legal-representatives-details @RIA-1358 @nightly-test
+@update-legal-representatives-details @RIA-1358 @appeal-nightly-test
 Scenario: update legal representatives details
     When I switch to be a `Legal Org User Rep A`
     And I click the `Appellant` tab

@@ -5,7 +5,7 @@ const iaConfig = require('../../ia.conf');
 const ccdPage = new CcdPage();
 
 Then(/^The page is accessible$/, async function () {
-    if (iaConfig.TestForAccessibility) {
-        await ccdPage.runAccessbility();
-    }
+  if (iaConfig.TestForAccessibility) {
+    await ccdPage.runAccessbility();
+  }
 });

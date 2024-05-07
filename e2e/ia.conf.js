@@ -1,5 +1,4 @@
 module.exports = {
-
   CcdGatewayUrl: process.env.TEST_E2E_URL_GATEWAY || 'https://gateway-ccd.aat.platform.hmcts.net',
   CcdWebUrl: process.env.TEST_E2E_URL_WEB || 'https://manage-case.aat.platform.hmcts.net',
   CcdApiUrl: process.env.TEST_E2E_CCD_API_URL || 'http://ccd-data-store-api-aat.service.core-compute-aat.internal',
@@ -68,16 +67,4 @@ module.exports = {
   isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
   isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false,
   isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true',
-
-  TestLawFirmOrgABailsUserName:'ia.legalrep.orgcreator@mailnesia.com',
-  TestLawFirmOrgABailsPassword:'AldgateT0wer',
-
-  TestHomeOfficeBailsUserName: 'ia.respondentbail.ccd1@mailnesia.com',
-  TestHomeOfficeBailsPassword: 'AldgateT0wer',
-
-  TestAdminOfficerBailsUserName: 'ia.adm1nofficer.4.ccd@mailnesia.com',
-  TestAdminOfficerBailsPassword: 'AldgateT0wer',
-
-  TestJudgeBailsUserName:'ia.iacjudge.4.ccd@mailnesia.com',
-  TestJudgeBailsPassword:'AldgateT0wer'
 };

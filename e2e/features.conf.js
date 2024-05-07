@@ -7,7 +7,6 @@ const path = require('path');
 const AxeRunner = require('./helpers/accessibility/axe-runner');
 
 exports.config = {
-
   baseUrl: iaConfig.CcdWebUrl,
   specs: ['./features/*.feature'],
   allScriptsTimeout: 120000,
@@ -16,27 +15,23 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: [
-        '--disable-dev-shm-usage',
-        '--disable-gpu',
-        '--no-sandbox',
-        iaConfig.UseHeadlessBrowser ? '--headless' : '--noop',
-        iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'
-      ],
-      binary: puppeteer.executablePath()
+      args: ['--disable-dev-shm-usage', '--disable-gpu', '--no-sandbox', iaConfig.UseHeadlessBrowser ? '--headless' : '--noop', iaConfig.UseHeadlessBrowser ? '--window-size=1920,1080' : '--noop'],
+      binary: puppeteer.executablePath(),
     },
     acceptInsecureCerts: true,
     maxInstances: iaConfig.RunWithNumberOfBrowsers,
-    proxy: (!iaConfig.UseProxy) ? null : {
-      proxyType: 'manual',
-      httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
-      sslProxy: iaConfig.ProxyUrl.replace('http://', '')
-    },
+    proxy: !iaConfig.UseProxy
+      ? null
+      : {
+          proxyType: 'manual',
+          httpProxy: iaConfig.ProxyUrl.replace('http://', ''),
+          sslProxy: iaConfig.ProxyUrl.replace('http://', ''),
+        },
     loggingPrefs: {
       driver: 'INFO',
-      browser: 'INFO'
+      browser: 'INFO',
     },
-    shardTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1)
+    shardTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
   },
 
   default: {
@@ -59,10 +54,7 @@ exports.config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'),
 
   cucumberOpts: {
-    require: [
-      './cucumber.conf.js',
-      './features/stepDefinitions/**/*.steps.ts'
-    ],
+    require: ['./cucumber.conf.js', './features/stepDefinitions/**/*.steps.ts'],
     keepAlive: false,
     tags: false,
     profile: false,
@@ -77,16 +69,12 @@ exports.config = {
   onPrepare() {
     // returning the promise makes protractor wait for
     // the reporter config before executing tests
-    global
-      .browser
-      .getProcessedConfig()
-      .then({
-        // noop
-      });
-
-    tsNode.register({
-      project: path.join(__dirname, './tsconfig.e2e.json')
+    global.browser.getProcessedConfig().then({
+      // noop
     });
 
-  }
+    tsNode.register({
+      project: path.join(__dirname, './tsconfig.e2e.json'),
+    });
+  },
 };

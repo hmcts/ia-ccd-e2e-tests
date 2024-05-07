@@ -2,110 +2,109 @@ import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class StartBailApplicationFlow {
+  private ccdFormPage = new CcdFormPage();
 
-    private ccdFormPage = new CcdFormPage();
-
-    async completePreviousBailApplication(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Has the applicant made a previous application before?', 'Yes');
-        await this.ccdFormPage.setFieldValue('What is the bail number for the previous application?', 'HW/07919');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completePreviousBailApplication(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Has the applicant made a previous application before?', 'Yes');
+    await this.ccdFormPage.setFieldValue('What is the bail number for the previous application?', 'HW/07919');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeRefusedBail(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Has the applicant been refused immigration bail at a hearing within the last 28 days?', 'Yes');
-        await this.ccdFormPage.setFieldValue('What was the date of the hearing?', '31-12-2019');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeRefusedBail(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Has the applicant been refused immigration bail at a hearing within the last 28 days?', 'Yes');
+    await this.ccdFormPage.setFieldValue('What was the date of the hearing?', '31-12-2019');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeCreateNewApplication(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.click('Continue');
-    }
+  async completeCreateNewApplication(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+  }
 
-    async completeBeforeYouStart(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.click('Continue');
-    }
+  async completeBeforeYouStart(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+  }
 
-    async completeWhichPartySentApplication(clickContinue = false, user) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Application sent by', user);
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeWhichPartySentApplication(clickContinue = false, user) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Application sent by', user);
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeApplicantName(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Given names', 'Harri');
-        await this.ccdFormPage.setFieldValue('Family name', 'Pugh');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeApplicantName(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Given names', 'Harri');
+    await this.ccdFormPage.setFieldValue('Family name', 'Pugh');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeApplicantDOB(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-            await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeApplicantDOB(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeApplicantGender(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Gender', 'Other')
-        await this.ccdFormPage.setFieldValue('Enter details', 'Other')
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeApplicantGender(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Gender', 'Other');
+    await this.ccdFormPage.setFieldValue('Enter details', 'Other');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeApplicantNationality(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await browser.sleep(2000);
-        await this.ccdFormPage.setFieldValue('Nationality', 'The applicant has a nationality');
-        await browser.sleep(1000);
-        await this.ccdFormPage.click('Add new');
-        await browser.sleep(2000);
-        await this.ccdFormPage.setFieldValue('Nationality', 'Finnish', 'select list', 'first', 'Nationality', 'first');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeApplicantNationality(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await browser.sleep(2000);
+    await this.ccdFormPage.setFieldValue('Nationality', 'The applicant has a nationality');
+    await browser.sleep(1000);
+    await this.ccdFormPage.click('Add new');
+    await browser.sleep(2000);
+    await this.ccdFormPage.setFieldValue('Nationality', 'Finnish', 'select list', 'first', 'Nationality', 'first');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeApplicantReferenceNumber(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Home Office reference', '01234567');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeApplicantReferenceNumber(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Home Office reference', '01234567');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeDetentionFacility(clickContinue = false, facility) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Detention facility', facility);
-        if (facility === 'Prison') {
-            await this.ccdFormPage.setFieldValue('What is the applicant’s NOMS number?', '987654321');
-        }
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeDetentionFacility(clickContinue = false, facility) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Detention facility', facility);
+    if (facility === 'Prison') {
+      await this.ccdFormPage.setFieldValue('What is the applicant’s NOMS number?', '987654321');
     }
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
 
-    async completeWhichPrison(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Prison name', 'HM Prison Blundeston');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeWhichPrison(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Prison name', 'HM Prison Blundeston');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
     async completeWhichIRC(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
@@ -122,53 +121,53 @@ export class StartBailApplicationFlow {
         }
     }
 
-    async completeApplicantMobilePhone(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Mobile phone', 'Yes');
-        await browser.sleep(1000);
-        await this.ccdFormPage.typeText('applicantMobileNumber1', '07930111111');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeApplicantMobilePhone(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Mobile phone', 'Yes');
+    await browser.sleep(1000);
+    await this.ccdFormPage.typeText('applicantMobileNumber1', '07930111111');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeAppealHearingPending(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Pending appeal hearing', 'Yes');
-        await this.ccdFormPage.setFieldValue('What is the reference number for the applicant’s appeal?', '098765');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeAppealHearingPending(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Pending appeal hearing', 'Yes');
+    await this.ccdFormPage.setFieldValue('What is the reference number for the applicant’s appeal?', '098765');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeApplicantPlaceToLive(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Address if bail granted', 'Yes');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeApplicantPlaceToLive(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Address if bail granted', 'Yes');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeApplicantAddress(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'SW1A 2AA');
-        await this.ccdFormPage.click('Find address');
-        await this.ccdFormPage.doesDropdownHaveValues('Select an address');
-        await this.ccdFormPage.setFieldValue('Select an address', 'Prime Minister & First Lord Of The Treasury, 10 Downing Street, London');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeApplicantAddress(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'SW1A 2AA');
+    await this.ccdFormPage.click('Find address');
+    await this.ccdFormPage.doesDropdownHaveValues('Select an address');
+    await this.ccdFormPage.setFieldValue('Select an address', 'Prime Minister & First Lord Of The Treasury, 10 Downing Street, London');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeFinancialConditionAgree(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Financial condition', 'Yes');
-        await browser.sleep(1000);
-        await this.ccdFormPage.typeText('financialCondAmount1', '1000');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeFinancialConditionAgree(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Financial condition', 'Yes');
+    await browser.sleep(1000);
+    await this.ccdFormPage.typeText('financialCondAmount1', '1000');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
     async completeApplicantHearingReqInterpreterDetailsWithYes(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
@@ -467,29 +466,29 @@ export class StartBailApplicationFlow {
         }
     }
 
-    async completeFinancialConditionSupporterPassportNumber(clickContinue = false, number = '') {
-        await this.ccdFormPage.runAccessbility();
+  async completeFinancialConditionSupporterPassportNumber(clickContinue = false, number = '') {
+    await this.ccdFormPage.runAccessbility();
 
-        if (number === '1') {
-            await this.ccdFormPage.setFieldValue('Passport number (Optional)', '123456789');
-        }
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+    if (number === '1') {
+      await this.ccdFormPage.setFieldValue('Passport number (Optional)', '123456789');
     }
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
 
-    async completeFinancialConditionSupporterUndertaking(clickContinue = false, number = '') {
-        await this.ccdFormPage.runAccessbility();
-        if (number === '1') {
-            await this.ccdFormPage.typeText('financialAmountSupporterUndertakes1', '450');
-        }
-        if (number === '2') {
-            await this.ccdFormPage.typeText('financialAmountSupporter2Undertakes1', '550');
-        }
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeFinancialConditionSupporterUndertaking(clickContinue = false, number = '') {
+    await this.ccdFormPage.runAccessbility();
+    if (number === '1') {
+      await this.ccdFormPage.typeText('financialAmountSupporterUndertakes1', '450');
     }
+    if (number === '2') {
+      await this.ccdFormPage.typeText('financialAmountSupporter2Undertakes1', '550');
+    }
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
 
     async completeAnotherFinancialConditionSupporter(clickContinue = false, number = '', choice = '') {
         await this.ccdFormPage.runAccessbility();
@@ -507,46 +506,40 @@ export class StartBailApplicationFlow {
         }
     }
 
-    async completeGroundsForBailInfo(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeGroundsForBailInfo(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeGroundsForBail(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Enter the bail grounds', 'Grounds for bail');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeGroundsForBail(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Enter the bail grounds', 'Grounds for bail');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeSupportingEvidenceYesNo(clickContinue = false, choice) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.click(choice);
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeSupportingEvidenceYesNo(clickContinue = false, choice) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click(choice);
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeSupportingEvidenceUpload(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000)
-        await this.ccdFormPage.click('Add new');
-        await this.ccdFormPage.setFieldValue(
-            'Document',
-            '{@GroundsForBailSupportingEvidence.pdf}',
-        );
-        await this.ccdFormPage.setFieldValue(
-            'Describe the document',
-            'This is the supporting evidence',
-        );
-        await browser.sleep(8000)
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeSupportingEvidenceUpload(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await browser.sleep(1000);
+    await this.ccdFormPage.click('Add new');
+    await this.ccdFormPage.setFieldValue('Document', '{@GroundsForBailSupportingEvidence.pdf}');
+    await this.ccdFormPage.setFieldValue('Describe the document', 'This is the supporting evidence');
+    await browser.sleep(8000);
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
     async completeBailTransfer(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
@@ -569,14 +562,14 @@ export class StartBailApplicationFlow {
     //     }
     // }
 
-    async completeDisabilityRequirements(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Disability', 'Yes');
-        await this.ccdFormPage.setFieldValue('Explain any special arrangements needed for the hearing', 'They need special arrangements');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeDisabilityRequirements(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Disability', 'Yes');
+    await this.ccdFormPage.setFieldValue('Explain any special arrangements needed for the hearing', 'They need special arrangements');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
     async completeVideoLinkRequirements(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
@@ -587,13 +580,13 @@ export class StartBailApplicationFlow {
         }
     }
 
-    async completeLegalRepYesNo(clickContinue = false, choice) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Legal representative', choice);
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeLegalRepYesNo(clickContinue = false, choice) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Legal representative', choice);
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
     async completeLegalRepDetails(clickContinue = false, choice) {
         await this.ccdFormPage.runAccessbility();
@@ -610,32 +603,26 @@ export class StartBailApplicationFlow {
         }
     }
 
-    async completeB1Upload(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await browser.sleep(1000)
-        await this.ccdFormPage.click('Add new');
-        await this.ccdFormPage.setFieldValue(
-            'Document',
-            '{@B1Form.pdf}',
-        );
-        await this.ccdFormPage.setFieldValue(
-            'Describe the document',
-            'This is the B1 form',
-        );
-        await browser.sleep(8000)
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeB1Upload(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await browser.sleep(1000);
+    await this.ccdFormPage.click('Add new');
+    await this.ccdFormPage.setFieldValue('Document', '{@B1Form.pdf}');
+    await this.ccdFormPage.setFieldValue('Describe the document', 'This is the B1 form');
+    await browser.sleep(8000);
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
-    async completeCheckYourAnswers(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await browser.sleep(3000)
-        if (clickContinue) {
-            await this.ccdFormPage.click('Save application');
-            await browser.sleep(15000)
-        }
+  async completeCheckYourAnswers(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await browser.sleep(3000);
+    if (clickContinue) {
+      await this.ccdFormPage.click('Save application');
+      await browser.sleep(15000);
     }
+  }
 
     async saveInitialApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
         await this.completePreviousBailApplication(true);
@@ -724,10 +711,13 @@ export class StartBailApplicationFlow {
         }
         await this.completeCheckYourAnswers(true);
 
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
+    if (clickContinue) {
+      try {
+        await this.ccdFormPage.waitForCssElementVisible('#confirmation-body');
+        await this.ccdFormPage.click('Close and Return to case details');
+      } catch {}
     }
+  }
 
     async saveInitialApplicationNoFiles(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
         await this.completePreviousBailApplication(true);
@@ -812,8 +802,8 @@ export class StartBailApplicationFlow {
         }
         await this.completeCheckYourAnswers(true);
 
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
+    if (clickContinue) {
+      await this.ccdFormPage.click('Close and Return to case details');
     }
+  }
 }
