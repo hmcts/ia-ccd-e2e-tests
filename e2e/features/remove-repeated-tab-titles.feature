@@ -73,7 +73,7 @@ Feature: Remove repeated tab titles
     And I should see the option `Update appeal details` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
-    And I should see the option `Judge's review of application decision` for the `Type of application` field
+    And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
     And I should see the option `Other` for the `Type of application` field
     And I select `Update appeal details` for the `Type of application` field
     And I click the `Continue` button
@@ -82,8 +82,8 @@ Feature: Remove repeated tab titles
     And the `Continue` button is disabled
     And I type `A reason to update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
     And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
-    And I wait for 3 seconds
+    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `document` field without a label
+    And I wait for the spinner
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page

@@ -5,15 +5,12 @@ Feature: Notice of Change (common component)
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-    Then I should see the text `Do this next`
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
+    Then I should be on the overview page
+    And I pay for and submit my appeal by Card
     And I get the most recent case id for the notice of change case
 
-  @notice-of-change @noc-incorrect-answers-same-org @noc-incorrect-firstname-same-org @RIA-3745 @nightly-test
+  @notice-of-change @noc-incorrect-answers-same-org @noc-incorrect-firstname-same-org @RIA-3745 @appeal-nightly-test
   Scenario: NoC request as a user from the same organisation (incorrect firstname anwser)
 
     When I switch to be a `Legal Org User Rep B`
@@ -93,10 +90,11 @@ Feature: Notice of Change (common component)
     And I click the `Back` link
     And I click the `Back` link
 
-  @notice-of-change @noc-correct-answers-different-org @RIA-3745
+  @notice-of-change @noc-correct-answers-different-org @RIA-3745 @appeal-nightly-test
   Scenario: NoC request as a user from a different organisation (correct answers)
 
-    When I switch to be a `Legal Org User Rep C`
+    When I am signed in as a `Legal Org User Rep C`
+    And I wait for the spinner
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
@@ -111,10 +109,10 @@ Feature: Notice of Change (common component)
     And I should see the `View this case` link
     And I should see the `View case list` link
     When I click the `View this case` link
-    Then I should see the `Overview` page
+    Then I should be on the overview page
 
     Given I am signed in as a `Legal Org User Rep A`
     When I enter the removed case id in the url
-    Then I should see the text `No cases found. Try using different filters.`
+    Then I should be redirected to the case list page
 
 

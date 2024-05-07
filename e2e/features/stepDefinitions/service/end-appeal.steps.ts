@@ -4,5 +4,5 @@ import { EndAppealFlow } from '../../../flows/end-appeal.flow';
 const endAppealFlow = new EndAppealFlow();
 
 Then(/^I end the appeal/, async function () {
-    await endAppealFlow.endAppeal(true);
+  await endAppealFlow.endAppeal(true);
 });

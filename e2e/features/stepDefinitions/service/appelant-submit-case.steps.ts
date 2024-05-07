@@ -15,7 +15,7 @@ Given(/^An appellant has submitted an appeal$/, async function () {
   const userId = await getUserId(userToken);
   const serviceToken = await getS2sToken();
   const ccdService = new CcdService();
-  const securityHeaders = {userToken, serviceToken};
+  const securityHeaders = { userToken, serviceToken };
   const caseDetails = await ccdService.createCase(userId, securityHeaders);
   await ccdService.updateAppeal(Events.SUBMIT_APPEAL, userId, caseDetails, securityHeaders);
 

@@ -9,17 +9,17 @@ const ftpaRespondentFlow = new FtpaRespondentAppealFlow();
 const selectFtpaApplicantType = new SelectFtpaApplicantType();
 
 Then(/^I apply for appellant FTPA$/, async function () {
-    await ftpaAppellantFlow.appeal(true);
+  await ftpaAppellantFlow.appeal(true);
 });
 
 Then(/^I apply for respondent FTPA$/, async function () {
-    await ftpaRespondentFlow.appeal(true);
+  await ftpaRespondentFlow.appeal(true);
 });
 
-Then(/^I select Appellant for the applicant type$/, async function() {
-    await selectFtpaApplicantType.choseAppellant(true);
+Then(/^I select Appellant for the applicant type$/, async function () {
+  await selectFtpaApplicantType.choseAppellant(true);
 });
 
-Then(/^I select Home Office for the applicant type$/, async function() {
-    await selectFtpaApplicantType.choseHomeOffice(true);
+Then(/^I select Home Office for the applicant type$/, async function () {
+  await selectFtpaApplicantType.choseHomeOffice(true);
 });

@@ -2,21 +2,20 @@ import { CcdFormPage } from '../pages/ccd-form.page';
 import { ShareCasePage } from '../pages/share-case.page';
 
 export class NewShareACaseFlow {
+  private ccdFormPage = new CcdFormPage();
+  private shareCasePage = new ShareCasePage();
 
-    private ccdFormPage = new CcdFormPage();
-    private shareCasePage = new ShareCasePage();
+  async selectCaseToShare() {
+    await this.shareCasePage.selectFirstCaseCheckbox();
+    await this.ccdFormPage.isButtonEnabled('Share Case');
+    await this.ccdFormPage.click('Share Case');
+  }
 
-    async selectCaseToShare() {
-        await this.shareCasePage.selectFirstCaseCheckbox();
-        await this.ccdFormPage.isButtonEnabled('Share Case');
-        await this.ccdFormPage.click('Share Case');
-    }
+  async getAndSaveAppealReference() {
+    await this.shareCasePage.getAppealReference();
+  }
 
-    async getAndSaveAppealReference() {
-        await this.shareCasePage.getAppealReference();
-    }
-
-    async filterBySavedAppealReference() {
-        await this.shareCasePage.filterByAppealReference();
-    }
+  async filterBySavedAppealReference() {
+    await this.shareCasePage.filterByAppealReference();
+  }
 }

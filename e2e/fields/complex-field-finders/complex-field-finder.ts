@@ -1,8 +1,3 @@
 export interface ComplexFieldFinder {
-
-    findComplexField(
-        container,
-        instanceNumber: number,
-        complexFieldLabel: string
-    );
+  findComplexField(container, instanceNumber: number, complexFieldLabel: string);
 }

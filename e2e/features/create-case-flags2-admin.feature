@@ -4,14 +4,11 @@ Feature: Create and manage Case Flags For Admin
         Given I am signed in as a `Legal Org User Rep A`
         And I create a new case
         And I save my initial EA appeal type without remission and with hearing fee and pay now
-        And I wait for 10 seconds
         And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-        Then I should see the text `Do this next`
-        And I pay for and submit my appeal by Card for a non PA appeal type
-        And I wait for 15 seconds
+        Then I should be on the overview page
+        And I pay for and submit my appeal by Card
 
-    @nightly-test @caseflag
+    @appeal-nightly-test @caseflag
     Scenario: Create a case Flag
         And I switch to be a `Admin Officer`
         When I select the `Create Flag` Next step
@@ -21,7 +18,7 @@ Feature: Create and manage Case Flags For Admin
         Then I should see the text `Case level flags`
         Then I should see the text `Complex Case`
 
-    @nightly-test @caseflag
+    @appeal-nightly-test @caseflag
     Scenario: Create a case Flag and make In Active
         And I switch to be a `Admin Officer`
         When I select the `Create Flag` Next step

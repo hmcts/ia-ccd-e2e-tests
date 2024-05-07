@@ -4,7 +4,7 @@ Feature: Generate Upper Tribunal Bundle (FTPA partially granted)
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I pay for and submit my appeal by PBA for a PA appeal type
+    And I pay for and submit my appeal by PBA
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence

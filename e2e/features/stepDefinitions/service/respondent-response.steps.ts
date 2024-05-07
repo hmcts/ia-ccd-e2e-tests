@@ -8,17 +8,17 @@ const requestRespondentReviewFlow = new RequestRespondentReviewFlow();
 const uploadAppealResponseFlow = new UploadAppealResponseFlow();
 
 Then(/^I request respondent review$/, async function () {
-    await requestRespondentReviewFlow.requestRespondentReview(true);
+  await requestRespondentReviewFlow.requestRespondentReview(true);
 });
 
 Then(/^I request appellant review$/, async function () {
-    await requestRespondentReviewFlow.requestAppellantReview(true);
+  await requestRespondentReviewFlow.requestAppellantReview(true);
 });
 
 Then(/^I add the appeal response$/, async function () {
-    await addAppealResponseFlow.addAppealResponse(true);
+  await addAppealResponseFlow.addAppealResponse(true);
 });
 
 Then(/^I upload the appeal response$/, async function () {
-    await uploadAppealResponseFlow.uploadAppealResponse(true);
+  await uploadAppealResponseFlow.uploadAppealResponse(true);
 });

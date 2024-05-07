@@ -4,12 +4,9 @@ Feature: New Share a Case (common component)
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-    Then I should see the text `Do this next`
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
+    Then I should be on the overview page
+    And I pay for and submit my appeal by Card
     Then I should see the text `Case record for EA`
     When I get the Appeal Reference
     And I go to the `Case List`
@@ -17,7 +14,7 @@ Feature: New Share a Case (common component)
     And I filter the cases by the Appeal Reference
     And I wait for 30 seconds
 
-  @new-share-a-case @RIA-3845 @nightly-test
+  @new-share-a-case @RIA-3845 @appeal-nightly-test
   Scenario: Add user to share a case
 
     And I select the most recent case to share

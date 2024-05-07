@@ -7,7 +7,7 @@ Feature: Bails Upload Bail Summary
    And I should see the text `What happens next`
    # Listing steps need to go here
 
-  @upload-bail-summary @RIA-5707 @bails-full @bails-regression
+  @upload-bail-summary @RIA-5707 @bails-full @bails-regression @fixing-test
   Scenario: Upload the Bail Summary as the Home Office
     When I switch to be a `Home Office Bails`
     And I select the `Upload Bail Summary` Next step

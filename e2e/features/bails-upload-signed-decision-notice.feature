@@ -1,10 +1,12 @@
 Feature: Bails Upload signed decision notice
   Background:
     Given I am signed in as a `Home Office Bails`
-    And I wait for 10 seconds
    And I create a new bail application
     And I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-refused @bails-regression

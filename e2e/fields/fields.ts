@@ -27,249 +27,162 @@ import { CcdWriteFixedRadioListFieldFinder } from './ccd-write-fixed-radio-list-
 import { AnyPage } from '../pages/any.page';
 
 export class Fields {
+  private readonly collectionItemFinders: CollectionItemFinder[] = [new CcdWriteCollectionItemFinder(), new TableCollectionItemFinder()];
 
-    private readonly collectionItemFinders: CollectionItemFinder[] = [
-        new CcdWriteCollectionItemFinder(),
-        new TableCollectionItemFinder()
-    ];
+  private readonly complexFieldFinders: ComplexFieldFinder[] = [new CcdWriteCollectionFinder(), new TableCollectionFinder()];
 
-    private readonly complexFieldFinders: ComplexFieldFinder[] = [
-        new CcdWriteCollectionFinder(),
-        new TableCollectionFinder(),
-    ];
+  private readonly fieldFinders: FieldFinder[] = [
+    // TL;DR *order is important*
 
-    private readonly fieldFinders: FieldFinder[] = [
+    // the following fields are searched in order of
+    // specificity which affects the selection
 
-        // TL;DR *order is important*
+    new CcdWriteAddressFieldFinder(),
+    new CcdWriteDateFieldFinder(),
 
-        // the following fields are searched in order of
-        // specificity which affects the selection
+    new CcdWriteFixedListFieldFinder(),
+    new CcdWriteFixedRadioListFieldFinder(),
+    new CcdWriteTextFieldFinder(),
+    new CcdWriteTextAreaFieldFinder(),
+    new CcdWriteYesNoFieldFinder(),
 
-        new CcdWriteAddressFieldFinder(),
-        new CcdWriteDateFieldFinder(),
+    new CcdWriteDocumentFieldFinder(),
+    new CcdWriteLabelFieldFinder(),
+    new CcdWriteMoneyGBPFieldFinder(),
+    new CcdWriteEmailFieldFinder(),
+    new CcdWriteDynamicListFieldFinder(),
 
-        new CcdWriteFixedListFieldFinder(),
-        new CcdWriteFixedRadioListFieldFinder(),
-        new CcdWriteTextFieldFinder(),
-        new CcdWriteTextAreaFieldFinder(),
-        new CcdWriteYesNoFieldFinder(),
+    // the following fields are not specific to one type
+    // and so are searched last in order of specificity
+    // which affects the selection for label-less fields
 
-        new CcdWriteDocumentFieldFinder(),
-        new CcdWriteLabelFieldFinder(),
-        new CcdWriteMoneyGBPFieldFinder(),
-        new CcdWriteEmailFieldFinder(),
-        new CcdWriteDynamicListFieldFinder(),
+    new CcdReadTableFieldFinder(),
+    new CcdReadListFieldFinder(),
 
-        // the following fields are not specific to one type
-        // and so are searched last in order of specificity
-        // which affects the selection for label-less fields
+    new CaseListFixedListFieldFinder(),
+    new CreateCaseFixedListFieldFinder(),
+  ];
 
-        new CcdReadTableFieldFinder(),
-        new CcdReadListFieldFinder(),
+  private readonly container: ElementFinder;
+  private readonly anyPage = new AnyPage();
 
-        new CaseListFixedListFieldFinder(),
-        new CreateCaseFixedListFieldFinder(),
-    ];
+  constructor(container: ElementFinder) {
+    this.container = container;
+  }
 
-    private readonly container: ElementFinder;
-    private readonly anyPage = new AnyPage();
+  public async addCollectionItem(complexFieldLabel: string, instanceNumber?: string | number) {
+    const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
 
-    constructor(container: ElementFinder) {
-        this.container = container;
+    const addNewBtn = complexFieldContainer.element(by.xpath('.//button[normalize-space()="Add new"]'));
+    await browser.wait(ExpectedConditions.visibilityOf(addNewBtn));
+    if (!!complexFieldContainer) {
+      await browser.executeScript('arguments[0].scrollIntoView()', addNewBtn.getWebElement());
+
+      await complexFieldContainer.all(by.xpath('.//button[normalize-space()="Add new"]')).last().click();
+    }
+  }
+
+  public async find(fieldType: string, fieldLabel: string, instanceNumber?: string | number, complexFieldLabel?: string, collectionItemNumber?: string | number): Promise<Field> {
+    let container = this.container;
+
+    if (fieldLabel) {
+      await this.anyPage.contentContains(fieldLabel);
     }
 
-    public async addCollectionItem(
-        complexFieldLabel: string,
-        instanceNumber?: string | number
-    ) {
-        const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
-
-        const addNewBtn = complexFieldContainer.element(by.xpath('.//button[normalize-space()="Add new"]'));
-        await browser.wait(ExpectedConditions.visibilityOf(addNewBtn));
-        if (!!complexFieldContainer) {
-            await browser.executeScript('arguments[0].scrollIntoView()', addNewBtn.getWebElement());
-
-            await complexFieldContainer
-                .all(by.xpath('.//button[normalize-space()="Add new"]'))
-                .last()
-                .click();
-        }
+    if (complexFieldLabel) {
+      await this.anyPage.contentContains(complexFieldLabel);
     }
 
-    public async find(
-        fieldType: string,
-        fieldLabel: string,
-        instanceNumber?: string | number,
-        complexFieldLabel?: string,
-        collectionItemNumber?: string | number
-    ): Promise<Field> {
+    if (complexFieldLabel !== undefined) {
+      const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
 
-        let container = this.container;
-
-        if (fieldLabel) {
-            await this.anyPage.contentContains(fieldLabel)
-        }
-
-        if (complexFieldLabel) {
-            await this.anyPage.contentContains(complexFieldLabel)
-        }
-
-        if (complexFieldLabel !== undefined) {
-
-            const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
-
-            if (!!complexFieldContainer) {
-
-                if (collectionItemNumber !== undefined) {
-
-                    container = await this.findCollectionItemContainer(
-                        complexFieldContainer,
-                        collectionItemNumber
-                    );
-
-                } else {
-                    container = complexFieldContainer;
-                }
-            }
-
-            if (container === undefined) {
-                throw 'Cannot find field: ' + fieldLabel + '@' + instanceNumber + ' (' + complexFieldLabel + '@' + collectionItemNumber + ')'
-            }
-
-            return await this.findWithinContainer(container, fieldType, fieldLabel);
-
+      if (!!complexFieldContainer) {
+        if (collectionItemNumber !== undefined) {
+          container = await this.findCollectionItemContainer(complexFieldContainer, collectionItemNumber);
         } else {
-
-            if (container === undefined) {
-                throw 'Cannot find field: ' + fieldLabel + '@' + instanceNumber + ')'
-            }
-
-            return await this.findWithinContainer(container, fieldType, fieldLabel, instanceNumber);
+          container = complexFieldContainer;
         }
+      }
+
+      if (container === undefined) {
+        throw 'Cannot find field: ' + fieldLabel + '@' + instanceNumber + ' (' + complexFieldLabel + '@' + collectionItemNumber + ')';
+      }
+
+      return await this.findWithinContainer(container, fieldType, fieldLabel);
+    } else {
+      if (container === undefined) {
+        throw 'Cannot find field: ' + fieldLabel + '@' + instanceNumber + ')';
+      }
+
+      return await this.findWithinContainer(container, fieldType, fieldLabel, instanceNumber);
+    }
+  }
+
+  public async removeCollectionItem(complexFieldLabel: string, collectionItemNumber: string | number, instanceNumber?: string | number) {
+    const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
+
+    if (!!complexFieldContainer) {
+      const collectionItemContainer = await this.findCollectionItemContainer(complexFieldContainer, collectionItemNumber);
+
+      await collectionItemContainer.all(by.xpath('.//button[normalize-space()="Remove"]')).first().click();
+
+      await browser.wait(ExpectedConditions.visibilityOf(collectionItemContainer.element(by.xpath('//ccd-remove-dialog//button[normalize-space()="Remove"]'))));
+
+      await collectionItemContainer.all(by.xpath('//ccd-remove-dialog//button[normalize-space()="Remove"]')).first().click();
+
+      await browser.wait(ExpectedConditions.invisibilityOf(collectionItemContainer.element(by.xpath('//ccd-remove-dialog//button[normalize-space()="Remove"]'))));
+    }
+  }
+
+  private async findComplexFieldContainer(complexFieldLabel: string, instanceNumber?: string | number): Promise<ElementFinder> {
+    const cardinalInstanceNumber = typeof instanceNumber === 'number' ? instanceNumber : OrdinalToCardinal.convertWordToNumber(instanceNumber);
+
+    if (complexFieldLabel) {
+      await this.anyPage.contentContains(complexFieldLabel);
     }
 
-    public async removeCollectionItem(
-        complexFieldLabel: string,
-        collectionItemNumber: string | number,
-        instanceNumber?: string | number
-    ) {
-        const complexFieldContainer = await this.findComplexFieldContainer(complexFieldLabel, instanceNumber);
+    for (let i = 0; i < this.complexFieldFinders.length; i++) {
+      const complexField = await this.complexFieldFinders[i].findComplexField(this.container, cardinalInstanceNumber, complexFieldLabel);
 
-        if (!!complexFieldContainer) {
-
-            const collectionItemContainer =
-                await this.findCollectionItemContainer(
-                    complexFieldContainer,
-                    collectionItemNumber
-                );
-
-            await collectionItemContainer
-                .all(by.xpath('.//button[normalize-space()="Remove"]'))
-                .first()
-                .click();
-
-            await browser.wait(ExpectedConditions.visibilityOf(
-                collectionItemContainer
-                    .element(by.xpath('//ccd-remove-dialog//button[normalize-space()="Remove"]')))
-            );
-
-            await collectionItemContainer
-                .all(by.xpath('//ccd-remove-dialog//button[normalize-space()="Remove"]'))
-                .first()
-                .click();
-
-            await browser.wait(ExpectedConditions.invisibilityOf(
-                collectionItemContainer
-                    .element(by.xpath('//ccd-remove-dialog//button[normalize-space()="Remove"]')))
-            );
-        }
+      if (!!complexField && (await complexField.isPresent())) {
+        return complexField;
+      }
     }
+  }
 
-    private async findComplexFieldContainer(
-        complexFieldLabel: string,
-        instanceNumber?: string | number
-    ): Promise<ElementFinder> {
+  private async findCollectionItemContainer(complexFieldContainer, collectionItemNumber: string | number): Promise<ElementFinder> {
+    const cardinalCollectionItemNumber = typeof collectionItemNumber === 'number' ? collectionItemNumber : OrdinalToCardinal.convertWordToNumber(collectionItemNumber);
 
-        const cardinalInstanceNumber = typeof instanceNumber === 'number'
-            ? instanceNumber
-            : OrdinalToCardinal.convertWordToNumber(instanceNumber);
+    for (let i = 0; i < this.collectionItemFinders.length; i++) {
+      const collectionItem = await this.collectionItemFinders[i].findCollectionItem(complexFieldContainer, cardinalCollectionItemNumber);
 
-        if (complexFieldLabel) {
-            await this.anyPage.contentContains(complexFieldLabel)
-        }
-
-        for (let i = 0; i < this.complexFieldFinders.length; i++) {
-
-            const complexField =
-                await this.complexFieldFinders[i]
-                    .findComplexField(
-                        this.container,
-                        cardinalInstanceNumber,
-                        complexFieldLabel
-                    );
-
-            if (!!complexField
-                && await complexField.isPresent()) {
-                return complexField;
-            }
-        }
+      if (!!collectionItem && (await collectionItem.isPresent())) {
+        return collectionItem;
+      }
     }
+  }
 
-    private async findCollectionItemContainer(
-        complexFieldContainer,
-        collectionItemNumber: string | number
-    ): Promise<ElementFinder> {
+  private async findWithinContainer(container: ElementFinder, fieldType: string, fieldLabel: string, instanceNumber?: string | number): Promise<Field> {
+    const cardinalInstanceNumber = typeof instanceNumber === 'number' ? instanceNumber : OrdinalToCardinal.convertWordToNumber(instanceNumber);
 
-        const cardinalCollectionItemNumber = typeof collectionItemNumber === 'number'
-            ? collectionItemNumber
-            : OrdinalToCardinal.convertWordToNumber(collectionItemNumber);
-
-        for (let i = 0; i < this.collectionItemFinders.length; i++) {
-
-            const collectionItem =
-                await this.collectionItemFinders[i]
-                    .findCollectionItem(
-                        complexFieldContainer,
-                        cardinalCollectionItemNumber
-                    );
-
-            if (!!collectionItem
-                && await collectionItem.isPresent()) {
-                return collectionItem;
-            }
+    for (let i = 0; i < this.fieldFinders.length; i++) {
+      if (!!fieldType) {
+        if ((await this.fieldFinders[i].getFieldType()) !== fieldType) {
+          continue;
         }
+      }
+
+      let field;
+
+      if (!!fieldLabel) {
+        field = await this.fieldFinders[i].findByLabel(container, cardinalInstanceNumber, fieldLabel);
+      } else {
+        field = await this.fieldFinders[i].findHavingEmptyLabel(container, cardinalInstanceNumber);
+      }
+
+      if (field) {
+        return field;
+      }
     }
-
-    private async findWithinContainer(
-        container: ElementFinder,
-        fieldType: string,
-        fieldLabel: string,
-        instanceNumber?: string | number
-    ): Promise<Field> {
-
-        const cardinalInstanceNumber = typeof instanceNumber === 'number'
-            ? instanceNumber
-            : OrdinalToCardinal.convertWordToNumber(instanceNumber);
-
-        for (let i = 0; i < this.fieldFinders.length; i++) {
-
-            if (!!fieldType) {
-                if (await this.fieldFinders[i].getFieldType() !== fieldType) {
-                    continue;
-                }
-            }
-
-            let field;
-
-            if (!!fieldLabel) {
-                field = await this.fieldFinders[i].findByLabel(container, cardinalInstanceNumber, fieldLabel);
-            } else {
-                field = await this.fieldFinders[i].findHavingEmptyLabel(container, cardinalInstanceNumber);
-            }
-
-            if (field) {
-                return field;
-            }
-        }
-    }
+  }
 }

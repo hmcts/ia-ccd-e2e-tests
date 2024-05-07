@@ -4,11 +4,10 @@ Feature: Submit appeal application
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay later
-    And I wait for 5 seconds
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
+    Then I should be on the overview page
 
-  @nightly-test
+  @appeal-nightly-test
   Scenario: Submit an appeal application
 
     And I select the `Submit your appeal` Next step

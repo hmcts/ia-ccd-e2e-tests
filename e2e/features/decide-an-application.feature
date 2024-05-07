@@ -4,14 +4,11 @@ Feature: Case officer or Judge make an application
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
-    And I switch to be a `Legal Org User Rep A`
+    Then I should be on the overview page
+    And I pay for and submit my appeal by Card
 
-  @Case-officer-decide-an-application @RIA-3451-case-officer-decide-an-application @RIA-3451 @nightly-test
+  @Case-officer-decide-an-application @RIA-3451-case-officer-decide-an-application @RIA-3451 @appeal-nightly-test
   Scenario: Case officer decide an application
 
     Then I make an application for `Update appeal details` type
@@ -23,7 +20,6 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
 
@@ -56,12 +52,11 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-    And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+    And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
     And I switch to be a `Legal Org User Rep A`
     Then I goto the `Applications` tab
@@ -69,12 +64,11 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-    And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+    And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
     When I switch to be a `Admin Officer`
     Then I goto the `Applications` tab
@@ -82,12 +76,11 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-    And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+    And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   # When I switch to be a `Home Office APC`
   # Then I goto the `Applications` tab
@@ -95,12 +88,11 @@ Feature: Case officer or Judge make an application
   # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
   # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
   # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-  # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
   # And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
   # And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-  # And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+  # And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   # When I switch to be a `Home Office LART`
   # Then I click the `Applications` tab
@@ -108,12 +100,11 @@ Feature: Case officer or Judge make an application
   # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
   # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
   # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-  # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
   # And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
   # And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-  # And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+  # And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   # When I switch to be a `Home Office POU`
   # Then I click the `Applications` tab
@@ -121,12 +112,11 @@ Feature: Case officer or Judge make an application
   # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
   # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
   # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-  # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
   # And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
   # And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-  # And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+  # And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   # When I switch to be a `Home Office Generic`
   # Then I click the `Applications` tab
@@ -134,12 +124,11 @@ Feature: Case officer or Judge make an application
   # And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field
   # And within the `Application` collection's first item, I should see `Update appeal details` in the `Type of application` field
   # And within the `Application` collection's first item, I should see `A reason to update appeal details` in the `Application details` field
-  # And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
   # And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
   # And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
   # And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date of decision` field
-  # And within the `Application` collection's first item, I should see `Tribunal Caseworker` in the `Decision maker` field
+  # And within the `Application` collection's first item, I should see `Legal Officer` in the `Decision maker` field
 
   @Judge-decide-an-application @RIA-3451-judge-decide-an-application @RIA-3451
   Scenario: Judge decide an application
@@ -157,7 +146,6 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Respondent` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Time extension` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason for time extension` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
 
@@ -188,7 +176,6 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Respondent` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Time extension` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason for time extension` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
@@ -201,7 +188,6 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Respondent` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Time extension` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason for time extension` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
@@ -214,7 +200,6 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Respondent` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Time extension` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason for time extension` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
@@ -227,7 +212,6 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Respondent` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Time extension` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason for time extension` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
@@ -240,7 +224,6 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Respondent` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Time extension` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason for time extension` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
@@ -253,7 +236,6 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Respondent` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Time extension` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason for time extension` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
@@ -266,7 +248,6 @@ Feature: Case officer or Judge make an application
     And within the `Application` collection's first item, I should see `Respondent` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Time extension` in the `Type of application` field
     And within the `Application` collection's first item, I should see `A reason for time extension` in the `Application details` field
-    And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
     And within the `Application` collection's first item, I should see `Granted` in the `Decision` field
     And within the `Application` collection's first item, I should see `A reason for the decision` in the `Reasons for decision` field
