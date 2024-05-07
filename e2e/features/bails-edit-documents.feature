@@ -7,7 +7,7 @@ Feature: Bails Edit bail documents
     And I should see the text `What happens next`
     And I switch to be a `Admin Officer Bails`
 
-  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-delete @bails
+  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-delete
   Scenario: Delete a document
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page
@@ -30,7 +30,7 @@ Feature: Bails Edit bail documents
     And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: These are some reasons for removing documents` in the `Case note` field
 
-  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-edit @bails
+  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-edit
   Scenario: Edit a document
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page
@@ -53,7 +53,7 @@ Feature: Bails Edit bail documents
     And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: Here are some reasons for editing documents` in the `Case note` field
 
-  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-add @bails
+  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-add
   Scenario: Add a document
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page
@@ -117,7 +117,7 @@ Feature: Bails Edit bail documents
     And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf, Pugh-bail-application-details.PDF, Evidence1.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: This is a reason for editing, removing and adding documents` in the `Case note` field
 
-  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-delete @bails-edit-documents-edit @bails-edit-documents-add @bails-edit-documents-delete-edit-add-judge @nightly-test @bails
+  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-delete @bails-edit-documents-edit @bails-edit-documents-add @bails-edit-documents-delete-edit-add-judge @nightly-test
   Scenario: Delete, edit and add a document as a Judge
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page

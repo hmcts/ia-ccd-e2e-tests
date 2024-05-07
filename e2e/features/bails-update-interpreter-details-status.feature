@@ -12,7 +12,7 @@ Feature: Bails Update interpreter details application as Legal Rep
     Then I should see the text `You have submitted this application`
     When I click the `Close and Return to case details` button if present
     And I wait for 10 seconds
-  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @nightly-test @bail
+  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @nightly-test
   Scenario: Add Update interpreter details application
     And I switch to be a `Admin Officer Bails`
     And I wait for 5 seconds
@@ -20,7 +20,7 @@ Feature: Bails Update interpreter details application as Legal Rep
     Then I should see the text `Update interpreter details`
     When I Add the interpreter details
     And I click the `Close and Return to case details` button
- @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @nightly-test @bail
+ @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @nightly-test
   Scenario: Add Update interpreter status application
     And I switch to be a `Admin Officer Bails`
     And I wait for 5 seconds

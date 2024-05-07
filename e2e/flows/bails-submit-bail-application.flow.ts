@@ -10,6 +10,7 @@ export class SubmitBailApplicationFlow {
         await this.ccdFormPage.runAccessbility();
         await this.ccdFormPage.selectNextStep('Submit the application');
         await this.ccdFormPage.click('Go');
+        await browser.sleep(3000)
         if (user === 'Legal Rep') {
             let loaded = false;
             for (let i = 0; i < 3; i++) {

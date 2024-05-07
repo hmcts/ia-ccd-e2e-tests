@@ -31,7 +31,7 @@ Feature: Bails End the application
     When I click the `Documents` tab
     Then within the `Tribunal documents` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
-  @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-dismissed @bails-end-the-application-post-bail-summary @bails
+  @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-dismissed @bails-end-the-application-post-bail-summary 
   Scenario: End Application after uploading bail summary
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -58,7 +58,7 @@ Feature: Bails End the application
     When I click the `Documents` tab
     Then within the `Tribunal documents` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
-  @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-record-decision @bails
+  @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-record-decision
   Scenario: End Application after recording a decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -86,7 +86,7 @@ Feature: Bails End the application
     When I click the `Documents` tab
     Then within the `Tribunal documents` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
-  @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-upload-signed-decision-notice @bails
+  @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-upload-signed-decision-notice
   Scenario: End Application after uploading signed decision notice for a conditional bail
     When I switch to be a `Home Office Bails`
     And I upload the bail summary

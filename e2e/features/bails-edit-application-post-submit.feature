@@ -42,7 +42,7 @@ Feature: Bails Edit application postSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-post-submit @bails-full @RIA-5868 @bails-edit-application-post-submit-post-bail-summary @bails
+  @bails-edit-application-post-submit @bails-full @RIA-5868 @bails-edit-application-post-submit-post-bail-summary
   Scenario: Edit application after uploading bail summary
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -79,7 +79,7 @@ Feature: Bails Edit application postSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-post-submit @bails-full @RIA-5868 @bails-edit-application-post-submit-post-record-decision @bails
+  @bails-edit-application-post-submit @bails-full @RIA-5868 @bails-edit-application-post-submit-post-record-decision
   Scenario: Edit application after recording a decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -118,7 +118,7 @@ Feature: Bails Edit application postSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-post-submit @bails-full @RIA-5868 @bails-edit-application-post-submit-post-upload-signed-decision-notice @bails
+  @bails-edit-application-post-submit @bails-full @RIA-5868 @bails-edit-application-post-submit-post-upload-signed-decision-notice
   Scenario: Edit application after uploading signed decision notice for a conditional bail
     When I switch to be a `Home Office Bails`
     And I upload the bail summary

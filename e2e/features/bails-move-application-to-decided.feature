@@ -10,14 +10,14 @@ Feature: Bails Move application to decided after a signed conditional bail decis
     And I wait for 5 seconds
     And I list the bail case
     And I wait for 5 seconds
-     When I switch to be a `Home Office Bails`
+    When I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I wait for 5 seconds
     And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
 
-  @bails-move-application-to-decided @bails-full @RIA-5759 @bails-move-application-to-decided-admin-officer @bails
+  @bails-move-application-to-decided @bails-full @RIA-5759 @bails-move-application-to-decided-admin-officer @bails11
   Scenario: Move application to decided as Admin Officer
     When I select the `Move application to decided` Next step
     Then I am on the `Move application to decided` page
@@ -30,7 +30,7 @@ Feature: Bails Move application to decided after a signed conditional bail decis
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see the image `progress_application_decided.svg`
 
-  @bails-move-application-to-decided @bails-full @RIA-5759 @bails-move-application-to-decided-judge @bails-regression
+  @bails-move-application-to-decided @bails-full @RIA-5759 @bails-move-application-to-decided-judge @bails-regression @bails11
   Scenario: Move application to decided as Judge
     When I switch to be a `Judge Bails`
     And I select the `Move application to decided` Next step

@@ -109,7 +109,7 @@ export class StartBailApplicationFlow {
 
     async completeWhichIRC(clickContinue = false) {
         await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Immigration removal centre name', 'Brookhouse');
+        await this.ccdFormPage.setFieldValue('Immigration removal centre name', 'Harmondsworth');
         if (clickContinue) {
             await this.ccdFormPage.click('Continue');
         }

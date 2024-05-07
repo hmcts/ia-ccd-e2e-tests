@@ -53,6 +53,7 @@ Given('I create a new bail application', async function () {
     await ccdPage.linkContains('Create case');
     await ccdPage.runAccessbility();
     await ccdPage.acceptCookies();
+    await browser.sleep(10000);
     await ccdPage.createCaseClickable();
     await ccdPage.click('Create case');
     expect(await ccdPage.headingContains('Create Case')).to.equal(true);
@@ -397,7 +398,7 @@ Given('I restart the browser', async function () {
 Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
     await ccdFormPage.click(flagtype);
     await ccdFormPage.click('Next');
-    await ccdFormPage.typeText(`flagComments`, `test case flage make it inactive`);
+    await ccdFormPage.typeText(`flagComment`, `test case flage make it inactive`);
     await ccdFormPage.click('Make inactive');
     await ccdFormPage.click('Next');
     await ccdFormPage.click('Manage Flags');

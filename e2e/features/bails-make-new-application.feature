@@ -30,7 +30,7 @@ Feature: Bails Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted @bails-test @bails
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted @bails-test
   Scenario: Make new application as Admin Officer after granted decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -53,7 +53,7 @@ Feature: Bails Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused @bails-test @bails
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused @bails-test
   Scenario: Make new application as Admin Officer after refused decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -76,7 +76,7 @@ Feature: Bails Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test @nightly-test @bails
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test @nightly-test
   Scenario: Make new application as Admin Officer after ended application with case note
     When I switch to be a `Admin Officer Bails`
     And I add a case note for application `1`
@@ -101,7 +101,7 @@ Feature: Bails Make new application
     And within the `Case notes` collection's first item, I should see `Case note text. This is from application 1` for the `Case note` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test @nightly-test @bails
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test @nightly-test
   Scenario: Make new application as Home Office after conditional grant decided
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -125,7 +125,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted @bails-test @bails
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted @bails-test 
   Scenario: Make new application as Home Office after granted decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -148,7 +148,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused @bails-test @bails
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused @bails-test
   Scenario: Make new application as Home Office after refused decision
     When I switch to be a `Home Office Bails`
     And I upload the bail summary

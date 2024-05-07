@@ -9,7 +9,7 @@ Feature: Bails Update interpreter details application as Legal Rep
     When I click the `The applicant has confirmed that the facts stated in this application are true.` label
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
- @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @nightly-test @bail
+ @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @nightly-test
   Scenario: Add Update interpreter details application
     And I switch to be a `Admin Officer Bails`
     When I select the `Update interpreter details` Next step

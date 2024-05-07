@@ -39,6 +39,14 @@ exports.config = {
     shardTestFiles: (iaConfig.RunWithNumberOfBrowsers > 1)
   },
 
+  default: {
+    formatOptions: {
+      theme: {
+        "datatable border":["green"],"datatable content":["green","italic"],"docstring content":["green","italic"],"docstring delimiter":["green"],"feature description":["green"],"feature keyword":["bold","green"],"rule keyword":["yellow"],"scenario keyword":["greenBright"],"scenario name":["green","underline"],"step keyword":["bgGreen","black","italic"],"step text":["greenBright","italic"],"tag":["green"]
+      }
+    }
+  },
+
   directConnect: true,
   useAllAngular2AppRoots: true,
 
@@ -61,7 +69,7 @@ exports.config = {
     'fail-fast': iaConfig.FailFast,
     'nightly-tag': iaConfig.NightlyTag,
     'no-source': true,
-    format: 'json:.tmp/results.json',
+    format: ['@cucumber/pretty-formatter', 'html:reports/tests/functionTestResult.html'],
     strict: true,
     retry: 0
   },

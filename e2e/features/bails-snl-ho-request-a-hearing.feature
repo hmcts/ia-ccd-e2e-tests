@@ -1,12 +1,12 @@
-Feature: Bails Submit bail application as Home Office User
+Feature: Bails SNL Hearing request as Home Office User
  Background:
    Given I am signed in as a `Home Office Bails`
    And I wait for 10 seconds
    When I create a new bail application
    Then I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
 
-  @submit-bail-application @RIA-5662 @submit-bail-application-home-office @bails-full @bails-regression @nightly-HOtest @bails
-  Scenario: Submit bail application as Home Office
+  @submit-bail-application @RIA-5662 @submit-bail-application-home-office @bails-full @bails-regression @nightly-test @bails 
+  Scenario: Bails Hearing request as as Home Office
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
     And The page is accessible
@@ -56,8 +56,6 @@ Feature: Bails Submit bail application as Home Office User
     And I add the `Hatton Cross` hearing location
     And I click the `Continue` button
     And I should see the text `Do you want a specific judge?`
-    And I click the `No` button
-    And I click the `Tribunal Judge` button
     And I click the `Continue` button
     And I should see the text `Length, date and priority level of hearing`
     And I click the `Continue` button

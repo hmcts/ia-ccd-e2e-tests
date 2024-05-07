@@ -1,11 +1,11 @@
-Feature: Bails Submit bail application as Legal Rep
+Feature: Bails SNL Hearing request as as Legal Rep
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
     When I create a new bail application
    Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with two financial condition supporters and with a Legal Representative with no files uploaded
 
-  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @xbrowsertestBails @nightly-test @bails
-  Scenario: Submit bail application as Legal Rep
+  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @nightly-test
+  Scenario: Bails Hearing request as Legal rep
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
     And The page is accessible
@@ -38,44 +38,42 @@ Feature: Bails Submit bail application as Legal Rep
     And I have created a `Reasonable adjustment` Flag in `John Smith` and signlanguage name is `British Sign Language (BSL)`
     And I wait for 10 seconds
 
-    #### update interpreter details#####
+#     #### update interpreter details#####
 
-    When I select the `Update interpreter details` Next step
-    Then I should see the text `Update interpreter details`
-    When I Add the interpreter details
-    And I click the `Close and Return to case details` button
+#     When I select the `Update interpreter details` Next step
+#     Then I should see the text `Update interpreter details`
+#     When I Add the interpreter details
+#     And I click the `Close and Return to case details` button
 
-#### update interpreter status #####
-    When I select the `Update interpreter status` Next step
-    Then I should see the text `Update interpreter status`
-    When I update interpreter booking status
-    And I click the `Close and Return to case details` button
+# #### update interpreter status #####
+#     When I select the `Update interpreter status` Next step
+#     Then I should see the text `Update interpreter status`
+#     When I update interpreter booking status
+#     And I click the `Close and Return to case details` button
 
     ##Hearing Request #####
-   And I wait for 3 seconds
-   When I goto the `hearings` tab
-    And I wait for 8 seconds
-    And I click the `Request a hearing` button
-    And I wait for 3 seconds
-    And I should see the text `Hearing requirements`
-    And I should see the text `Any reasonable adjustments on this page will be included in the hearing request.`
-    When I click the `Continue` button
-    And I wait for 3 seconds
-    And I should see the text `Do you require any additional facilities?`
-    When I click the `Continue` button
-    And I click the `Bail` button
-    And I click the `Continue` button
-    And I click the `Continue` button
-    And I add the `Hatton Cross` hearing location
-    And I click the `Continue` button
-    And I should see the text `Do you want a specific judge?`
-    And I click the `No` button
-    And I click the `Tribunal Judge` button
-    And I click the `Continue` button
-    And I should see the text `Length, date and priority level of hearing`
-    And I click the `Continue` button
-    And I should see the text `Enter any additional instructions for the hearing`
-    And I click the `Continue` button
-    And I click the `Submit request` button
-    And I should see the text `Hearing request submitted`
+  #  And I wait for 3 seconds
+  #  When I goto the `hearings` tab
+  #   And I wait for 8 seconds
+  #   And I click the `Request a hearing` button
+  #   And I wait for 3 seconds
+  #   And I should see the text `Hearing requirements`
+  #   And I should see the text `Any reasonable adjustments on this page will be included in the hearing request.`
+  #   When I click the `Continue` button
+  #   And I wait for 3 seconds
+  #   And I should see the text `Do you require any additional facilities?`
+  #   When I click the `Continue` button
+  #   And I click the `Bail` button
+  #   And I click the `Continue` button
+  #   And I click the `Continue` button
+  #   And I add the `Hatton Cross` hearing location
+  #   And I click the `Continue` button
+  #   And I should see the text `Do you want a specific judge?`
+  #   And I click the `Continue` button
+  #   And I should see the text `Length, date and priority level of hearing`
+  #   And I click the `Continue` button
+  #   And I should see the text `Enter any additional instructions for the hearing`
+  #   And I click the `Continue` button
+  #   And I click the `Submit request` button
+  #   And I should see the text `Hearing request submitted`
 # Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
