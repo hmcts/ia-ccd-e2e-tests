@@ -285,7 +285,7 @@ Given('I restart the browser', async function () {
 Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
   await ccdFormPage.click('Next');
-  await ccdFormPage.typeText(`flagComments`, `test case flage make it inactive`);
+  await ccdFormPage.typeTextByCssLocator('div > textarea', `test case flage make it inactive`);
   await ccdFormPage.click('Make inactive');
   await ccdFormPage.click('Next');
   await ccdFormPage.click('Manage Flags');

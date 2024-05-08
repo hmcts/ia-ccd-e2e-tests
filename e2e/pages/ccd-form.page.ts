@@ -49,6 +49,10 @@ export class CcdFormPage extends CcdPage {
     await element(By.css(`#${ID}`)).sendKeys(text);
   }
 
+  async typeTextByCssLocator(locator: string, text: string) {
+    await element(By.css(locator)).sendKeys(text);
+  }
+
   async clickElement(ID: string) {
     await element(By.css(`#${ID}`)).click();
   }
