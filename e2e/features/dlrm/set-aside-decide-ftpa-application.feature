@@ -61,7 +61,7 @@ Feature: Set Aside Decide FTPA Application
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button
 
-  @set-aside-dlrm @RIA-8104  @RIA-8206 @dlrm
+  @set-aside-dlrm @RIA-8104  @RIA-8206 @dlrm @appeal-nightly-test-dlrm
   Scenario Outline: Rule31/Rule32 decisions
     When I select the `Decide FTPA application` Next step
     And I should see the text `Decide FTPA application`
@@ -97,7 +97,7 @@ Feature: Set Aside Decide FTPA Application
       | Dispose of application under rule 31 |
       | Dispose of application under rule 32 |
 
-  @set-aside-dlrm @RIA-8103 @RIA-8110 @dlrm
+  @set-aside-dlrm @RIA-8103 @RIA-8110 @dlrm @appeal-nightly-test-dlrm
   Scenario: Rule35 decisions
     When I select the `Decide FTPA application` Next step
     And I should see the text `Decide FTPA application`
