@@ -10,64 +10,49 @@ This service is to help people to run End2End Journey Tests for Immigration & As
 
 Running the application requires the following tools to be installed in your environment:
 
-- [Node.js](https://nodejs.org/) v7.2.0 or later
+- [Node.js](https://nodejs.org/) v18.17.1 or later
 - [yarn](https://yarnpkg.com/)
+- Zsh - the scripts used are zsh scripts, so you will need to set up zsh scripting on your local machine.
 
 ### Install dependencies
 
 Install dependencies by executing the following command:
 
 ```bash
-$ yarn install
+yarn install
 ```
 
 ### Running the tests
 
+Before running the tests for the first time, if you are testing against AAT or Preview environments, run 
 ```bash
-### start the docker container:
-$ docker-compose build
-$ docker-compose up -d
-
-### tests run inside the docker container:
-$ docker-compose exec ia-ccd-e2e-tests bash
-$ yarn install
-$ yarn e2e
+yarn setAatVaultEnvVariables;
+```
+If you are testing against Demo environment, run 
+```bash
+yarn setDemoVaultEnvVariables;
 ```
 
-### To run scenarios or features in parallel browser sessions:
-
+Then to run the tests off your machine, if you are wanting to run tests for the tag ```@this-new-test```, depending on your OS, in the ```package.json``` find one of the following:
+```
+test:macFullfunctional;
+test:linuxFullfunctional;
+test:windowsFullfunctional;
+```
+And replace the 2 instances of ```@TAG_TO_CHANGE``` with your tag (in this case ```@this-new-test)```, so say we are on a Mac, then we would have 
+```
+"test:macFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform mac; npx @puppeteer/browsers install chromedriver@123 --platform mac; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @this-new-test; protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@this-new-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+```
+Finally, in your terminal, run the command that matches your OS from the following:
 ```bash
-TEST_E2E_NUM_BROWSERS=2 TEST_E2E_HEADLESS=false yarn run localTestParallelScenarios "--cucumberOpts.tags=@share-a-case or @RIA-585"
-
-TEST_E2E_NUM_BROWSERS=2 TEST_E2E_HEADLESS=false yarn run localTestParallelFeatures "--cucumberOpts.tags=@share-a-case or @RIA-585"
+yarn test:macFullfunctional;
+yarn test:linuxFullfunctional;
+yarn test:windowsFullfunctional;
 ```
 
-## Running the tests locally using docker
+## Adding new secrets
 
-Tests can be executed against an instance of CCD running locally using docker.
-
-### Prerequisites
-
-Running the tests locally requires the following tools to be installed in your environment:
-
-- docker
-- curl
-- psql (postgresql client)
-
-Setup environment variables. In ia-docker there is a .local-env file which will setup the environment variables you
-need. **Either source this in your profile or make sure you have these variables setup.**
-
-Follow the _Quick start_ instructions here to get CCD running locally:
-
-https://github.com/hmcts/ccd-docker#quick-start
-
-Configure CCD with the users exported to your environment (do this once when you first run ccd-docker):
-
-`./bin/create-users.sh`
-
-Import the CCD Definition spreadsheet:
-
-`./bin/import-definition.sh /path/to/definition/spreadsheet`
+If you require new secrets pulled from the vault, be sure to add them to the secrets list found in ```/e2e/support/set_env_vars_from_vault.zsh``` in the format ```"ENV_VARIABLE:azure_secret_name"``` as well as adding them to the ```Jenkinsfile_nightly``` file
 
 ## Other tasks
 

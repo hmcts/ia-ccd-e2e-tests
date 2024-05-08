@@ -27,8 +27,6 @@ module.exports = {
   TestLawFirmBPassword: process.env.TEST_LAW_FIRM_B_PASSWORD,
   TestLawFirmCUserName: process.env.TEST_LAW_FIRM_C_USERNAME,
   TestLawFirmCPassword: process.env.TEST_LAW_FIRM_C_PASSWORD,
-  TestAdminUserName: process.env.TEST_ADMIN_USERNAME,
-  TestAdminPassword: process.env.TEST_ADMIN_PASSWORD,
   TestHomeOfficeApcUserName: process.env.TEST_HOMEOFFICE_APC_USERNAME,
   TestHomeOfficeApcPassword: process.env.TEST_HOMEOFFICE_APC_PASSWORD,
   TestHomeOfficeLartUserName: process.env.TEST_HOMEOFFICE_LART_USERNAME,
@@ -53,8 +51,6 @@ module.exports = {
   TestLawFirmOrgCPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_C_PASSWORD,
   TestLawFirmOrgDUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_D_USERNAME,
   TestLawFirmOrgDPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_D_PASSWORD,
-  TestLawFirmOrgSuccessUserName: process.env.TEST_LAW_FIRM_ORG_SUCCESS_USERNAME,
-  TestLawFirmOrgSuccessPassword: process.env.TEST_LAW_FIRM_ORG_SUCCESS_PASSWORD,
 
   TestAdminOfficerBailsUserName: process.env.TEST_ADMINOFFICER_BAILS_USERNAME,
   TestAdminOfficerBailsPassword: process.env.TEST_ADMINOFFICER_BAILS_PASSWORD,
