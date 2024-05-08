@@ -81,7 +81,7 @@ let config = {
     retry.onPrepare();
   },
   onComplete: async () => {
-    await generateAccessibilityReport();
+    generateAccessibilityReport();
   },
   afterLaunch: () => {
     let passedTests = getPassedTestsArray();
