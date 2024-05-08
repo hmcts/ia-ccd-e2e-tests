@@ -1,6 +1,6 @@
 Feature: Set Aside Make an Appplication for rule 31 and 32
 
-    @set-aside-dlrm @RIA-8228 @appeal-nightly-test-dlrm
+    @set-aside-dlrm @RIA-8228 @appeal-nightly-test-dlrm @xbrowser-dlrm
     Scenario Outline: Set Aside Make an Appplication for rule 31 and 32
         Given I am signed in as a <iac_user>
         When I go to the `Case List`
