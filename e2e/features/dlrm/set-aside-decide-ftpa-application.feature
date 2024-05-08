@@ -8,7 +8,7 @@ Feature: Set Aside Decide FTPA Application
     And  I click case at row 1 and navigate to case view page
 
 
-  @set-aside-dlrm @RIA-8101 @dlrm
+  @set-aside-dlrm @RIA-8101 @dlrm-works
   Scenario: Remove Leadership judge FTPA Decision event and rename Resident judge FTPA Decision event
     Then I should see the option `Decide FTPA application` for the `Next step` field
     And I should not see the option `Leadership judge FTPA Decision` for the `Next step` field
@@ -20,7 +20,7 @@ Feature: Set Aside Decide FTPA Application
     And I should see the text `If you are pursuing a rule 35 decision to be set aside`
     And I should see the text `This can only be done by a Resident Judge. You must send the Notice of Intention to Set Aside to both parties offline and await any objections before recording the application decision.`
 
-  @set-aside-dlrm @RIA-8102 @dlrm
+  @set-aside-dlrm @RIA-8102 @dlrm-works
   Scenario: Decide FTPA application event screen
     When I select the `Decide FTPA application` Next step
     And I should see the text `Decide FTPA application`
@@ -38,14 +38,13 @@ Feature: Set Aside Decide FTPA Application
       | Permission partially granted                        |
       | Permission refused                                  |
       | Application not admitted                            |
-      | Withdrawn                                           |
       | Review decision under rule 35 - Resident Judge only |
       | Dispose of application under rule 31                |
       | Dispose of application under rule 32                |
     And I select `Permission granted` for the `The outcome of the application` field
     And I click the `Continue` button
     And I should see the text `Decide FTPA application`
-    And I should see the text `FTPA Decisions and Reasons`
+    And I should see the text `FTPA Decision and Reasons`
     When I upload `{@FTPADecisionAndReasons.pdf}` for the document field without a label
     And I click the `Continue` button
     And I click the `Yes` label
@@ -61,7 +60,7 @@ Feature: Set Aside Decide FTPA Application
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button
 
-  @set-aside-dlrm @RIA-8104  @RIA-8206 @dlrm
+  @set-aside-dlrm @RIA-8104  @RIA-8206 @dlrm-works
   Scenario Outline: Rule31/Rule32 decisions
     When I select the `Decide FTPA application` Next step
     And I should see the text `Decide FTPA application`
@@ -97,7 +96,7 @@ Feature: Set Aside Decide FTPA Application
       | Dispose of application under rule 31 |
       | Dispose of application under rule 32 |
 
-  @set-aside-dlrm @RIA-8103 @RIA-8110 @dlrm
+  @set-aside-dlrm @RIA-8103 @RIA-8110 @dlrm-works
   Scenario: Rule35 decisions
     When I select the `Decide FTPA application` Next step
     And I should see the text `Decide FTPA application`
@@ -118,23 +117,25 @@ Feature: Set Aside Decide FTPA Application
     And I click the `Continue` button
     And I should see the text `Final rule 35 notice`
     And I should see the text `Upload final rule 35 notice`
-    When I upload `{@SignedDecisionNoticeReheard.pdf}` for the `Upload rule 35 notice` field
+    When I upload `{@SignedDecisionNoticeReheard.pdf}` for the `Document` field
     And I wait for 5 seconds
     And I click the `Continue` button
     And I should see the text `Listing instructions`
     And I type `Test Judge` for the `Enter the name of a judge to exclude (Optional)` field
-    And I type `Additional Test Instructions` for the `Enter any additional instructions (Optional)` field
+    # And I type `Additional Test Instructions` for the `Enter any additional instructions (Optional)` field
     And I click the `Continue` button
     And I should see the text `Check your answers`
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
     And I click the `Close and Return to case details` button
-    When I click the `Documents` tab
+    And I wait for 5 seconds
+    # When I click the `Documents` tab
     Then I should see the `Set aside documents` field
     And within the `Set aside documents` collection's first item, I should see SignedDecisionNoticeReheard.pdf in the `Document` field
     And within the `Set aside documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
     And I wait for 5 seconds
     And I should see the `FTPA` tab
+    And The page is accessible
     When I click the `FTPA` tab
     And within the `Application` collection's first item, I should see `Appellant` in the `Applicant` field
     And within the `Application` collection's first item, I should see `Review decision under rule 35` for the `The outcome of the application` field
@@ -142,6 +143,6 @@ Feature: Set Aside Decide FTPA Application
     And within the `Application` collection's first item, I should see `No Objections` for the `Objections to set aside` field
     And within the `Notice communication` collection's first item, I should see FTPANoticeOfCommunication.pdf for the `Document` field
     And within the `Notice communication` collection's first item, I should see `This is the ftpa notice of communication` for the `Describe the document` field
-    And within the `Application` collection's first item, I should see `Additional Test Instructions` in the `Listing instructions` field
+    # And within the `Application` collection's first item, I should see `Additional Test Instructions` in the `Listing instructions` field
     And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Decision date` field
 

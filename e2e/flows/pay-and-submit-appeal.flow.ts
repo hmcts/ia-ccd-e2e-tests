@@ -43,10 +43,12 @@ export class PayAndSubmitAppealFlow {
     async payForAppealByCard(clickContinue = false, appealType) {
         const currentUrl = await this.ccdPage.getCurrentUrl();
         if (appealType === 'PA') {
-            await this.ccdFormPage.click('Service request');
+            await this.ccdFormPage.click('create a service request');
         } else {
-            await this.ccdFormPage.click('pay for your appeal');
+            await this.ccdFormPage.click('create a service request');
         }
+        await this.ccdFormPage.click('Submit');
+        await this.ccdFormPage.click('Service requests');
         await browser.sleep(5000);
         await this.ccdFormPage.click('Pay now');
         await browser.sleep(5000);

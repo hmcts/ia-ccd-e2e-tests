@@ -74,4 +74,4 @@ Feature: Create RP case upto FTPA submitted
   @dlrm-rp-case  @dlrm-cases
   Scenario: PA case submit FTPA
     Then I wait for 2 seconds
-    # Then I apply for appellant FTPA
+    Then I apply for appellant FTPA

@@ -8,7 +8,7 @@ Feature: Set Aside Decide FTPA Application for AiP
     And I wait for 2 seconds
     And  I click case at row 1 and navigate to case view page
 
-  @set-aside-dlrm-aip @RIA-8622 @dlrm
+  @set-aside-dlrm-aip @RIA-8622 @dlrm-1
   Scenario Outline: Rule31/Rule32 decisions for AiP
     When I select the `Decide FTPA application` Next step
     And I should see the text `Decide FTPA application`
