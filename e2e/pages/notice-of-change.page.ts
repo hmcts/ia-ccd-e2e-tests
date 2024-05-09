@@ -146,7 +146,8 @@ export class NoticeOfChangePage {
 
   async enterBailsDateOfBirth() {
     let elements = element(by.css('exui-noc-date-field')).all(by.css('input.form-control.govuk-input.govuk-input--width-10.ng-untouched.ng-pristine.ng-invalid'));
-    expect(elements.count()).to.equal(3);
+    let count = await elements.count();
+    expect(count).to.equal(3);
     await elements.get(0).sendKeys(`31`);
     await elements.get(1).sendKeys(`12`);
     await elements.get(2).sendKeys(`1999`);
@@ -154,7 +155,8 @@ export class NoticeOfChangePage {
 
   async enterBailsIncorrectDateOfBirth() {
     let elements = element(by.css('exui-noc-date-field')).all(by.css('input.form-control.govuk-input.govuk-input--width-10.ng-untouched.ng-pristine.ng-invalid'));
-    expect(elements.count()).to.equal(3);
+    let count = await elements.count();
+    expect(count).to.equal(3);
     await elements.get(0).sendKeys(`10`);
     await elements.get(1).sendKeys(`02`);
     await elements.get(2).sendKeys(`1999`);
