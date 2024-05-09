@@ -31,7 +31,7 @@ Feature: Bails End the application
     When I click the `Documents` tab
     Then within the `Tribunal documents` collection's first item, I should see `Pugh-ended-application-notice.PDF` for the `Document` field
 
-  @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-dismissed @bails-end-the-application-post-bail-summary
+@bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-dismissed @bails-end-the-application-post-bail-summary
   Scenario: End Application after uploading bail summary
     When I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event

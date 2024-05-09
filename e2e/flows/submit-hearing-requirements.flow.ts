@@ -524,17 +524,36 @@ export class SubmitHearingRequirementsFlow {
     }
   }
 
-  async setRemoteHearingRequirementForInOutOfCountryForInOutOfCountry(clickContinue = false, isYesPath = '', details = '') {
-    if (isOutOfCountryEnabled) {
-      if (isYesPath === 'Yes') {
-        await this.ccdFormPage.setFieldValue("Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?", 'Yes');
-        await this.ccdFormPage.setFieldValue('Explain in detail anything you would like the Tribunal to consider', details);
-      } else {
-        await this.ccdFormPage.setFieldValue("Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?", 'No');
-      }
-      if (clickContinue) {
-        await this.ccdFormPage.click('Continue');
-      }
+    async setRemoteHearingRequirementForInOutOfCountryForInOutOfCountry(clickContinue = false, isYesPath = '', details = '') {
+        if (isOutOfCountryEnabled) {
+            if (isYesPath === 'Yes') {
+                await this.ccdFormPage.setFieldValue(
+                    'Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?',
+                    'Yes'
+                );
+                await this.ccdFormPage.setFieldValue(
+                    'Explain in detail anything you would like the Tribunal to consider',
+                    details
+                );
+            } else {
+                await this.ccdFormPage.setFieldValue(
+                    'Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?',
+                    'No'
+                );
+            }
+            if (clickContinue) {
+                await this.ccdFormPage.click('Continue');
+            }
+        }
     }
-  }
+    async setHearingLocation(clickContinue = false, location = ''){
+        await browser.sleep(3000);
+        await this.ccdFormPage.typeTextBasedOnClass(
+            'mat-autocomplete-trigger',
+            location
+        );
+        await browser.sleep(3000);
+        await this.ccdFormPage.click('Hatton Cross');
+        await this.ccdFormPage.click('Add location');
+    }
 }

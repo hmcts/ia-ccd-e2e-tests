@@ -68,7 +68,7 @@ Feature: Bails Notice of Change
     Then I should see the text `Your organisation already has access to this case`
     And I should see the text `You or a colleague are already representing this client on this case.`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full @bail-nightly-test
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full @bail-nightly-test 
   Scenario: Notice of Change
     When I am signed in as a `Legal Org User Rep C`
     And I wait for 20 seconds

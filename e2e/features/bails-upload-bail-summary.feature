@@ -6,8 +6,12 @@ Feature: Bails Upload Bail Summary
    And I submit my bail application as a `Legal Rep`
    And I should see the text `What happens next`
    # Listing steps need to go here
-
-  @upload-bail-summary @RIA-5707 @bails-full @bails-regression @fixing-test
+    And I wait for 10 seconds
+    And I switch to be a `Admin Officer Bails`
+    And I wait for 10 seconds
+    And I list the bail case
+    
+   @upload-bail-summary @RIA-5707 @bails-full @bails-regression @bails-summarytest 
   Scenario: Upload the Bail Summary as the Home Office
     When I switch to be a `Home Office Bails`
     And I select the `Upload Bail Summary` Next step

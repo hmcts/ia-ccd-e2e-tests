@@ -6,8 +6,8 @@ Feature: Bails Add a case note to bails application
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
-  @bails-add-case-note @bails-add-case-note-admin-officer @bails-add-case-note-document @bails-add-case-note-document-admin-officer @RIA-5753 @bails-full @bails-regression
-  Scenario: Add case note with document as Admin Officer
+ @bails-add-case-note @bails-add-case-note-admin-officer @bails-add-case-note-document @bails-add-case-note-document-admin-officer @RIA-5753 @bails-full @bails-regression
+   Scenario: Add case note with document as Admin Officer
     When I switch to be a `Admin Officer Bails`
     When I select the `Add case note` Next step
     Then I am on the `Case note details` page
@@ -84,6 +84,7 @@ Feature: Bails Add a case note to bails application
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
     When I switch to be a `Admin Officer Bails`
+    And I wait for 2 seconds
     And I click the `Case notes` tab
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `some case note subject` for the `Subject` field

@@ -76,8 +76,8 @@ Feature: Bails Edit application preSubmit
     And I should see `No` for the `Disability` field
     And I should see `Yes` for the `Able to join video hearing` field
 
-  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-admin-officer
-  Scenario: Admin Officer Edit application Before Submitting
+ @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-admin-officer
+   Scenario: Admin Officer Edit application Before Submitting
     Given I am signed in as a `Admin Officer Bails`
    And I create a new bail application
     And I save my initial application as a `Admin Officer` for a Prison detention with one financial condition supporters and with no Legal Representative
