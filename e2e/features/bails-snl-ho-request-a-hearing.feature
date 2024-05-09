@@ -5,7 +5,7 @@ Feature: Bails SNL Hearing request as Home Office User
    When I create a new bail application
    Then I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
 
-  @submit-bail-application @RIA-5662 @submit-bail-application-home-office @bails-full @bails-regression @nightly-test @bails 
+  @submit-bail-application @RIA-5662 @submit-bail-application-home-office @bails-full @bails-regression @nightly-test  
   Scenario: Bails Hearing request as as Home Office
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page

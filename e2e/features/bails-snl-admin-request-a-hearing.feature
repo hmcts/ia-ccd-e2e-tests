@@ -4,7 +4,7 @@ Feature: Bails SNL Hearing request as Admin Officer
    When I create a new bail application
    Then I save my initial application as a `Admin Officer` for a Prison detention with two financial condition supporters and with no Legal Representative
 
-  @submit-bail-application @RIA-5662 @submit-bail-application-admin-officer @bails-full @bails-regression @nightly-test @bail-Admintest @bails
+  @submit-bail-application @RIA-5662 @submit-bail-application-admin-officer @bails-full @bails-regression @nightly-test @bail-Admintest 
   Scenario: Bails Hearing request as Admin Officer
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page

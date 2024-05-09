@@ -6,7 +6,7 @@ Feature: Bails Make new application
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
- @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-conditional-grant @bails-regression @bails-test
+ @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-conditional-grant @bails-regression 
    Scenario: Make new application as Admin Officer after conditional grant decided
     And I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
@@ -29,7 +29,7 @@ Feature: Bails Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted 
   Scenario: Make new application as Admin Officer after granted decision
     When I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
@@ -54,7 +54,7 @@ Feature: Bails Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused 
   Scenario: Make new application as Admin Officer after refused decision
     When I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
@@ -131,7 +131,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-@bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted @bails-test 
+@bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted  
   Scenario: Make new application as Home Office after granted decision
     When I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
@@ -156,7 +156,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused 
   Scenario: Make new application as Home Office after refused decision
     When I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
@@ -181,7 +181,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-ended @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-ended 
   Scenario: Make new application as Home Office after ended application
     When I switch to be a `Admin Officer Bails`
     And I end the application
@@ -203,7 +203,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-conditional-grant @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-conditional-grant 
   Scenario: Make new application as Legal Rep after conditional grant decided
     When I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
@@ -231,7 +231,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-granted @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-granted 
   Scenario: Make new application as Legal Rep after granted decision
     When I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
@@ -258,7 +258,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-refused @bails-regression @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-refused @bails-regression 
   Scenario: Make new application as Legal Rep after refused decision
     When I switch to be a `Admin Officer Bails`
     And I list the bails case through Case Listing event
@@ -285,7 +285,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-ended @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-ended 
   Scenario: Make new application as Legal Rep after ended application
     When I switch to be a `Admin Officer Bails`
     And I end the application
