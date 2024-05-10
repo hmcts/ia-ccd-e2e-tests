@@ -123,12 +123,14 @@ export class ListCaseFlow {
             'Initial listing'
         );
         await this.ccdFormPage.setFieldValue(
-            'Listing location',
-            'Hatton Cross Tribunal Hearing Centre'
-        );
-        await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
-        await this.ccdFormPage.typeText('listingHearingDuration', '60');
+          'Location',
+          'Hatton Cross'
+      );
 
+      await this.ccdFormPage.setFieldValue(
+          'Length',
+          '1 hour'
+      );
         await this.ccdFormPage.setFieldValue(
             'Date and time',
             '{$TODAY+14|DD-MM-YYYY} 10:30:00'
@@ -153,13 +155,14 @@ export class ListCaseFlow {
             'Relisting'
         );
         await this.ccdFormPage.setFieldValue(
-            'Listing location',
-            'Hatton Cross Tribunal Hearing Centre'
-        );
-        await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
+          'Location',
+          'Hatton Cross'
+      );
 
-        await this.ccdFormPage.typeText('listingHearingDuration', '30');
-
+      await this.ccdFormPage.setFieldValue(
+          'Length',
+          '30 minutes'
+      );
 
         await this.ccdFormPage.setFieldValue(
             'Date and time',
