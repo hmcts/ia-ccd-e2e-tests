@@ -151,5 +151,4 @@ Given(/^I select `?([^\s`]+)`? for Remote hearing with details `?([^`]+)`?$/, as
 
 Given(/^I add the `?([^`]+)`? hearing location$/, async function (location) {
   await submitHearingRequirementsFlow.setHearingLocation(true, location);
-
 });

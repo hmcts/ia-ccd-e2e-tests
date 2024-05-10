@@ -68,19 +68,19 @@ export class MakeNewApplicationFlow {
     }
   }
 
-    async completeWhichIRC(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        await this.ccdFormPage.setFieldValue('Immigration removal centre name', 'Harmondsworth');
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  async completeWhichIRC(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Immigration removal centre name', 'Harmondsworth');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
-    async completeDateOfApplicantArrival(clickContinue = false) {
-        await this.ccdFormPage.runAccessbility();
-        if (clickContinue) {
-            await this.ccdFormPage.click('Continue');
-        }
+  }
+  async completeDateOfApplicantArrival(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
+  }
 
   async completeApplicantMobilePhone(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();

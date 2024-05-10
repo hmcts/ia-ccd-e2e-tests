@@ -1,5 +1,5 @@
 import { Given } from 'cucumber';
-import { ListCaseThroughEvent } from "../../../flows/bails-list-case-event.flow";
+import { ListCaseThroughEvent } from '../../../flows/bails-list-case-event.flow';
 
 const listCaseThroughEvent = new ListCaseThroughEvent();
 
