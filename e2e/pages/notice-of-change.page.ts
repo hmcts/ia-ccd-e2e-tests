@@ -1,7 +1,6 @@
 /* tslint:disable:no-trailing-whitespace */
 import { Wait } from '../enums/wait';
 import { browser, by, element, By } from 'protractor';
-import { expect } from 'chai';
 
 const iaConfig = require('../ia.conf');
 const ccdUrl = iaConfig.CcdWebUrl;
@@ -145,20 +144,14 @@ export class NoticeOfChangePage {
   }
 
   async enterBailsDateOfBirth() {
-    let elements = element(by.css('exui-noc-date-field')).all(by.css('input.form-control.govuk-input.govuk-input--width-10.ng-untouched.ng-pristine.ng-invalid'));
-    let count = await elements.count();
-    expect(count).to.equal(3);
-    await elements.get(0).sendKeys(`31`);
-    await elements.get(1).sendKeys(`12`);
-    await elements.get(2).sendKeys(`1999`);
+    await element(by.css('.form-group-day > input')).sendKeys(`31`);
+    await element(by.css('.form-group-month > input')).sendKeys(`12`);
+    await element(by.css('.form-group-year > input')).sendKeys(`1999`);
   }
 
   async enterBailsIncorrectDateOfBirth() {
-    let elements = element(by.css('exui-noc-date-field')).all(by.css('input.form-control.govuk-input.govuk-input--width-10.ng-untouched.ng-pristine.ng-invalid'));
-    let count = await elements.count();
-    expect(count).to.equal(3);
-    await elements.get(0).sendKeys(`10`);
-    await elements.get(1).sendKeys(`02`);
-    await elements.get(2).sendKeys(`1999`);
+    await element(by.css('.form-group-day > input')).sendKeys(`10`);
+    await element(by.css('.form-group-month > input')).sendKeys(`02`);
+    await element(by.css('.form-group-year > input')).sendKeys(`1999`);
   }
 }
