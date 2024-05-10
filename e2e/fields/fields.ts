@@ -42,22 +42,22 @@ export class Fields {
     new CcdWriteAddressFieldFinder(),
     new CcdWriteDateFieldFinder(),
 
-        new CcdWriteFixedListFieldFinder(),
-        new CcdWriteFixedRadioListFieldFinder(),
-        new CcdWriteTextFieldFinder(),
-        new CcdWriteMultiSelectListFieldFinder(),
-        new CcdWriteTextAreaFieldFinder(),
-        new CcdWriteYesNoFieldFinder(),
+    new CcdWriteFixedListFieldFinder(),
+    new CcdWriteFixedRadioListFieldFinder(),
+    new CcdWriteTextFieldFinder(),
+    new CcdWriteMultiSelectListFieldFinder(),
+    new CcdWriteTextAreaFieldFinder(),
+    new CcdWriteYesNoFieldFinder(),
 
-        new CcdWriteDocumentFieldFinder(),
-        new CcdWriteLabelFieldFinder(),
-        new CcdWriteMoneyGBPFieldFinder(),
-        new CcdWriteEmailFieldFinder(),
-        new CcdWriteDynamicListFieldFinder(),
-        new CcdWriteTelFieldFinder(),
-        // the following fields are not specific to one type
-        // and so are searched last in order of specificity
-        // which affects the selection for label-less fields
+    new CcdWriteDocumentFieldFinder(),
+    new CcdWriteLabelFieldFinder(),
+    new CcdWriteMoneyGBPFieldFinder(),
+    new CcdWriteEmailFieldFinder(),
+    new CcdWriteDynamicListFieldFinder(),
+    new CcdWriteTelFieldFinder(),
+    // the following fields are not specific to one type
+    // and so are searched last in order of specificity
+    // which affects the selection for label-less fields
 
     new CcdReadTableFieldFinder(),
     new CcdReadListFieldFinder(),

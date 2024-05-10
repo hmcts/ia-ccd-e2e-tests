@@ -106,74 +106,47 @@ export class ListCaseFlow {
     await this.ccdFormPage.click('Continue');
     await this.ccdFormPage.click('List case');
 
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.contentContains('You have listed the case');
-        }
+    if (clickContinue) {
+      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.contentContains('You have listed the case');
     }
+  }
 
+  async listTheBailCase(clickContinue = false) {
+    await this.ccdFormPage.selectNextStep('Case listing');
+    await this.ccdFormPage.click('Go');
 
-    async listTheBailCase(clickContinue = false) {
+    await this.ccdFormPage.setFieldValue('Listing event', 'Initial listing');
+    await this.ccdFormPage.setFieldValue('Location', 'Hatton Cross');
 
-        await this.ccdFormPage.selectNextStep('Case listing');
-        await this.ccdFormPage.click('Go');
+    await this.ccdFormPage.setFieldValue('Length', '1 hour');
+    await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 
-        await this.ccdFormPage.setFieldValue(
-            'Listing event',
-            'Initial listing'
-        );
-        await this.ccdFormPage.setFieldValue(
-          'Location',
-          'Hatton Cross'
-      );
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.click('List case');
 
-      await this.ccdFormPage.setFieldValue(
-          'Length',
-          '1 hour'
-      );
-        await this.ccdFormPage.setFieldValue(
-            'Date and time',
-            '{$TODAY+14|DD-MM-YYYY} 10:30:00'
-        );
-
-        await this.ccdFormPage.click('Continue');
-        await this.ccdFormPage.click('List case');
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
+    if (clickContinue) {
+      await this.ccdFormPage.click('Close and Return to case details');
     }
+  }
 
-    //reListTheBailCase
-    async reListTheBailCase(clickContinue = false) {
+  // reListTheBailCase
+  async reListTheBailCase(clickContinue = false) {
+    await this.ccdFormPage.selectNextStep('Case listing');
+    await this.ccdFormPage.click('Go');
 
-        await this.ccdFormPage.selectNextStep('Case listing');
-        await this.ccdFormPage.click('Go');
+    await this.ccdFormPage.setFieldValue('Listing event', 'Relisting');
+    await this.ccdFormPage.setFieldValue('Location', 'Hatton Cross');
 
-        await this.ccdFormPage.setFieldValue(
-            'Listing event',
-            'Relisting'
-        );
-        await this.ccdFormPage.setFieldValue(
-          'Location',
-          'Hatton Cross'
-      );
+    await this.ccdFormPage.setFieldValue('Length', '30 minutes');
 
-      await this.ccdFormPage.setFieldValue(
-          'Length',
-          '30 minutes'
-      );
+    await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 11:30:00');
 
-        await this.ccdFormPage.setFieldValue(
-            'Date and time',
-            '{$TODAY+14|DD-MM-YYYY} 11:30:00'
-        );
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.click('List case');
 
-        await this.ccdFormPage.click('Continue');
-        await this.ccdFormPage.click('List case');
-
-        if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-        }
+    if (clickContinue) {
+      await this.ccdFormPage.click('Close and Return to case details');
     }
+  }
 }
