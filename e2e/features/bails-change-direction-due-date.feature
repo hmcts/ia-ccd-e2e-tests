@@ -8,7 +8,7 @@ Feature: Bails Change Direction Due Date
     And I switch to be a `Admin Officer Bails`
     And I send a direction to the `Applicant`
 
-  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails-full @bails-regression @bail-nightly-test
+  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails-full @bails-regression @bail-nightly-test 
   Scenario: Change a direction due date as an Admin Officer
     When I select the `Change direction due date` Next step
     Then I am on the `Select direction` page

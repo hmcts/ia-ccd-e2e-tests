@@ -1,7 +1,7 @@
 Feature: Bails Add a case flag to bails application
     Background:
         Given I am signed in as a `Legal Org User Rep A Bails`
-        And I create a new bail application
+       And I create a new bail application
         And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
         And I submit my bail application as a `Legal Rep`
         And I should see the text `What happens next`
@@ -14,7 +14,9 @@ Feature: Bails Add a case flag to bails application
         And I have created a `Complex Case` Flag in `Case level`
         Then I should see an alert confirming the case `has been updated with event: Create Flag`
         And I should see the text `There is 1 active flag on this case.`
+      And I wait for 5 seconds
         When I goto the `Case flags` tab
+       And I wait for 2 seconds
         Then I should see the text `Case level flags`
         Then I should see the text `Complex Case`
 
