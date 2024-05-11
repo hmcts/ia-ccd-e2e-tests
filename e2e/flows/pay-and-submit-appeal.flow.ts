@@ -29,7 +29,7 @@ export class PayAndSubmitAppealFlow {
             await this.ccdPage.click('Overview');
             let i = 0;
             while (i < 6) {
-                let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'));
+                let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'))
                 if (nextText) {
                     break;
                 } else {
@@ -70,13 +70,13 @@ export class PayAndSubmitAppealFlow {
 
         if (clickContinue) {
             await this.ccdPage.click('Return to service request');
-            if ( !currentUrl.includes( 'aat' ) ) {
+            if(!currentUrl.includes("aat")) {
                 await this.ccdPage.goToUrl(currentUrl);
             }
             await this.ccdPage.click('Overview');
             let i = 0;
             while (i < 6) {
-                let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'));
+                let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'))
                 if (nextText) {
                     break;
                 } else {
