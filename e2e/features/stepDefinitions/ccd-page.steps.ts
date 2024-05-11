@@ -36,7 +36,7 @@ Given('I create a new case', async function () {
   if (iaConfig.CcdWebUrl.includes('xui-ia-case-api-pr')) {
     await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
   } else if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
-    await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
+    await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
   } else if (iaConfig.CcdWebUrl.includes('demo')) {
     await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
   } else if (iaConfig.CcdWebUrl.includes('pr-')) {

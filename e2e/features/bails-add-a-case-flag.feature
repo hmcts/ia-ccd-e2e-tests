@@ -40,7 +40,7 @@ Feature: Bails Add a case flag to bails application
         Then I should see the text `Manage case flags`
         When I click the element with ID `flag-selection-0`
         And I click the `Next` button
-        Then I should see the text `Update flag "Complex Case"`
+        Then I should see the text `Explain why you are updating this flag. Do not include any sensitive information such as personal details.`
         When I click the `Make inactive` button
         And I click the `Next` button
         Then I should see the text `Review flag details`
