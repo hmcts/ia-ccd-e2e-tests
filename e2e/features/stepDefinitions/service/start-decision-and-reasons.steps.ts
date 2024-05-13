@@ -1,5 +1,5 @@
 import { StartDecisionAndReasonsFlow } from '../../../flows/start-decision-and-reasons.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const startDecisionAndReasonsFlow = new StartDecisionAndReasonsFlow();
 

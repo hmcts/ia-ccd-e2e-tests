@@ -1,6 +1,6 @@
 import { CcdFormPage } from '../../../pages/ccd-form.page';
 import { StartAppealFlow } from '../../../flows/start-appeal.flow';
-import { Given, Then } from 'cucumber';
+import { Given, Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
 
 const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 'true';
@@ -130,7 +130,7 @@ Given('I save my initial appeal with address', async function () {
     if (isfeePaymentEnabled) {
         await startAppealFlow.saveInitialAppealWithFee(true, 'PA', 'no remission', 'hearing fee', true, `Airborne Studios, 52 Newton Street, Manchester`, `M1 1ED`);
     } else {
-        await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA', true, `Airborne Studios, 52 Newton Street, Manchester`, `M1 1ED`);
+        await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA','' ,true,`Airborne Studios, 52 Newton Street, Manchester`, `M1 1ED`);
     }
 });
 

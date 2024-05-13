@@ -69,12 +69,18 @@ export class RecordAgreedRequirementsFlow {
 
         await this.ccdFormPage.click('In Person');
         await this.ccdFormPage.click('Continue');
-
+        
         await this.ccdFormPage.setFieldValue(
             'Is the appeal suitable to float?',
-            'Yes'
+            'No'
         );
         await this.ccdFormPage.click('Continue');
+
+        // await this.ccdFormPage.setFieldValue(
+        //     'Will this hearing need to be linked to other hearings?',
+        //     'No'
+        // );
+        // await this.ccdFormPage.click('Continue');
         
         await this.ccdFormPage.setFieldValue(
             'Are there any additional instructions for the hearing?',
@@ -86,6 +92,8 @@ export class RecordAgreedRequirementsFlow {
         );
 
         await this.ccdFormPage.click('Continue');
+
+        // await this.ccdFormPage.click('Continue');
 
         await this.ccdFormPage.click('Submit');
 

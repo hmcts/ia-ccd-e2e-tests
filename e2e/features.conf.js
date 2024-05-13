@@ -8,7 +8,7 @@ const path = require('path');
 exports.config = {
 
   baseUrl: iaConfig.CcdWebUrl,
-  specs: ['./features/*.feature','./features/schedulingAndListing/*.feature'],
+  specs: ['./features/*.feature'],
   allScriptsTimeout: 120000,
   getPageTimeout: 120000,
 
@@ -62,7 +62,7 @@ exports.config = {
     'no-source': true,
     format: 'json:.tmp/results.json',
     strict: true,
-    retry: 15
+    retry: 0
   },
 
   onPrepare() {

@@ -4,4 +4,7 @@ node_modules/
 yarn-error.log
 *.iml
 package-lock.json
+.yarn/
+.yarn/cache
 .DS_Store
+dist

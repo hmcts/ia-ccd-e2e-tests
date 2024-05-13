@@ -2,6 +2,7 @@ Feature: SnL Flow DC hearing request
 
    Background:
     Given I am signed in as a `Legal Org User Rep A`
+    And I refresh the page
     And I wait for 10 seconds
     And I create a new case
     
@@ -9,6 +10,7 @@ Feature: SnL Flow DC hearing request
   Scenario: SnL hearing request in country flow for DC appeal
   
     When I save my initial DC appeal for nonPayment with hearing
+    When I click the `Close and Return to case details` button
     And I wait for 12 seconds
     Then I submit my nonpayment appeal
     And I wait for 12 seconds
@@ -24,8 +26,10 @@ Feature: SnL Flow DC hearing request
     And I request respondent review
     And I request Force case - hearing reqs
     And I switch to be a `Legal Org User Rep A`
+    And I refresh the page
     And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
+    And I refresh the page
     And I wait for 2 seconds
     And I record agreed hearing requirements yes path
     When I goto the `Case flags` tab

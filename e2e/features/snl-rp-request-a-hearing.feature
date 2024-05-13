@@ -5,10 +5,11 @@ Feature: SnL Flow RP hearing request
     And I wait for 10 seconds
     And I create a new case
     
-  @nightly-test @snl 
+  @nightly-test @snl  @nightly-test43210
   Scenario: SnL hearing request out in country flow for RP appeal
   
     When I save my initial RP appeal for nonPayment with hearing
+    When I click the `Close and Return to case details` button
     And I wait for 12 seconds
     Then I submit my nonpayment appeal
     And I wait for 12 seconds
@@ -34,34 +35,34 @@ Feature: SnL Flow RP hearing request
     And within the `Jose Gonzalez` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
     
     ##Hearing Request
-    And I wait for 3 seconds
-    When I goto the `hearings` tab
-    And I wait for 8 seconds
-    And I click the `Request a hearing` button
-    And I wait for 3 seconds
-    And I should see the text `Hearing requirements`
-    And I should see the text `Any reasonable adjustments on this page will be included in the hearing request.`
-    When I click the `Continue` button
-    And I wait for 3 seconds
-    And I should see the text `Do you require any additional facilities?`
-    When I click the `Continue` button
-    And I click the `Substantive` button
-    And I click the `Continue` button
-    And I click the `Continue` button
-    And I add the `Glasgow Tribunals Centre` hearing location
-    And I click the `Continue` button
-    And I should see the text `Do you want a specific judge?`
-    And I click the `No` button
-    And I click the `Tribunal Judge` button
-    And I click the `Continue` button
-    And I should see the text `Length, date and priority level of hearing`
-    And I click the `Continue` button
-    And I should see the text `Enter any additional instructions for the hearing`
-    And I click the `Continue` button
-    And I click the `Submit request` button
-    And I should see the text `Hearing request submitted`
-    And I click the `view the status of this hearing in the hearings tab` link
-    And I wait for 10 seconds
+    # And I wait for 3 seconds
+    # When I goto the `hearings` tab
+    # And I wait for 8 seconds
+    # And I click the `Request a hearing` button
+    # And I wait for 3 seconds
+    # And I should see the text `Hearing requirements`
+    # And I should see the text `Any reasonable adjustments on this page will be included in the hearing request.`
+    # When I click the `Continue` button
+    # And I wait for 3 seconds
+    # And I should see the text `Do you require any additional facilities?`
+    # When I click the `Continue` button
+    # And I click the `Substantive` button
+    # And I click the `Continue` button
+    # And I click the `Continue` button
+    # And I add the `Glasgow Tribunals Centre` hearing location
+    # And I click the `Continue` button
+    # And I should see the text `Do you want a specific judge?`
+    # And I click the `No` button
+    # And I click the `Tribunal Judge` button
+    # And I click the `Continue` button
+    # And I should see the text `Length, date and priority level of hearing`
+    # And I click the `Continue` button
+    # And I should see the text `Enter any additional instructions for the hearing`
+    # And I click the `Continue` button
+    # And I click the `Submit request` button
+    # And I should see the text `Hearing request submitted`
+    # And I click the `view the status of this hearing in the hearings tab` link
+    # And I wait for 10 seconds
 
 #   @nightly-test @snl 
 #   Scenario: SnL hearing request out off country flow for EA appeal

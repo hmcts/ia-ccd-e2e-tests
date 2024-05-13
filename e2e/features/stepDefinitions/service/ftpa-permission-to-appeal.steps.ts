@@ -2,7 +2,7 @@ import { FtpaAppellantAppealFlow } from '../../../flows/ftpa-appellant-appeal.fl
 import { FtpaRespondentAppealFlow } from '../../../flows/ftpa-respondent-appeal';
 
 import { SelectFtpaApplicantType } from '../../../flows/ftpa-applicant-type.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const ftpaAppellantFlow = new FtpaAppellantAppealFlow();
 const ftpaRespondentFlow = new FtpaRespondentAppealFlow();

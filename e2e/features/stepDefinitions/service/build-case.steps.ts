@@ -1,6 +1,6 @@
 import { BuildCaseFlow } from '../../../flows/build-case.flow';
 import { ForceACaseProgressionFlow } from '../../../flows/force-a-case-progression.flow';
-import { Then, Given } from 'cucumber';
+import { Then, Given } from '@cucumber/cucumber';
 
 const buildCaseFlow = new BuildCaseFlow();
 const forceACaseFlow = new ForceACaseProgressionFlow();

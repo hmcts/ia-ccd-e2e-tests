@@ -1,5 +1,5 @@
 import { RecordDecision } from '../../../flows/bails-record-decision.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const recordDecision = new RecordDecision();
 

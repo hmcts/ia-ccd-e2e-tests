@@ -291,7 +291,7 @@ export class StartAppealFlow {
         await browser.sleep(2000);
       await this.ccdFormPage.setFieldValue(
         'Has a deportation order been made against the appellant?',
-        'Yes'
+        'No'
       );
 
       if (clickContinue) {
@@ -402,8 +402,8 @@ export class StartAppealFlow {
         await this.completeCheckYourAnswers(true);
     }
 
-    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hasFixedAddress = false, address = '', postcode = '', hearingOption = '') {
-        await this.completeClientDetails(false);
+    async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hearingOption = '', hasFixedAddress = true,  address = '44 Millhouse Drive, Glasgow', postcode = 'G20 0UE') {
+        await this.completeClientDetails(false, hasFixedAddress, address, postcode);
         await this.completeGivenAppealType(true, appealType);
         if (appealType !== 'EU') {
             await this.completedGivenAppealGrounds(true, appealType);
@@ -802,7 +802,7 @@ export class StartAppealFlow {
     }
 
     async completeHearingOption(clickContinue = false, hearingOption = '') {
-
+        console.log("hearingOption:::"+hearingOption);
         await this.ccdFormPage.runAccessbility();
         if (hearingOption === 'without') {
             await this.ccdFormPage.setFieldValue('How do you want the appeal to be decided?', 'Decision without a hearing');

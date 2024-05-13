@@ -17,7 +17,6 @@ Feature: SnL Flow HU hearing request
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
     And I wait for 10 seconds
-    And I request home office data
     And I request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step

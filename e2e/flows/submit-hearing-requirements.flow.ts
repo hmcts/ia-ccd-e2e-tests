@@ -582,11 +582,11 @@ export class SubmitHearingRequirementsFlow {
         await browser.sleep(500);
         await this.ccdFormPage.setFieldValue(
             'Date',
-            '15-10-2019'
+            '18-03-2024'
         );
         await this.ccdFormPage.setFieldValue(
             'Reason',
-            'New year\'s eve',
+            'Person reason',
             'text area'
         );
 
