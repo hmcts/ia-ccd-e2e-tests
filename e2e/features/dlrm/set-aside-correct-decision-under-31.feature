@@ -7,7 +7,8 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    And I pay for and submit my appeal by Card for a non PA appeal type
+    And I pay for and submit my appeal by Card
+    # And I pay for and submit my appeal by Card for a non PA appeal type
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
     And I wait for 2 seconds

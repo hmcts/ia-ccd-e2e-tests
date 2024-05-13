@@ -49,8 +49,3 @@ Then(/^I submit my late appeal$/, async function () {
 Then(/^I submit my appeal before paying$/, async function () {
   await submitAppealFlow.submitAppeal(true);
 });
-
-Then(/^I pay for and submit my appeal by Card for a (PA|non PA) appeal type$/, async function (PAorNot) {
-  await submitAppealFlow.submitAppeal(true);
-  await payAndSubmitAppealFlow.payForAppealByCard(true, PAorNot);
-});
