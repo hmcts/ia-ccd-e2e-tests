@@ -64,8 +64,13 @@ export class PayAndSubmitAppealFlow {
     }
   }
 
-  async payForAppealByCard(clickContinue = false) {
+  async payForAppealByCard(clickContinue = false, appealType) {
     const currentUrl = await this.ccdPage.getCurrentUrl();
+    if (appealType === 'PA') {
+      await this.ccdFormPage.click('Service request');
+    } else {
+      await this.ccdFormPage.click('pay for your appeal');
+    }
     await element(by.xpath('//div[text()="Service Request"]')).click();
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     await this.ccdFormPage.click('Pay now');
