@@ -3,167 +3,127 @@ import { FormFiller } from '../helpers/form-filler';
 import { by, ElementFinder } from 'protractor';
 
 export class CcdWriteDateField implements Field {
+  private readonly formFiller = new FormFiller();
 
-    private readonly formFiller = new FormFiller();
+  private readonly container: ElementFinder;
+  private readonly fieldLabel: string;
 
-    private readonly container: ElementFinder;
-    private readonly fieldLabel: string;
+  public constructor(container: ElementFinder, fieldLabel: string) {
+    this.container = container;
+    this.fieldLabel = fieldLabel;
+  }
 
-    public constructor(
-        container: ElementFinder,
-        fieldLabel: string
-    ) {
-        this.container = container;
-        this.fieldLabel = fieldLabel;
+  public getLabel() {
+    return this.fieldLabel;
+  }
+
+  public getOptions() {
+    return [];
+  }
+
+  public async getValue() {
+    const dayElement = this.getDayElement();
+    const monthElement = this.getMonthElement();
+    const yearElement = this.getYearElement();
+    const hourElement = this.getHourElement();
+    const minuteElement = this.getMinuteElement();
+    const secondElement = this.getSecondElement();
+
+    let datePart = (await dayElement.getAttribute('value')) + '-' + (await monthElement.getAttribute('value')) + '-' + (await yearElement.getAttribute('value'));
+
+    if (datePart === '--') {
+      datePart = '';
     }
 
-    public getLabel() {
-        return this.fieldLabel;
+    let timePart = '';
+
+    if ((await hourElement.isPresent()) && (await minuteElement.isPresent()) && (await secondElement.isPresent())) {
+      timePart = (await hourElement.getAttribute('value')) + ':' + (await minuteElement.getAttribute('value')) + ':' + (await secondElement.getAttribute('value'));
+
+      if (timePart === '::') {
+        timePart = '';
+      }
     }
 
-    public getOptions() {
-        return [];
+    return (datePart + ' ' + timePart).trim();
+  }
+
+  public async setValue(value) {
+    if (!value) {
+      value = '--:::';
     }
 
-    public async getValue() {
+    // DD-MM-YYYY HH:MM:SS
+    const dateParts = value.replace(/\s+/g, '-').replace(/:/g, '-').split('-');
 
-        const dayElement = this.getDayElement();
-        const monthElement = this.getMonthElement();
-        const yearElement = this.getYearElement();
-        const hourElement = this.getHourElement();
-        const minuteElement = this.getMinuteElement();
-        const secondElement = this.getSecondElement();
+    await this.formFiller.replaceText(this.getDayElement(), dateParts[0]);
 
-        let datePart =
-            await dayElement.getAttribute('value') + '-' +
-            await monthElement.getAttribute('value') + '-' +
-            await yearElement.getAttribute('value');
+    await this.formFiller.replaceText(this.getMonthElement(), dateParts[1]);
 
-        if (datePart === '--') {
-            datePart = '';
-        }
+    await this.formFiller.replaceText(this.getYearElement(), dateParts[2]);
 
-        let timePart = '';
+    if (dateParts.length > 3) {
+      const hourElement = this.getHourElement();
 
-        if (await hourElement.isPresent()
-            && await minuteElement.isPresent()
-            && await secondElement.isPresent()) {
-
-            timePart =
-                await hourElement.getAttribute('value') + ':' +
-                await minuteElement.getAttribute('value') + ':' +
-                await secondElement.getAttribute('value');
-
-            if (timePart === '::') {
-                timePart = '';
-            }
-        }
-
-        return (datePart + ' ' + timePart).trim();
+      if (await hourElement.isPresent()) {
+        await this.formFiller.replaceText(hourElement, dateParts[3]);
+      }
     }
 
-    public async setValue(value) {
+    if (dateParts.length > 4) {
+      const minuteElement = this.getMinuteElement();
 
-        if (!value) {
-            value = '--:::';
-        }
-
-        // DD-MM-YYYY HH:MM:SS
-        const dateParts =
-            value
-                .replace(/\s+/g, '-')
-                .replace(/:/g, '-')
-                .split('-');
-
-        await this.formFiller.replaceText(
-            this.getDayElement(),
-            dateParts[0]
-        );
-
-        await this.formFiller.replaceText(
-            this.getMonthElement(),
-            dateParts[1]
-        );
-
-        await this.formFiller.replaceText(
-            this.getYearElement(),
-            dateParts[2]
-        );
-
-        if (dateParts.length > 3) {
-
-            const hourElement = this.getHourElement();
-
-            if (await hourElement.isPresent()) {
-                await this.formFiller.replaceText(
-                    hourElement,
-                    dateParts[3]
-                );
-            }
-        }
-
-        if (dateParts.length > 4) {
-
-            const minuteElement = this.getMinuteElement();
-
-            if (await minuteElement.isPresent()) {
-                await this.formFiller.replaceText(
-                    minuteElement,
-                    dateParts[4]
-                );
-            }
-        }
-
-        if (dateParts.length > 5) {
-
-            const secondElement = this.getSecondElement();
-
-            if (await secondElement.isPresent()) {
-                await this.formFiller.replaceText(
-                    secondElement,
-                    dateParts[5]
-                );
-            }
-        }
+      if (await minuteElement.isPresent()) {
+        await this.formFiller.replaceText(minuteElement, dateParts[4]);
+      }
     }
 
-    public async isDisplayed() {
-        return await (this.getDayElement()).isDisplayed();
-    }
+    if (dateParts.length > 5) {
+      const secondElement = this.getSecondElement();
 
-    public async isEnabled() {
-        return await (this.getDayElement()).isEnabled();
+      if (await secondElement.isPresent()) {
+        await this.formFiller.replaceText(secondElement, dateParts[5]);
+      }
     }
+  }
 
-    public isReadOnly() {
-        return false;
-    }
+  public async isDisplayed() {
+    return await this.getDayElement().isDisplayed();
+  }
 
-    private getDayElement() {
-        return this.getUnitElement('day');
-    }
+  public async isEnabled() {
+    return await this.getDayElement().isEnabled();
+  }
 
-    private getMonthElement() {
-        return this.getUnitElement('month');
-    }
+  public isReadOnly() {
+    return false;
+  }
 
-    private getYearElement() {
-        return this.getUnitElement('year');
-    }
+  private getDayElement() {
+    return this.getUnitElement('day');
+  }
 
-    private getHourElement() {
-        return this.getUnitElement('hour');
-    }
+  private getMonthElement() {
+    return this.getUnitElement('month');
+  }
 
-    private getMinuteElement() {
-        return this.getUnitElement('minute');
-    }
+  private getYearElement() {
+    return this.getUnitElement('year');
+  }
 
-    private getSecondElement() {
-        return this.getUnitElement('second');
-    }
+  private getHourElement() {
+    return this.getUnitElement('hour');
+  }
 
-    private getUnitElement(unit: string) {
-        return this.container.element(by.xpath('.//input[(@type="text" or @type="number") and contains(@name, "-' + unit + '")]'));
-    }
+  private getMinuteElement() {
+    return this.getUnitElement('minute');
+  }
+
+  private getSecondElement() {
+    return this.getUnitElement('second');
+  }
+
+  private getUnitElement(unit: string) {
+    return this.container.element(by.xpath('.//input[(@type="text" or @type="number") and contains(@name, "-' + unit + '")]'));
+  }
 }

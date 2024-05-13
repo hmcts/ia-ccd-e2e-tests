@@ -19,13 +19,13 @@ async function createUser() {
       surname: 'ATestSurname',
       roles: [
         {
-          code: 'citizen'
-        }
-      ]
+          code: 'citizen',
+        },
+      ],
     },
     insecure: true,
     timeout: 10000,
-    resolveWithFullResponse: true
+    resolveWithFullResponse: true,
   };
   try {
     await rp.post(options);
@@ -41,17 +41,17 @@ async function getUserToken(appellantConfig) {
     uri: `${idamUrl}/oauth2/authorize`,
     json: true,
     headers: {
-      'Accept': 'application/json'
+      Accept: 'application/json',
     },
     auth: {
       user: appellantConfig.email,
-      pass: appellantConfig.password
+      pass: appellantConfig.password,
     },
     form: {
       response_type: 'code',
       client_id: 'ccd_gateway',
-      redirect_uri: redirectUrl
-    }
+      redirect_uri: redirectUrl,
+    },
   });
 
   const tokenResponse = await rp.post({
@@ -62,8 +62,8 @@ async function getUserToken(appellantConfig) {
       grant_type: 'authorization_code',
       redirect_uri: redirectUrl,
       client_id: 'ccd_gateway',
-      client_secret: idamClientSecret
-    }
+      client_secret: idamClientSecret,
+    },
   });
 
   return 'Bearer ' + tokenResponse.access_token;
@@ -74,15 +74,11 @@ async function getUserId(userToken: string) {
     url: `${idamUrl}/details`,
     json: true,
     headers: {
-      'Authorization': userToken
-    }
+      Authorization: userToken,
+    },
   });
 
   return userDetails.id;
 }
 
-export {
-  createUser,
-  getUserToken,
-  getUserId
-}
+export { createUser, getUserToken, getUserId };

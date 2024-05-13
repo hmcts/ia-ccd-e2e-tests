@@ -6,10 +6,9 @@ Feature: Create PA case upto FTPA submitted
         And I save my initial PA appeal type without remission and with hearing fee and pay now
         And I wait for 10 seconds
         And I wait for 2 seconds
-        And I pay for and submit my appeal by Card for a PA appeal type
-        And I wait for 15 seconds
+        And I pay for and submit my appeal by Card
         And I switch to be a `Case Officer`
-        And I wait for 2 seconds
+        And I check the case has been paid for
         And I request home office data
         And I request respondent evidence
         And I upload respondent evidence

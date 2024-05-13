@@ -35,7 +35,7 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
     And I list the case
     And I relist the case as a remote hearing
     And I click the `Overview` tab
-    And I should see the `Overview` page
+    And I should be on the overview page
     And I should see `Remote hearing` for the `Location` field
     And I click the `Hearing and appointment` tab
     And I should see the `Hearing and appointment` page
@@ -52,7 +52,7 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
     And I list the case
     And I relist the case as a remote hearing
     And I click the `Overview` tab
-    And I should see the `Overview` page
+    And I should be on the overview page
     And I should see `Remote hearing` for the `Location` field
     And I click the `Hearing and appointment` tab
     And I should see the `Hearing and appointment` page
@@ -69,7 +69,7 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
     And I list the case as a remote hearing
     And I relist the case with length of hearing as `2` hours
     And I click the `Overview` tab
-    And I should see the `Overview` page
+    And I should be on the overview page
     And I should see `Taylor House` for the `Location` field
     And I click the `Hearing and appointment` tab
     And I should see the `Hearing and appointment` page
@@ -86,7 +86,7 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
     And I list the case as a remote hearing
     And I relist the case as a remote hearing
     And I click the `Overview` tab
-    And I should see the `Overview` page
+    And I should be on the overview page
     And I should see `Remote hearing` for the `Location` field
     And I should see `{$TODAY+16|D MMM YYYY}, 11:45:00 AM` for the `Date and time` field
     And I should see `3 hours` for the `Length` field
@@ -105,7 +105,7 @@ Feature: Remote Hearing / Hearing Centre location transfers during edit listing
     And I list the case as a remote hearing
     And I relist the case as a remote hearing with no changes
     And I click the `Overview` tab
-    And I should see the `Overview` page
+    And I should be on the overview page
     And I should see `Remote hearing` for the `Location` field
     And I should see `{$TODAY+14|D MMM YYYY}, 10:30:00 AM` for the `Date and time` field
     And I should see `6 hours` for the `Length` field

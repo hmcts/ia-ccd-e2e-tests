@@ -7,10 +7,10 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
+    And I pay for and submit my appeal by Card
     # And I submit my appeal
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`

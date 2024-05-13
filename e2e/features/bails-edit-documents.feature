@@ -117,7 +117,7 @@ Feature: Bails Edit bail documents
     And within the `Case notes` collection's first item, I should see `Document names: [GroundsForBailSupportingEvidence.pdf, Pugh-bail-application-details.PDF, Evidence1.pdf]` in the `Case note` field
     And within the `Case notes` collection's first item, I should see `Reason: This is a reason for editing, removing and adding documents` in the `Case note` field
 
-  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-delete @bails-edit-documents-edit @bails-edit-documents-add @bails-edit-documents-delete-edit-add-judge @nightly-test
+  @RIA-5770 @bails-full @bails-edit-documents @bails-edit-documents-delete @bails-edit-documents-edit @bails-edit-documents-add @bails-edit-documents-delete-edit-add-judge @bail-nightly-test
   Scenario: Delete, edit and add a document as a Judge
     When I select the `Edit documents` Next step
     Then I am on the `Edit or remove documents` page

@@ -5,10 +5,15 @@ Feature: Bails Record the decision
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
-    And I switch to be a `Home Office Bails`
+     And I wait for 5 seconds
+    And I switch to be a `Admin Officer Bails`
+    And I wait for 5 seconds
+    And I list the bail case
+    And I wait for 5 seconds
+     When I switch to be a `Home Office Bails`
     And I upload the bail summary
 
-  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full @bails-regression
+  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full
   Scenario: Refused case - SS consent No
     When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
@@ -155,7 +160,7 @@ Feature: Bails Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-no-ss-consent @bails-record-the-decision-granted-no-ss-consent @bails-full
   Scenario: Granted case - SS consent No
-    When I switch to be a `Admin Officer Bails`
+   When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
