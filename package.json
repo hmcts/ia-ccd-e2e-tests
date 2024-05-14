@@ -10,7 +10,7 @@
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "e2e": "yarn localTest",
     "test:fullfunctional": "TESTS_FOR_ACCESSIBILITY='true' NODE_OPTIONS='--max-old-space-size=8192' protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=@nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
-    "localTest": "protractor ./e2e/features.conf.js",
+    "localTest": "TESTS_FOR_ACCESSIBILITY='true' protractor ./e2e/features.conf.js",
     "localTestParallelScenarios": "protractor ./e2e/features.parallel.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "localTestParallelFeatures": "protractor ./e2e/features.parallel.conf.js --parallel-features --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled --cucumberOpts.format='node_modules/cucumber-pretty'",
     "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowser' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",

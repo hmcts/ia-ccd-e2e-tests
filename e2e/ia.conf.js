@@ -1,6 +1,6 @@
 module.exports = {
-  CcdGatewayUrl: 'https://xui-ia-case-api-pr-1911.preview.platform.hmcts.net',
-  CcdWebUrl: 'https://xui-ia-case-api-pr-1911.preview.platform.hmcts.net',
+  CcdGatewayUrl: 'https://manage-case.aat.platform.hmcts.net',
+  CcdWebUrl: 'https:/manage-case.aat.platform.hmcts.net',
   CcdApiUrl: process.env.TEST_E2E_CCD_API_URL || 'http://ccd-data-store-api-aat.service.core-compute-aat.internal',
   UseHeadlessBrowser: process.env.TEST_E2E_HEADLESS !== 'false',
   ProxyUrl: process.env.TEST_E2E_URL_PROXY || 'http://proxyout.reform.hmcts.net:8080',
@@ -57,4 +57,6 @@ module.exports = {
   TestAdminOfficerBailsPassword: 'AldgateT0wer',
   TestJudgeBailsUserName:'ia.iacjudge.4.ccd@mailnesia.com',
   TestJudgeBailsPassword:'AldgateT0wer',
+  // TestOutputDir: 'reports',
+  TestForAccessibility: true
 };

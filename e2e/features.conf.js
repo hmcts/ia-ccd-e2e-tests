@@ -5,6 +5,8 @@ const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
 const path = require('path');
 const AxeRunner = require('./helpers/accessibility/axe-runner');
+const {generateAccessibilityReport} = require('../reporter/customReporter');
+
 
 exports.config = {
 
@@ -101,5 +103,10 @@ exports.config = {
       project: path.join(__dirname, './tsconfig.e2e.json')
     });
 
-  }
+  },
+
+  onComplete() {
+    generateAccessibilityReport();
+ }
+
 };
