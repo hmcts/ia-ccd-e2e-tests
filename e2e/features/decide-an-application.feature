@@ -8,7 +8,7 @@ Feature: Case officer or Judge make an application
     Then I should be on the overview page
     And I pay for and submit my appeal by Card
 
-  @Case-officer-decide-an-application @RIA-3451-case-officer-decide-an-application @RIA-3451 @appeal-nightly-test
+  @Case-officer-decide-an-application @RIA-3451-case-officer-decide-an-application @RIA-3451 @appeal-nightly-test-deprecated
   Scenario: Case officer decide an application
 
     Then I make an application for `Update appeal details` type
