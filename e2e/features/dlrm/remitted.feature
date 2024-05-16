@@ -188,18 +188,3 @@ Scenario: Admin mark the case as remitted and source of remittal as Upper tribun
     And I should see the text `The appeal is being reheard. Review the case and send any directions if required`
     And I switch to be a `Judge`
     And I should see the text `The appeal will be reheard. A Legal Officer will review any Tribunal instructions and then the listing team will relist the case.`
-   
-
-
-
-
-
-
-
-
-
-
-
-     
-
-
