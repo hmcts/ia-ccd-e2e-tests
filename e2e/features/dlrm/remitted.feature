@@ -1,4 +1,4 @@
-Feature: remitted Feature
+Feature: Remitted feature - Mark appeal as Remitted
 
 
 Background:
