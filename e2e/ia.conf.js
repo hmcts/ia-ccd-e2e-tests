@@ -1,6 +1,6 @@
 module.exports = {
   CcdGatewayUrl: 'https://manage-case.aat.platform.hmcts.net',
-  CcdWebUrl: 'https:/manage-case.aat.platform.hmcts.net',
+  CcdWebUrl: 'https://manage-case.aat.platform.hmcts.net',
   CcdApiUrl: process.env.TEST_E2E_CCD_API_URL || 'http://ccd-data-store-api-aat.service.core-compute-aat.internal',
   UseHeadlessBrowser: process.env.TEST_E2E_HEADLESS !== 'false',
   ProxyUrl: process.env.TEST_E2E_URL_PROXY || 'http://proxyout.reform.hmcts.net:8080',
