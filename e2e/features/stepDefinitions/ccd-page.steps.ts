@@ -241,7 +241,7 @@ Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?(?:answ
   expect(await ccdPage.isFieldValueDisplayed('', fieldMatch, isExactMatch, instanceNumber)).to.equal(true);
 });
 
-Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field)$/, async function (fieldMatch, inOrFor, instanceNumber, fieldLabel) {
+Then(/^I should see `?([^`]+)`? (in|for) the `?(first|second|third|fourth|fifth|)`?\s?`?([^`]+)`? (?:answer|field)$/, async function (fieldMatch, inOrFor, instanceNumber, fieldLabel) {
   const isExactMatch = inOrFor === 'for';
 
   expect(await ccdPage.isFieldValueDisplayed(fieldLabel, fieldMatch, isExactMatch, instanceNumber)).to.equal(true);
@@ -285,13 +285,14 @@ Given('I restart the browser', async function () {
 Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
   await ccdFormPage.click('Next');
-  await ccdFormPage.typeText(`flagComment`, `test case flage make it inactive`);
+  await ccdFormPage.typeText(`flagComments`, `test case flage make it inactive`);
   await ccdFormPage.click('Make inactive');
   await ccdFormPage.click('Next');
   await ccdFormPage.click('Manage Flags');
 });
 
 Then(/^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/, async function (flag, type) {
+  await browser.sleep(8000);
   await ccdFormPage.click(type);
   await ccdFormPage.click('Next');
   await browser.sleep(3000);
@@ -366,3 +367,22 @@ Then(/^I update interpreter booking status$/, async function () {
 Given('I wait for the spinner', async function () {
   await ccdPage.waitForSpinner();
 });
+
+Then(/^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? and comments `?([^`]+)`? creation date `?([^`]+)`? last modified `?([^`]+)`? flag status `?([^`]+)`?$/, async function (partie, caseFlagName, comments='', creationDate, lastModifiedDate, flagStatus) {
+  let field = '//caption[normalize-space()="' + partie + '"]' + '/ancestor::ccd-case-flag-table[position()=1]/table/tbody/tr/td[normalize-space()="' + caseFlagName + '"]' + '/ancestor::tr[position()=1]//td'
+  let tds =await element.all(by.xpath(field));
+  let tdCount =await element.all(by.xpath(field)).count(); 
+  let createdDate = await ccdPage.getTodayDate(creationDate);
+  let ModifiedDate = await ccdPage.getTodayDate(lastModifiedDate);
+
+  console.log("ModifiedDate:::"+ModifiedDate);
+  for (let td = 0; td < tdCount; td++) {
+      let tdValue = await tds[td];
+      let caseFlagValue = JSON.stringify(await tdValue.getText());
+          if(td==0){ expect(JSON.stringify(caseFlagName)).to.equal(caseFlagValue);}
+          if(td==1){ expect(comments).to.equal(caseFlagValue);}
+          if(td==2){ expect(JSON.stringify(createdDate)).to.equal(caseFlagValue);}
+          if(td==3){ expect(JSON.stringify(ModifiedDate)).to.equal(caseFlagValue);}
+          if(td==4){ expect(JSON.stringify(flagStatus)).to.equal(caseFlagValue);}
+      }
+})

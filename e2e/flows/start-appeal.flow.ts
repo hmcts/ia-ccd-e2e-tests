@@ -144,7 +144,7 @@ export class StartAppealFlow {
       await this.ccdFormPage.click('Find address');
       await this.ccdFormPage.doesDropdownHaveValues('Select an address');
       await this.ccdFormPage.setFieldValue('Select an address', address);
-      await this.ccdFormPage.click('Continue');
+      // await this.ccdFormPage.click('Continue');
     }
 
     if (clickContinue) {
@@ -266,7 +266,9 @@ export class StartAppealFlow {
   async completeLegalRepresentativeDetails(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
-    await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
+    await this.ccdFormPage.setFieldValue('Given names', 'Stephen');
+    await this.ccdFormPage.setFieldValue('Family name', 'Fenn');
+    await this.ccdFormPage.setFieldValue('Contact number', '07060021700');
     await this.ccdFormPage.setFieldValue('Own reference', 'ia-legal-fenn');
 
     if (clickContinue) {
@@ -348,8 +350,8 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hasFixedAddress = false, address = '', postcode = '', hearingOption = '') {
-    await this.completeClientDetails(false);
+  async saveInitialNonPaymentAppeal(clickContinue = false, appealType = '', hearingOption = '', hasFixedAddress = true,  address = '44 Millhouse Drive, Glasgow', postcode = 'G20 0UE') {
+    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== 'EU') {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -378,7 +380,7 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
+  async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = true, address = '44 Millhouse Drive, Glasgow', postcode = 'G20 0UE') {
     await this.completeClientDetails(false, hasFixedAddress, address, postcode);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== 'EU') {
@@ -515,7 +517,7 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  async saveInitialNonPaymentAppealOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
+  async saveInitialNonPaymentAppealOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '', appealType='') {
     await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, 'No');
     await this.completeDecisionType(true, 'refusalOfHumanRights');
@@ -530,15 +532,15 @@ export class StartAppealFlow {
     await this.completeSponsorAddress(true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
     await this.completeSponsorContactPreference(true, contactPreference);
     await this.completeSponsorAuthorisation(true, authorisation);
-    await this.completeGivenAppealType(true, 'PA');
-    await this.completedGivenAppealGrounds(true, 'PA');
+    await this.completeGivenAppealType(true, appealType);
+    await this.completedGivenAppealGrounds(true, appealType);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
     await this.completeLegalRepresentativeDetails(true);
     await this.completeCheckYourAnswers(true);
   }
 
-  async saveInitialAppealWithFeeOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '') {
+  async saveInitialAppealWithFeeOutOfCountryWithSponsor(clickContinue = false, givenName = '', familyName = '', contactPreference = '', authorisation = '', appealType='') {
     await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, 'No');
     await this.completeDecisionType(true, 'refusalOfHumanRights');
@@ -550,11 +552,11 @@ export class StartAppealFlow {
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true, 'Yes');
     await this.completeSponsorNames(true, givenName, familyName);
-    await this.completeSponsorAddress(true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
+    await this.completeSponsorAddress(true, '44 Millhouse Drive, Glasgow', 'G20 0UE');
     await this.completeSponsorContactPreference(true, contactPreference);
     await this.completeSponsorAuthorisation(true, authorisation);
-    await this.completeGivenAppealType(true, 'PA');
-    await this.completedGivenAppealGrounds(true, 'PA');
+    await this.completeGivenAppealType(true, appealType);
+    await this.completedGivenAppealGrounds(true, appealType);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
     await this.completeLegalRepresentativeDetails(true);

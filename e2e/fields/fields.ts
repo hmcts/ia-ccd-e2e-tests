@@ -27,6 +27,7 @@ import { CcdWriteFixedRadioListFieldFinder } from './ccd-write-fixed-radio-list-
 import { AnyPage } from '../pages/any.page';
 import { CcdWriteTelFieldFinder } from './ccd-write-tel-field-finder';
 import { CcdWriteMultiSelectListFieldFinder } from './ccd-write-multi-select-list-field-finder';
+import { CcdCaseFlagTableFieldFinder } from './ccd-case-flag-table-field-finder';
 
 export class Fields {
   private readonly collectionItemFinders: CollectionItemFinder[] = [new CcdWriteCollectionItemFinder(), new TableCollectionItemFinder()];
@@ -64,6 +65,7 @@ export class Fields {
 
     new CaseListFixedListFieldFinder(),
     new CreateCaseFixedListFieldFinder(),
+    new CcdCaseFlagTableFieldFinder()
   ];
 
   private readonly container: ElementFinder;

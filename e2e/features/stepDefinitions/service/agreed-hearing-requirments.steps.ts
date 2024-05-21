@@ -9,7 +9,7 @@ const ccdPage = new CcdPage();
 const recordAgreedRequirementsFlow = new RecordAgreedRequirementsFlow();
 
 Then(/^I record agreed hearing requirements yes path$/, async function () {
-  await recordAgreedRequirementsFlow.recordAgreedRequirementsYesPath(true);
+  await recordAgreedRequirementsFlow.recordAgreedRequirementsYesPath(true,true);
 });
 
 Then(/^I record updated hearing requirements yes path$/, async function () {
