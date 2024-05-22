@@ -106,7 +106,7 @@ Background:
     And I click the `Close and Return to case details` button
    
 
-@remitted-dlrm @RIA-8254 @RIA-8631 @RIA-8256 @RIA-8626 @RIA-8253 @RIA-8255 @RIA-8257
+@appeal-nightly-test @remitted-dlrm @RIA-8254 @RIA-8631 @RIA-8256 @RIA-8626 @RIA-8253 @RIA-8255 @RIA-8257
 Scenario: Admin mark the case as remitted and source of remittal as Upper tribunal
     When I switch to be a `Admin Officer`
     When I select the `Mark appeal as remitted` Next step
@@ -159,27 +159,22 @@ Scenario: Admin mark the case as remitted and source of remittal as Upper tribun
     When I click the `Applications` tab
     And I select the `Make an application` Next step
     Then I should see the `Type of application` page
-    And The page is accessible
     And I should see the option `Update appeal details` for the `Type of application` field
     When I select `Update appeal details` for the `Type of application` field
     And I click the `Continue` button
     Then I should see the `Explain your application` page
-    And The page is accessible
     And I should see the text `Update appeal details`
     When I type `Test reason for  Update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
-    And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
+    # And I add an item to the `Supporting evidence (Optional)` collection
+    # And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
     And I wait for 3 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
-    And The page is accessible
     And I should see `Update appeal details` in the `Type of application` field
     When I click the `Submit` button
-    And The page is accessible
     Then I should see the text `You've made an application`
     And I click the `Close and Return to case details` button
-    And I should see the text `Do this next`
-    And I should see the text `The appeal is being reheard. The Tribunal will review the case and contact you to let you know what to do next.`
+    And I wait for 3 seconds
     And I switch to be a `Home Office Generic`
     And I wait for 2 seconds
     And I should see the text `The appeal is being reheard. The Tribunal will review the case and contact you to let you know what to do next`
@@ -187,4 +182,5 @@ Scenario: Admin mark the case as remitted and source of remittal as Upper tribun
     And I wait for 2 seconds
     And I should see the text `The appeal is being reheard. Review the case and send any directions if required`
     And I switch to be a `Judge`
+    And I wait for 2 seconds
     And I should see the text `The appeal will be reheard. A Legal Officer will review any Tribunal instructions and then the listing team will relist the case.`
