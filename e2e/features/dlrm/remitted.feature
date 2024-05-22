@@ -106,7 +106,7 @@ Background:
     And I click the `Close and Return to case details` button
    
 
-@appeal-nightly-dev @remitted-dlrm @RIA-8254 @RIA-8631 @RIA-8256 @RIA-8626 @RIA-8253 @RIA-8255 @RIA-8257
+@appeal-nightly-test @remitted-dlrm @RIA-8254 @RIA-8631 @RIA-8256 @RIA-8626 @RIA-8253 @RIA-8255 @RIA-8257
 Scenario: Admin mark the case as remitted and source of remittal as Upper tribunal
     When I switch to be a `Admin Officer`
     When I select the `Mark appeal as remitted` Next step
@@ -184,18 +184,3 @@ Scenario: Admin mark the case as remitted and source of remittal as Upper tribun
     And I switch to be a `Judge`
     And I wait for 2 seconds
     And I should see the text `The appeal will be reheard. A Legal Officer will review any Tribunal instructions and then the listing team will relist the case.`
-   
-
-
-
-
-
-
-
-
-
-
-
-     
-
-
