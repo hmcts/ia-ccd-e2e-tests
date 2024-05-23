@@ -6,7 +6,7 @@ Background:
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
- #   And I click the `Close and Return to case details` button if present
+    And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     And I pay for and submit my appeal by Card
   #  And I pay for and submit my appeal by Card for a non PA appeal type
