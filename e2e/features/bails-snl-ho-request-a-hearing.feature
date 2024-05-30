@@ -1,11 +1,11 @@
 Feature: Bails SNL Hearing request as Home Office User
- Background:
-   Given I am signed in as a `Home Office Bails`
-   And I wait for 10 seconds
-   When I create a new bail application
-   Then I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
+  Background:
+    Given I am signed in as a `Home Office Bails`
+    And I wait for 10 seconds
+    When I create a new bail application
+    Then I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
 
-  @submit-bail-application @RIA-5662 @submit-bail-application-home-office @bails-full @bails-regression @nightly-test  
+  @submit-bail-application-home-office @bails-full @bails-regression @bail-nightly-test
   Scenario: Bails Hearing request as as Home Office
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
@@ -14,7 +14,7 @@ Feature: Bails SNL Hearing request as Home Office User
     Then I should see the text `You have submitted this application`
     When I click the `Close and Return to case details` button if present
     And I wait for 10 seconds
-     And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer Bails`
     And I wait for 20 seconds
 
     #  Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
@@ -38,9 +38,9 @@ Feature: Bails SNL Hearing request as Home Office User
     And I have created a `Reasonable adjustment` Flag in `John Smith` and signlanguage name is `British Sign Language (BSL)`
     And I wait for 10 seconds
 
-##Hearing Request
+    ##Hearing Request
     And I wait for 3 seconds
-    When I goto the `hearings` tab
+    When I goto the `Hearings` tab
     And I wait for 8 seconds
     And I click the `Request a hearing` button
     And I wait for 3 seconds

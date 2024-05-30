@@ -72,7 +72,7 @@ Given('I create a new bail application', async function () {
   await ccdPage.doesDropdownHaveValues('Case type');
 
   if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
-    await ccdFormPage.setFieldValue('Case type', 'Bail* master');
+    await ccdFormPage.setFieldValue('Case type', 'Bail* RIA-8913-natio');
   } else if (iaConfig.CcdWebUrl.includes('demo')) {
     await ccdFormPage.setFieldValue('Case type', 'Bail* ia-bail-ccd-de');
   }
