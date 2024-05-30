@@ -541,7 +541,7 @@ export class SubmitHearingRequirementsFlow {
     await browser.sleep(3000);
     await this.ccdFormPage.typeTextBasedOnClass('mat-autocomplete-trigger', location);
     await browser.sleep(3000);
-    await this.ccdFormPage.click('Hatton Cross');
+    await this.ccdFormPage.click('Hatton Cross Tribunal Hearing Centre');
     await this.ccdFormPage.click('Add location');
   }
 }

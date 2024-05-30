@@ -4,7 +4,7 @@ Feature: Bails SNL Hearing request as Admin Officer
    When I create a new bail application
    Then I save my initial application as a `Admin Officer` for a Prison detention with two financial condition supporters and with no Legal Representative
 
-  @submit-bail-application @RIA-5662 @submit-bail-application-admin-officer @bails-full @bails-regression @nightly-test @bail-Admintest 
+   @bail-Admintest @bail-nightly-test
   Scenario: Bails Hearing request as Admin Officer
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
@@ -35,7 +35,7 @@ Feature: Bails SNL Hearing request as Admin Officer
 
     ##Hearing Request
     And I wait for 3 seconds
-    When I goto the `hearings` tab
+    When I goto the `Hearings` tab
     And I wait for 8 seconds
     And I click the `Request a hearing` button
     And I wait for 3 seconds
