@@ -70,7 +70,6 @@ Given('I create a new bail application', async function () {
   await ccdPage.doesDropdownHaveValues('Jurisdiction');
   await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
   await ccdPage.doesDropdownHaveValues('Case type');
-
   if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
     await ccdFormPage.setFieldValue('Case type', 'Bail* master');
   } else if (iaConfig.CcdWebUrl.includes('demo')) {
