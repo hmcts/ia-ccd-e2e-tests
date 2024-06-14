@@ -11,7 +11,6 @@ export class WorkAllocationPage {
     this.findPersonEmailInput = $('xuilib-find-person #inputSelectPerson');
     this.exclusionTextArea = $('exui-describe-exclusion #exclusion-description');
     this.userFilterList = $$('.mat-autocomplete-panel .mat-option-text');
-
   }
 
   async enterAllocateUserEmailInput(text: string) {
@@ -33,5 +32,4 @@ export class WorkAllocationPage {
   async addExclusionReason(reason: string) {
     return await this.exclusionTextArea.sendKeys(reason);
   }
-
 }

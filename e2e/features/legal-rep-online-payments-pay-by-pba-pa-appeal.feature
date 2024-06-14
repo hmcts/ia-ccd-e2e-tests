@@ -2,16 +2,25 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (PA appea
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
+    Then I should be on the overview page
     And I submit my appeal before paying
-    And I wait for 10 seconds
-    Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
-    When I click the `Service request` link
-    And I wait for 5 seconds
+    Then I should see the text `You must now pay for this appeal. First create a service request, you can do this by selecting 'Create a service request' from the 'Next step' dropdown list. Then select 'Go'.`
+    When I click the `create a service request` link
+    Then I should see the `Pay for this appeal` page
+    And I should see the text `Next step - payment`
+    And I should see the text `Select 'Submit' to create the service request`
+    And I should see the text `Fee to pay`
+    And I should see the text `£140.00`
+    When I click the `Submit` button
+    Then I should see the text `You have created a service request`
+    Then I should see the text `What happens next`
+    Then I should see the text `You can now pay for this appeal in the 'Service Request' tab on the case details screen.`
+    When I click the `Close and Return to case details` button if present
+    Then I should see the text `You must now pay for this appeal. You can do this via the Service Request tab.`
+    And I click the `Service Request` link
     Then I should see the text `Not paid`
     When I click the `Pay now` link
     And I wait for 5 seconds

@@ -6,11 +6,10 @@ Feature: Bails Make new application
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-conditional-grant @bails-regression @bails-test
-  Scenario: Make new application as Admin Officer after conditional grant decided
-    When I switch to be a `Home Office Bails`
-    And I upload the bail summary
+ @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-conditional-grant @bails-regression 
+   Scenario: Make new application as Admin Officer after conditional grant decided
     And I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
     And I move the application to decided
@@ -30,9 +29,11 @@ Feature: Bails Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-granted 
   Scenario: Make new application as Admin Officer after granted decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a granted decision with SS consent Yes with no financial condition supporters
@@ -53,9 +54,11 @@ Feature: Bails Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-refused 
   Scenario: Make new application as Admin Officer after refused decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a refused decision with SS consent Yes with no financial condition supporters
@@ -76,7 +79,7 @@ Feature: Bails Make new application
     Then I should see the text `This is a different supporting evidence`
     And I should see the text `This is a new B1 form`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test @nightly-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-admin-officer @bails-make-new-application-ended @bails-test @bail-nightly-test
   Scenario: Make new application as Admin Officer after ended application with case note
     When I switch to be a `Admin Officer Bails`
     And I add a case note for application `1`
@@ -91,7 +94,8 @@ Feature: Bails Make new application
     And I should see `01234567` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
-    And I should see `No` for the `Financial condition supporter` field
+#    TODO uncomment on deployment of https://tools.hmcts.net/jira/browse/DIAC-398
+#    And I should see `No` for the `Financial condition supporter` field
     And I should see `New grounds for bail` for the `Enter the bail grounds` field
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
@@ -101,9 +105,11 @@ Feature: Bails Make new application
     And within the `Case notes` collection's first item, I should see `Case note text. This is from application 1` for the `Case note` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test @nightly-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-conditional-grant @bails-test @bail-nightly-test
   Scenario: Make new application as Home Office after conditional grant decided
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
@@ -125,9 +131,11 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted @bails-test
+@bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-granted  
   Scenario: Make new application as Home Office after granted decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a granted decision with SS consent Yes with no financial condition supporters
@@ -148,9 +156,11 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-refused 
   Scenario: Make new application as Home Office after refused decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a refused decision with SS consent Yes with no financial condition supporters
@@ -171,7 +181,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-ended @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-home-office @bails-make-new-application-ended 
   Scenario: Make new application as Home Office after ended application
     When I switch to be a `Admin Officer Bails`
     And I end the application
@@ -193,9 +203,11 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-conditional-grant @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-conditional-grant 
   Scenario: Make new application as Legal Rep after conditional grant decided
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
@@ -219,9 +231,11 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-granted @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-granted 
   Scenario: Make new application as Legal Rep after granted decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a granted decision with SS consent Yes with no financial condition supporters
@@ -244,9 +258,11 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-refused @bails-regression @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-refused @bails-regression 
   Scenario: Make new application as Legal Rep after refused decision
-    When I switch to be a `Home Office Bails`
+    When I switch to be a `Admin Officer Bails`
+    And I list the bails case through Case Listing event
+    And I switch to be a `Home Office Bails`
     And I upload the bail summary
     And I switch to be a `Admin Officer Bails`
     And I record a refused decision with SS consent Yes with no financial condition supporters
@@ -269,7 +285,7 @@ Feature: Bails Make new application
     When I click the `Documents` tab
     Then I should see the text `This is a different supporting evidence`
 
-  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-ended @bails-test
+  @bails-make-new-application @bails-full @RIA-5773 @bails-make-new-application-legal-rep @bails-make-new-application-ended 
   Scenario: Make new application as Legal Rep after ended application
     When I switch to be a `Admin Officer Bails`
     And I end the application

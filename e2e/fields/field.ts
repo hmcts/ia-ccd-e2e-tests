@@ -1,16 +1,15 @@
 export interface Field {
+  getLabel();
 
-    getLabel();
+  getOptions();
 
-    getOptions();
+  getValue();
 
-    getValue();
+  setValue(value);
 
-    setValue(value);
+  isDisplayed();
 
-    isDisplayed();
+  isEnabled();
 
-    isEnabled();
-
-    isReadOnly();
+  isReadOnly();
 }

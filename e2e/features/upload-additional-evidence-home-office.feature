@@ -4,14 +4,11 @@ Feature: Upload additional evidence Home Office
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
     And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-    Then I should see the text `Do this next`
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
+    Then I should be on the overview page
+    And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
-    And I wait for 2 seconds
+    And I check the case has been paid for
 #    And I request home office data
     And I request respondent evidence
     And I wait for 5 seconds
@@ -20,7 +17,7 @@ Feature: Upload additional evidence Home Office
     And I wait for 5 seconds
     And I build my case
 
-  @regression @upload-additional-evidence-home-office @RIA-1278 @nightly-test
+  @regression @upload-additional-evidence-home-office @RIA-1278 @appeal-nightly-test
   Scenario: Upload additional evidence Home Office to the case
 
     When I switch to be a `Home Office APC`
@@ -31,7 +28,7 @@ Feature: Upload additional evidence Home Office
     When I select the `Upload additional evidence` Next step
     Then I am on the `Upload additional evidence` page
     And I see the text `Files should be:`
-    And I see the text `You’ll need to explain why this evidence is being submitted late.`
+    And I see the text `You'll need to explain why this evidence is being submitted late.`
 
     When I add an item to the `Additional evidence` collection
     And within the `Additional evidence` collection's first item, I upload `{@HomeOfficeEvidence.pdf}` for the `Document` field

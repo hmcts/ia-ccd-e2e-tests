@@ -90,7 +90,7 @@ Feature: Record remission decision
     When I switch to be a `Legal Org User Rep A`
     Then I click the `Overview` tab
     And I should see the text `Do this next`
-    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal. You don't need to do anything else right now.`
+    And I should see the overview for a paid appeal
 
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
