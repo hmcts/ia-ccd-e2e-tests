@@ -42,7 +42,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
-    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+    And I should see the overview for a paid appeal
 
     When I switch to be a `Case Officer`
     And I click the `Appeal` tab
@@ -124,7 +124,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
-    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+    And I should see the overview for a paid appeal
 
     When I switch to be a `Case Officer`
     And I click the `Appeal` tab
@@ -210,7 +210,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
-    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+    And I should see the overview for a paid appeal
 
     When I switch to be a `Case Officer`
     And I click the `Appeal` tab
@@ -295,7 +295,7 @@ Feature: Make a payment paylater pa after appeal submitted state (successful and
     When I click the `Overview` tab
     Then I should only see the `progress_legalRep_appealSubmitted` case progress image
     And I should see the text `Do this next`
-    And I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.`
+    And I should see the overview for a paid appeal
 
     When I switch to be a `Case Officer`
     And I click the `Appeal` tab

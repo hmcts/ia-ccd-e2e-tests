@@ -1,5 +1,4 @@
 module.exports = {
-
   CcdGatewayUrl: process.env.TEST_E2E_URL_GATEWAY || 'https://gateway-ccd.aat.platform.hmcts.net',
   CcdWebUrl: process.env.TEST_E2E_URL_WEB || 'https://manage-case.aat.platform.hmcts.net',
   CcdApiUrl: process.env.TEST_E2E_CCD_API_URL || 'http://ccd-data-store-api-aat.service.core-compute-aat.internal',
@@ -28,8 +27,6 @@ module.exports = {
   TestLawFirmBPassword: process.env.TEST_LAW_FIRM_B_PASSWORD,
   TestLawFirmCUserName: process.env.TEST_LAW_FIRM_C_USERNAME,
   TestLawFirmCPassword: process.env.TEST_LAW_FIRM_C_PASSWORD,
-  TestAdminUserName: process.env.TEST_ADMIN_USERNAME,
-  TestAdminPassword: process.env.TEST_ADMIN_PASSWORD,
   TestHomeOfficeApcUserName: process.env.TEST_HOMEOFFICE_APC_USERNAME,
   TestHomeOfficeApcPassword: process.env.TEST_HOMEOFFICE_APC_PASSWORD,
   TestHomeOfficeLartUserName: process.env.TEST_HOMEOFFICE_LART_USERNAME,
@@ -54,8 +51,6 @@ module.exports = {
   TestLawFirmOrgCPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_C_PASSWORD,
   TestLawFirmOrgDUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_D_USERNAME,
   TestLawFirmOrgDPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_D_PASSWORD,
-  TestLawFirmOrgSuccessUserName: process.env.TEST_LAW_FIRM_ORG_SUCCESS_USERNAME,
-  TestLawFirmOrgSuccessPassword: process.env.TEST_LAW_FIRM_ORG_SUCCESS_PASSWORD,
 
   TestAdminOfficerBailsUserName: process.env.TEST_ADMINOFFICER_BAILS_USERNAME,
   TestAdminOfficerBailsPassword: process.env.TEST_ADMINOFFICER_BAILS_PASSWORD,
@@ -68,4 +63,5 @@ module.exports = {
   isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
   isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false,
   isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true',
+  TestForAccessibility: true
 };

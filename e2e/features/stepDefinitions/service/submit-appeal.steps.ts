@@ -7,34 +7,45 @@ const submitAppealFlow = new SubmitAppealFlow();
 const payAndSubmitAppealFlow = new PayAndSubmitAppealFlow();
 
 When(/^I agree to the declaration$/, async function () {
-    await submitAppealFlow.completeDeclaration();
+  await submitAppealFlow.completeDeclaration();
 });
 
 Then(/^I submit my appeal$/, async function () {
-    await submitAppealFlow.submitAppeal(true);
-    if (isfeePaymentEnabled) {
-        await payAndSubmitAppealFlow.payForAppealByPBA(true, 'PA');
-    }
+  await submitAppealFlow.submitAppeal(true);
+  if (isfeePaymentEnabled) {
+    await payAndSubmitAppealFlow.createServiceRequest(true);
+    await payAndSubmitAppealFlow.payForAppealByPBA(true);
+  }
 });
 
-Then(/^I pay for and submit my appeal by PBA for a (PA|non PA) appeal type$/, async function (PAorNot) {
-    await submitAppealFlow.submitAppeal(true);
-    await payAndSubmitAppealFlow.payForAppealByPBA(true, PAorNot);
+Then(/^I pay for and submit my appeal by PBA/, async function () {
+  await submitAppealFlow.submitAppeal(true);
+  await payAndSubmitAppealFlow.createServiceRequest(true);
+  await payAndSubmitAppealFlow.payForAppealByPBA(true);
 });
 
-Then(/^I pay for and submit my appeal by Card for a (PA|non PA) appeal type$/, async function (PAorNot) {
-    await submitAppealFlow.submitAppeal(true);
-    await payAndSubmitAppealFlow.payForAppealByCard(true, PAorNot);
+Then(/^I pay for and submit my appeal by Card$/, async function () {
+  await submitAppealFlow.submitAppeal(true);
+  await payAndSubmitAppealFlow.createServiceRequest(true);
+  await payAndSubmitAppealFlow.payForAppealByCard(true);
+});
+
+When('I check the case has been paid for', async function () {
+  await payAndSubmitAppealFlow.checkCasePaidCaseOfficer();
+});
+
+Then('I should see the overview for a paid appeal', async function () {
+  await payAndSubmitAppealFlow.waitForPaymentRecognition();
 });
 
 Then(/^I submit my nonpayment appeal$/, async function () {
-    await submitAppealFlow.submitAppeal(true);
+  await submitAppealFlow.submitAppeal(true);
 });
 
 Then(/^I submit my late appeal$/, async function () {
-    await submitAppealFlow.submitLateAppeal(true);
+  await submitAppealFlow.submitLateAppeal(true);
 });
 
 Then(/^I submit my appeal before paying$/, async function () {
-    await submitAppealFlow.submitAppeal(true);
+  await submitAppealFlow.submitAppeal(true);
 });

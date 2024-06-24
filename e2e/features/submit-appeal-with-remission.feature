@@ -40,9 +40,9 @@ Feature: Submit appeal with has a remission
     And I should see `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
 
     When I click the `Save and continue` button
-    Then I should see the text `Your appeal details have been saved`
+    Then I should see the text `The appeal has been saved`
     And I should see the text `You still need to submit it`
-    And I should see the text `If you're ready to proceed submit your appeal.`
+    And I should see the text `If you're ready to proceed submit the appeal.`
     And I should see the text `Not ready to submit yet?`
     And I should see the text `You can return to the case details to make changes.`
 

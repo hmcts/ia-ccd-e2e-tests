@@ -5,10 +5,15 @@ Feature: Bails Record the decision
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
-    And I switch to be a `Home Office Bails`
+     And I wait for 5 seconds
+    And I switch to be a `Admin Officer Bails`
+    And I wait for 5 seconds
+    And I list the bail case
+    And I wait for 5 seconds
+     When I switch to be a `Home Office Bails`
     And I upload the bail summary
 
-  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full @bails-regression
+  @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full
   Scenario: Refused case - SS consent No
     When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
@@ -155,7 +160,7 @@ Feature: Bails Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-no-ss-consent @bails-record-the-decision-granted-no-ss-consent @bails-full
   Scenario: Granted case - SS consent No
-    When I switch to be a `Admin Officer Bails`
+   When I switch to be a `Admin Officer Bails`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -171,7 +176,7 @@ Feature: Bails Record the decision
     And I click the `Continue` button
     Then I am on the `Release Status` page
     And The page is accessible
-    When I select `Yes` for the `Will the applicant be released with immediate effect?` field
+    When I select `Yes` for the `Will the applicant be released with immediate effect? This includes a situation where the individual will be subject to electronic monitoring.` field
     And I click the `Continue` button
     Then I am on the `Conditions` page
     And The page is accessible
@@ -217,7 +222,7 @@ Feature: Bails Record the decision
     And I should see `Mr Judge Judgerson` for the `Judge name` field
     And I should see `No` for the `Is Secretary of State consent needed?` field
     And I should see `Granted` for the `What is the Tribunal's decision?` field
-    And I should see `Yes` for the `Will the applicant be released with immediate effect?` field
+    And I should see `Yes` for the `Will the applicant be released with immediate effect? This includes a situation where the individual will be subject to electronic monitoring.` field
     And I should see `The applicant is to appear before an Immigration Officer at Big Ben between 11am and 1pm on 1st January 2023 or any other place and on any other date and time that may be required by the Home Office or an Immigration Officer.  -OR-  The Applicant must appear before an Immigration Officer on a date and time and by such means as may be notified to him by the Home Office in writing.` for the `Enter the appearance conditions the applicant will be subject to` field
     And I should see `The Applicant shall not undertake the activities listed below while on immigration bail without further order:  The Applicant is not allowed to work` for the `Enter the activities conditions the applicant will be subject to` field
     And I should see `The applicant must reside at 123 Fake Street.  Where an Immigration Judge makes a conditional grant with deferred commencement:  The applicant will reside at an address approved by the probation/offender manager.  By virtue of para 3(8) of schedule 10 of The Immigration Act 2016 this grant of bail will not commence until such address has been approved by probation.  The approval of a residence address will be reviewed by the Tribunal on the first available date after [ ] days unless the Tribunal is notified prior to that date that accommodation has been approved and bail commenced in which case the matter will be dealt with administratively.  In the event that the applicant has not been released then at least 2 clear days before the bail review hearing, the Secretary of State is to update the Tribunal in writing as to the progress made in relation to sourcing and/or approving accommodation for the applicant.` for the `Enter the residence conditions the applicant will be subject to` field
@@ -273,7 +278,7 @@ Feature: Bails Record the decision
     And I click the `Continue` button
     Then I am on the `Release Status` page
     And The page is accessible
-    When I select `Yes` for the `Will the applicant be released with immediate effect?` field
+    When I select `Yes` for the `Will the applicant be released with immediate effect? This includes a situation where the individual will be subject to electronic monitoring.` field
     And I click the `Continue` button
     Then I am on the `Conditions` page
     And The page is accessible
@@ -295,7 +300,7 @@ Feature: Bails Record the decision
     And I should see `Minded to grant` for the `What is the Tribunal's decision?` field
     And I should see `This is a reason for minding to grant.  This is another reason to grant.` for the `Enter the reasons the judge is minded to grant bail` field
     And I should see `Yes` for the `Does the Secretary of State give consent to grant bail?` field
-    And I should see `Yes` for the `Will the applicant be released with immediate effect?` field
+    And I should see `Yes` for the `Will the applicant be released with immediate effect? This includes a situation where the individual will be subject to electronic monitoring.` field
     And I should see `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I should see `No` for the `Will the applicant be subject to a financial condition?` field
     And I should see `No` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field
@@ -334,7 +339,7 @@ Feature: Bails Record the decision
     And I click the `Continue` button
     Then I am on the `Release Status` page
     And The page is accessible
-    When I select `No` for the `Will the applicant be released with immediate effect?` field
+    When I select `No` for the `Will the applicant be released with immediate effect? This includes a situation where the individual will be subject to electronic monitoring.` field
     And I click the `Continue` button
     Then I am on the `Conditions` page
     And The page is accessible
@@ -380,7 +385,7 @@ Feature: Bails Record the decision
     And I should see `Mr Judge Judgerson` for the `Judge name` field
     And I should see `No` for the `Is Secretary of State consent needed?` field
     And I should see `Granted` for the `What is the Tribunal's decision?` field
-    And I should see `No` for the `Will the applicant be released with immediate effect?` field
+    And I should see `No` for the `Will the applicant be released with immediate effect? This includes a situation where the individual will be subject to electronic monitoring.` field
     And I should see `The applicant is to appear before an Immigration Officer at Big Ben between 11am and 1pm on 1st January 2023 or any other place and on any other date and time that may be required by the Home Office or an Immigration Officer.  -OR-  The Applicant must appear before an Immigration Officer on a date and time and by such means as may be notified to him by the Home Office in writing.` for the `Enter the appearance conditions the applicant will be subject to` field
     And I should see `The Applicant shall not undertake the activities listed below while on immigration bail without further order:  The Applicant is not allowed to work` for the `Enter the activities conditions the applicant will be subject to` field
     And I should see `The applicant must reside at 123 Fake Street.  Where an Immigration Judge makes a conditional grant with deferred commencement:  The applicant will reside at an address approved by the probation/offender manager.  By virtue of para 3(8) of schedule 10 of The Immigration Act 2016 this grant of bail will not commence until such address has been approved by probation.  The approval of a residence address will be reviewed by the Tribunal on the first available date after [ ] days unless the Tribunal is notified prior to that date that accommodation has been approved and bail commenced in which case the matter will be dealt with administratively.  In the event that the applicant has not been released then at least 2 clear days before the bail review hearing, the Secretary of State is to update the Tribunal in writing as to the progress made in relation to sourcing and/or approving accommodation for the applicant.` for the `Enter the residence conditions the applicant will be subject to` field
@@ -440,7 +445,7 @@ Feature: Bails Record the decision
     And I click the `Continue` button
     Then I am on the `Release Status` page
     And The page is accessible
-    When I select `No` for the `Will the applicant be released with immediate effect?` field
+    When I select `No` for the `Will the applicant be released with immediate effect? This includes a situation where the individual will be subject to electronic monitoring.` field
     And I click the `Continue` button
     Then I am on the `Conditions` page
     And The page is accessible
@@ -462,7 +467,7 @@ Feature: Bails Record the decision
     And I should see `Minded to grant` for the `What is the Tribunal's decision?` field
     And I should see `This is a reason for minding to grant.  This is another reason to grant.` for the `Enter the reasons the judge is minded to grant bail` field
     And I should see `Yes` for the `Does the Secretary of State give consent to grant bail?` field
-    And I should see `No` for the `Will the applicant be released with immediate effect?` field
+    And I should see `No` for the `Will the applicant be released with immediate effect? This includes a situation where the individual will be subject to electronic monitoring.` field
     And I should see `This other new condition.` for the `Enter the other conditions the applicant will be subject to` field
     And I should see `No` for the `Will the applicant be subject to a financial condition?` field
     And I should see `No` for the `Will the future management of bail for this applicant transfer to the Secretary of State?` field

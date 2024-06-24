@@ -12,9 +12,9 @@ When(/^the appellant submits clarifying answers$/, async function () {
       id: '1',
       value: {
         question: 'Question 1',
-        answer: 'Answer 1'
-      }
-    }
+        answer: 'Answer 1',
+      },
+    },
   ];
 
   await ccdService.updateAppeal(Events.SUBMIT_CLARIFYING_QUESTION_ANSWERS, this.userId, usersCase, this.securityHeaders);

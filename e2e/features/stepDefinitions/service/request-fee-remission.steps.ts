@@ -4,9 +4,9 @@ import { RequestFeeRemissionFlow } from '../../../flows/request-fee-remission.fl
 const requestFeeRemissionFlow = new RequestFeeRemissionFlow();
 
 Then(/^I request a fee remission/, async function () {
-    await requestFeeRemissionFlow.legalAid(true);
+  await requestFeeRemissionFlow.legalAid(true);
 });
 
 Then(/^I request a remission of help with fees/, async function () {
-    await requestFeeRemissionFlow.helpWithFees(true);
+  await requestFeeRemissionFlow.helpWithFees(true);
 });

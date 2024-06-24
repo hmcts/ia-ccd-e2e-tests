@@ -6,11 +6,31 @@ const jurisdictionId = 'IA';
 const caseType = 'Asylum';
 
 const Events = {
-  EDIT_APPEAL: { id: 'editAppeal', summary: 'Update appeal case AIP', description: 'Update appeal case AIP' },
-  SUBMIT_APPEAL: { id: 'submitAppeal', summary: 'Submit Appeal case AIP', description: 'Submit Appeal case AIP' },
-  SUBMIT_REASONS_FOR_APPEAL: { id: 'submitReasonsForAppeal', summary: 'Submits Reasons for appeal case AIP', description: 'Submits Reasons for appeal case AIP' },
-  SUBMIT_TIME_EXTENSION: { id: 'submitTimeExtension', summary: 'Submit time extension AIP', description: 'Submit time extensions for case AIP' },
-  SUBMIT_CLARIFYING_QUESTION_ANSWERS: { id: 'submitClarifyingQuestionAnswers', summary: 'Submit clarifying question answers', description: 'Submit clarifying question answers' }
+  EDIT_APPEAL: {
+    id: 'editAppeal',
+    summary: 'Update appeal case AIP',
+    description: 'Update appeal case AIP',
+  },
+  SUBMIT_APPEAL: {
+    id: 'submitAppeal',
+    summary: 'Submit Appeal case AIP',
+    description: 'Submit Appeal case AIP',
+  },
+  SUBMIT_REASONS_FOR_APPEAL: {
+    id: 'submitReasonsForAppeal',
+    summary: 'Submits Reasons for appeal case AIP',
+    description: 'Submits Reasons for appeal case AIP',
+  },
+  SUBMIT_TIME_EXTENSION: {
+    id: 'submitTimeExtension',
+    summary: 'Submit time extension AIP',
+    description: 'Submit time extensions for case AIP',
+  },
+  SUBMIT_CLARIFYING_QUESTION_ANSWERS: {
+    id: 'submitClarifyingQuestionAnswers',
+    summary: 'Submit clarifying question answers',
+    description: 'Submit clarifying question answers',
+  },
 };
 
 interface SecurityHeaders {
@@ -119,7 +139,7 @@ interface ClarifyingQuestion {
   value: {
     question: string;
     answer?: string;
-  }
+  };
 }
 
 class CcdService {
@@ -129,25 +149,18 @@ class CcdService {
       headers: {
         Authorization: headers.userToken,
         ServiceAuthorization: headers.serviceToken,
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       },
-      json: true
+      json: true,
     };
   }
 
   startCreateCase(userId: string, headers: SecurityHeaders): Promise<StartEventResponse> {
-    return rp.get(this.createOptions(
-      userId,
-      headers,
-      `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/event-triggers/startAppeal/token`
-    ));
+    return rp.get(this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/event-triggers/startAppeal/token`));
   }
 
   submitCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData): Promise<CcdCaseDetails> {
-    const options: any = this.createOptions(
-      userId,
-      headers,
-      `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases?ignore-warning=true`);
+    const options: any = this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases?ignore-warning=true`);
     options.body = startEvent;
 
     return rp.post(options);
@@ -164,63 +177,54 @@ class CcdService {
       appellantGivenNames: 'given name',
       appellantFamilyName: 'family name',
       appellantDateOfBirth: isoDate(new Date('1950-01-01')),
-      appellantNationalities: [{
-        value: {
-          code: 'AF'
-        }
-      }],
+      appellantNationalities: [
+        {
+          value: {
+            code: 'AF',
+          },
+        },
+      ],
       appellantAddress: {
         AddressLine1: 'Address line 1',
         AddressLine2: 'Address line 2',
         PostTown: 'Post town',
         County: 'county',
         PostCode: 'ab11 1aa',
-        Country: 'UK'
+        Country: 'UK',
       },
       appellantHasFixedAddress: 'No',
       subscriptions: [],
       submissionOutOfTime: 'No',
-      applicationOutOfTimeExplanation: null
+      applicationOutOfTimeExplanation: null,
     } as CaseData;
 
     const createdCase = await this.submitCreateCase(userId, headers, {
       event: {
         id: startEventResponse.event_id,
         summary: 'Create case AIP',
-        description: 'Create case AIP'
+        description: 'Create case AIP',
       },
       data: caseData,
       event_token: startEventResponse.token,
-      ignore_warning: true
+      ignore_warning: true,
     });
 
     return createdCase;
   }
 
   startUpdateAppeal(userId: string, caseId: string, eventId: string, headers: SecurityHeaders): Promise<StartEventResponse> {
-    return rp.get(this.createOptions(
-      userId,
-      headers,
-      `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases/${caseId}/event-triggers/${eventId}/token`
-    ));
+    return rp.get(this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases/${caseId}/event-triggers/${eventId}/token`));
   }
 
   submitUpdateAppeal(userId: string, caseId: string, headers: SecurityHeaders, event: SubmitEventData): Promise<CcdCaseDetails> {
-    const options: any = this.createOptions(
-      userId,
-      headers,
-      `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases/${caseId}/events`);
+    const options: any = this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases/${caseId}/events`);
     options.body = event;
 
     return rp.post(options);
   }
 
   loadCasesForUser(userId: string, headers: SecurityHeaders): Promise<CcdCaseDetails[]> {
-    return rp.get(this.createOptions(
-      userId,
-      headers,
-      `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases`)
-    );
+    return rp.get(this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases`));
   }
 
   async updateAppeal(event, userId: string, updatedCase: CcdCaseDetails, headers: SecurityHeaders): Promise<CcdCaseDetails> {
@@ -230,11 +234,11 @@ class CcdService {
       event: {
         id: updateEventResponse.event_id,
         summary: event.summary,
-        description: event.summary
+        description: event.summary,
       },
       data: updatedCase.case_data,
       event_token: updateEventResponse.token,
-      ignore_warning: true
+      ignore_warning: true,
     });
   }
 }
@@ -244,8 +248,4 @@ function isoDate(date) {
   return dateLetterSentIso;
 }
 
-export {
-  CcdService,
-  CcdCaseDetails,
-  Events
-};
+export { CcdService, CcdCaseDetails, Events };
