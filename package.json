@@ -13,8 +13,7 @@
     "test:windowsFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform win64; npx @puppeteer/browsers install chromedriver@123 --platform win64; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.windows.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowser' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "setAatVaultEnvVariables": "zsh ./e2e/support/set_env_vars_from_vault.zsh ia-aat",
-    "setDemoVaultEnvVariables": "zsh ./e2e/support/set_env_vars_from_vault.zsh ia-demo",
-    "test:nsp": "nsp check"
+    "setDemoVaultEnvVariables": "zsh ./e2e/support/set_env_vars_from_vault.zsh ia-demo"
   },
   "pre-commit": [
     "lint"
@@ -40,7 +39,6 @@
     "json-schema": "^0.4.0",
     "moment": "^2.29.2",
     "multiple-cucumber-html-reporter": "^3.6.2",
-    "nsp": "^3.2.1",
     "pre-commit": "^1.2.2",
     "protractor": "^5.4.2",
     "protractor-beautiful-reporter": "^1.2.5",
