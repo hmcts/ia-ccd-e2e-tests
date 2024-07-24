@@ -1106,4 +1106,16 @@ export class SubmitHearingRequirementsFlow {
     await this.ccdFormPage.click("Atlantic Quay - Glasgow");
     await this.ccdFormPage.click("Add location");
   }
+
+  async setBailsHearingLocation(clickContinue = false, location = "") {
+    await browser.sleep(3000);
+    await this.ccdFormPage.typeTextBasedOnClass(
+      "mat-autocomplete-trigger",
+      location
+    );
+    await browser.sleep(3000);
+    await this.ccdFormPage.click('Hatton Cross Tribunal Hearing Centre');
+    await this.ccdFormPage.click('Add location');
+  }
+
 }
