@@ -1,9 +1,9 @@
-import { browser, by, element, ElementFinder, protractor } from 'protractor';
-import { Wait } from '../enums/wait';
-import { ValueExpander } from '../helpers/value-expander';
-const AxeRunner = require('../helpers/accessibility/axe-runner');
-const iaConfig = require('../ia.conf');
-const BrowserWaits = require('../support/customWaits');
+import { browser, by, element, ElementFinder, protractor } from "protractor";
+import { Wait } from "../enums/wait";
+import { ValueExpander } from "../helpers/value-expander";
+const AxeRunner = require("../helpers/accessibility/axe-runner");
+const iaConfig = require("../ia.conf");
+const BrowserWaits = require("../support/customWaits");
 
 export class AnyPage {
   protected readonly valueExpander = new ValueExpander();
@@ -27,39 +27,44 @@ export class AnyPage {
       await browser.wait(async () => {
         return (
           (await element
-            .all(by.xpath('//img'))
+            .all(by.xpath("//img"))
             .filter((e) => e.isPresent() && e.isDisplayed())
             .count()) > 0
         );
       }, wait);
 
       return await element
-        .all(by.xpath('//img'))
+        .all(by.xpath("//img"))
         .filter((e) => e.isPresent() && e.isDisplayed())
-        .map(async (img) => (await img.getAttribute('src')).trim());
+        .map(async (img) => (await img.getAttribute("src")).trim());
     } catch (error) {
       return [];
     }
   }
 
-  async click(linkText: string, xpathIndex = 0, waitForNavigationTime?: number) {
+  async click(
+    linkText: string,
+    xpathIndex = 0,
+    waitForNavigationTime?: number
+  ) {
     const expandedLinkText = await this.valueExpander.expand(linkText);
 
     const buttonPath = '//button[normalize-space()="' + expandedLinkText + '"]';
     const anchorPath = '//a[normalize-space()="' + expandedLinkText + '"]';
-    const linkPath = '//*' + '[text()[normalize-space()="' + expandedLinkText + '"]]';
+    const linkPath =
+      "//*" + '[text()[normalize-space()="' + expandedLinkText + '"]]';
 
     try {
       await browser.wait(
         async () => {
           return (
             (await element
-              .all(by.xpath(buttonPath + ' | ' + anchorPath + ' | ' + linkPath))
+              .all(by.xpath(buttonPath + " | " + anchorPath + " | " + linkPath))
               .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
               .count()) > 0
           );
         },
-        linkText === 'Close and Return to case details' ? Wait.long : Wait.short,
+        linkText === "Close and Return to case details" ? Wait.long : Wait.short
       );
     } catch (e) {
       // do nothing and carry on ...
@@ -74,7 +79,7 @@ export class AnyPage {
       await BrowserWaits.waitForelementToBeClickable(button);
       let thisPageUrl = await browser.getCurrentUrl();
       await button.click();
-      if (linkText === 'Continue') {
+      if (linkText === "Continue") {
         await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
       }
       return;
@@ -102,21 +107,33 @@ export class AnyPage {
     await this.waitForSpinner();
   }
 
-  async waitForPageNavigation(currentPageUrl: string, waitForNavigationTime?: number) {
-    let nextPage = '';
-    let pageErrors = '';
+  async waitForPageNavigation(
+    currentPageUrl: string,
+    waitForNavigationTime?: number
+  ) {
+    let nextPage = "";
+    let pageErrors = "";
     await browser.wait(
       async () => {
         nextPage = await browser.getCurrentUrl();
 
-        if (nextPage.includes('/noc') || nextPage.includes('/allocate-role/') || nextPage.includes('/add-exclusion')) {
+        if (
+          nextPage.includes("/noc") ||
+          nextPage.includes("/allocate-role/") ||
+          nextPage.includes("/add-exclusion")
+        ) {
           return true;
         }
 
         return currentPageUrl !== nextPage;
       },
       waitForNavigationTime ? waitForNavigationTime : 60000,
-      'Navigation to next page taking too long ' + (waitForNavigationTime ? waitForNavigationTime : 60000) + '. Current page ' + currentPageUrl + '. Errors => ' + pageErrors,
+      "Navigation to next page taking too long " +
+        (waitForNavigationTime ? waitForNavigationTime : 60000) +
+        ". Current page " +
+        currentPageUrl +
+        ". Errors => " +
+        pageErrors
     );
   }
   async isButtonEnabled(match: string, shortWait = false) {
@@ -127,12 +144,19 @@ export class AnyPage {
         async () => {
           return (
             (await element
-              .all(by.xpath('//*[self::button or self::a]' + '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]'))
+              .all(
+                by.xpath(
+                  "//*[self::button or self::a]" +
+                    '[contains(normalize-space(), "' +
+                    expandedMatch +
+                    '") and not(ancestor::*[@hidden])]'
+                )
+              )
               .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
               .count()) > 0
           );
         },
-        shortWait ? Wait.minimal : Wait.normal,
+        shortWait ? Wait.minimal : Wait.normal
       );
       return true;
     } catch (error) {
@@ -148,12 +172,19 @@ export class AnyPage {
         async () => {
           return (
             (await element
-              .all(by.xpath('//label[contains(normalize-space(),"' + expandedMatch + '")]' + '/../select/option[string-length(@value) > 0]'))
+              .all(
+                by.xpath(
+                  '//label[contains(normalize-space(),"' +
+                    expandedMatch +
+                    '")]' +
+                    "/../select/option[string-length(@value) > 0]"
+                )
+              )
               .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
               .count()) > 0
           );
         },
-        shortWait ? Wait.short : Wait.normal,
+        shortWait ? Wait.short : Wait.normal
       );
 
       return true;
@@ -170,12 +201,19 @@ export class AnyPage {
         async () => {
           return (
             (await element
-              .all(by.xpath('//*[self::button or self::a]' + '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]'))
+              .all(
+                by.xpath(
+                  "//*[self::button or self::a]" +
+                    '[contains(normalize-space(), "' +
+                    expandedMatch +
+                    '") and not(ancestor::*[@hidden])]'
+                )
+              )
               .filter((e) => e.isPresent() && e.isDisplayed())
               .count()) > 0
           );
         },
-        shortWait ? Wait.short : Wait.normal,
+        shortWait ? Wait.short : Wait.normal
       );
 
       return true;
@@ -192,12 +230,19 @@ export class AnyPage {
         async () => {
           return (
             (await element
-              .all(by.xpath('//*[self::h1 or self::h2 or self::h3 or self::caption]' + '[contains(normalize-space(), "' + expandedMatch + '") and not(ancestor::*[@hidden])]'))
+              .all(
+                by.xpath(
+                  "//*[self::h1 or self::h2 or self::h3 or self::caption]" +
+                    '[contains(normalize-space(), "' +
+                    expandedMatch +
+                    '") and not(ancestor::*[@hidden])]'
+                )
+              )
               .filter((e) => e.isPresent() && e.isDisplayed())
               .count()) > 0
           );
         },
-        shortWait ? Wait.short : Wait.normal,
+        shortWait ? Wait.short : Wait.normal
       );
 
       return true;
@@ -210,14 +255,14 @@ export class AnyPage {
     const expandedMatch = await this.valueExpander.expand(match);
 
     const contentPath =
-      '//*[' +
-      'self::h1 or ' +
-      'self::h2 or ' +
-      'self::h3 or ' +
-      'self::h4 or ' +
-      'self::caption or ' +
-      'self::label or ' +
-      'self::p or ' +
+      "//*[" +
+      "self::h1 or " +
+      "self::h2 or " +
+      "self::h3 or " +
+      "self::h4 or " +
+      "self::caption or " +
+      "self::label or " +
+      "self::p or " +
       'self::li                        [contains(text(), "' +
       expandedMatch +
       '")] or ' + // for bulleted text
@@ -242,7 +287,7 @@ export class AnyPage {
       'self::td                        [contains(text(), "' +
       expandedMatch +
       '")]' + // ..
-      ']' +
+      "]" +
       '[contains(normalize-space(), "' +
       expandedMatch +
       '") and not(ancestor::*[@hidden])]';
@@ -290,7 +335,7 @@ export class AnyPage {
         async () => {
           return (await browser.driver.getCurrentUrl()).includes(expandedMatch);
         },
-        shortWait ? Wait.short : Wait.normal,
+        shortWait ? Wait.short : Wait.normal
       );
 
       return true;
@@ -310,7 +355,11 @@ export class AnyPage {
 
   async waitForSpinner() {
     let EC = protractor.ExpectedConditions;
-    await browser.wait(EC.invisibilityOf(element(by.css('div.spinner-container'))), 60000, 'Spinner did not stop.');
+    await browser.wait(
+      EC.invisibilityOf(element(by.css("div.spinner-container"))),
+      60000,
+      "Spinner did not stop."
+    );
   }
 
   async clickButtonIfVisible(linkText: string) {
@@ -323,7 +372,9 @@ export class AnyPage {
   }
 
   async createCaseClickable() {
-    let createCase: ElementFinder = element(by.xpath('//a[contains(text(), "Create case")]'));
+    let createCase: ElementFinder = element(
+      by.xpath('//a[contains(text(), "Create case")]')
+    );
     await BrowserWaits.waitForElement(createCase);
     await BrowserWaits.waitForelementToBeClickable(createCase);
   }
@@ -342,6 +393,8 @@ export class AnyPage {
   }
 
   async stopSpinnerLoad() {
-    await browser.executeScript(`[].forEach.call(document.querySelectorAll('.spinner-container'), function (el) { el.style.visibility = 'hidden'; el.style.display = 'none'; });`);
+    await browser.executeScript(
+      `[].forEach.call(document.querySelectorAll('.spinner-container'), function (el) { el.style.visibility = 'hidden'; el.style.display = 'none'; });`
+    );
   }
 }
