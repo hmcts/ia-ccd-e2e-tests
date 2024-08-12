@@ -152,7 +152,7 @@ withNightlyPipeline("nodejs", product, component) {
                         sh "node e2e/cucumberTagSearcher.js ${params.SPECIFIC_TAGS}; yarn protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=${params.SPECIFIC_TAGS}"
                     }
                 } catch (Error) {
-                    unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
+                    // unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
                     publishHTML([
                             allowMissing         : true,

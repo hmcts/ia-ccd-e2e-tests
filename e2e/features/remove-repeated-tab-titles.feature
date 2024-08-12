@@ -69,7 +69,7 @@ Feature: Remove repeated tab titles
     When I switch to be a `Legal Rep`
     And I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Update appeal details` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
