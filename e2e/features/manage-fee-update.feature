@@ -1,7 +1,7 @@
 Feature: Manage fee update
 
   Background:
-    Given I am signed in as a `Legal Rep`
+    Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
   @Case-officer-manage-fee-update-pay-now @RIA-3792 @RIA-3790
@@ -395,25 +395,33 @@ Feature: Manage fee update
   @Admin-officer-manage-fee-update-refund-approved-refund-instructed-additional-fee @RIA-3795 @RIA-3813 @RIA-3814
   Scenario: Admin officer manage fee update refund approved, refund instructed and additional fee requested
 
-    Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+    And I save my initial EA appeal type without remission and with hearing fee and pay now
+    # And I click the `Close and Return to case details` button if present
+    And I pay for and submit my appeal by Card for a non PA appeal type
 
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
-    And I should see the `Manage a fee update` page
-    And I should see the text `Select the reason the fee has been updated.`
-    And I select `Decision type changed` for the `Reason for fee update` field
-    And I type `10` for the `New fee amount` field
+    And I should see the `Reason for update` page
+    And I should see the text `What is the reason for the fee update?`
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
+    And I click the `Continue` button
+    And I type `130` for the `Enter new appeal fee amount` field
     And I click the `Continue` button
 
-    Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
-    And I click the first `Fee update recorded` label
+    Then I should see the text `Select the action the Tribunal needs to take as a result of this fee update`
+    And I select `The appellant should receive a refund` for `Select the action the Tribunal needs to take as a result of this fee update` field
+    And I type `10` for the `Amount to be refunded` field
     And I click the `Continue` button
+
+    # Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
+    # And I click the first `Fee update recorded` label
+    # And I click the `Continue` button
 
     Then I am on the `Check your answers` page
-    And I should see `Decision type changed` in the `Reason for fee update` field
-    And I should see `£10.00` in the `New fee amount` field
-    And I should see `Fee update recorded` in the `Fee update status` field
+    And I should see `Decision type changed` in the `What is the reason for the fee update?` field
+    And I should see `£130.00` in the `Enter new appeal fee amount` field
+    And I should see `The appellant should receive a refund` in the `Select the action the Tribunal needs to take as a result of this fee update` field
+    And I should see `£10.00` in the `Amount to be refunded` field
     And I click the `Submit` button
 
     Then I should see the text `You have recorded a fee update`
@@ -425,8 +433,8 @@ Feature: Manage fee update
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
     And I should see `Decision type changed` for the `Reason for fee update` field
-    And I should see `£10.00` for the `New fee amount` field
-    And I should see `Fee update recorded` for the `Completed stages` field
+    And I should see `£130.00` for the `New fee amount` field
+    And I should see `£10.00` for the `Amount to be refunded` field
 
     When I switch to be a `Admin Officer`
     Then I select the `Manage a fee update` Next step
@@ -1188,4 +1196,61 @@ Feature: Manage fee update
 
     Then I should see the text `You cannot make this selection. Select fee update not required to continue.`
 
+  @dlrm-manage-a-fee-update
+  Scenario: Admin officer manage fee update for decision type changed
+
+    When I save my initial PA appeal type with a remission and with hearing fee
+    Then I submit my nonpayment appeal
+
+    And I switch to be a `Admin Officer`
+    And I record remission decision as partially approved
+    And I mark the appeal as paid
+
+    When I switch to be a `Admin Officer`
+    Then I select the `Manage a fee update` Next step
+    And I should see the `Reason for update` page
+    And I should see the text `What is the reason for the fee update?`
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
+    And I click the `Continue` button
+    And I select `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I click the `Continue` button
+
+    And I type `80` for the `Enter new appeal fee amount` field
+    And I click the `Continue` button
+    And I select `The appellant should receive a refund` for the `Select the action the Tribunal needs to take as a result of this fee update` field
+    And I type `60` for the `Amount to be refunded` field
+    And I click the `Continue` button
+
+    Then I am on the `Check your answers` page
+    And I should see `Decision type changed` in the `What is the reason for the fee update?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` in the `How do you want the appeal to be decided?` field
+    And I should see `£80.00` in the `Enter new appeal fee amount` field
+    And I should see `The appellant should receive a refund` in the `Select the action the Tribunal needs to take as a result of this fee update` field
+    And I should see `£60.00` in the `Amount to be refunded` field
+    And I click the `Submit` button
+
+    Then I should see the text `You have recorded a fee update`
+    And I should see the text `What happens next`
+    And I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
+
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£80.00` for the `New fee amount` field
+    And I should see `£60.00` for the `Amount to be refunded` field
+
+    When I switch to be a `Case Officer`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£80.00` for the `New fee amount` field
+    And I should see `£60.00` for the `Amount to be refunded` field
+
+    When I switch to be a `Legal Org User Rep A`
+    Then I click the `Appeal` tab
+    And I should see the text `Fee update details`
+    And I should see `Decision type changed` for the `Reason for fee update` field
+    And I should see `£80.00` for the `New fee amount` field
+    And I should see `£60.00` for the `Amount to be refunded` field
 

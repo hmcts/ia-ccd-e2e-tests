@@ -1825,7 +1825,7 @@ Feature: Case progression path when save and continue is enabled
     And I should see `González` in the `Family name` field
     And I should see `31 Dec 1999` in the `Date of birth` field
     And I should see `Finland` in the `Nationality` field
-    And I should see `No` in the `Does the appellant have a fixed address?` field
+    And I should see `No` in the `Does the appellant have a postal address?` field
     And I should see `Stephen Fenn` in the `Name` field
     And I should see `IA Legal Services` in the `Company` field
     And I should see `ia-law-firm-a@fake.hmcts.net` in the `Email` field

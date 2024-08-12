@@ -30,13 +30,18 @@ export class SubmitAppealFlow {
         }
     }
 
-    async submitAppeal(clickContinue = false) {
+    async submitAppeal(clickContinue = false, isInternalCase = false) {
+        let draftMessage = isInternalCase ? 
+            'The appellant or legal representative has indicated that the facts entered on the appeal form and any continuation sheets are true and complete.' 
+            :
+            'I the representative am giving notice of appeal in accordance with the appellant\'s instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.';
+
         await browser.sleep(1000)
         await this.ccdPage.selectNextStep('Submit your appeal');
         await browser.sleep(1000);
         await this.ccdPage.click('Go');
         await browser.sleep(5000)
-        await this.ccdPage.contentContains('I the representative am giving notice of appeal in accordance with the appellant\'s instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.');
+        await this.ccdPage.contentContains( draftMessage );
         await this.completeDeclaration(false);
         await browser.sleep(5000);
         await this.completeCheckYourAnswers(true);

@@ -12,8 +12,8 @@ Feature: Edit appeal application
     Then I am on the `Edit appeal` page
 
     Given I am on the `Home Office details` page
-    When I type `01234567` for the `Home Office Reference/Case ID` field
-    And I type `31-12-2018` for the `Enter the date the decision letter was sent` field
+    When I type `01234567` for the `Home Office Reference/case ID` field
+    And I type `31-12-2018` for the `What date was the Home Office decision letter sent?` field
     And I click the `Continue` button
 
     Given I am on the `Basic details` page
@@ -48,14 +48,14 @@ Feature: Edit appeal application
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `01234567` for the `Home Office Reference/Case ID` answer
-    And I should see `31 Dec 2018` for the `Enter the date the decision letter was sent` answer
+    Then I should see `01234567` for the `Home Office Reference/case ID` answer
+    And I should see `31 Dec 2018` for the `What date was the Home Office decision letter sent?` answer
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
+    And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Text message` for the `Communication Preference` answer
     And I should see `07930111111` for the `Mobile phone number` answer
     And I should see `Revocation of a protection status` for the `Decision type` answer
@@ -84,7 +84,7 @@ Feature: Edit appeal application
     And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
     #And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
-    And I should see `No` for the `Does the appellant have a fixed address?` field
+    And I should see `No` for the `Does the appellant have a postal address?` field
     And I should see `Text message` for the `Communication Preference` field
     And I should see `07930111111` for the `Mobile phone number` field
     And I should see `Stephen Fenn` for the `Name` field
@@ -103,7 +103,7 @@ Feature: Edit appeal application
     And I should see `Revocation of a protection status` for the `Type of appeal` field
     ### Possible Bug ###
     ### Why do we not see the full B123445/999 reference number after submit or edit ###
-    And I should see `01234567` for the `Home Office Reference/Case ID` field
+    And I should see `01234567` for the `Home Office Reference/case ID` field
     ### End ###
 
     And I should see `IA Legal Services` for the `Company` field
@@ -183,8 +183,8 @@ Feature: Edit appeal application
     Then I am on the `Edit appeal` page
 
     Given I am on the `Home Office details` page
-    When I type `01234567` for the `Home Office Reference/Case ID` field
-    And I type `{$TODAY-3|DD-MM-YYYY}` for the `Enter the date the decision letter was sent` field
+    When I type `01234567` for the `Home Office Reference/case ID` field
+    And I type `{$TODAY-3|DD-MM-YYYY}` for the `What date was the Home Office decision letter sent?` field
     And I click the `Continue` button
 
     Given I am on the `Basic details` page
@@ -213,14 +213,14 @@ Feature: Edit appeal application
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `01234567` for the `Home Office Reference/Case ID` answer
-    And I should see `{$TODAY-3|D MMM YYYY}` for the `Enter the date the decision letter was sent` answer
+    Then I should see `01234567` for the `Home Office Reference/case ID` answer
+    And I should see `{$TODAY-3|D MMM YYYY}` for the `What date was the Home Office decision letter sent?` answer
     And I should see `Mr` for the `Title` answer
     And I should see `John` for the `Given names` answer
     And I should see `Smith` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
+    And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer
@@ -321,8 +321,8 @@ Feature: Edit appeal application
     Then I am on the `Edit appeal` page
 
     Given I am on the `Home Office details` page
-    When I type `01234567` for the `Home Office Reference/Case ID` field
-    And I type `15-09-2018` for the `Enter the date the decision letter was sent` field
+    When I type `01234567` for the `Home Office Reference/case ID` field
+    And I type `15-09-2018` for the `What date was the Home Office decision letter sent?` field
     And I click the `Continue` button
 
     Given I am on the `Basic details` page
@@ -354,14 +354,14 @@ Feature: Edit appeal application
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `01234567` for the `Home Office Reference/Case ID` answer
-    And I should see `15 Sep 2018` for the `Enter the date the decision letter was sent` answer
+    Then I should see `01234567` for the `Home Office Reference/case ID` answer
+    And I should see `15 Sep 2018` for the `What date was the Home Office decision letter sent?` answer
     And I should see `Mr` for the `Title` answer
     And I should see `John` for the `Given names` answer
     And I should see `Smith` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
+    And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer

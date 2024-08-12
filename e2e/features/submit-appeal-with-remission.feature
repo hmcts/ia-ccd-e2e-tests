@@ -33,7 +33,7 @@ Feature: Submit appeal with has a remission
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
-    Then I should see `01234567` for the `Home Office Reference/Case ID` answer
+    Then I should see `01234567` for the `Home Office Reference/case ID` answer
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer

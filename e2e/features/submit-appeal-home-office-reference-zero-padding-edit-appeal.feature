@@ -7,14 +7,14 @@ Feature: Home Office CID Reference number is padded - edit appeal
   @regression @edit-appeal-ho-ref-padding  @RIA-3783
   Scenario: Valid home office UAN reference
 
-    And I save my initial appeal with Home Office Reference/Case ID `123456`
+    And I save my initial appeal with Home Office Reference/case ID `123456`
     When I select the `Edit appeal` Next step
     Then I am on the `Edit appeal` page
 
 
     Given I am on the `Home Office details` page
-    When I type `1234` for the `Home Office Reference/Case ID` field
-    And I type `{$TODAY-3|DD-MM-YYYY}` for the `Enter the date the decision letter was sent` field
+    When I type `1234` for the `Home Office Reference/case ID` field
+    And I type `{$TODAY-3|DD-MM-YYYY}` for the `What date was the Home Office decision letter sent?` field
     And I click the `Continue` button
 
     And I complete the `Basic details` page
@@ -30,7 +30,7 @@ Feature: Home Office CID Reference number is padded - edit appeal
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `1234` for the `Home Office Reference/Case ID` answer
+    Then I should see `1234` for the `Home Office Reference/case ID` answer
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
@@ -45,7 +45,7 @@ Feature: Home Office CID Reference number is padded - edit appeal
 
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    Then I should see `000001234` for the `Home Office Reference/Case ID` field
+    Then I should see `000001234` for the `Home Office Reference/case ID` field
 
     When I click the `Appellant` tab
     Then I should see `DRAFT` for the `Appeal reference` field

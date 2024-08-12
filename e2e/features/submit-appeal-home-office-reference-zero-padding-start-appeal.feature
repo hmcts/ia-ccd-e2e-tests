@@ -9,8 +9,8 @@ Feature: Home Office CID Reference number is zero padded - start appeal
   Scenario: Valid home office CID reference - zero padded
 
     Given I am on the `Home Office details` page
-    When I type `123456` for the `Home Office Reference/Case ID` field
-    And I type `{$TODAY-3|DD-MM-YYYY}` for the `Enter the date the decision letter was sent` field
+    When I type `123456` for the `Home Office Reference/case ID` field
+    And I type `{$TODAY-3|DD-MM-YYYY}` for the `What date was the Home Office decision letter sent?` field
     And I click the `Continue` button
     Then I am on the `Upload the Notice of Decision` page
 
@@ -49,7 +49,7 @@ Feature: Home Office CID Reference number is zero padded - start appeal
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
-    Then I should see `123456` for the `Home Office Reference/Case ID` answer
+    Then I should see `123456` for the `Home Office Reference/case ID` answer
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
@@ -64,7 +64,7 @@ Feature: Home Office CID Reference number is zero padded - start appeal
 
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    Then I should see `000123456` for the `Home Office Reference/Case ID` field
+    Then I should see `000123456` for the `Home Office Reference/case ID` field
 
     When I click the `Appellant` tab
     Then I should see `DRAFT` for the `Appeal reference` field

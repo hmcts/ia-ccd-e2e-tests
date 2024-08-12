@@ -260,7 +260,7 @@ export class ShareCasePage {
                 'Appeal* ia-ccd-definit'
             );
         }
-        // await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
+        // await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
         await browser.sleep(7000);
         let appealRefField = element(by.xpath('//*[@id=\'appealReferenceNumber\']'))
         await appealRefField.clear();

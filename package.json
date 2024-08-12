@@ -40,6 +40,7 @@
     "cucumber-pretty": "1.5.0",
     "eslint-plugin-cucumber": "2.0.0",
     "eslint-plugin-prettier": "4.2.1",
+    "ia-ccd-e2e-tests": "file:",
     "jasmine-core": "5.0.0",
     "jasmine-spec-reporter": "^4.2.1",
     "json-schema": "^0.4.0",

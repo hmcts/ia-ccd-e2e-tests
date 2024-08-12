@@ -30,6 +30,11 @@ Then(/^I pay for and submit my appeal by Card for a (PA|non PA) appeal type$/, a
     await payAndSubmitAppealFlow.payForAppealByCard(true, PAorNot);
 });
 
+Then(/^I pay for and submit my internal appeal by Card for a (PA|non PA) appeal type$/, async function (PAorNot) {
+    await submitAppealFlow.submitAppeal(true, true);
+    await payAndSubmitAppealFlow.payForAppealByCard(true, PAorNot);
+});
+
 Then(/^I submit my nonpayment appeal$/, async function () {
     await submitAppealFlow.submitAppeal(true);
 });

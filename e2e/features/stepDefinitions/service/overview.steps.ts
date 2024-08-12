@@ -40,7 +40,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
         expect(await ccdPage.contentContains('Nationality', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Type of appeal', Wait.instant)).to.equal(false);
         expect(await ccdPage.contentContains('Hearing centre', Wait.instant)).to.equal(false);
-        expect(await ccdPage.contentContains('Home Office Reference/Case ID', Wait.instant)).to.equal(false);
+        expect(await ccdPage.contentContains('Home Office Reference/case ID', Wait.instant)).to.equal(false);
     }
 });
 
