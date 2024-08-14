@@ -487,7 +487,7 @@ export class StartBailApplicationFlow {
 
   async completeBailTransfer(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Transfer bail management', 'Yes');
+    await this.ccdFormPage.setFieldValue('Management of bail', 'No');
     // await this.ccdFormPage.setFieldValue('Explain why the applicant does not consent to bail being transferred', 'They do not consent to bail being transferred');
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
