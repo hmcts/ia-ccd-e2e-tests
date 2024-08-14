@@ -289,7 +289,17 @@ export class SubmitHearingRequirementsFlow {
         "Yes"
       );
       await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.setFieldValue(
+        "Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?",
+        "Yes"
+      );
+      await this.ccdFormPage.click("Continue");
     } else {
+      await this.ccdFormPage.setFieldValue(
+        "Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?",
+        "Yes"
+      );
+      await this.ccdFormPage.click("Continue");
       await this.ccdFormPage.setFieldValue(
         "Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?",
         "Yes"
@@ -321,10 +331,18 @@ export class SubmitHearingRequirementsFlow {
       "Yes"
     );
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Do you need a hearing room with step-free access?",
+      "Yes"
+    );
+    await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.setFieldValue("Do you need a hearing loop?", "Yes");
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue("Do you need a hearing loop?", "Yes");
+    await this.ccdFormPage.click("Continue");
 
+    await this.ccdFormPage.click("Continue");
     await this.ccdFormPage.click("Continue");
 
     await this.setRemoteHearingRequirementForInOutOfCountryForInOutOfCountry(
@@ -332,7 +350,22 @@ export class SubmitHearingRequirementsFlow {
       "Yes",
       "The appellant has good internet connectivity and a laptops"
     );
+    await this.setRemoteHearingRequirementForInOutOfCountryForInOutOfCountry(
+      true,
+      "Yes",
+      "The appellant has good internet connectivity and a laptops"
+    );
 
+    await this.ccdFormPage.setFieldValue(
+      "Does the appellant have any physical or mental health issues that may impact them on the day?",
+      "Yes"
+    );
+    await this.ccdFormPage.setFieldValue(
+      "Explain in detail how any physical or mental health issues may affect them on the day.",
+      "The appellant is deaf in one ear",
+      "text area"
+    );
+    await this.ccdFormPage.click("Continue");
     await this.ccdFormPage.setFieldValue(
       "Does the appellant have any physical or mental health issues that may impact them on the day?",
       "Yes"
@@ -354,6 +387,16 @@ export class SubmitHearingRequirementsFlow {
       "text area"
     );
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Has the appellant had any past experiences that may impact them on the day?",
+      "Yes"
+    );
+    await this.ccdFormPage.setFieldValue(
+      "Explain in detail how any past experiences may affect them on the day?",
+      "The appellant is fearful of the law",
+      "text area"
+    );
+    await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.setFieldValue(
       "Do you have multimedia evidence?",
@@ -365,7 +408,32 @@ export class SubmitHearingRequirementsFlow {
       "text area"
     );
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Do you have multimedia evidence?",
+      "Yes"
+    );
+    await this.ccdFormPage.setFieldValue(
+      "You should provide the equipment to play this evidence. If this is not possible, explain why and what equipment you'll need to play it. (Optional)",
+      "The appellant has a video recording on a memory stick which needs to be played on a computer",
+      "text area"
+    );
+    await this.ccdFormPage.click("Continue");
 
+    await this.ccdFormPage.setFieldValue(
+      "Does the appellant need a single-sex court?",
+      "Yes"
+    );
+    await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "What type of court do they need?",
+      "All female"
+    );
+    await this.ccdFormPage.setFieldValue(
+      "Explain in detail why the appellant needs a single-sex court.",
+      "The appellant is fearful of men",
+      "text area"
+    );
+    await this.ccdFormPage.click("Continue");
     await this.ccdFormPage.setFieldValue(
       "Does the appellant need a single-sex court?",
       "Yes"
@@ -403,12 +471,27 @@ export class SubmitHearingRequirementsFlow {
       "text area"
     );
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Is there anything else you would like to request?",
+      "Yes"
+    );
+    await this.ccdFormPage.setFieldValue(
+      "Provide details of any additional requests and why they are necessary.",
+      "The appellant would like fresh orange juice and doughnuts",
+      "text area"
+    );
+    await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.setFieldValue(
       "Are there any dates that the appellant or their on-day representation cannot attend?",
       "Yes"
     );
+    await this.ccdFormPage.setFieldValue(
+      "Are there any dates that the appellant or their on-day representation cannot attend?",
+      "Yes"
+    );
     await browser.sleep(2000);
+    await this.ccdFormPage.click("Add new");
     await this.ccdFormPage.click("Add new");
     await browser.sleep(500);
     await this.ccdFormPage.setFieldValue("Date", "31-12-2019");
@@ -419,11 +502,18 @@ export class SubmitHearingRequirementsFlow {
     );
 
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.click("Continue");
   }
 
   async updateHearingRequirementsYesPath() {
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.click("Continue");
 
+    await this.ccdFormPage.setFieldValue(
+      "Will the appellant attend the hearing?",
+      "Yes"
+    );
+    await this.ccdFormPage.click("Continue");
     await this.ccdFormPage.setFieldValue(
       "Will the appellant attend the hearing?",
       "Yes"
@@ -435,7 +525,19 @@ export class SubmitHearingRequirementsFlow {
       "Yes"
     );
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Will the appellant give oral evidence at the hearing?",
+      "Yes"
+    );
+    await this.ccdFormPage.click("Continue");
 
+    await this.ccdFormPage.setFieldValue(
+      "Will any witnesses attend the hearing?",
+      "Yes"
+    );
+    await this.ccdFormPage.click("Add new");
+    await this.ccdFormPage.setFieldValue("Name", "Jenny button");
+    await this.ccdFormPage.click("Continue");
     await this.ccdFormPage.setFieldValue(
       "Will any witnesses attend the hearing?",
       "Yes"
@@ -452,13 +554,28 @@ export class SubmitHearingRequirementsFlow {
     await this.ccdFormPage.setFieldValue("Language", "Zulu");
     await this.ccdFormPage.setFieldValue("Dialect", "Kwabe");
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Do you need interpreter services on the day?",
+      "Yes"
+    );
+    await this.ccdFormPage.click("Add new");
+    await this.ccdFormPage.setFieldValue("Language", "Zulu");
+    await this.ccdFormPage.setFieldValue("Dialect", "Kwabe");
+    await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.setFieldValue(
       "Do you need a hearing room with step-free access?",
       "Yes"
     );
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Do you need a hearing room with step-free access?",
+      "Yes"
+    );
+    await this.ccdFormPage.click("Continue");
 
+    await this.ccdFormPage.setFieldValue("Do you need a hearing loop?", "Yes");
+    await this.ccdFormPage.click("Continue");
     await this.ccdFormPage.setFieldValue("Do you need a hearing loop?", "Yes");
     await this.ccdFormPage.click("Continue");
 
@@ -887,6 +1004,11 @@ export class SubmitHearingRequirementsFlow {
       "No"
     );
     await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Has the appellant had any past experiences that may impact them on the day?",
+      "No"
+    );
+    await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.setFieldValue(
       "Do you have multimedia evidence?",
@@ -942,43 +1064,40 @@ export class SubmitHearingRequirementsFlow {
     }
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click("Continue");
     }
   }
 
-  async setRemoteHearingRequirementForInOutOfCountryForInOutOfCountry(
-    clickContinue = false,
-    isYesPath = "",
-    details = ""
-  ) {
-    if (isOutOfCountryEnabled) {
-      if (isYesPath === "Yes") {
-        await this.ccdFormPage.setFieldValue(
-          "Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?",
-          "Yes"
-        );
-        await this.ccdFormPage.setFieldValue(
-          "Explain in detail anything you would like the Tribunal to consider",
-          details
-        );
-      } else {
-        await this.ccdFormPage.setFieldValue(
-          "Is there anything you'd like the Tribunal to consider when deciding if a video call is suitable?",
-          "No"
-        );
-      }
-      if (clickContinue) {
-        await this.ccdFormPage.click("Continue");
-      }
+    async setRemoteHearingRequirementForInOutOfCountryForInOutOfCountry(clickContinue = false, isYesPath = '', details = '') {
+        if (isOutOfCountryEnabled) {
+            if (isYesPath === 'Yes') {
+                await this.ccdFormPage.setFieldValue(
+                    'Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?',
+                    'Yes'
+                );
+                await this.ccdFormPage.setFieldValue(
+                    'Explain in detail anything you would like the Tribunal to consider',
+                    details
+                );
+            } else {
+                await this.ccdFormPage.setFieldValue(
+                    'Is there anything you\'d like the Tribunal to consider when deciding if a video call is suitable?',
+                    'No'
+                );
+            }
+            if (clickContinue) {
+                await this.ccdFormPage.click('Continue');
+            }
+        }
     }
-  }
-  async setHearingLocation(clickContinue = false, location = "") {
-    await browser.sleep(3000);
-    await this.ccdFormPage.typeTextBasedOnClass(
-      "mat-autocomplete-trigger",
-      location
-    );
-    await browser.sleep(3000);
-    await this.ccdFormPage.click("Hatton Cross");
-    await this.ccdFormPage.click("Add location");
-  }
+    async setHearingLocation(clickContinue = false, location = '') {
+        await browser.sleep(3000);
+        await this.ccdFormPage.typeTextBasedOnClass(
+            'mat-autocomplete-trigger',
+            location
+        );
+        await browser.sleep(3000);
+        await this.ccdFormPage.click('Hatton Cross');
+        await this.ccdFormPage.click('Add location');
+    }
 }

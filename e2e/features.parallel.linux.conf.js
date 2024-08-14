@@ -87,7 +87,7 @@ let config = {
     let passedTests = getPassedTestsArray();
     let totalTests = getTotalTestsArray();
     if (passedTests.length !== totalTests.length) {
-      const failedTests = totalTests.filter(item => !passedTests.includes(item));
+      const failedTests = totalTests.filter((item) => !passedTests.includes(item));
       console.log('Tests failed including retries: ' + failedTests);
       process.exit(1);
     } else {
@@ -98,7 +98,7 @@ let config = {
 };
 
 function getTotalTestsArray() {
-  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
   try {
     const data = fs.readFileSync(testCounterPath, 'utf8');
     const counterData = JSON.parse(data);
@@ -110,7 +110,7 @@ function getTotalTestsArray() {
 }
 
 function getPassedTestsArray() {
-  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
   try {
     const data = fs.readFileSync(testCounterPath, 'utf8');
     const counterData = JSON.parse(data);

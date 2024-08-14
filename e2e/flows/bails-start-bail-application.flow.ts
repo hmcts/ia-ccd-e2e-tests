@@ -133,22 +133,16 @@ export class StartBailApplicationFlow {
 
   async completeWhichIRC(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue(
-      "Immigration removal centre name",
-      "Harmondsworth"
-    );
+    await this.ccdFormPage.setFieldValue('Immigration removal centre name', 'Harmondsworth');
     if (clickContinue) {
-      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click('Continue');
     }
   }
   async completeDateOfApplicantArrival(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue(
-      "Date of arrival in the UK (Optional)",
-      "31-12-2009"
-    );
+    await this.ccdFormPage.setFieldValue('Date of arrival in the UK (Optional)', '31-12-2009');
     if (clickContinue) {
-      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click('Continue');
     }
   }
 
@@ -207,26 +201,23 @@ export class StartBailApplicationFlow {
     }
   }
 
-  async completeApplicantHearingReqInterpreterDetailsWithYes(
-    clickContinue = false
-  ) {
+  async completeApplicantHearingReqInterpreterDetailsWithYes(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue(
-      "Will the applicant need a spoken or sign language interpreter at the hearing?",
-      "Yes"
-    );
+    await this.ccdFormPage.setFieldValue('Will the applicant need a spoken or sign language interpreter at the hearing?', 'Yes');
     await browser.sleep(1000);
-    await this.ccdFormPage.click("Continue");
-    await this.ccdFormPage.click("Spoken language interpreter");
-    await this.ccdFormPage.click("Sign language interpreter");
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.click('Spoken language interpreter');
+    await this.ccdFormPage.click('Sign language interpreter');
     await browser.sleep(1000);
-    await this.ccdFormPage.click("Continue");
-    await this.ccdFormPage.click("Select spoken language");
+    await this.ccdFormPage.click('Continue');
+    // await this.ccdFormPage.setFieldValue('Tell us which spoken language is needed for the applicant', 'Select spoken language');
+    await this.ccdFormPage.click('Select spoken language');
 
-    await this.ccdFormPage.setFieldValue("Spoken language", "Korean");
-    await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue('Spoken language', 'Korean');
+    await this.ccdFormPage.click('Continue');
     await browser.sleep(1000);
-    await this.ccdFormPage.click("Select sign language");
+    // await this.ccdFormPage.setFieldValue('Tell us which sign language is needed for the applicant', 'Select sign language');
+    await this.ccdFormPage.click('Select sign language');
 
     await this.ccdFormPage.setFieldValue(
       "Sign language",
@@ -512,20 +503,17 @@ export class StartBailApplicationFlow {
     }
   }
 
-  async completeFinancialConditionSupporterPassport(
-    clickContinue = false,
-    number = ""
-  ) {
+  async completeFinancialConditionSupporterPassport(clickContinue = false, number = '') {
     await this.ccdFormPage.runAccessbility();
-    if (number === "1") {
-      await this.ccdFormPage.setFieldValue("Passport", "Yes");
+    if (number === '1') {
+      await this.ccdFormPage.setFieldValue('Passport', 'Yes');
     }
-    if (number === "2") {
-      await this.ccdFormPage.setFieldValue("Passport", "Yes");
+    if (number === '2') {
+      await this.ccdFormPage.setFieldValue('Passport', 'Yes');
     }
 
     if (clickContinue) {
-      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click('Continue');
     }
   }
 
@@ -567,32 +555,19 @@ export class StartBailApplicationFlow {
     }
   }
 
-  async completeAnotherFinancialConditionSupporter(
-    clickContinue = false,
-    number = "",
-    choice = ""
-  ) {
+  async completeAnotherFinancialConditionSupporter(clickContinue = false, number = '', choice = '') {
     await this.ccdFormPage.runAccessbility();
-    if (number === "1") {
-      await this.ccdFormPage.setFieldValue(
-        "Financial condition supporter 2",
-        choice
-      );
+    if (number === '1') {
+      await this.ccdFormPage.setFieldValue('Financial condition supporter 2', choice);
     }
-    if (number === "2") {
-      await this.ccdFormPage.setFieldValue(
-        "Financial condition supporter 3",
-        choice
-      );
+    if (number === '2') {
+      await this.ccdFormPage.setFieldValue('Financial condition supporter 3', choice);
     }
-    if (number === "3") {
-      await this.ccdFormPage.setFieldValue(
-        "Financial condition supporter 4",
-        choice
-      );
+    if (number === '3') {
+      await this.ccdFormPage.setFieldValue('Financial condition supporter 4', choice);
     }
     if (clickContinue) {
-      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click('Continue');
     }
   }
 
@@ -642,11 +617,24 @@ export class StartBailApplicationFlow {
 
   async completeBailTransfer(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue("Management of bail", "No");
+    await this.ccdFormPage.setFieldValue('Management of bail', 'No');
+    // await this.ccdFormPage.setFieldValue('Explain why the applicant does not consent to bail being transferred', 'They do not consent to bail being transferred');
     if (clickContinue) {
-      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click('Continue');
     }
   }
+
+  // async completeInterpreterRequirements(clickContinue = false) {
+  //     await this.ccdFormPage.runAccessbility();
+  //     await this.ccdFormPage.setFieldValue('Interpreter', 'Yes');
+  //     await browser.sleep(1000)
+  //     await this.ccdFormPage.click('Add new');
+  //     await this.ccdFormPage.setFieldValue('Language', 'Bambara');
+  //     await this.ccdFormPage.setFieldValue('Dialect', 'N/A');
+  //     if (clickContinue) {
+  //         await this.ccdFormPage.click('Continue');
+  //     }
+  // }
 
   async completeDisabilityRequirements(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
@@ -678,22 +666,16 @@ export class StartBailApplicationFlow {
 
   async completeLegalRepDetails(clickContinue = false, choice) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue("Name", "Stephen Fenn");
-    await this.ccdFormPage.setFieldValue("Family name", "Fenn");
-    await this.ccdFormPage.typeText("legalRepPhone", "07292929292");
-    await this.ccdFormPage.setFieldValue("Reference", "This is a reference");
-    if (choice !== "LR") {
-      await this.ccdFormPage.setFieldValue(
-        "Company",
-        "A Legal Representative Company"
-      );
-      await this.ccdFormPage.setFieldValue(
-        "Email address",
-        "legalRep@test.com"
-      );
+    await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
+    await this.ccdFormPage.setFieldValue('Family name', 'Fenn');
+    await this.ccdFormPage.typeText('legalRepPhone', '07292929292');
+    await this.ccdFormPage.setFieldValue('Reference', 'This is a reference');
+    if (choice !== 'LR') {
+      await this.ccdFormPage.setFieldValue('Company', 'A Legal Representative Company');
+      await this.ccdFormPage.setFieldValue('Email address', 'legalRep@test.com');
     }
     if (clickContinue) {
-      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click('Continue');
     }
   }
 
@@ -721,19 +703,13 @@ export class StartBailApplicationFlow {
     }
   }
 
-  async saveInitialApplication(
-    clickContinue = false,
-    user: string,
-    detentionFacility: string,
-    noOfSupporters: string,
-    legalRepresentativeOrNot: string
-  ) {
+  async saveInitialApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
     await this.completePreviousBailApplication(true);
     await this.completeRefusedBail(true);
     await this.completeCreateNewApplication(true);
     await this.completeBeforeYouStart(true);
-    if (user === "Admin Officer") {
-      await this.completeWhichPartySentApplication(true, "Applicant");
+    if (user === 'Admin Officer') {
+      await this.completeWhichPartySentApplication(true, 'Applicant');
     }
     await this.completeApplicantName(true);
     await this.completeApplicantDOB(true);
@@ -741,7 +717,7 @@ export class StartBailApplicationFlow {
     await this.completeApplicantNationality(true);
     await this.completeApplicantReferenceNumber(true);
     await this.completeDetentionFacility(true, detentionFacility);
-    if (detentionFacility === "Prison") {
+    if (detentionFacility === 'Prison') {
       await this.completeWhichPrison(true);
     } else {
       await this.completeWhichIRC(true);
@@ -752,76 +728,64 @@ export class StartBailApplicationFlow {
     await this.completeApplicantPlaceToLive(true);
     await this.completeApplicantAddress(true);
     await this.completeFinancialConditionAgree(true);
-    if (noOfSupporters === "no") {
-      await this.completeFinancialConditionSupporter(true, "No");
+    if (noOfSupporters === 'no') {
+      await this.completeFinancialConditionSupporter(true, 'No');
     } else {
-      await this.completeFinancialConditionSupporter(true, "Yes");
-      await this.completeFinancialConditionSupporterName(true, "1");
-      await this.completeFinancialConditionSupporterAddress(true, "1");
-      await this.completeFinancialConditionSupporterContactDetails(true, "1");
-      await this.completeFinancialConditionSupporterDOB(true, "1");
-      await this.completeFinancialConditionSupporterRelationship(true, "1");
-      await this.completeFinancialConditionSupporterOccupation(true, "1");
-      await this.completeFinancialConditionSupporterImmigrationStatus(
-        true,
-        "1"
-      );
-      await this.completeFinancialConditionSupporterNationality(true, "1");
-      await this.completeFinancialConditionSupporterPassport(true, "1");
-      await this.completeFinancialConditionSupporterPassportNumber(true, "1");
-      await this.completeFinancialConditionSupporterUndertaking(true, "1");
-      if (noOfSupporters === "one") {
-        await this.completeAnotherFinancialConditionSupporter(true, "1", "No");
+      await this.completeFinancialConditionSupporter(true, 'Yes');
+      await this.completeFinancialConditionSupporterName(true, '1');
+      await this.completeFinancialConditionSupporterAddress(true, '1');
+      await this.completeFinancialConditionSupporterContactDetails(true, '1');
+      await this.completeFinancialConditionSupporterDOB(true, '1');
+      await this.completeFinancialConditionSupporterRelationship(true, '1');
+      await this.completeFinancialConditionSupporterOccupation(true, '1');
+      await this.completeFinancialConditionSupporterImmigrationStatus(true, '1');
+      await this.completeFinancialConditionSupporterNationality(true, '1');
+      await this.completeFinancialConditionSupporterPassport(true, '1');
+      await this.completeFinancialConditionSupporterPassportNumber(true, '1');
+      await this.completeFinancialConditionSupporterUndertaking(true, '1');
+      if (noOfSupporters === 'one') {
+        await this.completeAnotherFinancialConditionSupporter(true, '1', 'No');
       } else {
-        await this.completeAnotherFinancialConditionSupporter(true, "1", "Yes");
-        await this.completeFinancialConditionSupporterName(true, "2");
-        await this.completeFinancialConditionSupporterAddress(true, "2");
-        await this.completeFinancialConditionSupporterContactDetails(true, "2");
-        await this.completeFinancialConditionSupporterDOB(true, "2");
-        await this.completeFinancialConditionSupporterRelationship(true, "2");
-        await this.completeFinancialConditionSupporterOccupation(true, "2");
-        await this.completeFinancialConditionSupporterImmigrationStatus(
-          true,
-          "2"
-        );
-        await this.completeFinancialConditionSupporterNationality(true, "2");
-        await this.completeFinancialConditionSupporterPassport(true, "2");
-        await this.completeFinancialConditionSupporterPassportNumber(true, "2");
-        await this.completeFinancialConditionSupporterUndertaking(true, "2");
-        if (noOfSupporters === "two") {
-          await this.completeAnotherFinancialConditionSupporter(
-            true,
-            "2",
-            "No"
-          );
+        await this.completeAnotherFinancialConditionSupporter(true, '1', 'Yes');
+        await this.completeFinancialConditionSupporterName(true, '2');
+        await this.completeFinancialConditionSupporterAddress(true, '2');
+        await this.completeFinancialConditionSupporterContactDetails(true, '2');
+        await this.completeFinancialConditionSupporterDOB(true, '2');
+        await this.completeFinancialConditionSupporterRelationship(true, '2');
+        await this.completeFinancialConditionSupporterOccupation(true, '2');
+        await this.completeFinancialConditionSupporterImmigrationStatus(true, '2');
+        await this.completeFinancialConditionSupporterNationality(true, '2');
+        await this.completeFinancialConditionSupporterPassport(true, '2');
+        await this.completeFinancialConditionSupporterPassportNumber(true, '2');
+        await this.completeFinancialConditionSupporterUndertaking(true, '2');
+        if (noOfSupporters === 'two') {
+          await this.completeAnotherFinancialConditionSupporter(true, '2', 'No');
         }
       }
     }
     await this.completeGroundsForBailInfo(true);
     await this.completeGroundsForBail(true);
-    await this.completeSupportingEvidenceYesNo(true, "Yes");
+    await this.completeSupportingEvidenceYesNo(true, 'Yes');
     await this.completeSupportingEvidenceUpload(true);
     await this.completeBailTransfer(true);
     await this.completeApplicantHearingReqInterpreterDetailsWithYes(true);
-    if (noOfSupporters === "one" || noOfSupporters === "two") {
-      await this.completeFCSHearingReqInterpreterDetailsWithYes(
-        true,
-        noOfSupporters
-      );
+    if (noOfSupporters === 'one' || noOfSupporters === 'two') {
+      await this.completeFCSHearingReqInterpreterDetailsWithYes(true, noOfSupporters);
     }
+    // await this.completeInterpreterRequirements(true);
     await this.completeDisabilityRequirements(true);
     await this.completeVideoLinkRequirements(true);
-    if (legalRepresentativeOrNot === "a") {
-      if (user === "Legal Rep") {
-        await this.completeLegalRepDetails(true, "LR");
+    if (legalRepresentativeOrNot === 'a') {
+      if (user === 'Legal Rep') {
+        await this.completeLegalRepDetails(true, 'LR');
       } else {
-        await this.completeLegalRepYesNo(true, "Yes");
-        await this.completeLegalRepDetails(true, "NonLR");
+        await this.completeLegalRepYesNo(true, 'Yes');
+        await this.completeLegalRepDetails(true, 'NonLR');
       }
     } else {
-      await this.completeLegalRepYesNo(true, "No");
+      await this.completeLegalRepYesNo(true, 'No');
     }
-    if (user === "Admin Officer") {
+    if (user === 'Admin Officer') {
       await this.completeB1Upload(true);
     }
     await this.completeCheckYourAnswers(true);
@@ -834,13 +798,7 @@ export class StartBailApplicationFlow {
     }
   }
 
-  async saveInitialApplicationNoFiles(
-    clickContinue = false,
-    user: string,
-    detentionFacility: string,
-    noOfSupporters: string,
-    legalRepresentativeOrNot: string
-  ) {
+  async saveInitialApplicationNoFiles(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
     await this.completePreviousBailApplication(true);
     await this.completeRefusedBail(true);
     await this.completeCreateNewApplication(true);
@@ -851,7 +809,7 @@ export class StartBailApplicationFlow {
     await this.completeApplicantNationality(true);
     await this.completeApplicantReferenceNumber(true);
     await this.completeDetentionFacility(true, detentionFacility);
-    if (detentionFacility === "Prison") {
+    if (detentionFacility === 'Prison') {
       await this.completeWhichPrison(true);
     } else {
       await this.completeWhichIRC(true);
@@ -863,73 +821,61 @@ export class StartBailApplicationFlow {
     await this.completeApplicantAddress(true);
     await this.completeFinancialConditionAgree(true);
 
-    if (noOfSupporters === "no") {
-      await this.completeFinancialConditionSupporter(true, "No");
+    if (noOfSupporters === 'no') {
+      await this.completeFinancialConditionSupporter(true, 'No');
     } else {
-      await this.completeFinancialConditionSupporter(true, "Yes");
-      await this.completeFinancialConditionSupporterName(true, "1");
-      await this.completeFinancialConditionSupporterAddress(true, "1");
-      await this.completeFinancialConditionSupporterContactDetails(true, "1");
-      await this.completeFinancialConditionSupporterDOB(true, "1");
-      await this.completeFinancialConditionSupporterRelationship(true, "1");
-      await this.completeFinancialConditionSupporterOccupation(true, "1");
-      await this.completeFinancialConditionSupporterImmigrationStatus(
-        true,
-        "1"
-      );
-      await this.completeFinancialConditionSupporterNationality(true, "1");
-      await this.completeFinancialConditionSupporterPassport(true, "1");
-      await this.completeFinancialConditionSupporterPassportNumber(true, "1");
-      await this.completeFinancialConditionSupporterUndertaking(true, "1");
-      if (noOfSupporters === "one") {
-        await this.completeAnotherFinancialConditionSupporter(true, "1", "No");
+      await this.completeFinancialConditionSupporter(true, 'Yes');
+      await this.completeFinancialConditionSupporterName(true, '1');
+      await this.completeFinancialConditionSupporterAddress(true, '1');
+      await this.completeFinancialConditionSupporterContactDetails(true, '1');
+      await this.completeFinancialConditionSupporterDOB(true, '1');
+      await this.completeFinancialConditionSupporterRelationship(true, '1');
+      await this.completeFinancialConditionSupporterOccupation(true, '1');
+      await this.completeFinancialConditionSupporterImmigrationStatus(true, '1');
+      await this.completeFinancialConditionSupporterNationality(true, '1');
+      await this.completeFinancialConditionSupporterPassport(true, '1');
+      await this.completeFinancialConditionSupporterPassportNumber(true, '1');
+      await this.completeFinancialConditionSupporterUndertaking(true, '1');
+      if (noOfSupporters === 'one') {
+        await this.completeAnotherFinancialConditionSupporter(true, '1', 'No');
       } else {
-        await this.completeAnotherFinancialConditionSupporter(true, "1", "Yes");
-        await this.completeFinancialConditionSupporterName(true, "2");
-        await this.completeFinancialConditionSupporterAddress(true, "2");
-        await this.completeFinancialConditionSupporterContactDetails(true, "2");
-        await this.completeFinancialConditionSupporterDOB(true, "2");
-        await this.completeFinancialConditionSupporterRelationship(true, "2");
-        await this.completeFinancialConditionSupporterOccupation(true, "2");
-        await this.completeFinancialConditionSupporterImmigrationStatus(
-          true,
-          "2"
-        );
-        await this.completeFinancialConditionSupporterNationality(true, "2");
-        await this.completeFinancialConditionSupporterPassport(true, "2");
-        await this.completeFinancialConditionSupporterPassportNumber(true, "2");
-        await this.completeFinancialConditionSupporterUndertaking(true, "2");
-        if (noOfSupporters === "two") {
-          await this.completeAnotherFinancialConditionSupporter(
-            true,
-            "2",
-            "No"
-          );
+        await this.completeAnotherFinancialConditionSupporter(true, '1', 'Yes');
+        await this.completeFinancialConditionSupporterName(true, '2');
+        await this.completeFinancialConditionSupporterAddress(true, '2');
+        await this.completeFinancialConditionSupporterContactDetails(true, '2');
+        await this.completeFinancialConditionSupporterDOB(true, '2');
+        await this.completeFinancialConditionSupporterRelationship(true, '2');
+        await this.completeFinancialConditionSupporterOccupation(true, '2');
+        await this.completeFinancialConditionSupporterImmigrationStatus(true, '2');
+        await this.completeFinancialConditionSupporterNationality(true, '2');
+        await this.completeFinancialConditionSupporterPassport(true, '2');
+        await this.completeFinancialConditionSupporterPassportNumber(true, '2');
+        await this.completeFinancialConditionSupporterUndertaking(true, '2');
+        if (noOfSupporters === 'two') {
+          await this.completeAnotherFinancialConditionSupporter(true, '2', 'No');
         }
       }
     }
     await this.completeGroundsForBailInfo(true);
     await this.completeGroundsForBail(true);
-    await this.completeSupportingEvidenceYesNo(true, "No");
+    await this.completeSupportingEvidenceYesNo(true, 'No');
     await this.completeBailTransfer(true);
     await this.completeApplicantHearingReqInterpreterDetailsWithYes(true);
-    if (noOfSupporters === "one" || noOfSupporters === "two") {
-      await this.completeFCSHearingReqInterpreterDetailsWithYes(
-        true,
-        noOfSupporters
-      );
+    if (noOfSupporters === 'one' || noOfSupporters === 'two') {
+      await this.completeFCSHearingReqInterpreterDetailsWithYes(true, noOfSupporters);
     }
+    // await this.completeInterpreterRequirements(true);
     await this.completeDisabilityRequirements(true);
     await this.completeVideoLinkRequirements(true);
-    if (legalRepresentativeOrNot === "a") {
-      if (user === "Legal Rep") {
-        await this.completeLegalRepDetails(true, "LR");
+    if (legalRepresentativeOrNot === 'a') {
+      if (user === 'Legal Rep') {
+        await this.completeLegalRepDetails(true, 'LR');
       } else {
-        await this.completeLegalRepYesNo(true, "Yes");
-        await this.completeLegalRepDetails(true, "NonLR");
+        await this.completeLegalRepYesNo(true, 'Yes');
+        await this.completeLegalRepDetails(true, 'NonLR');
       }
     } else {
-      await this.completeLegalRepYesNo(true, "No");
+      await this.completeLegalRepYesNo(true, 'No');
     }
     await this.completeCheckYourAnswers(true);
 

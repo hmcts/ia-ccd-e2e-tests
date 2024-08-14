@@ -309,7 +309,7 @@ export class EditBailApplicationPostSubmitFlow {
 
   async completeBailTransfer(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Transfer bail management', 'Yes');
+    await this.ccdFormPage.setFieldValue('Management of bail', 'No');
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }

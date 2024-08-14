@@ -19,7 +19,7 @@ Feature: Out of Country - Edit appeal after submit
   @edit-appeal-after-submit-ooc-to-uk @RIA-4094
   Scenario: Edit out of country appeal to in country
 
-    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes`
+    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `PA` appeal
     And I submit my nonpayment appeal
 
     And I switch to be a `Case Officer`
@@ -43,7 +43,7 @@ Feature: Out of Country - Edit appeal after submit
   @edit-appeal-after-submit-ooc-to-ooc @RIA-4094
   Scenario: Edit out of country appeal to in country
 
-    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes`
+    And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `PA` appeal
     And I submit my nonpayment appeal
 
     And I switch to be a `Case Officer`

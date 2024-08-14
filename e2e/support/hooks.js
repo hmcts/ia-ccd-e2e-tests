@@ -1,11 +1,11 @@
-var { After, Before} = require('cucumber');
+var { After, Before } = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
 let count = 0;
 
 Before(async function (scenario) {
-  let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
+  let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`;
   await createTestCounterIfNone();
   await addToTotalTestsIfNotExists(test);
 });
@@ -40,13 +40,13 @@ After(async function (scenario) {
     }
   }
   if (scenario.result.status === 'passed') {
-    let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`
+    let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`;
     await addToPassedTests(test);
   }
 });
 
 async function addToTotalTestsIfNotExists(stringVar) {
-  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
   await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
@@ -72,7 +72,7 @@ async function addToTotalTestsIfNotExists(stringVar) {
 }
 
 async function addToPassedTests(stringVar) {
-  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`
+  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
   await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
@@ -98,7 +98,7 @@ async function addToPassedTests(stringVar) {
 function sleep(milliseconds) {
   let start = new Date().getTime();
   for (let i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
+    if (new Date().getTime() - start > milliseconds) {
       break;
     }
   }
@@ -108,10 +108,10 @@ async function createTestCounterIfNone() {
   const filePath = path.join(process.cwd(), 'e2e', 'testCounter.json');
   const defaultContent = {
     totalTests: [],
-    passedTests: []
+    passedTests: [],
   };
 
-// Check if the file exists
+  // Check if the file exists
   await fs.access(filePath, fs.constants.F_OK, async (err) => {
     if (err) {
       // File doesn't exist, create it with default content
@@ -126,5 +126,4 @@ async function createTestCounterIfNone() {
       console.log('File already exists.');
     }
   });
-
 }

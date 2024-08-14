@@ -4,6 +4,7 @@ import { Wait } from "../enums/wait";
 import { $, browser, by, element, ExpectedConditions } from "protractor";
 import { expect } from "chai";
 const iaConfig = require("../ia.conf");
+
 export class CcdPage extends AnyPage {
   protected readonly fields = new Fields($("body"));
 
@@ -87,6 +88,7 @@ export class CcdPage extends AnyPage {
       collectionLabel,
       collectionItemNumber
     );
+
     if (!!field && (await field.isDisplayed())) {
       const expandedFieldMatch = await this.valueExpander.expand(fieldMatch);
       const fieldValue = await field.getValue();
@@ -206,5 +208,10 @@ export class CcdPage extends AnyPage {
         }
       }
     }
+  }
+
+  async getTodayDate(date) {
+    const expandedMatch = await this.valueExpander.expand(date);
+    return expandedMatch;
   }
 }
