@@ -1,108 +1,133 @@
-import { browser } from 'protractor';
-import { CcdFormPage } from '../pages/ccd-form.page';
+import { browser } from "protractor";
+import { CcdFormPage } from "../pages/ccd-form.page";
 
 export class StartBailApplicationFlow {
   private ccdFormPage = new CcdFormPage();
 
   async completePreviousBailApplication(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Has the applicant made a previous application before?', 'Yes');
-    await this.ccdFormPage.setFieldValue('What is the bail number for the previous application?', 'HW/07919');
+    await this.ccdFormPage.setFieldValue(
+      "Has the applicant made a previous application before?",
+      "Yes"
+    );
+    await this.ccdFormPage.setFieldValue(
+      "What is the bail number for the previous application?",
+      "HW/07919"
+    );
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeRefusedBail(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Has the applicant been refused immigration bail at a hearing within the last 28 days?', 'Yes');
-    await this.ccdFormPage.setFieldValue('What was the date of the hearing?', '31-12-2019');
+    await this.ccdFormPage.setFieldValue(
+      "Has the applicant been refused immigration bail at a hearing within the last 28 days?",
+      "Yes"
+    );
+    await this.ccdFormPage.setFieldValue(
+      "What was the date of the hearing?",
+      "31-12-2019"
+    );
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeCreateNewApplication(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.click("Continue");
   }
 
   async completeBeforeYouStart(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.click("Continue");
   }
 
   async completeWhichPartySentApplication(clickContinue = false, user) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Application sent by', user);
+    await this.ccdFormPage.setFieldValue("Application sent by", user);
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeApplicantName(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Given names', 'Harri');
-    await this.ccdFormPage.setFieldValue('Family name', 'Pugh');
+    await this.ccdFormPage.setFieldValue("Given names", "Harri");
+    await this.ccdFormPage.setFieldValue("Family name", "Pugh");
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeApplicantDOB(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
+    await this.ccdFormPage.setFieldValue("Date of birth", "31-12-1999");
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeApplicantGender(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Gender', 'Other');
-    await this.ccdFormPage.setFieldValue('Enter details', 'Other');
+    await this.ccdFormPage.setFieldValue("Gender", "Other");
+    await this.ccdFormPage.setFieldValue("Enter details", "Other");
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeApplicantNationality(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(2000);
-    await this.ccdFormPage.setFieldValue('Nationality', 'The applicant has a nationality');
+    await this.ccdFormPage.setFieldValue(
+      "Nationality",
+      "The applicant has a nationality"
+    );
     await browser.sleep(1000);
-    await this.ccdFormPage.click('Add new');
+    await this.ccdFormPage.click("Add new");
     await browser.sleep(2000);
-    await this.ccdFormPage.setFieldValue('Nationality', 'Finnish', 'select list', 'first', 'Nationality', 'first');
+    await this.ccdFormPage.setFieldValue(
+      "Nationality",
+      "Finnish",
+      "select list",
+      "first",
+      "Nationality",
+      "first"
+    );
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeApplicantReferenceNumber(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Home Office reference', '01234567');
+    await this.ccdFormPage.setFieldValue("Home Office reference", "01234567");
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeDetentionFacility(clickContinue = false, facility) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Detention facility', facility);
-    if (facility === 'Prison') {
-      await this.ccdFormPage.setFieldValue('What is the applicant’s NOMS number?', '987654321');
+    await this.ccdFormPage.setFieldValue("Detention facility", facility);
+    if (facility === "Prison") {
+      await this.ccdFormPage.setFieldValue(
+        "What is the applicant’s NOMS number?",
+        "987654321"
+      );
     }
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeWhichPrison(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Prison name', 'HM Prison Blundeston');
+    await this.ccdFormPage.setFieldValue("Prison name", "HM Prison Blundeston");
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
@@ -123,50 +148,56 @@ export class StartBailApplicationFlow {
 
   async completeApplicantMobilePhone(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Mobile phone', 'Yes');
+    await this.ccdFormPage.setFieldValue("Mobile phone", "Yes");
     await browser.sleep(1000);
-    await this.ccdFormPage.typeText('applicantMobileNumber1', '07930111111');
+    await this.ccdFormPage.typeText("applicantMobileNumber1", "07930111111");
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeAppealHearingPending(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Pending appeal hearing', 'Yes');
-    await this.ccdFormPage.setFieldValue('What is the reference number for the applicant’s appeal?', '098765');
+    await this.ccdFormPage.setFieldValue("Pending appeal hearing", "Yes");
+    await this.ccdFormPage.setFieldValue(
+      "What is the reference number for the applicant’s appeal?",
+      "098765"
+    );
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeApplicantPlaceToLive(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Address if bail granted', 'Yes');
+    await this.ccdFormPage.setFieldValue("Address if bail granted", "Yes");
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeApplicantAddress(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'SW1A 2AA');
-    await this.ccdFormPage.click('Find address');
-    await this.ccdFormPage.doesDropdownHaveValues('Select an address');
-    await this.ccdFormPage.setFieldValue('Select an address', 'Prime Minister & First Lord Of The Treasury, 10 Downing Street, London');
+    await this.ccdFormPage.setFieldValue("Enter a UK postcode", "SW1A 2AA");
+    await this.ccdFormPage.click("Find address");
+    await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+    await this.ccdFormPage.setFieldValue(
+      "Select an address",
+      "Prime Minister & First Lord Of The Treasury, 10 Downing Street, London"
+    );
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeFinancialConditionAgree(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Financial condition', 'Yes');
+    await this.ccdFormPage.setFieldValue("Financial condition", "Yes");
     await browser.sleep(1000);
-    await this.ccdFormPage.typeText('financialCondAmount1', '1000');
+    await this.ccdFormPage.typeText("financialCondAmount1", "1000");
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
@@ -188,211 +219,287 @@ export class StartBailApplicationFlow {
     // await this.ccdFormPage.setFieldValue('Tell us which sign language is needed for the applicant', 'Select sign language');
     await this.ccdFormPage.click('Select sign language');
 
-    await this.ccdFormPage.setFieldValue('Sign language', 'British Sign Language (BSL)');
+    await this.ccdFormPage.setFieldValue(
+      "Sign language",
+      "British Sign Language (BSL)"
+    );
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
-  async completeFCSHearingReqInterpreterDetailsWithYes(clickContinue = false, noOfSupporters: string) {
+  async completeFCSHearingReqInterpreterDetailsWithYes(
+    clickContinue = false,
+    noOfSupporters: string
+  ) {
     await this.ccdFormPage.runAccessbility();
-    if (noOfSupporters === 'two') {
-      await this.ccdFormPage.setFieldValue('Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?', 'Yes');
-      await this.ccdFormPage.click('Continue');
+    if (noOfSupporters === "two") {
+      await this.ccdFormPage.setFieldValue(
+        "Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?",
+        "Yes"
+      );
+      await this.ccdFormPage.click("Continue");
       await browser.sleep(3000);
-
-      await this.ccdFormPage.setFieldValue('What kind of interpreter does John Smith need? (Optional)', 'Spoken language interpreter');
+      await this.ccdFormPage.setFieldValue(
+        "What kind of interpreter does John Smith need? (Optional)",
+        "Spoken language interpreter"
+      );
       await browser.sleep(2000);
-      await this.ccdFormPage.setFieldValue('What kind of interpreter does John Smith need? (Optional)', 'Sign language interpreter');
-
+      await this.ccdFormPage.setFieldValue(
+        "What kind of interpreter does John Smith need? (Optional)",
+        "Sign language interpreter"
+      );
       await browser.sleep(2000);
-      await this.ccdFormPage.setFieldValue('What kind of interpreter does Jane Doe need? (Optional)', 'Spoken language interpreter');
+      await this.ccdFormPage.setFieldValue(
+        "What kind of interpreter does Jane Doe need? (Optional)",
+        "Spoken language interpreter"
+      );
       await browser.sleep(2000);
-      await this.ccdFormPage.setFieldValue('What kind of interpreter does Jane Doe need? (Optional)', 'Sign language interpreter');
-
+      await this.ccdFormPage.setFieldValue(
+        "What kind of interpreter does Jane Doe need? (Optional)",
+        "Sign language interpreter"
+      );
       await browser.sleep(1000);
-
-      await this.ccdFormPage.click('Continue');
-      await this.ccdFormPage.click('Select spoken language');
-
-      await this.ccdFormPage.setFieldValue('Spoken language', 'Telugu');
-      await this.ccdFormPage.click('Continue');
-      await this.ccdFormPage.click('Select sign language');
-
-      await this.ccdFormPage.setFieldValue('Sign language', 'British Sign Language (BSL)');
-      await this.ccdFormPage.click('Continue');
-
-      await this.ccdFormPage.click('Select spoken language');
-
-      await this.ccdFormPage.setFieldValue('Spoken language', 'Hindi');
-      await this.ccdFormPage.click('Continue');
-      await this.ccdFormPage.click('Select sign language');
-
-      await this.ccdFormPage.setFieldValue('Sign language', 'British Sign Language (BSL)');
-
+      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click("Select spoken language");
+      await this.ccdFormPage.setFieldValue("Spoken language", "Telugu");
+      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click("Select sign language");
+      await this.ccdFormPage.setFieldValue(
+        "Sign language",
+        "British Sign Language (BSL)"
+      );
+      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click("Select spoken language");
+      await this.ccdFormPage.setFieldValue("Spoken language", "Hindi");
+      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click("Select sign language");
+      await this.ccdFormPage.setFieldValue(
+        "Sign language",
+        "British Sign Language (BSL)"
+      );
       if (clickContinue) {
-        await this.ccdFormPage.click('Continue');
+        await this.ccdFormPage.click("Continue");
       }
-    } else if (noOfSupporters === 'one') {
-      await this.ccdFormPage.setFieldValue('Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?', 'Yes');
+    } else if (noOfSupporters === "one") {
+      await this.ccdFormPage.setFieldValue(
+        "Will any of the financial condition supporters require a spoken or sign language interpreter at the hearing?",
+        "Yes"
+      );
       await browser.sleep(1000);
-      await this.ccdFormPage.click('Continue');
-
-      await this.ccdFormPage.setFieldValue('What kind of interpreter does John Smith need? (Optional)', 'Spoken language interpreter');
+      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.setFieldValue(
+        "What kind of interpreter does John Smith need? (Optional)",
+        "Spoken language interpreter"
+      );
       await browser.sleep(2000);
-      await this.ccdFormPage.setFieldValue('What kind of interpreter does John Smith need? (Optional)', 'Sign language interpreter');
+      await this.ccdFormPage.setFieldValue(
+        "What kind of interpreter does John Smith need? (Optional)",
+        "Sign language interpreter"
+      );
       await browser.sleep(2000);
-
-      await this.ccdFormPage.click('Continue');
-      await this.ccdFormPage.click('Select spoken language');
-
-      await this.ccdFormPage.setFieldValue('Spoken language', 'Malayalam');
-      await this.ccdFormPage.click('Continue');
-      await this.ccdFormPage.click('Select sign language');
-
-      await this.ccdFormPage.setFieldValue('Sign language', 'American Sign Language (ASL)');
+      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click("Select spoken language");
+      await this.ccdFormPage.setFieldValue("Spoken language", "Malayalam");
+      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.click("Select sign language");
+      await this.ccdFormPage.setFieldValue(
+        "Sign language",
+        "American Sign Language (ASL)"
+      );
       if (clickContinue) {
-        await this.ccdFormPage.click('Continue');
+        await this.ccdFormPage.click("Continue");
       }
     }
   }
   async completeFinancialConditionSupporter(clickContinue = false, choice) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Financial condition supporter', choice);
+    await this.ccdFormPage.setFieldValue(
+      "Financial condition supporter",
+      choice
+    );
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
-
-  async completeFinancialConditionSupporterName(clickContinue = false, number = '') {
+  async completeFinancialConditionSupporterName(
+    clickContinue = false,
+    number = ""
+  ) {
     await this.ccdFormPage.runAccessbility();
-    if (number === '1') {
-      await this.ccdFormPage.setFieldValue('Given names', 'John');
-      await this.ccdFormPage.setFieldValue('Family name', 'Smith');
+    if (number === "1") {
+      await this.ccdFormPage.setFieldValue("Given names", "John");
+      await this.ccdFormPage.setFieldValue("Family name", "Smith");
     }
-    if (number === '2') {
-      await this.ccdFormPage.setFieldValue('Given names', 'Jane');
-      await this.ccdFormPage.setFieldValue('Family name', 'Doe');
-    }
-
-    if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
-    }
-  }
-
-  async completeFinancialConditionSupporterAddress(clickContinue = false, number = '') {
-    await this.ccdFormPage.runAccessbility();
-    if (number === '1') {
-      await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'CH5 3QW');
-      await this.ccdFormPage.click('Find address');
-      await this.ccdFormPage.doesDropdownHaveValues('Select an address');
-      await this.ccdFormPage.setFieldValue('Select an address', 'J & P Engineering Services Ltd, Wellington House, Manor Lane, Penarlag Hawarden Industrial Park Airfield View, Glannau Dyfrdwy');
-    }
-    if (number === '2') {
-      await this.ccdFormPage.setFieldValue('Enter a UK postcode', 'SW1A 1AA');
-      await this.ccdFormPage.click('Find address');
-      await this.ccdFormPage.doesDropdownHaveValues('Select an address');
-      await this.ccdFormPage.setFieldValue('Select an address', 'Buckingham Palace, London');
+    if (number === "2") {
+      await this.ccdFormPage.setFieldValue("Given names", "Jane");
+      await this.ccdFormPage.setFieldValue("Family name", "Doe");
     }
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
-
-  async completeFinancialConditionSupporterContactDetails(clickContinue = false, number = '') {
+  async completeFinancialConditionSupporterAddress(
+    clickContinue = false,
+    number = ""
+  ) {
     await this.ccdFormPage.runAccessbility();
-    if (number === '1') {
-      await this.ccdFormPage.click('Telephone');
-      await this.ccdFormPage.click('Mobile');
-      await this.ccdFormPage.click('Email');
+    if (number === "1") {
+      await this.ccdFormPage.setFieldValue("Enter a UK postcode", "CH5 3QW");
+      await this.ccdFormPage.click("Find address");
+      await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+      await this.ccdFormPage.setFieldValue(
+        "Select an address",
+        "J & P Engineering Services Ltd, Wellington House, Manor Lane, Penarlag Hawarden Industrial Park Airfield View, Glannau Dyfrdwy"
+      );
+    }
+    if (number === "2") {
+      await this.ccdFormPage.setFieldValue("Enter a UK postcode", "SW1A 1AA");
+      await this.ccdFormPage.click("Find address");
+      await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+      await this.ccdFormPage.setFieldValue(
+        "Select an address",
+        "Buckingham Palace, London"
+      );
+    }
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+  async completeFinancialConditionSupporterContactDetails(
+    clickContinue = false,
+    number = ""
+  ) {
+    await this.ccdFormPage.runAccessbility();
+    if (number === "1") {
+      await this.ccdFormPage.click("Telephone");
+      await this.ccdFormPage.click("Mobile");
+      await this.ccdFormPage.click("Email");
       await browser.sleep(1000);
-      await this.ccdFormPage.typeText('supporterTelephoneNumber1', '01182904610');
-      await this.ccdFormPage.typeText('supporterMobileNumber1', '07930111222');
-      await this.ccdFormPage.typeText('supporterEmailAddress1', 'johnSmith@test.com');
+      await this.ccdFormPage.typeText(
+        "supporterTelephoneNumber1",
+        "01182904610"
+      );
+      await this.ccdFormPage.typeText("supporterMobileNumber1", "07930111222");
+      await this.ccdFormPage.typeText(
+        "supporterEmailAddress1",
+        "johnSmith@test.com"
+      );
     }
-    if (number === '2') {
-      await this.ccdFormPage.click('Email');
-      await this.ccdFormPage.click('Mobile');
+    if (number === "2") {
+      await this.ccdFormPage.click("Email");
+      await this.ccdFormPage.click("Mobile");
       await browser.sleep(1000);
-      await this.ccdFormPage.typeText('supporter2EmailAddress1', 'janeDoe@test.com');
-      await this.ccdFormPage.typeText('supporter2MobileNumber1', '07930111222');
+      await this.ccdFormPage.typeText(
+        "supporter2EmailAddress1",
+        "janeDoe@test.com"
+      );
+      await this.ccdFormPage.typeText("supporter2MobileNumber1", "07930111222");
+    }
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+  async completeFinancialConditionSupporterDOB(
+    clickContinue = false,
+    number = ""
+  ) {
+    await this.ccdFormPage.runAccessbility();
+    if (number === "1") {
+      await this.ccdFormPage.setFieldValue("Date of birth", "30-12-1999");
+    }
+    if (number === "2") {
+      await this.ccdFormPage.setFieldValue("Date of birth", "29-12-1999");
+    }
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+  async completeFinancialConditionSupporterRelationship(
+    clickContinue = false,
+    number = ""
+  ) {
+    await this.ccdFormPage.runAccessbility();
+    if (number === "1") {
+      await this.ccdFormPage.setFieldValue(
+        "Relationship to the applicant",
+        "Uncle"
+      );
+    }
+    if (number === "2") {
+      await this.ccdFormPage.setFieldValue(
+        "Relationship to the applicant",
+        "Aunt"
+      );
     }
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
-
-  async completeFinancialConditionSupporterDOB(clickContinue = false, number = '') {
+  async completeFinancialConditionSupporterOccupation(
+    clickContinue = false,
+    number = ""
+  ) {
     await this.ccdFormPage.runAccessbility();
-    if (number === '1') {
-      await this.ccdFormPage.setFieldValue('Date of birth', '30-12-1999');
+    if (number === "1") {
+      await this.ccdFormPage.setFieldValue("Occupation", "Lawyer");
     }
-    if (number === '2') {
-      await this.ccdFormPage.setFieldValue('Date of birth', '29-12-1999');
+    if (number === "2") {
+      await this.ccdFormPage.setFieldValue("Occupation", "Lawyer");
     }
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
-
-  async completeFinancialConditionSupporterRelationship(clickContinue = false, number = '') {
+  async completeFinancialConditionSupporterImmigrationStatus(
+    clickContinue = false,
+    number = ""
+  ) {
     await this.ccdFormPage.runAccessbility();
-    if (number === '1') {
-      await this.ccdFormPage.setFieldValue('Relationship to the applicant', 'Uncle');
+    if (number === "1") {
+      await this.ccdFormPage.setFieldValue("Immigration status", "Citizen");
     }
-    if (number === '2') {
-      await this.ccdFormPage.setFieldValue('Relationship to the applicant', 'Aunt');
+    if (number === "2") {
+      await this.ccdFormPage.setFieldValue("Immigration status", "Immigrant");
     }
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
-
-  async completeFinancialConditionSupporterOccupation(clickContinue = false, number = '') {
+  async completeFinancialConditionSupporterNationality(
+    clickContinue = false,
+    number = ""
+  ) {
     await this.ccdFormPage.runAccessbility();
-    if (number === '1') {
-      await this.ccdFormPage.setFieldValue('Occupation', 'Lawyer');
-    }
-    if (number === '2') {
-      await this.ccdFormPage.setFieldValue('Occupation', 'Lawyer');
-    }
-
-    if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
-    }
-  }
-
-  async completeFinancialConditionSupporterImmigrationStatus(clickContinue = false, number = '') {
-    await this.ccdFormPage.runAccessbility();
-    if (number === '1') {
-      await this.ccdFormPage.setFieldValue('Immigration status', 'Citizen');
-    }
-    if (number === '2') {
-      await this.ccdFormPage.setFieldValue('Immigration status', 'Immigrant');
-    }
-
-    if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
-    }
-  }
-
-  async completeFinancialConditionSupporterNationality(clickContinue = false, number = '') {
-    await this.ccdFormPage.runAccessbility();
-    if (number === '1') {
-      await this.ccdFormPage.click('Add new');
-      await this.ccdFormPage.setFieldValue('Nationality', 'Uzbek', 'select list', 'first', 'Nationality', 'first');
+    if (number === "1") {
+      await this.ccdFormPage.click("Add new");
+      await this.ccdFormPage.setFieldValue(
+        "Nationality",
+        "Uzbek",
+        "select list",
+        "first",
+        "Nationality",
+        "first"
+      );
       await browser.sleep(2000);
     }
-    if (number === '2') {
-      await this.ccdFormPage.click('Add new');
-      await this.ccdFormPage.setFieldValue('Nationality', 'Armenian', 'select list', 'first', 'Nationality', 'first');
+    if (number === "2") {
+      await this.ccdFormPage.click("Add new");
+      await this.ccdFormPage.setFieldValue(
+        "Nationality",
+        "Armenian",
+        "select list",
+        "first",
+        "Nationality",
+        "first"
+      );
       await browser.sleep(2000);
     }
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
@@ -410,27 +517,41 @@ export class StartBailApplicationFlow {
     }
   }
 
-  async completeFinancialConditionSupporterPassportNumber(clickContinue = false, number = '') {
+  async completeFinancialConditionSupporterPassportNumber(
+    clickContinue = false,
+    number = ""
+  ) {
     await this.ccdFormPage.runAccessbility();
-
-    if (number === '1') {
-      await this.ccdFormPage.setFieldValue('Passport number (Optional)', '123456789');
+    if (number === "1") {
+      await this.ccdFormPage.setFieldValue(
+        "Passport number (Optional)",
+        "123456789"
+      );
     }
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
-  async completeFinancialConditionSupporterUndertaking(clickContinue = false, number = '') {
+  async completeFinancialConditionSupporterUndertaking(
+    clickContinue = false,
+    number = ""
+  ) {
     await this.ccdFormPage.runAccessbility();
-    if (number === '1') {
-      await this.ccdFormPage.typeText('financialAmountSupporterUndertakes1', '450');
+    if (number === "1") {
+      await this.ccdFormPage.typeText(
+        "financialAmountSupporterUndertakes1",
+        "450"
+      );
     }
-    if (number === '2') {
-      await this.ccdFormPage.typeText('financialAmountSupporter2Undertakes1', '550');
+    if (number === "2") {
+      await this.ccdFormPage.typeText(
+        "financialAmountSupporter2Undertakes1",
+        "550"
+      );
     }
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
@@ -453,15 +574,18 @@ export class StartBailApplicationFlow {
   async completeGroundsForBailInfo(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeGroundsForBail(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Enter the bail grounds', 'Grounds for bail');
+    await this.ccdFormPage.setFieldValue(
+      "Enter the bail grounds",
+      "Grounds for bail"
+    );
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
@@ -469,19 +593,25 @@ export class StartBailApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.click(choice);
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeSupportingEvidenceUpload(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
-    await this.ccdFormPage.click('Add new');
-    await this.ccdFormPage.setFieldValue('Document', '{@GroundsForBailSupportingEvidence.pdf}');
-    await this.ccdFormPage.setFieldValue('Describe the document', 'This is the supporting evidence');
+    await this.ccdFormPage.click("Add new");
+    await this.ccdFormPage.setFieldValue(
+      "Document",
+      "{@GroundsForBailSupportingEvidence.pdf}"
+    );
+    await this.ccdFormPage.setFieldValue(
+      "Describe the document",
+      "This is the supporting evidence"
+    );
     await browser.sleep(8000);
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
@@ -508,27 +638,29 @@ export class StartBailApplicationFlow {
 
   async completeDisabilityRequirements(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Disability', 'Yes');
-    await this.ccdFormPage.setFieldValue('Explain any special arrangements needed for the hearing', 'They need special arrangements');
+    await this.ccdFormPage.setFieldValue("Disability", "Yes");
+    await this.ccdFormPage.setFieldValue(
+      "Explain any special arrangements needed for the hearing",
+      "They need special arrangements"
+    );
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeVideoLinkRequirements(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Able to join video hearing', 'Yes');
-    // await this.ccdFormPage.setFieldValue('Explain why the applicant would not be able to join the hearing by video link', 'They can\'t join video');
+    await this.ccdFormPage.setFieldValue("Able to join video hearing", "Yes");
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
   async completeLegalRepYesNo(clickContinue = false, choice) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Legal representative', choice);
+    await this.ccdFormPage.setFieldValue("Legal representative", choice);
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
@@ -550,12 +682,15 @@ export class StartBailApplicationFlow {
   async completeB1Upload(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
-    await this.ccdFormPage.click('Add new');
-    await this.ccdFormPage.setFieldValue('Document', '{@B1Form.pdf}');
-    await this.ccdFormPage.setFieldValue('Describe the document', 'This is the B1 form');
+    await this.ccdFormPage.click("Add new");
+    await this.ccdFormPage.setFieldValue("Document", "{@B1Form.pdf}");
+    await this.ccdFormPage.setFieldValue(
+      "Describe the document",
+      "This is the B1 form"
+    );
     await browser.sleep(8000);
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.click("Continue");
     }
   }
 
@@ -563,7 +698,7 @@ export class StartBailApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(3000);
     if (clickContinue) {
-      await this.ccdFormPage.click('Save application');
+      await this.ccdFormPage.click("Save application");
       await browser.sleep(15000);
     }
   }
@@ -657,8 +792,8 @@ export class StartBailApplicationFlow {
 
     if (clickContinue) {
       try {
-        await this.ccdFormPage.waitForCssElementVisible('#confirmation-body');
-        await this.ccdFormPage.click('Close and Return to case details');
+        await this.ccdFormPage.waitForCssElementVisible("#confirmation-body");
+        await this.ccdFormPage.click("Close and Return to case details");
       } catch {}
     }
   }
@@ -745,7 +880,7 @@ export class StartBailApplicationFlow {
     await this.completeCheckYourAnswers(true);
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.click("Close and Return to case details");
     }
   }
 }

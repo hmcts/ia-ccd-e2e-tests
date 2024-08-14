@@ -1114,8 +1114,7 @@ export class SubmitHearingRequirementsFlow {
       location
     );
     await browser.sleep(3000);
-    await this.ccdFormPage.click('Hatton Cross Tribunal Hearing Centre');
-    await this.ccdFormPage.click('Add location');
+    await this.ccdFormPage.click("Hatton Cross Tribunal Hearing Centre");
+    await this.ccdFormPage.click("Add location");
   }
-
 }

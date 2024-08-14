@@ -1,33 +1,56 @@
-import { CcdPage } from './ccd.page';
-import { $, browser, ExpectedConditions, By, protractor } from 'protractor';
-// import { Wait } from '../enums/wait';
+import { CcdPage } from "./ccd.page";
+import { $, browser, ExpectedConditions, By, protractor } from "protractor";
 
 export class CcdFormPage extends CcdPage {
   async fieldErrorContains(match: string) {
-    await browser.wait(ExpectedConditions.visibilityOf($('.error-message')));
-    return (await $('.error-message').getText()).includes(match);
+    await browser.wait(ExpectedConditions.visibilityOf($(".error-message")));
+    return (await $(".error-message").getText()).includes(match);
   }
 
   async summaryErrorContains(match: string) {
-    await browser.wait(ExpectedConditions.visibilityOf($('.error-summary-list')));
-    return (await $('.error-summary-list').getText()).includes(match);
+    await browser.wait(
+      ExpectedConditions.visibilityOf($(".error-summary-list"))
+    );
+    return (await $(".error-summary-list").getText()).includes(match);
   }
 
-  async addCollectionItem(complexFieldLabel: string, instanceNumber?: string | number) {
+  async addCollectionItem(
+    complexFieldLabel: string,
+    instanceNumber?: string | number
+  ) {
     await this.fields.addCollectionItem(complexFieldLabel, instanceNumber);
   }
 
-  async removeCollectionItem(complexFieldLabel: string, collectionItemNumber: string | number, instanceNumber?: string | number) {
-    await this.fields.removeCollectionItem(complexFieldLabel, instanceNumber, collectionItemNumber);
+  async removeCollectionItem(
+    complexFieldLabel: string,
+    collectionItemNumber: string | number,
+    instanceNumber?: string | number
+  ) {
+    await this.fields.removeCollectionItem(
+      complexFieldLabel,
+      instanceNumber,
+      collectionItemNumber
+    );
   }
 
-  async getFieldOptions(fieldLabel: string, instanceNumber?: string | number, complexFieldLabel?: string, collectionItemNumber?: string | number) {
-    const field = await this.fields.find('', fieldLabel, instanceNumber, complexFieldLabel, collectionItemNumber);
+  async getFieldOptions(
+    fieldLabel: string,
+    instanceNumber?: string | number,
+    complexFieldLabel?: string,
+    collectionItemNumber?: string | number
+  ) {
+    const field = await this.fields.find(
+      "",
+      fieldLabel,
+      instanceNumber,
+      complexFieldLabel,
+      collectionItemNumber
+    );
 
     if (!!field && (await field.isDisplayed())) {
       return await field.getOptions();
     } else {
-      throw 'Cannot find field with label: ' + fieldLabel;
+      throw "Cannot find field with label: " + fieldLabel;
     }
   }
 

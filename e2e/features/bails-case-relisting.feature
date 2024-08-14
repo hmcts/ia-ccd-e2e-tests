@@ -10,9 +10,12 @@ Feature: Bails case relisting bails application
     And I switch to be a `Admin Officer Bails`
     And I wait for 5 seconds
     And I list the bail case
-@bails-end-the-application @bails-relist
-Scenario: case relising after bails upload summary
-  When I switch to be a `Home Office Bails`
+  @bails-end-the-application @bails-relist @bail-ho-test
+  Scenario: case relising after bails upload summary
+   When I click the `Overview` tab
+    Then I should see `Hatton Cross Tribunal Hearing Centre` for the `Listing location` field
+    And  I should see `Yes` for the `Will the hearing be held remotely?` field
+    When I switch to be a `Home Office Bails`
     And I select the `Upload Bail Summary` Next step
     Then I am on the `Upload summary` page
     And The page is accessible
@@ -26,7 +29,7 @@ Scenario: case relising after bails upload summary
     And I wait for 2 seconds
     When I switch to be a `Admin Officer Bails`
     And I wait for 5 seconds
-   And  I relist the bail case
+    And  I relist the bail case
     When I record a granted decision with SS consent No with no financial condition supporters
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
@@ -42,6 +45,5 @@ Scenario: case relising after bails upload summary
     And I should see the text `The signed decision notice is available to view in the documents tab.`
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
     And I should see `Pugh-decision-notice.pdf` for the `Decision document` field

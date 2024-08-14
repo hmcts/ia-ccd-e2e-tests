@@ -53,7 +53,6 @@ export class CcdPage extends AnyPage {
       Wait.long,
       "Next steps did not show in time"
     );
-
     await element(by.xpath(nextStepPath)).click();
   }
 
