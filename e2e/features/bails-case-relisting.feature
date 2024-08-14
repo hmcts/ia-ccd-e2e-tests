@@ -46,4 +46,4 @@ Feature: Bails case relisting bails application
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     And I should see the text `This application has been decided. The decision notice is available in the documents tab.`
-    And I should see `RefData-decision-notice.pdf` for the `Decision document` field
+    And I should see `Pugh-decision-notice.pdf` for the `Decision document` field
