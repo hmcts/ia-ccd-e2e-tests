@@ -30,7 +30,7 @@ export class CcdWriteMultiSelectListField implements Field {
                 .getText();
         }
 
-        return ''
+        return '';
     }
 
     public async setValue(value) {
