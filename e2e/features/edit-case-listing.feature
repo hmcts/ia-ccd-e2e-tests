@@ -3,8 +3,12 @@ Feature: Edit case listing
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
-    And I save my initial appeal
-    And I submit my appeal
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I wait for 12 seconds
+    And I click the `Close and Return to case details` button
+    And I wait for 5 second
+    Then I should see the text `You still need to submit your appeal.`
+    And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
     And I request respondent evidence
     And I upload respondent evidence
@@ -29,37 +33,38 @@ Feature: Edit case listing
     And I select the `Edit case listing` Next step
 
     Then I am on the `Edit case listing` page
-    And I should see the option `Manchester` for the `Hearing centre` field
-    And I should see the option `Taylor House` for the `Hearing centre` field
-    And I should see the option `Newport` for the `Hearing centre` field
-    And I should see the option `Bradford` for the `Hearing centre` field
-    And I should see the option `North Shields` for the `Hearing centre` field
-    And I should see the option `Birmingham` for the `Hearing centre` field
-    And I should see the option `Hatton Cross` for the `Hearing centre` field
-    And I should see the option `Glasgow` for the `Hearing centre` field
-    And I should see the option `30 minutes` for the `Length of appointment` field
-    And I should see the option `1 hour` for the `Length of appointment` field
-    And I should see the option `1 hour 30 minutes` for the `Length of appointment` field
-    And I should see the option `2 hours` for the `Length of appointment` field
-    And I should see the option `2 hours 30 minutes` for the `Length of appointment` field
-    And I should see the option `3 hours` for the `Length of appointment` field
-    And I should see the option `3 hours 30 minutes` for the `Length of appointment` field
-    And I should see the option `4 hours` for the `Length of appointment` field
-    And I should see the option `4 hours 30 minutes` for the `Length of appointment` field
-    And I should see the option `5 hours` for the `Length of appointment` field
-    And I should see the option `5 hours 30 minutes` for the `Length of appointment` field
-    And I should see the option `6 hours` for the `Length of appointment` field
+    And I should see the option `Manchester Crown Court (Crown Square)` for the `Listing location` field
+    And I should see the option `Newport Tribunal Centre - Columbus House` for the `Listing location` field
+    And I should see the option `Birmingham Civil And Family Justice Centre` for the `Listing location` field
+    And I should see the option `Harmondsworth Tribunal Hearing Centre` for the `Listing location` field
+    And I should see the option `Manchester Crown Court (Minshull st)` for the `Listing location` field
+    And I should see the option `Atlantic Quay - Glasgow` for the `Listing location` field
+    And I should see the option `Newcastle Civil And Family Courts And Tribunals Centre` for the `Listing location` field
+    And I should see the option `Hatton Cross Tribunal Hearing Centre` for the `Listing location` field
+    And I should see the option `North Tyneside Magistrates Court` for the `Listing location` field
+    And I should see the option `Manchester Tribunal Hearing Centre - Piccadilly Exchange` for the `Listing location` field
+    And I should see the option `Leeds Magistrates Court and Family Court` for the `Listing location` field
+    And I should see the option `Bradford and Keighley Magistrates Court and Family Court` for the `Listing location` field
+    And I should see the option `Nottingham Magistrates Court` for the `Listing location` field
+    And I should see the option `Yarls Wood Immigration And Asylum Hearing Centre` for the `Listing location` field
+    And I should see the option `Bradford Tribunal Hearing Centre` for the `Listing location` field
+    And I should see the option `Hendon Magistrates Court` for the `Listing location` field
+    And I should see the option `Taylor House Tribunal Hearing Centre` for the `Listing location` field
+    And I should see the option `Manchester Magistrates Court` for the `Listing location` field
+    And I should see the option `Coventry Magistrates Court` for the `Listing location` field
+    And I should see the option `Alloa Sheriff Court` for the `Listing location` field
+    And I should see the option `Belfast Laganside Court` for the `Listing location` field
+    
+    And I select `Manchester Tribunal Hearing Centre - Piccadilly Exchange` for the `Listing location` field
+    Then I select `Yes` for the `Will the hearing be held remotely?` field
+    And I type `2` for the field with ID `listingLength_hours`
+    And I type `0` for the field with ID `listingLength_minutes`
 
-    When I select `3 hours` for the `Length of appointment` field
-    And I select `Manchester` for the `Hearing centre` field
-    And I select `{$TODAY+14|DD-MM-YYYY} 11:30:00` for the `Appointment date and time` field
+    And I select `{$TODAY+14|DD-MM-YYYY} 11:30:00` for the `Date and time` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
-    And I should see `Manchester` for the `Hearing centre` field
-    And I should see `3 hours` for the `Length of appointment` field
-    And I should see `{$TODAY+14|D MMM YYYY}, 11:30:00 AM` for the `Appointment date and time` field
-
+    And I should see `Manchester Tribunal Hearing Centre - Piccadilly Exchange` for the `Hearing centre` field
     When I click the `List case` button
     Then I should see the text `The case has been re-listed`
     And I should see the text `What happens next`
@@ -71,8 +76,7 @@ Feature: Edit case listing
 
     When I click the `Overview` tab
     And I should see the `Hearing details` field
-    And I should see `Manchester` for the `Hearing centre` field
-    And I should see `3 hours` for the `Length of appointment` field
+    And I should see `Manchester Tribunal Hearing Centre - Piccadilly Exchange` for the `Hearing centre` field
     And I should see the text `11:30:00 AM`
 
     When I click the `Documents` tab

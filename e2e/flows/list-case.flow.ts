@@ -11,10 +11,11 @@ export class ListCaseFlow {
     await this.ccdFormPage.flakeyClick('Go', overviewUrl);
     await this.ccdFormPage.waitForSpinner();
 
-    await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2019');
-    await this.ccdFormPage.setFieldValue('Location', 'Taylor House');
-
-    await this.ccdFormPage.setFieldValue('Length', '6 hours');
+    await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2024');
+    await this.ccdFormPage.setFieldValue('Listing location', 'Atlantic Quay - Glasgow');
+    await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
+    await this.ccdFormPage.typeText('listingLength_hours', '2');
+    await this.ccdFormPage.typeText('listingLength_minutes', '0');
 
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 

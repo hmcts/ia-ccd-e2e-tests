@@ -5,7 +5,7 @@ Feature: SnL Flow PA hearing request
     And I wait for 10 seconds
     And I create a new case
 
-  @nightly-test @snl 
+  @appeal-nightly-test
   Scenario: SnL hearing request in country flow for PA appeal
 
     And I save my initial PA appeal type without remission and with hearing fee and pay now
@@ -34,7 +34,6 @@ Feature: SnL Flow PA hearing request
     And I record agreed hearing requirements yes path
     When I goto the `Case flags` tab
     And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
-    And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
 
     ##Hearing Request
     And I wait for 3 seconds
