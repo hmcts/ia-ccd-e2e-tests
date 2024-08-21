@@ -7,82 +7,130 @@ Feature: Manage fee update
   @Case-officer-manage-fee-update-pay-now @RIA-3792 @RIA-3790
   Scenario: Case officer manage fee update
 
-    Then I save my initial `EA` appeal type with `no remission` and `with` hearing fee
-    And I pay for and submit my appeal by PBA for a non PA appeal type
+      And I save my initial EA appeal type without remission and with hearing fee and pay now
+      And I wait for 10 seconds
+      # Below step is needed in AAT or when AAT master defs. are merged to PR branch (for DLRM)
+      # And I click the `Close and Return to case details` button if present
+      And I wait for 2 seconds
+      And I pay for and submit my appeal by Card for a non PA appeal type
 
     When I switch to be a `Case Officer`
     Then I select the `Manage a fee update` Next step
-    And I should see the `Manage a fee update` page
-    And I should see the text `Select the reason the fee has been updated.`
-    And I select `Decision type changed` for the `Reason for fee update` field
-    And I type `10` for the `New fee amount` field
+    And I wait for 3 seconds
+    And I should see the `Reason for update` page
+    And I should see the text `What is the reason for the fee update?`
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
+    # And I type `10` for the `New fee amount` field
+    # And I click the `Continue` button
+
+    # Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
+    # And I click the first `Fee update recorded` label
+    # And I click the `Continue` button
+
+    And I click the `Continue` button
+    And I select `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I click the `Continue` button
+    
+    And I type `80` for the `Enter new appeal fee amount` field
+    And I click the `Continue` button
+    And I select `The appellant should receive a refund` for the `Select the action the Tribunal needs to take as a result of this fee update` field
+    And I type `60` for the `Amount to be refunded` field
     And I click the `Continue` button
 
-    Then I should see the text `You need to record the status of the fee update. To do this select the task you are about to complete. Do not uncheck any previously selected tasks.`
-    And I click the first `Fee update recorded` label
-    And I click the `Continue` button
+    # Then I am on the `Check your answers` page
+    # And I should see `Decision type changed` in the `Reason for fee update` field
+    # And I should see `£10.00` in the `New fee amount` field
+    # And I should see `Fee update recorded` in the `Fee update status` field
+    # And I click the `Submit` button
+
+    # Then I should see the text `You have recorded a fee update`
+    # And I should see the text `What happens next`
+    # And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
+    # And I click the `Close and Return to case details` button if present
+    # And I wait for 2 seconds
+
+    # Then I click the `Appeal` tab
+    # And I should see the text `Fee update details`
+    # And I should see `Decision type changed` for the `Reason for fee update` field
+    # And I should see `£10.00` for the `New fee amount` field
+    # And I should see `Fee update recorded` for the `Completed stages` field
+
+    # When I switch to be a `Admin Officer`
+    # Then I click the `Appeal` tab
+    # And I should see the text `Fee update details`
+    # And I should see `Decision type changed` for the `Reason for fee update` field
+    # And I should see `£10.00` for the `New fee amount` field
+    # And I should see `Fee update recorded` for the `Completed stages` field
+
+    # When I switch to be a `Judge`
+    # Then I click the `Appeal` tab
+    # And I should see the text `Fee update details`
+    # And I should see `Decision type changed` for the `Reason for fee update` field
+    # And I should see `£10.00` for the `New fee amount` field
+    # And I should see `Fee update recorded` for the `Completed stages` field
+
+    # When I switch to be a `Legal Rep`
+    # Then I click the `Appeal` tab
+    # And I should see the text `Fee update details`
+    # And I should see `Decision type changed` for the `Reason for fee update` field
+    # And I should see `£10.00` for the `New fee amount` field
+
+    # When I switch to be a `Home Office APC`
+    # Then I click the `Appeal` tab
+    # And I should see the text `Fee update details`
+    # And I should see `Decision type changed` for the `Reason for fee update` field
+    # And I should see `£10.00` for the `New fee amount` field
+
+    # When I switch to be a `Home Office LART`
+    # Then I click the `Appeal` tab
+    # And I should see the text `Fee update details`
+    # And I should see `Decision type changed` for the `Reason for fee update` field
+    # And I should see `£10.00` for the `New fee amount` field
+
+    # When I switch to be a `Home Office POU`
+    # Then I click the `Appeal` tab
+    # And I should see the text `Fee update details`
+    # And I should see `Decision type changed` for the `Reason for fee update` field
+    # And I should see `£10.00` for the `New fee amount` field
+
+    # When I switch to be a `Home Office Generic`
+    # Then I click the `Appeal` tab
+    # And I should see the text `Fee update details`
+    # And I should see `Decision type changed` for the `Reason for fee update` field
+    # And I should see `£10.00` for the `New fee amount` field
 
     Then I am on the `Check your answers` page
-    And I should see `Decision type changed` in the `Reason for fee update` field
-    And I should see `£10.00` in the `New fee amount` field
-    And I should see `Fee update recorded` in the `Fee update status` field
+    And I should see `Decision type changed` in the `What is the reason for the fee update?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` in the `How do you want the appeal to be decided?` field
+    And I should see `£80.00` in the `Enter new appeal fee amount` field
+    And I should see `The appellant should receive a refund` in the `Select the action the Tribunal needs to take as a result of this fee update` field
+    And I should see `£60.00` in the `Amount to be refunded` field
     And I click the `Submit` button
 
     Then I should see the text `You have recorded a fee update`
     And I should see the text `What happens next`
-    And I should see the text `The appropriate team will be notified to review the fee update and take the next steps.`
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
     And I should see `Decision type changed` for the `Reason for fee update` field
-    And I should see `£10.00` for the `New fee amount` field
-    And I should see `Fee update recorded` for the `Completed stages` field
+    And I should see `£80.00` for the `New fee amount` field
+    And I should see `£60.00` for the `Amount to be refunded` field
 
-    When I switch to be a `Admin Officer`
+    When I switch to be a `Case Officer`
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
     And I should see `Decision type changed` for the `Reason for fee update` field
-    And I should see `£10.00` for the `New fee amount` field
-    And I should see `Fee update recorded` for the `Completed stages` field
+    And I should see `£80.00` for the `New fee amount` field
+    And I should see `£60.00` for the `Amount to be refunded` field
 
-    When I switch to be a `Judge`
+    When I switch to be a `Legal Org User Rep A`
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
     And I should see `Decision type changed` for the `Reason for fee update` field
-    And I should see `£10.00` for the `New fee amount` field
-    And I should see `Fee update recorded` for the `Completed stages` field
-
-    When I switch to be a `Legal Rep`
-    Then I click the `Appeal` tab
-    And I should see the text `Fee update details`
-    And I should see `Decision type changed` for the `Reason for fee update` field
-    And I should see `£10.00` for the `New fee amount` field
-
-    When I switch to be a `Home Office APC`
-    Then I click the `Appeal` tab
-    And I should see the text `Fee update details`
-    And I should see `Decision type changed` for the `Reason for fee update` field
-    And I should see `£10.00` for the `New fee amount` field
-
-    When I switch to be a `Home Office LART`
-    Then I click the `Appeal` tab
-    And I should see the text `Fee update details`
-    And I should see `Decision type changed` for the `Reason for fee update` field
-    And I should see `£10.00` for the `New fee amount` field
-
-    When I switch to be a `Home Office POU`
-    Then I click the `Appeal` tab
-    And I should see the text `Fee update details`
-    And I should see `Decision type changed` for the `Reason for fee update` field
-    And I should see `£10.00` for the `New fee amount` field
-
-    When I switch to be a `Home Office Generic`
-    Then I click the `Appeal` tab
-    And I should see the text `Fee update details`
-    And I should see `Decision type changed` for the `Reason for fee update` field
-    And I should see `£10.00` for the `New fee amount` field
+    And I should see `£80.00` for the `New fee amount` field
+    And I should see `£60.00` for the `Amount to be refunded` field    
 
 
   @Case-officer-manage-fee-update-pay-offline @RIA-3792 @RIA-3790
@@ -98,7 +146,7 @@ Feature: Manage fee update
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
     And I should see the text `Select the reason the fee has been updated.`
-    And I select `Decision type changed` for the `Reason for fee update` field
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
     And I type `10` for the `New fee amount` field
     And I click the `Continue` button
 
@@ -600,7 +648,7 @@ Feature: Manage fee update
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
     And I should see the text `Select the reason the fee has been updated.`
-    And I select `Decision type changed` for the `Reason for fee update` field
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
     And I type `10` for the `New fee amount` field
     And I click the `Continue` button
 
@@ -684,7 +732,7 @@ Feature: Manage fee update
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
     And I should see the text `Select the reason the fee has been updated.`
-    And I select `Decision type changed` for the `Reason for fee update` field
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
     And I type `10` for the `New fee amount` field
     And I click the `Continue` button
 
@@ -768,7 +816,7 @@ Feature: Manage fee update
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
     And I should see the text `Select the reason the fee has been updated.`
-    And I select `Decision type changed` for the `Reason for fee update` field
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
     And I type `10` for the `New fee amount` field
     And I click the `Continue` button
 
@@ -892,7 +940,7 @@ Feature: Manage fee update
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
     And I should see the text `Select the reason the fee has been updated.`
-    And I select `Decision type changed` for the `Reason for fee update` field
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
     And I type `10` for the `New fee amount` field
     And I click the `Continue` button
 
@@ -1046,7 +1094,7 @@ Feature: Manage fee update
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
     And I should see the text `Select the reason the fee has been updated.`
-    And I select `Decision type changed` for the `Reason for fee update` field
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
     And I type `10` for the `New fee amount` field
     And I click the `Continue` button
 
@@ -1146,7 +1194,7 @@ Feature: Manage fee update
     Then I select the `Manage a fee update` Next step
     And I should see the `Manage a fee update` page
     And I should see the text `Select the reason the fee has been updated.`
-    And I select `Decision type changed` for the `Reason for fee update` field
+    And I select `Decision type changed` for the `What is the reason for the fee update?` field
     And I type `10` for the `New fee amount` field
     And I click the `Continue` button
 

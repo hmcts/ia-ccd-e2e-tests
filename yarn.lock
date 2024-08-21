@@ -511,19 +511,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@serenity-js/assertions@npm:3.25.4":
-  version: 3.25.4
-  resolution: "@serenity-js/assertions@npm:3.25.4"
+"@serenity-js/assertions@npm:3.25.5":
+  version: 3.25.5
+  resolution: "@serenity-js/assertions@npm:3.25.5"
   dependencies:
-    "@serenity-js/core": 3.25.4
-    tiny-types: 1.22.0
-  checksum: 4b1851e50d7e5a05abeb34e6f3dca29b9c26be533b8c4f5359eb43c2473b99ee9e46366b3b9ae873a4fdbc7247503c6151a4038f7530aa1fa3fba5e6372deb4f
+    "@serenity-js/core": 3.25.5
+    tiny-types: 1.23.0
+  checksum: 50cf15f16e17eff4920917ce82b68916cf6648d440cf35ba7380efcb79ac99272af33f66b63c0022c8cc7606bd4a07ac72e3ed1372c680e6db070144293b9a28
   languageName: node
   linkType: hard
 
-"@serenity-js/core@npm:3.25.4, @serenity-js/core@npm:^3.2.1":
-  version: 3.25.4
-  resolution: "@serenity-js/core@npm:3.25.4"
+"@serenity-js/core@npm:3.25.5, @serenity-js/core@npm:^3.2.1":
+  version: 3.25.5
+  resolution: "@serenity-js/core@npm:3.25.5"
   dependencies:
     "@paralleldrive/cuid2": 2.2.2
     chalk: 4.1.2
@@ -533,22 +533,22 @@ __metadata:
     filenamify: 4.3.0
     graceful-fs: 4.2.11
     semver: 7.6.3
-    tiny-types: 1.22.0
+    tiny-types: 1.23.0
     upath: 2.0.1
     validate-npm-package-name: 5.0.1
-  checksum: e27634307e891ac1e1431c0ff058889cf32263f4d023a3ed5ed359807e65a145be6b604e5aedb3a9cd38ea142c9f597213e6eb526b89967201923fd7ff9cff58
+  checksum: bd14f2d61d891c911e9ee4178311b4898b49ce36b8b56623591b7fca9577aef9b0b7a16e707cacee3fe916e1fce8306df5e51d304716e2fd1b66f492dbed81e9
   languageName: node
   linkType: hard
 
 "@serenity-js/cucumber@npm:^3.2.1":
-  version: 3.25.4
-  resolution: "@serenity-js/cucumber@npm:3.25.4"
+  version: 3.25.5
+  resolution: "@serenity-js/cucumber@npm:3.25.5"
   dependencies:
     "@cucumber/messages": 24.1.0
-    "@serenity-js/core": 3.25.4
+    "@serenity-js/core": 3.25.5
     cli-table3: 0.6.5
     gherkin: 5.1.0
-    tiny-types: 1.22.0
+    tiny-types: 1.23.0
   peerDependencies:
     "@cucumber/cucumber": ^7.3.2 || ^8.5.0 || ^9.1.0 || ^10.0.0
     cucumber: ^1.3.3 || ^2.3.1 || ^3.2.1 || ^4.2.1 || ^5.0.0 || ^6.0.0
@@ -557,20 +557,20 @@ __metadata:
       optional: true
     cucumber:
       optional: true
-  checksum: 1a764a0a3754ce15750c2b4369ff0308b09fc3321e8c761282f272a14655aeb2a943b2b5b99ecaa37fa6746e0ec1bb11bc80e99521242328716d6fecf701a156
+  checksum: 7057c621646fdb464570c6b636d7f1301a0f79c239ea252b174ca12b33f254caccc302a96adb00e51a967223f814c8775fa1ae9c33a6b50e1f89033af7ab20bf
   languageName: node
   linkType: hard
 
 "@serenity-js/protractor@npm:^3.2.1":
-  version: 3.25.4
-  resolution: "@serenity-js/protractor@npm:3.25.4"
+  version: 3.25.5
+  resolution: "@serenity-js/protractor@npm:3.25.5"
   dependencies:
-    "@serenity-js/core": 3.25.4
-    "@serenity-js/rest": 3.25.4
-    "@serenity-js/web": 3.25.4
+    "@serenity-js/core": 3.25.5
+    "@serenity-js/rest": 3.25.5
+    "@serenity-js/web": 3.25.5
     deepmerge: 4.3.1
     query-selector-shadow-dom: 1.0.1
-    tiny-types: 1.22.0
+    tiny-types: 1.23.0
   peerDependencies:
     "@serenity-js/cucumber": ^3.0.0
     "@serenity-js/jasmine": ^3.0.0
@@ -584,34 +584,34 @@ __metadata:
       optional: true
     "@serenity-js/mocha":
       optional: true
-  checksum: 30d16cb18f9beee07311823d71cec0b231cbe0eb19075985f6006a2c8a32c11152cc51f8a3e68485f3d1246e68f0eb1b288f97d3ddeae66fd7cb0cc73bc2675a
+  checksum: 0bcf438ea7026b1bbc9f220feabb84ed7e7d860b61238345624aaac884f161cca55695cfb4b60cbde8b6031d81c794e14ff28a6d50a2b0b4522f5c61e44650e2
   languageName: node
   linkType: hard
 
-"@serenity-js/rest@npm:3.25.4":
-  version: 3.25.4
-  resolution: "@serenity-js/rest@npm:3.25.4"
+"@serenity-js/rest@npm:3.25.5":
+  version: 3.25.5
+  resolution: "@serenity-js/rest@npm:3.25.5"
   dependencies:
-    "@serenity-js/core": 3.25.4
+    "@serenity-js/core": 3.25.5
     agent-base: 7.1.1
-    axios: 1.7.3
+    axios: 1.7.4
     http-proxy-agent: 7.0.2
     https-proxy-agent: 7.0.5
     lru-cache: 11.0.0
     proxy-from-env: 1.1.0
-    tiny-types: 1.22.0
-  checksum: 71bde110100795ecea24518b8fe474cb2c83c35afe73c5a28488083769831041dd7b3b7ab1b17767f3f47e56335d1f88d523f4f196ce41df26848c09db2d430b
+    tiny-types: 1.23.0
+  checksum: 1e9d3fae416bf76dba5b2ef2f3b7aa69ace4d650782cc61de50d4186e452526ce8710afdd29c9d77c5f020b242846c74277cbe358c4dd24a5671fddad691d2c2
   languageName: node
   linkType: hard
 
-"@serenity-js/web@npm:3.25.4":
-  version: 3.25.4
-  resolution: "@serenity-js/web@npm:3.25.4"
+"@serenity-js/web@npm:3.25.5":
+  version: 3.25.5
+  resolution: "@serenity-js/web@npm:3.25.5"
   dependencies:
-    "@serenity-js/assertions": 3.25.4
-    "@serenity-js/core": 3.25.4
-    tiny-types: 1.22.0
-  checksum: 485a46e5c5ea244a9efabb2db967151cd3433be516e325372d6c52175256be129688296c269f6c5d4c8cbb567862de1f549fba22058407f32c49cf97dcdd4dbf
+    "@serenity-js/assertions": 3.25.5
+    "@serenity-js/core": 3.25.5
+    tiny-types: 1.23.0
+  checksum: 0af7cc0ce4b765c74fb58940347906b59247aa3eff7f6723a545e65aca3eef61d5f0fcd9983492b6244c4c821c7b60d6f48d5c9d9815b1fbdb5c9975e6cfa109
   languageName: node
   linkType: hard
 
@@ -688,11 +688,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 22.1.0
-  resolution: "@types/node@npm:22.1.0"
+  version: 22.4.1
+  resolution: "@types/node@npm:22.4.1"
   dependencies:
-    undici-types: ~6.13.0
-  checksum: 3544c35da06009790a2e07742a7dfa0ac0f0d64ec47d9e6d3edf0ff6dcfc1a7cc2efdc5e524e80f8ed80aa37154513b2c1c724f95146ff89fc5aefb8e33575f2
+    undici-types: ~6.19.2
+  checksum: 341eb54867a3ec8eee7853ff9a9fc92d9f66305b70c9bc5db78492d51f4da3cd81e50c077f5d98eef1835fcbca00c58bb2a229ef56b0e377e48a3284401bf3f6
   languageName: node
   linkType: hard
 
@@ -1026,14 +1026,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:1.7.3":
-  version: 1.7.3
-  resolution: "axios@npm:1.7.3"
+"axios@npm:1.7.4":
+  version: 1.7.4
+  resolution: "axios@npm:1.7.4"
   dependencies:
     follow-redirects: ^1.15.6
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: bc304d6da974922342aed7c33155934354429cdc7e1ba9d399ab9ff3ac76103f3697eeedf042a634d43cdae682182bcffd942291db42d2be45b750597cdd5eef
+  checksum: 0c17039a9acfe6a566fca8431ba5c1b455c83d30ea6157fec68a6722878fcd30f3bd32d172f6bee0c51fe75ca98e6414ddcd968a87b5606b573731629440bfaf
   languageName: node
   linkType: hard
 
@@ -5221,10 +5221,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-types@npm:1.22.0":
-  version: 1.22.0
-  resolution: "tiny-types@npm:1.22.0"
-  checksum: da757285094ce33531f3337b8401107292215acf57d6bd084be0ddbc138150b380262a7beaf10c3cb13e0861b47999ad87ef20d791c529ee5f8553bba4f8aa57
+"tiny-types@npm:1.23.0":
+  version: 1.23.0
+  resolution: "tiny-types@npm:1.23.0"
+  checksum: 1a78f536982c6d10fa5d4aa085efe6ba77d88b4aaaf989d142a5d035acb5b5cc76c4a2eb21d849969eeaef7d44ff1639437cae29e411a3a43736710d439b4800
   languageName: node
   linkType: hard
 
@@ -5517,10 +5517,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~6.13.0":
-  version: 6.13.0
-  resolution: "undici-types@npm:6.13.0"
-  checksum: 9d0ef6bf58994bebbea6a4ab75f381c69a89a7ed151bfbae0d4ef95450d56502c9eccb323abf17b7d099c1d9c1cbae62e909e4dfeb8d204612d2f1fdada24707
+"undici-types@npm:~6.19.2":
+  version: 6.19.8
+  resolution: "undici-types@npm:6.19.8"
+  checksum: de51f1b447d22571cf155dfe14ff6d12c5bdaec237c765085b439c38ca8518fc360e88c70f99469162bf2e14188a7b0bcb06e1ed2dc031042b984b0bb9544017
   languageName: node
   linkType: hard
 
