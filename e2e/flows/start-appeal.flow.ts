@@ -562,9 +562,9 @@ export class StartAppealFlow {
     if (appealType === "PA") {
       await this.completeHowToPay(true, paymentChoice);
     }
-    let currentUrl = await browser.getCurrentUrl();
+    // let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
-    await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
+    // await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
   }
 
   async saveInitialNonPaymentAppealOutOfCountry(

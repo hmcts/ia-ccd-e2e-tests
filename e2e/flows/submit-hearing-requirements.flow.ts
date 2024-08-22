@@ -135,6 +135,7 @@ export class SubmitHearingRequirementsFlow {
       "Yes"
     );
     await browser.sleep(5000);
+<<<<<<< HEAD
     await this.ccdFormPage.click("Add new");
     await this.ccdFormPage.setFieldValue("Name", "Jenny button");
     await this.ccdFormPage.click("Continue");
@@ -143,6 +144,15 @@ export class SubmitHearingRequirementsFlow {
       "Yes"
     );
     await this.ccdFormPage.click("Continue");
+=======
+    await this.ccdFormPage.click('Add new');
+    //await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+    await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+    await this.ccdFormPage.setFieldValue('Family name', 'button');
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.setFieldValue('Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?', 'Yes');
+    await this.ccdFormPage.click('Continue');
+>>>>>>> 69d1bb5 (fixes to run against pr.)
 
     await this.ccdFormPage.setFieldValue(
       "Do you need interpreter services on the day?",
@@ -280,6 +290,7 @@ export class SubmitHearingRequirementsFlow {
         "Yes"
       );
       await browser.sleep(2000);
+<<<<<<< HEAD
       await this.ccdFormPage.click("Add new");
       await browser.sleep(2000);
       await this.ccdFormPage.setFieldValue("Given names", "Jenny Bat");
@@ -306,6 +317,13 @@ export class SubmitHearingRequirementsFlow {
         "4"
       );
       await this.ccdFormPage.click("Continue");
+=======
+      await this.ccdFormPage.click('Add new');
+    //await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+      await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+      await this.ccdFormPage.setFieldValue('Family name', 'button');
+      await this.ccdFormPage.click('Continue');
+>>>>>>> 69d1bb5 (fixes to run against pr.)
 
       await this.ccdFormPage.setFieldValue(
         "Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?",
@@ -324,6 +342,7 @@ export class SubmitHearingRequirementsFlow {
         "Yes"
       );
       await browser.sleep(2000);
+<<<<<<< HEAD
       await this.ccdFormPage.click("Add new");
       await browser.sleep(2000);
       await this.ccdFormPage.setFieldValue("Given names", "Jenny Bat");
@@ -351,6 +370,13 @@ export class SubmitHearingRequirementsFlow {
         "4"
       );
       await this.ccdFormPage.click("Continue");
+=======
+      await this.ccdFormPage.click('Add new');
+    //await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+      await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+      await this.ccdFormPage.setFieldValue('Family name', 'button');
+      await this.ccdFormPage.click('Continue');
+>>>>>>> 69d1bb5 (fixes to run against pr.)
     }
 
     await this.ccdFormPage.setFieldValue(
@@ -561,6 +587,7 @@ export class SubmitHearingRequirementsFlow {
     );
     await this.ccdFormPage.click("Continue");
 
+<<<<<<< HEAD
     await this.ccdFormPage.setFieldValue(
       "Will any witnesses attend the hearing?",
       "Yes"
@@ -568,6 +595,14 @@ export class SubmitHearingRequirementsFlow {
     await this.ccdFormPage.click("Add new");
     await this.ccdFormPage.setFieldValue("Name", "Jenny button");
     await this.ccdFormPage.click("Continue");
+=======
+    await this.ccdFormPage.setFieldValue('Will any witnesses attend the hearing?', 'Yes');
+    await this.ccdFormPage.click('Add new');
+    //await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+    await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+    await this.ccdFormPage.setFieldValue('Family name', 'button');    
+    await this.ccdFormPage.click('Continue');
+>>>>>>> 69d1bb5 (fixes to run against pr.)
 
     await this.ccdFormPage.setFieldValue(
       "Do you need interpreter services on the day?",
@@ -707,8 +742,15 @@ export class SubmitHearingRequirementsFlow {
       );
 
       if (!keepExitingValues) {
+<<<<<<< HEAD
         await this.ccdFormPage.click("Add new");
         await this.ccdFormPage.setFieldValue("Name", "Jenny button");
+=======
+        await this.ccdFormPage.click('Add new');
+        //await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+        await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+        await this.ccdFormPage.setFieldValue('Family name', 'button');        
+>>>>>>> 69d1bb5 (fixes to run against pr.)
       }
       await this.ccdFormPage.click("Continue");
 
@@ -730,8 +772,15 @@ export class SubmitHearingRequirementsFlow {
       );
 
       if (!keepExitingValues) {
+<<<<<<< HEAD
         await this.ccdFormPage.click("Add new");
         await this.ccdFormPage.setFieldValue("Name", "Jenny button");
+=======
+        await this.ccdFormPage.click('Add new');
+        //await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+        await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+        await this.ccdFormPage.setFieldValue('Family name', 'button');
+>>>>>>> 69d1bb5 (fixes to run against pr.)
       }
       await this.ccdFormPage.click("Continue");
     }
