@@ -57,7 +57,9 @@ Given('I create a new bail application', async function () {
     await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 30000, 'Spinner did not appear.');
   } catch {
     browser.refresh();
-    await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 30000, 'Spinner did not appear.');
+    if (!iaConfig.CcdWebUrl.includes('pr-')) {
+      await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 30000, 'Spinner did not appear.');
+    }
   }
   await ccdPage.waitForSpinner();
   await ccdPage.linkContains('Create case');

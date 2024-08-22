@@ -5,6 +5,7 @@ const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 't
 const remote = require('selenium-webdriver/remote');
 const path = require('path');
 const { WebDriver } = require('selenium-webdriver');
+const iaConfig = require('../ia.conf');
 
 export class StartAppealFlow {
   private ccdFormPage = new CcdFormPage();
@@ -266,9 +267,15 @@ export class StartAppealFlow {
   async completeLegalRepresentativeDetails(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
-    await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
+      if (iaConfig.CcdWebUrl.includes('pr-')) {
+      await this.ccdFormPage.setFieldValue('Given names', 'Stephen');
+      await this.ccdFormPage.setFieldValue('Family name', 'Fenn');
+      await this.ccdFormPage.setFieldValue('Given names', 'Stephen');
+      await this.ccdFormPage.typeText('legalRepMobilePhoneNumber', '01212121212' );
+    } else {
+      await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
+    }
     await this.ccdFormPage.setFieldValue('Own reference', 'ia-legal-fenn');
-
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -374,7 +381,9 @@ export class StartAppealFlow {
     await this.completeLegalRepresentativeDetails(true);
     await this.completeGivenFee(true, feeType);
     await this.completeRemissionDetails(true, remission);
-    await this.completeHowToPay(true, 'later');
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo')) {
+      await this.completeHowToPay(true, 'later');
+    }
     await this.completeCheckYourAnswers(true);
   }
 

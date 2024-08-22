@@ -10,6 +10,7 @@ export class MarkAppealAsPaidFlow {
     await this.ccdFormPage.flakeyClick('Go', overviewUrl);
     await this.ccdFormPage.waitForSpinner();
 
+    await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.headingContains('Mark appeal as paid');
     await this.ccdFormPage.setFieldValue('Payment date', '{$TODAY|DD-MM-YYYY}');
 
