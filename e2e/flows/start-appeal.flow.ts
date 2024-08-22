@@ -1,11 +1,10 @@
 import { browser, by } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
 
-const isOutOfCountryEnabled =
-  require("../ia.conf").isOutOfCountryEnabled === "true";
-const remote = require("selenium-webdriver/remote");
-const path = require("path");
-const { WebDriver } = require("selenium-webdriver");
+const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
+const remote = require('selenium-webdriver/remote');
+const path = require('path');
+const { WebDriver } = require('selenium-webdriver');
 
 export class StartAppealFlow {
   private ccdFormPage = new CcdFormPage();
