@@ -120,6 +120,8 @@ export class SubmitHearingRequirementsFlow {
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.setFieldValue('Do you need interpreter services on the day?', 'Yes');
+    await this.ccdFormPage.setFieldValue('Will the appellant need a spoken or sign language interpreter at the hearing?', 'Yes');
+
     await browser.sleep(1000);
     await this.ccdFormPage.click('Add new');
     await this.ccdFormPage.setFieldValue('Language', 'Zulu');

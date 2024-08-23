@@ -33,12 +33,15 @@ Scenario: update legal representatives details
     # And I should see `ia-legal-fenn` for the `Own reference` field
     # And I wait for 2 seconds
     And I type `Jane Doe` for the `Name` field
+    And I type `Jane` for the `Given names` field
+    And I type `Doe` for the `Family name` field
     And I type `jane-doe@example.com` for the `Email` field
     And I type `ia-legal-doe` for the `Own reference` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And I should see `Jane Doe` for the `Name` field
+    And I should see `Jane` for the `Given names` field
+    And I should see `Doe` for the `Family name` field
     And I should see `jane-doe@example.com` for the Email field
     And I should see `ia-legal-doe` for the `Own reference` field
 
