@@ -4,7 +4,6 @@ Feature: Cross-browser submit a bails application then an appeal application
    When I create a new bail application
    Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative with no files uploaded
 
-  @xbrowser
   Scenario: Submit a bails application then an appeal application
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
