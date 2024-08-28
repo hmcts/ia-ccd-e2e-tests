@@ -289,7 +289,7 @@ export class SubmitHearingRequirementsFlow {
     await this.ccdFormPage.click('Add new');
     // await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
     await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
-    await this.ccdFormPage.setFieldValue('Family name', 'button');    
+    await this.ccdFormPage.setFieldValue('Family name', 'button');
     await this.ccdFormPage.click('Continue');
 
     // await this.ccdFormPage.setFieldValue('Do you need interpreter services on the day?', 'Yes');
@@ -369,7 +369,7 @@ export class SubmitHearingRequirementsFlow {
         await this.ccdFormPage.click('Add new');
         // await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
         await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
-        await this.ccdFormPage.setFieldValue('Family name', 'button');        
+        await this.ccdFormPage.setFieldValue('Family name', 'button');
       }
       await this.ccdFormPage.click('Continue');
 

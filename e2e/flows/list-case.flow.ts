@@ -36,7 +36,6 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Listing location', 'Remote hearing');
     await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'No');
 
-
     await this.ccdFormPage.setFieldValue('Length', '6 hours');
 
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');

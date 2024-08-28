@@ -43,7 +43,6 @@ export class RecordAgreedRequirementsFlow {
     await this.ccdFormPage.click('Continue');
     await browser.driver.findElement(by.id("hearingChannel_NA")).click();
     // await this.ccdFormPage.setFieldValue('What type of hearing is required?', 'Not in Attendance'); // Not sure why this fails
-    
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.setFieldValue('Is the appeal suitable to float?', 'No');
