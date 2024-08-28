@@ -15,12 +15,12 @@ Given('I create a new case', async function () {
   // there is loading mask with spinner added by ExUI
   let EC = protractor.ExpectedConditions;
   await browser.get(iaConfig.CcdWebUrl + '/cases');
-  // try {
-  //   await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 30000, 'Spinner did not appear.');
-  // } catch {
-  //   browser.refresh();
-  //   await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 30000, 'Spinner did not appear.');
-  // }
+  try {
+    await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 30000, 'Spinner did not appear.');
+  } catch {
+    browser.refresh();
+    // await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 30000, 'Spinner did not appear.');
+  }
   await ccdPage.waitForSpinner();
   await ccdPage.linkContains('Create case');
   await ccdPage.runAccessbility();
