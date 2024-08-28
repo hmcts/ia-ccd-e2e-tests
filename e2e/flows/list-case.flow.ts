@@ -34,7 +34,12 @@ export class ListCaseFlow {
     await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2019');
+<<<<<<< HEAD
     await this.ccdFormPage.setFieldValue('Location', 'Remote hearing');
+=======
+    await this.ccdFormPage.setFieldValue('Listing location', 'Remote hearing');
+    await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'No');
+>>>>>>> d69de70 (build failure fixes.)
 
     await this.ccdFormPage.setFieldValue('Length', '6 hours');
 
