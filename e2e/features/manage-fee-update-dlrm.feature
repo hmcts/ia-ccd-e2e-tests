@@ -74,16 +74,8 @@ Feature: Manage fee update
     And I should see `£80.00` for the `New fee amount` field
     And I should see `£60.00` for the `Amount to be refunded` field
 
-<<<<<<< HEAD
   @dlrm-manage-a-fee-update1 @dlrm-manage-a-fee-update-decisionchange-additionalamount
-=======
-  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-additionalamount
-<<<<<<< HEAD
->>>>>>> d87019b (manage-a-fee-update-dlrm-changes. (#703))
   Scenario: Admin officer manage fee update for decision type changed additionalAmount
-=======
-Scenario: Admin officer manage fee update for decision type changed additionalAmount
->>>>>>> d69de70 (build failure fixes.)
 
     When I save my initial PA appeal type with a remission and with hearing fee
     Then I submit my nonpayment appeal
