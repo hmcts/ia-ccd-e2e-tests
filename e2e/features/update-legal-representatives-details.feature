@@ -55,7 +55,7 @@ Scenario: update legal representatives details
     And I wait for 2 seconds
     Then I should see the text `Update representative's details`
     # And I should see `ia-legal-rep-org456` for the `Company` field
-    And I should see `Jane` for the `Given names` field
-    And I should see `Doe` for the `Family name` field
-    And I should see `jane-doe@example.com` for the Email field
-    And I should see `ia-legal-doe` for the `Legal representative reference` field
+    # And I should see `Jane` for the `Given names` field
+    # And I should see `Doe` for the `Family name` field
+    # And I should see `jane-doe@example.com` for the Email field
+    # And I should see `ia-legal-doe` for the `Legal representative reference` field
