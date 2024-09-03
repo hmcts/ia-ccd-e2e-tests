@@ -4,8 +4,7 @@ Feature: Manage fee update
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
-  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-refund @xbrowser
-
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-refund @xbrowser @appeal-nightly-test
   Scenario: Admin officer manage fee update for decision type changed refund
 
     When I save my initial PA appeal type with a remission and with hearing fee
@@ -75,7 +74,7 @@ Feature: Manage fee update
     And I should see `£80.00` for the `New fee amount` field
     And I should see `£60.00` for the `Amount to be refunded` field
 
-  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-additionalamount
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-additionalamount @appeal-nightly-test
 Scenario: Admin officer manage fee update for decision type changed additionalAmount
 
     When I save my initial PA appeal type with a remission and with hearing fee
@@ -136,7 +135,7 @@ Scenario: Admin officer manage fee update for decision type changed additionalAm
     And I should see `£80.00` for the `New fee amount` field
     And I should see `£60.00` for the `Additional payment requested` field
 
-  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-feeremissionchanged
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-feeremissionchanged @appeal-nightly-test
   Scenario: Admin officer manage fee update for fee remission changed
 
     When I save my initial PA appeal type with a remission and with hearing fee
@@ -191,7 +190,7 @@ Scenario: Admin officer manage fee update for decision type changed additionalAm
     And I should see `£80.00` for the `New fee amount` field
     And I should see `£60.00` for the `Additional payment requested` field
 
-  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-appealnotvalid
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-appealnotvalid @appeal-nightly-test
   Scenario: Admin officer manage fee update for appeal not valid
 
     When I save my initial PA appeal type with a remission and with hearing fee
