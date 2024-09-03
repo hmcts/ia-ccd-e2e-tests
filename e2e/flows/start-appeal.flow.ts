@@ -31,6 +31,25 @@ export class StartAppealFlow {
     }
   }
 
+  async completeInternalScreeningQuestions(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.headingContains('When did the Tribunal receive the appeal?');
+    await this.ccdFormPage.setFieldValue('Date appeal received', '{$TODAY-2}');
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.headingContains('Appellant\'s representation');
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Has the appeal form been submitted by an appellant in person?', 'Yes');
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.headingContains('Location');
+    await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'Yes');
+    await this.ccdFormPage.runAccessbility();
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
   async completeScreeningQuestionsOutOfCountry(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.click("My client is not in detention");
@@ -95,6 +114,23 @@ export class StartAppealFlow {
     }
   }
 
+  async completeInternalHomeOfficeReference(clickContinue = false, ooc = false, homeOfficeReferenceNumber = '') {
+    await this.ccdFormPage.runAccessbility();
+    if (homeOfficeReferenceNumber !== '') {
+      await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
+    } else {
+      await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
+    }
+    if (ooc) {
+      await this.ccdFormPage.setFieldValue('What date was the Home Office decision letter received?', '{$TODAY-2}');
+    } else {
+      await this.ccdFormPage.setFieldValue('What date was the Home Office decision letter sent?', '{$TODAY-10}');
+    }
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
   async completeUploadNoticeDecision(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
@@ -119,6 +155,19 @@ export class StartAppealFlow {
 
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeUploadAppealForm(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await browser.sleep(1000);
+    await this.ccdFormPage.click('Add new');
+    await this.ccdFormPage.setFieldValue('Document', '{@Evidence1.pdf}', 'document', 'first', 'Appeal Form', 'first');
+    await this.ccdFormPage.setFieldValue('Describe the document', 'This is the appeal form', 'text area', 'first', 'Appeal Form', 'first');
+    await browser.sleep(3000);
+
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
   }
 
@@ -168,7 +217,7 @@ export class StartAppealFlow {
     }
   }
 
-  async completeBasicDetails(clickContinue = false) {
+  async completeBasicDetails(clickContinue = false, isInternal = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue("Title", "Mr");
     await this.ccdFormPage.setFieldValue("Given names", "José");
@@ -351,7 +400,7 @@ export class StartAppealFlow {
     }
   }
 
-  async completeNewMatters(clickContinue = false) {
+  async completeOtherAppeals(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
       "Are there any new reasons your client wishes to remain in the UK " +
@@ -381,7 +430,7 @@ export class StartAppealFlow {
     }
   }
 
-  async completeOtherAppeals(clickContinue = false) {
+  async completeNewMatters(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue("Other appeals", "No");
 
@@ -532,8 +581,8 @@ export class StartAppealFlow {
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
-    await this.completeLegalRepresentativeDetails(true);
     await this.completeGivenFee(true, feeType);
+    await this.completeLegalRepresentativeDetails(true);
     await this.completeRemissionDetails(true, remission);
     await this.completeHowToPay(true, "later");
     await this.completeCheckYourAnswers(true);
@@ -553,6 +602,17 @@ export class StartAppealFlow {
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
+    // await this.completeAriaPage();
+    // let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    // await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
+  }
+    async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
+    await this.completeClientDetails(false, hasFixedAddress, address, postcode, appealType);
+    // await this.completeGivenAppealType(true, appealType);
+    // if (appealType !== 'EU') {
+    //   await this.completedGivenAppealGrounds(true, appealType);
+    // }
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -1002,6 +1062,11 @@ export class StartAppealFlow {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReference(true);
     await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
+    if (appealType !== 'EU') {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    // await this.completeGivenAppealType(true, appealType);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);

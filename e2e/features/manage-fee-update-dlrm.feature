@@ -135,7 +135,7 @@ Feature: Manage fee update
     And I should see `£80.00` for the `New fee amount` field
     And I should see `£60.00` for the `Additional payment requested` field
 
-  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-feeremissionchanged
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-feeremissionchanged @appeal-nightly-test
   Scenario: Admin officer manage fee update for fee remission changed
 
     When I save my initial PA appeal type with a remission and with hearing fee
@@ -190,7 +190,7 @@ Feature: Manage fee update
     And I should see `£80.00` for the `New fee amount` field
     And I should see `£60.00` for the `Additional payment requested` field
 
-  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-appealnotvalid
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-appealnotvalid @appeal-nightly-test
   Scenario: Admin officer manage fee update for appeal not valid
 
     When I save my initial PA appeal type with a remission and with hearing fee

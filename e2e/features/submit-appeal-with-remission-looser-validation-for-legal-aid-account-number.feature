@@ -17,7 +17,7 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
 
-  @submit-appeal-with-remission-looser-validation-for-legal-aid-account-number  @RIA-5200 @appeal-nightly-test @appeal-nightly-test-retry
+  @submit-appeal-with-remission-looser-validation-for-legal-aid-account-number  @RIA-5200 @appeal-nightly-test
   Scenario: Submit appeal with remission (looser validation for legal aid account number)
 
     Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field

@@ -94,7 +94,7 @@ export class PayAndSubmitAppealFlow {
 
     if (clickContinue) {
       await this.ccdPage.click('Return to service request');
-      if (currentUrl.includes('pr')) {
+      if (currentUrl.includes('pr-')) {
         await this.ccdPage.goToUrl(currentUrl);
       }
       await this.ccdPage.click('Overview');
