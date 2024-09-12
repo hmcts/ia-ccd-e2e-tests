@@ -17,7 +17,7 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
     And I complete the `Has your client appealed against any other UK immigration decisions?` page
     And I complete the `Legal representative details` page
 
-  @submit-appeal-with-remission-looser-validation-for-legal-aid-account-number  @RIA-5200 @appeal-nightly-test @appeal-nightly-test-retry
+  @submit-appeal-with-remission-looser-validation-for-legal-aid-account-number  @RIA-5200 @appeal-nightly-test
   Scenario: Submit appeal with remission (looser validation for legal aid account number)
 
     Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
@@ -40,14 +40,11 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
     And I should see `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
 
     When I click the `Save and continue` button
-    # Then I should see the text `The appeal has been saved`
-    # And I should see the text `You still need to submit it`
-    # And I should see the text `If you're ready to proceed submit the appeal.`
-    # And I should see the text `Not ready to submit yet?`
-    # And I should see the text `You can return to the case details to make changes.`
-
-    # When I click the `Close and Return to case details` button if present
-    # And I wait for 2 seconds
+    And I should see the text `You still need to submit your appeal.`
+    And I should see the text `You can also review and edit your appeal.`
+    
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
 
     When I select the `Submit your appeal` Next step
 
