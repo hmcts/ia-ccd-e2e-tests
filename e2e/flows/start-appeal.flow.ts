@@ -5,7 +5,6 @@ const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 't
 const remote = require('selenium-webdriver/remote');
 const path = require('path');
 const { WebDriver } = require('selenium-webdriver');
-const iaConfig = require('../ia.conf');
 
 export class StartAppealFlow {
   private ccdFormPage = new CcdFormPage();
@@ -267,15 +266,9 @@ export class StartAppealFlow {
   async completeLegalRepresentativeDetails(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Company', 'IA Legal Services');
-      if (iaConfig.CcdWebUrl.includes('pr-')) {
-      await this.ccdFormPage.setFieldValue('Given names', 'Stephen');
-      await this.ccdFormPage.setFieldValue('Family name', 'Fenn');
-      await this.ccdFormPage.setFieldValue('Given names', 'Stephen');
-      await this.ccdFormPage.typeText('legalRepMobilePhoneNumber', '01212121212' );
-    } else {
-      await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
-    }
+    await this.ccdFormPage.setFieldValue('Name', 'Stephen Fenn');
     await this.ccdFormPage.setFieldValue('Own reference', 'ia-legal-fenn');
+
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -381,9 +374,7 @@ export class StartAppealFlow {
     await this.completeLegalRepresentativeDetails(true);
     await this.completeGivenFee(true, feeType);
     await this.completeRemissionDetails(true, remission);
-    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo')) {
-      await this.completeHowToPay(true, 'later');
-    }
+    await this.completeHowToPay(true, 'later');
     await this.completeCheckYourAnswers(true);
   }
 
@@ -402,9 +393,9 @@ export class StartAppealFlow {
     if (appealType === 'PA') {
       await this.completeHowToPay(true, paymentChoice);
     }
-    // let currentUrl = await browser.getCurrentUrl();
+    let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
-    // await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
+    await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
   }
 
   async saveInitialNonPaymentAppealOutOfCountry(clickContinue = false, appealType = '', appellantInUk = '') {

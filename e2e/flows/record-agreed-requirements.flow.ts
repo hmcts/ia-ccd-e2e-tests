@@ -1,5 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser, by } from 'protractor';
+import { browser } from 'protractor';
 
 export class RecordAgreedRequirementsFlow {
   private ccdFormPage = new CcdFormPage();
@@ -14,41 +14,26 @@ export class RecordAgreedRequirementsFlow {
 
     await this.ccdFormPage.click('Continue');
 
-    await this.ccdFormPage.setFieldValue('Remote hearing decision', 'Granted');
     await this.setRemoteHearingAdjustment(true, true, 'Remote hearing requirement will be reviewed');
 
-    await this.ccdFormPage.setFieldValue('Vulnerabilities decision', 'Granted');
     await this.ccdFormPage.setFieldValue('Adjustments to accommodate vulnerabilities', 'Physical or mental health conditions will be reviewed');
 
     await this.ccdFormPage.click('Continue');
 
-    await this.ccdFormPage.setFieldValue('Multimedia decision', 'Granted');
     await this.ccdFormPage.setFieldValue('Multimedia equipment', 'Multimedia equipment requirement will be reviewed');
 
     await this.ccdFormPage.click('Continue');
 
-    await this.ccdFormPage.setFieldValue('Single-sex court decision', 'Granted');
     await this.ccdFormPage.setFieldValue('Single-sex court', 'Single sex court requirement will be reviewed');
 
     await this.ccdFormPage.click('Continue');
 
-    await this.ccdFormPage.setFieldValue('In camera court decision', 'Granted');
     await this.ccdFormPage.setFieldValue('In camera court', 'Private hearing requirement will be reviewed');
 
     await this.ccdFormPage.click('Continue');
 
-    await this.ccdFormPage.setFieldValue('Other adjustments decision', 'Granted');
     await this.ccdFormPage.setFieldValue('Other adjustments', 'Additional adjustments requirement will be reviewed');
 
-    await this.ccdFormPage.click('Continue');
-    await browser.driver.findElement(by.id("hearingChannel_NA")).click();
-    // await this.ccdFormPage.setFieldValue('What type of hearing is required?', 'Not in Attendance'); // Not sure why this fails
-    await this.ccdFormPage.click('Continue');
-
-    await this.ccdFormPage.setFieldValue('Is the appeal suitable to float?', 'No');
-    await this.ccdFormPage.click('Continue');
-
-    await this.ccdFormPage.setFieldValue('Are there any additional instructions for the hearing?', 'No');
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.click('Submit');

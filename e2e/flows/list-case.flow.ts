@@ -11,8 +11,7 @@ export class ListCaseFlow {
     await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2019');
-    await this.ccdFormPage.setFieldValue('Listing location', 'Taylor House Tribunal Hearing Centre');
-    await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'No');
+    await this.ccdFormPage.setFieldValue('Location', 'Taylor House');
 
     await this.ccdFormPage.setFieldValue('Length', '6 hours');
 
@@ -33,8 +32,7 @@ export class ListCaseFlow {
     await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2019');
-    await this.ccdFormPage.setFieldValue('Listing location', 'Remote hearing');
-    await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'No');
+    await this.ccdFormPage.setFieldValue('Location', 'Remote hearing');
 
     await this.ccdFormPage.setFieldValue('Length', '6 hours');
 

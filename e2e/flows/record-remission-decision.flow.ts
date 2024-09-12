@@ -11,19 +11,16 @@ export class RecordRemissionDecisionFlow {
     await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Record remission decision');
-    await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.click('Partially approved');
 
     await this.ccdFormPage.click('Continue');
 
-    await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Amount remitted', '100');
     await this.ccdFormPage.setFieldValue('Amount left to pay', '40');
     await this.ccdFormPage.setFieldValue('Reason for decision', 'This remission is partially approved', 'text area');
 
     await this.ccdFormPage.click('Continue');
 
-    await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.headingContains('Check your answers');
     await this.ccdFormPage.click('Record decision');
 

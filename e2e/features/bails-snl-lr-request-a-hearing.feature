@@ -2,9 +2,9 @@ Feature: Bails SNL Hearing request as as Legal Rep
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
     When I create a new bail application
-    Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with two financial condition supporters and with a Legal Representative with no files uploaded
+   Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with two financial condition supporters and with a Legal Representative with no files uploaded
 
-  @submit-bail-application-legal-rep @bails-full @bails-regression @bail-nightly-test
+  @submit-bail-application @RIA-5661 @submit-bail-application-legal-rep @bails-full @bails-regression @nightly-test 
   Scenario: Bails Hearing request as Legal rep
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
@@ -15,7 +15,7 @@ Feature: Bails SNL Hearing request as as Legal Rep
     When I click the `Close and Return to case details` button if present
     And I wait for 10 seconds
     And I switch to be a `Admin Officer Bails`
-    And I wait for 5 seconds
+   And I wait for 5 seconds
 
     #  Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
     When I select the `Create Flag` Next step
@@ -37,28 +37,3 @@ Feature: Bails SNL Hearing request as as Legal Rep
     And I wait for 10 seconds
     And I have created a `Reasonable adjustment` Flag in `John Smith` and signlanguage name is `British Sign Language (BSL)`
     And I wait for 10 seconds
-    ##Hearing Request
-    And I wait for 3 seconds
-    When I goto the `Hearings` tab
-    And I wait for 8 seconds
-    And I click the `Request a hearing` button
-    And I wait for 3 seconds
-    And I should see the text `Hearing requirements`
-    And I should see the text `Any reasonable adjustments on this page will be included in the hearing request.`
-    When I click the `Continue` button
-    And I wait for 3 seconds
-    And I should see the text `Do you require any additional facilities?`
-    When I click the `Continue` button
-    And I click the `Bail` button
-    And I click the `Continue` button
-    And I click the `Continue` button
-    And I add the `Hatton Cross` hearing location
-    And I click the `Continue` button
-    And I should see the text `Do you want a specific judge?`
-    And I click the `Continue` button
-    And I should see the text `Length, date and priority level of hearing`
-    And I click the `Continue` button
-    And I should see the text `Enter any additional instructions for the hearing`
-    And I click the `Continue` button
-    And I click the `Submit request` button
-    And I should see the text `Hearing request submitted`

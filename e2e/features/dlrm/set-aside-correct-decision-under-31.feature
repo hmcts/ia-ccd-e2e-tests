@@ -27,7 +27,6 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
     And I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
     And I submit hearing requirements with all yes when in country
-    
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
     And I record agreed hearing requirements yes path
@@ -147,7 +146,7 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
     And I click the `Close and Return to case details` button
     
 
-  @set-aside-dlrm @RIA-8157 @appeal-nightly-test @dlrm @appeal-nightly-test @appeal-nightly-test-retry1
+  @set-aside-dlrm @RIA-8157 @appeal-nightly-test @dlrm @appeal-nightly-test
   Scenario Outline: Correct decision error under rule 31
     And I wait for 2 seconds
     When I select the `Update Tribunal decision` Next step
