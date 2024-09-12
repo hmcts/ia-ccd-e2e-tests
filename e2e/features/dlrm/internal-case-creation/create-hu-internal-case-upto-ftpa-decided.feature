@@ -1,9 +1,10 @@
-Feature: Create HU case upto FTPA submitted
+Feature: Create HU internal case upto FTPA submitted
 
   Background:
     Given I am signed in as a `Admin Officer`
     And I create a new case
-    And I save my initial HU appeal type without remission and with hearing fee and pay now
+    And I wait for 5 seconds
+    And I save my initial internal HU appeal type without remission and with hearing fee and pay now
     And I wait for 10 seconds
     And I wait for 2 seconds
     And I pay for and submit my appeal by Card
@@ -70,7 +71,7 @@ Feature: Create HU case upto FTPA submitted
     When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
-  @dlrm-hu-case  @dlrm-cases @lrm-icc
+  @dlrm-hu-case  @dlrm-cases @dlrm-icc @TAG-TO-CHANGE
   Scenario: PA case submit FTPA
     Then I wait for 2 seconds
     # Then I apply for appellant FTPA

@@ -200,6 +200,10 @@ Given(/^I save my out of country appeal with sponsor given name `?([^\s`]+)`? fa
   }
 });
 
+Given(/^I save my initial internal `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/, async function (appealType, feeType, paymentChoice) {
+  await startAppealFlow.saveInitialInternalAppealWithoutRemission(true, appealType, feeType, paymentChoice);
+});
+
 Given(/^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/, async function (appealType, feeType, paymentChoice) {
   await startAppealFlow.saveInitialAppealWithoutRemission(true, appealType, feeType, paymentChoice);
 });

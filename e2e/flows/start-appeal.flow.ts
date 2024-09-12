@@ -387,7 +387,43 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
+  async saveInitialInternalAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
+    let beforeYouStartExpectedText = `You will need to check:
+
+    that this is not a duplicate appeal
+    if the appellant has appealed any other UK immigration decisions. If they have, you will need the appeal number to submit the appeal
+    if the appeallant has a pending bail application. If they have, you will need the bail application reference number to submit the appeal
+    In the following screens, you will be asked to provide:
+    
+    appeal details, including the Notice of Decision
+    the appellant's personal details
+    detention details, if applicable
+    remission information, if applicable, including any supporting evidence or reference numbers
+    reasons the appeal is late, if applicable, and any supporting evidence
+    Once you start, you will not be able to save your progress until you have answered all the questions.
+    
+    Please ensure you have all the information you need to hand and allow enough time to submit the appeal in one sitting.`;
+    let beforeYouStartActualText = await browser.element(by.id('beforeYouStartLabel')).getText();
+    expect(beforeYouStartExpectedText === beforeYouStartActualText);
+    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+    await this.completeGivenAppealType(true, appealType);
+    if (appealType !== 'EU') {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    await this.completeDeportationOrder(true);
+    await this.completeNewMatters(true);
+    await this.completeOtherAppeals(true);
+    await this.completeLegalRepresentativeDetails(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, 'no remission');
+    if (appealType === 'PA') {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    // let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    // await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
+  }
+    async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
     await this.completeClientDetails(false, hasFixedAddress, address, postcode);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== 'EU') {
