@@ -4,7 +4,7 @@ Feature: Manage fee update
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
-  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-refund @xbrowser @appeal-nightly-test @TAG-TO-CHANGE
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-refund @xbrowser @appeal-nightly-test
   Scenario: Admin officer manage fee update for decision type changed refund
 
     When I save my initial PA appeal type with a remission and with hearing fee

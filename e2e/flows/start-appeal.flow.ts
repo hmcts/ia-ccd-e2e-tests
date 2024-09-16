@@ -1,4 +1,5 @@
 import { browser, by } from 'protractor';
+import { expect } from 'chai';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
@@ -24,6 +25,42 @@ export class StartAppealFlow {
       await this.ccdFormPage.click('My client is not in detention');
     }
 
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
+  async completeInternalScreeningQuestions(clickContinue = false) {
+    let beforeYouStartExpectedText = `You will need to check:
+
+    that this is not a duplicate appeal
+    if the appellant has appealed any other UK immigration decisions. If they have, you will need the appeal number to submit the appeal
+    if the appeallant has a pending bail application. If they have, you will need the bail application reference number to submit the appeal
+    In the following screens, you will be asked to provide:
+    
+    appeal details, including the Notice of Decision
+    the appellant's personal details
+    detention details, if applicable
+    remission information, if applicable, including any supporting evidence or reference numbers
+    reasons the appeal is late, if applicable, and any supporting evidence
+    Once you start, you will not be able to save your progress until you have answered all the questions.
+    
+    Please ensure you have all the information you need to hand and allow enough time to submit the appeal in one sitting.`;
+    let beforeYouStartActualText = await browser.element(by.id('beforeYouStartLabel')).getText();
+    expect(beforeYouStartExpectedText === beforeYouStartActualText);
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.headingContains('When did the Tribunal receive the appeal?');
+    await this.ccdFormPage.setFieldValue('Date appeal received', '{$TODAY-2}');
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.headingContains('Appellant\'s representation');
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Has the appeal form been submitted by an appellant in person?', 'Yes');
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.headingContains('Location');
+    await this.ccdFormPage.setFieldValue('Is your client currently living in the United Kingdom?', 'Yes');
+    await this.ccdFormPage.runAccessbility();
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -58,11 +95,28 @@ export class StartAppealFlow {
       await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
     }
     if (ooc) {
-      await this.ccdFormPage.setFieldValue('Date letter received', '{$TODAY-2}');
+      await this.ccdFormPage.setFieldValue('What date was the Home Office decision letter?', '{$TODAY-2}');
     } else {
-      await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '{$TODAY-10}');
+      await this.ccdFormPage.setFieldValue('What date was the Home Office decision letter sent?', '{$TODAY-10}');
     }
 
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
+  async completeInternalHomeOfficeReference(clickContinue = false, ooc = false, homeOfficeReferenceNumber = '') {
+    await this.ccdFormPage.runAccessbility();
+    if (homeOfficeReferenceNumber !== '') {
+      await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
+    } else {
+      await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
+    }
+    if (ooc) {
+      await this.ccdFormPage.setFieldValue('What date was the Home Office decision letter received?', '{$TODAY-2}');
+    } else {
+      await this.ccdFormPage.setFieldValue('What date was the Home Office decision letter sent?', '{$TODAY-10}');
+    }
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -102,7 +156,7 @@ export class StartAppealFlow {
   async completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
-    await this.ccdFormPage.setFieldValue('Enter the date the decision letter was sent', '01-01-2018');
+    await this.ccdFormPage.setFieldValue('What date was the Home Office decision letter received?', '01-01-2018');
 
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
@@ -111,7 +165,7 @@ export class StartAppealFlow {
 
   async completeBasicDetails(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Title', 'Mr');
+    await this.ccdFormPage.setFieldValue('Title', 'Mr'); //ToDo: Bug to be addressed
     await this.ccdFormPage.setFieldValue('Given names', 'José');
     await this.ccdFormPage.setFieldValue('Family name', 'González');
     await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
@@ -138,9 +192,9 @@ export class StartAppealFlow {
   async completeClientAddress(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
     await this.ccdFormPage.runAccessbility();
     if (!hasFixedAddress) {
-      await this.ccdFormPage.setFieldValue('Does the appellant have a fixed address?', 'No');
+      await this.ccdFormPage.setFieldValue('Does the appellant have a postal address?', 'No');
     } else {
-      await this.ccdFormPage.setFieldValue('Does the appellant have a fixed address?', 'Yes');
+      await this.ccdFormPage.setFieldValue('Does the appellant have a postal address?', 'Yes');
       await this.ccdFormPage.setFieldValue('Enter a UK postcode', postcode);
       await this.ccdFormPage.click('Find address');
       await this.ccdFormPage.doesDropdownHaveValues('Select an address');
@@ -210,7 +264,7 @@ export class StartAppealFlow {
       await this.ccdFormPage.click("The decision breaches the appellant's rights under the EEA regulations");
     }
     if (appealType === 'HU') {
-      await this.ccdFormPage.click('The decision is unlawful under section 6 of the Human Rights Act 1998');
+      //await this.ccdFormPage.click('The decision is unlawful under section 6 of the Human Rights Act 1998');
     }
     if (appealType === 'PA') {
       await this.ccdFormPage.click("Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention");
@@ -370,7 +424,7 @@ export class StartAppealFlow {
   }
 
   async saveInitialAppealWithFee(clickContinue = false, appealType = '', remission = '', feeType = '', hasFixedAddress = false, address = '', postcode = '') {
-    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+    await this.completeClientDetails(false, hasFixedAddress, address, postcode, appealType);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== 'EU') {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -388,24 +442,7 @@ export class StartAppealFlow {
   }
 
   async saveInitialInternalAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
-    let beforeYouStartExpectedText = `You will need to check:
-
-    that this is not a duplicate appeal
-    if the appellant has appealed any other UK immigration decisions. If they have, you will need the appeal number to submit the appeal
-    if the appeallant has a pending bail application. If they have, you will need the bail application reference number to submit the appeal
-    In the following screens, you will be asked to provide:
-    
-    appeal details, including the Notice of Decision
-    the appellant's personal details
-    detention details, if applicable
-    remission information, if applicable, including any supporting evidence or reference numbers
-    reasons the appeal is late, if applicable, and any supporting evidence
-    Once you start, you will not be able to save your progress until you have answered all the questions.
-    
-    Please ensure you have all the information you need to hand and allow enough time to submit the appeal in one sitting.`;
-    let beforeYouStartActualText = await browser.element(by.id('beforeYouStartLabel')).getText();
-    expect(beforeYouStartExpectedText === beforeYouStartActualText);
-    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+    await this.completeInternalClientDetails(false, hasFixedAddress, address, postcode, appealType);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== 'EU') {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -424,11 +461,11 @@ export class StartAppealFlow {
     // await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
   }
     async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
-    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+    await this.completeClientDetails(false, hasFixedAddress, address, postcode, appealType);
     await this.completeGivenAppealType(true, appealType);
-    if (appealType !== 'EU') {
-      await this.completedGivenAppealGrounds(true, appealType);
-    }
+    // if (appealType !== 'EU') {
+    //   await this.completedGivenAppealGrounds(true, appealType);
+    // }
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -754,14 +791,32 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  async completeClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
+  async completeClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '', appealType = '') {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReference(true);
     await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
-    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
+    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+  }
+
+  async completeInternalClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '', appealType='') {
+    await this.completeInternalScreeningQuestions(true);
+    await this.completeInternalHomeOfficeReference(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
+    // if (appealType !== 'EU') {
+    //   await this.completedGivenAppealGrounds(true, appealType);
+    // }
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
+    // await this.completeClientAddress(false, true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB', true);
+    // await this.completeClientAddress(true, true, address, postcode, true);
+    // await this.completeContactPreference(true);
+    await this.ccdFormPage.setFieldValue('Mobile number (Optional)', '07977111111');
+    await this.ccdFormPage.click('Continue');
   }
 
   async completeOutOfTimeClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
