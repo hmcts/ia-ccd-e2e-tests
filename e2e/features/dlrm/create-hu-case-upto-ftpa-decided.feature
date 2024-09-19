@@ -70,7 +70,7 @@ Feature: Create HU case upto FTPA submitted
     When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
-  @dlrm-hu-case  @dlrm-cases @TAG-TO-CHANGE
+  @dlrm-hu-case  @dlrm-cases
   Scenario: PA case submit FTPA
     Then I wait for 2 seconds
     # Then I apply for appellant FTPA

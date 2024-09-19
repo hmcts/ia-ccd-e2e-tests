@@ -165,7 +165,7 @@ export class StartAppealFlow {
 
   async completeBasicDetails(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Title', 'Mr'); //ToDo: Bug to be addressed
+    // await this.ccdFormPage.setFieldValue('Title', 'Mr'); //ICC-Automation-ToDo: Bug to be addressed. Title not visible for admin
     await this.ccdFormPage.setFieldValue('Given names', 'José');
     await this.ccdFormPage.setFieldValue('Family name', 'González');
     await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
@@ -311,7 +311,7 @@ export class StartAppealFlow {
 
   async completeOtherAppeals(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Other appeals', 'No');
+    await this.ccdFormPage.setFieldValue('Has the appellant appealed against any other UK immigration decision?', 'No');
 
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
@@ -443,14 +443,14 @@ export class StartAppealFlow {
 
   async saveInitialInternalAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
     await this.completeInternalClientDetails(false, hasFixedAddress, address, postcode, appealType);
-    await this.completeGivenAppealType(true, appealType);
-    if (appealType !== 'EU') {
-      await this.completedGivenAppealGrounds(true, appealType);
-    }
+    // await this.completeGivenAppealType(true, appealType);
+    // if (appealType !== 'EU') {
+    //   await this.completedGivenAppealGrounds(true, appealType);
+    // }
     await this.completeDeportationOrder(true);
-    await this.completeNewMatters(true);
+    // await this.completeNewMatters(true); ICC_Automation-ToDo : bug new matters not shwon
     await this.completeOtherAppeals(true);
-    await this.completeLegalRepresentativeDetails(true);
+    // await this.completeLegalRepresentativeDetails(true);
     await this.completeGivenFee(true, feeType);
     await this.completeRemissionDetails(true, 'no remission');
     if (appealType === 'PA') {
@@ -812,7 +812,7 @@ export class StartAppealFlow {
     // }
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
-    // await this.completeClientAddress(false, true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB', true);
+    await this.completeClientAddress(false, true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
     // await this.completeClientAddress(true, true, address, postcode, true);
     // await this.completeContactPreference(true);
     await this.ccdFormPage.setFieldValue('Mobile number (Optional)', '07977111111');
@@ -863,20 +863,20 @@ export class StartAppealFlow {
   async completeRemissionDetails(clickContinue = false, remissionOption = '') {
     await this.ccdFormPage.runAccessbility();
     if (remissionOption === 'no remission') {
-      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client is not eligible for a fee remission');
+      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'The appellant is not eligible for a fee remission');
     }
     if (remissionOption === 'a remission') {
-      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20');
+      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20');
       await this.ccdFormPage.click('Continue');
-      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client receives Legal Aid');
+      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'The appellant receives Legal Aid');
       await this.ccdFormPage.click('Continue');
       await this.ccdFormPage.setFieldValue('Legal Aid account number', '1A234B');
     }
     if (remissionOption === 'help with fees') {
-      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a Help with Fees reference number');
+      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'The appellant has applied for help with fees');
     }
     if (remissionOption === 'apply for an exceptional circumstances remissions') {
-      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'My client has a Help with Fees reference number');
+      await this.ccdFormPage.setFieldValue('Choose one of the following statements', 'The appellant wants to apply for an Exceptional Circumstances Remission');
     }
 
     if (clickContinue) {
