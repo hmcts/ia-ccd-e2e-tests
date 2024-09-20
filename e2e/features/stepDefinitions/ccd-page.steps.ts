@@ -15,7 +15,7 @@ Given('I create a new case', async function () {
   // there is loading mask with spinner added by ExUI
   let EC = protractor.ExpectedConditions;
   await browser.get(iaConfig.CcdWebUrl + '/cases');
-  if(iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo')) {
+  if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo')) {
       try {
       await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 30000, 'Spinner did not appear.');
     } catch {
@@ -55,8 +55,8 @@ Given('I create a new bail application', async function () {
   // there is loading mask with spinner added by ExUI
   await browser.get(iaConfig.CcdWebUrl + '/cases');
   let EC = protractor.ExpectedConditions;
-  
-  if(iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo')) {
+
+  if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('demo')) {
     try {
       await browser.wait(EC.visibilityOf(element(by.css('div.spinner-container'))), 30000, 'Spinner did not appear.');
     } catch {
