@@ -110,7 +110,7 @@ withNightlyPipeline("nodejs", product, component) {
                             allowMissing         : true,
                             alwaysLinkToLastBuild: true,
                             keepAll              : true,
-                            reportDir            : "reports/tests/",
+                            reportDir            : "reports/undefined/",
                             reportFiles          : 'a11y.html',
                             reportName           : 'IAC - Appeal a11y Test Report'
                     ])
