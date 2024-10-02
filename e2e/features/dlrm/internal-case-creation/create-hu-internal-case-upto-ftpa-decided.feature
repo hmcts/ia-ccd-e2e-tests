@@ -8,12 +8,35 @@ Feature: Create HU internal case upto FTPA submitted
     And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    And I pay for and submit my appeal by Card
+    #And I pay for and submit my appeal by Card
+    And I submit my appeal before paying
+    
+    And I select the `Mark appeal as paid` Next step
+    Then I should see the `Mark appeal as paid` page
+    And I type `31-08-2020` for the `Payment date` field
+    And I type `140` for the `Amount paid` field
+    And I type `Payment is now complete` for the `Additional payment information (Optional) field
+    And I click the `Continue` button
+
+    When I am on the `Check your answers` page
+    And I should see `31 Aug 2020` in the `Payment date` field
+    And I should see `£140.00` for the `Amount paid` field
+    And I should see `Payment is now complete` for the `Additional payment information` field
+
+    When I click the `Mark as paid` button
+    Then I should see the text `Your have marked the appeal as paid`
+    #And I should see the text `What happens next`
+    #And I should see the text `The Tribunal Caseworker will review the appeal and decide if it's valid.`
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
+
+    Then I should see an alert confirming the case `has been updated with event: Mark appeal as paid`
+
     And I switch to be a `Case Officer`
     And I check the case has been paid for
     And I request respondent evidence
     And I upload respondent evidence
-    And I switch to be a `Legal Org User Rep A`
+    And I switch to be a `Admin Officer`
     And I wait for 2 seconds
     And I build my case
     And I submit my case
@@ -23,7 +46,7 @@ Feature: Create HU internal case upto FTPA submitted
     And I add the appeal response
     And I request hearing requirements
     And I wait for 5 seconds
-    And I switch to be a `Legal Org User Rep A`
+    And I switch to be a `Admin Officer`
     And I wait for 2 seconds
     And I submit hearing requirements with all yes when in country
     And I switch to be a `Case Officer`
@@ -69,7 +92,7 @@ Feature: Create HU internal case upto FTPA submitted
 
     And I prepare decision and reasons
     And I send decision and reasons
-    When I switch to be a `Legal Org User Rep A`
+    When I switch to be a `Admin Officer`
     And I wait for 2 seconds
 
   @dlrm-hu-case  @dlrm-cases @dlrm-icc @TAG-TO-CHANGE

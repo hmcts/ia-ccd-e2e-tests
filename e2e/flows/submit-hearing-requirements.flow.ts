@@ -112,7 +112,9 @@ export class SubmitHearingRequirementsFlow {
     await this.ccdFormPage.setFieldValue('Will any witnesses attend the hearing?', 'Yes');
     await browser.sleep(5000);
     await this.ccdFormPage.click('Add new');
-    await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+    await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+    await this.ccdFormPage.setFieldValue('Family name', 'button');
+    // await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
     await this.ccdFormPage.click('Continue');
     await this.ccdFormPage.setFieldValue('Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?', 'Yes');
     await this.ccdFormPage.click('Continue');
@@ -183,7 +185,9 @@ export class SubmitHearingRequirementsFlow {
       await this.ccdFormPage.setFieldValue('Will any witnesses attend the hearing?', 'Yes');
       await browser.sleep(2000);
       await this.ccdFormPage.click('Add new');
-      await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+      await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+      await this.ccdFormPage.setFieldValue('Family name', 'button');
+      // await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
       await this.ccdFormPage.click('Continue');
 
       await this.ccdFormPage.setFieldValue('Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?', 'Yes');
@@ -195,7 +199,9 @@ export class SubmitHearingRequirementsFlow {
       await this.ccdFormPage.setFieldValue('Will any witnesses attend the hearing?', 'Yes');
       await browser.sleep(2000);
       await this.ccdFormPage.click('Add new');
-      await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+      await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+      await this.ccdFormPage.setFieldValue('Family name', 'button');
+      // await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
       await this.ccdFormPage.click('Continue');
     }
 
@@ -263,7 +269,9 @@ export class SubmitHearingRequirementsFlow {
 
     await this.ccdFormPage.setFieldValue('Will any witnesses attend the hearing?', 'Yes');
     await this.ccdFormPage.click('Add new');
-    await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+    await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+    await this.ccdFormPage.setFieldValue('Family name', 'button');
+    // await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.setFieldValue('Do you need interpreter services on the day?', 'Yes');
@@ -345,7 +353,9 @@ export class SubmitHearingRequirementsFlow {
 
       if (!keepExitingValues) {
         await this.ccdFormPage.click('Add new');
-        await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
+        await this.ccdFormPage.setFieldValue('Given names', 'Jenny');
+        await this.ccdFormPage.setFieldValue('Family name', 'button');
+        // await this.ccdFormPage.setFieldValue('Name', 'Jenny button');
       }
       await this.ccdFormPage.click('Continue');
     }

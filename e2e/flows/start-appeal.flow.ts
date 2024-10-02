@@ -135,6 +135,19 @@ export class StartAppealFlow {
     }
   }
 
+  async completeUploadAppealForm(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await browser.sleep(1000);
+    await this.ccdFormPage.click('Add new');
+    await this.ccdFormPage.setFieldValue('Document', '{@Evidence1.pdf}', 'document', 'first', 'Appeal Form', 'first');
+    await this.ccdFormPage.setFieldValue('Describe the document', 'This is the appeal form', 'text area', 'first', 'Appeal Form', 'first');
+    await browser.sleep(3000);
+
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
   async completeUploadNoticeDecisionNoUpload(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
@@ -453,6 +466,7 @@ export class StartAppealFlow {
     // await this.completeLegalRepresentativeDetails(true);
     await this.completeGivenFee(true, feeType);
     await this.completeRemissionDetails(true, 'no remission');
+    await this.completeUploadAppealForm(true);
     if (appealType === 'PA') {
       await this.completeHowToPay(true, paymentChoice);
     }

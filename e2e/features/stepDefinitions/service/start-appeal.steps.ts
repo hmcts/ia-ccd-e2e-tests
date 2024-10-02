@@ -32,6 +32,10 @@ Given('I complete the `Upload the Notice of Decision` page', async function () {
   expect(await ccdFormPage.headingContains('Upload the Notice of Decision')).to.equal(true);
   await startAppealFlow.completeUploadNoticeDecision(true);
 });
+Given('I complete the `Add appeal form` page', async function () {
+  expect(await ccdFormPage.headingContains('Upload appeal form')).to.equal(true);
+  await startAppealFlow.completeUploadAppealForm(true);
+});
 
 Given('I complete the `Basic details` form', async function () {
   expect(await ccdFormPage.headingContains('Basic details')).to.equal(true);

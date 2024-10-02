@@ -30,7 +30,10 @@
     "e2e\\features\\update-legal-representatives-details.feature:16",
     "e2e\\features\\upload-additional-evidence-home-office.feature:21",
     "e2e\\features\\dlrm\\internal-case-creation\\create-hu-internal-case-upto-ftpa-decided.feature:75",
-    "e2e\\features\\dlrm\\create-hu-case-upto-ftpa-decided.feature:74"
+    "e2e\\features\\dlrm\\create-hu-case-upto-ftpa-decided.feature:74",
+    "e2e\\features\\dlrm\\internal-case-creation\\create-hu-internal-case-upto-ftpa-decided.feature:76",
+    "e2e\\features\\dlrm\\internal-case-creation\\create-hu-internal-case-upto-ftpa-decided.feature:98",
+    "e2e\\features\\dlrm\\internal-case-creation\\create-hu-internal-case-upto-ftpa-decided.feature:99"
   ],
   "passedTests": [
     "e2e\\features\\manage-fee-update-dlrm.feature:8",
