@@ -13,7 +13,7 @@ Feature: Legal representative make an application
 
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Update appeal details` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
@@ -129,7 +129,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office POU`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
@@ -139,7 +139,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office APC`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
@@ -149,7 +149,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office LART`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
@@ -159,7 +159,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office Generic`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
@@ -169,7 +169,7 @@ Feature: Legal representative make an application
     When I switch to be a `Legal Org User Rep A`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Update appeal details` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
@@ -202,7 +202,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office APC`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Time extension` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
@@ -333,7 +333,7 @@ Feature: Legal representative make an application
     When I switch to be a `Legal Org User Rep A`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
     And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
@@ -345,7 +345,7 @@ Feature: Legal representative make an application
 
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     Then I select `Judge's review of Legal Officer decision` for the `Type of application` field
     And I click the `Continue` button
     And I should see the text `Judge's review of Legal Officer decision`
@@ -355,7 +355,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office APC`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
     And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
@@ -367,7 +367,7 @@ Feature: Legal representative make an application
 
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     Then I select `Judge's review of Legal Officer decision` for the `Type of application` field
     And I click the `Continue` button
     And I should see the text `Judge's review of Legal Officer decision`
@@ -377,21 +377,21 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office LART`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
     And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     When I switch to be a `Home Office POU`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
     And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
     When I switch to be a `Home Office Generic`
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Reinstate an ended appeal` for the `Type of application` field
     And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
 
@@ -417,7 +417,7 @@ Feature: Legal representative make an application
     When I switch to be a `Legal Org User Rep A`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Update appeal details` for the `Type of application` field
     And I should see the option `Update hearing requirements` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
@@ -427,7 +427,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office APC`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
     And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
@@ -435,7 +435,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office LART`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
     And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
@@ -443,7 +443,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office POU`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
     And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
@@ -451,7 +451,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office Generic`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field
     And I should see the option `Judge's review of Legal Officer decision` for the `Type of application` field
@@ -479,7 +479,7 @@ Feature: Legal representative make an application
     When I switch to be a `Legal Org User Rep A`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Adjourn` for the `Type of application` field
     And I should see the option `Expedite` for the `Type of application` field
     And I should see the option `Transfer` for the `Type of application` field
@@ -527,7 +527,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office APC`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Adjourn` for the `Type of application` field
     And I should see the option `Expedite` for the `Type of application` field
     And I should see the option `Transfer` for the `Type of application` field
@@ -539,7 +539,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office LART`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Adjourn` for the `Type of application` field
     And I should see the option `Expedite` for the `Type of application` field
     And I should see the option `Transfer` for the `Type of application` field
@@ -551,7 +551,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office POU`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Adjourn` for the `Type of application` field
     And I should see the option `Expedite` for the `Type of application` field
     And I should see the option `Transfer` for the `Type of application` field
@@ -563,7 +563,7 @@ Feature: Legal representative make an application
     When I switch to be a `Home Office Generic`
     Then I click the `Applications` tab
     And I select the `Make an application` Next step
-    And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Adjourn` for the `Type of application` field
     And I should see the option `Expedite` for the `Type of application` field
     And I should see the option `Transfer` for the `Type of application` field
