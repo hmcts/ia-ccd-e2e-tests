@@ -176,9 +176,11 @@ export class StartAppealFlow {
     }
   }
 
-  async completeBasicDetails(clickContinue = false) {
+  async completeBasicDetails(clickContinue = false, isInternal = false) {
     await this.ccdFormPage.runAccessbility();
-    // await this.ccdFormPage.setFieldValue('Title', 'Mr'); //ICC-Automation-ToDo: Bug to be addressed. Title not visible for admin
+    if (!isInternal) {
+      await this.ccdFormPage.setFieldValue('Title', 'Mr'); //ICC-Automation-ToDo: Bug to be addressed. Title not visible for admin
+    }
     await this.ccdFormPage.setFieldValue('Given names', 'José');
     await this.ccdFormPage.setFieldValue('Family name', 'González');
     await this.ccdFormPage.setFieldValue('Date of birth', '31-12-1999');
@@ -277,7 +279,7 @@ export class StartAppealFlow {
       await this.ccdFormPage.click("The decision breaches the appellant's rights under the EEA regulations");
     }
     if (appealType === 'HU') {
-      //await this.ccdFormPage.click('The decision is unlawful under section 6 of the Human Rights Act 1998');
+      await this.ccdFormPage.click('The decision is unlawful under section 6 of the Human Rights Act 1998');
     }
     if (appealType === 'PA') {
       await this.ccdFormPage.click("Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention");
@@ -476,15 +478,15 @@ export class StartAppealFlow {
   }
     async saveInitialAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
     await this.completeClientDetails(false, hasFixedAddress, address, postcode, appealType);
-    await this.completeGivenAppealType(true, appealType);
-    // if (appealType !== 'EU') {
-    //   await this.completedGivenAppealGrounds(true, appealType);
-    // }
+    // await this.completeGivenAppealType(true, appealType);
+    if (appealType !== 'EU') {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
     await this.completeDeportationOrder(true);
-    await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
-    await this.completeLegalRepresentativeDetails(true);
+    await this.completeNewMatters(true);
     await this.completeGivenFee(true, feeType);
+    await this.completeLegalRepresentativeDetails(true);
     await this.completeRemissionDetails(true, 'no remission');
     if (appealType === 'PA') {
       await this.completeHowToPay(true, paymentChoice);
@@ -824,7 +826,7 @@ export class StartAppealFlow {
     // if (appealType !== 'EU') {
     //   await this.completedGivenAppealGrounds(true, appealType);
     // }
-    await this.completeBasicDetails(true);
+    await this.completeBasicDetails(true, true);
     await this.completeNationality(true);
     await this.completeClientAddress(false, true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
     // await this.completeClientAddress(true, true, address, postcode, true);

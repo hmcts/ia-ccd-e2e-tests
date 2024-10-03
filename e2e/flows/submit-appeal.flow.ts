@@ -1,6 +1,6 @@
 import { CcdPage } from '../pages/ccd.page';
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser, by, element } from 'protractor';
+import { browser } from 'protractor';
 
 export class SubmitAppealFlow {
   private ccdPage = new CcdPage();
@@ -8,8 +8,9 @@ export class SubmitAppealFlow {
 
   async completeDeclaration(clickContinue = false) {
     await this.ccdPage.headingContains('Declaration');
+    await this.ccdFormPage.click('The appellant or legal representative has indicated that the facts entered on the appeal form and any continuation sheets are true and complete.');
     //await element(by.css('#legalRepDeclaration-hasDeclared')).click();
-    await element(by.css('#adminDeclaration-hasDeclared')).click();
+    //await element(by.css('#adminDeclaration-hasDeclared')).click();
 
     if (clickContinue) {
       await this.ccdPage.click('Submit');
