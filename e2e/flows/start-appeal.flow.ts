@@ -1,4 +1,4 @@
-import { browser, by } from 'protractor';
+import { browser, By, by } from 'protractor';
 import { expect } from 'chai';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
@@ -456,6 +456,14 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
+  async completeAriaPage(){
+    await browser.driver.findElement(By.id('isAriaMigratedTemporary_No')).click();
+    await this.ccdFormPage.setFieldValue('Select a desired state:', 'Payment pending');
+    await browser.driver.findElement(By.id('isAriaMigratedFeeExemption_No')).click();
+    await this.ccdFormPage.setFieldValue('ARIA migration task due days', '1');
+    await this.ccdFormPage.click('Continue');
+  }
+
   async saveInitialInternalAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
     await this.completeInternalClientDetails(false, hasFixedAddress, address, postcode, appealType);
     // await this.completeGivenAppealType(true, appealType);
@@ -472,6 +480,7 @@ export class StartAppealFlow {
     if (appealType === 'PA') {
       await this.completeHowToPay(true, paymentChoice);
     }
+    await this.completeAriaPage();
     // let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
     // await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
