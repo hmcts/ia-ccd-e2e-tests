@@ -32,10 +32,6 @@ Given('I complete the `Upload the Notice of Decision` page', async function () {
   expect(await ccdFormPage.headingContains('Upload the Notice of Decision')).to.equal(true);
   await startAppealFlow.completeUploadNoticeDecision(true);
 });
-Given('I complete the `Add appeal form` page', async function () {
-  expect(await ccdFormPage.headingContains('Upload appeal form')).to.equal(true);
-  await startAppealFlow.completeUploadAppealForm(true);
-});
 
 Given('I complete the `Basic details` form', async function () {
   expect(await ccdFormPage.headingContains('Basic details')).to.equal(true);
@@ -202,10 +198,6 @@ Given(/^I save my out of country appeal with sponsor given name `?([^\s`]+)`? fa
       await startAppealFlow.saveInitialNonPaymentAppeal(true, 'PA');
     }
   }
-});
-
-Given(/^I save my initial internal `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/, async function (appealType, feeType, paymentChoice) {
-  await startAppealFlow.saveInitialInternalAppealWithoutRemission(true, appealType, feeType, paymentChoice);
 });
 
 Given(/^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/, async function (appealType, feeType, paymentChoice) {
