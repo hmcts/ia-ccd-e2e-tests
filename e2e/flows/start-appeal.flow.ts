@@ -1,5 +1,4 @@
 import { browser, by } from 'protractor';
-import { expect } from 'chai';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
@@ -31,23 +30,6 @@ export class StartAppealFlow {
   }
 
   async completeInternalScreeningQuestions(clickContinue = false) {
-    let beforeYouStartExpectedText = `You will need to check:
-
-    that this is not a duplicate appeal
-    if the appellant has appealed any other UK immigration decisions. If they have, you will need the appeal number to submit the appeal
-    if the appeallant has a pending bail application. If they have, you will need the bail application reference number to submit the appeal
-    In the following screens, you will be asked to provide:
-    
-    appeal details, including the Notice of Decision
-    the appellant's personal details
-    detention details, if applicable
-    remission information, if applicable, including any supporting evidence or reference numbers
-    reasons the appeal is late, if applicable, and any supporting evidence
-    Once you start, you will not be able to save your progress until you have answered all the questions.
-    
-    Please ensure you have all the information you need to hand and allow enough time to submit the appeal in one sitting.`;
-    let beforeYouStartActualText = await browser.element(by.id('beforeYouStartLabel')).getText();
-    expect(beforeYouStartExpectedText === beforeYouStartActualText);
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.click('Continue');
     await this.ccdFormPage.headingContains('When did the Tribunal receive the appeal?');
@@ -179,7 +161,7 @@ export class StartAppealFlow {
   async completeBasicDetails(clickContinue = false, isInternal = false) {
     await this.ccdFormPage.runAccessbility();
     if (!isInternal) {
-      await this.ccdFormPage.setFieldValue('Title', 'Mr'); //ICC-Automation-ToDo: Bug to be addressed. Title not visible for admin
+      await this.ccdFormPage.setFieldValue('Title', 'Mr');
     }
     await this.ccdFormPage.setFieldValue('Given names', 'José');
     await this.ccdFormPage.setFieldValue('Family name', 'González');
@@ -831,7 +813,7 @@ export class StartAppealFlow {
     await this.completeContactPreference(true);
   }
 
-  async completeInternalClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '', appealType='') {
+  async completeInternalClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '', appealType = '') {
     await this.completeInternalScreeningQuestions(true);
     await this.completeInternalHomeOfficeReference(true);
     await this.completeUploadNoticeDecisionNoUpload(true);
