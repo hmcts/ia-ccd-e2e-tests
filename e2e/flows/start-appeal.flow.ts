@@ -1,5 +1,4 @@
 import { browser, by } from 'protractor';
-import { expect } from 'chai';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 const isOutOfCountryEnabled = require('../ia.conf').isOutOfCountryEnabled === 'true';
