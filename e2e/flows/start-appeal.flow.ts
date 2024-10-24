@@ -37,14 +37,14 @@ export class StartAppealFlow {
     // if the appellant has appealed any other UK immigration decisions. If they have, you will need the appeal number to submit the appeal
     // if the appeallant has a pending bail application. If they have, you will need the bail application reference number to submit the appeal
     // In the following screens, you will be asked to provide:
-    
+    // 
     // appeal details, including the Notice of Decision
     // the appellant's personal details
     // detention details, if applicable
     // remission information, if applicable, including any supporting evidence or reference numbers
     // reasons the appeal is late, if applicable, and any supporting evidence
     // Once you start, you will not be able to save your progress until you have answered all the questions.
-    
+    // 
     // Please ensure you have all the information you need to hand and allow enough time to submit the appeal in one sitting.`;
     // let beforeYouStartActualText = await browser.element(by.id('beforeYouStartLabel')).getText();
     // expect(beforeYouStartExpectedText === beforeYouStartActualText);
