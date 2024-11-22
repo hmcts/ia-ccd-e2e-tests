@@ -42,16 +42,16 @@ Given("I create a new case", async function () {
   await ccdPage.doesDropdownHaveValues("Case type");
 
   if (iaConfig.CcdWebUrl.includes("xui-ia-case-api-pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* ia-ccd-definit");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
   } else if (
     iaConfig.CcdWebUrl.includes("aat") ||
     iaConfig.CcdWebUrl.includes("pr")
   ) {
     await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* ia-ccd-definit");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
   } else if (iaConfig.CcdWebUrl.includes("pr-")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* ia-ccd-definit");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
   }
 
   await ccdPage.doesDropdownHaveValues("Event");
@@ -113,7 +113,7 @@ Given("I Apply case list filter", async function () {
   if (iaConfig.CcdWebUrl.includes("aat") || iaConfig.CcdWebUrl.includes("pr")) {
     await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* ia-ccd-definit");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
   }
   await ccdPage.doesDropdownHaveValues("State");
   await ccdFormPage.setFieldValue("State", "Any");
@@ -461,7 +461,7 @@ Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
   await ccdFormPage.click("Next");
   await ccdFormPage.typeText(
-    `flagComments`,
+    `flagComment`,
     `test case flage make it inactive`
   );
   await ccdFormPage.click("Make inactive");

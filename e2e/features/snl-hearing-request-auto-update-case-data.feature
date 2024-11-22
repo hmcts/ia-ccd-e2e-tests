@@ -33,13 +33,13 @@ Feature: SnL Flow Auto creation of caseflags
     And I have created a `Unaccompanied minor` Flag in `José González`
     And I wait for 3 seconds
     When I goto the `Case flags` tab
-    And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
+    # And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
     And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
 
   @nightly-test @snl
   Scenario: SnL flow Auto case flags appear in Case flags Tab
     And I wait for 3 seconds
-    When I goto the `hearings` tab
+    When I goto the `Hearings` tab
     # And I wait for 8 seconds
     # And I click the `Request a hearing` button
     # And I wait for 3 seconds

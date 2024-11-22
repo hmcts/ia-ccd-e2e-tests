@@ -26,7 +26,7 @@ module.exports = {
       if (!(await fs.existsSync(screenshotPath))) {
         fs.mkdirSync(screenshotPath, { recursive: true });
       }
-      fs.writeFile(screenshotPath + '/' + screenshotName, screenShot, 'base64', (err) => {
+      fs.appendFile(screenshotPath + '/' + screenshotName, screenShot, 'base64', (err) => {
         if (err) {
           console.log('Failed to copy the screenshot', err);
         }

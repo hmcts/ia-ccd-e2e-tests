@@ -1,0 +1,17 @@
+[
+  ".\\features\\add-case-note.feature",
+  ".\\features\\create-case-flag2.feature",
+  ".\\features\\create-case-flags2-admin.feature",
+  ".\\features\\dlrm\\set-aside-correct-decision-under-31.feature",
+  ".\\features\\end-appeal.feature",
+  ".\\features\\legal-rep-online-payments-pay-by-card-pa-appeal.feature",
+  ".\\features\\legal-rep-online-payments-pay-by-pba-hu-appeal.feature",
+  ".\\features\\list-case.feature",
+  ".\\features\\make-an-application.feature",
+  ".\\features\\request-respondent-evidence.feature",
+  ".\\features\\s94b-appeal-asylum.feature",
+  ".\\features\\snl-pa-request-a-hearing.feature",
+  ".\\features\\snl-rp-request-a-hearing.feature",
+  ".\\features\\submit-appeal-with-remission-looser-validation-for-legal-aid-account-number.feature",
+  ".\\features\\submit-appeal.feature"
+]
