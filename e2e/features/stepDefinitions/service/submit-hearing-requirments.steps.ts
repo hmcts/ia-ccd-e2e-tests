@@ -460,4 +460,3 @@ Then(/^I Add the interpreter details$/, async function () {
 
   await ccdFormPage.click("Update");
 });
-
