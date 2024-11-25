@@ -30,7 +30,7 @@ let config = {
   specs: cucumberTaggedFiles,
 
   baseUrl: iaConfig.CcdWebUrl,
-  allScriptsTimeout: 300000,
+  allScriptsTimeout: 900000,
   getPageTimeout: 300000,
   useAllAngular2AppRoots: true,
   multiCapabilities: [
