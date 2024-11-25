@@ -18,7 +18,7 @@ export class PayAndSubmitAppealFlow {
     }
     await this.ccdFormPage.click('Pay fee using Payment by Account (PBA)');
     await this.ccdPage.waitForCssElementVisible('#pbaAccountNumber');
-    await this.ccdFormPage.typeText('pbaAccountNumber', 'PBA0081334');
+    await this.ccdFormPage.typeText('pbaAccountNumber', 'PBA0087412');
     await browser.sleep(1000);
     await this.ccdFormPage.typeText('pbaAccountRef', 'Unique Reference');
     await this.ccdFormPage.typeEnter('pbaAccountRef');

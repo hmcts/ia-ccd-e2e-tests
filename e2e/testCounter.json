@@ -75,6 +75,7 @@
     "e2e\\features\\submit-appeal.feature:11",
     "e2e\\features\\dlrm\\set-aside-correct-decision-under-31.feature:193",
     "e2e\\features\\add-case-note.feature:12",
-    "e2e\\features\\create-case-flags2-admin.feature:12"
+    "e2e\\features\\create-case-flags2-admin.feature:12",
+    "e2e\\features\\add-case-note.feature:12"
   ]
 }

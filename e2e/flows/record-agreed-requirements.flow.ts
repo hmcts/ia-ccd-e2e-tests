@@ -53,14 +53,7 @@ export class RecordAgreedRequirementsFlow {
 
     await this.ccdFormPage.click("Continue");
 
-<<<<<<< HEAD
     await this.ccdFormPage.click("Granted");
-=======
-    await this.ccdFormPage.click('Continue');
-    await browser.driver.findElement(by.id("hearingChannel_NA")).click();
-    // await this.ccdFormPage.setFieldValue('What type of hearing is required?', 'Not in Attendance'); // Not sure why this fails
-    await this.ccdFormPage.click('Continue');
->>>>>>> d69de70 (build failure fixes.)
 
     await this.ccdFormPage.setFieldValue(
       "In camera court",

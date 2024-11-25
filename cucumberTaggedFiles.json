@@ -1,4 +1,3 @@
 [
-  ".\\features\\snl-pa-request-a-hearing.feature",
-  ".\\features\\snl-rp-request-a-hearing.feature"
+  ".\\features\\add-case-note.feature"
 ]
