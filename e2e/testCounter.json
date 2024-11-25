@@ -23,7 +23,8 @@
     "e2e\\features\\update-legal-representatives-details.feature:16",
     "e2e\\features\\upload-additional-evidence-home-office.feature:21",
     "e2e\\features\\create-case-flags2-admin.feature:23",
-    "e2e\\features\\create-case-flag2.feature:25"
+    "e2e\\features\\create-case-flag2.feature:25",
+    "e2e\\features\\manage-fee-update-dlrm.feature:139"
   ],
   "passedTests": [
     "e2e\\features\\end-appeal.feature:12",
@@ -76,6 +77,8 @@
     "e2e\\features\\dlrm\\set-aside-correct-decision-under-31.feature:193",
     "e2e\\features\\add-case-note.feature:12",
     "e2e\\features\\create-case-flags2-admin.feature:12",
-    "e2e\\features\\add-case-note.feature:12"
+    "e2e\\features\\add-case-note.feature:12",
+    "e2e\\features\\create-case-flags2-admin.feature:12",
+    "e2e\\features\\create-case-flags2-admin.feature:23"
   ]
 }

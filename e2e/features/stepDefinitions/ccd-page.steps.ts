@@ -47,7 +47,7 @@ Given("I create a new case", async function () {
     iaConfig.CcdWebUrl.includes("aat") ||
     iaConfig.CcdWebUrl.includes("pr")
   ) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
   } else if (iaConfig.CcdWebUrl.includes("demo")) {
     await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
   } else if (iaConfig.CcdWebUrl.includes("pr-")) {
@@ -111,7 +111,7 @@ Given("I Apply case list filter", async function () {
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
   if (iaConfig.CcdWebUrl.includes("aat") || iaConfig.CcdWebUrl.includes("pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
   } else if (iaConfig.CcdWebUrl.includes("demo")) {
     await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
   }
