@@ -15,19 +15,21 @@ Given("I create a new case", async function () {
   // there is loading mask with spinner added by ExUI
   let EC = protractor.ExpectedConditions;
   await browser.get(iaConfig.CcdWebUrl + "/cases");
-  try {
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
-      "Spinner did not appear."
-    );
-  } catch {
-    browser.refresh();
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
-      "Spinner did not appear."
-    );
+  if (iaConfig.CcdWebUrl.includes("aat")) {
+    try {
+      await browser.wait(
+        EC.visibilityOf(element(by.css("div.spinner-container"))),
+        30000,
+        "Spinner did not appear."
+      );
+    } catch {
+      browser.refresh();
+      await browser.wait(
+        EC.visibilityOf(element(by.css("div.spinner-container"))),
+        30000,
+        "Spinner did not appear."
+      );
+    }
   }
   await ccdPage.waitForSpinner();
   await ccdPage.linkContains("Create case");
@@ -42,16 +44,16 @@ Given("I create a new case", async function () {
   await ccdPage.doesDropdownHaveValues("Case type");
 
   if (iaConfig.CcdWebUrl.includes("xui-ia-case-api-pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (
     iaConfig.CcdWebUrl.includes("aat") ||
     iaConfig.CcdWebUrl.includes("pr")
   ) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (iaConfig.CcdWebUrl.includes("pr-")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   }
 
   await ccdPage.doesDropdownHaveValues("Event");
@@ -64,19 +66,21 @@ Given("I create a new bail application", async function () {
   // there is loading mask with spinner added by ExUI
   await browser.get(iaConfig.CcdWebUrl + "/cases");
   let EC = protractor.ExpectedConditions;
-  try {
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
-      "Spinner did not appear."
-    );
-  } catch {
-    browser.refresh();
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
-      "Spinner did not appear."
-    );
+  if (iaConfig.CcdWebUrl.includes("aat")) {
+    try {
+      await browser.wait(
+        EC.visibilityOf(element(by.css("div.spinner-container"))),
+        30000,
+        "Spinner did not appear."
+      );
+    } catch {
+      browser.refresh();
+      await browser.wait(
+        EC.visibilityOf(element(by.css("div.spinner-container"))),
+        30000,
+        "Spinner did not appear."
+      );
+    }
   }
   await ccdPage.waitForSpinner();
   await ccdPage.linkContains("Create case");
@@ -111,9 +115,9 @@ Given("I Apply case list filter", async function () {
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
   if (iaConfig.CcdWebUrl.includes("aat") || iaConfig.CcdWebUrl.includes("pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   }
   await ccdPage.doesDropdownHaveValues("State");
   await ccdFormPage.setFieldValue("State", "Any");

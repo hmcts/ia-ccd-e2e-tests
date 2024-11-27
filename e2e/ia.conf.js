@@ -37,7 +37,7 @@ module.exports = {
   TestHomeOfficeGenericPassword: 'AldgateT0wer',
   TestJudgeUserName: 'ia.iacjudge.ccd@gmail.com',
   TestJudgePassword: 'AldgateT0wer',
-  TestLawFirmOrgAUserName: 'ialegalreporgcreator12@mailnesia.com',
+TestLawFirmOrgAUserName: 'ialegalreporgcreator12@mailnesia.com',
   TestLawFirmOrgAPassword: 'Aldg@teT0wer',
   TestLawFirmOrgBUserName: 'ia.legalrep.b.sc@mailnesia.com',
   TestLawFirmOrgBPassword: 'Aldg@teT0wer',
@@ -58,6 +58,6 @@ module.exports = {
   TestAdminOfficerBailsPassword: 'AldgateT0wer',
   TestJudgeBailsUserName:'ia.iacjudge.4.ccd@mailnesia.com',
   TestJudgeBailsPassword:'AldgateT0wer',
-  // TestOutputDir: 'reports',
+  TestOutputDir: 'reports',
   TestForAccessibility: true
 };

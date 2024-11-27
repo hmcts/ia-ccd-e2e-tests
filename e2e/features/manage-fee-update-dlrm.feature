@@ -4,10 +4,10 @@ Feature: Manage fee update
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
-  @dlrm-manage-a-fee-update1 @dlrm-manage-a-fee-update-decisionchange-refund
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-refund @appeal-nightly-test
   Scenario: Admin officer manage fee update for decision type changed refund
 
-    When I save my initial PA appeal type with a remission and with hearing fee
+    When I save my initial `EA` appeal type with `a remission` and `with` hearing fee
     Then I submit my nonpayment appeal
 
     And I switch to be a `Admin Officer`
@@ -74,10 +74,10 @@ Feature: Manage fee update
     And I should see `£80.00` for the `New fee amount` field
     And I should see `£60.00` for the `Amount to be refunded` field
 
-  @dlrm-manage-a-fee-update1 @dlrm-manage-a-fee-update-decisionchange-additionalamount
-  Scenario: Admin officer manage fee update for decision type changed additionalAmount
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-additionalamount @appeal-nightly-test
+Scenario: Admin officer manage fee update for decision type changed additionalAmount
 
-    When I save my initial PA appeal type with a remission and with hearing fee
+    When I save my initial `EA` appeal type with `a remission` and `with` hearing fee
     Then I submit my nonpayment appeal
 
     And I switch to be a `Admin Officer`

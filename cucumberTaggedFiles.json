@@ -1,4 +1,5 @@
 [
+  ".\\features\\add-case-note.feature",
   ".\\features\\create-case-flag2.feature",
   ".\\features\\create-case-flags2-admin.feature",
   ".\\features\\dlrm\\set-aside-correct-decision-under-31.feature",

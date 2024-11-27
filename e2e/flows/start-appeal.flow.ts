@@ -536,7 +536,7 @@ export class StartAppealFlow {
     await this.completeLegalRepresentativeDetails(true);
     await this.completeGivenFee(true, feeType);
     await this.completeRemissionDetails(true, remission);
-    await this.completeHowToPay(true, "later");
+    // await this.completeHowToPay(true, "later");
     await this.completeCheckYourAnswers(true);
   }
 
