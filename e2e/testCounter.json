@@ -27,7 +27,15 @@
     "e2e\\features\\manage-fee-update-dlrm.feature:139",
     "e2e\\features\\manage-fee-update-dlrm.feature:8",
     "e2e\\features\\manage-fee-update-dlrm.feature:78",
-    "e2e\\features\\manage-fee-update-dlrm.feature:194"
+    "e2e\\features\\manage-fee-update-dlrm.feature:194",
+    "e2e\\features\\bails-add-a-case-flag.feature:10",
+    "e2e\\features\\bails-change-direction-due-date.feature:12",
+    "e2e\\features\\bails-edit-application-post-submit.feature:10",
+    "e2e\\features\\bails-add-a-case-note.feature:96",
+    "e2e\\features\\bails-edit-application-pre-submit.feature:4",
+    "e2e\\features\\bails-edit-documents.feature:121",
+    "e2e\\features\\bails-end-application.feature:10",
+    "e2e\\features\\bails-make-new-application.feature:83"
   ],
   "passedTests": [
     "e2e\\features\\end-appeal.feature:12",
