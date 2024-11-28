@@ -64,7 +64,7 @@ module.exports = {
       extendedDebugging: true,
       sharedTestFiles: false,
       capturePerformance: true,
-      maxInstances: 1,
+      // maxInstances: 1,
     },
   ],
 };
