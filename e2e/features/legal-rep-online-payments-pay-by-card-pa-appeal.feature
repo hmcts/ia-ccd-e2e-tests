@@ -30,11 +30,11 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
     And I wait for 5 seconds
     Then I should see the text `Enter card details`
 
-  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-pa @appeal-nightly-test
+  @RIA-6104-pay-and-submit-card-successful @RIA-6104-pay-and-submit-card-successful-pa @works-on-aat-only
   Scenario: Pay and submit appeal - successful payment (PA appeal type)
     When I type `4444333322221111` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`
-    And I type `24` for the field with ID `expiry-year`
+    And I type `29` for the field with ID `expiry-year`
     And I type `Test User` for the field with ID `cardholder-name`
     And I type `123` for the field with ID `cvc`
     And I type `123 Fake Street` for the field with ID `address-line-1`

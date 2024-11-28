@@ -8,3 +8,9 @@ package-lock.json
 .yarn/cache
 /chrome
 /chromedriver
+/undefined
+log.txt
+undefined/a11y_output.js
+e2e/testCounter.json
+cucumberTaggedFiles.json
+.vscode/
