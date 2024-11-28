@@ -37,6 +37,8 @@ Feature: SnL Flow PA hearing request
 
     ##Hearing Request
     And I wait for 3 seconds
+    And I switch to be a `Admin Officer`
+    And I wait for 3 seconds
     When I goto the `Hearings` tab
     And I wait for 8 seconds
     And I click the `Request a hearing` button
@@ -49,6 +51,7 @@ Feature: SnL Flow PA hearing request
     When I click the `Continue` button
     And I click the `Substantive` button
     And I click the `Continue` button
+    
     And I click the `Continue` button
     And I add the `Glasgow Tribunals Centre` hearing location
     And I click the `Continue` button

@@ -1,3 +1,0 @@
-chrome@123.0.6312.122 C:\Users\rohit\workspace\solirius\repos\ia-ccd-e2e-tests\chrome\win64-123.0.6312.122\chrome-win64\chrome.exe
-chromedriver@123.0.6312.122 C:\Users\rohit\workspace\solirius\repos\ia-ccd-e2e-tests\chromedriver\win64-123.0.6312.122\chromedriver-win64\chromedriver.exe
-Terminate batch job (Y/N)? 
