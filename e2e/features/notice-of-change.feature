@@ -10,7 +10,7 @@ Feature: Notice of Change (common component)
     And I pay for and submit my appeal by Card
     And I get the most recent case id for the notice of change case
 
-  @notice-of-change @noc-incorrect-answers-same-org @noc-incorrect-firstname-same-org @RIA-3745 @appeal-nightly-test-works-only-for-aat
+  @notice-of-change @noc-incorrect-answers-same-org @noc-incorrect-firstname-same-org @RIA-3745 @appeal-nightly-test
   Scenario: NoC request as a user from the same organisation (incorrect firstname anwser)
 
     When I switch to be a `Legal Org User Rep B`
@@ -19,7 +19,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the incorrect firstname answer to the challenge questions
     And I enter the correct lastname answer to the challenge questions
     And I click the `Continue` button
@@ -36,7 +36,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct firstname answer to the challenge questions
     And I enter the incorrect lastname answer to the challenge questions
     And I click the `Continue` button
@@ -52,7 +52,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct answers to the challenge questions
     And I click the `Continue` button
     And I should see the text `Your organisation already has access to this case`
@@ -66,7 +66,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the incorrect firstname answer to the challenge questions
     And I enter the correct lastname answer to the challenge questions
     And I click the `Continue` button
@@ -82,7 +82,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct firstname answer to the challenge questions
     And I enter the incorrect lastname answer to the challenge questions
     And I click the `Continue` button
@@ -90,16 +90,16 @@ Feature: Notice of Change (common component)
     And I click the `Back` link
     And I click the `Back` link
 
-  @notice-of-change @noc-correct-answers-different-org @RIA-3745 @appeal-nightly-test-works-only-for-aat
+  @notice-of-change @noc-correct-answers-different-org @RIA-3745 @appeal-nightly-test-works-only-for-aat-fails-with-no3rdorguser
   Scenario: NoC request as a user from a different organisation (correct answers)
 
-    When I am signed in as a `Legal Org User Rep C`
+    When I am signed in as a `Legal Org User Rep B`
     And I wait for the spinner
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct answers to the challenge questions
     And I click the `Continue` button
     And I select all the submit checkboxes

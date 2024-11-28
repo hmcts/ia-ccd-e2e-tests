@@ -17,7 +17,7 @@ Feature: Upload additional evidence Home Office
     And I wait for 5 seconds
     And I build my case
 
-  @regression @upload-additional-evidence-home-office @RIA-1278 @appeal-nightly-test-works-only-for-aat
+  @regression @upload-additional-evidence-home-office @RIA-1278 @appeal-nightly-test
   Scenario: Upload additional evidence Home Office to the case
 
     When I switch to be a `Home Office APC`
