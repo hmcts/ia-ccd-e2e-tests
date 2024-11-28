@@ -85,7 +85,6 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
-    env.TESTS_FOR_ACCESSIBILITY = 'true'
     afterAlways('DependencyCheckNightly') {
         if (!params.skipAppealFunctionalTests) {
             stage('Appeal Full Functional Tests') {
@@ -138,7 +137,7 @@ withNightlyPipeline("nodejs", product, component) {
                             allowMissing         : true,
                             alwaysLinkToLastBuild: true,
                             keepAll              : true,
-                            reportDir            : "reports/",
+                            reportDir            : "reports/tests/",
                             reportFiles          : 'a11y.html',
                             reportName           : 'IAC - Bail a11y Test Report'
                     ])
@@ -153,7 +152,7 @@ withNightlyPipeline("nodejs", product, component) {
                         sh "node e2e/cucumberTagSearcher.js ${params.SPECIFIC_TAGS}; yarn protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=${params.SPECIFIC_TAGS}"
                     }
                 } catch (Error) {
-                    // unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
+                    unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
                     publishHTML([
                             allowMissing         : true,

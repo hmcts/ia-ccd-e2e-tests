@@ -9,6 +9,8 @@ package-lock.json
 /chrome
 /chromedriver
 /undefined
-/log.txt
+log.txt
 undefined/a11y_output.js
-
+e2e/testCounter.json
+cucumberTaggedFiles.json
+.vscode/
