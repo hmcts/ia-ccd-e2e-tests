@@ -13,7 +13,7 @@ module.exports = {
   IdamClientSecret: process.env.IDAM_SECRET,
   IdamApiUrl: process.env.IDAM_URL || 'http://idam-api.aat.platform.hmcts.net',
   s2sUrl: process.env.S2S_URL || 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal',
-  TestCaseOfficerUserName: 'CRD_func_test_demo_stcwuser053@justice.gov.uk',
+  TestCaseOfficerUserName: 'ia.caseofficer.ccd@gmail.com',
   TestCaseOfficerPassword: 'AldgateT0wer',
   TestAdminOfficerUserName: 'ia.adm1nofficer.ccd@gmail.com',
   TestAdminOfficerPassword: 'AldgateT0wer',
