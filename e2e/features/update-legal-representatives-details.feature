@@ -12,7 +12,7 @@ Background:
     And I request home office data
     And I request respondent evidence
 
-@update-legal-representatives-details @RIA-1358 @appeal-nightly-test-needs-fix-in-nightly-branch-it-is-fixed
+@update-legal-representatives-details @RIA-1358 @appeal-nightly-test-works-only-for-aat
 Scenario: update legal representatives details
     When I switch to be a `Legal Org User Rep A`
     And I click the `Appellant` tab
