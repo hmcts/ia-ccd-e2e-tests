@@ -85,7 +85,6 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
-    afterAlways('DependencyCheckNightly') {
         if (!params.skipAppealFunctionalTests) {
             stage('Appeal Full Functional Tests') {
                 try {
@@ -166,7 +165,6 @@ withNightlyPipeline("nodejs", product, component) {
                 }
             }
         }
-    }
 
     if (!params.skipCrossBrowserTests) {
         enableCrossBrowserTest()
