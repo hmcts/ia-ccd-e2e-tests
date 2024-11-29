@@ -2,26 +2,34 @@ Feature: Add a case note
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
+    And The page is accessible
+
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I click the `Close and Return to case details` button if present
     Then I should be on the overview page
+    And The page is accessible
+
     And I pay for and submit my appeal by PBA
 
   @regression @add-case-note @RIA-575 @appeal-nightly-test @TAG-TO-CHANGE
   Scenario: Add a case note with document
 
     And I switch to be a `Case Officer`
+    And The page is accessible
     When I select the `Add case note` Next step
     Then I am on the `Add case note` page
+    And The page is accessible
     And I should see the text `Add your case note below`
     When I type `some case note subject` for the `Subject` field
+    And The page is accessible
     When I type `some case note description` for the `Case note` field
     Then the `Continue` button is enabled
 
     When I upload `{@test.doc}` for the `Upload a document (Optional)` field
     And I wait for 5 seconds
     And I click the `Continue` button
+    And The page is accessible
     Then I am on the `Check your answers` page
     And I should see `some case note subject` in the `Subject` field
     And I should see `some case note description` in the `Case note` field
