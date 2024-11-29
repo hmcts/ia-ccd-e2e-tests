@@ -58,6 +58,6 @@ module.exports = {
   TestAdminOfficerBailsPassword: 'AldgateT0wer',
   TestJudgeBailsUserName:'ia.iacjudge.4.ccd@mailnesia.com',
   TestJudgeBailsPassword:'AldgateT0wer',
-  // TestOutputDir: 'reports',
+  TestOutputDir: 'reports/tests/a11yReport',
   TestForAccessibility: true
 };
