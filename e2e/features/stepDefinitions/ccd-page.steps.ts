@@ -44,16 +44,16 @@ Given("I create a new case", async function () {
   await ccdPage.doesDropdownHaveValues("Case type");
 
   if (iaConfig.CcdWebUrl.includes("xui-ia-case-api-pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (
     iaConfig.CcdWebUrl.includes("aat") ||
     iaConfig.CcdWebUrl.includes("pr")
   ) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (iaConfig.CcdWebUrl.includes("pr-")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   }
 
   await ccdPage.doesDropdownHaveValues("Event");
@@ -115,9 +115,9 @@ Given("I Apply case list filter", async function () {
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
   if (iaConfig.CcdWebUrl.includes("aat") || iaConfig.CcdWebUrl.includes("pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
+    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
   }
   await ccdPage.doesDropdownHaveValues("State");
   await ccdFormPage.setFieldValue("State", "Any");
