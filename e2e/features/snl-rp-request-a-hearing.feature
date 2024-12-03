@@ -5,7 +5,7 @@ Feature: SnL Flow RP hearing request
     And I wait for 10 seconds
     And I create a new case
 
-  @appeal-nightly-test-works-only-for-aat
+  @appeal-nightly-test-needsfix
   Scenario: SnL hearing request in country flow for RP appeal
 
     When I save my initial RP appeal for nonPayment with hearing
