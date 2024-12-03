@@ -248,7 +248,7 @@ export class ShareCasePage {
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
       await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
     }
-    // await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
+    // await ccdFormPage.setFieldValue('Case type', 'Appeal* RIA-9604-searc');
     await browser.sleep(7000);
     let appealRefField = element(by.xpath("//*[@id='appealReferenceNumber']"));
     await appealRefField.clear();

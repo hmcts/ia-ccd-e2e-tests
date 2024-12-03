@@ -53,6 +53,7 @@ Feature: Manage fee update
     Then I should see the text `Refund request completed`
     And The page is accessible
     And I click the `Close and Return to case details` button if present
+    And I click the `Close and Return to case details` button if present       
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -76,7 +77,6 @@ Feature: Manage fee update
 
   @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-additionalamount @appeal-nightly-test
   Scenario: Admin officer manage fee update for decision type changed additionalAmount
-
     When I save my initial `EA` appeal type with `a remission` and `with` hearing fee
     Then I submit my nonpayment appeal
 

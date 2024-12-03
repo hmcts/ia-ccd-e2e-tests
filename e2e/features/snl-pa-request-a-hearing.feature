@@ -5,7 +5,7 @@ Feature: SnL Flow PA hearing request
     And I wait for 10 seconds
     And I create a new case
 
-  @appeal-nightly-test-works-only-for-aat
+  @appeal-nightly-test-needsfix
   Scenario: SnL hearing request in country flow for PA appeal
 
     And I save my initial PA appeal type without remission and with hearing fee and pay now
