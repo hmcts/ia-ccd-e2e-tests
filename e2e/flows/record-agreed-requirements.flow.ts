@@ -47,13 +47,11 @@ export class RecordAgreedRequirementsFlow {
 
     await element(by.id('hearingChannel_NA')).click();
     await this.ccdFormPage.click('Continue');
-    
     await this.ccdFormPage.setFieldValue('Is the appeal suitable to float?', 'No');
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.setFieldValue('Are there any additional instructions for the hearing?', 'No');
     await this.ccdFormPage.click('Continue');
-  
     await this.ccdFormPage.click('Submit');
 
     if (clickContinue) {
