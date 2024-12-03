@@ -4,10 +4,10 @@ Feature: Manage fee update
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
-  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-refund @appeal-nightly-test
+  @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-refund @xbrowser @appeal-nightly-test
   Scenario: Admin officer manage fee update for decision type changed refund
 
-    When I save my initial `EA` appeal type with `a remission` and `with` hearing fee
+    When I save my initial PA appeal type with a remission and with hearing fee
     Then I submit my nonpayment appeal
 
     And I switch to be a `Admin Officer`
@@ -52,7 +52,7 @@ Feature: Manage fee update
     And I click the `Continue` button
     Then I should see the text `Refund request completed`
     And The page is accessible
-    And I click the `Close and Return to case details` button if present
+    And I click the `Close and Return to case details` button if present       
 
     Then I click the `Appeal` tab
     And I should see the text `Fee update details`
@@ -75,9 +75,9 @@ Feature: Manage fee update
     And I should see `£60.00` for the `Amount to be refunded` field
 
   @dlrm-manage-a-fee-update @dlrm-manage-a-fee-update-decisionchange-additionalamount @appeal-nightly-test
-  Scenario: Admin officer manage fee update for decision type changed additionalAmount
+Scenario: Admin officer manage fee update for decision type changed additionalAmount
 
-    When I save my initial `EA` appeal type with `a remission` and `with` hearing fee
+    When I save my initial PA appeal type with a remission and with hearing fee
     Then I submit my nonpayment appeal
 
     And I switch to be a `Admin Officer`
