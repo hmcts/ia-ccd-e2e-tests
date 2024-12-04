@@ -192,7 +192,6 @@ export class SubmitHearingRequirementsFlow {
 
       await this.ccdFormPage.setFieldValue('Will the appellant or anyone else be giving oral evidence from outside the United Kingdom?', 'Yes');
       await this.ccdFormPage.click('Continue');
-      
       await this.ccdFormPage.setFieldValue('Will the appellant need a spoken or sign language interpreter at the hearing?', 'No');
       await this.ccdFormPage.click('Continue');
     } else {
@@ -210,8 +209,6 @@ export class SubmitHearingRequirementsFlow {
 
     await this.ccdFormPage.setFieldValue('Will any of the witnesses require a spoken or sign language interpreter at the hearing?', 'No');
     await this.ccdFormPage.click('Continue');
-
-
     await this.ccdFormPage.setFieldValue('Do you need a hearing room with step-free access?', 'Yes');
     await this.ccdFormPage.click('Continue');
 

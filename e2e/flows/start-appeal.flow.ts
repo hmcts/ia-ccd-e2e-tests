@@ -37,14 +37,14 @@ export class StartAppealFlow {
     if the appellant has appealed any other UK immigration decisions. If they have, you will need the appeal number to submit the appeal
     if the appeallant has a pending bail application. If they have, you will need the bail application reference number to submit the appeal
     In the following screens, you will be asked to provide:
-    
+
     appeal details, including the Notice of Decision
     the appellant's personal details
     detention details, if applicable
     remission information, if applicable, including any supporting evidence or reference numbers
     reasons the appeal is late, if applicable, and any supporting evidence
     Once you start, you will not be able to save your progress until you have answered all the questions.
-    
+
     Please ensure you have all the information you need to hand and allow enough time to submit the appeal in one sitting.`;
     let beforeYouStartActualText = await browser.element(by.id('beforeYouStartLabel')).getText();
     expect(beforeYouStartExpectedText === beforeYouStartActualText);
@@ -179,7 +179,7 @@ export class StartAppealFlow {
   async completeBasicDetails(clickContinue = false, isInternal = false) {
     await this.ccdFormPage.runAccessbility();
     if (!isInternal) {
-      await this.ccdFormPage.setFieldValue('Title', 'Mr'); //ICC-Automation-ToDo: Bug to be addressed. Title not visible for admin
+      await this.ccdFormPage.setFieldValue('Title', 'Mr'); // ICC-Automation-ToDo: Bug to be addressed. Title not visible for admin
     }
     await this.ccdFormPage.setFieldValue('Given names', 'José');
     await this.ccdFormPage.setFieldValue('Family name', 'González');
@@ -456,7 +456,7 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  async completeAriaPage(){
+  async completeAriaPage() {
     await browser.driver.findElement(By.id('isAriaMigratedTemporary_No')).click();
     await this.ccdFormPage.setFieldValue('Select a desired state:', 'Payment pending');
     await browser.driver.findElement(By.id('isAriaMigratedFeeExemption_No')).click();
@@ -471,7 +471,7 @@ export class StartAppealFlow {
     //   await this.completedGivenAppealGrounds(true, appealType);
     // }
     await this.completeDeportationOrder(true);
-    await this.completeNewMatters(true); 
+    await this.completeNewMatters(true);
     // await this.completeOtherAppeals(true); ICC_Automation-ToDo : bug new matters not shwon
     // await this.completeLegalRepresentativeDetails(true);
     await this.completeGivenFee(true, feeType);
@@ -829,10 +829,9 @@ export class StartAppealFlow {
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
     // await this.ccdFormPage.setFieldValue('Mobile number (Optional)', '07977111111');
-    
   }
 
-  async completeInternalClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '', appealType='') {
+  async completeInternalClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '', appealType = '') {
     await this.completeInternalScreeningQuestions(true);
     await this.completeInternalHomeOfficeReference(true);
     await this.completeUploadNoticeDecisionNoUpload(true);
