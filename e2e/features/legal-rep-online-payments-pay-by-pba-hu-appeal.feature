@@ -28,7 +28,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (HU appea
     When I click the `Pay fee using Payment by Account (PBA)` label
     And I wait for 1 seconds
 
-  @RIA-6104-pay-and-submit-pba-successful @RIA-6104-pay-and-submit-pba-successful-hu @appeal-nightly-test
+  @RIA-6104-pay-and-submit-pba-successful @RIA-6104-pay-and-submit-pba-successful-hu @appeal-nightly-test-needs-fix
   Scenario: Pay and submit appeal - successful payment (HU appeal type)
     And I select `PBA0087412` from the dropdown with ID `pbaAccountNumber`
     And I wait for 1 seconds

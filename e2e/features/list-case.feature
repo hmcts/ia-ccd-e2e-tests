@@ -1,6 +1,6 @@
 Feature: List case
 
-  @regression @list-case @RIA-412 @RIA-1571 @postcode @RIA-1380 @RIA-1976 @appeal-nightly-test
+  @regression @list-case @RIA-412 @RIA-1571 @postcode @RIA-1380 @RIA-1976 @appeal-nightly-test-needs-fix
   Scenario: Listing the case produces a hearing notice (default for <hearingCentre> hearing centre)
 
     Given I am signed in as a `Legal Org User Rep A`

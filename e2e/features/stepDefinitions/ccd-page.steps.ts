@@ -35,28 +35,14 @@ Given('I create a new case', async function () {
   await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
   await ccdPage.doesDropdownHaveValues('Case type');
 
-<<<<<<< HEAD
   if (iaConfig.CcdWebUrl.includes('xui-ia-case-api-pr')) {
     await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
   } else if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
-    await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
+    await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
   } else if (iaConfig.CcdWebUrl.includes('demo')) {
     await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
   } else if (iaConfig.CcdWebUrl.includes('pr-')) {
     await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
-=======
-  if (iaConfig.CcdWebUrl.includes("xui-ia-case-api-pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
-  } else if (
-    iaConfig.CcdWebUrl.includes("aat") ||
-    iaConfig.CcdWebUrl.includes("pr")
-  ) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
-  } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
-  } else if (iaConfig.CcdWebUrl.includes("pr-")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
->>>>>>> 1b96f2eea9ec7832cdd72caab3cd730de3645b86
   }
 
   await ccdPage.doesDropdownHaveValues('Event');
@@ -107,23 +93,13 @@ Given('I Apply case list filter', async function () {
 
   expect(await ccdPage.headingContains('Case list')).to.equal(true);
   await ccdPage.runAccessbility();
-<<<<<<< HEAD
   await ccdPage.doesDropdownHaveValues('Jurisdiction');
   await ccdFormPage.setFieldValue('Jurisdiction', 'Immigration & Asylum');
   await ccdPage.doesDropdownHaveValues('Case type');
   if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
-    await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
+    await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
   } else if (iaConfig.CcdWebUrl.includes('demo')) {
     await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
-=======
-  await ccdPage.doesDropdownHaveValues("Jurisdiction");
-  await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
-  await ccdPage.doesDropdownHaveValues("Case type");
-  if (iaConfig.CcdWebUrl.includes("aat") || iaConfig.CcdWebUrl.includes("pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* RIA-9604-searc");
-  } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
->>>>>>> 1b96f2eea9ec7832cdd72caab3cd730de3645b86
   }
   await ccdPage.doesDropdownHaveValues('State');
   await ccdFormPage.setFieldValue('State', 'Any');

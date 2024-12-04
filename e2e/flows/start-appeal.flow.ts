@@ -304,7 +304,7 @@ export class StartAppealFlow {
     }
   }
 
-  async completeNewMatters(clickContinue = false) {
+  async completeOtherAppeals(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Are there any new reasons your client wishes to remain in the UK ' + 'or any new grounds on which they should be permitted to stay?', 'Yes');
     await this.ccdFormPage.setFieldValue('Explain these new matters and their relevance to the appeal', 'Birth of a child');
@@ -324,7 +324,7 @@ export class StartAppealFlow {
     }
   }
 
-  async completeOtherAppeals(clickContinue = false) {
+  async completeNewMatters(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Has the appellant appealed against any other UK immigration decision?', 'No');
 
@@ -471,8 +471,8 @@ export class StartAppealFlow {
     //   await this.completedGivenAppealGrounds(true, appealType);
     // }
     await this.completeDeportationOrder(true);
-    // await this.completeNewMatters(true); ICC_Automation-ToDo : bug new matters not shwon
-    await this.completeOtherAppeals(true);
+    await this.completeNewMatters(true); 
+    // await this.completeOtherAppeals(true); ICC_Automation-ToDo : bug new matters not shwon
     // await this.completeLegalRepresentativeDetails(true);
     await this.completeGivenFee(true, feeType);
     await this.completeRemissionDetails(true, 'no remission');
@@ -826,8 +826,10 @@ export class StartAppealFlow {
     }
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
-    await this.completeContactPreference(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeContactPreference(true);
+    // await this.ccdFormPage.setFieldValue('Mobile number (Optional)', '07977111111');
+    
   }
 
   async completeInternalClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '', appealType='') {
