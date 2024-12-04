@@ -12,7 +12,7 @@ Feature: Add a case note
 
     And I pay for and submit my appeal by PBA
 
-  @regression @add-case-note @RIA-575 @appeal-nightly-test @TAG-TO-CHANGE
+  @regression @add-case-note @RIA-575 @appeal-nightly-test
   Scenario: Add a case note with document
 
     And I switch to be a `Case Officer`
