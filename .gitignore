@@ -8,3 +8,6 @@ package-lock.json
 .yarn/cache
 /chrome
 /chromedriver
+
+e2e/testCounter.json
+
