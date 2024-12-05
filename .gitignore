@@ -12,3 +12,5 @@ package-lock.json
 e2e/testCounter.json
 protractorFailuresReport
 
+.vscode/
+cucumberTaggedFiles.json
