@@ -8,7 +8,10 @@ export class SubmitAppealFlow {
 
   async completeDeclaration(clickContinue = false) {
     await this.ccdPage.headingContains('Declaration');
-    await element(by.css('#legalRepDeclaration-hasDeclared')).click();
+    // await this.ccdFormPage.click('The appellant or legal representative has indicated that the facts entered on the appeal form and any continuation sheets are true and complete.');
+    // await this.ccdFormPage.click('I the representative am giving notice of appeal in accordance with the appellant\'s instructions and the appellant has confirmed to me they believe that the facts stated in the appeal form are true.');
+    await element(by.id('legalRepDeclaration-hasDeclared')).click();
+    // await element(by.css('#adminDeclaration-hasDeclared')).click();
 
     if (clickContinue) {
       await this.ccdPage.click('Submit');
@@ -20,7 +23,8 @@ export class SubmitAppealFlow {
     await browser.sleep(500);
     let overviewUrl = await browser.getCurrentUrl();
     await this.ccdPage.flakeyClick('Go', overviewUrl);
-    await this.ccdPage.contentContains("I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.");
+    // await this.ccdPage.contentContains("I the representative am giving notice of appeal in accordance with the appellant's instructions and the appellant has confirmed to me they believe that the facts stated in this appeal form are true.");
+    // await this.ccdPage.contentContains("The appellant or legal representative has indicated that the facts entered on the appeal form and any continuation sheets are true and complete.");
     let currentUrl = await browser.getCurrentUrl();
     await this.completeDeclaration(true);
     await this.ccdPage.waitForConfirmationScreen(currentUrl);

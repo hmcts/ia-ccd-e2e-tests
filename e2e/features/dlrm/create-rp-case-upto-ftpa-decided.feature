@@ -29,8 +29,8 @@ Feature: Create RP case upto FTPA submitted
     And I wait for 2 seconds
     And I record agreed hearing requirements yes path
     And I switch to be a `Admin Officer`
-    # And I wait for 2 seconds
-    # And I list the case
+    And I wait for 2 seconds
+    And I list the case
     # And I switch to be a `Case Officer`
     # And I wait for 2 seconds
     # And I create case summary
