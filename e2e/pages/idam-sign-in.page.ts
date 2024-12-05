@@ -1,4 +1,4 @@
-import { $, browser, ExpectedConditions } from 'protractor';
+import { $, browser, by, element, ExpectedConditions } from 'protractor';
 import { AnyPage } from './any.page';
 import { FormFiller } from '../helpers/form-filler';
 import { Wait } from '../enums/wait';
@@ -18,6 +18,8 @@ export class IdamSignInPage extends AnyPage {
     await this.formFiller.replaceText($(this.username), emailAddress);
     await this.formFiller.replaceText($(this.password), password);
     await $(this.signInButton).click();
+    await browser.wait(ExpectedConditions.elementToBeClickable(element(by.buttonText('Accept analytics cookies'))));
+    await element(by.buttonText('Accept analytics cookies')).click();
   }
 
   async isLoaded() {
