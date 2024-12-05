@@ -32,12 +32,12 @@ Feature: SnL Flow HU hearing request
     And I wait for 2 seconds
     And I record agreed hearing requirements yes path
     When I goto the `Case flags` tab
-    # And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
     And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
 
     ##Hearing Request
     And I wait for 3 seconds
-    When I goto the `Hearings` tab
+    When I goto the `hearings` tab
     And I wait for 8 seconds
     And I click the `Request a hearing` button
     And I wait for 3 seconds
@@ -92,12 +92,12 @@ Feature: SnL Flow HU hearing request
     And I wait for 2 seconds
     And I record agreed hearing requirements yes path
     When I goto the `Case flags` tab
-    # And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
     And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
 
     ##Hearing Request
     And I wait for 3 seconds
-    When I goto the `Hearings` tab
+    When I goto the `hearings` tab
     And I wait for 8 seconds
     And I click the `Request a hearing` button
     And I wait for 3 seconds
