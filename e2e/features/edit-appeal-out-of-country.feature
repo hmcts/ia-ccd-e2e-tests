@@ -19,7 +19,7 @@ Feature: Out of Country - Edit appeal
     And I should see `{$TODAY-10|DD MMM YYYY}` for the `Home Office decision letter sent` field
 
     When I click the `Appellant` tab
-    Then I should see `No` for the `Does the appellant have a fixed address?` field
+    Then I should see `No` for the `Does the appellant have a postal address?` field
     And I should see `Text message` for the `Communication Preference` field
     And I should see `07977111111` for the `Mobile phone number` field
     And I wait for 10 seconds
@@ -83,7 +83,7 @@ Feature: Out of Country - Edit appeal
     And I should see `{$TODAY-10|DD MMM YYYY}` for the `Home Office decision letter sent` field
 
     When I click the `Appellant` tab
-    Then I should see `No` for the `Does the appellant have a fixed address?` field
+    Then I should see `No` for the `Does the appellant have a postal address?` field
     And I should see `Text message` for the `Communication Preference` field
     And I should see `07977111111` for the `Mobile phone number` field
 

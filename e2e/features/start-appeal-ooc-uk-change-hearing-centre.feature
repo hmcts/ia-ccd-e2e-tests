@@ -27,7 +27,7 @@ Feature: Out of Country - Start appeal
     And I submit my nonpayment appeal
 
     When I click the `Appellant` tab
-    And I should see `No` in the `Does the appellant have a fixed address?` field
+    And I should see `No` in the `Does the appellant have a postal address?` field
 
     When I click the `Overview` tab
     Then I should see `Taylor House` for the `Hearing centre` field

@@ -15,7 +15,7 @@ Feature: Start an appeal application alternate paths
 
     # Start an appeal application without a fixed address
     Given I am on the `Your client's address` page
-    When I select `No` for the `Does the appellant have a fixed address?` field
+    When I select `No` for the `Does the appellant have a postal address?` field
     And I click the `Continue` button
 
      # Start an appeal application with mobile phone number
@@ -47,7 +47,7 @@ Feature: Start an appeal application alternate paths
     Then I am on the `DRAFT` page
 
     When I click the `Appellant` tab
-    Then I should see `No` for the `Does the appellant have a fixed address?` field
+    Then I should see `No` for the `Does the appellant have a postal address?` field
     And I should not see the `Explain what the new matters are and why they are relevant to this appeal.` field
     And I should not see the `If you prefer to use your own reference number for this case, you can enter it here.` field
 

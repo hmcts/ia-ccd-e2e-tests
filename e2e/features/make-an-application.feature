@@ -8,12 +8,12 @@ Feature: Legal representative make an application
     Then I should be on the overview page
     And I pay for and submit my appeal by Card
 
-  @Make-an-application-at-appeal-submitted @RIA-3457-make-an-application-at-appeal-submitted @RIA-3457 @appeal-nightly-test
+  @Make-an-application-at-appeal-submitted @RIA-3457-make-an-application-at-appeal-submitted @RIA-3457 @appeal-nightly-test-needs-fix
   Scenario: Make an application in appeal submitted state
 
     When I click the `Applications` tab
     Then I select the `Make an application` Next step
-    # And I should see the `Make an application` page
+    And I should see the `Type of application` page
     And I should see the option `Update appeal details` for the `Type of application` field
     And I should see the option `Withdraw` for the `Type of application` field
     And I should see the option `Link/unlink appeals` for the `Type of application` field

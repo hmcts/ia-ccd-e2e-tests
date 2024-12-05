@@ -42,7 +42,7 @@ let config = {
         binary: process.cwd() + '/chrome/linux-' + chromeVersion + '/chrome-linux64/chrome',
       },
       name: 'ia-chrome-linux-test',
-      extendedDebugging: true,
+      // extendedDebugging: true,
       sharedTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
       shardTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
       capturePerformance: false,

@@ -42,7 +42,7 @@ let config = {
         binary: process.cwd() + '/chrome/mac-' + chromeVersion + '/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing',
       },
       name: 'ia-chrome-mac-test',
-      extendedDebugging: true,
+      // extendedDebugging: true,
       sharedTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
       shardTestFiles: iaConfig.RunWithNumberOfBrowsers > 1,
       capturePerformance: false,

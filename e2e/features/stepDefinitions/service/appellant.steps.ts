@@ -21,7 +21,7 @@ Then(/^I should (see|not see) the appellant's details$/, async function (seeOrNo
     expect(await ccdPage.isFieldValueDisplayed('Family name', 'González')).to.equal(true);
     expect(await ccdPage.isFieldValueDisplayed('Date of birth', '31 Dec 1999')).to.equal(true);
     expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationalities', 'first')).to.equal(true);
-    expect(await ccdPage.isFieldValueDisplayed('Does the appellant have a fixed address?', 'No')).to.equal(true);
+    expect(await ccdPage.isFieldValueDisplayed('Does the appellant have a postal address?', 'No')).to.equal(true);
   } else {
     expect(await ccdPage.contentContains('Appeal reference', Wait.instant)).to.equal(false);
     expect(await ccdPage.contentContains('Title', Wait.instant)).to.equal(false);
@@ -29,7 +29,7 @@ Then(/^I should (see|not see) the appellant's details$/, async function (seeOrNo
     expect(await ccdPage.contentContains('Family name', Wait.instant)).to.equal(false);
     expect(await ccdPage.contentContains('Date of birth', Wait.instant)).to.equal(false);
     expect(await ccdPage.contentContains('Nationality', Wait.instant)).to.equal(false);
-    expect(await ccdPage.contentContains('Does the appellant have a fixed address?', Wait.instant)).to.equal(false);
+    expect(await ccdPage.contentContains('Does the appellant have a postal address?', Wait.instant)).to.equal(false);
   }
 });
 

@@ -13,7 +13,7 @@ Feature: Address details are entered manually without using postcode lookup
   Scenario: Start initial appeal application with a manually entered address
 
     Given I am on the `Your client's address` page
-    When I select `Yes` for the `Does the appellant have a fixed address?` field
+    When I select `Yes` for the `Does the appellant have a postal address?` field
     And I click the `I can't enter a UK postcode` link
     And I type `11 Downing Street` for the `Building and Street` field
     And I type `London` for the `Town or City` field
@@ -33,7 +33,7 @@ Feature: Address details are entered manually without using postcode lookup
     And I am on the `DRAFT` page
 
     When I click the `Appellant` tab
-    Then I should see `Yes` for the `Does the appellant have a fixed address?` field
+    Then I should see `Yes` for the `Does the appellant have a postal address?` field
     And within the `Address` fieldset, I should see `11 Downing Street` for the `Building and Street` field
     And within the `Address` fieldset, I should see `London` for the `Town or City` field
     And within the `Address` fieldset, I should see `SW1A 2AB` for the `Postcode/Zipcode` field

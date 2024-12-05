@@ -28,7 +28,7 @@ Feature: Start initial appeal application
     And I click the `Continue` button
 
     Given I am on the `Your client's address` page
-    When I select `Yes` for the `Does the appellant have a fixed address?` field
+    When I select `Yes` for the `Does the appellant have a postal address?` field
     And I see the text `Enter a UK postcode`
     And I type `SW1A 2AA` for the `Enter a UK postcode` field
     And I click the `Find address` button
@@ -90,7 +90,7 @@ Feature: Start initial appeal application
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
     And within the `Nationality` collection's second item, I should see `Iceland` for the `Nationality` answer
-    And I should see `Yes` for the `Does the appellant have a fixed address?` answer
+    And I should see `Yes` for the `Does the appellant have a postal address?` answer
     And within the `Address` fieldset, I should see `Prime Minister & First Lord Of The Treasury` for the `Building and Street` answer
     And within the `Address` fieldset, I should see `10 Downing Street` for the `Address Line 2` answer
     And within the `Address` fieldset, I should see `London` for the `Town or City` answer
@@ -129,7 +129,7 @@ Feature: Start initial appeal application
     And I should see `31 Dec 1999` for the `Date of birth` field
     And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And within the `Nationalities` collection's second item, I should see `Iceland` for the `Nationality` field
-    And I should see `Yes` for the `Does the appellant have a fixed address?` field
+    And I should see `Yes` for the `Does the appellant have a postal address?` field
     And within the `Address` fieldset, I should see `Prime Minister & First Lord Of The Treasury` for the `Building and Street` field
     And within the `Address` fieldset, I should see `10 Downing Street` for the `Address Line 2` field
     And within the `Address` fieldset, I should see `London` for the `Town or City` field
@@ -191,7 +191,7 @@ Feature: Start initial appeal application
     And I click the `Continue` button
 
     Given I am on the `Your client's address` page
-    When I select `No` for the `Does the appellant have a fixed address?` field
+    When I select `No` for the `Does the appellant have a postal address?` field
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
@@ -254,7 +254,7 @@ Feature: Start initial appeal application
     And I should see `31 Dec 1999` for the `Date of birth` answer
     #And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
    # And within the `Nationality` collection's second item, I should see `Iceland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
+    And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Text message` for the `Communication Preference` answer
     And I should see `07930111111` for the `Mobile phone number` answer
     And I should see `Refusal of protection claim` for the `Type of appeal` answer
@@ -287,7 +287,7 @@ Feature: Start initial appeal application
     And I should see `31 Dec 1999` for the `Date of birth` field
     And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And within the `Nationalities` collection's second item, I should see `Iceland` for the `Nationality` field
-    And I should see `No` for the `Does the appellant have a fixed address?` field
+    And I should see `No` for the `Does the appellant have a postal address?` field
     And I should see `Text message` for the `Communication Preference` field
     And I should see `07930111111` for the `Mobile phone number` field
     And I should see `IA Legal Services` for the `Company` field

@@ -4,7 +4,7 @@
 
 This service is to help people to run End2End Journey Tests for Immigration & Asylum.
 
-## Getting Started
+### Getting Started
 
 ### Prerequisites
 
