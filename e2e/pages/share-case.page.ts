@@ -243,12 +243,12 @@ export class ShareCasePage {
   async filterByAppealReference() {
     const jurisdictionPath = '//select[@id="wb-jurisdiction"]' + '/option[normalize-space()="Immigration & Asylum"]';
     await element(by.xpath(jurisdictionPath)).click();
-    if (iaConfig.CcdWebUrl.includes('aat')) {
-      await ccdFormPage.setFieldValue('Case type', 'Appeal* RIA-9604-searc');
+    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
+      await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
-      await ccdFormPage.setFieldValue('Case type', 'Appeal* RIA-9604-searc');
+      await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
     }
-    // await ccdFormPage.setFieldValue('Case type', 'Appeal* RIA-9604-searc');
+    // await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
     await browser.sleep(7000);
     let appealRefField = element(by.xpath("//*[@id='appealReferenceNumber']"));
     await appealRefField.clear();

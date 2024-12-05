@@ -14,7 +14,6 @@ Feature: Create and manage Case Flags For Admin
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page
         And I have created a `Complex Case` Flag in `Case level`
-        And I wait for 20 seconds
         When I goto the `Case flags` tab
         Then I should see the text `Case level flags`
         Then I should see the text `Complex Case`
@@ -25,7 +24,6 @@ Feature: Create and manage Case Flags For Admin
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page
         And I have created a `Complex Case` Flag in `Case level`
-        And I wait for 20 seconds
         Then I should see an alert confirming the case `has been updated with event: Create Flag`
         When I select the `Manage Flags` Next step
         And I will make `Complex Case` as In Active

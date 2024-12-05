@@ -14,7 +14,7 @@ Feature: New Share a Case (common component)
     And I filter the cases by the Appeal Reference
     And I wait for 30 seconds
 
-  @new-share-a-case @RIA-3845 @appeal-nightly-test-only-on-aat
+  @new-share-a-case @RIA-3845 @appeal-nightly-test
   Scenario: Add user to share a case
 
     And I select the most recent case to share
