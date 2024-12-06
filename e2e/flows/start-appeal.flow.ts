@@ -634,6 +634,30 @@ export class StartAppealFlow {
     await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
   }
 
+
+  async saveInitialInternalAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
+    await this.completeInternalClientDetails(false, hasFixedAddress, address, postcode, appealType);
+    // await this.completeGivenAppealType(true, appealType);
+    // if (appealType !== 'EU') {
+    //   await this.completedGivenAppealGrounds(true, appealType);
+    // }
+    await this.completeDeportationOrder(true);
+    // await this.completeNewMatters(true); ICC_Automation-ToDo : bug new matters not shwon
+    await this.completeOtherAppeals(true);
+    // await this.completeLegalRepresentativeDetails(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, 'no remission');
+    await this.completeUploadAppealForm(true);
+    if (appealType === 'PA') {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    // await this.completeAriaPage();
+    // let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    // await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
+  }
+
+  
   async saveInitialNonPaymentAppealOutOfCountry(
     clickContinue = false,
     appealType = "",

@@ -372,6 +372,9 @@ Given(
   }
 );
 
+Given(/^I save my initial internal `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/, async function (appealType, feeType, paymentChoice) {
+  await startAppealFlow.saveInitialInternalAppealWithoutRemission(true, appealType, feeType, paymentChoice);
+});
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/,
   async function (appealType, feeType, paymentChoice) {

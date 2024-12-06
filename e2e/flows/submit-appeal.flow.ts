@@ -1,6 +1,6 @@
 import { CcdPage } from '../pages/ccd.page';
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser, by, element } from 'protractor';
+import { browser } from 'protractor';
 
 export class SubmitAppealFlow {
   private ccdPage = new CcdPage();
