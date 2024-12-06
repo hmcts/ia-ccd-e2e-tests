@@ -81,7 +81,7 @@ export class PayAndSubmitAppealFlow {
     await this.ccdPage.waitForCssElementVisible('#card-no');
     await this.ccdFormPage.typeText(`card-no`, `4444333322221111`);
     await this.ccdFormPage.typeText(`expiry-month`, `10`);
-    await this.ccdFormPage.typeText(`expiry-year`, `24`);
+    await this.ccdFormPage.typeText(`expiry-year`, `29`);
     await this.ccdFormPage.typeText(`cardholder-name`, `Test User`);
     await this.ccdFormPage.typeText(`cvc`, `123`);
     await this.ccdFormPage.typeText(`address-line-1`, `123 Fake Street`);
@@ -94,7 +94,7 @@ export class PayAndSubmitAppealFlow {
 
     if (clickContinue) {
       await this.ccdPage.click('Return to service request');
-      if (currentUrl.includes('preview')) {
+      if (currentUrl.includes('pr-')) {
         await this.ccdPage.goToUrl(currentUrl);
       }
       await this.ccdPage.click('Overview');
