@@ -634,7 +634,6 @@ export class StartAppealFlow {
     await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
   }
 
-
   async saveInitialInternalAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
     await this.completeInternalClientDetails(false, hasFixedAddress, address, postcode, appealType);
     // await this.completeGivenAppealType(true, appealType);
@@ -657,8 +656,7 @@ export class StartAppealFlow {
     // await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
   }
 
-  
-  async saveInitialNonPaymentAppealOutOfCountry(
+    async saveInitialNonPaymentAppealOutOfCountry(
     clickContinue = false,
     appealType = "",
     appellantInUk = ""

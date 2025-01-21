@@ -1,0 +1,159 @@
+{
+    "requestDetails": {
+        "status": "LISTED",
+        "timestamp": "2025-01-16T09:34:07.793126",
+        "versionNumber": 1,
+        "hearingRequestID": "2000013115"
+    },
+    "hearingDetails": {
+        "listingAutoChangeReasonCode": "user-added-comments",
+        "hearingType": "BFA1-SUB",
+        "hearingWindow": null,
+        "duration": 60,
+        "hearingPriorityType": "Standard",
+        "numberOfPhysicalAttendees": 3,
+        "hearingInWelshFlag": false,
+        "hearingLocations": [
+            {
+                "locationType": "court",
+                "locationId": "366559"
+            }
+        ],
+        "listingComments": "additional-instructions-standard",
+        "privateHearingRequiredFlag": true,
+        "panelRequirements": {
+            "roleType": [
+                "84"
+            ],
+            "authorisationTypes": [],
+            "authorisationSubType": [],
+            "panelPreferences": [],
+            "panelSpecialisms": []
+        },
+        "hearingIsLinkedFlag": false,
+        "hearingChannels": [
+            "INTER"
+        ],
+        "autolistFlag": false,
+        "amendReasonCodes": [
+            "requirements-change"
+        ]
+    },
+    "caseDetails": {
+        "hmctsServiceCode": "BFA1",
+        "caseRef": "1728407388416220",
+        "externalCaseReference": "001234567",
+        "caseDeepLink": "https://manage-case.demo.platform.hmcts.net/cases/case-details/1728407388416220#Overview",
+        "hmctsInternalCaseName": "José González",
+        "publicCaseName": "1728407388416220",
+        "caseAdditionalSecurityFlag": false,
+        "caseInterpreterRequiredFlag": false,
+        "caseCategories": [
+            {
+                "categoryType": "caseType",
+                "categoryValue": "BFA1-EAD"
+            },
+            {
+                "categoryType": "caseSubType",
+                "categoryValue": "BFA1-EAD",
+                "categoryParent": "BFA1-EAD"
+            }
+        ],
+        "caseManagementLocationCode": "366559",
+        "caserestrictedFlag": false,
+        "caseSLAStartDate": "2025-01-16"
+    },
+    "partyDetails": [
+        {
+            "partyID": "001234567",
+            "partyType": "ORG",
+            "partyRole": "RESP",
+            "organisationDetails": {
+                "name": "Secretary of State",
+                "organisationType": "ORG",
+                "cftOrganisationID": null
+            }
+        },
+        {
+            "partyID": "92822b61-6ccc-44ae-8ee1-221b1ee41eea",
+            "partyType": "IND",
+            "partyRole": "APEL",
+            "individualDetails": {
+                "title": null,
+                "firstName": "José",
+                "lastName": "González",
+                "preferredHearingChannel": "INTER",
+                "interpreterLanguage": null,
+                "reasonableAdjustments": [
+                    "RA0019",
+                    "RA0043",
+                    "SM0004"
+                ],
+                "vulnerableFlag": false,
+                "vulnerabilityDetails": null,
+                "hearingChannelEmail": [],
+                "hearingChannelPhone": [],
+                "custodyStatus": null,
+                "otherReasonableAdjustmentDetails": "Single sex court: Female;"
+            },
+            "unavailabilityRanges": [
+                {
+                    "unavailableFromDate": "2019-12-31",
+                    "unavailableToDate": "2019-12-31",
+                    "unavailabilityType": "All Day"
+                }
+            ],
+            "partyName": "José González",
+            "unavailabilityDOW": []
+        },
+        {
+            "partyID": "a4f69966-8bfe-423a-87d8-fed32c3d2948",
+            "partyType": "IND",
+            "partyRole": "WITN",
+            "individualDetails": {
+                "title": null,
+                "firstName": "Jenny",
+                "lastName": "button",
+                "preferredHearingChannel": "INTER",
+                "interpreterLanguage": null,
+                "reasonableAdjustments": [],
+                "vulnerableFlag": null,
+                "vulnerabilityDetails": null,
+                "custodyStatus": null,
+                "otherReasonableAdjustmentDetails": ""
+            },
+            "partyName": "Jenny button"
+        }
+    ],
+    "hearingResponse": {
+        "hearingDaySchedule": [
+            {
+                "hearingStartDateTime": "2025-01-17T12:00:00",
+                "hearingEndDateTime": "2025-01-17T13:00:00",
+                "hearingVenueId": "366559",
+                "hearingRoomId": "Glasgow Tribunals Hearing Room 101",
+                "hearingJudgeId": null,
+                "panelMemberIds": null,
+                "attendees": [
+                    {
+                        "hearingSubChannel": "INTER",
+                        "partyID": "92822b61-6ccc-44ae-8ee1-221b1ee41eea"
+                    },
+                    {
+                        "hearingSubChannel": "INTER",
+                        "partyID": "a4f69966-8bfe-423a-87d8-fed32c3d2948"
+                    },
+                    {
+                        "hearingSubChannel": null,
+                        "partyID": "001234567"
+                    }
+                ],
+                "listAssistSessionID": null
+            }
+        ],
+        "laCaseStatus": "LISTED",
+        "listingStatus": "FIXED",
+        "receivedDateTime": "2025-01-16T09:41:00",
+        "requestVersion": 1
+    }
+}

@@ -1,0 +1,169 @@
+{
+    "hearingRequest": {
+        "listing": {
+            "listingAutoCreateFlag": false,
+            "listingPriority": "Standard",
+            "listingType": "BFA1-SUB",
+            "listingDuration": 60,
+            "listingNumberAttendees": 4,
+            "listingPrivateFlag": false,
+            "listingJohTiers": [
+                "84"
+            ],
+            "listingHearingChannels": [
+                "INTER"
+            ],
+            "listingLocations": [
+                {
+                    "locationType": "Court",
+                    "locationId": "366559",
+                    "locationReferenceType": "EPIMS"
+                }
+            ],
+            "amendReasonCode": "AMEND"
+        },
+        "entities": [
+            {
+                "entityId": "a025d84e-9572-43ef-a48d-05327e27adec",
+                "entityTypeCode": "IND",
+                "entityRoleCode": "APEL",
+                "entitySubType": {
+                    "entityClassCode": "PERSON",
+                    "entityFirstName": "José",
+                    "entityLastName": "González",
+                    "entitySensitiveClient": false,
+                    "entityInterpreterLanguage": "ben-bsy",
+                    "entitySpecialNeedsOther": "Interpreter: British Sign Language (BSL);"
+                },
+                "entityUnavailableDates": [
+                    {
+                        "unavailableStartDate": "2019-12-31T00:00:00Z",
+                        "unavailableEndDate": "2019-12-31T00:00:00Z",
+                        "unavailableType": "All Day"
+                    }
+                ],
+                "entityHearingChannel": "INTER",
+                "entityOtherConsiderations": [
+                    "RA0042"
+                ]
+            },
+            {
+                "entityId": "001234567",
+                "entityTypeCode": "ORG",
+                "entityRoleCode": "RESP",
+                "entitySubType": {
+                    "entityClassCode": "ORG",
+                    "entityCompanyName": "Secretary of State"
+                }
+            },
+            {
+                "entityId": "102cd8fd-2d96-44c4-b315-2432bce0ebf4",
+                "entityTypeCode": "IND",
+                "entityRoleCode": "WITN",
+                "entitySubType": {
+                    "entityClassCode": "PERSON",
+                    "entityFirstName": "Jenny",
+                    "entityLastName": "button",
+                    "entitySpecialNeedsOther": ""
+                },
+                "entityHearingChannel": "INTER"
+            },
+            {
+                "entityId": "7d20a328-db2b-4edd-bc55-8ae4e874bb25",
+                "entityTypeCode": "IND",
+                "entityRoleCode": "INTP",
+                "entitySubType": {
+                    "entityClassCode": "PERSON",
+                    "entityFirstName": "testnamechanged",
+                    "entityLastName": "sit test changed",
+                    "entitySpecialNeedsOther": "Booking Ref: list;  Notes: testnote"
+                },
+                "entityCommunications": [
+                    {
+                        "entityCommunicationDetails": "suniltest1234@gmail.com",
+                        "entityCommunicationType": "EMAIL"
+                    },
+                    {
+                        "entityCommunicationDetails": "07796123444",
+                        "entityCommunicationType": "PHONE"
+                    }
+                ],
+                "entityHearingChannel": "INTER"
+            },
+            {
+                "entityId": "13b1061b-6764-4afe-9f3a-8b07d004b42b",
+                "entityTypeCode": "IND",
+                "entityRoleCode": "INTP",
+                "entitySubType": {
+                    "entityClassCode": "PERSON",
+                    "entityFirstName": "rohith",
+                    "entityLastName": "tiru",
+                    "entitySpecialNeedsOther": "Booking Ref: bref2;  Notes: testnote2"
+                },
+                "entityCommunications": [
+                    {
+                        "entityCommunicationDetails": "rohith.tr@gmail.com",
+                        "entityCommunicationType": "EMAIL"
+                    },
+                    {
+                        "entityCommunicationDetails": "07870135183",
+                        "entityCommunicationType": "PHONE"
+                    }
+                ],
+                "entityHearingChannel": "INTER"
+            },
+            {
+                "entityId": "7324f564-cc3b-42ec-a252-76b9d448b188",
+                "entityTypeCode": "IND",
+                "entityRoleCode": "INTP",
+                "entitySubType": {
+                    "entityClassCode": "PERSON",
+                    "entityFirstName": "rohith2",
+                    "entityLastName": "tiru2",
+                    "entitySpecialNeedsOther": "Booking Ref: bref3;  Notes: testnote3"
+                },
+                "entityCommunications": [
+                    {
+                        "entityCommunicationDetails": "rohith.tr1@gmail.com",
+                        "entityCommunicationType": "EMAIL"
+                    },
+                    {
+                        "entityCommunicationDetails": "07870135184",
+                        "entityCommunicationType": "PHONE"
+                    }
+                ],
+                "entityHearingChannel": "INTER"
+            }
+        ],
+        "_case": {
+            "caseListingRequestId": "2000012928",
+            "caseTitle": "José González",
+            "caseJurisdiction": "BF",
+            "caseRegistered": "2024-12-16T00:00:00Z",
+            "caseCourt": {
+                "locationType": "Court",
+                "locationId": "366559",
+                "locationReferenceType": "EPIMS"
+            },
+            "caseClassifications": [
+                {
+                    "caseClassificationService": "BFA1",
+                    "caseClassificationType": "BFA1-HUD",
+                    "caseClassificationSubType": "BFA1-HUD"
+                }
+            ],
+            "caseInterpreterRequiredFlag": true,
+            "caseRestrictedFlag": false,
+            "caseVersionId": 3,
+            "caseLinks": [
+                {
+                    "url": "https://manage-case.demo.platform.hmcts.net/cases/case-details/1728490373069535#Overview"
+                }
+            ],
+            "casePublishedName": "José González",
+            "caseAdditionalSecurityFlag": false,
+            "linkedHearingGroupStatus": "Not Required",
+            "caseIdHMCTS": "1728490373069535"
+        }
+    }
+}
