@@ -10,7 +10,6 @@ const recordAgreedRequirementsFlow = new RecordAgreedRequirementsFlow();
 
 Then(/^I record agreed hearing requirements yes path$/, async function () {
   await recordAgreedRequirementsFlow.recordAgreedRequirementsYesPath(
-    true,
     true
   );
 });
