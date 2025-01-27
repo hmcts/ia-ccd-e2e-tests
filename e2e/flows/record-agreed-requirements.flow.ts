@@ -5,7 +5,7 @@ export class RecordAgreedRequirementsFlow {
   private ccdFormPage = new CcdFormPage();
 
   async recordAgreedRequirementsYesPath(clickContinue = false) {
-    await this.ccdFormPage.selectNextStep('Hearing requirements');
+    await this.ccdFormPage.selectNextStep('Review hearing requirements');
     let overviewUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.flakeyClick('Go', overviewUrl);
     await this.ccdFormPage.waitForSpinner();
