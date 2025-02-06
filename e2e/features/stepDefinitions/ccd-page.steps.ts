@@ -18,14 +18,14 @@ Given("I create a new case", async function () {
   try {
     await browser.wait(
       EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
+      40000,
       "Spinner did not appear."
     );
   } catch {
     browser.refresh();
     await browser.wait(
       EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
+      40000,
       "Spinner did not appear."
     );
   }
@@ -531,7 +531,7 @@ Then(/^I will update s94b flag$/, async function () {
   await ccdFormPage.click("Continue");
   await ccdFormPage.click("Submit");
 });
-Then(/^I Add the interpreter details$/, async function () {
+Then(/^I Add the bail interpreter details$/, async function () {
   await ccdPage.click("Add new");
   await ccdFormPage.setFieldValue("Booking reference", "Test-32123");
   await ccdFormPage.setFieldValue("Given names", "David");

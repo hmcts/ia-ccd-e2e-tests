@@ -13,13 +13,13 @@ Feature: Bails Send direction
     Then I am on the `Direction details` page
     And The page is accessible
     When I type `This is a test direction to the Applicant` for the `Explain the direction you are issuing` field
-    And I select `Applicant` for the `Who are you giving direction to?` field
+    And I select `Legal representative` for the `Who are you giving direction to?` field
     And I type `10-02-2025` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
     And I should see `This is a test direction to the Applicant` for the `Explain the direction you are issuing` field
-    And I should see `Applicant` in the `Who are you giving direction to?` field
+    And I should see `Legal representative` in the `Who are you giving direction to?` field
     And I should see `10 Feb 2025` in the `By what date must they comply?` field
     When I click the `Send the direction` button
     Then I should see the text `You have sent a direction`
@@ -29,7 +29,7 @@ Feature: Bails Send direction
     
     When I click the `Directions` tab
     Then within the `Directions` collection's first item, I should see `This is a test direction to the Applicant` for the `Explanation` field
-    And within the `Directions` collection's first item, I should see `Applicant` for the `Party` field
+    And within the `Directions` collection's first item, I should see `Legal representative` for the `Party` field
     And within the `Directions` collection's first item, I should see `10 Feb 2025` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 

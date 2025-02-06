@@ -18,7 +18,7 @@ Feature: Bails Update interpreter details application as Legal Rep
     And I wait for 5 seconds
     When I select the `Update interpreter details` Next step
     Then I should see the text `Update interpreter details`
-    When I Add the interpreter details
+    When I Add the bail interpreter details
     And I click the `Close and Return to case details` button
  
  @bail-nightly-test

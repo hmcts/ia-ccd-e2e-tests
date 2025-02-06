@@ -144,7 +144,7 @@ export class CcdPage extends AnyPage {
   }
 
   async acceptCookies() {
-    let userID =  (await browser.manage().getCookie("__userid__"))["value"];
+    let userID = (await browser.manage().getCookie("__userid__"))["value"];
     let cookieName = `hmcts-exui-cookies-${userID}-mc-accepted`;
     let cookieValue = "true";
     let cookieDomain =

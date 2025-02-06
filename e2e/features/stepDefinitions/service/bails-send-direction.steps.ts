@@ -3,6 +3,6 @@ import { Given } from 'cucumber';
 
 const sendDirectionFlow = new SendDirection();
 
-Given(/^I send a direction to the `(Applicant|Home Office|Legal Representative)`$/, async function (receiver) {
+Given(/^I send a direction to the `(Home Office|Legal representative)`$/, async function (receiver) {
   await sendDirectionFlow.sendDirection(true, receiver);
 });

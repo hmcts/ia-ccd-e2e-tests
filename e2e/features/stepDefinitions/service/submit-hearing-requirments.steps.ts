@@ -1,4 +1,4 @@
-import { Given, Then, When } from "cucumber";
+import { Given, Then } from "cucumber";
 import { expect } from "chai";
 import { Wait } from "../../../enums/wait";
 import { CcdPage } from "../../../pages/ccd.page";
@@ -443,7 +443,9 @@ Given(
 Given(/^I add the `?([^`]+)`? hearing location$/, async function (location) {
   await submitHearingRequirementsFlow.setHearingLocation(true, location);
 });
-
+Given(/^I add the `?([^`]+)`? bail hearing location$/, async function (location) {
+  await submitHearingRequirementsFlow.setBailsHearingLocation(true, location);
+});
 Then(/^I Add the interpreter details$/, async function () {
   await ccdPage.click("Add new");
   await ccdFormPage.setFieldValue("Booking reference", "Test-32123");
@@ -460,6 +462,6 @@ Then(/^I Add the interpreter details$/, async function () {
 
   await ccdFormPage.click("Update");
 });
-When(/^I add the `?([^`]+)`? hearing location$/, async function (location) {
-  await submitHearingRequirementsFlow.setHearingLocation(true, location);
-});
+// When(/^I add the `?([^`]+)`? hearing location$/, async function (location) {
+//   await submitHearingRequirementsFlow.setHearingLocation(true, location);
+// });

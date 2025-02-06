@@ -16,7 +16,7 @@ Feature: Bails Edit application postSubmit
     
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
-    And I should see `Yarlswood` for the `Hearing centre` field
+    And I should see `Yarls Wood Immigration And Asylum Hearing Centre` for the `Hearing centre` field
     And I should see `76543210` for the `Home Office reference` field
     And I should see `Edited Legal Representative Company` for the `Company` field
     And I should see `Edited Legal Representative Name` for the `Name` field
@@ -30,8 +30,7 @@ Feature: Bails Edit application postSubmit
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Has the applicant made a previous application before?` field
     And I should see `No` for the `Financial condition` field
-#    TODO uncomment on deployment of https://tools.hmcts.net/jira/browse/DIAC-398
-#    And I should see `No` for the `Financial condition supporter` field
+    And I should see `No` for the `Financial condition supporter` field
     And I should see `Edited grounds for bail` for the `Enter the bail grounds` field
     And I should see `No` for the `Management of bail` field
     And I should see `No` for the `Supporting evidence` field

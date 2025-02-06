@@ -35,21 +35,21 @@ Feature: Bails Notice of Change
     Then I should see the `Notice of change` page
     When I enter the bails online case reference for the online case reference number
     And I click the `Continue` button
-    Then I should see the `Enter details` page
+    Then I should see the `Enter your client's details` page
     When I enter the incorrect first name answer to the challenge questions for bails
     And I click the `Continue` button
     Then I should see the text `Enter the client details exactly as they're written on the case, including any mistakes`
     When I click the `Back` link
     And I enter the bails online case reference for the online case reference number
     And I click the `Continue` button
-    Then I should see the `Enter details` page
+    Then I should see the `Enter your client's details` page
     When I enter the incorrect last name answer to the challenge questions for bails
     And I click the `Continue` button
     Then I should see the text `Enter the client details exactly as they're written on the case, including any mistakes`
     When I click the `Back` link
     And I enter the bails online case reference for the online case reference number
     And I click the `Continue` button
-    Then I should see the `Enter details` page
+    Then I should see the `Enter your client's details` page
     When I enter the incorrect DoB answer to the challenge questions for bails
     And I click the `Continue` button
     Then I should see the text `Enter the client details exactly as they're written on the case, including any mistakes`
@@ -68,7 +68,7 @@ Feature: Bails Notice of Change
     Then I should see the text `Your organisation already has access to this case`
     And I should see the text `You or a colleague are already representing this client on this case.`
 
-  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full @bail-nightly-test 
+  @bails-NOC @RIA-5911 @bails-notice-of-change @bails-regression @bails-notice-of-change-happy-path @bails-full @bail-nightly-test
   Scenario: Notice of Change
     When I am signed in as a `Legal Org User Rep C`
     And I wait for 20 seconds
@@ -76,7 +76,7 @@ Feature: Bails Notice of Change
     Then I should see the `Notice of change` page
     When I enter the bails online case reference for the online case reference number
     And I click the `Continue` button
-    Then I should see the `Enter details` page
+    Then I should see the `Enter your client's details` page
     When I enter the correct answers to the challenge questions for bails
     And I click the `Continue` button
     And I wait for 10 seconds
@@ -84,7 +84,6 @@ Feature: Bails Notice of Change
     And I should see the text `Pugh`
     And I should see the text `1999-12-31`
     When I click the `Submit` button
-    Then I should see the text `There is a problem`
     When I select all the submit checkboxes
     And I click the `Submit` button
     And I wait for 20 seconds

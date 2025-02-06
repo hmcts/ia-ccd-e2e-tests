@@ -14,6 +14,7 @@ Then(/^I should see an alert confirming the case `?([^`]+)`?$/, async function (
 Then(/^I select the `?([^`]+)`? Next step$/, async function (nextStep) {
   await ccdPage.runAccessbility();
   await ccdPage.selectNextStep(nextStep);
+  await browser.sleep(5000);
   let overviewUrl = await browser.getCurrentUrl();
   await ccdPage.flakeyClick('Go', overviewUrl);
 });
