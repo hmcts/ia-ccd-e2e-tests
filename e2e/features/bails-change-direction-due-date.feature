@@ -6,9 +6,9 @@ Feature: Bails Change Direction Due Date
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
     And I switch to be a `Admin Officer Bails`
-    And I send a direction to the `Applicant`
+    And I send a direction to the `Legal representative`
 
-  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails-full @bails-regression @bail-nightly-test 
+  @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails-full @bails-regression @bail-nightly-test
   Scenario: Change a direction due date as an Admin Officer
     When I select the `Change direction due date` Next step
     Then I am on the `Select direction` page

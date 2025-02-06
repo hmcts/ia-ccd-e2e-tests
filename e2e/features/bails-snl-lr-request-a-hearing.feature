@@ -52,7 +52,7 @@ Feature: Bails SNL Hearing request as as Legal Rep
     And I click the `Bail` button
     And I click the `Continue` button
     And I click the `Continue` button
-    And I add the `Hatton Cross` hearing location
+    And I add the `Hatton Cross` bail hearing location
     And I click the `Continue` button
     And I should see the text `Do you want a specific judge?`
     And I click the `Continue` button

@@ -6,7 +6,7 @@ Feature: Bails List Case
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
-  @bails-full #@bail-nightly-test
+  @bails-full
   # TODO needs to be fixed
   Scenario: List case via ILA
     When I switch to be a `Admin Officer Bails`
