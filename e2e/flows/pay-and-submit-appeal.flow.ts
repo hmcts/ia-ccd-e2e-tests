@@ -81,7 +81,7 @@ export class PayAndSubmitAppealFlow {
     await this.ccdPage.waitForCssElementVisible('#card-no');
     await this.ccdFormPage.typeText(`card-no`, `4444333322221111`);
     await this.ccdFormPage.typeText(`expiry-month`, `10`);
-    await this.ccdFormPage.typeText(`expiry-year`, `24`);
+    await this.ccdFormPage.typeText(`expiry-year`, `30`);
     await this.ccdFormPage.typeText(`cardholder-name`, `Test User`);
     await this.ccdFormPage.typeText(`cvc`, `123`);
     await this.ccdFormPage.typeText(`address-line-1`, `123 Fake Street`);

@@ -76,7 +76,7 @@ export class StartAppealFlow {
     } else {
       await this.ccdFormPage.setFieldValue(
         "Home Office Reference/Case ID",
-        "01234567"
+        "012345678"
       );
     }
     if (ooc) {
@@ -86,7 +86,7 @@ export class StartAppealFlow {
       );
     } else {
       await this.ccdFormPage.setFieldValue(
-        "Enter the date the decision letter was sent",
+        "What date was the Home Office decision letter sent?",
         "{$TODAY-10}"
       );
     }
@@ -216,7 +216,7 @@ export class StartAppealFlow {
       );
     } else {
       await this.ccdFormPage.setFieldValue(
-        "Does the appellant have a fixed address?",
+        "Does the appellant have a postal address?",
         "Yes"
       );
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", postcode);
@@ -384,7 +384,7 @@ export class StartAppealFlow {
 
   async completeOtherAppeals(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue("Other appeals", "No");
+    await this.ccdFormPage.setFieldValue("Has the appellant appealed against any other UK immigration decision?", "No");
 
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
@@ -554,6 +554,11 @@ export class StartAppealFlow {
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeContactPreference(true);
+   
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -1003,10 +1008,7 @@ export class StartAppealFlow {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReference(true);
     await this.completeUploadNoticeDecisionNoUpload(true);
-    await this.completeBasicDetails(true);
-    await this.completeNationality(true);
-    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
-    await this.completeContactPreference(true);
+    
   }
 
   async completeOutOfTimeClientDetails(
@@ -1073,7 +1075,7 @@ export class StartAppealFlow {
     if (remissionOption === "no remission") {
       await this.ccdFormPage.setFieldValue(
         "Choose one of the following statements",
-        "My client is not eligible for a fee remission"
+        "The appellant is not eligible for a fee remission"
       );
     }
     if (remissionOption === "a remission") {
