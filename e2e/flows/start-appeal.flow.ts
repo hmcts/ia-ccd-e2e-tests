@@ -558,7 +558,6 @@ export class StartAppealFlow {
     await this.completeNationality(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
-   
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -1008,7 +1007,6 @@ export class StartAppealFlow {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReference(true);
     await this.completeUploadNoticeDecisionNoUpload(true);
-    
   }
 
   async completeOutOfTimeClientDetails(
