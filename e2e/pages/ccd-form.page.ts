@@ -1,5 +1,8 @@
 import { CcdPage } from "./ccd.page";
-import { $, browser, ExpectedConditions, By, protractor } from "protractor";
+import { $, browser, ExpectedConditions, By, by, protractor } from "protractor";
+const remote = require("selenium-webdriver/remote");
+const path = require("path");
+const { WebDriver } = require("selenium-webdriver");
 
 export class CcdFormPage extends CcdPage {
   async fieldErrorContains(match: string) {
@@ -87,5 +90,18 @@ export class CcdFormPage extends CcdPage {
   }
   async clickElement(fieldID: any) {
     browser.driver.findElement(By.xpath(`//*[@id='${fieldID}']`)).click();
+  }
+  async uploadFile(filename: string, number = 0) {
+    await browser.sleep(1000);
+    let fileDetector = WebDriver.fileDetector;
+    browser.setFileDetector(new remote.FileDetector());
+    let absolutePath = path.resolve("documents", filename);
+    await browser.element
+      .all(by.css("input[type=file]"))
+      .get(number)
+      .sendKeys(absolutePath);
+    browser.setFileDetector(fileDetector);
+    await browser.sleep(5000);
+
   }
 }

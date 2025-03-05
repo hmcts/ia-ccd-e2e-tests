@@ -9,19 +9,18 @@ export class AddAppealResponseFlow {
     let overviewUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.flakeyClick('Go', overviewUrl);
     await this.ccdFormPage.waitForSpinner();
-
     await this.ccdFormPage.headingContains('Add appeal response');
-    await this.ccdFormPage.setFieldValue('Response document', '{@AppealResponse.pdf}', 'document');
+    await this.ccdFormPage.uploadFile('AppealResponse.pdf', 0);
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the appeal response', 'text area');
 
     await this.ccdFormPage.addCollectionItem('Evidence (Optional)');
+    await this.ccdFormPage.uploadFile('AppealResponseEvidence.pdf', 1);
 
-    await this.ccdFormPage.setFieldValue('Document (Optional)', '{@AppealResponseEvidence.pdf}', 'document', 'first', 'Evidence (Optional)', 'first');
+   //  await this.ccdFormPage.setFieldValue('Document (Optional)', '{@AppealResponseEvidence.pdf}', 'document', 'first', 'Evidence (Optional)', 'first');
 
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the appeal response evidence', 'text area', 'first', 'Evidence (Optional)', 'first');
     await this.ccdFormPage.click('Continue');
     await this.ccdFormPage.click('Upload');
-
     if (clickContinue) {
       await this.ccdFormPage.click('Close and Return to case details');
     }
