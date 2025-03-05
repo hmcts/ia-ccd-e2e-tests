@@ -78,7 +78,7 @@ Feature: List case
 
     And I should see the `Hearing documents` field
     And within the `Hearing documents` collection's first item, I should see `-Gonzlez-hearing-notice.PDF` in the `Document` field
-    And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
+    And within the `Hearing documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` in the `Date uploaded` field
 
   # Examples:
   #   | hearingCentre | address                                                  | postcode |

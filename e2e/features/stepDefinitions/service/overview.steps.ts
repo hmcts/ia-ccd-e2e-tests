@@ -29,7 +29,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
     expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationalities', 'first')).to.equal(true);
     expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'Refusal of protection claim')).to.equal(true);
 
-    expect(await ccdPage.contentContains('001234567', Wait.instant)).to.equal(true);
+    expect(await ccdPage.contentContains('012345678', Wait.instant)).to.equal(true);
   } else {
     expect(await ccdPage.contentContains('Appeal reference', Wait.instant)).to.equal(false);
     expect(await ccdPage.contentContains('Appellant name', Wait.instant)).to.equal(false);
