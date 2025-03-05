@@ -494,7 +494,7 @@ Then(
     await browser.sleep(3000);
     await ccdFormPage.click("Next");
     await ccdFormPage.typeText(
-      `flagComments`,
+      `flagComment`,
       `just comment for interpreter languages`
     );
     await ccdFormPage.click("Next");
