@@ -8,7 +8,7 @@ export class RecordAgreedRequirementsFlow {
     clickContinue = false,
     isListAssistIntegrated = false
   ) {
-    await this.ccdFormPage.selectNextStep("Hearing requirements");
+    await this.ccdFormPage.selectNextStep("Review hearing requirements");
     let overviewUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.flakeyClick("Go", overviewUrl);
     await this.ccdFormPage.waitForSpinner();
@@ -26,13 +26,14 @@ export class RecordAgreedRequirementsFlow {
       "Remote hearing requirement will be reviewed"
     );
 
+    await browser.sleep(1000);
     await this.ccdFormPage.click("Granted");
 
     await this.ccdFormPage.setFieldValue(
       "Adjustments to accommodate vulnerabilities",
       "Physical or mental health conditions will be reviewed"
     );
-
+    await browser.sleep(1000);
     await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.click("Granted");
@@ -41,7 +42,7 @@ export class RecordAgreedRequirementsFlow {
       "Multimedia equipment",
       "Multimedia equipment requirement will be reviewed"
     );
-
+    await browser.sleep(1000);
     await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.click("Granted");
@@ -50,7 +51,7 @@ export class RecordAgreedRequirementsFlow {
       "Single-sex court",
       "Single sex court requirement will be reviewed"
     );
-
+    await browser.sleep(1000);
     await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.click("Granted");
@@ -59,7 +60,7 @@ export class RecordAgreedRequirementsFlow {
       "In camera court",
       "Private hearing requirement will be reviewed"
     );
-
+    await browser.sleep(1000);
     await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.click("Granted");
@@ -68,15 +69,17 @@ export class RecordAgreedRequirementsFlow {
       "Other adjustments",
       "Additional adjustments requirement will be reviewed"
     );
-
+    await browser.sleep(1000);
     await this.ccdFormPage.click("Continue");
     await this.ccdFormPage.click("In Person");
+    await browser.sleep(1000);
     await this.ccdFormPage.click("Continue");
 
     await this.ccdFormPage.setFieldValue(
       "Is the appeal suitable to float?",
       "No"
     );
+    await browser.sleep(1000);
     await this.ccdFormPage.click("Continue");
 
     // await this.ccdFormPage.setFieldValue(
@@ -93,8 +96,10 @@ export class RecordAgreedRequirementsFlow {
       "Additional Instructions",
       "Adding Additional instructions for the test"
     );
-
+    await browser.sleep(2000);
     await this.ccdFormPage.click("Continue");
+    await browser.sleep(2000);
+    await this.ccdFormPage.headingContains("Check your answers");
 
     await this.ccdFormPage.click("Submit");
 
