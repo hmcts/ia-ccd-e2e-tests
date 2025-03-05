@@ -10,7 +10,7 @@ export class AddAppealResponseFlow {
     await this.ccdFormPage.flakeyClick('Go', overviewUrl);
     await this.ccdFormPage.waitForSpinner();
     await this.ccdFormPage.headingContains('Add appeal response');
-    await this.ccdFormPage.uploadFile('AppealResponse.pdf', 0);
+    await this.ccdFormPage.uploadFile('AppealResponse.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the appeal response', 'text area');
 
     await this.ccdFormPage.addCollectionItem('Evidence (Optional)');
