@@ -11,14 +11,13 @@ export class BuildCaseFlow {
     let overviewUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.flakeyClick('Go', overviewUrl);
     await this.ccdFormPage.waitForSpinner();
-
-    await this.ccdFormPage.setFieldValue('Appeal skeleton argument', '{@CaseArgument.pdf}', 'document');
-
+    await this.ccdFormPage.uploadFile('CaseArgument.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the case argument', 'text area');
 
     await this.ccdFormPage.addCollectionItem('Evidence (Optional)');
+   await this.ccdFormPage.uploadFile('CaseArgumentEvidence.pdf', 1);
 
-    await this.ccdFormPage.setFieldValue('Document (Optional)', '{@CaseArgumentEvidence.pdf}', 'document', 'first', 'Evidence (Optional)', 'first');
+   //  await this.ccdFormPage.setFieldValue('Document (Optional)', '{@CaseArgumentEvidence.pdf}', 'document', 'first', 'Evidence (Optional)', 'first');
 
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'The is the case argument evidence', 'text area', 'first', 'Evidence (Optional)', 'first');
     await this.ccdFormPage.click('Continue');

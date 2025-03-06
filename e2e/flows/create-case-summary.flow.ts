@@ -9,13 +9,9 @@ export class CaseSummaryFlow {
     let overviewUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.flakeyClick('Go', overviewUrl);
     await this.ccdFormPage.waitForSpinner();
-
     await this.ccdFormPage.headingContains('Create case summary');
-
-    await this.ccdFormPage.setFieldValue('Case summary document', '{@CaseSummary.pdf}', 'document');
-
-    await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the case summary', 'text area');
-
+    await this.ccdFormPage.uploadFile('CaseSummary.pdf');
+    await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the case summary', 'text area'); 
     await this.ccdFormPage.click('Continue');
     await this.ccdFormPage.click('Upload');
 
