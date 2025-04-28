@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json",
+    "test": "npm run test:setupFunctional",
     "test:setupFunctional": "npx @puppeteer/browsers install chrome@123 --platform linux; npx @puppeteer/browsers install chromedriver@123 --platform linux; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192';",
     "test:appealFullfunctional": "yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @appeal-nightly-test; protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@appeal-nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:bailFullfunctional": "yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @bail-nightly-test; protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@bail-nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
@@ -72,5 +73,8 @@
     "tough-cookie": "4.1.3",
     "ws": "^6.2.3",
     "micromatch": "4.0.8"
+  },
+  "overrides": {
+    "cross-spawn": "^7.0.5"
   }
 }
