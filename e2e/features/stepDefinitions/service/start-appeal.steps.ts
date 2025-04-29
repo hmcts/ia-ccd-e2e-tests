@@ -208,6 +208,10 @@ Given(/^I save my initial internal `?([^\s`]+)`? appeal type without remission a
   await startAppealFlow.saveInitialInternalAppealWithoutRemission(true, appealType, feeType, paymentChoice);
 });
 
+Given(/^I save my initial detained `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/, async function (appealType, feeType, paymentChoice) {
+  await startAppealFlow.saveInitialDetainedAppealWithoutRemission(true, appealType, feeType, paymentChoice);
+});
+
 Given(/^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/, async function (appealType, feeType, paymentChoice) {
   await startAppealFlow.saveInitialAppealWithoutRemission(true, appealType, feeType, paymentChoice);
 });

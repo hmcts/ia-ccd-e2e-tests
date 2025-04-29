@@ -36,7 +36,7 @@ Given('I create a new case', async function () {
   await ccdPage.doesDropdownHaveValues('Case type');
 
   if (iaConfig.CcdWebUrl.includes('xui-ia-case-api-pr')) {
-    await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
+    await ccdFormPage.setFieldValue('Case type', 'Appeal* feature/detain');
   } else if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
     await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
   } else if (iaConfig.CcdWebUrl.includes('demo')) {

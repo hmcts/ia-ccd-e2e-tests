@@ -66,6 +66,17 @@ export class StartAppealFlow {
     }
   }
 
+  async completeDetainedScreeningQuestions(clickContinue = false) {
+    await this.ccdFormPage.headingContains('Location');
+    await this.ccdFormPage.setFieldValue('Is the appellant currently living in the United Kingdom?', 'Yes');
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.headingContains('Detention');
+    await this.ccdFormPage.setFieldValue('Is the appellant currently in detention?', 'Yes');
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+  }
+
   async completeScreeningQuestionsOutOfCountry(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.click('My client is not in detention');
@@ -110,7 +121,7 @@ export class StartAppealFlow {
     if (homeOfficeReferenceNumber !== '') {
       await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', homeOfficeReferenceNumber);
     } else {
-      await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '01234567');
+      await this.ccdFormPage.setFieldValue('Home Office Reference/Case ID', '012345678');
     }
     if (ooc) {
       await this.ccdFormPage.setFieldValue('What date was the Home Office decision letter received?', '{$TODAY-2}');
@@ -179,7 +190,8 @@ export class StartAppealFlow {
   async completeBasicDetails(clickContinue = false, isInternal = false) {
     await this.ccdFormPage.runAccessbility();
     if (!isInternal) {
-      await this.ccdFormPage.setFieldValue('Title', 'Mr'); // ICC-Automation-ToDo: Bug to be addressed. Title not visible for admin
+      await this.ccdFormPage.setFieldValue('Title', 'Mr');
+      // ICC-Automation-ToDo: Bug to be addressed. Title not visible for admin
     }
     await this.ccdFormPage.setFieldValue('Given names', 'José');
     await this.ccdFormPage.setFieldValue('Family name', 'González');
@@ -198,6 +210,27 @@ export class StartAppealFlow {
     await this.ccdFormPage.addCollectionItem('Nationality');
     await this.ccdFormPage.setFieldValue('Nationality', 'Finland', 'select list', 'first', 'Nationality', 'first');
     await browser.sleep(2000);
+
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
+  async completeImmigrationRemovalLocation(clickContinue = false) {
+    await browser.sleep(3000);
+    await this.ccdFormPage.runAccessbility();
+    // await this.ccdFormPage.setFieldValue('Immigration removal centre name', 'In which immigration removal centre is the appellant detained?');
+    // await browser.sleep(3000);
+    // await this.ccdFormPage.addCollectionItem('Immigration removal centre name');
+    await this.ccdFormPage.setFieldValue('Immigration removal centre name', 'Brookhouse', 'select list', 'first', 'Immigration removal centre name', 'first');
+    await browser.sleep(2000);
+    await this.ccdFormPage.click('Continue');
+  }
+
+  async completeAppellantSponsor(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await browser.sleep(2000);
+    await this.ccdFormPage.setFieldValue('Does the appellant have a sponsor?', 'No');
 
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
@@ -306,12 +339,28 @@ export class StartAppealFlow {
 
   async completeOtherAppeals(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.setFieldValue('Are there any new reasons your client wishes to remain in the UK ' + 'or any new grounds on which they should be permitted to stay?', 'Yes');
-    await this.ccdFormPage.setFieldValue('Explain these new matters and their relevance to the appeal', 'Birth of a child');
+    await this.ccdFormPage.setFieldValue('Has the appellant appealed against any other UK immigration decision?', 'Yes, but an appeal number was not provided');
+    // await this.ccdFormPage.setFieldValue('Explain these new matters and their relevance to the appeal', 'Birth of a child');
 
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
+  }
+  async completeBailapplication(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Does the appellant have a pending bail application?', 'Yes');
+    await this.ccdFormPage.setFieldValue(`What is the appellant's bail application number?`, 'AB/12345' );
+    // await this.ccdFormPage.setFieldValue('Explain these new matters and their relevance to the appeal', 'Birth of a child');
+    await this.ccdFormPage.click('Continue');
+  }
+  async completeDetentionFacility(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Detention facility', 'Immigration removal centre');
+
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+
   }
 
   async completeDeportationOrder(clickContinue = false) {
@@ -324,11 +373,30 @@ export class StartAppealFlow {
     }
   }
 
+  async completeRemovaldirections(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await browser.sleep(2000);
+    await this.ccdFormPage.setFieldValue('Are removal directions currently set for the appellant?', 'Yes');
+    await this.ccdFormPage.setFieldValue('What date and time is set for the removal? (Optional)',  '{$TODAY+14|DD-MM-YYYY} 10:30:00');
+
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
   async completeNewMatters(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Has the appellant appealed against any other UK immigration decision?', 'No');
 
     if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
+  async completeDetainedNewMatters(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Are there any reasons the appellant wishes to remain in the UK or any new grounds on which they should be permitted to stay?', 'No');
+      if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
   }
@@ -477,6 +545,28 @@ export class StartAppealFlow {
     await this.completeGivenFee(true, feeType);
     await this.completeRemissionDetails(true, 'no remission');
     await this.completeUploadAppealForm(true);
+    if (appealType === 'PA') {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    // await this.completeAriaPage();
+    // let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    // await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
+  }
+
+    async saveInitialDetainedAppealWithoutRemission(clickContinue = false, appealType = '', feeType = '', paymentChoice = '', hasFixedAddress = false, address = '', postcode = '') {
+    await this.completeDetainedClientDetails(false, hasFixedAddress, address, postcode, appealType);
+   // await this.completeGivenAppealType(true, appealType);
+   // if (appealType !== 'EU') {
+   //   await this.completedGivenAppealGrounds(true, appealType);
+   // }
+    await this.completeDeportationOrder(true);
+    await this.completeRemovaldirections(true);
+    await this.completeDetainedNewMatters(true);
+    await this.completeOtherAppeals(true); // ICC_Automation-ToDo : bug new matters not shwon
+    await this.completeLegalRepresentativeDetails(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, 'no remission');
     if (appealType === 'PA') {
       await this.completeHowToPay(true, paymentChoice);
     }
@@ -846,6 +936,27 @@ export class StartAppealFlow {
     // await this.completeContactPreference(true);
     await this.ccdFormPage.setFieldValue('Mobile number (Optional)', '07977111111');
     await this.ccdFormPage.click('Continue');
+  }
+
+  async completeDetainedClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '', appealType = '') {
+    await this.completeDetainedScreeningQuestions(true);
+    await this.completeDetentionFacility(true);
+    await this.completeImmigrationRemovalLocation(true);
+    await this.completeBailapplication(true);
+    await this.completeInternalHomeOfficeReference(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
+     if (appealType !== 'EU') {
+       await this.completedGivenAppealGrounds(true, appealType);
+     }
+    await this.completeBasicDetails(true, false);
+    await this.completeNationality(true);
+    await this.completeAppellantSponsor(true);
+    // await this.completeClientAddress(false, true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
+    // await this.completeClientAddress(true, true, address, postcode, true);
+    // await this.completeContactPreference(true);
+    // await this.ccdFormPage.setFieldValue('Mobile number (Optional)', '07977111111');
+    // await this.ccdFormPage.click('Continue');
   }
 
   async completeOutOfTimeClientDetails(clickContinue = false, hasFixedAddress = false, address = '', postcode = '') {
