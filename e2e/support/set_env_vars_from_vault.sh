@@ -96,6 +96,11 @@ secrets=(
         # Add more entries as needed
     )
 
+nonSecrets=(
+            "TEST_E2E_WAIT_FOR_ANGULAR:false",
+            "TEST_E2E_HEADLESS:false"
+           )
+
     echo "Retrieving the secrets from vault: ${vault_name}"
     for entry in "${secrets[@]}"; do
       env_var_name=$(echo $entry | cut -d ':' -f 1)
