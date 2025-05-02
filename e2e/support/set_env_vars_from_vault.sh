@@ -55,7 +55,6 @@ fi
 echo "About to setup local environment variables..."
 echo "Building list of secrets to retrieve"
 secrets=(
-        "FRED:fred"
         "TEST_CASEOFFICER_USERNAME:test-caseofficer-username"
         "TEST_CASEOFFICER_PASSWORD:test-caseofficer-password"
         "TEST_LAW_FIRM_A_USERNAME:test-law-firm-a-username"

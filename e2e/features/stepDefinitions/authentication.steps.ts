@@ -61,6 +61,7 @@ Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? wit
 });
 
 Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| A)`?$/, async function () {
+ console.log('wait>>>>', iaConfig.WaitForAngular);
   await authenticationFlow.signInAsLawFirmOrgUserA();
 });
 

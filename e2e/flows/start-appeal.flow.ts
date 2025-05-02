@@ -556,8 +556,10 @@ export class StartAppealFlow {
     }
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
-    await this.completeContactPreference(true);
+//    await this.completeContactPreference(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeContactPreference(true);
+
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
