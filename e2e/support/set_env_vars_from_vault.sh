@@ -111,3 +111,16 @@ secrets=(
         echo "ERROR: Either Secret: $secret_name does not exist in Azure Key Vault: ${vault_name} or it has no associated value."
       fi
     done
+
+    echo "Setting up test environment variables"
+    for testingVar in "${nonSecrets[@]}"; do
+      testing_env_var_name=$(echo $testingVar | cut -d ':' -f 1)
+      testing_env_var_value=$(echo $testingVar | cut -d ':' -f 2)
+
+      if [ -n "$testing_env_var_value" ]; then
+        export $testing_env_var_name="$testing_env_var_value"
+        echo "Environment variable $testing_env_var_name set to: $testing_env_var_value"
+      else
+        echo "ERROR: $testing_env_var_name has no associated value."
+      fi
+    done
