@@ -1,5 +1,3 @@
-/* eslint-disable no-negated-condition, multiline-ternary */
-
 const puppeteer = require('puppeteer');
 const iaConfig = require('./ia.conf');
 const tsNode = require('ts-node');
