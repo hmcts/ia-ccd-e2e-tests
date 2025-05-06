@@ -243,6 +243,18 @@ export class StartAppealFlow {
     }
   }
 
+  async completeSponsor(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue(
+        "Does the appellant have a sponsor?",
+        "No"
+    );
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
   async completeAppealType(clickContinue = false) {
     await this.ccdFormPage.setFieldValue(
       "Type of appeal",
@@ -549,6 +561,7 @@ export class StartAppealFlow {
     address = "44 Millhouse Drive, Glasgow",
     postcode = "G20 0UE"
   ) {
+    let hasSponsor = "Yes";
     await this.completeClientDetails(false, hasFixedAddress, address, postcode);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
@@ -560,6 +573,21 @@ export class StartAppealFlow {
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
 
+    if (hasSponsor === "Yes") {
+      await this.completeSponsorQuestion(true, hasSponsor);
+      await this.completeSponsorNames(true);
+      await this.completeSponsorAddress(
+          true,
+          "2 Hawthorn Drive, Yeadon, Leeds",
+          "LS19 7XB"
+      );
+      await this.completeSponsorContactPreference(true);
+      await this.completeSponsorAuthorisation(true);
+    } else {
+      await this.completeSponsorQuestion(true, "No");
+    }
+
+   // await this.completeSponsorQuestion(true, "No");
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -1264,12 +1292,12 @@ export class StartAppealFlow {
   async completeSponsorQuestion(clickContinue = false, hasSponsor = "") {
     if (hasSponsor === "Yes") {
       await this.ccdFormPage.setFieldValue(
-        "Does your client have a sponsor?",
+        "Does the appellant have a sponsor?",
         "Yes"
       );
     } else {
       await this.ccdFormPage.setFieldValue(
-        "Does your client have a sponsor?",
+        "Does the appellant have a sponsor?",
         "No"
       );
     }
@@ -1342,12 +1370,12 @@ export class StartAppealFlow {
   ) {
     if (authorisation === "Yes") {
       await this.ccdFormPage.setFieldValue(
-        "Does your client give authorisation for the sponsor to access information relating to the appeal?",
+        "Does the appellant give authorisation for the sponsor to access information relating to the appeal?",
         "Yes"
       );
     } else {
       await this.ccdFormPage.setFieldValue(
-        "Does your client give authorisation for the sponsor to access information relating to the appeal?",
+        "Does the appellant give authorisation for the sponsor to access information relating to the appeal?",
         "No"
       );
     }

@@ -97,7 +97,7 @@ secrets=(
     )
 
 nonSecrets=(
-            "TEST_E2E_WAIT_FOR_ANGULAR:false",
+            "TEST_E2E_WAIT_FOR_ANGULAR:false"
             "TEST_E2E_HEADLESS:false"
            )
 
