@@ -508,6 +508,11 @@ export class StartAppealFlow {
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeContactPreference(true);
+    await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);

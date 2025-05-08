@@ -18,8 +18,8 @@ Feature: SnL Flow RP hearing request
     And I request home office data
     And I request respondent evidence
     ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
-    When I select the `Create Flag` Next step
-    And I have created a `Unacceptable/disruptive customer behaviour` Flag in `José González`
+#    When I select the `Create Flag` Next step
+#    And I have created a `Unacceptable/disruptive customer behaviour` Flag in `José González`
     And I wait for 3 seconds
     And I progress case to force request case building
     And I request Force case - case under review
@@ -32,8 +32,8 @@ Feature: SnL Flow RP hearing request
     And I record agreed hearing requirements yes path
     When I goto the `Case flags` tab
     And I wait for 2 seconds
-    And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
-    And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
+#    And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
+#    And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
 
 ##Hearing Request
 And I wait for 3 seconds

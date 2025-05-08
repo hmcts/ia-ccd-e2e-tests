@@ -13,23 +13,25 @@ const iaConfig = require("../../ia.conf");
 Given("I create a new case", async function () {
   await ccdPage.acceptCookies();
   // there is loading mask with spinner added by ExUI
-  let EC = protractor.ExpectedConditions;
-  await browser.get(iaConfig.CcdWebUrl + "/cases");
-  try {
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      40000,
-      "Spinner did not appear."
-    );
-  } catch {
-    browser.refresh();
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      40000,
-      "Spinner did not appear."
-    );
-  }
-  await ccdPage.waitForSpinner();
+  // let EC = protractor.ExpectedConditions;
+  // await browser.get(iaConfig.CcdWebUrl + "/cases");
+  // try {
+  //   await browser.wait(
+  //     EC.visibilityOf(element(by.css("div.spinner-container"))),
+  //     40000,
+  //     "Spinner did not appear."
+  //   );
+  // } catch {
+  //   browser.refresh();
+  //   await browser.wait(
+  //     EC.visibilityOf(element(by.css("div.spinner-container"))),
+  //     40000,
+  //     "Spinner did not appear."
+  //   );
+  // }
+  // await ccdPage.waitForSpinner();
+    await ccdPage.click("Apply");
+    await browser.sleep(5000);
   await ccdPage.linkContains("Create case");
   await ccdPage.runAccessbility();
   await ccdPage.createCaseClickable();
