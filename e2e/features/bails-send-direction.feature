@@ -14,13 +14,13 @@ Feature: Bails Send direction
     And The page is accessible
     When I type `This is a test direction to the Applicant` for the `Explain the direction you are issuing` field
     And I select `Legal representative` for the `Who are you giving direction to?` field
-    And I type `10-02-2025` for the `By what date must they comply?` field
+    And I type `{$TODAY+8|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
     And I should see `This is a test direction to the Applicant` for the `Explain the direction you are issuing` field
     And I should see `Legal representative` in the `Who are you giving direction to?` field
-    And I should see `10 Feb 2025` in the `By what date must they comply?` field
+    And I should see `{$TODAY+8|D MMM YYYY}` in the `By what date must they comply?` field
     When I click the `Send the direction` button
     Then I should see the text `You have sent a direction`
     And I should see the text `You can see the status of the direction in the directions tab.`
@@ -30,7 +30,7 @@ Feature: Bails Send direction
     When I click the `Directions` tab
     Then within the `Directions` collection's first item, I should see `This is a test direction to the Applicant` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Party` field
-    And within the `Directions` collection's first item, I should see `10 Feb 2025` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+8|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-LR @bails-send-direction-to-LR-AO @bails-regression
@@ -41,13 +41,13 @@ Feature: Bails Send direction
     And The page is accessible
     When I type `This is a test direction to the Legal Rep` for the `Explain the direction you are issuing` field
     And I select `Legal representative` for the `Who are you giving direction to?` field
-    And I type `08-02-2025` for the `By what date must they comply?` field
+    And I type `{$TODAY+6|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
     And I should see `This is a test direction to the Legal Rep` for the `Explain the direction you are issuing` field
     And I should see `Legal representative` in the `Who are you giving direction to?` field
-    And I should see `8 Feb 2025` in the `By what date must they comply?` field
+    And I should see `{$TODAY+6|D MMM YYYY}` in the `By what date must they comply?` field
     When I click the `Send the direction` button
     Then I should see the text `You have sent a direction`
     And I should see the text `You can see the status of the direction in the directions tab.`
@@ -57,7 +57,7 @@ Feature: Bails Send direction
     When I click the `Directions` tab
     Then within the `Directions` collection's first item, I should see `This is a test direction to the Legal Rep` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Party` field
-    And within the `Directions` collection's first item, I should see `8 Feb 2025` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+6|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-HO @bails-send-direction-to-HO-AO
@@ -68,13 +68,13 @@ Feature: Bails Send direction
     And The page is accessible
     When I type `This is a test direction to the Home Office` for the `Explain the direction you are issuing` field
     And I select `Home Office` for the `Who are you giving direction to?` field
-    And I type `06-02-2025` for the `By what date must they comply?` field
+    And I type `{$TODAY+4|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
     And I should see `This is a test direction to the Home Office` for the `Explain the direction you are issuing` field
     And I should see `Home Office` in the `Who are you giving direction to?` field
-    And I should see `6 Feb 2025` in the `By what date must they comply?` field
+    And I should see `{$TODAY+4|D MMM YYYY}` in the `By what date must they comply?` field
     When I click the `Send the direction` button
     Then I should see the text `You have sent a direction`
     And I should see the text `You can see the status of the direction in the directions tab.`
@@ -84,7 +84,7 @@ Feature: Bails Send direction
     When I click the `Directions` tab
     Then within the `Directions` collection's first item, I should see `This is a test direction to the Home Office` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Home Office` for the `Party` field
-    And within the `Directions` collection's first item, I should see `6 Feb 2025` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+4|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-applicant @bails-send-direction-to-applicant-judge @bails-regression
@@ -95,13 +95,13 @@ Feature: Bails Send direction
     And The page is accessible
     When I type `This is a test direction to the Applicant` for the `Explain the direction you are issuing` field
     And I select `Applicant` for the `Who are you giving direction to?` field
-    And I type `04-02-2025` for the `By what date must they comply?` field
+    And I type `{$TODAY+3|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
     And I should see `This is a test direction to the Applicant` for the `Explain the direction you are issuing` field
     And I should see `Applicant` in the `Who are you giving direction to?` field
-    And I should see `4 Feb 2025` in the `By what date must they comply?` field
+    And I should see `{$TODAY+3|D MMM YYYY}` in the `By what date must they comply?` field
     When I click the `Send the direction` button
     Then I should see the text `You have sent a direction`
     And I should see the text `You can see the status of the direction in the directions tab.`
@@ -111,7 +111,7 @@ Feature: Bails Send direction
     When I click the `Directions` tab
     Then within the `Directions` collection's first item, I should see `This is a test direction to the Applicant` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Applicant` for the `Party` field
-    And within the `Directions` collection's first item, I should see `4 Feb 2025` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+3|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-LR @bails-send-direction-to-LR-judge
@@ -122,13 +122,13 @@ Feature: Bails Send direction
     And The page is accessible
     When I type `This is a test direction to the Legal Rep` for the `Explain the direction you are issuing` field
     And I select `Legal representative` for the `Who are you giving direction to?` field
-    And I type `02-02-2025` for the `By what date must they comply?` field
+    And I type `{$TODAY+2|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
     And I should see `This is a test direction to the Legal Rep` for the `Explain the direction you are issuing` field
     And I should see `Legal representative` in the `Who are you giving direction to?` field
-    And I should see `2 Feb 2025` in the `By what date must they comply?` field
+    And I should see `{$TODAY+2|D MMM YYYY}` in the `By what date must they comply?` field
     When I click the `Send the direction` button
     Then I should see the text `You have sent a direction`
     And I should see the text `You can see the status of the direction in the directions tab.`
@@ -138,7 +138,7 @@ Feature: Bails Send direction
     When I click the `Directions` tab
     Then within the `Directions` collection's first item, I should see `This is a test direction to the Legal Rep` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Party` field
-    And within the `Directions` collection's first item, I should see `2 Feb 2025` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+2|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-HO @bails-send-direction-to-HO-judge
@@ -149,13 +149,13 @@ Feature: Bails Send direction
     And The page is accessible
     When I type `This is a test direction to the Home Office` for the `Explain the direction you are issuing` field
     And I select `Home Office` for the `Who are you giving direction to?` field
-    And I type `01-02-2025` for the `By what date must they comply?` field
+    And I type `{$TODAY+1|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
     And I should see `This is a test direction to the Home Office` for the `Explain the direction you are issuing` field
     And I should see `Home Office` in the `Who are you giving direction to?` field
-    And I should see `1 Feb 2025` in the `By what date must they comply?` field
+    And I should see `{$TODAY+1|D MMM YYYY}` in the `By what date must they comply?` field
     When I click the `Send the direction` button
     Then I should see the text `You have sent a direction`
     And I should see the text `You can see the status of the direction in the directions tab.`
@@ -165,5 +165,5 @@ Feature: Bails Send direction
     When I click the `Directions` tab
     Then within the `Directions` collection's first item, I should see `This is a test direction to the Home Office` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Home Office` for the `Party` field
-    And within the `Directions` collection's first item, I should see `1 Feb 2025` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+1|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

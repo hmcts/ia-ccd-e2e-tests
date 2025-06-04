@@ -459,13 +459,13 @@ Given("I restart the browser", async function () {
 });
 Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
-  await ccdFormPage.click("Next");
+  await ccdFormPage.click("Continue");
   await ccdFormPage.typeText(
     `flagComments`,
     `test case flage make it inactive`
   );
   await ccdFormPage.click("Make inactive");
-  await ccdFormPage.click("Next");
+  await ccdFormPage.click("Continue");
   await ccdFormPage.click("Manage Flags");
 });
 
@@ -474,11 +474,11 @@ Then(
   async function (flag, type) {
     await browser.sleep(8000);
     await ccdFormPage.click(type);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await browser.sleep(3000);
     await ccdFormPage.click(flag);
-    await ccdFormPage.click("Next");
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue");
     await ccdFormPage.click("Create Flag");
   }
 );
@@ -486,18 +486,18 @@ Then(
   /^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and language name is `?([^`]+)`?$/,
   async function (flag, type, language) {
     await ccdFormPage.click(type);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await browser.sleep(3000);
     await ccdFormPage.click(flag);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await ccdFormPage.selectInterpreterLanguage(language);
     await browser.sleep(3000);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await ccdFormPage.typeText(
       `flagComment`,
       `just comment for interpreter languages`
     );
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await ccdFormPage.click("Create Flag");
   }
 );
@@ -505,23 +505,23 @@ Then(
   /^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and signlanguage name is `?([^`]+)`?$/,
   async function (flag, type, language) {
     await ccdFormPage.click(type);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await browser.sleep(3000);
     await ccdFormPage.click(flag);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await ccdFormPage.click("I need help communicating and understanding");
     await browser.sleep(3000);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await ccdFormPage.click("Sign Language Interpreter");
     await browser.sleep(3000);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await ccdFormPage.selectInterpreterLanguage(language);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await ccdFormPage.typeText(
       `flagComments`,
       `just comment for interpreter languages`
     );
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue");
     await ccdFormPage.click("Create Flag");
   }
 );

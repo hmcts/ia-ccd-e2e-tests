@@ -8,7 +8,7 @@ export class SendDirection {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Explain the direction you are issuing', 'This is a test direction to the ' + receiver);
     await this.ccdFormPage.setFieldValue('Who are you giving direction to?', receiver);
-    await this.ccdFormPage.setFieldValue('By what date must they comply?', '10-02-2025');
+    await this.ccdFormPage.setFieldValue('By what date must they comply?', '{$TODAY+2|DD MM YYYY}');
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }

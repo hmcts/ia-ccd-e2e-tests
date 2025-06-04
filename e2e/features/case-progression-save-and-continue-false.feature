@@ -222,13 +222,13 @@ Feature: Case progression path when case and continue is disabled
     Then I am on the `Send direction` page
     When I type `Amend the evidence` for the `Explain the direction you are issuing` field
     And I select `Respondent` for the `Who are you giving the direction to?` field
-    And I type `31-12-2019` for the `By what date must they comply?` field
+    And I type `{$TODAY+8|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Amend the evidence` for the `Explain the direction you are issuing` answer
     And I should see `Respondent` for the `Who are you giving the direction to?` answer
-    And I should see `31 Dec 2019` for the `By what date must they comply?` answer
+    And I should see `{$TODAY+8|D MMM YYYY}` for the `By what date must they comply?` answer
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
@@ -239,7 +239,7 @@ Feature: Case progression path when case and continue is disabled
     Then I should see the `Directions` field
     And within the `Directions` collection's first item, I should see `Amend the evidence` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
-    And within the `Directions` collection's first item, I should see `31 Dec 2019` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+8|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
     # HO - APC user amend HO bundle
@@ -624,13 +624,13 @@ Feature: Case progression path when case and continue is disabled
     Then I am on the `Amend appeal response` page
     And I type `Do the thing` for the `Explain the direction you are issuing` field
     And I should see `Respondent` for the `Who are you giving the direction to?` field
-    And I type `15-10-2019` for the `By what date must they comply?` field
+    And I type `{$TODAY+4|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Do the thing` for the `Explain the direction you are issuing` answer
     And I should see `Respondent` for the `Who are you giving the direction to?` answer
-    And I should see `15 Oct 2019` for the `By what date must they comply?` answer
+    And I should see `{$TODAY+4|D MMM YYYY}` for the `By what date must they comply?` answer
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
@@ -984,7 +984,7 @@ Feature: Case progression path when case and continue is disabled
     Then I should see the text `Tell us which dates and explain why the case cannot be heard on these dates.`
     And I should see the text `Dates to avoid`
     When I click the `Add new` button
-    And I type `31-12-2019` for the `Date` field
+    And I type `{$TODAY+8|DD MM YYYY}` for the `Date` field
     And I type `New Year's Eve` for the `Reason` field
     And I click the `Continue` button
 
@@ -1012,7 +1012,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see `Yes` in the `Is there anything else you would like to request?` field
     And I should see `The appellant would like fresh orange juice and doughnuts` in the `Provide details of any additional requests and why they are necessary.` field
     And I should see the `Dates to avoid` field
-    And I should see `31 Dec 2019` in the `Date` field
+    And I should see `{$TODAY+8|D MMM YYYY}` in the `Date` field
     And I should see `New Year's Eve` in the `Reason` field
 
     When I click the `Submit` button

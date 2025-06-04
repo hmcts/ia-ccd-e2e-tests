@@ -211,7 +211,7 @@ export class StartAppealFlow {
     await this.ccdFormPage.runAccessbility();
     if (!hasFixedAddress) {
       await this.ccdFormPage.setFieldValue(
-        "Does the appellant have a fixed address?",
+        "Does the appellant have a postal address?",
         "No"
       );
     } else {
@@ -659,7 +659,7 @@ export class StartAppealFlow {
     await this.completeNationality(true);
     await this.completeClientAddressOutOfCountry(
       true,
-      hasAddress === "Yes" ? true : false
+      hasAddress === "Yes"
     );
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true, hasSponsor);
@@ -704,7 +704,7 @@ export class StartAppealFlow {
     await this.completeNationality(true);
     await this.completeClientAddressOutOfCountry(
       true,
-      hasAddress === "Yes" ? true : false
+      hasAddress === "Yes"
     );
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true, hasSponsor);

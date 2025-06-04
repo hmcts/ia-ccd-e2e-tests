@@ -45,13 +45,13 @@ Feature: Home Office appeal response amendment
     Then I am on the `Amend appeal response` page
     When I type `Do the thing` for the `Explain the direction you are issuing` field
     And I should see `Respondent` for the `Who are you giving the direction to?` field
-    And I type `15-10-2019` for the `By what date must they comply?` field
+    And I type `{$TODAY+8|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Do the thing` for the `Explain the direction you are issuing` answer
     And I should see `Respondent` for the `Who are you giving the direction to?` answer
-    And I should see `15 Oct 2019` for the `By what date must they comply?` answer
+    And I should see `{$TODAY+8|D MMM YYYY}` for the `By what date must they comply?` answer
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
@@ -72,5 +72,5 @@ Feature: Home Office appeal response amendment
     Then I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `Do the thing` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
-    And within the `Directions` collection's first item, I should see `15 Oct 2019` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+8|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

@@ -172,13 +172,13 @@ Feature: Upload appeal response - Home Office user
     Then I am on the `Amend appeal response` page
     When I type `Amend the appeal response` for the `Explain the direction you are issuing` field
     And I should see `Respondent` for the `Who are you giving the direction to?` field
-    And I type `31-12-2019` for the `By what date must they comply?` field
+    And I type `{$TODAY+20|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Amend the appeal response` for the `Explain the direction you are issuing` answer
     And I should see `Respondent` for the `Who are you giving the direction to?` answer
-    And I should see `31 Dec 2019` for the `By what date must they comply?` answer
+    And I should see `{$TODAY+20|D MMM YYYY}` for the `By what date must they comply?` answer
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
