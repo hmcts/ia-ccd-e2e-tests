@@ -4,9 +4,6 @@ Feature: Bails Upload Documents
     And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     And I submit my bail application as a `Legal Rep`
-    And I should see the text `You have submitted this application`
-    And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
     And I should see the text `What happens next`
 
   @bails-upload-documents @bails-full @RIA-5769 @bails-upload-documents-post-submit @bails-regression @bail-nightly-test

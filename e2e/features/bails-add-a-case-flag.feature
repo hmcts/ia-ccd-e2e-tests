@@ -27,13 +27,13 @@ Feature: Bails Add a case flag to bails application
         Then I am on the `Create Flag` page
         Then I should see the text `Where should this flag be added?`
         And I click the `Case level` label
-        And I click the `Next` button
+        And I click the `Continue` button
         Then I should see the text `Select flag type`
         And I click the `Complex Case` label
-        And I click the `Next` button
+        And I click the `Continue` button
         Then I should see the text `Add comments for this flag (optional)`
         And I type `Test Complex case` from the field with ID `flagComments`
-        And I click the `Next` button
+        And I click the `Continue` button
         Then I am on the `Review flag details` page
         And I click the `Create Flag` button
         Then I should see an alert confirming the case `has been updated with event: Create Flag`
@@ -41,10 +41,10 @@ Feature: Bails Add a case flag to bails application
         When I select the `Manage Flags` Next step
         Then I should see the text `Manage case flags`
         When I click the element with ID `flag-selection-0`
-        And I click the `Next` button
+        And I click the `Continue` button
         Then I should see the text `Explain why you are updating this flag. Do not include any sensitive information such as personal details.`
         When I click the `Make inactive` button
-        And I click the `Next` button
+        And I click the `Continue` button
         Then I should see the text `Review flag details`
         When I click the `Manage Flags` button
         Then I should see an alert confirming the case `has been updated with event: Manage Flags`
