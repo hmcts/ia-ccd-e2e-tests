@@ -15,11 +15,11 @@ Feature: Address details are validated
     Given I am on the `Your client's address` page
     And the `Continue` button is disabled
 
-    When I select `Yes` for the `Does the appellant have a fixed address?` field
+    When I select `Yes` for the `Does the appellant have a postal address?` field
     Then I should not see the text `We will use the address of your legal practice.`
     And the `Continue` button is disabled
 
-    When I select `No` for the `Does the appellant have a fixed address?` field
+    When I select `No` for the `Does the appellant have a postal address?` field
     Then I should see the text `We will use the address of your legal practice.`
     And the `Continue` button is enabled
 
@@ -27,7 +27,7 @@ Feature: Address details are validated
   Scenario: Empty Building and street field is not allowed
 
     Given I am on the `Your client's address` page
-    When I select `Yes` for the `Does the appellant have a fixed address?` field
+    When I select `Yes` for the `Does the appellant have a postal address?` field
     And I click the `I can't enter a UK postcode` link
     And I type `11 Downing Street` for the `Building and Street` field
     Then the `Continue` button is enabled
