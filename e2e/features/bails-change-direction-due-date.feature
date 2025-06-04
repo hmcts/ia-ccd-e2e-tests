@@ -17,22 +17,22 @@ Feature: Bails Change Direction Due Date
     And I click the `Continue` button
     Then I am on the `Change the date` page
     And The page is accessible
-    When I type `10-02-2030` for the `Date Due` field
+    When I type `{$TODAY+4|DD MM YYYY}` for the `Date Due` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
     And I should see `Direction 1` in the `Direction` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Date Sent` field
-    And I should see `10 Feb 2030` in the `Date Due` field
+    And I should see `{$TODAY+4|D MMM YYYY}` in the `Date Due` field
     When I click the `Change bail direction due date` button
     Then I should see the text `You have changed the direction due date`
     And I should see the text `All parties will be notified that the direction due date has changed. You can see the status of the direction in the directions tab.`
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     When I click the `Directions` tab
-    And within the `Directions` collection's first item, I should see `10 Feb 2030` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+4|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
-    And within the `Previous dates` collection's first item, I should see `10 Feb 2025` for the `Date due` field
+    And within the `Previous dates` collection's first item, I should see `{$TODAY+2|D MMM YYYY}` for the `Date due` field
     And within the `Previous dates` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
   @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-judge @bails-full
@@ -45,21 +45,21 @@ Feature: Bails Change Direction Due Date
     And I click the `Continue` button
     Then I am on the `Change the date` page
     And The page is accessible
-    When I type `10-02-2030` for the `Date Due` field
+    When I type `{$TODAY+4|DD MM YYYY}` for the `Date Due` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
     And I should see `Direction 1` in the `Direction` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Date Sent` field
-    And I should see `10 Feb 2030` in the `Date Due` field
+    And I should see `{$TODAY+4|D MMM YYYY}` in the `Date Due` field
     When I click the `Change bail direction due date` button
     Then I should see the text `You have changed the direction due date`
     And I should see the text `All parties will be notified that the direction due date has changed. You can see the status of the direction in the directions tab.`
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     When I click the `Directions` tab
-    And within the `Directions` collection's first item, I should see `10 Feb 2030` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+4|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
-    And within the `Previous dates` collection's first item, I should see `10 Feb 2025` for the `Date due` field
+    And within the `Previous dates` collection's first item, I should see `{$TODAY+2|D MMM YYYY}` for the `Date due` field
     And within the `Previous dates` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
