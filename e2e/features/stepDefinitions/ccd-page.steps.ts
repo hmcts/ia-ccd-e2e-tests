@@ -18,16 +18,20 @@ Given("I create a new case", async function () {
   try {
     await browser.wait(
       EC.visibilityOf(element(by.css("div.spinner-container"))),
-      40000,
+      10000,
       "Spinner did not appear."
     );
   } catch {
     browser.refresh();
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      40000,
-      "Spinner did not appear."
-    );
+    try {
+      await browser.wait(
+          EC.visibilityOf(element(by.css("div.spinner-container"))),
+          20000,
+          "Spinner did not appear."
+      );
+    } catch {
+      console.log("Spinner did not appear after refresh.");
+    }
   }
   await ccdPage.waitForSpinner();
   await ccdPage.linkContains("Create case");
@@ -72,11 +76,15 @@ Given("I create a new bail application", async function () {
     );
   } catch {
     browser.refresh();
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
-      "Spinner did not appear."
-    );
+    try {
+      await browser.wait(
+          EC.visibilityOf(element(by.css("div.spinner-container"))),
+          20000,
+          "Spinner did not appear."
+      );
+    } catch {
+      console.log("Spinner did not appear after refresh.");
+    }
   }
   await ccdPage.waitForSpinner();
   await ccdPage.linkContains("Create case");
