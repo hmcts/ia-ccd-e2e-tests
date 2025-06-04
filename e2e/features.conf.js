@@ -55,7 +55,7 @@ exports.config = {
     'no-source': true,
     format: 'json:.tmp/results.json',
     strict: true,
-    retry: 5,
+    retry: parseInt(process.env.RETRIES || 3)
   },
 
   onPrepare() {

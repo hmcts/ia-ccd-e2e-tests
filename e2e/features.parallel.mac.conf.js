@@ -21,7 +21,7 @@ let config = {
     'no-source': true,
     strict: true,
     format: ['node_modules/cucumber-pretty', 'json:./reports/tests/functional/results.json'],
-    retry: process.env.RETRIES || 5,
+    retry: parseInt(process.env.RETRIES || 3)
   },
 
   directConnect: true,
