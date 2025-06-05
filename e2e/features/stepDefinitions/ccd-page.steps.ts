@@ -12,32 +12,23 @@ const iaConfig = require("../../ia.conf");
 
 Given("I create a new case", async function () {
   await ccdPage.acceptCookies();
-  // there is loading mask with spinner added by ExUI
+  await browser.get(iaConfig.CcdWebUrl + "/cases/case-filter");
   let EC = protractor.ExpectedConditions;
-  await browser.get(iaConfig.CcdWebUrl + "/cases");
   try {
     await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      1000,
-      "Spinner did not appear."
+      EC.visibilityOf(element(by.css("exui-filter-case"))),
+      10000,
+      "Create case page did not appear."
     );
   } catch {
-    try {
-      await ccdPage.click("Reset");
-    } catch {
-      browser.refresh();
-    }
+    browser.refresh();
     await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      10000,
-      "Spinner did not appear."
+      EC.visibilityOf(element(by.css("exui-filter-case"))),
+      30000,
+      "Create case page did not appear."
     );
   }
   await ccdPage.waitForSpinner();
-  await ccdPage.linkContains("Create case");
-  await ccdPage.runAccessbility();
-  await ccdPage.createCaseClickable();
-  await ccdPage.click("Create case");
   expect(await ccdPage.headingContains("Create Case")).to.equal(true);
   await ccdPage.runAccessbility();
   await ccdPage.hideErrorMessages();
@@ -65,32 +56,23 @@ Given("I create a new case", async function () {
 
 Given("I create a new bail application", async function () {
   await ccdPage.acceptCookies();
-  // there is loading mask with spinner added by ExUI
-  await browser.get(iaConfig.CcdWebUrl + "/cases");
+  await browser.get(iaConfig.CcdWebUrl + "/cases/case-filter");
   let EC = protractor.ExpectedConditions;
   try {
     await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      1000,
-      "Spinner did not appear."
+      EC.visibilityOf(element(by.css("exui-filter-case"))),
+      10000,
+      "Create case page did not appear."
     );
   } catch {
-    try {
-      await ccdPage.click("Reset");
-    } catch {
-      browser.refresh();
-    }
+    browser.refresh();
     await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      10000,
-      "Spinner did not appear."
+      EC.visibilityOf(element(by.css("exui-filter-case"))),
+      30000,
+      "Create case page did not appear."
     );
   }
   await ccdPage.waitForSpinner();
-  await ccdPage.linkContains("Create case");
-  await ccdPage.runAccessbility();
-  await ccdPage.createCaseClickable();
-  await ccdPage.click("Create case");
   expect(await ccdPage.headingContains("Create Case")).to.equal(true);
   await ccdPage.runAccessbility();
   await ccdPage.hideErrorMessages();
