@@ -11,10 +11,10 @@ export class RequestFeeRemissionFlow {
     await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Request a fee remission');
-    await this.ccdFormPage.click('My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20');
+    await this.ccdFormPage.click('The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20');
     await this.ccdFormPage.click('Continue');
 
-    await this.ccdFormPage.click('My client receives Legal Aid');
+    await this.ccdFormPage.click('The appellant receives Legal Aid');
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.setFieldValue('Legal Aid account number', '1A234B');
@@ -36,7 +36,7 @@ export class RequestFeeRemissionFlow {
     await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Request a fee remission');
-    await this.ccdFormPage.click('My client has a Help with Fees reference number');
+    await this.ccdFormPage.click('The appellant has applied for help with fees');
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.setFieldValue('Help with Fees reference number', 'HWF-A1B-23');

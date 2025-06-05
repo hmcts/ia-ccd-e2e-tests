@@ -7,12 +7,12 @@ Feature: Address details are entered manually without using postcode lookup
     And I complete the `Home Office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
-    And I complete the `Tell us about your client's nationality` page
+    And I complete the `What is the appellant's nationality?` page
 
   @regression @start-appeal @alternate @alternate @RIA-691
   Scenario: Start initial appeal application with a manually entered address
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     When I select `Yes` for the `Does the appellant have a postal address?` field
     And I click the `I can't enter a UK postcode` link
     And I type `11 Downing Street` for the `Building and Street` field
@@ -25,7 +25,7 @@ Feature: Address details are entered manually without using postcode lookup
     And I complete the `Type of appeal` page
     And I complete the `The grounds of your appeal` page
     And I complete the `New matters` page
-    And I complete the `Has your client appealed against any other UK immigration decisions?` page
+    And I complete the `Other appeals` page
     And I complete the `Legal representative details` page
     And I complete the `Start appeal check your answers` page
     And I click the `Close and Return to case details` button if present

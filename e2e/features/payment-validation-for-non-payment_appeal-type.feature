@@ -59,35 +59,35 @@ Feature: Payment validation for non-payment appeal type
     Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Case Officer`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Admin Officer`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Judge`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office APC`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office LART`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office POU`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office Generic`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
   @Submit-DC-appeal-type-with-hearing @RIA-3516-DC-appeal-type-with-hearing @3516
   Scenario: Submit RP appeal type with hearing option
@@ -96,35 +96,35 @@ Feature: Payment validation for non-payment appeal type
     Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Case Officer`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Admin Officer`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Judge`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office APC`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office LART`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office POU`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office Generic`
     And I click the `Appeal` tab
-    And I should see `Decision with a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing` for the `How does the appellant want the appeal to be decided?` field
 
   @Submit-RP-appeal-type-without-hearing @RIA-3516-RP-appeal-type-without-hearing @3516
   Scenario: Submit RP appeal type with hearing option
@@ -133,35 +133,35 @@ Feature: Payment validation for non-payment appeal type
     Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Case Officer`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Admin Officer`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Judge`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office APC`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office LART`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office POU`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office Generic`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
   @Submit-DC-appeal-type-without-hearing @RIA-3516-RP-appeal-type-without-hearing @3516
   Scenario: Submit RP appeal type with hearing option
@@ -170,35 +170,35 @@ Feature: Payment validation for non-payment appeal type
     Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Case Officer`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Admin Officer`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Judge`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office APC`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office LART`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office POU`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
     Then I switch to be a `Home Office Generic`
     And I click the `Appeal` tab
-    And I should see `Decision without a hearing` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing` for the `How does the appellant want the appeal to be decided?` field
 
 
 

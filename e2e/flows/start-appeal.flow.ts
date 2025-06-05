@@ -182,10 +182,9 @@ export class StartAppealFlow {
   }
 
   async completeNationality(clickContinue = false) {
-    await browser.sleep(3000);
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue("Nationality", "Has a nationality");
-    await browser.sleep(3000);
+    await browser.sleep(2000);
     await this.ccdFormPage.addCollectionItem("Nationality");
     await this.ccdFormPage.setFieldValue(
       "Nationality",
@@ -488,6 +487,7 @@ export class StartAppealFlow {
     await this.completeNationality(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
+    await this.completeSponsorQuestion(true);
     await this.completeAppealType(true);
     await this.completeAppealGrounds(true);
     await this.completeDeportationOrder(true);
@@ -510,12 +510,19 @@ export class StartAppealFlow {
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeContactPreference(true);
+    await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
     await this.completeLegalRepresentativeDetails(true);
     await this.completeHearingOption(true, hearingOption);
+    let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 
   async saveInitialAppealWithFee(
@@ -531,6 +538,9 @@ export class StartAppealFlow {
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
+    }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
     }
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
@@ -558,8 +568,9 @@ export class StartAppealFlow {
     }
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
-    await this.completeContactPreference(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeContactPreference(true);
+    await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -571,7 +582,7 @@ export class StartAppealFlow {
     }
     let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
-    await this.ccdFormPage.waitForConfirmationScreen(currentUrl);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 
   async saveInitialNonPaymentAppealOutOfCountry(
@@ -587,9 +598,13 @@ export class StartAppealFlow {
     await this.completeNationality(true);
     await this.completeClientAddress(true, false, "", "");
     await this.completeContactPreference(true);
+    await this.completeSponsorQuestion(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
+    }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
     }
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
@@ -618,7 +633,9 @@ export class StartAppealFlow {
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
-    await this.completeDeportationOrder(true);
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
+    }
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
     await this.completeLegalRepresentativeDetails(true);
@@ -755,7 +772,12 @@ export class StartAppealFlow {
     await this.completeSponsorContactPreference(true, contactPreference);
     await this.completeSponsorAuthorisation(true, authorisation);
     await this.completeGivenAppealType(true, appealType);
-    await this.completedGivenAppealGrounds(true, appealType);
+    if (appealType !== "EU") {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
+    }
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
     await this.completeLegalRepresentativeDetails(true);
@@ -789,7 +811,12 @@ export class StartAppealFlow {
     await this.completeSponsorContactPreference(true, contactPreference);
     await this.completeSponsorAuthorisation(true, authorisation);
     await this.completeGivenAppealType(true, appealType);
-    await this.completedGivenAppealGrounds(true, appealType);
+    if (appealType !== "EU") {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
+    }
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
     await this.completeLegalRepresentativeDetails(true);
@@ -811,6 +838,9 @@ export class StartAppealFlow {
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
+    }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
     }
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
@@ -838,6 +868,9 @@ export class StartAppealFlow {
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
+    }
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -863,6 +896,9 @@ export class StartAppealFlow {
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
+    }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
     }
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
@@ -890,6 +926,9 @@ export class StartAppealFlow {
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
+    }
     await this.completedDeportationOrder(true, appealType);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -915,6 +954,9 @@ export class StartAppealFlow {
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
+    }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
     }
     await this.completedDeportationOrder(true, appealType);
     await this.completeNewMatters(true);
@@ -942,6 +984,9 @@ export class StartAppealFlow {
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
+    }
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -968,6 +1013,9 @@ export class StartAppealFlow {
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
+    if (appealType !== "refusalOfHumanRights") {
+      await this.completedDeportationOrder(true, appealType);
+    }
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -988,6 +1036,7 @@ export class StartAppealFlow {
     await this.completeNationality(true);
     await this.completeClientAddress(true);
     await this.completeContactPreference(true);
+    await this.completeSponsorQuestion(true);
     await this.completeAppealType(true);
     await this.completeAppealGrounds(true);
     await this.completeDeportationOrder(true);
@@ -1024,6 +1073,7 @@ export class StartAppealFlow {
     await this.completeNationality(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
+    await this.completeSponsorQuestion(true);
   }
 
   async saveInitialAppealWithHomeOfficeReference(
@@ -1041,6 +1091,7 @@ export class StartAppealFlow {
     await this.completeNationality(true);
     await this.completeClientAddress(true, false, "", "");
     await this.completeContactPreference(true);
+    await this.completeSponsorQuestion(true);
     await this.completeAppealType(true);
     await this.completeAppealGrounds(true);
     await this.completeDeportationOrder(true);
@@ -1054,13 +1105,13 @@ export class StartAppealFlow {
     await this.ccdFormPage.runAccessbility();
     if (hearingOption === "without") {
       await this.ccdFormPage.setFieldValue(
-        "How do you want the appeal to be decided?",
+        "How does the appellant want the appeal to be decided?",
         "Decision without a hearing"
       );
     }
     if (hearingOption === "with") {
       await this.ccdFormPage.setFieldValue(
-        "How do you want the appeal to be decided?",
+        "How does the appellant want the appeal to be decided?",
         "Decision with a hearing"
       );
     }
@@ -1081,12 +1132,12 @@ export class StartAppealFlow {
     if (remissionOption === "a remission") {
       await this.ccdFormPage.setFieldValue(
         "Choose one of the following statements",
-        "My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20"
+        "The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20"
       );
       await this.ccdFormPage.click("Continue");
       await this.ccdFormPage.setFieldValue(
         "Choose one of the following statements",
-        "My client receives Legal Aid"
+        "The appellant receives Legal Aid"
       );
       await this.ccdFormPage.click("Continue");
       await this.ccdFormPage.setFieldValue(
@@ -1097,7 +1148,12 @@ export class StartAppealFlow {
     if (remissionOption === "help with fees") {
       await this.ccdFormPage.setFieldValue(
         "Choose one of the following statements",
-        "My client has a Help with Fees reference number"
+        "The appellant has applied for help with fees"
+      );
+      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.setFieldValue(
+        "Help with Fees reference number",
+        "HWF-A1B-23"
       );
     }
     if (
@@ -1105,7 +1161,12 @@ export class StartAppealFlow {
     ) {
       await this.ccdFormPage.setFieldValue(
         "Choose one of the following statements",
-        "My client has a Help with Fees reference number"
+        "The appellant wants to apply for an Exceptional Circumstances Remission"
+      );
+      await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.setFieldValue(
+        "Explain the exceptional circumstances which justify remission of the fee",
+        "Some exceptional circumstances"
       );
     }
 
@@ -1264,12 +1325,12 @@ export class StartAppealFlow {
   async completeSponsorQuestion(clickContinue = false, hasSponsor = "") {
     if (hasSponsor === "Yes") {
       await this.ccdFormPage.setFieldValue(
-        "Does your client have a sponsor?",
+        "Does the appellant have a sponsor?",
         "Yes"
       );
     } else {
       await this.ccdFormPage.setFieldValue(
-        "Does your client have a sponsor?",
+        "Does the appellant have a sponsor?",
         "No"
       );
     }
@@ -1372,6 +1433,7 @@ export class StartAppealFlow {
     await this.clickContinueToNextStep(true); // completeNationality
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.clickContinueToNextStep(true); // completeContactPreference
+    await this.clickContinueToNextStep(true); // completeSponsorQuestion
     await this.clickContinueToNextStep(true); // completeGivenAppealType
     await this.clickContinueToNextStep(true); // completedGivenAppealGrounds
     await this.completeDeportationOrder(true);

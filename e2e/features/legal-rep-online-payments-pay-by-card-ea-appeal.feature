@@ -57,7 +57,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
 
 
   @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-ea-declined

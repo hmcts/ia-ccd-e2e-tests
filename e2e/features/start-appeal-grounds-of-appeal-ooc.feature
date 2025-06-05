@@ -9,7 +9,7 @@ Feature: Grounds of appeal
     And I complete the `Entry clearance decision details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
-    And I complete the `Tell us about your client's nationality` page
+    And I complete the `What is the appellant's nationality?` page
     And I complete the `Your client's ooc address` page
     And I complete the `The appellant's contact preference` page
     And I complete the `Sponsor` page
@@ -30,7 +30,7 @@ Feature: Grounds of appeal
     And I click the `Continue` button
 
     And I complete the `New matters` page
-    And I complete the `Has your client appealed against any other UK immigration decisions?` page
+    And I complete the `Other appeals` page
     And I save my legal rep details and continue PA
     And I submit my nonpayment appeal
 
@@ -55,7 +55,7 @@ Feature: Grounds of appeal
     And I click the `Continue` button
 
     And I complete the `New matters` page
-    And I complete the `Has your client appealed against any other UK immigration decisions?` page
+    And I complete the `Other appeals` page
 
     And I save my legal rep details and continue RP
     And I submit my nonpayment appeal
@@ -81,7 +81,7 @@ Feature: Grounds of appeal
     And I click the `Continue` button
 
     And I complete the `New matters` page
-    And I complete the `Has your client appealed against any other UK immigration decisions?` page
+    And I complete the `Other appeals` page
 
     And I save my legal rep details and continue DC
     And I submit my nonpayment appeal
@@ -108,7 +108,7 @@ Feature: Grounds of appeal
     And I click the `Continue` button
 
     And I complete the `New matters` page
-    And I complete the `Has your client appealed against any other UK immigration decisions?` page
+    And I complete the `Other appeals` page
 
     And I save my legal rep details and continue EA
     And I submit my nonpayment appeal
@@ -133,7 +133,7 @@ Feature: Grounds of appeal
     And I click the `Continue` button
 
     And I complete the `New matters` page
-    And I complete the `Has your client appealed against any other UK immigration decisions?` page
+    And I complete the `Other appeals` page
 
     And I save my legal rep details and continue HU
     And I submit my nonpayment appeal

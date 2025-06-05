@@ -166,6 +166,17 @@ export class CcdPage extends AnyPage {
     }
   }
 
+  async waitForConfirmationScreenAndContinue(previousUrl: string) {
+    await this.waitForPageNavigation(previousUrl);
+    try {
+      expect(await browser.getCurrentUrl()).to.contain("confirm");
+      await this.waitForCssElementVisible("#confirmation-header");
+      await this.click('Close and Return to case details');
+    } catch {
+      expect(await browser.getCurrentUrl()).to.contain("#Overview");
+    }
+  }
+
   async waitForConfirmationScreen(previousUrl: string) {
     await this.waitForPageNavigation(previousUrl);
     expect(await browser.getCurrentUrl()).to.contain("confirm");

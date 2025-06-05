@@ -19,7 +19,7 @@ Feature: Start initial appeal application
     And I type `31-12-1999` for the `Date of birth` field
     And I click the `Continue` button
 
-    Given I am on the `Tell us about your client's nationality` page
+    Given I am on the `What is the appellant's nationality?` page
     When I select `Has a nationality` for the `Nationality` field
     And I add an item to the `Nationality` collection
     And within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
@@ -27,7 +27,7 @@ Feature: Start initial appeal application
     And within the `Nationality` collection's second item, I select `Iceland` for the `Nationality` field
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     When I select `Yes` for the `Does the appellant have a postal address?` field
     And I see the text `Enter a UK postcode`
     And I type `SW1A 2AA` for the `Enter a UK postcode` field
@@ -60,15 +60,15 @@ Feature: Start initial appeal application
     And I type `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
-    #When I select `Yes` for the `Other appeals` field
-    When I select `Yes, but I don't have an appeal number` for the `Other appeals` field
+    Given I am on the `Other appeals` page
+    #When I select `Yes` for the `Has the appellant appealed against any other UK immigration decision?` field
+    When I select `Yes, but an appeal number was not provided` for the `Has the appellant appealed against any other UK immigration decision?` field
     And I click the `Continue` button
 
     ###############################################################
     ### This is a bug logged in ServiceNow: Incident INC0484123 ###
     ###############################################################
-    #Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    #Given I am on the `Other appeals` page
     #When I add an item to the `Appeal number` collection
     #And within the `Appeal number` collection's first item, I type `RP/12345/2014` for the field without a label
     #And I add another item to the `Appeal number` collection
@@ -101,8 +101,8 @@ Feature: Start initial appeal application
     And I should see `Refusal of protection claim` for the `Type of appeal` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
-    #And I should see `Yes` for the `Other appeals` answer
-    And I should see `Yes, but I don't have an appeal number` for the `Other appeals` answer
+    #And I should see `Yes` for the `Has the appellant appealed against any other UK immigration decision?` answer
+    And I should see `Yes, but an appeal number was not provided` for the `Has the appellant appealed against any other UK immigration decision?` answer
     #And within the `Appeal number` collection's first item, I should see `RP/12345/2014` for the answer without a label
     #And within the `Appeal number` collection's second item, I should see `PA/54321/2015` for the answer without a label
     And I should see `IA Legal Services` for the `Company` answer
@@ -147,7 +147,7 @@ Feature: Start initial appeal application
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
-    And I should see `Yes, but I don't have an appeal number` for the `Previous appeals` field
+    And I should see `Yes, but an appeal number was not provided` for the `Previous appeals` field
     And I should see `31 Oct 2018` for the `Home Office decision letter sent` field
     And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
@@ -190,7 +190,7 @@ Feature: Start initial appeal application
     And within the `Nationality` collection's second item, I select `Iceland` for the `Nationality` field
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     When I select `No` for the `Does the appellant have a postal address?` field
     And I click the `Continue` button
 
@@ -216,15 +216,15 @@ Feature: Start initial appeal application
     And I type `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
-    #When I select `Yes` for the `Other appeals` field
-    When I select `Yes, but I don't have an appeal number` for the `Other appeals` field
+    Given I am on the `Other appeals` page
+    #When I select `Yes` for the `Has the appellant appealed against any other UK immigration decision?` field
+    When I select `Yes, but an appeal number was not provided` for the `Has the appellant appealed against any other UK immigration decision?` field
     And I click the `Continue` button
 
     ###############################################################
     ### This is a bug logged in ServiceNow: Incident INC0484123 ###
     ###############################################################
-    #Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    #Given I am on the `Other appeals` page
     #When I add an item to the `Appeal number` collection
     #And within the `Appeal number` collection's first item, I type `RP/12345/2014` for the field without a label
     #And I add another item to the `Appeal number` collection
@@ -237,12 +237,12 @@ Feature: Start initial appeal application
     And I type `ia-legal-fenn` for the `Own reference` field
     And I click the `Continue` button
 
-    When I am on the `Fee remissions` page
-    Then I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    When I am on the `Fee remission` page
+    Then I select `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
-    Then I am on the `Fee remissions` page
-    And I select `My client receives Legal Aid` for the `Choose one of the following statements` field
+    Then I am on the `Fee remission` page
+    And I select `The appellant receives Legal Aid` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Given I am on the `Check your answers` page
@@ -260,8 +260,8 @@ Feature: Start initial appeal application
     And I should see `Refusal of protection claim` for the `Type of appeal` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
-    #And I should see `Yes` for the `Other appeals` answer
-    And I should see `Yes, but I don't have an appeal number` for the `Other appeals` answer
+    #And I should see `Yes` for the `Has the appellant appealed against any other UK immigration decision?` answer
+    And I should see `Yes, but an appeal number was not provided` for the `Has the appellant appealed against any other UK immigration decision?` answer
     #And within the `Appeal number` collection's first item, I should see `RP/12345/2014` for the answer without a label
     #And within the `Appeal number` collection's second item, I should see `PA/54321/2015` for the answer without a label
     And I should see `IA Legal Services` for the `Company` answer
@@ -300,7 +300,7 @@ Feature: Start initial appeal application
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
-    And I should see `Yes, but I don't have an appeal number` for the `Previous appeals` field
+    And I should see `Yes, but an appeal number was not provided` for the `Previous appeals` field
     And I should see `31 Oct 2018` for the `Home Office decision letter sent` field
     And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 

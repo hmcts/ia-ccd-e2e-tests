@@ -59,19 +59,19 @@ Given("I complete the `Basic details` page", async function () {
 });
 
 Given(
-  "I complete the `Tell us about your client's nationality` page",
+  "I complete the `What is the appellant's nationality?` page",
   async function () {
     expect(
       await ccdFormPage.headingContains(
-        "Tell us about your client's nationality"
+        "What is the appellant's nationality?"
       )
     ).to.equal(true);
     await startAppealFlow.completeNationality(true);
   }
 );
 
-Given("I complete the `Your client's address` page", async function () {
-  expect(await ccdFormPage.headingContains("Your client's address")).to.equal(
+Given("I complete the `Appellant's address` page", async function () {
+  expect(await ccdFormPage.headingContains("Appellant's address")).to.equal(
     true
   );
   await startAppealFlow.completeClientAddress(true);
@@ -84,6 +84,16 @@ Given(
       await ccdFormPage.headingContains("The appellant's contact preference")
     ).to.equal(true);
     await startAppealFlow.completeContactPreference(true);
+  }
+);
+
+Given(
+  "I complete the `Appellant's sponsor` page",
+  async function () {
+    expect(
+      await ccdFormPage.headingContains("Appellant's sponsor")
+    ).to.equal(true);
+    await startAppealFlow.completeSponsorQuestion(true);
   }
 );
 
@@ -122,11 +132,11 @@ Given("I complete the `Deportation order` page", async function () {
 });
 
 Given(
-  "I complete the `Has your client appealed against any other UK immigration decisions?` page",
+  "I complete the `Other appeals` page",
   async function () {
     expect(
       await ccdFormPage.headingContains(
-        "Has your client appealed against any other UK immigration decisions?"
+        "Other appeals"
       )
     ).to.equal(true);
     await startAppealFlow.completeOtherAppeals(true);
@@ -602,7 +612,7 @@ Given(
 );
 
 Given("I complete the `Your client's ooc address` page", async function () {
-  expect(await ccdFormPage.headingContains("Your client's address")).to.equal(
+  expect(await ccdFormPage.headingContains("Appellant's address")).to.equal(
     true
   );
   await startAppealFlow.completeClientAddressOutOfCountry(true, true);

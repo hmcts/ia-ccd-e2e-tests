@@ -53,7 +53,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
@@ -86,7 +86,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay using Payment by Account` for the `Payment method` field
 
   @RIA-4468-pay-for-appeal @RIA-4468-pay-for-appeal-ea @RIA-4468-pay-for-appeal-ea-failed @RIA-4468 @RIA-4679
@@ -135,7 +135,7 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
@@ -178,5 +178,5 @@ Feature: Pay for appeal (Make a payment) after failed PBA payment (EA appeal typ
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay using Payment by Account` for the `Payment method` field

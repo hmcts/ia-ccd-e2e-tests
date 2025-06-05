@@ -18,20 +18,20 @@ Given("I create a new case", async function () {
   try {
     await browser.wait(
       EC.visibilityOf(element(by.css("div.spinner-container"))),
-      10000,
+      1000,
       "Spinner did not appear."
     );
   } catch {
-    browser.refresh();
     try {
-      await browser.wait(
-          EC.visibilityOf(element(by.css("div.spinner-container"))),
-          20000,
-          "Spinner did not appear."
-      );
+      await ccdPage.click("Reset")
     } catch {
-      console.log("Spinner did not appear after refresh.");
+      browser.refresh();
     }
+    await browser.wait(
+      EC.visibilityOf(element(by.css("div.spinner-container"))),
+      10000,
+      "Spinner did not appear."
+    );
   }
   await ccdPage.waitForSpinner();
   await ccdPage.linkContains("Create case");
@@ -71,20 +71,20 @@ Given("I create a new bail application", async function () {
   try {
     await browser.wait(
       EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
+      1000,
       "Spinner did not appear."
     );
   } catch {
-    browser.refresh();
     try {
-      await browser.wait(
-          EC.visibilityOf(element(by.css("div.spinner-container"))),
-          20000,
-          "Spinner did not appear."
-      );
+      await ccdPage.click("Reset")
     } catch {
-      console.log("Spinner did not appear after refresh.");
+      browser.refresh();
     }
+    await browser.wait(
+      EC.visibilityOf(element(by.css("div.spinner-container"))),
+      10000,
+      "Spinner did not appear."
+    );
   }
   await ccdPage.waitForSpinner();
   await ccdPage.linkContains("Create case");

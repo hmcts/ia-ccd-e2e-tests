@@ -19,7 +19,7 @@ Feature: Edit appeal application
     Given I am on the `Basic details` page
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
@@ -41,7 +41,7 @@ Feature: Edit appeal application
     Given I am on the `New matters` page
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    Given I am on the `Other appeals` page
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page
@@ -194,7 +194,7 @@ Feature: Edit appeal application
     And I type `Smith` for the `Family name` field
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
@@ -206,7 +206,7 @@ Feature: Edit appeal application
     Given I am on the `New matters` page
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    Given I am on the `Other appeals` page
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page
@@ -332,7 +332,7 @@ Feature: Edit appeal application
     And I type `Smith` for the `Family name` field
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
@@ -344,7 +344,7 @@ Feature: Edit appeal application
     Given I am on the `New matters` page
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    Given I am on the `Other appeals` page
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page

@@ -9,8 +9,6 @@ Feature: SnL Flow RP hearing request
   Scenario: SnL hearing request in country flow for RP appeal
 
     When I save my initial RP appeal for nonPayment with hearing
-    When I click the `Close and Return to case details` button
-    And I wait for 12 seconds
     Then I submit my nonpayment appeal
     And I wait for 12 seconds
     And I switch to be a `Case Officer`
