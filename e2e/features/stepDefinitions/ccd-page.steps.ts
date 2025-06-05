@@ -23,7 +23,7 @@ Given("I create a new case", async function () {
     );
   } catch {
     try {
-      await ccdPage.click("Reset")
+      await ccdPage.click("Reset");
     } catch {
       browser.refresh();
     }
@@ -76,7 +76,7 @@ Given("I create a new bail application", async function () {
     );
   } catch {
     try {
-      await ccdPage.click("Reset")
+      await ccdPage.click("Reset");
     } catch {
       browser.refresh();
     }
