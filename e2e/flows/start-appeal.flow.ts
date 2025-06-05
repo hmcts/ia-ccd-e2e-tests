@@ -214,11 +214,13 @@ export class StartAppealFlow {
         "Does the appellant have a postal address?",
         "No"
       );
+      await this.ccdFormPage.click("No");
     } else {
       await this.ccdFormPage.setFieldValue(
         "Does the appellant have a postal address?",
         "Yes"
       );
+      await this.ccdFormPage.click("Yes");
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", postcode);
       await this.ccdFormPage.click("Find address");
       await this.ccdFormPage.doesDropdownHaveValues("Select an address");
