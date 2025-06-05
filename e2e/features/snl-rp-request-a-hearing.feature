@@ -2,7 +2,6 @@ Feature: SnL Flow RP hearing request
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 10 seconds
     And I create a new case
 
   @appeal-nightly-test
@@ -10,9 +9,7 @@ Feature: SnL Flow RP hearing request
 
     When I save my initial RP appeal for nonPayment with hearing
     Then I submit my nonpayment appeal
-    And I wait for 12 seconds
     And I switch to be a `Case Officer`
-    And I wait for 10 seconds
     And I request home office data
     And I request respondent evidence
     ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request

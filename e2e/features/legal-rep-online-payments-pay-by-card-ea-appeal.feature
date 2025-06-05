@@ -8,7 +8,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     Then I should be on the overview page
     And I submit my appeal before paying
     Then I should see the text `You must now pay for this appeal. First create a service request, you can do this by selecting 'Create a service request' from the 'Next step' dropdown list. Then select 'Go'.`
-    When I click the `create a service request` link
+    When I select the `Create a service request` Next step
     Then I should see the `Pay for this appeal` page
     And I should see the text `Next step - payment`
     And I should see the text `Select 'Submit' to create the service request`

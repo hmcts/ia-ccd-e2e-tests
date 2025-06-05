@@ -127,9 +127,9 @@ export class AnyPage {
 
         return currentPageUrl !== nextPage;
       },
-      waitForNavigationTime ? waitForNavigationTime : 60000,
+      waitForNavigationTime ? waitForNavigationTime : 30000,
       "Navigation to next page taking too long " +
-        (waitForNavigationTime ? waitForNavigationTime : 60000) +
+        (waitForNavigationTime ? waitForNavigationTime : 30000) +
         ". Current page " +
         currentPageUrl +
         ". Errors => " +
