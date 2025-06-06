@@ -19,7 +19,7 @@ Feature: Bails Update interpreter details application as Legal Rep
     When I select the `Update interpreter details` Next step
     Then I should see the text `Update interpreter details`
     When I Add the bail interpreter details
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
  
  @bail-nightly-test
   Scenario: Add Update interpreter status application
@@ -28,4 +28,4 @@ Feature: Bails Update interpreter details application as Legal Rep
     When I select the `Update interpreter status` Next step
     Then I should see the text `Update interpreter status`
     When I update interpreter booking status
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present

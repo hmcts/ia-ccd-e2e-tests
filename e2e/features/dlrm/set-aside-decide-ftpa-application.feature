@@ -59,7 +59,7 @@ Feature: Set Aside Decide FTPA Application
     And I should see the text `Check your answers`
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
 
   @set-aside-dlrm @RIA-8104  @RIA-8206 @dlrm
   Scenario Outline: Rule31/Rule32 decisions
@@ -80,7 +80,7 @@ Feature: Set Aside Decide FTPA Application
     And I click the `Submit` button
     And I should see the text `What happens next`
     And I should see the text `A Judge will update the decision`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I should see the text `The appeal was removed from the FTPA process. See the details in the FTPA tab.`
     And I should see the text `When you are ready, update the appeal decision.`
     And I switch to be a `Legal Org User Rep A`
@@ -128,7 +128,7 @@ Feature: Set Aside Decide FTPA Application
     And I should see the text `Check your answers`
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     When I click the `Documents` tab
     Then I should see the `Set aside documents` field
     And within the `Set aside documents` collection's first item, I should see SignedDecisionNoticeReheard.pdf in the `Document` field

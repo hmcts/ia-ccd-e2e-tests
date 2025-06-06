@@ -462,7 +462,7 @@ Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
 Then(
   /^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/,
   async function (flag, type) {
-    await browser.sleep(8000);
+    await browser.sleep(5000);
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue");
     await browser.sleep(3000);

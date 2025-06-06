@@ -93,13 +93,13 @@ Given(/^I am signed in as(?:| a) `?(?:|Legal Org2 User Rep)(?:| Creator)`?$/, as
 });
 
 Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
-  await browser.sleep(100);
+  await browser.sleep(1000);
   const currentUrl = await ccdPage.getCurrentUrl();
   const caseUrl = currentUrl.match(caseUrlMatcher)[0];
   await authenticationFlow.signInAsCaseOfficer();
-  await browser.sleep(100);
+  await browser.sleep(1000);
   await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
+  await browser.sleep(5000);
   if (!(await ccdPage.overViewContains('Overview'))) {
     await ccdPage.get(caseUrl);
   }
@@ -115,11 +115,11 @@ Given(/^I switch to be a Sr `?Case (?:Officer|Worker)`?$/, async function () {
 });
 
 Given(/^I switch to be a `?(?:Admin Officer)`?$/, async function () {
-  await browser.sleep(100);
+  await browser.sleep(1000);
   const currentUrl = await ccdPage.getCurrentUrl();
   const caseUrl = currentUrl.match(caseUrlMatcher)[0];
   await authenticationFlow.signInAsAdminOfficer();
-  await browser.sleep(100);
+  await browser.sleep(1000);
   await ccdPage.get(caseUrl);
   await browser.sleep(7000);
   if (!(await ccdPage.overViewContains('Overview'))) {

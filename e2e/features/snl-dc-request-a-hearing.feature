@@ -10,7 +10,7 @@ Feature: SnL Flow DC hearing request
   Scenario: SnL hearing request in country flow for DC appeal
 
     When I save my initial DC appeal for nonPayment with hearing
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
     And I wait for 12 seconds
     Then I submit my nonpayment appeal
     And I wait for 12 seconds
@@ -70,7 +70,7 @@ Feature: SnL Flow DC hearing request
 #   Scenario: SnL hearing request out off country flow for EA appeal
 #     And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `EA` appeal
 #     And I wait for 12 seconds
-#     And I click the `Close and Return to case details` button
+#     And I click the `Close and Return to case details` button if present
 #     And I wait for 5 second
 #     Then I should see the text `You still need to submit your appeal.`
 #     And I pay for and submit my appeal by Card for a non PA appeal type

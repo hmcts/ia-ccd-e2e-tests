@@ -53,7 +53,7 @@ Feature: Notice of Change (common component) - Previous Representation
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct answers to the challenge questions
     And I click the `Continue` button
     And I select all the submit checkboxes
@@ -128,7 +128,7 @@ Feature: Notice of Change (common component) - Previous Representation
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct answers to the challenge questions
     And I click the `Continue` button
     And I select all the submit checkboxes
@@ -204,7 +204,7 @@ Feature: Notice of Change (common component) - Previous Representation
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct answers to the challenge questions
     And I click the `Continue` button
     And I select all the submit checkboxes

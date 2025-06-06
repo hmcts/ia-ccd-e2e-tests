@@ -36,7 +36,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct firstname answer to the challenge questions
     And I enter the incorrect lastname answer to the challenge questions
     And I click the `Continue` button
@@ -52,7 +52,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct answers to the challenge questions
     And I click the `Continue` button
     And I should see the text `Your organisation already has access to this case`
@@ -66,7 +66,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the incorrect firstname answer to the challenge questions
     And I enter the correct lastname answer to the challenge questions
     And I click the `Continue` button
@@ -82,7 +82,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct firstname answer to the challenge questions
     And I enter the incorrect lastname answer to the challenge questions
     And I click the `Continue` button
@@ -99,7 +99,7 @@ Feature: Notice of Change (common component)
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
     And I click the `Continue` button
-    And I should see the `Enter details` page
+    And I should see the `Enter your client's details` page
     And I enter the correct answers to the challenge questions
     And I click the `Continue` button
     And I select all the submit checkboxes

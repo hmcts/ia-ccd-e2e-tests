@@ -7,7 +7,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I click the `Close and Return to case details` button if present
     Then I should be on the overview page
     And I submit my appeal before paying
-    Then I should see the text `You must now pay for this appeal. First create a service request, you can do this by selecting 'Create a service request' from the 'Next step' dropdown list. Then select 'Go'.`
+    Then I should see the text `You must now pay for this appeal.`
     When I select the `Create a service request` Next step
     Then I should see the `Pay for this appeal` page
     And I should see the text `Next step - payment`

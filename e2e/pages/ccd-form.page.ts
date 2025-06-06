@@ -104,7 +104,7 @@ export class CcdFormPage extends CcdPage {
       .get(number)
       .sendKeys(absolutePath);
     browser.setFileDetector(fileDetector);
-    await browser.sleep(5000);
+    await browser.sleep(7000);
 
   }
 }

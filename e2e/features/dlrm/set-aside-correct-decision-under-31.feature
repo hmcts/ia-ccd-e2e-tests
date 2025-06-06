@@ -143,7 +143,7 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
     And I should see the text `Check your answers`
     And I click the `Submit` button
     And I should see the text `You've recorded the First-tier permission to appeal decision`
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     
 
   @set-aside-dlrm @RIA-8157 @appeal-nightly-test @dlrm @appeal-nightly-test

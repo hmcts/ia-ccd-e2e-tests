@@ -67,7 +67,7 @@ export class AnyPage {
         linkText === "Close and Return to case details" ? Wait.long : Wait.short
       );
     } catch (e) {
-      // do nothing and carry on ...
+      console.log(linkText + " not found on page.")
     }
 
     const button = await element

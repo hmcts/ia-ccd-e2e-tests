@@ -62,7 +62,7 @@ Feature: Bails Notice of Change
     Then I should see the `Notice of change` page
     When I enter the bails online case reference for the online case reference number
     And I click the `Continue` button
-    Then I should see the `Enter details` page
+    Then I should see the `Enter your client's details` page
     When I enter the correct answers to the challenge questions for bails
     And I click the `Continue` button
     Then I should see the text `Your organisation already has access to this case`

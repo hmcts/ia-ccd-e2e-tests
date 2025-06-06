@@ -10,7 +10,7 @@ Feature: SnL Flow S94B flag with Type-C facility in hearing request
 
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
     Then I should see the text `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card
@@ -75,7 +75,7 @@ Feature: SnL Flow S94B flag with Type-C facility in hearing request
   Scenario: SnL hearing request out off country flow for S94B flag with Type-C facility for PA appeal
     And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `PA` appeal
     And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
     Then I should see the text `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card for a PA appeal type
