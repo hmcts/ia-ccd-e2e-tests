@@ -60,13 +60,9 @@ export class CcdFormPage extends CcdPage {
   async setFieldValue(fieldLabel: string, fieldValue: string, fieldType?: string, instanceNumber?: string | number, complexFieldLabel?: string, collectionItemNumber?: string | number) {
     const field = await this.fields.find(fieldType, fieldLabel, instanceNumber, complexFieldLabel, collectionItemNumber);
 
-    if (!!field) {
-      if (fieldType === 'document' || await field.isDisplayed()) {
-        const expandedFieldValue = await this.valueExpander.expand(fieldValue);
-        await field.setValue(expandedFieldValue);
-      } else {
-        throw 'Cannot find field with label: ' + fieldLabel;
-      }
+    if (!!field && (fieldType === 'document' || await field.isDisplayed())) {
+      const expandedFieldValue = await this.valueExpander.expand(fieldValue);
+      await field.setValue(expandedFieldValue);
     } else {
       throw 'Cannot find field with label: ' + fieldLabel;
     }
