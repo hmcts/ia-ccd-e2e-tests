@@ -104,7 +104,7 @@ Feature: Different Home Office roles have different functionality
     Then I am on the `Upload Home Office bundle` page
 
     When I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button

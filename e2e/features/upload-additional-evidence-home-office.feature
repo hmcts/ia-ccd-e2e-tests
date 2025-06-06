@@ -31,7 +31,7 @@ Feature: Upload additional evidence Home Office
     And I see the text `You'll need to explain why this evidence is being submitted late.`
 
     When I add an item to the `Additional evidence` collection
-    And within the `Additional evidence` collection's first item, I upload `{@HomeOfficeEvidence.pdf}` for the `Document` field
+    And within the `Additional evidence` collection's first item, I upload `{@HomeOfficeEvidence.pdf}` for the `Document` document field
     And within the `Additional evidence` collection's first item, I type `This is the additional Home Office evidence` for the `Why it was late` field
     And I wait for 2 seconds
     And I click the `Continue` button

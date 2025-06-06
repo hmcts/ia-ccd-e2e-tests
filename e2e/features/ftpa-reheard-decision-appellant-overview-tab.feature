@@ -42,7 +42,7 @@ Feature: New Overview tab - FTPA resident judge records the appellant Reheard De
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I type `These are list of instructions` for the `Listing instructions (Optional)` field

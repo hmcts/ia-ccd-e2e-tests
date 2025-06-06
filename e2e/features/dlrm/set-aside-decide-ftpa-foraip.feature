@@ -62,7 +62,7 @@ Feature: Set Aside Decide FTPA Application for AiP
     And I click the `Continue` button
     And I should see the text `Final rule 35 notice`
     And I should see the text `Upload final rule 35 notice`
-    When I upload `{@SignedDecisionNoticeReheard.pdf}` for the `Upload rule 35 notice` field
+    When I upload `{@SignedDecisionNoticeReheard.pdf}` for the `Upload rule 35 notice` document field
     And I wait for 5 seconds
     And I click the `Continue` button
     And I should see the text `Listing instructions`

@@ -22,7 +22,7 @@ Feature: Bails Upload signed decision notice
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     And The page is accessible
-    When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` field
+    When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` document field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -44,7 +44,7 @@ Feature: Bails Upload signed decision notice
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     And The page is accessible
-    When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` field
+    When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` document field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -66,7 +66,7 @@ Feature: Bails Upload signed decision notice
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     And The page is accessible
-    When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` field
+    When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` document field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -89,7 +89,7 @@ Feature: Bails Upload signed decision notice
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     And The page is accessible
-    When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` field
+    When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` document field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page

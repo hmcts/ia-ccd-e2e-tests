@@ -8,9 +8,9 @@ export class UploadSignedDecisionNotice {
     await browser.sleep(5000);
     await this.ccdFormPage.runAccessbility();
     if (decision === 'Refused') {
-      await this.ccdFormPage.setFieldValue('Decision document', '{@SignedDecisionNoticeRefused.pdf}');
+      await this.ccdFormPage.setFieldValue('Decision document', '{@SignedDecisionNoticeRefused}', 'document');
     } else {
-      await this.ccdFormPage.setFieldValue('Decision document', '{@SignedDecisionNoticeGranted.pdf}');
+      await this.ccdFormPage.setFieldValue('Decision document', '{@SignedDecisionNoticeGranted}', 'document');
     }
     await browser.sleep(3000);
     if (clickContinue) {

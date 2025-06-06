@@ -41,7 +41,7 @@ Feature: Send decision and reasons
     Then I should see the text `Complete decision and reasons`
     And I should see the text `Upload your decision and reasons`
 
-    When I upload `{@test.pdf}` for the `Decision and reasons` field
+    When I upload `{@test.pdf}` for the `Decision and reasons` document field
     And I click the `I confirm this document is signed with today's date.` label
     And I click the `Ensure that the fee award is consistent with your decision.` label
     And I click the `Continue` button
@@ -79,7 +79,7 @@ Feature: Send decision and reasons
     Then I should see the text `Complete decision and reasons`
     And I should see the text `Upload your decision and reasons`
 
-    When I upload `{@test.pdf}` for the `Decision and reasons` field
+    When I upload `{@test.pdf}` for the `Decision and reasons` document field
     And I click the `I confirm this document is signed with today's date.` label
     And I click the `Ensure that the fee award is consistent with your decision.` label
     And I click the `Continue` button

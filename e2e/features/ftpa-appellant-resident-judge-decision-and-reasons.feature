@@ -40,7 +40,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission granted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -49,7 +49,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -337,7 +337,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission granted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -346,7 +346,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -407,7 +407,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission partially granted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -416,7 +416,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -638,7 +638,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission partially granted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -647,7 +647,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -708,7 +708,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -922,7 +922,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -970,13 +970,13 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -1205,13 +1205,13 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -1261,7 +1261,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -1470,7 +1470,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -1515,7 +1515,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -1739,7 +1739,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     And I click the `Continue` button

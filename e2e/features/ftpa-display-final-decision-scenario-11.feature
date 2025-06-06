@@ -44,7 +44,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Allowed` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -91,7 +91,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Yes` for the `Before this decision, did you send a Notice of Decision set aside and to be reheard in the First-tier under rule 35?` field
@@ -155,7 +155,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Allowed` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -202,7 +202,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Yes` for the `Before this decision, did you send a Notice of Decision set aside and to be reheard in the First-tier under rule 35?` field
@@ -266,7 +266,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Dismissed on all grounds` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -313,7 +313,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Yes` for the `Before this decision, did you send a Notice of Decision set aside and to be reheard in the First-tier under rule 35?` field
@@ -377,7 +377,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Dismissed on all grounds` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -424,7 +424,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Yes` for the `Before this decision, did you send a Notice of Decision set aside and to be reheard in the First-tier under rule 35?` field
@@ -488,7 +488,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Allowed` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -535,7 +535,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Application not admitted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I am on the `Check your answers` page
@@ -594,7 +594,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Dismissed on all grounds` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -641,7 +641,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Application not admitted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I am on the `Check your answers` page
@@ -700,7 +700,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Application not admitted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I am on the `Check your answers` page
@@ -745,7 +745,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Allowed` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -806,7 +806,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Application not admitted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I am on the `Check your answers` page
@@ -851,7 +851,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Dismissed on all grounds` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -912,7 +912,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I am on the `Check your answers` page
@@ -958,7 +958,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Allowed` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -1019,7 +1019,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I am on the `Check your answers` page
@@ -1065,7 +1065,7 @@ Feature: Final display for FTPA decision and reasons
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Dismissed on all grounds` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field

@@ -30,7 +30,7 @@ Feature: Apply for a late remission
     Then I am on the `Asylum support` page
     And I should see the text `Enter the Asylum Support reference number. You can find this on the Asylum Support confirmation letter your client received from the Home Office.`
     And I type `20/02/1234` for the `Asylum Support reference number` field
-    And I upload `{@Evidence1.pdf}` for the `Asylum Support confirmation letter (Optional)` field
+    And I upload `{@Evidence1.pdf}` for the `Asylum Support confirmation letter (Optional)` document field
     And I wait for 2 seconds
     And I click the `Continue` button
 

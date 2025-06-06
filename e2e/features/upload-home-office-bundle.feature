@@ -27,7 +27,7 @@ Feature: Upload Home Office bundle
     Then I am on the `Upload Home Office bundle` page
 
     When I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -52,7 +52,7 @@ Feature: Upload Home Office bundle
     And I should see the text `- None`
 
     When I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -109,7 +109,7 @@ Feature: Upload Home Office bundle
     And I should see the text `Already uploaded files:`
     And I should see the text `- RespondentEvidence.pdf`
     When I click the `Add new` button
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the updated evidence` for the `Describe the document` field
 
     When I click the `Continue` button

@@ -76,7 +76,7 @@ Feature: Customise hearing bundle
     Then I should see the `Customise hearing bundle` page
 
     And I add an item to the `Additional evidence from appellant (Optional)` collection
-    And within the `Additional evidence from appellant (Optional)` collection's second item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Additional evidence from appellant (Optional)` collection's second item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And I wait for 10 seconds
 
     When I click the `Continue` button

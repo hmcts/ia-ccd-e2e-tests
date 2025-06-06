@@ -36,7 +36,7 @@ Feature: Upload hearing recording
 
     When I add an item to the `Hearing recordings` collection
 
-    And within the `Hearing recordings` collection's first item, I upload `{@HearingRecording.mp3}` for the `Audio file` field
+    And within the `Hearing recordings` collection's first item, I upload `{@HearingRecording.mp3}` for the `Audio file` document field
     And within the `Hearing recordings` collection's first item, I type `some description` for the `Describe the file` field
     And I click the `Continue` button
 

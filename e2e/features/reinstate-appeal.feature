@@ -88,7 +88,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -121,7 +121,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -158,7 +158,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -200,7 +200,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -224,7 +224,7 @@ Feature: Reinstate appeal
     And I click the `add the Home Office's response` link
     And I select `Decision maintained` for the `Outcome` field
     And I click the `Continue` button
-    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -262,7 +262,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -286,7 +286,7 @@ Feature: Reinstate appeal
     And I click the `add the Home Office's response` link
     And I select `Decision maintained` for the `Outcome` field
     And I click the `Continue` button
-    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -334,7 +334,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -358,7 +358,7 @@ Feature: Reinstate appeal
     And I click the `add the Home Office's response` link
     And I select `Decision maintained` for the `Outcome` field
     And I click the `Continue` button
-    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -404,7 +404,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -428,7 +428,7 @@ Feature: Reinstate appeal
     And I click the `add the Home Office's response` link
     And I select `Decision maintained` for the `Outcome` field
     And I click the `Continue` button
-    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -475,7 +475,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -499,7 +499,7 @@ Feature: Reinstate appeal
     And I click the `add the Home Office's response` link
     And I select `Decision maintained` for the `Outcome` field
     And I click the `Continue` button
-    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -545,7 +545,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -569,7 +569,7 @@ Feature: Reinstate appeal
     And I click the `add the Home Office's response` link
     And I select `Decision maintained` for the `Outcome` field
     And I click the `Continue` button
-    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -619,7 +619,7 @@ Feature: Reinstate appeal
     And I click the `Overview` tab
     And I click the `upload the Home Office bundle` link
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -643,7 +643,7 @@ Feature: Reinstate appeal
     And I click the `add the Home Office's response` link
     And I select `Decision maintained` for the `Outcome` field
     And I click the `Continue` button
-    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    And I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I click the `Continue` button
     And I click the `Upload` button

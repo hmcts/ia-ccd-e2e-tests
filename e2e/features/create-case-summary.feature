@@ -28,7 +28,7 @@ Feature: Create case summary
     When I select the `Create case summary` Next step
     Then I am on the `Create case summary` page
 
-    When I upload `{@CaseSummary.pdf}` for the `Case summary document` field
+    When I upload `{@CaseSummary.pdf}` for the `Case summary document` document field
     And I type `This is the case summary` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button

@@ -17,7 +17,7 @@ Feature: Upload respondent evidence
     And I should see the text `- None`
 
     When I add an item to the `Upload case documents` collection
-    And within the `Upload case documents` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` field
+    And within the `Upload case documents` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` document field
     And within the `Upload case documents` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -58,7 +58,7 @@ Feature: Upload respondent evidence
     When I select the `Upload respondent evidence` Next step
     Then I am on the `Upload respondent evidence` page
     When I add an item to the `Upload case documents` collection
-    And within the `Upload case documents` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` field
+    And within the `Upload case documents` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Document` document field
     And within the `Upload case documents` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -75,7 +75,7 @@ Feature: Upload respondent evidence
     When I select the `Upload respondent evidence` Next step
     Then I am on the `Upload respondent evidence` page
     When I add an item to the `Upload case documents` collection
-    And within the `Upload case documents` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
+    And within the `Upload case documents` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` document field
     And within the `Upload case documents` collection's first item, I type `This is the evidence added later` for the `Describe the document` field
 
     When I click the `Continue` button

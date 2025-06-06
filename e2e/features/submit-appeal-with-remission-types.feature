@@ -32,7 +32,7 @@ Feature: Submit appeal with asylum support remission
 
     And I should see the text `Enter the Asylum Support reference number. You can find this on the Asylum Support confirmation letter your client received from the Home Office.`
     And I type `20/02/1234` for the `Asylum Support reference number` field
-    And I upload `{@Evidence1.pdf}` for the `Asylum Support confirmation letter (Optional)` field
+    And I upload `{@Evidence1.pdf}` for the `Asylum Support confirmation letter (Optional)` document field
     And I wait for 10 seconds
     And I click the `Continue` button
 
@@ -208,7 +208,7 @@ Feature: Submit appeal with asylum support remission
 
     Then I am on the `Section 17` page
     And I should see the text `You need to provide a copy of a letter from the local authority confirming your client's benefit or accommodation support.`
-    And I upload `{@Evidence1.pdf}` for the `Local authority letter` field
+    And I upload `{@Evidence1.pdf}` for the `Local authority letter` document field
     And I wait for 10 seconds
     And I click the `Continue` button
 
@@ -307,7 +307,7 @@ Feature: Submit appeal with asylum support remission
 
     Then I am on the `Section 20` page
     And I should see the text `You need to provide a copy of a letter from the local authority confirming your client's benefit or accommodation support.`
-    And I upload `{@Evidence1.pdf}` for the `Local authority letter` field
+    And I upload `{@Evidence1.pdf}` for the `Local authority letter` document field
     And I wait for 10 seconds
     And I click the `Continue` button
 
@@ -406,7 +406,7 @@ Feature: Submit appeal with asylum support remission
 
     Then I am on the `Home Office Waiver` page
     And I should see the text `You need to provide a copy of the Home Office fee waiver letter to validate this fee remission.`
-    And I upload `{@Evidence1.pdf}` for the `Home Office fee waiver letter (Optional)` field
+    And I upload `{@Evidence1.pdf}` for the `Home Office fee waiver letter (Optional)` document field
     And I wait for 10 seconds
     And I click the `Continue` button
 

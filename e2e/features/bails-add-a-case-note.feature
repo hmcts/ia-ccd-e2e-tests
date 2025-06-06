@@ -17,7 +17,7 @@ Feature: Bails Add a case note to bails application
     When I type `some case note description` for the `Case note` field
     Then the `Continue` button is enabled
 
-    When I upload `{@BailsCaseNote.pdf}` for the `Upload a document (Optional)` field
+    When I upload `{@BailsCaseNote.pdf}` for the `Upload a document (Optional)` document field
     And I wait for 10 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -58,7 +58,7 @@ Feature: Bails Add a case note to bails application
     When I type `some case note description` for the `Case note` field
     Then the `Continue` button is enabled
 
-    When I upload `{@BailsCaseNote.pdf}` for the `Upload a document (Optional)` field
+    When I upload `{@BailsCaseNote.pdf}` for the `Upload a document (Optional)` document field
     And I wait for 10 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page

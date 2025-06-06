@@ -12,7 +12,7 @@ Feature: Bails Upload Documents
     Then I am on the `Upload` page
     And The page is accessible
     When I click the `Add new` button
-    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` field
+    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` document field
     And within the `Upload documents` collection's first item, I type `This is the a bails document that is being uploaded by the LR after submitting.` for the `Describe the document` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -40,7 +40,7 @@ Feature: Bails Upload Documents
     Then I am on the `Upload` page
     And The page is accessible
     When I click the `Add new` button
-    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` field
+    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` document field
     And within the `Upload documents` collection's first item, I type `This is the a bails document that is being uploaded by the HO after uploading bail summary.` for the `Describe the document` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -71,7 +71,7 @@ Feature: Bails Upload Documents
     And The page is accessible
     When I click the `Add new` button
     And I select `Applicant` for the `Documents supplied by` field
-    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` field
+    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` document field
     And within the `Upload documents` collection's first item, I type `This is the a bails document that is being uploaded by the AO after recording decision.` for the `Describe the document` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -103,7 +103,7 @@ Feature: Bails Upload Documents
     And The page is accessible
     When I click the `Add new` button
     And I select `Applicant` for the `Documents supplied by` field
-    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` field
+    And within the `Upload documents` collection's first item, I upload `{@BailsExampleDocument.pdf}` for the `Document` document field
     And within the `Upload documents` collection's first item, I type `This is the a bails document that is being uploaded by the AO after uploading signed decision notice.` for the `Describe the document` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page

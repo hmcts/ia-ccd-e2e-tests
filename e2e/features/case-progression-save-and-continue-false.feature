@@ -185,7 +185,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `- None`
 
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -271,7 +271,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `Already uploaded files:`
     And I should see the text `- Evidence1.pdf`
     And I click the `Add new` button
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Document` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the updated evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -559,10 +559,10 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `Already uploaded files:`
     And I should see the text `- None`
 
-    When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Add any additional evidence here (Optional)` collection
-    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button
@@ -666,10 +666,10 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `- AppealResponse.pdf`
     And I should see the text `- Evidence1.pdf`
 
-    When I upload `{@AppealResponseUpdated.pdf}` for the `Upload the appeal response` field
+    When I upload `{@AppealResponseUpdated.pdf}` for the `Upload the appeal response` document field
     And I type `This is the updated appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Add any additional evidence here (Optional)` collection
-    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@AppealResponseEvidenceUpdated.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@AppealResponseEvidenceUpdated.pdf}` for the `Document (Optional)` document field
     And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the updated evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button
