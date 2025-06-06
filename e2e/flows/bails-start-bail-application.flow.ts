@@ -683,7 +683,7 @@ export class StartBailApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
     await this.ccdFormPage.click("Add new");
-    await this.ccdFormPage.setFieldValue("Document", "{@B1Form.pdf}", 'document');
+    await this.ccdFormPage.uploadFile('B1Form.pdf');
     await this.ccdFormPage.setFieldValue(
       "Describe the document",
       "This is the B1 form"

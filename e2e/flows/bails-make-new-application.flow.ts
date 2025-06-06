@@ -323,7 +323,7 @@ export class MakeNewApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
     await this.ccdFormPage.click('Add new');
-    await this.ccdFormPage.setFieldValue('Document', '{@GroundsForBailSupportingEvidence.pdf}', 'document');
+    await this.ccdFormPage.uploadFile('GroundsForBailSupportingEvidence.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document', 'This is a different supporting evidence');
     await browser.sleep(8000);
     if (clickContinue) {
@@ -397,7 +397,7 @@ export class MakeNewApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
     await this.ccdFormPage.click('Add new');
-    await this.ccdFormPage.setFieldValue('Document', '{@B1Form.pdf}', 'document');
+    await this.ccdFormPage.uploadFile('B1Form.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document', 'This is a new B1 form');
     await browser.sleep(8000);
     if (clickContinue) {

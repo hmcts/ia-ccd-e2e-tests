@@ -372,7 +372,7 @@ export class EditBailApplicationPreSubmitFlow {
   async completeB1Upload(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
-    await this.ccdFormPage.setFieldValue('Document', '{@B1Form.pdf}', 'document');
+    await this.ccdFormPage.uploadFile('B1Form.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document', 'Edited this B1 form');
     await browser.sleep(8000);
     if (clickContinue) {
