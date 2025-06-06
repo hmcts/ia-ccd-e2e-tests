@@ -60,8 +60,8 @@ export class CcdFormPage extends CcdPage {
   async setFieldValue(fieldLabel: string, fieldValue: string, fieldType?: string, instanceNumber?: string | number, complexFieldLabel?: string, collectionItemNumber?: string | number) {
     if (fieldType === 'document') {
       fieldLabel = "Choose file";
+      await browser.sleep(1000);
     }
-    await browser.sleep(1000);
     const field = await this.fields.find(fieldType, fieldLabel, instanceNumber, complexFieldLabel, collectionItemNumber);
 
     if (!!field && (await field.isDisplayed())) {
