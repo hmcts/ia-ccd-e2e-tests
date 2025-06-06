@@ -469,7 +469,7 @@ Then(
     await ccdFormPage.waitForCssElementClickable("input.govuk-radios__input");
     await ccdFormPage.click(flag);
     await ccdFormPage.click("Continue");
-    await ccdFormPage.waitForCssElementVisible("#flagComments")
+    await ccdFormPage.waitForCssElementVisible("#flagComments");
     await ccdFormPage.click("Continue");
     await ccdFormPage.click("Create Flag");
   }
