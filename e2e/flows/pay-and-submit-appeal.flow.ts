@@ -85,7 +85,7 @@ export class PayAndSubmitAppealFlow {
     await this.ccdFormPage.typeText(`cardholder-name`, `Test User`);
     await this.ccdFormPage.typeText(`cvc`, `123`);
     await this.ccdFormPage.typeText(`address-line-1`, `123 Fake Street`);
-    await this.ccdFormPage.typeText(`address-city`, `Fakeicester`);
+    await this.ccdFormPage.typeText(`address-city`, `London`);
     await this.ccdFormPage.typeText(`address-postcode`, `FE1 2EF`);
     await this.ccdFormPage.typeText(`email`, `test@test.com`);
     await this.ccdFormPage.click('Continue');
