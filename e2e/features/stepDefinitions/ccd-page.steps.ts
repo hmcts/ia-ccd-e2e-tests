@@ -52,6 +52,11 @@ Given("I create a new case", async function () {
   await ccdPage.doesDropdownHaveValues("Event");
   await ccdPage.isButtonEnabled("Start");
   await ccdPage.click("Start");
+  try {
+    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+  } catch {
+    await browser.get(iaConfig.CcdWebUrl + "/cases/case-create/IA/Asylum/startAppeal/beforeYouStart");
+  }
 });
 
 Given("I create a new bail application", async function () {
@@ -89,6 +94,11 @@ Given("I create a new bail application", async function () {
   await ccdPage.doesDropdownHaveValues("Event");
   await ccdPage.isButtonEnabled("Start");
   await ccdPage.click("Start");
+  try {
+    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+  } catch {
+    await browser.get(iaConfig.CcdWebUrl + "/cases/case-create/IA/Bail/startApplication");
+  }
 });
 
 Given("I Apply case list filter", async function () {
