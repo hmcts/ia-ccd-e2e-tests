@@ -55,7 +55,8 @@ Given("I create a new case", async function () {
   try {
     await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
   } catch {
-    await browser.get(iaConfig.CcdWebUrl + "/cases/case-create/IA/Asylum/startAppeal/beforeYouStart");
+    await ccdPage.click("Start");
+    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
   }
 });
 
@@ -97,7 +98,8 @@ Given("I create a new bail application", async function () {
   try {
     await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
   } catch {
-    await browser.get(iaConfig.CcdWebUrl + "/cases/case-create/IA/Bail/startApplication");
+    await ccdPage.click("Start");
+    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
   }
 });
 
