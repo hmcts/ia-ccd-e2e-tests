@@ -58,15 +58,15 @@ export class CcdFormPage extends CcdPage {
   }
 
   async setFieldValue(fieldLabel: string, fieldValue: string, fieldType?: string, instanceNumber?: string | number, complexFieldLabel?: string, collectionItemNumber?: string | number) {
-    if (fieldType === 'document') {
-      fieldLabel = "Choose file";
-      await browser.sleep(1000);
-    }
     const field = await this.fields.find(fieldType, fieldLabel, instanceNumber, complexFieldLabel, collectionItemNumber);
 
-    if (!!field && (await field.isDisplayed())) {
-      const expandedFieldValue = await this.valueExpander.expand(fieldValue);
-      await field.setValue(expandedFieldValue);
+    if (!!field) {
+      if (fieldType === 'document' || await field.isDisplayed()) {
+        const expandedFieldValue = await this.valueExpander.expand(fieldValue);
+        await field.setValue(expandedFieldValue);
+      } else {
+        throw 'Cannot find field with label: ' + fieldLabel;
+      }
     } else {
       throw 'Cannot find field with label: ' + fieldLabel;
     }
@@ -105,6 +105,15 @@ export class CcdFormPage extends CcdPage {
       .sendKeys(absolutePath);
     browser.setFileDetector(fileDetector);
     await browser.sleep(7000);
+  }
 
+  async uploadFileToElement(element, filename: string) {
+    await browser.sleep(1000);
+    let fileDetector = WebDriver.fileDetector;
+    browser.setFileDetector(new remote.FileDetector());
+    let absolutePath = path.resolve("documents", filename);
+    await element.sendKeys(absolutePath);
+    browser.setFileDetector(fileDetector);
+    await browser.sleep(7000);
   }
 }

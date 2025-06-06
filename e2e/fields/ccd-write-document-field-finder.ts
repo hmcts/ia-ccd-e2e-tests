@@ -8,16 +8,19 @@ export class CcdWriteDocumentFieldFinder implements FieldFinder {
   }
 
   public async findByLabel(container, instanceNumber: number, fieldLabel: string) {
-    const fieldContainer = container.all(by.xpath('.//span[contains(@class, "form-label") and normalize-space()="' + fieldLabel + '"]' + '/ancestor::ccd-field-write[position()=1]')).get(instanceNumber - 1);
-
-    if ((await fieldContainer.isPresent()) && (await fieldContainer.$$('ccd-write-document-field').isPresent())) {
+    const forId = await container.all(by.cssContainingText('label', fieldLabel))
+      .get(instanceNumber - 1)
+      .getAttribute('for');
+    const input = await container.all(by.css(`input[type=file]#${forId}`)).get(0);
+    const fieldContainer = input.element(by.xpath('..'));
+    if ((await fieldContainer.isPresent())) {
       return new CcdWriteDocumentField(fieldContainer, fieldLabel);
     }
   }
 
   public async findHavingEmptyLabel(container, instanceNumber: number) {
-    const fieldContainer = container.all(by.xpath('.//ccd-field-write[.//ccd-write-document-field]')).get(instanceNumber - 1);
-
+    const input = container.all(by.css("input[type=file]")).get(instanceNumber - 1);
+    const fieldContainer = input.element(by.xpath('..'));
     if (await fieldContainer.isPresent()) {
       return new CcdWriteDocumentField(fieldContainer, '');
     }

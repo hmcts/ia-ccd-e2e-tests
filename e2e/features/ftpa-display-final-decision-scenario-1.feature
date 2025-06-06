@@ -87,7 +87,6 @@ Feature: Final display for FTPA decision and reasons
     And I add an item to the `FTPA Decision and Reasons document` collection
     And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
-    And I wait for 2 seconds
     And I click the `Continue` button
     And I click the `There is a point of special difficulty or importance` label
     And I type `This is information to the upper tribunal` for the `Provide any information that may be helpful to the Upper Tribunal judge (Optional)` field

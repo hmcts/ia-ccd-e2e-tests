@@ -18,7 +18,6 @@ Feature: Bails Add a case note to bails application
     Then the `Continue` button is enabled
 
     When I upload `{@BailsCaseNote.pdf}` for the `Upload a document (Optional)` document field
-    And I wait for 10 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible
@@ -59,7 +58,6 @@ Feature: Bails Add a case note to bails application
     Then the `Continue` button is enabled
 
     When I upload `{@BailsCaseNote.pdf}` for the `Upload a document (Optional)` document field
-    And I wait for 10 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And The page is accessible

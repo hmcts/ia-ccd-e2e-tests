@@ -81,7 +81,6 @@ Feature: TCW progresses case from decision to decided - FTPA reheard decision (r
     And I add an item to the `Notice communication` collection
     And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
-    And I click the `Continue` button
     And I type `These are list of instructions` for the `Listing instructions (Optional)` field
     And I click the `Continue` button
     And I click the `Submit` button

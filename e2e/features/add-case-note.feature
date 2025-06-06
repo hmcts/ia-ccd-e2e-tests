@@ -20,7 +20,6 @@ Feature: Add a case note
     Then the `Continue` button is enabled
 
     When I upload `{@test.doc}` for the `Upload a document (Optional)` document field
-    And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `some case note subject` in the `Subject` field
