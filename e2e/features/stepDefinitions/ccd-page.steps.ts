@@ -465,9 +465,11 @@ Then(
     await browser.sleep(5000);
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue");
-    await browser.sleep(3000);
+    await browser.sleep(5000);
+    await ccdFormPage.waitForCssElementClickable("input.govuk-radios__input");
     await ccdFormPage.click(flag);
     await ccdFormPage.click("Continue");
+    await ccdFormPage.waitForCssElementVisible("#flagComments")
     await ccdFormPage.click("Continue");
     await ccdFormPage.click("Create Flag");
   }
