@@ -1,6 +1,5 @@
 import { browser, by } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
-const iaConfig = require("../ia.conf");
 
 const isOutOfCountryEnabled =
   require("../ia.conf").isOutOfCountryEnabled === "true";
@@ -35,12 +34,6 @@ export class StartAppealFlow {
 
   async completeScreeningQuestionsOutOfCountry(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    try {
-      await this.ccdFormPage.headingContains("Tell us about your client");
-    } catch {
-      await browser.get(iaConfig.CcdWebUrl + "/cases/case-create/IA/Asylum/startAppeal/startAppealchecklist");
-      await this.ccdFormPage.headingContains("Tell us about your client");
-    }
     await this.ccdFormPage.click("My client is not in detention");
 
     if (clickContinue) {
