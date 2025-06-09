@@ -68,7 +68,7 @@ export class PayAndSubmitAppealFlow {
 
   async payForAppealByCard(clickContinue = false) {
     const currentUrl = await this.ccdPage.getCurrentUrl();
-    await element(by.xpath('//div.mat-tab-label[text()="Service Request"]')).click();
+    await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     await this.ccdFormPage.click('Pay now');
     try {
