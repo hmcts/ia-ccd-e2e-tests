@@ -46,7 +46,7 @@ export class AnyPage {
     linkText: string,
     xpathIndex = 0,
     waitForNavigationTime?: number,
-    shouldWaitForNavigation: boolean = true
+    shouldWaitForNavigation = true
   ) {
     const expandedLinkText = await this.valueExpander.expand(linkText);
 
