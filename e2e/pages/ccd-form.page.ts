@@ -43,7 +43,7 @@ export class CcdFormPage extends CcdPage {
     collectionItemNumber?: string | number
   ) {
     const field = await this.fields.find(
-      "",
+      "select list",
       fieldLabel,
       instanceNumber,
       complexFieldLabel,
