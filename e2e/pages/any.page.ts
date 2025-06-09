@@ -83,7 +83,7 @@ export class AnyPage {
       if (linkText === "Continue" && shouldWaitForNavigation) {
         await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         // unexpected happened
-        if (await element(by.css('div.govuk-error-summary')).isDisplayed() === true) {
+        if (await element(by.css('div.govuk-error-summary')).isPresent() === true) {
           await button.click();
           await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         }
