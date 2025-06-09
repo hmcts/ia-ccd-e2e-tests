@@ -1,5 +1,7 @@
 import { CcdPage } from "./ccd.page";
 import { $, browser, ExpectedConditions, By, by, protractor } from "protractor";
+import { Field } from "../fields/field";
+import { expect } from "chai";
 const remote = require("selenium-webdriver/remote");
 const path = require("path");
 const { WebDriver } = require("selenium-webdriver");
@@ -42,13 +44,25 @@ export class CcdFormPage extends CcdPage {
     complexFieldLabel?: string,
     collectionItemNumber?: string | number
   ) {
-    const field = await this.fields.find(
-      "select list",
-      fieldLabel,
-      instanceNumber,
-      complexFieldLabel,
-      collectionItemNumber
-    );
+    let field: Field;
+    try {
+      field = await this.fields.find(
+        "select list",
+        fieldLabel,
+        instanceNumber,
+        complexFieldLabel,
+        collectionItemNumber
+      );
+      expect(!!field && (await field.isDisplayed())).to.equal(true);
+    } catch {
+      field = await this.fields.find(
+        "",
+        fieldLabel,
+        instanceNumber,
+        complexFieldLabel,
+        collectionItemNumber
+      );
+    }
 
     if (!!field && (await field.isDisplayed())) {
       return await field.getOptions();
