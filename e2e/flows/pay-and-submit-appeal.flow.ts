@@ -90,7 +90,11 @@ export class PayAndSubmitAppealFlow {
     await this.ccdFormPage.typeText(`address-city`, `London`);
     await this.ccdFormPage.typeText(`address-postcode`, `FE1 2EF`);
     await this.ccdFormPage.typeText(`email`, `test@test.com`);
-    await this.ccdFormPage.click('Continue');
+    try {
+      await this.ccdFormPage.click('Continue');
+    } catch {
+      await this.ccdFormPage.click('Continue');
+    }
     await this.ccdPage.waitForCssElementVisible('.confirm-page__content');
     await this.ccdFormPage.click('Confirm payment');
 
@@ -123,6 +127,14 @@ export class PayAndSubmitAppealFlow {
       } else {
         break;
       }
+    }
+  }
+
+  async continuePayByCard() {
+    try {
+      await this.ccdFormPage.click('Continue');
+    } catch {
+      await this.ccdFormPage.click('Continue');
     }
   }
 }

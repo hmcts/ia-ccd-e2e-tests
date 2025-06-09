@@ -49,3 +49,7 @@ Then(/^I submit my late appeal$/, async function () {
 Then(/^I submit my appeal before paying$/, async function () {
   await submitAppealFlow.submitAppeal(true);
 });
+
+Then(/^I click the Continue button on the Pay by card page$/, async function () {
+  await payAndSubmitAppealFlow.continuePayByCard();
+});

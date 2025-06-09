@@ -80,10 +80,10 @@ export class AnyPage {
       await BrowserWaits.waitForelementToBeClickable(button);
       let thisPageUrl = await browser.getCurrentUrl();
       await button.click();
-      if (linkText === "Continue" && shouldWaitForNavigation) {
+      if ((linkText === "Continue" || linkText === "Submit") && shouldWaitForNavigation) {
         await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         // unexpected happened
-        if (await element(by.css('div.govuk-error-summary')).isPresent() === true) {
+        if (await element(by.xpath('//p[contains(text(),"Something unexpected happened")]')).isPresent() === true) {
           await button.click();
           await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         }

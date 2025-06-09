@@ -41,7 +41,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I type `London` for the field with ID `address-city`
     And I type `FE1 2EF` for the field with ID `address-postcode`
     And I type `test@test.com` for the field with ID `email`
-    And I click the `Continue` button
+    And I click the Continue button on the Pay by card page
     Then I should see the text `Payment summary`
     When I click the `Confirm payment` button
     And I wait for 5 seconds
@@ -71,7 +71,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I type `London` for the field with ID `address-city`
     And I type `FE1 2EF` for the field with ID `address-postcode`
     And I type `test@test.com` for the field with ID `email`
-    And I click the `Continue` button
+    And I click the Continue button on the Pay by card page
     Then I should see the text `Your payment has been declined`
     And I should see the text `No money has been taken from your account.`
     When I click the `Continue` button
@@ -91,7 +91,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I type `London` for the field with ID `address-city`
     And I type `FE1 2EF` for the field with ID `address-postcode`
     And I type `test@test.com` for the field with ID `email`
-    And I click the `Continue` button
+    And I click the Continue button on the Pay by card page
     Then I should see the text `We’re experiencing technical problems`
     And I should see the text `No money has been taken from your account.`
     When I click the `Cancel and go back to try the payment again` link

@@ -192,9 +192,9 @@ export class CcdPage extends AnyPage {
     expect(await element(by.css(locator)).isPresent()).to.equal(true);
   }
 
-  async waitForCssElementClickable(locator: string) {
+  async waitForCssElementClickable(locator: string, timeout = 10000) {
     await this.waitForCssElementVisible(locator);
-    await browser.wait(ExpectedConditions.elementToBeClickable(element(by.css(locator))), 10000, locator + ' is not clickable');
+    await browser.wait(ExpectedConditions.elementToBeClickable(element(by.css(locator))), timeout, locator + ' is not clickable');
   }
 
   async waitForOverviewPage() {
