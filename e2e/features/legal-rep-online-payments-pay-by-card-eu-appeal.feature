@@ -34,7 +34,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
   Scenario: Pay and submit appeal - successful payment (EU appeal type)
     When I type `4444333322221111` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`
-    And I type `24` for the field with ID `expiry-year`
+    And I type `30` for the field with ID `expiry-year`
     And I type `Test User` for the field with ID `cardholder-name`
     And I type `123` for the field with ID `cvc`
     And I type `123 Fake Street` for the field with ID `address-line-1`
@@ -64,7 +64,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
 
     When I type `4000000000000002` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`
-    And I type `24` for the field with ID `expiry-year`
+    And I type `30` for the field with ID `expiry-year`
     And I type `Test User` for the field with ID `cardholder-name`
     And I type `123` for the field with ID `cvc`
     And I type `123 Fake Street` for the field with ID `address-line-1`
@@ -84,7 +84,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
 
     When I type `4000000000000119` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`
-    And I type `24` for the field with ID `expiry-year`
+    And I type `30` for the field with ID `expiry-year`
     And I type `Test User` for the field with ID `cardholder-name`
     And I type `123` for the field with ID `cvc`
     And I type `123 Fake Street` for the field with ID `address-line-1`
