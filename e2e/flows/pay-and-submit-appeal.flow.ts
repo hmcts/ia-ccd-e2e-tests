@@ -7,7 +7,7 @@ export class PayAndSubmitAppealFlow {
   private ccdFormPage = new CcdFormPage();
 
   async payForAppealByPBA(clickContinue = false) {
-    await element(by.xpath('//div[text()="Service Request"]')).click();
+    await element(by.xpath('//div.mat-tab-label[text()="Service Request"]')).click();
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     await this.ccdFormPage.click('Pay now');
     try {
@@ -53,7 +53,9 @@ export class PayAndSubmitAppealFlow {
       overviewUrl += '/';
     }
     overviewUrl += 'trigger/generateServiceRequest/generateServiceRequestcreateAServiceRequest';
-    await browser.get(overviewUrl);
+    if (await browser.getCurrentUrl() !== overviewUrl) {
+      await browser.get(overviewUrl);
+    }
     await this.ccdFormPage.headingContains('Pay for this appeal');
     let currentUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
@@ -66,7 +68,7 @@ export class PayAndSubmitAppealFlow {
 
   async payForAppealByCard(clickContinue = false) {
     const currentUrl = await this.ccdPage.getCurrentUrl();
-    await element(by.xpath('//div[text()="Service Request"]')).click();
+    await element(by.xpath('//div.mat-tab-label[text()="Service Request"]')).click();
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     await this.ccdFormPage.click('Pay now');
     try {

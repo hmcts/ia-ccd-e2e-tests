@@ -20,7 +20,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     Then I should see the text `You can now pay for this appeal in the 'Service Request' tab on the case details screen.`
     When I click the `Close and Return to case details` button if present
     Then I should see the text `You must now pay for this appeal. You can do this via the Service Request tab.`
-    And I click the `Service Request` link
+    And I goto the `Service Request` tab
     Then I should see the text `Not paid`
     When I click the `Pay now` link
     And I wait for 5 seconds

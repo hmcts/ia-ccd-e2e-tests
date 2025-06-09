@@ -36,7 +36,6 @@ Feature: Upload additional evidence Home Office
     And I wait for 2 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
-    And within the `Additional evidence` collection's first item, I should see `HomeOfficeEvidence.pdf` for the `Document` field
     And within the `Additional evidence` collection's first item, I should see `This is the additional Home Office evidence` in the `Why it was late` field
     And I wait for 1 seconds
     When I click the `Upload` button

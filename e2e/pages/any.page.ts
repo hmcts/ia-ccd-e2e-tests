@@ -45,7 +45,8 @@ export class AnyPage {
   async click(
     linkText: string,
     xpathIndex = 0,
-    waitForNavigationTime?: number
+    waitForNavigationTime?: number,
+    shouldWaitForNavigation: boolean = true
   ) {
     const expandedLinkText = await this.valueExpander.expand(linkText);
 
@@ -79,8 +80,13 @@ export class AnyPage {
       await BrowserWaits.waitForelementToBeClickable(button);
       let thisPageUrl = await browser.getCurrentUrl();
       await button.click();
-      if (linkText === "Continue") {
+      if (linkText === "Continue" && shouldWaitForNavigation) {
         await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
+        // unexpected happened
+        if (await element(by.css('div.govuk-error-summary')).isDisplayed() === true) {
+          await button.click();
+          await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
+        }
       }
       return;
     }

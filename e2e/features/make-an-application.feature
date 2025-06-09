@@ -26,7 +26,7 @@ Feature: Legal representative make an application
     #And the `Continue` button is disabled
     And I type `A reason to update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
     And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `document` document field without a label
+    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the document field without a label
 
     When I click the `Continue` button for flakey Make an application
     Then I am on the `Check your answers` page
@@ -183,7 +183,7 @@ Feature: Legal representative make an application
     # And the `Continue` button is disabled
     And I type `A reason to update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
     And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `document` document field without a label
+    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the document field without a label
     And I wait for the spinner
 
     When I click the `Continue` button
@@ -215,7 +215,7 @@ Feature: Legal representative make an application
     #And the `Continue` button is disabled
     And I type `A reason for time extension` for the `Tell us which task you need more time to complete, explain why you need more time and include how much more time you will need.` field
     And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `document` document field without a label
+    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the document field without a label
     And I wait for the spinner
 
     When I click the `Continue` button
