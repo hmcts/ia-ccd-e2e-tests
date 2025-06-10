@@ -659,7 +659,7 @@ Then(
         expect(JSON.stringify(caseFlagName)).to.equal(caseFlagValue);
       }
       if (td === 1) {
-        expect(comments).to.equal(caseFlagValue);
+        expect(comments.trim()).to.equal(caseFlagValue.trim());
       }
       if (td === 2) {
         expect(JSON.stringify(createdDate)).to.equal(caseFlagValue);

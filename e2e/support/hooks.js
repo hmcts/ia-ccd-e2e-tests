@@ -46,7 +46,7 @@ After(async function (scenario) {
 });
 
 async function addToTotalTestsIfNotExists(stringVar) {
-  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
+  const testCounterPath = path.join(process.cwd(), 'e2e', 'testCounter.json');
   await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
@@ -72,7 +72,7 @@ async function addToTotalTestsIfNotExists(stringVar) {
 }
 
 async function addToPassedTests(stringVar) {
-  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
+  const testCounterPath = path.join(process.cwd(), 'e2e', 'testCounter.json');
   await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
     if (err) {
       console.error('Error reading file:', err);

@@ -20,7 +20,7 @@ Feature: Create and manage Case Flags for TCW
         Then I should see the text `Case level flags`
         Then I should see the text `Complex Case`
 
-    @appeal-nightly-test @appeal-nightly-test1 @caseflag @caseflag
+    @appeal-nightly-test @caseflag @caseflag
     Scenario: Create a case Flag and make Inactive
         And I switch to be a `Case Officer`
         When I select the `Create Flag` Next step
