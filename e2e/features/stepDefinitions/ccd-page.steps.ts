@@ -364,6 +364,44 @@ Then(
 );
 
 Then(
+  /^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? text area input (?:answer|field)$/,
+  async function (fieldMatch, inOrFor, fieldLabel) {
+    const isExactMatch = inOrFor === "for";
+
+    expect(
+      await ccdPage.isFieldValueDisplayed(
+        fieldLabel,
+        fieldMatch,
+        isExactMatch,
+        "first",
+        "",
+        "",
+        "text area"
+      )
+    ).to.equal(true);
+  }
+);
+
+Then(
+  /^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? date input (?:answer|field)$/,
+  async function (fieldMatch, inOrFor, fieldLabel) {
+    const isExactMatch = inOrFor === "for";
+
+    expect(
+      await ccdPage.isFieldValueDisplayed(
+        fieldLabel,
+        fieldMatch,
+        isExactMatch,
+        "first",
+        "",
+        "",
+        "date"
+      )
+    ).to.equal(true);
+  }
+);
+
+Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
   async function (instanceNumber, fieldsetLabel, fieldMatch, inOrFor) {
     const isExactMatch = inOrFor === "for";
@@ -466,11 +504,11 @@ Then(
 Given("I restart the browser", async function () {
   await browser.restart();
 });
-Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
+Then(/^I will make `?([^`]+)`? as Inactive$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
   await ccdFormPage.click("Continue");
   await ccdFormPage.typeText(
-    `flagComments`,
+    `flagComment`,
     `test case flage make it inactive`
   );
   await ccdFormPage.click("Make inactive");

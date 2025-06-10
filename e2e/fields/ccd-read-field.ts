@@ -39,6 +39,6 @@ export class CcdReadField implements Field {
   }
 
   private getValueElement() {
-    return this.container.all(by.xpath('.//ccd-field-read'));
+   return this.container.all(by.xpath('.//ccd-field-read|.//ccd-read-fixed-list-field'));
   }
 }

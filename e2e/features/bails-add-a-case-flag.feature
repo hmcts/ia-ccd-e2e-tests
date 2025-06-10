@@ -21,7 +21,7 @@ Feature: Bails Add a case flag to bails application
         Then I should see the text `Complex Case`
 
     @bail-nightly-test @caseflag @fix-test
-    Scenario: Create a case Flag and make In Active
+    Scenario: Create a case Flag and make Inactive
         And I switch to be a `Admin Officer Bails`
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page

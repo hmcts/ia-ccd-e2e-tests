@@ -79,10 +79,11 @@ export class CcdPage extends AnyPage {
     isExactMatch = true,
     instanceNumber?: string | number,
     collectionLabel?: string,
-    collectionItemNumber?: string | number
+    collectionItemNumber?: string | number,
+    fieldType = ""
   ) {
     const field = await this.fields.find(
-      "",
+      fieldType,
       fieldLabel,
       instanceNumber,
       collectionLabel,
