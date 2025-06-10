@@ -654,21 +654,21 @@ Then(
     console.log("ModifiedDate:::" + ModifiedDate);
     for (let td = 0; td < tdCount; td++) {
       let tdValue = await tds[td];
-      let caseFlagValue = JSON.stringify(await tdValue.getText());
+      let caseFlagValue = JSON.stringify(await tdValue.getText()).trim();
       if (td === 0) {
-        expect(JSON.stringify(caseFlagName)).to.equal(caseFlagValue);
+        expect(JSON.stringify(caseFlagName).trim()).to.equal(caseFlagValue);
       }
       if (td === 1) {
-        expect(comments.trim()).to.equal(caseFlagValue.trim());
+        expect(comments.trim()).to.equal(caseFlagValue);
       }
       if (td === 2) {
-        expect(JSON.stringify(createdDate)).to.equal(caseFlagValue);
+        expect(JSON.stringify(createdDate).trim()).to.equal(caseFlagValue);
       }
       if (td === 3) {
-        expect(JSON.stringify(ModifiedDate)).to.equal(caseFlagValue);
+        expect(JSON.stringify(ModifiedDate).trim()).to.equal(caseFlagValue);
       }
       if (td === 4) {
-        expect(JSON.stringify(flagStatus)).to.equal(caseFlagValue);
+        expect(JSON.stringify(flagStatus).trim()).to.equal(caseFlagValue);
       }
     }
   }
