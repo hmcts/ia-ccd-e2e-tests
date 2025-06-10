@@ -146,7 +146,7 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
     And I click the `Close and Return to case details` button if present
     
 
-  @set-aside-dlrm @RIA-8157 @appeal-nightly-test @dlrm @appeal-nightly-test
+  @set-aside-dlrm @RIA-8157 @appeal-nightly-test @appeal-nightly-test1 @dlrm
   Scenario Outline: Correct decision error under rule 31
     And I wait for 2 seconds
     When I select the `Update Tribunal decision` Next step

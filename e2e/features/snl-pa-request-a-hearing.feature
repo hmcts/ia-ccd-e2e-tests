@@ -4,7 +4,7 @@ Feature: SnL Flow PA hearing request
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
-  @appeal-nightly-test
+  @appeal-nightly-test @appeal-nightly-test1
   Scenario: SnL hearing request in country flow for PA appeal
 
     And I save my initial PA appeal type without remission and with hearing fee and pay now
