@@ -485,7 +485,7 @@ Then(
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 30000, false);
     await browser.sleep(5000);
-    await ccdFormPage.waitForXpathElementVisible(`//label[text()="${flag}"][contains(@class, "govuk-radios__label")]`);
+    await ccdFormPage.waitForXpathElementVisible(`//label[contains(text(),"${flag}")][contains(@class, "govuk-radios__label")]`);
     await ccdFormPage.click(flag);
     await ccdFormPage.click("Continue", 0, 30000, false);
     try {

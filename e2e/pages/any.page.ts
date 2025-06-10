@@ -81,13 +81,16 @@ export class AnyPage {
       let thisPageUrl = await browser.getCurrentUrl();
       await button.click();
       if ((linkText === "Continue" || linkText === "Submit") && shouldWaitForNavigation) {
-        await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
-        // unexpected happened
-        const unexpectedError: boolean = await element(by.xpath('//*[contains(text(),"Something unexpected happened")]')).isPresent();
-        const nullIndexError: boolean = await element(by.xpath('//*[contains(text(),"Cannot read properties of null")]')).isPresent();
-        if (unexpectedError || nullIndexError) {
-          await button.click();
+        try {
           await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
+        } catch {
+          // unexpected happened
+          const unexpectedError: boolean = await element(by.xpath('//*[contains(text(),"Something unexpected happened")]')).isPresent();
+          const nullIndexError: boolean = await element(by.xpath('//*[contains(text(),"Cannot read properties of null")]')).isPresent();
+          if (unexpectedError || nullIndexError) {
+            await button.click();
+            await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
+          }
         }
       }
       return;
