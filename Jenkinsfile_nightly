@@ -29,8 +29,8 @@ def secrets = [
         secret('test-law-firm-b-password', 'TEST_LAW_FIRM_B_PASSWORD'),
         secret('test-law-firm-c-username', 'TEST_LAW_FIRM_C_USERNAME'),
         secret('test-law-firm-c-password', 'TEST_LAW_FIRM_C_PASSWORD'),
-        secret('test-adminofficer-username', 'TEST_ADMINOFFICER_USERNAME'),
-        secret('test-adminofficer-password', 'TEST_ADMINOFFICER_PASSWORD'),
+        secret('wa-test-adminofficer-username', 'TEST_ADMINOFFICER_USERNAME'),
+        secret('wa-test-adminofficer-password', 'TEST_ADMINOFFICER_PASSWORD'),
 
         secret('test-homeoffice-apc-username', 'TEST_HOMEOFFICE_APC_USERNAME'),
         secret('test-homeoffice-apc-password', 'TEST_HOMEOFFICE_APC_PASSWORD'),

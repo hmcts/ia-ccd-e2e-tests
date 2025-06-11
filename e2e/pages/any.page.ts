@@ -1,6 +1,8 @@
 import { browser, by, element, ElementFinder, protractor } from "protractor";
+import { expect } from 'chai';
 import { Wait } from "../enums/wait";
 import { ValueExpander } from "../helpers/value-expander";
+
 const AxeRunner = require("../helpers/accessibility/axe-runner");
 const iaConfig = require("../ia.conf");
 const BrowserWaits = require("../support/customWaits");
@@ -78,22 +80,28 @@ export class AnyPage {
 
     if (await button.isPresent()) {
       await BrowserWaits.waitForelementToBeClickable(button);
-      let thisPageUrl = await browser.getCurrentUrl();
       await this.waitForSpinner();
+      const unexpectedError = element(by.xpath('//*[contains(text(),"Something unexpected happened")]'));
+      const nullIndexError = element(by.xpath('//*[contains(text(),"Cannot read properties of null")]'));
       await button.click();
+      await this.waitForSpinner();
+      try {
+        expect(await unexpectedError.isPresent()).to.equal(false);
+        expect(await nullIndexError.isPresent()).to.equal(false);
+      } catch {
+        await button.click();
+      }
       if ((linkText === "Continue" || linkText === "Submit" || linkText === "Send direction") && shouldWaitForNavigation) {
+        const thisPageUrl = await browser.getCurrentUrl();
+        await this.waitForSpinner();
+        await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         try {
+          expect(await unexpectedError.isPresent()).to.equal(false);
+          expect(await nullIndexError.isPresent()).to.equal(false);
+        } catch {
+          await button.click();
           await this.waitForSpinner();
           await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
-        } catch {
-          // unexpected happened
-          const unexpectedError: boolean = await element(by.xpath('//*[contains(text(),"Something unexpected happened")]')).isPresent();
-          const nullIndexError: boolean = await element(by.xpath('//*[contains(text(),"Cannot read properties of null")]')).isPresent();
-          if (unexpectedError || nullIndexError) {
-            await button.click();
-            await this.waitForSpinner();
-            await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
-          }
         }
       }
       return;
@@ -143,13 +151,14 @@ export class AnyPage {
       },
       waitForNavigationTime ? waitForNavigationTime : 30000,
       "Navigation to next page taking too long " +
-        (waitForNavigationTime ? waitForNavigationTime : 30000) +
-        ". Current page " +
-        currentPageUrl +
-        ". Errors => " +
-        pageErrors
+      (waitForNavigationTime ? waitForNavigationTime : 30000) +
+      ". Current page " +
+      currentPageUrl +
+      ". Errors => " +
+      pageErrors
     );
   }
+
   async isButtonEnabled(match: string, shortWait = false) {
     const expandedMatch = await this.valueExpander.expand(match);
 
@@ -161,9 +170,9 @@ export class AnyPage {
               .all(
                 by.xpath(
                   "//*[self::button or self::a]" +
-                    '[contains(normalize-space(), "' +
-                    expandedMatch +
-                    '") and not(ancestor::*[@hidden])]'
+                  '[contains(normalize-space(), "' +
+                  expandedMatch +
+                  '") and not(ancestor::*[@hidden])]'
                 )
               )
               .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
@@ -189,9 +198,9 @@ export class AnyPage {
               .all(
                 by.xpath(
                   '//label[contains(normalize-space(),"' +
-                    expandedMatch +
-                    '")]' +
-                    "/../select/option[string-length(@value) > 0]"
+                  expandedMatch +
+                  '")]' +
+                  "/../select/option[string-length(@value) > 0]"
                 )
               )
               .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
@@ -218,9 +227,9 @@ export class AnyPage {
               .all(
                 by.xpath(
                   "//*[self::button or self::a]" +
-                    '[contains(normalize-space(), "' +
-                    expandedMatch +
-                    '") and not(ancestor::*[@hidden])]'
+                  '[contains(normalize-space(), "' +
+                  expandedMatch +
+                  '") and not(ancestor::*[@hidden])]'
                 )
               )
               .filter((e) => e.isPresent() && e.isDisplayed())
@@ -247,9 +256,9 @@ export class AnyPage {
               .all(
                 by.xpath(
                   "//*[self::h1 or self::h2 or self::h3 or self::caption]" +
-                    '[contains(normalize-space(), "' +
-                    expandedMatch +
-                    '") and not(ancestor::*[@hidden])]'
+                  '[contains(normalize-space(), "' +
+                  expandedMatch +
+                  '") and not(ancestor::*[@hidden])]'
                 )
               )
               .filter((e) => e.isPresent() && e.isDisplayed())
@@ -382,7 +391,8 @@ export class AnyPage {
       await BrowserWaits.waitForElement(button);
       await BrowserWaits.waitForelementToBeClickable(button);
       await button.click();
-    } catch {}
+    } catch {
+    }
   }
 
   async createCaseClickable() {

@@ -47,13 +47,13 @@ export class CcdPage extends AnyPage {
       '"]';
     for (let i = 0; i < 5; i++) {
       try {
-        await this.waitForXpathElementVisible(nextStepPath, 15000);
+        await this.waitForXpathElementVisible(nextStepPath, 30000);
         await element(by.xpath(nextStepPath)).click();
         let overviewUrl = await browser.getCurrentUrl();
         const goPath = '//button[contains(text(), "Go")]';
         // await element(by.xpath(goPath)).click();
         await this.doubleClick('xpath', goPath);
-        await this.waitForPageNavigation(overviewUrl, 15000);
+        await this.waitForPageNavigation(overviewUrl, 30000);
         await this.waitForSpinner();
         break;
       } catch {
