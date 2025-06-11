@@ -39,8 +39,9 @@ Feature: SnL Flow EA hearing request
     And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
 
     #Hearing Request
-     And I wait for 3 seconds
-    When I goto the `hearings` tab
+    And I switch to be a `Admin Officer`
+    And I wait for 3 seconds
+    When I goto the `Hearings` tab
     And I wait for 8 seconds
     And I click the `Request a hearing` button
     And I wait for 3 seconds
@@ -98,8 +99,9 @@ Feature: SnL Flow EA hearing request
     And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
 
     ##Hearing Request
-     And I wait for 3 seconds
-    When I goto the `hearings` tab
+    And I switch to be a `Admin Officer`
+    And I wait for 3 seconds
+    When I goto the `Hearings` tab
     And I wait for 8 seconds
     # And I click the `Request a hearing` button
     # And I wait for 3 seconds

@@ -10,9 +10,7 @@ Feature: New Share a Case (common component)
     Then I should see the text `Case record for EA`
     When I get the Appeal Reference
     And I go to the `Case List`
-    And I wait for 20 seconds
     And I filter the cases by the Appeal Reference
-    And I wait for 30 seconds
 
   @new-share-a-case @RIA-3845 @appeal-nightly-test
   Scenario: Add user to share a case

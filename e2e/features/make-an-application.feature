@@ -2,17 +2,16 @@ Feature: Legal representative make an application
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-#    And I create a new case
-#    And I save my initial PA appeal type without remission and with hearing fee and pay now
-#    And I click the `Close and Return to case details` button if present
-#    Then I should be on the overview page
-#    And I pay for and submit my appeal by Card
+    And I create a new case
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I click the `Close and Return to case details` button if present
+    Then I should be on the overview page
+    And I pay for and submit my appeal by Card
 
   @Make-an-application-at-appeal-submitted @RIA-3457-make-an-application-at-appeal-submitted @RIA-3457 @appeal-nightly-test
   Scenario: Make an application in appeal submitted state
 
-#    When I click the `Applications` tab
-    Then I go to the URL `https://manage-case.aat.platform.hmcts.net/cases/case-details/1749478945975805#Overview`
+    When I click the `Applications` tab
     Then I select the `Make an application` Next step
     And I should see the `Type of application` page
     And I should see the option `Update appeal details` for the `Type of application` field

@@ -400,7 +400,7 @@ export class AnyPage {
 
   async gotoTabs(match: string) {
     await browser.sleep(100);
-    await element(by.xpath(`//div[contains(text(), '${match}')]`)).click();
+    await element(by.xpath(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`)).click();
   }
 
   async stopSpinnerLoad() {

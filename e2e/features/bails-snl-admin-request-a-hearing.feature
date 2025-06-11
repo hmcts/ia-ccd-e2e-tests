@@ -34,6 +34,7 @@ Feature: Bails SNL Hearing request as Admin Officer
     And I wait for 10 seconds
 
     ##Hearing Request
+     And I switch to be a `Admin Officer Bails`
     And I wait for 3 seconds
     When I goto the `Hearings` tab
     And I wait for 8 seconds

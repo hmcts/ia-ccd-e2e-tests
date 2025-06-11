@@ -11,6 +11,7 @@ Feature: SnL Flow PA hearing request
     Then I should see the text `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
@@ -30,8 +31,9 @@ Feature: SnL Flow PA hearing request
     And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
 
     ##Hearing Request
+    And I switch to be a `Admin Officer`
     And I wait for 3 seconds
-    When I goto the `hearings` tab
+    When I goto the `Hearings` tab
     And I wait for 8 seconds
     And I click the `Request a hearing` button
     And I wait for 3 seconds
@@ -89,8 +91,9 @@ Feature: SnL Flow PA hearing request
     And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` last modified ` ` flag status `ACTIVE`
 
     ##Hearing Request
+    And I switch to be a `Admin Officer`
     And I wait for 3 seconds
-    When I goto the `hearings` tab
+    When I goto the `Hearings` tab
     And I wait for 8 seconds
     And I click the `Request a hearing` button
     And I wait for 3 seconds

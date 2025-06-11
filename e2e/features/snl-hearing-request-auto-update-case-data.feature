@@ -38,8 +38,9 @@ Feature: SnL Flow Auto creation of caseflags
 
   @nightly-test @snl
   Scenario: SnL flow Auto case flags appear in Case flags Tab
+    And I switch to be a `Admin Officer`
     And I wait for 3 seconds
-    When I goto the `hearings` tab
+    When I goto the `Hearings` tab
     # And I wait for 8 seconds
     # And I click the `Request a hearing` button
     # And I wait for 3 seconds

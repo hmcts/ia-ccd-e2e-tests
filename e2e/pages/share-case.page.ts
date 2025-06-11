@@ -64,8 +64,9 @@ export class ShareCasePage {
   }
 
   async selectFirstCaseCheckbox() {
-    await browser.sleep(5000);
-    await element(by.xpath('(//input[@class="govuk-checkboxes__input"])[2]')).click();
+    const checkboxPath = '(//input[@class="govuk-checkboxes__input"])[2]';
+    await ccdFormPage.waitForXpathElementVisible(checkboxPath);
+    await element(by.xpath(checkboxPath)).click();
   }
 
   async getCaseIdToBeShared(shortWait = false) {
@@ -235,8 +236,7 @@ export class ShareCasePage {
 
   async getAppealReference() {
     let appealReferenceTitle = await element.all(by.xpath('(//h1)[1]')).getText();
-    let appealReference = appealReferenceTitle.toString().substring(16, 30);
-    this.appealReference = appealReference;
+    this.appealReference = appealReferenceTitle.toString().substring(16, 30);
     console.log('\n\tCase has reference : ' + this.appealReference + '\n');
   }
 
@@ -248,11 +248,16 @@ export class ShareCasePage {
     } else if (iaConfig.CcdWebUrl.includes('demo')) {
       await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
     }
-    // await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
-    await browser.sleep(7000);
-    let appealRefField = element(by.xpath("//*[@id='appealReferenceNumber']"));
+    const appealRefPath = '//*[@id="appealReferenceNumber"]';
+    try {
+      await ccdFormPage.waitForXpathElementVisible(appealRefPath);
+    } catch {
+      await element(by.xpath('//button[@title="Reset filter"]')).click();
+      await ccdFormPage.waitForXpathElementVisible(appealRefPath);
+    }
+    const appealRefField = element(by.xpath(appealRefPath));
     await appealRefField.clear();
     await appealRefField.sendKeys(this.appealReference);
-    await element(by.xpath("//*[@title='Apply filter']")).click();
+    await element(by.xpath("//button[@title='Apply filter']")).click();
   }
 }

@@ -38,6 +38,7 @@ Feature: Bails SNL Hearing request as as Legal Rep
     And I have created a `Reasonable adjustment` Flag in `John Smith` and signlanguage name is `British Sign Language (BSL)`
     And I wait for 10 seconds
     ##Hearing Request
+    And I switch to be a `Admin Officer Bails`
     And I wait for 3 seconds
     When I goto the `Hearings` tab
     And I wait for 8 seconds

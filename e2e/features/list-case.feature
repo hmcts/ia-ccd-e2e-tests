@@ -13,6 +13,7 @@ Feature: List case
     And I pay for and submit my appeal by Card
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
     And I upload respondent evidence

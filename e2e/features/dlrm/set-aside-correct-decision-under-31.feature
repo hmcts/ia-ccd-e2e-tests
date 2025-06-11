@@ -12,6 +12,7 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
     And I wait for 15 seconds
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
+    And I check the case has been paid for
     And I request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`

@@ -193,11 +193,11 @@ export class CcdPage extends AnyPage {
     expect(await element(by.css(locator)).isPresent()).to.equal(true);
   }
 
-  async waitForXpathElementVisible(locator: string) {
+  async waitForXpathElementVisible(locator: string, timeout = 30000) {
     await browser.wait(
       async () => element(by.xpath(locator)).isPresent(),
-      30000,
-      `Expected element ${locator} to be present within 30 seconds`
+      timeout,
+      `Expected element ${locator} to be present within ${timeout} ms`
     );
     expect(await element(by.xpath(locator)).isPresent()).to.equal(true);
   }
