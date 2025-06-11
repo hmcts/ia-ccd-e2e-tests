@@ -27,11 +27,11 @@ Feature: User authentication
 
   Scenario: Should only show cases related to that Legal Representative
 
-    Given I am signed in as `Legal Rep A`
+    Given I am signed in as a `Legal Rep`
     And I create a new case
     And I save my initial appeal
 
-    Given I am signed in as another `Legal Rep` without any cases
+    Given I am signed in as a `Legal Rep` without any cases
     When I go to the `Case List`
     Then I should see a notification saying `No cases found`
     When I click the `Search` link

@@ -2,7 +2,7 @@ Feature: Notice of Change (common component) - Remove Representation
 
   Background:
 
-    Given I am signed in as a `Legal Rep A`
+    Given I am signed in as a `Legal Rep`
     And I create a new case
     And I save my initial appeal
     And I submit my appeal

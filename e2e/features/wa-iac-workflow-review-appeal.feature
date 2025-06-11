@@ -15,7 +15,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Submit` button
     Then I should see the text `Your appeal has been submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -30,7 +30,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Submit` button
     Then I should see the text `Your appeal has been submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -45,7 +45,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Submit` button
     Then I should see the text `Your appeal has been submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -62,7 +62,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
     And I click the `Available tasks` link
@@ -85,7 +85,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -109,7 +109,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I type `Payment is now complete` for the `Additional payment information (Optional) field
     And I click the `Continue` button
 
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -125,7 +125,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I select the `Mark appeal as not paid` Next step
     And I click the `Mark as not paid` button
     Then I should see the text `What happens next`
@@ -144,7 +144,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I select the `Mark appeal as not paid` Next step
     And I click the `Mark as not paid` button
     Then I should see the text `What happens next`
@@ -159,7 +159,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I wait for 2 seconds
     Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.'
 
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -175,7 +175,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I select the `Mark appeal as not paid` Next step
     And I click the `Mark as not paid` button
     Then I should see the text `What happens next`
@@ -190,7 +190,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I wait for 2 seconds
     Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.'
 
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -225,7 +225,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     And I wait for 10 seconds
 
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -241,7 +241,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
     And I click the `Available tasks` link
