@@ -1,5 +1,4 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
 
 export class UploadAdditionalEvidenceFlow {
   private ccdFormPage = new CcdFormPage();

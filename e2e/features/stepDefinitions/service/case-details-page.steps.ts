@@ -2,7 +2,6 @@ import { CcdPage } from '../../../pages/ccd.page';
 import { Then } from 'cucumber';
 import { expect } from 'chai';
 import { Wait } from '../../../enums/wait';
-import { browser } from 'protractor';
 
 const ccdPage = new CcdPage();
 

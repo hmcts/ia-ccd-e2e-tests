@@ -1,5 +1,4 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
 
 export class CaseSummaryFlow {
   private ccdFormPage = new CcdFormPage();

@@ -1,5 +1,4 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
 
 export class RemoveAppealFlow {
   private ccdFormPage = new CcdFormPage();

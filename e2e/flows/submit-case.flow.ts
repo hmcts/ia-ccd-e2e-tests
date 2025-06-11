@@ -1,6 +1,5 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { Logger } from '../helpers/logger';
-import { browser } from 'protractor';
 
 const isSaveAndContinueEnabled = require('../ia.conf').isSaveAndContinueEnabled === 'true';
 
