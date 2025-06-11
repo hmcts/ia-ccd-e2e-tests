@@ -223,6 +223,8 @@ export class CcdPage extends AnyPage {
         break;
       } catch {
         if (i < 2) {
+          browser.refresh();
+          await this.waitForXpathElementVisible(`//*[contains(text(), ${clickText})]`);
           console.log(`Click attempt ${i + 1} failed. Trying again.`);
         } else {
           throw "All click attempts failed. Giving up.";
