@@ -8,7 +8,15 @@ export class SubmitAppealFlow {
 
   async completeDeclaration(clickContinue = false) {
     await this.ccdPage.headingContains('Declaration');
-    await element(by.css('#legalRepDeclaration-hasDeclared')).click();
+    const cssPath = '#legalRepDeclaration-hasDeclared';
+    const checkBox = element(by.css(cssPath));
+    await checkBox.click();
+    try {
+      expect(await checkBox.isSelected()).toBe(true);
+    } catch {
+      await checkBox.click();
+      expect(await checkBox.isSelected()).toBe(true);
+    }
 
     if (clickContinue) {
       await this.ccdPage.click('Submit');
