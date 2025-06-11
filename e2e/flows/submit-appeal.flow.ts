@@ -1,6 +1,7 @@
 import { CcdPage } from '../pages/ccd.page';
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { browser, by, element } from 'protractor';
+import { expect } from 'chai';
 
 export class SubmitAppealFlow {
   private ccdPage = new CcdPage();
@@ -12,10 +13,10 @@ export class SubmitAppealFlow {
     const checkBox = element(by.css(cssPath));
     await checkBox.click();
     try {
-      expect(await checkBox.isSelected()).toBe(true);
+      expect(await checkBox.isSelected()).to.equal(true);
     } catch {
       await checkBox.click();
-      expect(await checkBox.isSelected()).toBe(true);
+      expect(await checkBox.isSelected()).to.equal(true);
     }
 
     if (clickContinue) {
