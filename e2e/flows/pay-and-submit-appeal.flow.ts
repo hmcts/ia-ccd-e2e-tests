@@ -47,15 +47,6 @@ export class PayAndSubmitAppealFlow {
 
   async createServiceRequest(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Create a service request');
-    let overviewUrl = await browser.getCurrentUrl();
-    overviewUrl = overviewUrl.split('#')[0];
-    if (overviewUrl[overviewUrl.length - 1] !== '/') {
-      overviewUrl += '/';
-    }
-    overviewUrl += 'trigger/generateServiceRequest/generateServiceRequestcreateAServiceRequest';
-    if (await browser.getCurrentUrl() !== overviewUrl) {
-      await browser.get(overviewUrl);
-    }
     await this.ccdFormPage.headingContains('Pay for this appeal');
     let currentUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.click('Submit');

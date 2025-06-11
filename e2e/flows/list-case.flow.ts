@@ -102,7 +102,6 @@ export class ListCaseFlow {
     async listTheBailCase(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Case listing');
-        await this.ccdFormPage.click('Go');
         await this.ccdFormPage.setFieldValue('Listing event', 'Initial listing');
         await this.ccdFormPage.setFieldValue('Listing location', 'Hatton Cross Tribunal Hearing Centre');
         await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
@@ -121,7 +120,6 @@ export class ListCaseFlow {
     async reListTheBailCase(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Case listing');
-        await this.ccdFormPage.click('Go');
         await this.ccdFormPage.setFieldValue('Listing event', 'Relisting');
         await this.ccdFormPage.setFieldValue('Listing location', 'Hatton Cross Tribunal Hearing Centre');
         await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');

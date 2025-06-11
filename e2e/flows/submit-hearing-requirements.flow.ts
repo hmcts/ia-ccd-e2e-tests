@@ -9,9 +9,6 @@ export class SubmitHearingRequirementsFlow {
 
   async submitHearingRequirements(clickContinue = false, isYesPath = false) {
     await this.ccdFormPage.selectNextStep("Submit hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains("Submit hearing requirements");
 
@@ -33,9 +30,6 @@ export class SubmitHearingRequirementsFlow {
     inCountry = true
   ) {
     await this.ccdFormPage.selectNextStep("Submit hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     // await this.ccdFormPage.headingContains('Submit hearing requirements');
     if (isYesPath) {
@@ -61,9 +55,6 @@ export class SubmitHearingRequirementsFlow {
 
   async updateHearingRequirements(clickContinue = false, isYesPath = false) {
     await this.ccdFormPage.selectNextStep("Update hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     if (isYesPath) {
       await this.updateHearingRequirementsYesPath();
@@ -84,9 +75,6 @@ export class SubmitHearingRequirementsFlow {
     inCountry = true
   ) {
     await this.ccdFormPage.selectNextStep("Update hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     if (isYesPath) {
       if (inCountry) {

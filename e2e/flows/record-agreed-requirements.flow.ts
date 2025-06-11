@@ -9,9 +9,6 @@ export class RecordAgreedRequirementsFlow {
     isListAssistIntegrated = false
   ) {
     await this.ccdFormPage.selectNextStep("Review hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     if (!isListAssistIntegrated) {
       await this.ccdFormPage.setFieldValue("Length", "6 hours");
     }
@@ -110,9 +107,6 @@ export class RecordAgreedRequirementsFlow {
 
   async recordUpdatedHearingRequirementsYesPath(clickContinue = false) {
     await this.ccdFormPage.selectNextStep("Update hearing adjustments");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue("Length", "6 hours");
 
@@ -170,9 +164,6 @@ export class RecordAgreedRequirementsFlow {
 
   async recordAgreedRequirementsNoPath(clickContinue = false) {
     await this.ccdFormPage.selectNextStep("Hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue("Length", "6 hours");
 

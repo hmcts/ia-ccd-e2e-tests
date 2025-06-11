@@ -38,7 +38,6 @@ export class SubmitAppealFlow {
 
   async submitLateAppeal(clickContinue = false) {
     await this.ccdPage.selectNextStep('Submit your appeal');
-    await this.ccdPage.click('Go');
 
     await this.ccdFormPage.setFieldValue('You can upload a document or fill out the box below. (Optional)', 'I was on holiday', 'text area');
     if (clickContinue) {

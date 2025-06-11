@@ -179,12 +179,13 @@ export class CcdPage extends AnyPage {
 
   async waitForConfirmationScreenAndContinue(previousUrl: string) {
     await this.waitForPageNavigation(previousUrl);
+    const currentUrl = await browser.getCurrentUrl();
     try {
-      expect(await browser.getCurrentUrl()).to.contain("confirm");
+      expect(currentUrl).to.contain("confirm");
       await this.waitForCssElementVisible("#confirmation-header");
       await this.click('Close and Return to case details');
     } catch {
-      expect(await browser.getCurrentUrl()).to.contain("#Overview");
+      expect(currentUrl).to.contain("#Overview");
     }
   }
 
