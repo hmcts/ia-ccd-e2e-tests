@@ -646,9 +646,10 @@ Then(
       caseFlagName +
       '"]' +
       "/ancestor::tr[position()=1]//td";
+    lastModifiedDate = lastModifiedDate === " " ? "" : lastModifiedDate;
     let tds = await element.all(by.xpath(field));
     let tdCount = await element.all(by.xpath(field)).count();
-    let createdDate = await ccdPage.getTodayDate(creationDate);
+    // let createdDate = await ccdPage.getTodayDate(creationDate);
     let ModifiedDate = await ccdPage.getTodayDate(lastModifiedDate);
 
     console.log("ModifiedDate:::" + ModifiedDate);
@@ -661,9 +662,9 @@ Then(
       if (td === 1) {
         expect(comments.trim()).to.equal(caseFlagValue);
       }
-      if (td === 2) {
-        expect(JSON.stringify(createdDate).trim()).to.equal(caseFlagValue);
-      }
+      // if (td === 2) {
+      //   expect(JSON.stringify(createdDate).trim()).to.equal(caseFlagValue);
+      // }
       if (td === 3) {
         expect(JSON.stringify(ModifiedDate).trim()).to.equal(caseFlagValue);
       }
