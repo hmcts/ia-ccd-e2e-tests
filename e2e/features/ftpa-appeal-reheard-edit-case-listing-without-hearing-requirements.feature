@@ -37,7 +37,7 @@ Feature: Admin Officer edits case listing - FTPA reheard decision (listed withou
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     Then I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type

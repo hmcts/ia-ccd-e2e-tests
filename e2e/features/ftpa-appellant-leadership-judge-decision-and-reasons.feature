@@ -32,7 +32,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
   @ftpa-appellant-leadership-judge-decision-granted @ftpa-appellant-leadership-judge-decision @RIA-1434 @RIA-2564 @RIA-3211
   Scenario: FTPA appellant leadership judge decision - Granted
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -341,7 +341,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -412,7 +412,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
   @ftpa-appellant-leadership-judge-decision-partially-granted @ftpa-appellant-leadership-judge-decision @RIA-1434 @RIA-2564 @RIA-3211
   Scenario: FTPA appellant leadership judge decision - Partially granted
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -728,7 +728,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -798,7 +798,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
   @ftpa-appellant-leadership-judge-decision-refused @ftpa-appellant-leadership-judge-decision @RIA-1434 @RIA-2564 @RIA-3211
   Scenario: FTPA appellant leadership judge decision - refused
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -1038,7 +1038,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -1087,7 +1087,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
   @ftpa-appellant-leadership-judge-decision-not-admitted @ftpa-appellant-leadership-judge-decision @RIA-1434 @RIA-2564
   Scenario: FTPA appellant leadership judge decision - Not admitted
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -1325,7 +1325,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I should not see the `FTPA Decision and Reasons document` field
 
     And I apply for respondent FTPA
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Home Office for the applicant type

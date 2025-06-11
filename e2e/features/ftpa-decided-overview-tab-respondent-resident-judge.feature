@@ -36,7 +36,7 @@ Feature: New Overview tab - FTPA resident judge records the appellant decision a
   @ftpa-reheard-feature @ftpa-reheard-rule-35 @RIA-3651
   Scenario: New Overview tab - FTPA respondent resident judge decision (Reheard Rule 35)
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -179,7 +179,7 @@ Feature: New Overview tab - FTPA resident judge records the appellant decision a
   @ftpa-reheard-feature @ftpa-reheard-rule-32 @RIA-3651
   Scenario: New Overview tab - FTPA respondent resident judge decision (Reheard Rule 32)
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type

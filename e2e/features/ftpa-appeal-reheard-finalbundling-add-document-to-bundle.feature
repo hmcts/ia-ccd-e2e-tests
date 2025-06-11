@@ -66,7 +66,7 @@ Feature: Case Officer add a new document to final bundle for a reheard case
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     Then I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type

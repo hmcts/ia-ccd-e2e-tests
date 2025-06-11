@@ -35,7 +35,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
   Scenario: New Overview tab - FTPA resident judge records the appellant Reheard Decision (Reheard Rule 32) and POU applies for respondent FTPA
 
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -68,7 +68,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`
@@ -161,7 +161,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
   Scenario: New Overview tab - FTPA resident judge records the appellant Reheard Decision (Reheard Rule 35) and POU applies for respondent FTPA
 
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -198,7 +198,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`

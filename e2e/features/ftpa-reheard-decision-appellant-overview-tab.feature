@@ -35,7 +35,7 @@ Feature: New Overview tab - FTPA resident judge records the appellant Reheard De
   Scenario: New Overview tab - FTPA resident judge records the appellant Reheard Decision (Reheard Rule 32)
 
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Appellant for the applicant type

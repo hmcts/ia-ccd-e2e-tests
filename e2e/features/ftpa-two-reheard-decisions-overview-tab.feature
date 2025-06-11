@@ -36,7 +36,7 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
   Scenario: New Overview tab - FTPA respondent resident judge decision (Reheard Rule 35  / Reheard Rule 32)
 
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -64,7 +64,7 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -187,7 +187,7 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
   Scenario: New Overview tab - FTPA respondent resident judge decision (Reheard Rule 32  / Reheard Rule 35)
 
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -211,7 +211,7 @@ Feature: New Overview tab - FTPA resident judge records the appellant 2 x Rehear
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type

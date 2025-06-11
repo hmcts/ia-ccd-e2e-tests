@@ -31,7 +31,7 @@ Feature: Remove Set aside - Reheard flag from a reheard case at FTPA decided sta
     And I send decision and reasons
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
-    And I switch to be a Judge
+    And I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type

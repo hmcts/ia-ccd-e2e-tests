@@ -32,7 +32,7 @@ Feature: Resident judge record the appellant decision and reasons
 
   @ftpa-respondent-resident-judge-decision-granted @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571 @RIA-3211
   Scenario: FTPA respondent resident judge decision - Granted
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -225,7 +225,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -292,7 +292,7 @@ Feature: Resident judge record the appellant decision and reasons
 
   @ftpa-respondent-resident-judge-decision-partially-granted @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571 @RIA-3211
   Scenario: FTPA respondent resident judge decision - Partially granted
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -485,7 +485,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -553,7 +553,7 @@ Feature: Resident judge record the appellant decision and reasons
 
   @ftpa-respondent-resident-judge-decision-refused @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571 @RIA-3211
   Scenario: FTPA respondent resident judge decision - refused
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -703,7 +703,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -757,7 +757,7 @@ Feature: Resident judge record the appellant decision and reasons
 
   @ftpa-respondent-resident-judge-decision-reheard-rule-35 @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571 @RIA-3211
   Scenario: FTPA respondent resident judge decision - reheard-rule-35
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -910,7 +910,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -963,7 +963,7 @@ Feature: Resident judge record the appellant decision and reasons
 
   @ftpa-respondent-resident-judge-decision-reheard-rule-32 @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571 @RIA-3211
   Scenario: FTPA respondent resident judge decision - reheard-rule-32
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -1097,7 +1097,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -1151,7 +1151,7 @@ Feature: Resident judge record the appellant decision and reasons
 
   @ftpa-respondent-resident-judge-decision-remade-rule-32 @ftpa-respondent-resident-judge-decision @RIA-2527 @RIA-2571 @RIA-3211
   Scenario: FTPA respondent resident judge decision - remade-rule-32
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -1305,7 +1305,7 @@ Feature: Resident judge record the appellant decision and reasons
     And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type

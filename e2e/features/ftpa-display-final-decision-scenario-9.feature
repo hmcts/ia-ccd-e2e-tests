@@ -36,7 +36,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -88,7 +88,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -150,7 +150,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -198,7 +198,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -260,7 +260,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Home Office POU`
     And I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -307,7 +307,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
