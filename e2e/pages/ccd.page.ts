@@ -248,7 +248,7 @@ export class CcdPage extends AnyPage {
 
   async gotoTabs(match: string) {
     try {
-      await this.waitForXpathElementVisible(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`, 15000)
+      await this.waitForXpathElementVisible(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`, 15000);
     } catch {
       await element(by.xpath(`//button[contains(@class, 'mat-tab-header-pagination-after')]`)).click();
       await element(by.xpath(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`)).click();
