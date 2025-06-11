@@ -32,7 +32,7 @@ Given(/^I switch to be a `?([A-z ]*)`?$/, async function (role: UserRole) {
     await ccdPage.waitForOverviewPage();
   } catch {
     await ccdPage.get(caseUrl);
-    await ccdPage.waitForOverviewPage()
+    await ccdPage.waitForOverviewPage();
   }
 });
 
@@ -49,4 +49,3 @@ Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async functi
   expect(await ccdPage.isLoaded()).to.equal(false);
   expect(await idamSignInPage.isLoaded()).to.equal(true);
 });
-

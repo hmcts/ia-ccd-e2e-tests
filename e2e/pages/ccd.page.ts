@@ -67,9 +67,9 @@ export class CcdPage extends AnyPage {
     }
   }
 
-  async doubleClick(by: 'xpath' | 'css', locator: string) {
+  async doubleClick(locatorType: 'xpath' | 'css', locator: string) {
     const driver = browser.driver;
-    const goButton = driver.findElement(By[by](locator));
+    const goButton = driver.findElement(By[locatorType](locator));
     await new ActionSequence(driver).doubleClick(goButton).perform();
   }
 
