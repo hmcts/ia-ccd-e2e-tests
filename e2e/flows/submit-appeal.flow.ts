@@ -26,9 +26,6 @@ export class SubmitAppealFlow {
 
   async submitAppeal(clickContinue = false) {
     await this.ccdPage.selectNextStep('Submit your appeal');
-    await browser.sleep(500);
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdPage.flakeyClick('Go', overviewUrl);
     await this.ccdPage.contentContains("The appellant or legal representative has indicated that the facts entered on the appeal form and any continuation sheets are true and complete.");
     let currentUrl = await browser.getCurrentUrl();
     await this.completeDeclaration(true);

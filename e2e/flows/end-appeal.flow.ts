@@ -6,9 +6,6 @@ export class EndAppealFlow {
 
   async endAppeal(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('End the appeal');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('End the appeal');
     await this.ccdFormPage.click('Struck out');

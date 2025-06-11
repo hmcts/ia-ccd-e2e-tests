@@ -6,9 +6,6 @@ export class FtpaAppealFlow {
 
   async submitAppellantAppeal(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Apply for permission to appeal');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.addCollectionItem('Grounds of the application');
 
@@ -26,9 +23,6 @@ export class FtpaAppealFlow {
 
   async submitRespondentAppeal(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Apply for permission to appeal');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.addCollectionItem('Grounds of the application');
 

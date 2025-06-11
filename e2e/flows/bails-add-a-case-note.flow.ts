@@ -31,9 +31,6 @@ export class BailsAddCaseNoteFlow {
 
   async addCaseNote(clickContinue = false, applicationNumber: string) {
     await this.ccdFormPage.selectNextStep('Add case note');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.completeCaseNoteDetails(true, applicationNumber);
     await this.completeCheckYourAnswers(true);
     if (clickContinue) {

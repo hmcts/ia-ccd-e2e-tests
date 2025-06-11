@@ -6,9 +6,6 @@ export class UploadAdditionalEvidenceFlow {
 
   async uploadAdditionalEvidence(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Upload additional evidence');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.ccdFormPage.addCollectionItem('Upload documents');
     await this.ccdFormPage.setFieldValue('Document', '{@AdditionalEvidence1.pdf}', 'document', 'first', 'Upload documents', 'first');
     await this.ccdFormPage.setFieldValue('Explain why you are submitting this evidence after the appeal skeleton argument.', 'This is the additional evidence', 'text area', 'first', 'Upload documents', 'first');

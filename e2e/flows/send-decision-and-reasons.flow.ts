@@ -6,9 +6,6 @@ export class SendDecisionAndReasonsFlow {
 
   async sendDecisionAndReasons() {
     await this.ccdFormPage.selectNextStep('Complete decision and reasons');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Complete decision and reasons');
     await this.ccdFormPage.setFieldValue('Decision', 'Allowed');
@@ -27,9 +24,6 @@ export class SendDecisionAndReasonsFlow {
 
   async sendDecisionAndReasonsDismissed() {
     await this.ccdFormPage.selectNextStep('Complete decision and reasons');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Complete decision and reasons');
     await this.ccdFormPage.setFieldValue('Decision', 'Dismissed on all grounds');

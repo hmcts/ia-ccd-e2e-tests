@@ -6,9 +6,6 @@ export class RequestRespondentReviewFlow {
 
   async requestRespondentReview(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Request respondent review');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Request respondent review');
     await this.ccdFormPage.click('Continue');

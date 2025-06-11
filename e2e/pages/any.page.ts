@@ -398,11 +398,6 @@ export class AnyPage {
     browser.driver.get(URL);
   }
 
-  async gotoTabs(match: string) {
-    await browser.sleep(100);
-    await element(by.xpath(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`)).click();
-  }
-
   async stopSpinnerLoad() {
     await browser.executeScript(
       `[].forEach.call(document.querySelectorAll('.spinner-container'), function (el) { el.style.visibility = 'hidden'; el.style.display = 'none'; });`

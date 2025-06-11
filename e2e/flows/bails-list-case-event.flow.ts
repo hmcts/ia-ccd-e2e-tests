@@ -26,9 +26,6 @@ export class ListCaseThroughEvent {
     await browser.sleep(5000);
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.selectNextStep('Case listing');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.completeCaseListingEvent(true);
     await this.ccdFormPage.click('List case');
     await browser.sleep(5000);

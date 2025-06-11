@@ -390,10 +390,6 @@ export class EditBailApplicationPreSubmitFlow {
 
   async editSavedApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
     await this.ccdFormPage.selectNextStep('Edit the application');
-    let overviewUrl = await browser.getCurrentUrl();
-    await browser.sleep(10000);
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.completePreviousBailApplication(true);
     await this.ccdFormPage.click('Continue');
     if (user === 'Admin Officer') {

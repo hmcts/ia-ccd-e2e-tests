@@ -6,9 +6,6 @@ export class PrepareDecisionAndReasonsFlow {
 
   async prepareDecisionAndReasons(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Prepare Decision and Reasons');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Prepare Decision and Reasons');

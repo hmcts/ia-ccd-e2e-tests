@@ -7,9 +7,6 @@ export class ListCaseFlow {
 
   async listTheCase(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('List the case');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2024');
     await this.ccdFormPage.setFieldValue('Listing location', 'Atlantic Quay - Glasgow');
@@ -29,9 +26,6 @@ export class ListCaseFlow {
 
   async listTheCaseAsRemoteHearing(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('List the case');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2019');
     await this.ccdFormPage.setFieldValue('Location', 'Remote hearing');
@@ -50,9 +44,6 @@ export class ListCaseFlow {
 
   async reListTheCase(clickContinue = false, lengthOfHearingInHours = '6') {
     await this.ccdFormPage.selectNextStep('Edit case listing');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Edit case listing');
     await this.ccdFormPage.setFieldValue('Location', 'Taylor House');
@@ -72,9 +63,6 @@ export class ListCaseFlow {
 
   async reListTheCaseAsRemoteHearing(clickContinue = false, lengthOfHearingInHours = '3') {
     await this.ccdFormPage.selectNextStep('Edit case listing');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Edit case listing');
     await this.ccdFormPage.setFieldValue('Location', 'Remote hearing');
@@ -94,9 +82,6 @@ export class ListCaseFlow {
 
   async reListTheCaseAsRemoteHearingWithNoChanges(clickContinue = false, lengthOfHearingInHours = '6') {
     await this.ccdFormPage.selectNextStep('Edit case listing');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Edit case listing');
     await this.ccdFormPage.setFieldValue('Location', 'Remote hearing');

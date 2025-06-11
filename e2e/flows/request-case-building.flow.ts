@@ -6,9 +6,6 @@ export class RequestCaseBuildingFlow {
 
   async requestCaseBuilding() {
     await this.ccdFormPage.selectNextStep('Request case building');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Request case building');
     await this.ccdFormPage.click('Continue');

@@ -6,9 +6,6 @@ export class RequestFeeRemissionFlow {
 
   async legalAid(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Request a fee remission');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Request a fee remission');
     await this.ccdFormPage.click('The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20');
@@ -31,9 +28,6 @@ export class RequestFeeRemissionFlow {
 
   async helpWithFees(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Request a fee remission');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Request a fee remission');
     await this.ccdFormPage.click('The appellant has applied for help with fees');

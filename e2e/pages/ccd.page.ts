@@ -1,8 +1,8 @@
 import { AnyPage } from "./any.page";
 import { Fields } from "../fields/fields";
-import { Wait } from "../enums/wait";
 import { $, browser, by, element, ExpectedConditions } from "protractor";
 import { expect } from "chai";
+
 const iaConfig = require("../ia.conf");
 
 export class CcdPage extends AnyPage {
@@ -23,8 +23,8 @@ export class CcdPage extends AnyPage {
       return await element(
         by.xpath(
           '//*[@id="user-name" and contains(normalize-space(), "' +
-            match +
-            '")]'
+          match +
+          '")]'
         )
       ).isDisplayed();
     } catch (error) {
@@ -45,15 +45,25 @@ export class CcdPage extends AnyPage {
       '/option[normalize-space()="' +
       nextStep +
       '"]';
-
-    await browser.wait(
-      async () => {
-        return await element.all(by.xpath(nextStepPath)).isPresent();
-      },
-      Wait.long,
-      "Next steps did not show in time"
-    );
-    await element(by.xpath(nextStepPath)).click();
+    for (let i = 0; i < 3; i++) {
+      try {
+        await this.waitForXpathElementVisible(nextStepPath);
+        await element(by.xpath(nextStepPath)).click();
+        let overviewUrl = await browser.getCurrentUrl();
+        const goPath = '//button[contains(text(), "Go")]';
+        await element(by.xpath(goPath)).click();
+        await this.waitForPageNavigation(overviewUrl);
+        await this.waitForSpinner();
+        break;
+      } catch {
+        if (i < 2) {
+          browser.refresh();
+          console.log(`Next step event trigger attempt ${i + 1} failed. Trying again.`);
+        } else {
+          throw "All attempts failed. Giving up.";
+        }
+      }
+    }
   }
 
   async isFieldDisplayed(
@@ -223,10 +233,6 @@ export class CcdPage extends AnyPage {
         break;
       } catch {
         if (i < 2) {
-          if (clickText.includes("Go")) {
-            browser.refresh();
-            await this.waitForXpathElementVisible(`//*[contains(text(), ${clickText})]`);
-          }
           console.log(`Click attempt ${i + 1} failed. Trying again.`);
         } else {
           throw "All click attempts failed. Giving up.";
@@ -238,5 +244,14 @@ export class CcdPage extends AnyPage {
   async getTodayDate(date) {
     const expandedMatch = await this.valueExpander.expand(date);
     return expandedMatch;
+  }
+
+  async gotoTabs(match: string) {
+    try {
+      await this.waitForXpathElementVisible(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`, 15000)
+    } catch {
+      await element(by.xpath(`//button[contains(@class, 'mat-tab-header-pagination-after')]`)).click();
+      await element(by.xpath(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`)).click();
+    }
   }
 }

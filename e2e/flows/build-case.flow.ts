@@ -8,9 +8,6 @@ export class BuildCaseFlow {
 
   async buildCase(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Build your case');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.ccdFormPage.uploadFile('CaseArgument.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the case argument', 'text area');
 

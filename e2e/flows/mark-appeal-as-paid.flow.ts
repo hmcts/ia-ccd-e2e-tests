@@ -6,9 +6,6 @@ export class MarkAppealAsPaidFlow {
 
   async markAppealAsPaid(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Mark appeal as paid');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Mark appeal as paid');
     await this.ccdFormPage.setFieldValue('Payment date', '{$TODAY|DD-MM-YYYY}');

@@ -11,9 +11,6 @@ export class MakeAnApplication {
 
   async chooseMakeAnApplicationType(clickContinue = false, applicationType) {
     await this.ccdFormPage.selectNextStep('Make an application');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Type of application', applicationType);
 

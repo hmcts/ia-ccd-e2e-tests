@@ -22,9 +22,6 @@ export class UploadSignedDecisionNotice {
     await browser.sleep(5000);
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.selectNextStep('Upload signed decision notice');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.uploadSignedDecisionNoticeFile(true, decision);
     await this.ccdFormPage.click('Upload');
     await browser.sleep(5000);

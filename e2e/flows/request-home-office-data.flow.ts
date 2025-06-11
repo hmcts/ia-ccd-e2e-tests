@@ -6,9 +6,6 @@ export class RequestHomeOfficeDataFlow {
 
   async requestHomeOfficeData(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Request Home Office data');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     // await this.ccdFormPage.headingContains('Request Home Office data');
     await this.ccdFormPage.setFieldValue('Make a selection', 'No Match');

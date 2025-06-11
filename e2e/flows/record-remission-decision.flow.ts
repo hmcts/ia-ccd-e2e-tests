@@ -6,9 +6,6 @@ export class RecordRemissionDecisionFlow {
 
   async partiallyApproved(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Record remission decision');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Record remission decision');
     await this.ccdFormPage.click('Partially approved');
