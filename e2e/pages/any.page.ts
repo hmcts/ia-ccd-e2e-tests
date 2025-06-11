@@ -79,9 +79,11 @@ export class AnyPage {
     if (await button.isPresent()) {
       await BrowserWaits.waitForelementToBeClickable(button);
       let thisPageUrl = await browser.getCurrentUrl();
+      await this.waitForSpinner();
       await button.click();
-      if ((linkText === "Continue" || linkText === "Submit") && shouldWaitForNavigation) {
+      if ((linkText === "Continue" || linkText === "Submit" || linkText === "Send direction") && shouldWaitForNavigation) {
         try {
+          await this.waitForSpinner();
           await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         } catch {
           // unexpected happened
@@ -89,6 +91,7 @@ export class AnyPage {
           const nullIndexError: boolean = await element(by.xpath('//*[contains(text(),"Cannot read properties of null")]')).isPresent();
           if (unexpectedError || nullIndexError) {
             await button.click();
+            await this.waitForSpinner();
             await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
           }
         }

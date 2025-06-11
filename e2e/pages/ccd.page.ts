@@ -1,6 +1,6 @@
 import { AnyPage } from "./any.page";
 import { Fields } from "../fields/fields";
-import { $, browser, by, element, ExpectedConditions } from "protractor";
+import { $, ActionSequence, browser, By, by, element, ExpectedConditions } from "protractor";
 import { expect } from "chai";
 
 const iaConfig = require("../ia.conf");
@@ -45,25 +45,32 @@ export class CcdPage extends AnyPage {
       '/option[normalize-space()="' +
       nextStep +
       '"]';
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
       try {
-        await this.waitForXpathElementVisible(nextStepPath);
+        await this.waitForXpathElementVisible(nextStepPath, 15000);
         await element(by.xpath(nextStepPath)).click();
         let overviewUrl = await browser.getCurrentUrl();
         const goPath = '//button[contains(text(), "Go")]';
-        await element(by.xpath(goPath)).click();
-        await this.waitForPageNavigation(overviewUrl);
+        // await element(by.xpath(goPath)).click();
+        await this.doubleClick('xpath', goPath);
+        await this.waitForPageNavigation(overviewUrl, 15000);
         await this.waitForSpinner();
         break;
       } catch {
-        if (i < 2) {
+        if (i === 4) {
+          throw "All attempts failed. Giving up.";
+        } else {
           browser.refresh();
           console.log(`Next step event trigger attempt ${i + 1} failed. Trying again.`);
-        } else {
-          throw "All attempts failed. Giving up.";
         }
       }
     }
+  }
+
+  async doubleClick(by: 'xpath' | 'css', locator: string) {
+    const driver = browser.driver;
+    const goButton = driver.findElement(By[by](locator));
+    await new ActionSequence(driver).doubleClick(goButton).perform();
   }
 
   async isFieldDisplayed(
