@@ -239,6 +239,7 @@ export class CcdPage extends AnyPage {
       `Expected element ${locator} to be present within 30 seconds`
     );
     expect(await element(by.css(locator)).isPresent()).to.equal(true);
+    expect(await element(by.css(locator)).isDisplayed()).to.equal(true);
   }
 
   async waitForXpathElementVisible(locator: string, timeout = 30000) {
@@ -248,6 +249,7 @@ export class CcdPage extends AnyPage {
       `Expected element ${locator} to be present within ${timeout} ms`
     );
     expect(await element(by.xpath(locator)).isPresent()).to.equal(true);
+    expect(await element(by.xpath(locator)).isDisplayed()).to.equal(true);
   }
 
   async waitForOverviewPage() {

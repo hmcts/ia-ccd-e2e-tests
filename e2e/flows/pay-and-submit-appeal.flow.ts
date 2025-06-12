@@ -98,7 +98,7 @@ export class PayAndSubmitAppealFlow {
       let i = 0;
       while (i < 6) {
         let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'));
-        if (await nextText.isPresent()) {
+        if (await nextText.isDisplayed()) {
           break;
         } else {
           await browser.sleep(10000);
@@ -113,13 +113,13 @@ export class PayAndSubmitAppealFlow {
     const nextStepPath = '//select[@id="next-step"]';
     const url = await this.ccdPage.getCurrentUrl();
     await this.ccdPage.waitForXpathElementVisible(nextStepPath);
-    let isBadTextPresent = await badNextText.isPresent();
+    let isBadTextPresent = await badNextText.isDisplayed();
     while (isBadTextPresent) {
       await browser.sleep(10000);
       await this.ccdPage.refresh();
       await this.ccdPage.goToUrl(url);
       await this.ccdPage.waitForXpathElementVisible(nextStepPath);
-      isBadTextPresent = await badNextText.isPresent();
+      isBadTextPresent = await badNextText.isDisplayed();
     }
     await browser.sleep(1000);
   }
