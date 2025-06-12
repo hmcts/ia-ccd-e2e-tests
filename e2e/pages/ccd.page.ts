@@ -87,7 +87,7 @@ export class CcdPage extends AnyPage {
     const eventTriggerUrl = url + "/trigger/" + slug;
     console.log(`Triggering event at URL: ${eventTriggerUrl}`);
     await browser.get(eventTriggerUrl);
-    await this.waitForXpathElementVisible('//p[contains(text(), "No event found")] | //span[contains(text(), eventName)][contains(@class, "govuk-caption-l")]', 45000)
+    await this.waitForXpathElementVisible('//p[contains(text(), "No event found")] | //span[contains(text(), eventName)][contains(@class, "govuk-caption-l")]', 45000);
     return element(by.xpath('//span[contains(text(), eventName)][contains(@class, "govuk-caption-l")]')).isPresent();
   }
 

@@ -157,4 +157,4 @@ export const eventMappings = {
   "Revoke case access": "revokeCaseAccess",
   "Save notifications to data": "saveNotificationsToData",
   "Manage Case TTL": "ManageTTL"
-}
+};
