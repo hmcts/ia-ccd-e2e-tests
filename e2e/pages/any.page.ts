@@ -83,6 +83,7 @@ export class AnyPage {
       await this.waitForSpinner();
       const unexpectedError = element(by.xpath('//*[contains(text(),"Something unexpected happened")]'));
       const nullIndexError = element(by.xpath('//*[contains(text(),"Cannot read properties of null")]'));
+      const thisPageUrl = await browser.getCurrentUrl();
       await button.click();
       await this.waitForSpinner();
       try {
@@ -92,7 +93,6 @@ export class AnyPage {
         await button.click();
       }
       if ((linkText === "Continue" || linkText === "Submit" || linkText === "Send direction") && shouldWaitForNavigation) {
-        const thisPageUrl = await browser.getCurrentUrl();
         await this.waitForSpinner();
         await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         try {
