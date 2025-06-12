@@ -272,7 +272,14 @@ When(
   /^I goto the `?([^`]+)`? (?:button|link|tab|label)$/,
   async function (linkText) {
     await ccdPage.waitForSpinner();
-    await ccdPage.gotoTabs(linkText);
+    if (linkText === 'Hearings') {
+      const currentUrl = await ccdPage.getCurrentUrl();
+      const caseId = ccdPage.extract16Digits(currentUrl);
+      const url = currentUrl.replace(/\d{16}.*/, caseId);
+      await ccdPage.get(url + "/hearings");
+    } else {
+      await ccdPage.gotoTabs(linkText);
+    }
   }
 );
 
@@ -513,13 +520,13 @@ Given("I restart the browser", async function () {
 });
 Then(/^I will make `?([^`]+)`? as Inactive$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
-  await ccdFormPage.click("Continue");
+  await ccdFormPage.click("Continue", 0, 0, false);
   await ccdFormPage.typeText(
     `flagComment`,
     `test case flage make it inactive`
   );
   await ccdFormPage.click("Make inactive");
-  await ccdFormPage.click("Continue");
+  await ccdFormPage.click("Continue", 0, 0, false);
   await ccdFormPage.click("Manage Flags");
 });
 
@@ -548,18 +555,18 @@ Then(
   /^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and language name is `?([^`]+)`?$/,
   async function (flag, type, language) {
     await ccdFormPage.click(type);
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await browser.sleep(3000);
     await ccdFormPage.click(flag);
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.selectInterpreterLanguage(language);
     await browser.sleep(3000);
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.typeText(
       `flagComment`,
       `just comment for interpreter languages`
     );
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.click("Create Flag");
   }
 );
@@ -567,30 +574,30 @@ Then(
   /^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and signlanguage name is `?([^`]+)`?$/,
   async function (flag, type, language) {
     await ccdFormPage.click(type);
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await browser.sleep(3000);
     await ccdFormPage.click(flag);
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.click("I need help communicating and understanding");
     await browser.sleep(3000);
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.click("Sign Language Interpreter");
     await browser.sleep(3000);
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.selectInterpreterLanguage(language);
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.typeText(
       `flagComments`,
       `just comment for interpreter languages`
     );
-    await ccdFormPage.click("Continue");
+    await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.click("Create Flag");
   }
 );
 
 Then(/^I will update s94b flag$/, async function () {
   await ccdFormPage.setFieldValue("Mark appeal as s94b?", "Yes");
-  await ccdFormPage.click("Continue");
+  await ccdFormPage.click("Continue", 0, 0, false);
   await ccdFormPage.click("Submit");
 });
 Then(/^I Add the bail interpreter details$/, async function () {

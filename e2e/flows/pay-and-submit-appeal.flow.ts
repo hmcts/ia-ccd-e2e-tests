@@ -33,15 +33,15 @@ export class PayAndSubmitAppealFlow {
   }
 
   async waitForPaymentRecognition() {
-    let i = 0;
-    while (i < 6) {
-      let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'));
-      if (nextText) {
-        break;
-      } else {
-        await browser.sleep(10000);
-        await this.ccdPage.refresh();
-      }
+    const nextTextCount = element.all(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'))
+      .filter(e => e.isDisplayed())
+      .count();
+    let isNextTextDisplayed = (await nextTextCount) > 0;
+    while (!isNextTextDisplayed) {
+      await browser.sleep(10000);
+      await this.ccdPage.refresh();
+      await this.ccdPage.waitForOverviewPage()
+      isNextTextDisplayed = (await nextTextCount) > 0;
     }
   }
 
@@ -63,14 +63,13 @@ export class PayAndSubmitAppealFlow {
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     await this.ccdFormPage.click('Pay now');
     try {
-      await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+      await this.ccdPage.waitForXpathElementVisible('//*[contains(text(), "Pay fee using Payment by Account")]');
     } catch {
       await this.ccdFormPage.click('Pay now');
-      await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+      await this.ccdPage.waitForXpathElementVisible('//*[contains(text(), "Pay fee using Payment by Account")]');
     }
     await this.ccdFormPage.click('Pay by credit or debit card');
     await this.ccdFormPage.click('Continue');
-    await this.ccdPage.waitForPageNavigation(currentUrl);
     await this.ccdPage.waitForCssElementVisible('#card-no');
     await this.ccdFormPage.typeText(`card-no`, `4444333322221111`);
     await this.ccdFormPage.typeText(`expiry-month`, `10`);
@@ -95,16 +94,7 @@ export class PayAndSubmitAppealFlow {
         await this.ccdPage.goToUrl(currentUrl);
       }
       await this.ccdPage.click('Overview');
-      let i = 0;
-      while (i < 6) {
-        let nextText = element(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'));
-        if (await nextText.isDisplayed()) {
-          break;
-        } else {
-          await browser.sleep(10000);
-          await this.ccdPage.refresh();
-        }
-      }
+      await this.waitForPaymentRecognition();
     }
   }
 
