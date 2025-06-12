@@ -209,15 +209,12 @@ Then(
   }
 );
 
-
 Then(
   /^I should see `?([^`]+)`?$/,
   async function (match) {
     await ccdPage.waitForXpathElementVisible(`//*[contains(text(), ${match})]`);
   }
 );
-
-
 
 Then(
   /^I (?:should |)(see|not see) the `?([^`]+)`? (?:button|link|tab|label)$/,
