@@ -69,10 +69,10 @@ export class CcdPage extends AnyPage {
       throw new Error(`No mapping found for next step: ${nextStep}`);
     }
     if (typeof nextStepSlug === "string") {
-      await this.triggerEventByUrlAttempt(url, nextStepSlug);
+      await this.triggerEventByUrlAttempt(url, nextStepSlug, nextStep);
     } else {
       for (const slug of nextStepSlug) {
-        let hasFound: boolean = await this.triggerEventByUrlAttempt(url, slug);
+        let hasFound: boolean = await this.triggerEventByUrlAttempt(url, slug, nextStep);
         if (!hasFound) {
           console.log(`Event not found for slug: ${slug}, trying next one.`);
         } else {
@@ -83,12 +83,12 @@ export class CcdPage extends AnyPage {
     }
   }
 
-  async triggerEventByUrlAttempt(url: string, slug: string) {
+  async triggerEventByUrlAttempt(url: string, slug: string, eventName: string) {
     const eventTriggerUrl = url + "/trigger/" + slug;
     console.log(`Triggering event at URL: ${eventTriggerUrl}`);
     await browser.get(eventTriggerUrl);
-    await this.waitForXpathElementVisible('//p[contains(text(), "No event found")] | //span[contains(text(), eventName)][contains(@class, "govuk-caption-l")]', 45000);
-    return element(by.xpath('//span[contains(text(), eventName)][contains(@class, "govuk-caption-l")]')).isPresent();
+    await this.waitForXpathElementVisible(`//p[contains(text(), "No event found")] | //span[contains(text(), "${eventName}")][contains(@class, "govuk-caption-l")]`, 45000);
+    return element(by.xpath(`//span[contains(text(), "${eventName}")][contains(@class, "govuk-caption-l")]`)).isPresent();
   }
 
   extract16Digits(input: string) {
