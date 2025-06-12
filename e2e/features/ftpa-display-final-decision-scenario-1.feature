@@ -1,16 +1,13 @@
 Feature: Final display for FTPA decision and reasons
 
   Background:
-#    Given I am signed in as a `Legal Org User Rep A`
-#    And I create a new case
-#    And I save my initial PA appeal type without remission and with hearing fee and pay now
-#    And I click the `Close and Return to case details` button if present
-#    Then I should be on the overview page
-#    And I pay for and submit my appeal by Card
-#    And I switch to be a `Case Officer`
-    Given I am signed in as a `Case Officer`
-    And I go to the URL `https://manage-case.aat.platform.hmcts.net/cases/case-details/1749732283305342`
+    Given I am signed in as a `Legal Org User Rep A`
+    And I create a new case
+    And I save my initial PA appeal type without remission and with hearing fee and pay now
+    And I click the `Close and Return to case details` button if present
     Then I should be on the overview page
+    And I pay for and submit my appeal by Card
+    And I switch to be a `Case Officer`
     And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
@@ -74,7 +71,7 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
-  @RIA-2919 @RIA-2919-scenario1 @appeal-nightly-test @appeal-nightly-test1 @TAG-TO-CHANGE
+  @RIA-2919 @RIA-2919-scenario1 @appeal-nightly-test @appeal-nightly-test1
   #  Granted / Granted (Final Decision: Granted - Scenario 1)
   Scenario: FTPA judge decision - Granted
 
