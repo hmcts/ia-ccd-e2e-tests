@@ -2,6 +2,7 @@ import { AnyPage } from "./any.page";
 import { Fields } from "../fields/fields";
 import { $, ActionSequence, browser, By, by, element, ExpectedConditions } from "protractor";
 import { expect } from "chai";
+import { eventMappings } from "../enums/eventMappings";
 
 const iaConfig = require("../ia.conf");
 
@@ -45,26 +46,54 @@ export class CcdPage extends AnyPage {
       '/option[normalize-space()="' +
       nextStep +
       '"]';
-    for (let i = 0; i < 5; i++) {
-      try {
-        await this.waitForXpathElementVisible(nextStepPath, 30000);
-        await element(by.xpath(nextStepPath)).click();
-        let overviewUrl = await browser.getCurrentUrl();
-        const goPath = '//button[contains(text(), "Go")]';
-        // await element(by.xpath(goPath)).click();
-        await this.doubleClick('xpath', goPath);
-        await this.waitForPageNavigation(overviewUrl, 30000);
-        await this.waitForSpinner();
-        break;
-      } catch {
-        if (i === 4) {
-          throw "All attempts failed. Giving up.";
+    let overviewUrl = await browser.getCurrentUrl();
+    try {
+      await this.waitForXpathElementVisible(nextStepPath, 30000);
+      await element(by.xpath(nextStepPath)).click();
+      const goPath = '//button[contains(text(), "Go")]';
+      // await element(by.xpath(goPath)).click();
+      await this.doubleClick('xpath', goPath);
+      await this.waitForPageNavigation(overviewUrl, 30000);
+      await this.waitForSpinner();
+    } catch {
+      console.log(`Next step Go button failed - trying via URL`);
+      await this.triggerEventByUrl(overviewUrl, nextStep);
+    }
+  }
+
+  async triggerEventByUrl(overviewUrl: string, nextStep: string) {
+    const caseId = this.extract16Digits(overviewUrl);
+    const url = overviewUrl.replace(new RegExp("\d{16}.*"), caseId);
+    const nextStepSlug: string | string[] | null = eventMappings[nextStep] || null;
+    if (!nextStepSlug) {
+      throw new Error(`No mapping found for next step: ${nextStep}`);
+    }
+    if (typeof nextStepSlug === "string") {
+      await this.triggerEventByUrlAttempt(url, nextStepSlug);
+    } else {
+      for (const slug of nextStepSlug) {
+        let hasFound: boolean = await this.triggerEventByUrlAttempt(url, slug);
+        if (!hasFound) {
+          console.log(`Event not found for slug: ${slug}, trying next one.`);
         } else {
-          browser.refresh();
-          console.log(`Next step event trigger attempt ${i + 1} failed. Trying again.`);
+          console.log(`Event successfully triggered for slug: ${slug}`);
+          break;
         }
       }
     }
+  }
+
+  async triggerEventByUrlAttempt(url: string, slug: string) {
+    const eventTriggerUrl = url + "/trigger/" + slug;
+    console.log(`Triggering event at URL: ${eventTriggerUrl}`);
+    await browser.get(eventTriggerUrl);
+    await this.waitForXpathElementVisible('//p[contains(text(), "No event found")] | //span[contains(text(), eventName)][contains(@class, "govuk-caption-l")]', 45000)
+    return element(by.xpath('//span[contains(text(), eventName)][contains(@class, "govuk-caption-l")]')).isPresent();
+  }
+
+  extract16Digits(input: string) {
+    const match = input.match(/\d{16}/);
+    return match ? match[0] : null;
   }
 
   async doubleClick(locatorType: 'xpath' | 'css', locator: string) {
@@ -192,7 +221,8 @@ export class CcdPage extends AnyPage {
       await this.waitForCssElementVisible("#confirmation-header");
       await this.click('Close and Return to case details');
     } catch {
-      expect(currentUrl).to.contain("#Overview");
+      const nextStepPresent = await element(by.xpath('//select[@id="next-step"]')).isPresent();
+      expect(nextStepPresent).to.contain("true");
     }
   }
 

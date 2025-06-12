@@ -83,21 +83,24 @@ export class AnyPage {
       await this.waitForSpinner();
       const unexpectedError = element(by.xpath('//*[contains(text(),"Something unexpected happened")]'));
       const nullIndexError = element(by.xpath('//*[contains(text(),"Cannot read properties of null")]'));
+      const couldNotBeCreated = element(by.xpath('//*[contains(text(),"The event could not be created")]'));
       const thisPageUrl = await browser.getCurrentUrl();
       await button.click();
       await this.waitForSpinner();
       try {
         expect(await unexpectedError.isPresent()).to.equal(false);
         expect(await nullIndexError.isPresent()).to.equal(false);
+        expect(await couldNotBeCreated.isPresent()).to.equal(false);
       } catch {
         await button.click();
       }
-      if ((linkText === "Continue" || linkText === "Submit" || linkText === "Send direction") && shouldWaitForNavigation) {
+      if (shouldWaitForNavigation) {
         await this.waitForSpinner();
         await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         try {
           expect(await unexpectedError.isPresent()).to.equal(false);
           expect(await nullIndexError.isPresent()).to.equal(false);
+          expect(await couldNotBeCreated.isPresent()).to.equal(false);
         } catch {
           await button.click();
           await this.waitForSpinner();
