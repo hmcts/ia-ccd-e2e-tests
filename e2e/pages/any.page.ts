@@ -7,6 +7,12 @@ const AxeRunner = require("../helpers/accessibility/axe-runner");
 const iaConfig = require("../ia.conf");
 const BrowserWaits = require("../support/customWaits");
 
+const submitButtons = [
+  "Continue",
+  "Submit",
+  "Send direction",
+  "Upload"
+];
 export class AnyPage {
   protected readonly valueExpander = new ValueExpander();
 
@@ -94,7 +100,7 @@ export class AnyPage {
       } catch {
         await button.click();
       }
-      if (shouldWaitForNavigation) {
+      if (submitButtons.includes(linkText) && shouldWaitForNavigation) {
         await this.waitForSpinner();
         await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         try {
