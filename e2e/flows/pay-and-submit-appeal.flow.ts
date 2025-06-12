@@ -109,17 +109,20 @@ export class PayAndSubmitAppealFlow {
   }
 
   async checkCasePaidCaseOfficer() {
-    const badNextText = element(by.xpath('//p[contains(text(), "This appeal is awaiting payment.")]'));
+    const badNextTextCount = element
+      .all(by.xpath('//p[contains(text(), "This appeal is awaiting payment.")]'))
+      .filter(e => e.isDisplayed())
+      .count();
     const nextStepPath = '//select[@id="next-step"]';
     const url = await this.ccdPage.getCurrentUrl();
     await this.ccdPage.waitForXpathElementVisible(nextStepPath);
-    let isBadTextPresent = await badNextText.isDisplayed();
+    let isBadTextPresent = (await badNextTextCount) > 0;
     while (isBadTextPresent) {
       await browser.sleep(10000);
       await this.ccdPage.refresh();
       await this.ccdPage.goToUrl(url);
       await this.ccdPage.waitForXpathElementVisible(nextStepPath);
-      isBadTextPresent = await badNextText.isDisplayed();
+      isBadTextPresent = (await badNextTextCount) > 0;
     }
     await browser.sleep(1000);
   }

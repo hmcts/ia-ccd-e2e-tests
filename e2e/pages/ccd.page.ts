@@ -51,10 +51,10 @@ export class CcdPage extends AnyPage {
       await this.triggerEventByUrl(overviewUrl, nextStep);
     } catch {
       console.log(`Next step URL attempt failed - trying via Go button`);
+      await browser.get(overviewUrl);
       await this.waitForXpathElementVisible(nextStepPath, 30000);
       await element(by.xpath(nextStepPath)).click();
       const goPath = '//button[contains(text(), "Go")]';
-      // await element(by.xpath(goPath)).click();
       await this.doubleClick('xpath', goPath);
       await this.waitForPageNavigation(overviewUrl, 30000);
       await this.waitForSpinner();
@@ -87,8 +87,11 @@ export class CcdPage extends AnyPage {
     const eventTriggerUrl = url + "/trigger/" + slug;
     console.log(`Triggering event at URL: ${eventTriggerUrl}`);
     await browser.get(eventTriggerUrl);
-    await this.waitForXpathElementVisible(`//p[contains(text(), "No event found")] | //span[contains(text(), "${eventName}")][contains(@class, "govuk-caption-l")]`, 45000);
-    return element(by.xpath(`//span[contains(text(), "${eventName}")][contains(@class, "govuk-caption-l")]`)).isPresent();
+    const noEventFoundPath = '//p[contains(text(), "No event found")]';
+    const captionPath = `//span[contains(text(), "${eventName}")][contains(@class, "govuk-caption-l")]`;
+    const headerPath = `//h1[contains(text(), "${eventName}")]`;
+    await this.waitForXpathElementVisible(`${noEventFoundPath} | ${headerPath} | ${captionPath}`, 45000);
+    return element(by.xpath(`${headerPath} | ${captionPath}`)).isPresent();
   }
 
   extract16Digits(input: string) {
@@ -239,7 +242,11 @@ export class CcdPage extends AnyPage {
       `Expected element ${locator} to be present within 30 seconds`
     );
     expect(await element(by.css(locator)).isPresent()).to.equal(true);
-    expect(await element(by.css(locator)).isDisplayed()).to.equal(true);
+    const visibleElementCount = await element
+      .all(by.css(locator))
+      .filter(e => e.isDisplayed())
+      .count();
+    expect(visibleElementCount > 0).to.equal(true);
   }
 
   async waitForXpathElementVisible(locator: string, timeout = 30000) {
@@ -249,7 +256,11 @@ export class CcdPage extends AnyPage {
       `Expected element ${locator} to be present within ${timeout} ms`
     );
     expect(await element(by.xpath(locator)).isPresent()).to.equal(true);
-    expect(await element(by.xpath(locator)).isDisplayed()).to.equal(true);
+    const visibleElementCount = await element
+      .all(by.xpath(locator))
+      .filter(e => e.isDisplayed())
+      .count();
+    expect(visibleElementCount > 0).to.equal(true);
   }
 
   async waitForOverviewPage() {
