@@ -46,8 +46,11 @@ export class CcdPage extends AnyPage {
       '/option[normalize-space()="' +
       nextStep +
       '"]';
-    let overviewUrl = await browser.getCurrentUrl();
+    const overviewUrl = await browser.getCurrentUrl();
     try {
+      await this.triggerEventByUrl(overviewUrl, nextStep);
+    } catch {
+      console.log(`Next step URL attempt failed - trying via Go button`);
       await this.waitForXpathElementVisible(nextStepPath, 30000);
       await element(by.xpath(nextStepPath)).click();
       const goPath = '//button[contains(text(), "Go")]';
@@ -55,9 +58,6 @@ export class CcdPage extends AnyPage {
       await this.doubleClick('xpath', goPath);
       await this.waitForPageNavigation(overviewUrl, 30000);
       await this.waitForSpinner();
-    } catch {
-      console.log(`Next step Go button failed - trying via URL`);
-      await this.triggerEventByUrl(overviewUrl, nextStep);
     }
   }
 
@@ -222,7 +222,7 @@ export class CcdPage extends AnyPage {
       await this.click('Close and Return to case details');
     } catch {
       const nextStepPresent = await element(by.xpath('//select[@id="next-step"]')).isPresent();
-      expect(nextStepPresent).to.contain("true");
+      expect(nextStepPresent.toString()).to.contain("true");
     }
   }
 

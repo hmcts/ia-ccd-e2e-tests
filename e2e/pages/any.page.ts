@@ -11,7 +11,8 @@ const submitButtons = [
   "Continue",
   "Submit",
   "Send direction",
-  "Upload"
+  "Upload",
+  "Request Home Office data"
 ];
 export class AnyPage {
   protected readonly valueExpander = new ValueExpander();

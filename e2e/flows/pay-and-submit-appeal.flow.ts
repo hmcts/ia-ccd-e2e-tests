@@ -118,6 +118,7 @@ export class PayAndSubmitAppealFlow {
       } else {
         break;
       }
+      await browser.sleep(2000);
     }
   }
 
