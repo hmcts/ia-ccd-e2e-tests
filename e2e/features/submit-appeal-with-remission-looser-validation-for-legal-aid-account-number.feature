@@ -43,7 +43,7 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
     When I click the `Save and continue` button
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    And I should see the text `You still need to submit your appeal.`
+    And I should see `You still need to submit your appeal.`
 
     When I select the `Submit your appeal` Next step
 

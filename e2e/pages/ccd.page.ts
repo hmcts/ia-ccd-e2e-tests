@@ -63,7 +63,7 @@ export class CcdPage extends AnyPage {
 
   async triggerEventByUrl(overviewUrl: string, nextStep: string) {
     const caseId = this.extract16Digits(overviewUrl);
-    const url = overviewUrl.replace(new RegExp("\d{16}.*"), caseId);
+    const url = overviewUrl.replace(/\d{16}.*/, caseId);
     const nextStepSlug: string | string[] | null = eventMappings[nextStep] || null;
     if (!nextStepSlug) {
       throw new Error(`No mapping found for next step: ${nextStep}`);
