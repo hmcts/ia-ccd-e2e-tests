@@ -40,7 +40,7 @@ export class PayAndSubmitAppealFlow {
     while (!isNextTextDisplayed) {
       await browser.sleep(10000);
       await this.ccdPage.refresh();
-      await this.ccdPage.waitForOverviewPage()
+      await this.ccdPage.waitForOverviewPage();
       isNextTextDisplayed = (await nextTextCount) > 0;
     }
   }
