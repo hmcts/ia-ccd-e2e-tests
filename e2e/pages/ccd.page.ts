@@ -62,8 +62,7 @@ export class CcdPage extends AnyPage {
   }
 
   async triggerEventByUrl(overviewUrl: string, nextStep: string) {
-    const caseId = this.extract16Digits(overviewUrl);
-    const url = overviewUrl.replace(/\d{16}.*/, caseId);
+    const url = await this.getCaseUrl(overviewUrl);
     const nextStepSlug: string | string[] | null = eventMappings[nextStep] || null;
     if (!nextStepSlug) {
       throw new Error(`No mapping found for next step: ${nextStep}`);
@@ -97,6 +96,14 @@ export class CcdPage extends AnyPage {
   extract16Digits(input: string) {
     const match = input.match(/\d{16}/);
     return match ? match[0] : null;
+  }
+
+  async getCaseUrl(currentUrl?: string) {
+    if (!currentUrl) {
+      currentUrl = await browser.getCurrentUrl();
+    }
+    const caseId = this.extract16Digits(currentUrl);
+    return currentUrl.replace(/\d{16}.*/, caseId);
   }
 
   async doubleClick(locatorType: 'xpath' | 'css', locator: string) {

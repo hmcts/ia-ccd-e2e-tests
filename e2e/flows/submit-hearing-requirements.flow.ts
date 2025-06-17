@@ -1130,7 +1130,9 @@ export class SubmitHearingRequirementsFlow {
       throw new Error(`Unknown judge type: ${judgeType}`);
     }
     const checkboxId = await label.getAttribute('for');
-    const checkbox = element(by.css(`#${checkboxId}`));
+    const checkbox = element.all(by.css('input.govuk-checkboxes__input'))
+      .filter(elem => elem.getAttribute('value').then(value => value === checkboxId))
+      .get(0);
     if (!(await checkbox.isSelected())) {
       await checkbox.click();
     }

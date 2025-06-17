@@ -273,9 +273,7 @@ When(
   async function (linkText) {
     await ccdPage.waitForSpinner();
     if (linkText === 'Hearings') {
-      const currentUrl = await ccdPage.getCurrentUrl();
-      const caseId = ccdPage.extract16Digits(currentUrl);
-      const url = currentUrl.replace(/\d{16}.*/, caseId);
+      const url = await ccdPage.getCaseUrl();
       await ccdPage.get(url + "/hearings");
     } else {
       await ccdPage.gotoTabs(linkText);

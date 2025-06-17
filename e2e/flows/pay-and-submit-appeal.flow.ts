@@ -31,7 +31,8 @@ export class PayAndSubmitAppealFlow {
   }
 
   async waitForPaymentRecognition() {
-    const currentUrl = await browser.getCurrentUrl();
+    const currentUrl = await this.ccdPage.getCaseUrl();
+    const overviewUrl = `${currentUrl}/overview`;
     const nextTextCount = element.all(by.xpath('//p[contains(text(),"You have submitted your appeal. A Tribunal Caseworker will now review your appeal.")]'))
       .filter(e => e.isDisplayed())
       .count();
@@ -39,11 +40,11 @@ export class PayAndSubmitAppealFlow {
     while (!isNextTextDisplayed) {
       await browser.sleep(10000);
       await this.ccdPage.refresh();
-      await this.ccdPage.goToUrl(currentUrl);
+      await this.ccdPage.goToUrl(overviewUrl);
       try {
         await this.ccdPage.waitForOverviewPage();
       } catch {
-        await this.ccdPage.goToUrl(currentUrl);
+        await this.ccdPage.goToUrl(overviewUrl);
         await this.ccdPage.waitForOverviewPage();
       }
       isNextTextDisplayed = (await nextTextCount) > 0;
