@@ -51,6 +51,7 @@ Feature: Legal representative make an application
     And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
 
     When I switch to be a `Case Officer`
+    And I check the case has been paid for
     Then I click the `Applications` tab
     And I should see the `Application` field
     And within the `Application` collection's first item, I should see `Legal representative` in the `Applicant` field

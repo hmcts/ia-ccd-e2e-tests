@@ -74,10 +74,9 @@ Feature: SnL Flow RP hearing request
     And I click the `Close and Return to case details` button if present
     And I wait for 5 second
     Then I should see `You still need to submit your appeal.`
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
+    And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
-    And I wait for 10 seconds
+    And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request

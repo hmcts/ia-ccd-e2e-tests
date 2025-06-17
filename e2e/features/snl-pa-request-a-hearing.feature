@@ -4,7 +4,7 @@ Feature: SnL Flow PA hearing request
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
-  @appeal-nightly-test @appeal-nightly-test1
+  @appeal-nightly-test
   Scenario: SnL hearing request in country flow for PA appeal
 
     And I save my initial PA appeal type without remission and with hearing fee and pay now
@@ -75,9 +75,8 @@ Feature: SnL Flow PA hearing request
     And I wait for 5 second
     Then I should see `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card
-    And I wait for 15 seconds
     And I switch to be a `Case Officer`
-    And I wait for 10 seconds
+    And I check the case has been paid for
     And I request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
