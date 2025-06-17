@@ -32,22 +32,22 @@ export class PayAndSubmitAppealFlow {
 
   async waitForPaymentRecognition() {
     const currentUrl = await this.ccdPage.getCaseUrl();
-    const appealUrl = `${currentUrl}#Appeal`;
-    await this.ccdPage.goToUrl(appealUrl);
     const nextStepPath = '//select[@id="next-step"]';
     const appealDetailsPath = '//h2[contains(text(), "Appeal details")]';
-    await this.ccdPage.waitForXpathElementVisible(nextStepPath);
-    await this.ccdPage.gotoTabs('Appeal');
-    await this.ccdPage.waitForXpathElementVisible(appealDetailsPath);
     const paymentPendingCount = element.all(by.xpath('//span[contains(text(), "Payment pending")]'))
       .filter(e => e.isPresent())
       .count();
-    let isPaymentPending = (await paymentPendingCount) > 0;
+    let isPaymentPending = true;
     while (isPaymentPending) {
       await browser.sleep(10000);
       await this.ccdPage.refresh();
-      await this.ccdPage.goToUrl(appealUrl);
-      await this.ccdPage.waitForXpathElementVisible(nextStepPath);
+      await this.ccdPage.goToUrl(currentUrl);
+      try {
+        await this.ccdPage.waitForXpathElementVisible(nextStepPath);
+      } catch {
+        await this.ccdPage.goToUrl(currentUrl);
+        await this.ccdPage.waitForXpathElementVisible(nextStepPath);
+      }
       await this.ccdPage.gotoTabs('Appeal');
       await this.ccdPage.waitForXpathElementVisible(appealDetailsPath);
       isPaymentPending = (await paymentPendingCount) > 0;
