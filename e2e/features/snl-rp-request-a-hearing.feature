@@ -4,7 +4,7 @@ Feature: SnL Flow RP hearing request
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
 
-  @appeal-nightly-test @appeal-nightly-test1 @TAG-TO-CHANGE
+  @appeal-nightly-test
   Scenario: SnL hearing request in country flow for RP appeal
 
     When I save my initial RP appeal for nonPayment with hearing
