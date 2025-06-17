@@ -465,3 +465,11 @@ Then(/^I Add the interpreter details$/, async function () {
 // When(/^I add the `?([^`]+)`? hearing location$/, async function (location) {
 //   await submitHearingRequirementsFlow.setHearingLocation(true, location);
 // });
+
+Then(/^I select how each of the ?([0-9]+)? participants will attend the hearing$/, async function (numberOfParticipants: number) {
+  await submitHearingRequirementsFlow.selectParticipantAttendingMethods(numberOfParticipants);
+});
+
+Then(/^I select No for specific judge question with `?([^`]+)`? judge type$/, async function (judgeType: string) {
+  await submitHearingRequirementsFlow.noSpecificJudge(judgeType);
+});

@@ -46,17 +46,23 @@ Feature: SnL Flow RP hearing request
     When I click the `Continue` button
     And I click the `Substantive` button
     And I click the `Continue` button
+    And I should see the text `Participant attendance`
+    And I select how each of the 6 participants will attend the hearing
     And I click the `Continue` button
     And I add the `Glasgow Tribunals Centre` hearing location
     And I click the `Continue` button
-    And I should see the text `Do you want a specific judge?`
-    And I click the `No` button
-    And I click the `Tribunal Judge` button
+    And I should see the text `Do you want a specific judge`
+    And I select No for specific judge question with `Tribunal` judge type
+    And I click the `Continue` button
+    And I should see the text `Do you require a panel for this hearing?`
     And I click the `Continue` button
     And I should see the text `Length, date and priority level of hearing`
     And I click the `Continue` button
+    And I should see the text `Will this hearing need to be linked to other hearings?`
+    And I click the `Continue` button
     And I should see the text `Enter any additional instructions for the hearing`
     And I click the `Continue` button
+    And I should see the text `Check your answers before sending your request`
     And I click the `Submit request` button
     And I should see the text `Hearing request submitted`
     And I click the `view the status of this hearing in the hearings tab` link
@@ -107,6 +113,8 @@ Feature: SnL Flow RP hearing request
     When I click the `Continue` button
     And I click the `Substantive` button
     And I click the `Continue` button
+    And I should see the text `Participant attendance`
+    And I select how each of the 6 participants will attend the hearing
     And I click the `Continue` button
     And I add the `Glasgow Tribunals Centre` hearing location
     # When I select `Atlantic Quay - Glasgow` for the `Search for a location by name` field

@@ -1,5 +1,5 @@
 import { CcdFormPage } from "../pages/ccd-form.page";
-import { browser } from "protractor";
+import { browser, by, element, ElementFinder } from "protractor";
 
 const isOutOfCountryEnabled =
   require("../ia.conf").isOutOfCountryEnabled === "true";
@@ -1105,5 +1105,34 @@ export class SubmitHearingRequirementsFlow {
     await this.ccdFormPage.click("Hatton Cross Tribunal Hearing Centre");
     await browser.sleep(3000);
     await this.ccdFormPage.click("Add location");
+  }
+
+  async selectParticipantAttendingMethods(numberOfParticipants: number) {
+    for (let i = 0; i < numberOfParticipants; i++) {
+      const selector = `#partyChannel${i}`;
+      const dropdownList = element(by.css(selector));
+      const option = dropdownList
+        .element(by.cssContainingText('option', 'In Person'));
+      await option.click();
+    }
+  }
+
+  async noSpecificJudge(judgeType: string) {
+    await element(by.css('#noSpecificJudge')).click();
+    let label: ElementFinder;
+    if (judgeType.toLowerCase().includes("tribunal")) {
+      label = element(by.cssContainingText('label.govuk-checkboxes__label', 'Tribunal Judge'));
+    } else if (judgeType.toLowerCase().includes("president")) {
+      label = element(by.cssContainingText('label.govuk-checkboxes__label', 'President of Tribunal'));
+    } else if (judgeType.toLowerCase().includes("resident")) {
+      label = element(by.cssContainingText('label.govuk-checkboxes__label', 'Resident Immigration Judge'));
+    } else {
+      throw new Error(`Unknown judge type: ${judgeType}`);
+    }
+    const checkboxId = await label.getAttribute('for');
+    const checkbox = element(by.css(`#${checkboxId}`));
+    if (!(await checkbox.isSelected())) {
+      await checkbox.click();
+    }
   }
 }

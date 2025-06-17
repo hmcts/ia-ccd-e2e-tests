@@ -59,7 +59,10 @@ Feature: Bails SNL Hearing request as as Legal Rep
     And I click the `Continue` button
     And I should see the text `Length, date and priority level of hearing`
     And I click the `Continue` button
+    And I should see the text `Will this hearing need to be linked to other hearings?`
+    And I click the `Continue` button
     And I should see the text `Enter any additional instructions for the hearing`
     And I click the `Continue` button
+    And I should see the text `Check your answers before sending your request`
     And I click the `Submit request` button
     And I should see the text `Hearing request submitted`
