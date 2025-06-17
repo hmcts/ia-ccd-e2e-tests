@@ -34,9 +34,6 @@ export class PayAndSubmitAppealFlow {
     const currentUrl = await this.ccdPage.getCaseUrl();
     const nextStepPath = '//select[@id="next-step"]';
     const appealDetailsPath = '//h2[contains(text(), "Appeal details")]';
-    const paymentPendingCount = element.all(by.xpath('//span[contains(text(), "Payment pending")]'))
-      .filter(e => e.isPresent())
-      .count();
     let isPaymentPending = true;
     while (isPaymentPending) {
       await browser.sleep(10000);
@@ -50,7 +47,12 @@ export class PayAndSubmitAppealFlow {
       }
       await this.ccdPage.gotoTabs('Appeal');
       await this.ccdPage.waitForXpathElementVisible(appealDetailsPath);
-      isPaymentPending = (await paymentPendingCount) > 0;
+
+      const isPaymentPendingCount: number = await element
+        .all(by.xpath('//span[contains(text(), "Payment pending")]'))
+        .filter(async e => await e.isPresent())
+        .count();
+      isPaymentPending = isPaymentPendingCount > 0;
     }
   }
 
