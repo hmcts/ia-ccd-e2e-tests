@@ -24,29 +24,20 @@ export class SubmitAppealFlow {
     }
   }
 
-  async submitAppeal(clickContinue = false) {
+  async submitAppeal() {
     await this.ccdPage.selectNextStep('Submit your appeal');
     await this.ccdPage.contentContains("The appellant or legal representative has indicated that the facts entered on the appeal form and any continuation sheets are true and complete.");
     let currentUrl = await browser.getCurrentUrl();
     await this.completeDeclaration(true);
-    await this.ccdPage.waitForConfirmationScreen(currentUrl);
-    if (clickContinue) {
-      await this.ccdPage.click('Close and Return to case details');
-      await this.ccdPage.waitForOverviewPage();
-    }
+    await this.ccdPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 
-  async submitLateAppeal(clickContinue = false) {
+  async submitLateAppeal() {
     await this.ccdPage.selectNextStep('Submit your appeal');
 
     await this.ccdFormPage.setFieldValue('You can upload a document or fill out the box below. (Optional)', 'I was on holiday', 'text area');
-    if (clickContinue) {
-      await this.ccdPage.click('Continue');
-    }
+    await this.ccdPage.click('Continue');
     await this.completeDeclaration(true);
-
-    if (clickContinue) {
-      await this.ccdPage.click('Close and Return to case details');
-    }
+    await this.ccdPage.waitForConfirmationScreenAndContinue(await browser.getCurrentUrl());
   }
 }

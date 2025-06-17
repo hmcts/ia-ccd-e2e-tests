@@ -6,7 +6,7 @@ export class PayAndSubmitAppealFlow {
   private ccdPage = new CcdPage();
   private ccdFormPage = new CcdFormPage();
 
-  async payForAppealByPBA(clickContinue = false) {
+  async payForAppealByPBA() {
     await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     await this.ccdFormPage.click('Pay now');
@@ -25,11 +25,9 @@ export class PayAndSubmitAppealFlow {
     let confirmPaymentButton = element(by.css('button.pba-payments-19-font'));
     await confirmPaymentButton.click();
     await this.ccdPage.waitForCssElementVisible('div.pba-payments--confirmation');
-    if (clickContinue) {
-      await this.ccdPage.click('View service requests');
-      await this.ccdPage.click('Overview');
-      await this.waitForPaymentRecognition();
-    }
+    await this.ccdPage.click('View service requests');
+    await this.ccdPage.click('Overview');
+    await this.waitForPaymentRecognition();
   }
 
   async waitForPaymentRecognition() {
@@ -45,19 +43,16 @@ export class PayAndSubmitAppealFlow {
     }
   }
 
-  async createServiceRequest(clickContinue = false) {
+  async createServiceRequest() {
     await this.ccdFormPage.selectNextStep('Create a service request');
     await this.ccdFormPage.headingContains('Pay for this appeal');
     let currentUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
-    await this.ccdPage.waitForConfirmationScreen(currentUrl);
-    if (clickContinue) {
-      await this.ccdPage.click('Close and Return to case details');
-      await this.ccdPage.waitForOverviewPage();
-    }
+    await this.ccdPage.waitForConfirmationScreenAndContinue(currentUrl);
+    await this.ccdPage.waitForOverviewPage();
   }
 
-  async payForAppealByCard(clickContinue = false) {
+  async payForAppealByCard() {
     const currentUrl = await this.ccdPage.getCurrentUrl();
     await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
@@ -88,14 +83,12 @@ export class PayAndSubmitAppealFlow {
     await this.ccdPage.waitForCssElementVisible('.confirm-page__content');
     await this.ccdFormPage.click('Confirm payment');
 
-    if (clickContinue) {
-      await this.ccdPage.click('Return to service request');
-      if (currentUrl.includes('preview')) {
-        await this.ccdPage.goToUrl(currentUrl);
-      }
-      await this.ccdPage.click('Overview');
-      await this.waitForPaymentRecognition();
+    await this.ccdPage.click('Return to service request');
+    if (currentUrl.includes('preview')) {
+      await this.ccdPage.goToUrl(currentUrl);
     }
+    await this.ccdPage.click('Overview');
+    await this.waitForPaymentRecognition();
   }
 
   async checkCasePaidCaseOfficer() {
