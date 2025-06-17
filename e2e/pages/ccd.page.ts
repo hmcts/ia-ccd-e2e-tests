@@ -1,10 +1,11 @@
 import { AnyPage } from "./any.page";
 import { Fields } from "../fields/fields";
-import { $, ActionSequence, browser, By, by, element, ExpectedConditions } from "protractor";
+import { $, ActionSequence, browser, By, by, element, ExpectedConditions, protractor } from "protractor";
 import { expect } from "chai";
 import { eventMappings } from "../enums/eventMappings";
 
 const iaConfig = require("../ia.conf");
+let EC = protractor.ExpectedConditions;
 
 export class CcdPage extends AnyPage {
   protected readonly fields = new Fields($("body"));
@@ -243,30 +244,18 @@ export class CcdPage extends AnyPage {
 
   async waitForCssElementVisible(locator: string) {
     await browser.wait(
-      async () => await element(by.css(locator)).isPresent(),
+      async () => EC.visibilityOf(element(by.css(locator))),
       30000,
       `Expected element ${locator} to be present within 30 seconds`
     );
-    expect(await element(by.css(locator)).isPresent()).to.equal(true);
-    const visibleElementCount = await element
-      .all(by.css(locator))
-      .filter(e => e.isDisplayed())
-      .count();
-    expect(visibleElementCount > 0).to.equal(true);
   }
 
   async waitForXpathElementVisible(locator: string, timeout = 30000) {
     await browser.wait(
-      async () => await element(by.xpath(locator)).isPresent(),
+      async () => EC.visibilityOf(element(by.xpath(locator))),
       timeout,
       `Expected element ${locator} to be present within ${timeout} ms`
     );
-    expect(await element(by.xpath(locator)).isPresent()).to.equal(true);
-    const visibleElementCount = await element
-      .all(by.xpath(locator))
-      .filter(e => e.isDisplayed())
-      .count();
-    expect(visibleElementCount > 0).to.equal(true);
   }
 
   async waitForOverviewPage() {
