@@ -229,8 +229,10 @@ export class CcdPage extends AnyPage {
     try {
       expect(currentUrl).to.contain("confirm");
       await this.waitForCssElementVisible("#confirmation-header");
+      await this.waitForXpathElementVisible('//button[contains(text(), "Close and Return to case details")]');
       await this.click('Close and Return to case details');
-    } finally {
+      await this.waitForOverviewPage();
+    } catch {
       await this.waitForOverviewPage();
     }
   }

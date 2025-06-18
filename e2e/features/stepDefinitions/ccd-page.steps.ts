@@ -1,6 +1,6 @@
 import { CcdPage } from "../../pages/ccd.page";
 import { Given, Then, When } from "cucumber";
-import { browser, by, element, protractor } from "protractor";
+import { browser, by, element } from "protractor";
 import { expect } from "chai";
 import { Wait } from "../../enums/wait";
 import { OrdinalToCardinal } from "../../helpers/ordinal-to-cardinal";
@@ -13,20 +13,11 @@ const iaConfig = require("../../ia.conf");
 Given("I create a new case", async function () {
   await ccdPage.acceptCookies();
   await browser.get(iaConfig.CcdWebUrl + "/cases/case-filter");
-  let EC = protractor.ExpectedConditions;
   try {
-    await browser.wait(
-      EC.visibilityOf(element(by.css("exui-filter-case"))),
-      10000,
-      "Create case page did not appear."
-    );
+    await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   } catch {
     browser.refresh();
-    await browser.wait(
-      EC.visibilityOf(element(by.css("exui-filter-case"))),
-      30000,
-      "Create case page did not appear."
-    );
+    await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   }
   await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Create Case")).to.equal(true);
@@ -35,7 +26,12 @@ Given("I create a new case", async function () {
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
-  await element(by.cssContainingText("#cc-case-type > option", "Appeal*")).click();
+  await browser.wait(
+    async () => element(by.xpath('//option[contains(text(), "Appeal*")]')).isPresent(),
+    30000,
+    `Expected element "//option[contains(text(), "Appeal*")]" to be present within 30 seconds`
+  );
+  await element(by.xpath('//option[contains(text(), "Appeal*")]')).click();
   await ccdPage.doesDropdownHaveValues("Event");
   await ccdPage.isButtonEnabled("Start");
   await ccdPage.click("Start");
@@ -50,20 +46,11 @@ Given("I create a new case", async function () {
 Given("I create a new bail application", async function () {
   await ccdPage.acceptCookies();
   await browser.get(iaConfig.CcdWebUrl + "/cases/case-filter");
-  let EC = protractor.ExpectedConditions;
   try {
-    await browser.wait(
-      EC.visibilityOf(element(by.css("exui-filter-case"))),
-      10000,
-      "Create case page did not appear."
-    );
+    await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   } catch {
     browser.refresh();
-    await browser.wait(
-      EC.visibilityOf(element(by.css("exui-filter-case"))),
-      30000,
-      "Create case page did not appear."
-    );
+    await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   }
   await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Create Case")).to.equal(true);
@@ -72,7 +59,12 @@ Given("I create a new bail application", async function () {
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
-  await element(by.cssContainingText("#cc-case-type > option", "Bail*")).click();
+  await browser.wait(
+    async () => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
+    30000,
+    `Expected element "//option[contains(text(), "Bail*")]" to be present within 30 seconds`
+  );
+  await element(by.xpath('//option[contains(text(), "Bail*")]')).click();
   await ccdPage.doesDropdownHaveValues("Event");
   await ccdPage.isButtonEnabled("Start");
   await ccdPage.click("Start");
@@ -93,7 +85,12 @@ Given("I Apply case list filter", async function () {
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
-  await element(by.cssContainingText("#wb-case-type > option", "Appeal*")).click();
+  await browser.wait(
+    async () => element(by.xpath('//option[contains(text(), "Appeal*")]')).isPresent(),
+    30000,
+    `Expected element "//option[contains(text(), "Appeal*")]" to be present within 30 seconds`
+  );
+  await element(by.xpath('//option[contains(text(), "Appeal*")]')).click();
   await ccdPage.doesDropdownHaveValues("State");
   await ccdFormPage.setFieldValue("State", "Any");
   await ccdPage.isButtonEnabled("Apply");
@@ -109,7 +106,12 @@ Given("I Apply case list filter for Bails", async function () {
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
-  await element(by.cssContainingText("#wb-case-type > option", "Bail*")).click();
+  await browser.wait(
+    async () => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
+    30000,
+    `Expected element "//option[contains(text(), "Bail*")]" to be present within 30 seconds`
+  );
+  await element(by.xpath('//option[contains(text(), "Bail*")]')).click();
   await ccdPage.doesDropdownHaveValues("State");
   await ccdFormPage.setFieldValue("State", "Any");
   await ccdPage.isButtonEnabled("Apply");

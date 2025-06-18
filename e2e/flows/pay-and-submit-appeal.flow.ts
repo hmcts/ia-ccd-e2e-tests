@@ -11,10 +11,10 @@ export class PayAndSubmitAppealFlow {
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     await this.ccdFormPage.click('Pay now');
     try {
-      await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+      await this.ccdPage.waitForXpathElementVisible('//*[contains(text(), "Pay fee using Payment by Account")]');
     } catch {
       await this.ccdFormPage.click('Pay now');
-      await this.ccdPage.waitForCssElementVisible('#pbaAccount');
+      await this.ccdPage.waitForXpathElementVisible('//*[contains(text(), "Pay fee using Payment by Account")]');
     }
     await this.ccdFormPage.click('Pay fee using Payment by Account (PBA)');
     await this.ccdPage.waitForCssElementVisible('#pbaAccountNumber');
