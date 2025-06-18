@@ -387,12 +387,24 @@ export class AnyPage {
   }
 
   async waitForSpinner() {
-    await browser.wait(
-      async () => !(element(by.css('div.spinner-container')).isPresent()),
-      60000,
-      "Spinner did not stop."
-    );
-    expect(await element(by.css('div.spinner-container')).isPresent()).to.equal(false);
+    const isSpinnerVisible = await element
+      .all(by.xpath("//div[contains(@class, 'spinner-container')]"))
+      .filter((e) => e.isPresent() && e.isDisplayed())
+      .count() > 0;
+    if (isSpinnerVisible) {
+      await browser.wait(
+        async () => {
+          return (
+            (await element
+              .all(by.xpath("//div[contains(@class, 'spinner-container')]"))
+              .filter((e) => e.isPresent() && e.isDisplayed())
+              .count()) == 0
+          );
+        },
+        60000,
+        "Spinner did not stop."
+      );
+    }
   }
 
   async clickButtonIfVisible(linkText: string) {
