@@ -1,11 +1,8 @@
-import { browser, by } from "protractor";
+import { browser } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
 
 const isOutOfCountryEnabled =
   require("../ia.conf").isOutOfCountryEnabled === "true";
-const remote = require("selenium-webdriver/remote");
-const path = require("path");
-const { WebDriver } = require("selenium-webdriver");
 
 export class StartAppealFlow {
   private ccdFormPage = new CcdFormPage();
@@ -125,16 +122,10 @@ export class StartAppealFlow {
 
   async completeUploadNoticeDecisionNoUpload(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await browser.sleep(1000);
     await this.ccdFormPage.click("Add new");
-    let fileDetector = WebDriver.fileDetector;
-    browser.setFileDetector(new remote.FileDetector());
-    let absolutePath = path.resolve("documents", "Evidence1.pdf");
-    await browser.element
-      .all(by.css("input[type=file]"))
-      .get(0)
-      .sendKeys(absolutePath);
-    browser.setFileDetector(fileDetector);
+    await browser.sleep(1000);
+    await this.ccdFormPage.waitForXpathElementVisible('//*[contains(text(),"You must upload the Notice of Decision")]');
+    await this.ccdFormPage.uploadFile('Evidence1.pdf');
     await this.ccdFormPage.setFieldValue(
       "Describe the document",
       "This is the notice of decision",
@@ -143,7 +134,6 @@ export class StartAppealFlow {
       "Notice of Decision",
       "first"
     );
-
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
     }

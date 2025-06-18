@@ -114,6 +114,11 @@ export class CcdFormPage extends CcdPage {
       .get(number)
       .sendKeys(absolutePath);
     browser.setFileDetector(fileDetector);
+    let uploadingMessagePresent = await browser.element(by.xpath('//span[contains(@class, "error-message")][contains(text(), "Uploading")]')).isPresent();
+    while (uploadingMessagePresent) {
+      browser.sleep(1000);
+      uploadingMessagePresent = await browser.element(by.xpath('//span[contains(@class, "error-message")][contains(text(), "Uploading")]')).isPresent();
+    }
     await browser.sleep(7000);
   }
 
