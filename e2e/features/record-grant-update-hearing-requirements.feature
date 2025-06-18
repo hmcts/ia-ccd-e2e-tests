@@ -35,7 +35,7 @@ Feature: Record grant update hearing requirements
     And I click the `Record an application` link
     Then I am on the `Record an application` page
     And I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Update hearing requirements` for the `Type of application` field
     And I type `update hearing requirements reason` for the `Reason for application` field
@@ -93,7 +93,7 @@ Feature: Record grant update hearing requirements
     And I click the `Applications` tab
     And I click the `Record an application` link
     And I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Update hearing requirements` for the `Type of application` field
     And I type `update hearing requirements reason` for the `Reason for application` field
@@ -156,7 +156,7 @@ Feature: Record grant update hearing requirements
     And I click the `Record an application` link
     Then I am on the `Record an application` page
     And I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Change hearing centre` for the `Type of application` field
     And I type `change hearing centre reason` for the `Reason for application` field

@@ -82,7 +82,7 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
     And I should see the text `Set aside a decision`
     When I type `Test reason for  Set aside a decision` for the `Explain why the decision should be set aside.` field
     And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the field without a label
+    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the document field without a label
     And I wait for 3 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
