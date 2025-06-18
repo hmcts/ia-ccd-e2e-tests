@@ -64,9 +64,14 @@ export class ShareCasePage {
   }
 
   async selectFirstCaseCheckbox() {
-    const checkboxPath = '(//input[@class="govuk-checkboxes__input"])[2]';
-    await ccdFormPage.waitForXpathElementVisible(checkboxPath);
-    await element(by.xpath(checkboxPath)).click();
+    const checkboxPaths = '//input[@class="govuk-checkboxes__input"]';
+    const checkBoxCount = await element.all(by.xpath(checkboxPaths)).count();
+    if (checkBoxCount === 0) {
+      throw Error('No cases found to share...');
+    } else if (checkBoxCount > 2) {
+      throw Error('Multiple cases found for HMCTS reference');
+    }
+    await element.all(by.xpath(checkboxPaths)).first().click();
   }
 
   async getCaseIdToBeShared(shortWait = false) {
@@ -254,10 +259,13 @@ export class ShareCasePage {
     } catch {
       await element(by.xpath('//button[@title="Reset filter"]')).click();
       await ccdFormPage.waitForXpathElementVisible(appealRefPath);
+      await ccdFormPage.waitForSpinner();
     }
     const appealRefField = element(by.xpath(appealRefPath));
     await appealRefField.clear();
     await appealRefField.sendKeys(this.appealReference);
+    await ccdFormPage.waitForSpinner();
     await element(by.xpath("//button[@title='Apply filter']")).click();
+    await ccdFormPage.waitForSpinner();
   }
 }

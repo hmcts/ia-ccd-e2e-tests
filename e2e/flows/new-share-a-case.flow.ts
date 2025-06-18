@@ -6,6 +6,7 @@ export class NewShareACaseFlow {
   private shareCasePage = new ShareCasePage();
 
   async selectCaseToShare() {
+    await this.ccdFormPage.waitForSpinner();
     await this.shareCasePage.selectFirstCaseCheckbox();
     await this.ccdFormPage.isButtonEnabled('Share Case');
     await this.ccdFormPage.click('Share Case');

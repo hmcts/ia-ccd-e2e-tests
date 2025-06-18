@@ -13,7 +13,7 @@ Feature: Notice of Change (common component)
   @notice-of-change @noc-incorrect-answers-same-org @noc-incorrect-firstname-same-org @RIA-3745 @appeal-nightly-test
   Scenario: NoC request as a user from the same organisation (incorrect firstname anwser)
 
-    When I switch to be a `Legal Org User Rep B`
+    When I am signed in as a `Legal Org User Rep B`
     And I wait for 10 seconds
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
@@ -31,7 +31,7 @@ Feature: Notice of Change (common component)
   @notice-of-change @noc-incorrect-answers-same-org @noc-incorrect-lastname-same-org @RIA-3745
   Scenario: NoC request as a user from the same organisation (incorrect lastname anwser)
 
-    When I switch to be a `Legal Org User Rep B`
+    When I am signed in as a `Legal Org User Rep B`
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
@@ -47,7 +47,7 @@ Feature: Notice of Change (common component)
   @notice-of-change @noc-correct-answers-same-org @RIA-3745
   Scenario: NoC request as a user from the same organisation (correct answers)
 
-    When I switch to be a `Legal Org User Rep B`
+    When I am signed in as a `Legal Org User Rep B`
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
@@ -61,7 +61,7 @@ Feature: Notice of Change (common component)
   @notice-of-change @noc-incorrect-answers-different-org @noc-incorrect-firstname-different-org @RIA-3745
   Scenario: NoC request as a user from a different organisation (incorrect firstname answer)
 
-    When I switch to be a `Legal Org User Rep C`
+    When I am signed in as a `Legal Org User Rep C`
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
@@ -77,7 +77,7 @@ Feature: Notice of Change (common component)
   @notice-of-change @noc-incorrect-answers-different-org @noc-incorrect-lastname-different-org @RIA-3745
   Scenario: NoC request as a user from a different organisation (incorrect lastname answer)
 
-    When I switch to be a `Legal Org User Rep C`
+    When I am signed in as a `Legal Org User Rep C`
     And I click the `Notice of change` link
     Then I should see the `Notice of change` page
     And I enter the latest case id for the online case reference number
