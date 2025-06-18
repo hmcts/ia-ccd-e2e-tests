@@ -182,7 +182,7 @@ Then(
 );
 
 Then(
-  /^I should see `?([^`]+)`?$/,
+  /^I should see ?(`[^`]+`)?$/,
   async function (match) {
     await ccdPage.waitForXpathElementVisible(`//*[contains(text(), "${match}")]`);
   }
