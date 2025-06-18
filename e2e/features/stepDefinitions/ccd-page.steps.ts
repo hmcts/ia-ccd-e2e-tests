@@ -184,8 +184,8 @@ Then(
 );
 
 Then(
-  /^I should see ?(`[^`]+`)?$/,
-  async function (match) {
+  /^I should see ?`([^`]+)`?$/,
+  async function (match: string) {
     await ccdPage.waitForXpathElementVisible(`//*[contains(text(), "${match}")]`);
   }
 );
