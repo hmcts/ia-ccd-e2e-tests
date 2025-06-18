@@ -122,7 +122,6 @@ export class SubmitHearingRequirementsFlow {
       "Will any witnesses attend the hearing?",
       "Yes"
     );
-    await browser.sleep(5000);
     await this.ccdFormPage.click("Add new");
     await this.ccdFormPage.setFieldValue("Name", "Jenny button");
     await this.ccdFormPage.click("Continue");

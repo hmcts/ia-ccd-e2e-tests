@@ -609,7 +609,6 @@ export class StartBailApplicationFlow {
       "Describe the document",
       "This is the supporting evidence"
     );
-    await browser.sleep(8000);
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
     }
@@ -696,10 +695,8 @@ export class StartBailApplicationFlow {
 
   async completeCheckYourAnswers(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await browser.sleep(3000);
     if (clickContinue) {
       await this.ccdFormPage.click("Save application");
-      await browser.sleep(15000);
     }
   }
 
@@ -788,13 +785,11 @@ export class StartBailApplicationFlow {
     if (user === 'Admin Officer') {
       await this.completeB1Upload(true);
     }
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
 
     if (clickContinue) {
-      try {
-        await this.ccdFormPage.waitForCssElementVisible("#confirmation-body");
-        await this.ccdFormPage.click("Close and Return to case details");
-      } catch {}
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 

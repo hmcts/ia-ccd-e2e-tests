@@ -5,7 +5,6 @@ export class UploadBailSummary {
   private ccdFormPage = new CcdFormPage();
 
   async uploadBailSummaryFile(clickContinue = false) {
-    await browser.sleep(5000);
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
     await this.ccdFormPage.click('Add new');

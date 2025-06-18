@@ -374,7 +374,6 @@ export class EditBailApplicationPreSubmitFlow {
     await browser.sleep(1000);
     await this.ccdFormPage.setFieldValue('Document', '{@B1Form.pdf}', 'document');
     await this.ccdFormPage.setFieldValue('Describe the document', 'Edited this B1 form');
-    await browser.sleep(8000);
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -384,7 +383,6 @@ export class EditBailApplicationPreSubmitFlow {
     await this.ccdFormPage.runAccessbility();
     if (clickContinue) {
       await this.ccdFormPage.click('Save application');
-      await browser.sleep(10000);
     }
   }
 

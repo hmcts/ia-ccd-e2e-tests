@@ -172,7 +172,6 @@ export class RecordDecision {
     await browser.sleep(this.waitTime);
     if (clickContinue) {
       await this.ccdFormPage.click('Record decision');
-      browser.sleep(30000);
     }
   }
 
@@ -197,7 +196,6 @@ export class RecordDecision {
     await this.completeTribunalDecision(true, tribunalDecision);
     if (tribunalDecision === 'Refused') {
       await this.completeReasonsForRefusal(true, 'No');
-      await this.completeCheckYourAnswers(true);
     } else if (tribunalDecision === 'Granted') {
       await this.completeReleaseStatus(true, releaseStatusYesOrNo);
       await this.completeConditions(true, conditions);
@@ -210,7 +208,6 @@ export class RecordDecision {
         }
       }
       await this.completeBailTransfer(true, bailTransferYesOrNo);
-      await this.completeCheckYourAnswers(true);
     } else if (tribunalDecision === 'Minded to grant') {
       await this.completeReasonsForDecision(true);
       await this.completeSsConsentDecision(true, SsConsentDecisionYesOrNo);
@@ -229,12 +226,10 @@ export class RecordDecision {
           }
         }
         await this.completeBailTransfer(true, bailTransferYesOrNo);
-        const currentUrl = await this.ccdFormPage.getCurrentUrl();
-        await this.completeCheckYourAnswers(true);
       }
     }
-    if (clickContinue) {
-      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
-    }
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 }

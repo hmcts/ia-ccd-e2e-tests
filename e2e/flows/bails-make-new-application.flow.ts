@@ -325,7 +325,6 @@ export class MakeNewApplicationFlow {
     await this.ccdFormPage.click('Add new');
     await this.ccdFormPage.setFieldValue('Document', '{@GroundsForBailSupportingEvidence.pdf}', 'document');
     await this.ccdFormPage.setFieldValue('Describe the document', 'This is a different supporting evidence');
-    await browser.sleep(8000);
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -399,7 +398,6 @@ export class MakeNewApplicationFlow {
     await this.ccdFormPage.click('Add new');
     await this.ccdFormPage.setFieldValue('Document', '{@B1Form.pdf}', 'document');
     await this.ccdFormPage.setFieldValue('Describe the document', 'This is a new B1 form');
-    await browser.sleep(8000);
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -409,7 +407,6 @@ export class MakeNewApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     if (clickContinue) {
       await this.ccdFormPage.click('Submit');
-      await browser.sleep(30000);
     }
   }
 

@@ -135,7 +135,6 @@ export class StartAppealFlow {
       .get(0)
       .sendKeys(absolutePath);
     browser.setFileDetector(fileDetector);
-    await browser.sleep(5000);
     await this.ccdFormPage.setFieldValue(
       "Describe the document",
       "This is the notice of decision",
@@ -144,7 +143,6 @@ export class StartAppealFlow {
       "Notice of Decision",
       "first"
     );
-    await browser.sleep(3000);
 
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");

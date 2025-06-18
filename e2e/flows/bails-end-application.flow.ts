@@ -5,7 +5,6 @@ export class EndApplication {
   private ccdFormPage = new CcdFormPage();
 
   async outcomeReasons(clickContinue = false) {
-    await browser.sleep(5000);
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
     await this.ccdFormPage.setFieldValue('Outcome', 'Withdrawn');
@@ -16,7 +15,6 @@ export class EndApplication {
   }
 
   async endApplication(clickContinue = false) {
-    await browser.sleep(5000);
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.selectNextStep('End the application');
     await this.outcomeReasons(true);

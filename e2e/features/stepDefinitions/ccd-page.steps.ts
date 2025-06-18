@@ -77,9 +77,7 @@ Given("I create a new bail application", async function () {
 });
 
 Given("I Apply case list filter", async function () {
-  // there is loading mask with spinner added by ExUI
-  await browser.sleep(10000);
-
+  await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Case list")).to.equal(true);
   await ccdPage.runAccessbility();
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
@@ -98,9 +96,7 @@ Given("I Apply case list filter", async function () {
 });
 
 Given("I Apply case list filter for Bails", async function () {
-  // there is loading mask with spinner added by ExUI
-  await browser.sleep(5000);
-
+  await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Case list")).to.equal(true);
   await ccdPage.runAccessbility();
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
@@ -505,10 +501,8 @@ Then(/^I will make `?([^`]+)`? as Inactive$/, async function (flagtype) {
 Then(
   /^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/,
   async function (flag, type) {
-    await browser.sleep(5000);
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 30000, false);
-    await browser.sleep(5000);
     await ccdFormPage.waitForXpathElementVisible(`//label[contains(text(),"${flag}")][contains(@class, "govuk-radios__label")]`);
     await ccdFormPage.click(flag);
     await ccdFormPage.click("Continue", 0, 30000, false);

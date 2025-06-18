@@ -1,4 +1,3 @@
-import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class BailsAddCaseNoteFlow {
@@ -15,7 +14,6 @@ export class BailsAddCaseNoteFlow {
       await this.ccdFormPage.setFieldValue('Case note', 'Case note text. This is from application ' + applicationNumber);
       await this.ccdFormPage.setFieldValue('Upload a document (Optional)', '{@BailsCaseNote.pdf}', 'document');
     }
-    await browser.sleep(2000);
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -25,7 +23,6 @@ export class BailsAddCaseNoteFlow {
     await this.ccdFormPage.runAccessbility();
     if (clickContinue) {
       await this.ccdFormPage.click('Add case note');
-      await browser.sleep(5000);
     }
   }
 
