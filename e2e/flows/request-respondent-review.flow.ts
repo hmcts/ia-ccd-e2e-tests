@@ -8,10 +8,11 @@ export class RequestRespondentReviewFlow {
 
     await this.ccdFormPage.headingContains('Request respondent review');
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Send direction');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
@@ -21,10 +22,11 @@ export class RequestRespondentReviewFlow {
 
     await this.ccdFormPage.headingContains('Review Home Office response');
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Send direction');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

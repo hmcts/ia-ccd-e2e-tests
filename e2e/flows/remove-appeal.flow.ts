@@ -12,10 +12,11 @@ export class RemoveAppealFlow {
 
     await this.ccdFormPage.click('Continue');
 
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Remove appeal');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

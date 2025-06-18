@@ -18,10 +18,11 @@ export class RequestFeeRemissionFlow {
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.headingContains('Check your answers');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
@@ -36,10 +37,11 @@ export class RequestFeeRemissionFlow {
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.headingContains('Check your answers');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

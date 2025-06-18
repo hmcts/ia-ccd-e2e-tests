@@ -27,10 +27,10 @@ export class ListCaseThroughEvent {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.selectNextStep('Case listing');
     await this.completeCaseListingEvent(true);
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
-    await browser.sleep(5000);
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 

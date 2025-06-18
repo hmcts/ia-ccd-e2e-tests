@@ -20,10 +20,11 @@ export class FtpaAppellantAppealFlow {
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the FTPA Appellant evidence', 'text area', 'first', 'Supporting evidence', 'first');
     await browser.sleep(1000);
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

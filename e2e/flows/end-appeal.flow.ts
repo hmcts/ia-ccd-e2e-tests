@@ -18,10 +18,11 @@ export class EndAppealFlow {
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.headingContains('Check your answers');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('End appeal');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

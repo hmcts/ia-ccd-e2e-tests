@@ -463,10 +463,11 @@ export class EditBailApplicationPostSubmitFlow {
     } else {
       await this.completeLegalRepYesNo(true, 'No');
     }
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

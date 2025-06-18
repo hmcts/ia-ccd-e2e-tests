@@ -24,8 +24,9 @@ export class StartDecisionAndReasonsFlow {
     await this.ccdFormPage.setFieldValue("The appellant's schedule of issues (Optional)", 'some schedule');
     await this.ccdFormPage.click('Continue');
 
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Save');
 
-    await this.ccdFormPage.click('Close and Return to case details');
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 }

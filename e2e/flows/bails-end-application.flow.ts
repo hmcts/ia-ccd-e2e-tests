@@ -20,10 +20,10 @@ export class EndApplication {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.selectNextStep('End the application');
     await this.outcomeReasons(true);
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('End application');
-    await browser.sleep(5000);
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

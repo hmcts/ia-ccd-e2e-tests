@@ -1,4 +1,4 @@
-import { browser, by, element, ElementFinder, protractor } from "protractor";
+import { browser, by, element, ElementFinder } from "protractor";
 import { expect } from 'chai';
 import { Wait } from "../enums/wait";
 import { ValueExpander } from "../helpers/value-expander";
@@ -387,12 +387,12 @@ export class AnyPage {
   }
 
   async waitForSpinner() {
-    let EC = protractor.ExpectedConditions;
     await browser.wait(
-      EC.invisibilityOf(element(by.css("div.spinner-container"))),
+      async () => !(element(by.css('div.spinner-container')).isPresent()),
       60000,
       "Spinner did not stop."
     );
+    expect(await element(by.css('div.spinner-container')).isPresent()).to.equal(false);
   }
 
   async clickButtonIfVisible(linkText: string) {

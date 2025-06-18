@@ -18,11 +18,10 @@ export class SubmitBailApplicationFlow {
       }
       await this.ccdFormPage.click('The applicant has confirmed that the facts stated in this application are true.');
     }
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
-    if (user !== 'Legal Rep') {
-      if (clickContinue) {
-        await this.ccdFormPage.click('Close and Return to case details');
-      }
+    if (clickContinue) {
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

@@ -14,10 +14,11 @@ export class UploadRespondentEvidenceFlow {
 
     await this.ccdFormPage.click('Continue');
     await browser.sleep(1000);
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Upload');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
@@ -30,10 +31,11 @@ export class UploadRespondentEvidenceFlow {
     await this.ccdFormPage.setFieldValue('Describe the document', 'This is the Home Office Bundle', 'text area', 'first', 'Upload Home Office bundle', 'first');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Upload');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

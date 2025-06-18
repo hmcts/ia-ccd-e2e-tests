@@ -17,9 +17,10 @@ export class SendDecisionAndReasonsFlow {
     await this.ccdFormPage.click('Ensure that the fee award is consistent with your decision.');
     await this.ccdFormPage.click('Continue');
 
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Upload');
 
-    await this.ccdFormPage.click('Close and Return to case details');
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 
   async sendDecisionAndReasonsDismissed() {
@@ -35,8 +36,9 @@ export class SendDecisionAndReasonsFlow {
     await this.ccdFormPage.click('Ensure that the fee award is consistent with your decision.');
     await this.ccdFormPage.click('Continue');
 
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Upload');
 
-    await this.ccdFormPage.click('Close and Return to case details');
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 }

@@ -1,5 +1,6 @@
-import { browser, element, protractor, by } from 'protractor';
+import { browser } from 'protractor';
 import { IdamSignInPage } from '../pages/idam-sign-in.page';
+import { CcdPage } from "../pages/ccd.page";
 
 const iaConfig = require('../ia.conf');
 
@@ -30,6 +31,7 @@ export type UserRole =
 
 export class AuthenticationFlow {
   private idamSignInPage = new IdamSignInPage();
+  private ccdPage = new CcdPage();
 
   async signOut() {
     await browser.waitForAngularEnabled(false);
@@ -512,7 +514,8 @@ export class AuthenticationFlow {
   }
 
   async checkExUiLoaded() {
-    let EC = protractor.ExpectedConditions;
-    await browser.wait(EC.visibilityOf(element(by.linkText('Sign out'))), 30000);
+    await this.ccdPage.waitForSpinner();
+    const signOutPath = '//a[contains(@class, "hmcts-header__navigation-link")][contains(text(), "Sign out")]';
+    await this.ccdPage.waitForXpathElementVisible(signOutPath);
   }
 }

@@ -13,10 +13,11 @@ export class FtpaAppealFlow {
     await this.ccdFormPage.setFieldValue('Describe the document', 'This is the FTPA Appellant grounds', 'text area', 'first', 'Grounds of the application', 'first');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
@@ -36,10 +37,11 @@ export class FtpaAppealFlow {
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the FTPA Respondent evidence ', 'text area', 'first', 'Supporting evidence', 'first');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

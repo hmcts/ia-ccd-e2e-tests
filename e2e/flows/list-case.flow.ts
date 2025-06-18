@@ -17,10 +17,11 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
@@ -35,10 +36,11 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
@@ -53,11 +55,11 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
-      await this.ccdFormPage.contentContains('You have listed the case');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
@@ -72,11 +74,11 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+16|DD-MM-YYYY} 11:45:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
-      await this.ccdFormPage.contentContains('You have listed the case');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
@@ -91,11 +93,11 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
         if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.contentContains('You have listed the case');
+            await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
         }
     }
 
@@ -111,9 +113,10 @@ export class ListCaseFlow {
             '{$TODAY+14|DD-MM-YYYY} 10:30:00'
         );
         await this.ccdFormPage.click('Continue');
+      const currentUrl = await this.ccdFormPage.getCurrentUrl();
         await this.ccdFormPage.click('List case');
         if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+            await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
         }
     }
 
@@ -132,10 +135,11 @@ export class ListCaseFlow {
             '{$TODAY+14|DD-MM-YYYY} 11:30:00'
         );
         await this.ccdFormPage.click('Continue');
+      const currentUrl = await this.ccdFormPage.getCurrentUrl();
         await this.ccdFormPage.click('List case');
 
         if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+            await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
         }
     }
 }

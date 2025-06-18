@@ -6,8 +6,9 @@ export class HearingBundleFlow {
   async generateHearingBundle(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Generate hearing bundle');
 
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Generate');
 
-    await this.ccdFormPage.click('Close and Return to case details');
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 }

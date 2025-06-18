@@ -468,10 +468,11 @@ export class EditBailApplicationPreSubmitFlow {
     if (user === 'Admin Officer') {
       await this.completeB1Upload(true);
     }
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

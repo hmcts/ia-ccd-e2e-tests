@@ -229,11 +229,12 @@ export class RecordDecision {
           }
         }
         await this.completeBailTransfer(true, bailTransferYesOrNo);
+        const currentUrl = await this.ccdFormPage.getCurrentUrl();
         await this.completeCheckYourAnswers(true);
       }
     }
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

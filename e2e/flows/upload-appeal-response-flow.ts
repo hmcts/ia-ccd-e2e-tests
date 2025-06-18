@@ -15,10 +15,11 @@ export class UploadAppealResponseFlow {
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the appeal response evidence', 'text area', 'first', 'Evidence (Optional)', 'first');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Upload');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

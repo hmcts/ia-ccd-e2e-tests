@@ -9,11 +9,11 @@ export class RequestRespondentEvidenceFlow {
     await this.ccdFormPage.headingContains('Request respondent evidence');
     await this.ccdFormPage.click('Continue');
     await this.ccdFormPage.contentContains('Check your answers');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Send direction');
-    await this.ccdFormPage.contentContains('You have sent a direction');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

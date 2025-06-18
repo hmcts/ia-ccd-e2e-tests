@@ -23,10 +23,10 @@ export class UploadBailSummary {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.selectNextStep('Upload Bail Summary');
     await this.uploadBailSummaryFile(true);
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Upload');
-    await browser.sleep(5000);
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }
