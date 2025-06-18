@@ -398,7 +398,7 @@ export class AnyPage {
             (await element
               .all(by.xpath("//div[contains(@class, 'spinner-container')]"))
               .filter((e) => e.isPresent() && e.isDisplayed())
-              .count()) == 0
+              .count()) === 0
           );
         },
         60000,
