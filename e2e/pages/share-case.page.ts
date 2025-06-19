@@ -247,6 +247,7 @@ export class ShareCasePage {
 
   async filterByAppealReference() {
     const jurisdictionPath = '//select[@id="wb-jurisdiction"]' + '/option[normalize-space()="Immigration & Asylum"]';
+    await ccdFormPage.waitForXpathElementVisible(jurisdictionPath);
     await element(by.xpath(jurisdictionPath)).click();
     if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
       await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
