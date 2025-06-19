@@ -34,9 +34,6 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
     And I wait for 2 seconds
     And I create case summary
     And I generate the hearing bundle
-    And I wait for 30 seconds
-    And I refresh the page
-    And I wait for 4 seconds
 
     When I select the `Start decision and reasons` Next step
     Then I should see the text `Start decision and reasons`

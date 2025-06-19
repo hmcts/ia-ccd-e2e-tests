@@ -133,4 +133,8 @@ When(/^I validate the options displayed for `?([^`]+)`? field/, async function (
   }
 });
 
+When(/^I click the `?([^`]+)`? button with a really long wait/, async function (buttonLabel) {
+  await ccdFormPage.clickButtonLongWait(buttonLabel);
+});
+
 // tslint:enable:max-line-length

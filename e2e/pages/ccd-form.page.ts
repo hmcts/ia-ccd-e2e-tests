@@ -1,10 +1,11 @@
 import { CcdPage } from "./ccd.page";
-import { $, browser, ExpectedConditions, By, protractor } from "protractor";
+import { $, browser, ExpectedConditions, By, protractor, element, by } from "protractor";
 import { Field } from "../fields/field";
 import { expect } from "chai";
+
 const remote = require("selenium-webdriver/remote");
 const path = require("path");
-const { WebDriver } = require("selenium-webdriver");
+const {WebDriver} = require("selenium-webdriver");
 
 export class CcdFormPage extends CcdPage {
   async fieldErrorContains(match: string) {
@@ -84,9 +85,11 @@ export class CcdFormPage extends CcdPage {
       await browser.sleep(15000);
     }
   }
+
   async typeText(ID: string, text: string) {
     browser.driver.findElement(By.xpath(`//*[@id='${ID}']`)).sendKeys(text);
   }
+
   async typeTextBasedOnClass(className: string, text: string) {
     browser.driver.findElement(By.xpath(`//*[contains(@class,'${className}')]`)).sendKeys(text);
   }
@@ -95,15 +98,18 @@ export class CcdFormPage extends CcdPage {
     browser.driver.findElement(By.xpath(`//*[@id='${ID}']`));
     browser.actions().sendKeys(protractor.Key.ENTER).perform();
   }
+
   async selectInterpreterLanguage(Language = '') {
     await browser.sleep(3000);
     await this.typeTextBasedOnClass('mat-autocomplete-trigger', Language);
     await browser.sleep(3000);
     await this.click(Language);
   }
+
   async clickElement(fieldID: any) {
     browser.driver.findElement(By.xpath(`//*[@id='${fieldID}']`)).click();
   }
+
   async uploadFile(filename: string, number = 0) {
     await browser.sleep(1000);
     let fileDetector = WebDriver.fileDetector;
@@ -122,13 +128,41 @@ export class CcdFormPage extends CcdPage {
     await browser.sleep(7000);
   }
 
-  async uploadFileToElement(element, filename: string) {
+  async uploadFileToElement(someElement, filename: string) {
     await browser.sleep(1000);
     let fileDetector = WebDriver.fileDetector;
     browser.setFileDetector(new remote.FileDetector());
     let absolutePath = path.resolve("documents", filename);
-    await element.sendKeys(absolutePath);
+    await someElement.sendKeys(absolutePath);
     browser.setFileDetector(fileDetector);
     await browser.sleep(7000);
+  }
+
+  async clickButtonLongWait(buttonText: string) {
+    const button = await browser.element(By.xpath(`//button[contains(text(), "${buttonText}")]`));
+    const unexpectedError = element(by.xpath('//*[contains(text(),"Something unexpected happened")]'));
+    const nullIndexError = element(by.xpath('//*[contains(text(),"Cannot read properties of null")]'));
+    const couldNotBeCreated = element(by.xpath('//*[contains(text(),"The event could not be created")]'));
+    const thisPageUrl = await browser.getCurrentUrl();
+    await button.click();
+    await this.waitForSpinner(120000);
+    try {
+      expect(await unexpectedError.isPresent()).to.equal(false);
+      expect(await nullIndexError.isPresent()).to.equal(false);
+      expect(await couldNotBeCreated.isPresent()).to.equal(false);
+    } catch {
+      await button.click();
+    }
+    await this.waitForSpinner(120000);
+    await this.waitForPageNavigation(thisPageUrl);
+    try {
+      expect(await unexpectedError.isPresent()).to.equal(false);
+      expect(await nullIndexError.isPresent()).to.equal(false);
+      expect(await couldNotBeCreated.isPresent()).to.equal(false);
+    } catch {
+      await button.click();
+      await this.waitForSpinner(120000);
+      await this.waitForPageNavigation(thisPageUrl);
+    }
   }
 }

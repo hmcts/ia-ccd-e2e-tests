@@ -33,10 +33,7 @@ Feature: New Share a Case (common component)
     And I click the `Confirm` button
     Then I click the `Go back to the case list.` link
     Given I am signed in as a `Legal Org User Rep B`
-    And I refresh the page
-    And I wait for 20 seconds
     When I filter the cases by the Appeal Reference
-    And I wait for 30 seconds
     And I select the most recent case to share
     Then I should see the `Add recipient` page
     When I get the shared case id

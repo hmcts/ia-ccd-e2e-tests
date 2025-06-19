@@ -386,11 +386,11 @@ export class AnyPage {
     }
   }
 
-  async waitForSpinner() {
+  async waitForSpinner(timeout= 60000) {
     let EC = protractor.ExpectedConditions;
     await browser.wait(
       EC.invisibilityOf(element(by.css("div.spinner-container"))),
-      75000,
+      timeout,
       "Spinner did not stop."
     );
   }

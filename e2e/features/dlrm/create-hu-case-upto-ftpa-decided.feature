@@ -34,7 +34,6 @@ Feature: Create HU case upto FTPA submitted
     And I wait for 2 seconds
     And I create case summary
     And I generate the hearing bundle
-    And I wait for 30 seconds
     And I refresh the page
     And I wait for 4 seconds
 
