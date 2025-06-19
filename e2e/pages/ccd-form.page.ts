@@ -1,5 +1,5 @@
 import { CcdPage } from "./ccd.page";
-import { $, browser, ExpectedConditions, By, protractor, element, by } from "protractor";
+import { $, browser, ExpectedConditions, By, protractor } from "protractor";
 import { Field } from "../fields/field";
 import { expect } from "chai";
 
@@ -136,33 +136,5 @@ export class CcdFormPage extends CcdPage {
     await someElement.sendKeys(absolutePath);
     browser.setFileDetector(fileDetector);
     await browser.sleep(7000);
-  }
-
-  async clickButtonLongWait(buttonText: string) {
-    const button = await browser.element(By.xpath(`//button[contains(text(), "${buttonText}")]`));
-    const unexpectedError = element(by.xpath('//*[contains(text(),"Something unexpected happened")]'));
-    const nullIndexError = element(by.xpath('//*[contains(text(),"Cannot read properties of null")]'));
-    const couldNotBeCreated = element(by.xpath('//*[contains(text(),"The event could not be created")]'));
-    const thisPageUrl = await browser.getCurrentUrl();
-    await button.click();
-    await this.waitForSpinner(120000);
-    try {
-      expect(await unexpectedError.isPresent()).to.equal(false);
-      expect(await nullIndexError.isPresent()).to.equal(false);
-      expect(await couldNotBeCreated.isPresent()).to.equal(false);
-    } catch {
-      await button.click();
-    }
-    await this.waitForSpinner(120000);
-    await this.waitForPageNavigation(thisPageUrl);
-    try {
-      expect(await unexpectedError.isPresent()).to.equal(false);
-      expect(await nullIndexError.isPresent()).to.equal(false);
-      expect(await couldNotBeCreated.isPresent()).to.equal(false);
-    } catch {
-      await button.click();
-      await this.waitForSpinner(120000);
-      await this.waitForPageNavigation(thisPageUrl);
-    }
   }
 }

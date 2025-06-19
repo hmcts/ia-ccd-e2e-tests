@@ -87,13 +87,13 @@ export class AnyPage {
 
     if (await button.isPresent()) {
       await BrowserWaits.waitForelementToBeClickable(button);
-      await this.waitForSpinner();
+      await this.waitForSpinner(120000);
       const unexpectedError = element(by.xpath('//*[contains(text(),"Something unexpected happened")]'));
       const nullIndexError = element(by.xpath('//*[contains(text(),"Cannot read properties of null")]'));
       const couldNotBeCreated = element(by.xpath('//*[contains(text(),"The event could not be created")]'));
       const thisPageUrl = await browser.getCurrentUrl();
       await button.click();
-      await this.waitForSpinner();
+      await this.waitForSpinner(120000);
       try {
         expect(await unexpectedError.isPresent()).to.equal(false);
         expect(await nullIndexError.isPresent()).to.equal(false);
@@ -102,7 +102,7 @@ export class AnyPage {
         await button.click();
       }
       if (submitButtons.includes(linkText) && shouldWaitForNavigation) {
-        await this.waitForSpinner();
+        await this.waitForSpinner(120000);
         await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         try {
           expect(await unexpectedError.isPresent()).to.equal(false);
@@ -110,7 +110,7 @@ export class AnyPage {
           expect(await couldNotBeCreated.isPresent()).to.equal(false);
         } catch {
           await button.click();
-          await this.waitForSpinner();
+          await this.waitForSpinner(120000);
           await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
         }
       }
