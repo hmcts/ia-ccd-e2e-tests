@@ -1,5 +1,5 @@
 import { CcdPage } from "./ccd.page";
-import { $, browser, ExpectedConditions, By, by, protractor } from "protractor";
+import { $, browser, ExpectedConditions, By, protractor } from "protractor";
 import { Field } from "../fields/field";
 import { expect } from "chai";
 const remote = require("selenium-webdriver/remote");
@@ -110,14 +110,14 @@ export class CcdFormPage extends CcdPage {
     browser.setFileDetector(new remote.FileDetector());
     let absolutePath = path.resolve("documents", filename);
     await browser.element
-      .all(by.css("input[type=file]"))
+      .all(By.css("input[type=file]"))
       .get(number)
       .sendKeys(absolutePath);
     browser.setFileDetector(fileDetector);
-    let uploadingMessagePresent = await browser.element(by.xpath('//span[contains(@class, "error-message")][contains(text(), "Uploading")]')).isPresent();
+    let uploadingMessagePresent = await browser.element(By.xpath('//span[contains(@class, "error-message")][contains(text(), "Uploading")]')).isDisplayed();
     while (uploadingMessagePresent) {
       browser.sleep(1000);
-      uploadingMessagePresent = await browser.element(by.xpath('//span[contains(@class, "error-message")][contains(text(), "Uploading")]')).isPresent();
+      uploadingMessagePresent = await browser.element(By.xpath('//span[contains(@class, "error-message")][contains(text(), "Uploading")]')).isDisplayed();
     }
     await browser.sleep(7000);
   }
