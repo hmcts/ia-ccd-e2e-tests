@@ -197,7 +197,7 @@ Then(
 );
 
 Then("I should be on the overview page", async function () {
-  await ccdPage.waitForOverviewPage();
+  await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
 });
 
 Then(

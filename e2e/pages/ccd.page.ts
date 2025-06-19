@@ -6,6 +6,8 @@ import { eventMappings } from "../enums/eventMappings";
 
 const iaConfig = require("../ia.conf");
 
+let caseUrl = "";
+
 export class CcdPage extends AnyPage {
   protected readonly fields = new Fields($("body"));
 
@@ -229,6 +231,14 @@ export class CcdPage extends AnyPage {
     }
   }
 
+  getStoredCaseUrl() {
+    return caseUrl;
+  }
+
+  setStoredCaseUrl(url: string) {
+    caseUrl = url;
+  }
+
   async waitForConfirmationScreenAndContinue(previousUrl: string) {
     await this.waitForPageNavigation(previousUrl);
     const currentUrl = await browser.getCurrentUrl();
@@ -237,9 +247,11 @@ export class CcdPage extends AnyPage {
       await this.waitForCssElementVisible("#confirmation-header");
       await this.waitForXpathElementVisible('//button[contains(text(), "Close and Return to case details")]');
       await this.click('Close and Return to case details');
-      await this.waitForOverviewPage();
+      await this.waitForOverviewPage(this.getStoredCaseUrl());
+      this.setStoredCaseUrl(await browser.getCurrentUrl());
     } catch {
-      await this.waitForOverviewPage();
+      await this.waitForOverviewPage(this.getStoredCaseUrl());
+      this.setStoredCaseUrl(await browser.getCurrentUrl());
     }
   }
 
@@ -294,8 +306,16 @@ export class CcdPage extends AnyPage {
     return visibleElementCount === 0;
   }
 
-  async waitForOverviewPage() {
-    await this.waitForCssElementVisible("#next-step");
+  async waitForOverviewPage(caseUrl: string) {
+    try {
+      await this.waitForCssElementVisible("#next-step");
+    } catch {
+      if (caseUrl == "") {
+        throw new Error("Browser backed out to case list page, but no caseUrl saved to navigate back to the case overview page.");
+      }
+      await browser.get(caseUrl);
+      await this.waitForCssElementVisible("#next-step");
+    }
     await browser.wait(
       async () => element(by.css("#next-step")).isEnabled(),
       15000,

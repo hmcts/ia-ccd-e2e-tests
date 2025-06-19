@@ -29,10 +29,10 @@ Given(/^I switch to be a `?([A-z ]+)?`$/, async function (role: UserRole) {
   await authenticationFlow.signInByRole(role);
   try {
     await ccdPage.get(caseUrl);
-    await ccdPage.waitForOverviewPage();
+    await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
   } catch {
     await ccdPage.get(caseUrl);
-    await ccdPage.waitForOverviewPage();
+    await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
   }
 });
 

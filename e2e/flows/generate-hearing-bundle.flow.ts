@@ -26,7 +26,7 @@ export class HearingBundleFlow {
       await browser.sleep(5000);
       await browser.refresh();
       await browser.get(currentUrl);
-      await this.ccdFormPage.waitForOverviewPage();
+      await this.ccdFormPage.waitForOverviewPage(this.ccdFormPage.getStoredCaseUrl());
       hasBundleBeenGenerated = await this.ccdFormPage.verifyHiddenByXpath(locator);
     }
   }

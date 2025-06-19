@@ -62,7 +62,7 @@ export class PayAndSubmitAppealFlow {
     let currentUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
     await this.ccdPage.waitForConfirmationScreenAndContinue(currentUrl);
-    await this.ccdPage.waitForOverviewPage();
+    await this.ccdPage.waitForOverviewPage(this.ccdPage.getStoredCaseUrl());
   }
 
   async payForAppealByCard() {
