@@ -8,11 +8,11 @@ export class BailsAddCaseNoteFlow {
     if (applicationNumber === '') {
       await this.ccdFormPage.setFieldValue('Subject', 'Case note subject');
       await this.ccdFormPage.setFieldValue('Case note', 'Case note text.');
-      await this.ccdFormPage.setFieldValue('Upload a document (Optional)', '{@BailsCaseNote.pdf}', 'document');
+      await this.ccdFormPage.uploadFile('BailsCaseNote.pdf');
     } else {
       await this.ccdFormPage.setFieldValue('Subject', 'Case note subject from application ' + applicationNumber);
       await this.ccdFormPage.setFieldValue('Case note', 'Case note text. This is from application ' + applicationNumber);
-      await this.ccdFormPage.setFieldValue('Upload a document (Optional)', '{@BailsCaseNote.pdf}', 'document');
+      await this.ccdFormPage.uploadFile('BailsCaseNote.pdf');
     }
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
