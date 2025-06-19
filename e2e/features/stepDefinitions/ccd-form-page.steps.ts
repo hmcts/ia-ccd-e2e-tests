@@ -126,10 +126,9 @@ When(
 
 When(/^I validate the options displayed for `?([^`]+)`? field/, async function (heading, datatable) {
   const datatableHashes = datatable.hashes();
-  const fieldOptions = await ccdFormPage.getFieldOptions(heading);
   for (const tableHash of datatableHashes) {
-    const column = tableHash.options;
-    expect(fieldOptions).to.include(column);
+    const xpath = '//label[contains(text(), "' + tableHash.options + '")]';
+    await ccdFormPage.verifyVisibleByXpath(xpath)
   }
 });
 
