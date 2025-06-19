@@ -1,6 +1,6 @@
 import { CcdPage } from "../../pages/ccd.page";
 import { Given, Then, When } from "cucumber";
-import { browser, by, element } from "protractor";
+import { browser, By, by, element } from "protractor";
 import { expect } from "chai";
 import { Wait } from "../../enums/wait";
 import { OrdinalToCardinal } from "../../helpers/ordinal-to-cardinal";
@@ -490,9 +490,11 @@ Given("I restart the browser", async function () {
 Then(/^I will make `?([^`]+)`? as Inactive$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
   await ccdFormPage.click("Continue", 0, 0, false);
+  await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
+  const isFlagComment = await browser.element(By.xpath(`//*[@id='flagComment']`)).isPresent();
   await ccdFormPage.typeText(
-    `flagComment`,
-    `test case flage make it inactive`
+    isFlagComment ? 'flagComment' : 'flagComments',
+    'test case flage make it inactive'
   );
   await ccdFormPage.click("Make inactive");
   await ccdFormPage.click("Continue", 0, 0, false);
@@ -508,11 +510,11 @@ Then(
     await ccdFormPage.click(flag);
     await ccdFormPage.click("Continue", 0, 30000, false);
     try {
-      await ccdFormPage.waitForCssElementVisible("#flagComments");
+      await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
     } catch {
       await ccdFormPage.click(flag);
       await ccdFormPage.click("Continue", 0, 30000, false);
-      await ccdFormPage.waitForCssElementVisible("#flagComments");
+      await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
     }
     await ccdFormPage.click("Continue", 0, 30000, false);
     const currentUrl = await browser.getCurrentUrl();
@@ -533,17 +535,11 @@ Then(
     await browser.sleep(1000);
     await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
-    try {
-      await ccdFormPage.typeText(
-        `flagComment`,
-        `just comment for interpreter languages`
-      );
-    } catch {
-      await ccdFormPage.typeText(
-        `flagComments`,
-        `just comment for interpreter languages`
-      );
-    }
+    const isFlagComment = await browser.element(By.xpath(`//*[@id='flagComment']`)).isPresent();
+    await ccdFormPage.typeText(
+      isFlagComment ? 'flagComment' : 'flagComments',
+      `just comment for interpreter languages`
+    );
     await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.waitForXpathElementVisible('//h2[contains(text(), "Review flag details")]');
     const currentUrl = await browser.getCurrentUrl();
@@ -570,17 +566,11 @@ Then(
     await browser.sleep(1000);
     await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
-    try {
-      await ccdFormPage.typeText(
-        `flagComment`,
-        `just comment for interpreter languages`
-      );
-    } catch {
-      await ccdFormPage.typeText(
-        `flagComments`,
-        `just comment for interpreter languages`
-      );
-    }
+    const isFlagComment = await browser.element(By.xpath(`//*[@id='flagComment']`)).isPresent();
+    await ccdFormPage.typeText(
+      isFlagComment ? 'flagComment' : 'flagComments',
+      `just comment for sign languages`
+    );
     await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.waitForXpathElementVisible('//h2[contains(text(), "Review flag details")]');
     const currentUrl = await browser.getCurrentUrl();

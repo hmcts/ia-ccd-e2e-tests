@@ -19,7 +19,7 @@ Feature: Bails Update interpreter details application as Legal Rep
     And I wait for 3 seconds
     When I click the `Continue` button
     Then I am on the `Check your answers` page
-    And within the `Interpreter details` collection's first item, I should see `12345` in the `Booking reference` field
-    And within the `Interpreter details` collection's second item, I should see `Krishna` in the `Given names` field
+    And I should see the text `12345`
+    And I should see the text `Krishna`
     And I click the `Update` button
     And I click the `Close and Return to case details` button

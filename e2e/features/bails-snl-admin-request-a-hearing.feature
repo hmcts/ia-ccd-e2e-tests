@@ -5,6 +5,7 @@ Feature: Bails SNL Hearing request as Admin Officer
     And I create a new bail application
     And I save my initial application as a `Admin Officer` for a Prison detention with two financial condition supporters and with no Legal Representative
     And I submit my bail application as a `Admin Officer`
+    And I click the `Close and Return to case details` button if present
 
   @bail-Admintest @bail-nightly-test
   Scenario: Bails Hearing request as Admin Officer
