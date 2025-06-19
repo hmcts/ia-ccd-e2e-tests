@@ -51,7 +51,6 @@ After(async function (scenario) {
     } catch (err) {
       console.log('Error occurred adding message to report. ' + err.stack);
     }
-    await browser.restart();
   }
   if (scenario.result.status === 'passed') {
     let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`;

@@ -34,7 +34,7 @@ export class AuthenticationFlow {
   private ccdPage = new CcdPage();
 
   async signOut() {
-    await browser.waitForAngularEnabled(false);
+    await browser.waitForAngularEnabled(true);
     await browser.driver.manage().deleteAllCookies();
     await browser.get(iaConfig.CcdWebUrl + '/auth/logout');
     await browser.sleep(3000);
