@@ -245,6 +245,7 @@ When(
     if (linkText === 'Hearings') {
       const url = await ccdPage.getCaseUrl();
       await ccdPage.get(url + "/hearings");
+      await ccdPage.waitForXpathElementVisible('//th[contains(text(), "Current and upcoming")]');
     } else {
       await ccdPage.gotoTabs(linkText);
     }
@@ -514,50 +515,77 @@ Then(
       await ccdFormPage.waitForCssElementVisible("#flagComments");
     }
     await ccdFormPage.click("Continue", 0, 30000, false);
+    const currentUrl = await browser.getCurrentUrl();
     await ccdFormPage.click("Create Flag");
+    await ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 );
 Then(
-  /^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and language name is `?([^`]+)`?$/,
-  async function (flag, type, language) {
+  /^I have created a `Language Interpreter` Flag in `?([^`]+)`? and language name is `?([^`]+)`?$/,
+  async function (type, language) {
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 0, false);
-    await browser.sleep(3000);
-    await ccdFormPage.click(flag);
+    await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Select flag type")]');
+    await ccdFormPage.click('Language Interpreter');
     await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Language Interpreter")]');
     await ccdFormPage.selectInterpreterLanguage(language);
-    await browser.sleep(3000);
+    await browser.sleep(1000);
     await ccdFormPage.click("Continue", 0, 0, false);
-    await ccdFormPage.typeText(
-      `flagComment`,
-      `just comment for interpreter languages`
-    );
+    await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
+    try {
+      await ccdFormPage.typeText(
+        `flagComment`,
+        `just comment for interpreter languages`
+      );
+    } catch {
+      await ccdFormPage.typeText(
+        `flagComments`,
+        `just comment for interpreter languages`
+      );
+    }
     await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h2[contains(text(), "Review flag details")]');
+    const currentUrl = await browser.getCurrentUrl();
     await ccdFormPage.click("Create Flag");
+    await ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 );
 Then(
-  /^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and signlanguage name is `?([^`]+)`?$/,
-  async function (flag, type, language) {
+  /^I have created a `Reasonable adjustment` Flag in `?([^`]+)`? and signlanguage name is `?([^`]+)`?$/,
+  async function (type, language) {
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 0, false);
-    await browser.sleep(3000);
-    await ccdFormPage.click(flag);
+    await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Select flag type")]');
+    await ccdFormPage.click('Reasonable adjustment');
     await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Reasonable adjustment")]');
     await ccdFormPage.click("I need help communicating and understanding");
-    await browser.sleep(3000);
     await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), " I need help communicating and understanding")]');
     await ccdFormPage.click("Sign Language Interpreter");
-    await browser.sleep(3000);
     await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Sign Language Interpreter")]');
     await ccdFormPage.selectInterpreterLanguage(language);
+    await browser.sleep(1000);
     await ccdFormPage.click("Continue", 0, 0, false);
-    await ccdFormPage.typeText(
-      `flagComments`,
-      `just comment for interpreter languages`
-    );
+    await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
+    try {
+      await ccdFormPage.typeText(
+        `flagComment`,
+        `just comment for interpreter languages`
+      );
+    } catch {
+      await ccdFormPage.typeText(
+        `flagComments`,
+        `just comment for interpreter languages`
+      );
+    }
     await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h2[contains(text(), "Review flag details")]');
+    const currentUrl = await browser.getCurrentUrl();
     await ccdFormPage.click("Create Flag");
+    await ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 );
 
