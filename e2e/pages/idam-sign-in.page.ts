@@ -1,7 +1,6 @@
 import { $, browser, ExpectedConditions } from 'protractor';
 import { AnyPage } from './any.page';
 import { FormFiller } from '../helpers/form-filler';
-import { Wait } from '../enums/wait';
 
 export class IdamSignInPage extends AnyPage {
   private formFiller = new FormFiller();
