@@ -1,19 +1,13 @@
 Feature: Bails SNL Hearing request as Home Office User
   Background:
     Given I am signed in as a `Home Office Bails`
-    When I create a new bail application
-    Then I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
-    When I select the `Submit the application` Next step
-    Then I am on the `Submit the application` page
-    And The page is accessible
-    And I click the `Submit` button
-    Then I should see the text `You have submitted this application`
-    And I click the `Close and Return to case details` button if present
+    And I create a new bail application
+    And I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with one financial condition supporters and with a Legal Representative
+    And I submit my bail application as a `Home Office Bails`
 
   @submit-bail-application-home-office @bails-full @bails-regression @bail-nightly-test
   Scenario: Bails Hearing request as as Home Office
-
-    And I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer Bails`
     Then I should see the text `Please Confirm location where Applicant is detained is correct, and they are held on immigration matters, before listing the case for hearing in List Assist.`
     When I select the `Confirm detention location` Next step
     Then I am on the `Confirm detention location` page
