@@ -607,7 +607,11 @@ export class StartBailApplicationFlow {
       "This is the supporting evidence"
     );
     if (clickContinue) {
-      await this.ccdFormPage.click("Continue");
+      try {
+        await this.ccdFormPage.click("Continue");
+      } catch {
+        await this.ccdFormPage.click("Continue");
+      }
     }
   }
 

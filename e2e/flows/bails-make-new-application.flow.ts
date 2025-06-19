@@ -326,7 +326,13 @@ export class MakeNewApplicationFlow {
     await this.ccdFormPage.uploadFile('GroundsForBailSupportingEvidence.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document', 'This is a different supporting evidence');
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      if (clickContinue) {
+        try {
+          await this.ccdFormPage.click("Continue");
+        } catch {
+          await this.ccdFormPage.click("Continue");
+        }
+      }
     }
   }
 
