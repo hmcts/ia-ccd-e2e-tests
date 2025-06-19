@@ -306,14 +306,14 @@ export class CcdPage extends AnyPage {
     return visibleElementCount === 0;
   }
 
-  async waitForOverviewPage(caseUrl: string) {
+  async waitForOverviewPage(someCaseUrl: string) {
     try {
       await this.waitForCssElementVisible("#next-step");
     } catch {
-      if (caseUrl == "") {
+      if (someCaseUrl === "") {
         throw new Error("Browser backed out to case list page, but no caseUrl saved to navigate back to the case overview page.");
       }
-      await browser.get(caseUrl);
+      await browser.get(someCaseUrl);
       await this.waitForCssElementVisible("#next-step");
     }
     await browser.wait(
