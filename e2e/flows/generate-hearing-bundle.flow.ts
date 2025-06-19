@@ -23,9 +23,9 @@ export class HearingBundleFlow {
     currentUrl = await this.ccdFormPage.getCurrentUrl();
     let hasBundleBeenGenerated = await this.ccdFormPage.verifyHiddenByXpath(locator);
     while (!hasBundleBeenGenerated) {
-      browser.sleep(5000);
-      await this.ccdFormPage.refresh();
-      await this.ccdFormPage.goToUrl(currentUrl);
+      await browser.sleep(5000);
+      await browser.refresh();
+      await browser.get(currentUrl);
       await this.ccdFormPage.waitForOverviewPage();
       hasBundleBeenGenerated = await this.ccdFormPage.verifyHiddenByXpath(locator);
     }
