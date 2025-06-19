@@ -22,8 +22,21 @@ After(async function (scenario) {
       if (err) {
         console.error(`Error creating failed screenshot folder: ${scenario.pickle.name}`, err);
       }
-    });
-    await fs.writeFileSync(path.join(folderPath, `failedScreenshot${count}.png`), decodedImage, { encoding: 'base64' });
+    })
+    try {
+      await fs.writeFileSync(path.join(folderPath, `failedScreenshot${count}.png`), decodedImage, {encoding: 'base64'});
+    } catch {
+      await fs.mkdir(folderPath, { recursive: true }, (err) => {
+        if (err) {
+          console.error(`Error creating failed screenshot folder: ${scenario.pickle.name}`, err);
+        }
+      })
+      try {
+        await fs.writeFileSync(path.join(folderPath, `failedScreenshot${count}.png`), decodedImage, {encoding: 'base64'});
+      } catch {
+        console.error(`Error writing failed screenshot ${count} for scenario: ${scenario.pickle.name}`);
+      }
+    }
 
     //fetch browser logs
     let browserLog = await browser.manage().logs().get('browser');
@@ -38,6 +51,7 @@ After(async function (scenario) {
     } catch (err) {
       console.log('Error occurred adding message to report. ' + err.stack);
     }
+    await browser.restart();
   }
   if (scenario.result.status === 'passed') {
     let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`;
