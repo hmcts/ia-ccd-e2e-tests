@@ -128,7 +128,7 @@ When(/^I validate the options displayed for `?([^`]+)`? field/, async function (
   const datatableHashes = datatable.hashes();
   for (const tableHash of datatableHashes) {
     const xpath = '//label[contains(text(), "' + tableHash.options + '")]';
-    await ccdFormPage.verifyVisibleByXpath(xpath)
+    await ccdFormPage.verifyVisibleByXpath(xpath);
   }
 });
 

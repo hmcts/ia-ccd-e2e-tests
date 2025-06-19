@@ -286,7 +286,6 @@ export class CcdPage extends AnyPage {
     expect(visibleElementCount > 0).to.equal(true);
   }
 
-
   async verifyHiddenByXpath(locator: string) {
     const visibleElementCount = await element
       .all(by.xpath(locator))
