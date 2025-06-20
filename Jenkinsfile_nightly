@@ -127,7 +127,7 @@ withNightlyPipeline("nodejs", product, component) {
                             keepAll              : true,
                             reportDir            : "reports/tests/functional/",
                             reportFiles          : 'index.html',
-                            reportName           : params.skipAppealFunctionalTests ? 'IAC - Bail E2E Test Report' : 'IAC - Appeal and Bails E2E Test Report'
+                            reportName           : 'IAC - Bail E2E Test Report'
                     ])
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
