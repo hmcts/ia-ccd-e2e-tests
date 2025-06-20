@@ -6,7 +6,10 @@ export const eventMappings = {
     "editAppealAfterSubmit"
   ],
   "Submit your appeal": "submitAppeal",
-  "Send direction": "sendDirection",
+  "Send direction": [
+    "sendDirection",
+    "sendBailDirection"
+  ],
   "Change a direction due date": "changeDirectionDueDate",
   "Request respondent evidence": "requestRespondentEvidence",
   "Upload respondent evidence": "uploadRespondentEvidence",
@@ -66,7 +69,10 @@ export const eventMappings = {
     "applyForFTPAAppellant",
     "applyForFTPARespondent"
   ],
-  "Edit documents": "editDocuments",
+  "Edit documents": [
+    "editDocuments",
+    "editBailDocuments"
+  ],
   "Record allocated Judge": "recordAllocatedJudge",
   "Edit time extension": "editTimeExtension",
   "Review time extension": "reviewTimeExtension",
@@ -81,7 +87,10 @@ export const eventMappings = {
   "Remove a flag": "removeFlag",
   "Request CMA requirements": "requestCmaRequirements",
   "Link cases": "createCaseLink",
-  "Maintain Case Links": "maintainCaseLinks",
+  "Maintain Case Links": [
+    "maintainCaseLinks",
+    "maintainBailCaseLinks"
+  ],
   "edit CMA requirements": "editCmaRequirements",
   "Submit CMA requirements": "submitCmaRequirements",
   "Review CMA requirements": "reviewCmaRequirements",
@@ -89,7 +98,10 @@ export const eventMappings = {
   "Update details after CMA": "updateDetailsAfterCma",
   "Force case - case under review": "forceCaseToCaseUnderReview",
   "Force case - hearing reqs": "forceCaseToSubmitHearingRequirements",
-  "Update representative details": "updateLegalRepDetails",
+  "Update representative details": [
+    "updateLegalRepDetails",
+    "updateBailLegalRepDetails"
+  ],
   "Adjourn hearing without a date": "adjournHearingWithoutDate",
   "Restore to previous state": "restoreStateFromAdjourn",
   "Decision without a hearing": "decisionWithoutHearing",
@@ -113,8 +125,14 @@ export const eventMappings = {
   "Manage a fee update": "manageFeeUpdate",
   "NoC Request": "nocRequest",
   "Apply NoC Decision": "applyNocDecision",
-  "Stop representing a client": "removeRepresentation",
-  "Remove legal representative": "removeLegalRepresentative",
+  "Stop representing a client": [
+    "removeRepresentation",
+    "stopLegalRepresenting"
+  ],
+  "Remove legal representative": [
+    "removeLegalRepresentative",
+    "removeBailLegalRepresentative"
+  ],
   "Request a fee remission": "requestFeeRemission",
   "Record out of time decision": "recordOutOfTimeDecision",
   "Generate Upper Tribunal bundle": "generateUpperTribunalBundle",
@@ -156,5 +174,28 @@ export const eventMappings = {
   "Refund confirmation": "refundConfirmation",
   "Revoke case access": "revokeCaseAccess",
   "Save notifications to data": "saveNotificationsToData",
-  "Manage Case TTL": "ManageTTL"
+  "Manage Case TTL": "ManageTTL",
+  "Start the application": "startApplication",
+  "Submit the application": "submitApplication",
+  "Upload Bail Summary": "uploadBailSummary",
+  "Record the decision event": "recordTheDecision",
+  "Upload signed decision notice": "uploadSignedDecisionNotice",
+  "Move application to decided": "moveApplicationToDecided",
+  // Bail specific
+  "End the application": "endApplication",
+  "Upload documents": "uploadDocuments",
+  "Make new application": "makeNewApplication",
+  "Change bail direction due date": "changeBailDirectionDueDate",
+  "Edit the application": [
+    "editBailApplication",
+    "editBailApplicationAfterSubmit"
+  ],
+  "View previous applications": "viewPreviousApplications",
+  "Create Case Link": "createBailCaseLink",
+  "Confirm detention location": "confirmDetentionLocation",
+  "Update Interpreter Booking Status": "updateInterpreterBookingStatus",
+  "Case listing": "caseListing",
+  "Force case to the hearing state": "forceCaseToHearing",
+  "Change Tribunal Centre": "changeTribunalCentre",
+  "Upload a recording file for the hearing": "uploadHearingRecording",
 };

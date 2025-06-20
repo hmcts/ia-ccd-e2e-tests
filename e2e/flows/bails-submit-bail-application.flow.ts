@@ -7,8 +7,9 @@ export class SubmitBailApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.selectNextStep('Submit the application');
     if (user === 'Legal Rep') {
-      await this.ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "The applicant has confirmed that the facts stated in this application are true.")]');
-      await this.ccdFormPage.clickById('declarationOnSubmit-declarationOnSubmit');
+      const declarationPath = '//label[contains(text(), "The applicant has confirmed that the facts stated in this application are true.")]';
+      await this.ccdFormPage.waitForXpathElementVisible(declarationPath);
+      await this.ccdFormPage.clickElement('declarationOnSubmit-declarationOnSubmit');
     }
     const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');

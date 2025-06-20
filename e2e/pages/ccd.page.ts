@@ -289,13 +289,6 @@ export class CcdPage extends AnyPage {
     expect(visibleElementCount > 0).to.equal(true);
   }
 
-  async clickById(id: string) {
-    const locator = `//*[@id="${id}"]`;
-    await this.waitForXpathElementVisible(locator);
-    const elementToSelect = element(by.xpath(locator));
-    await elementToSelect.click();
-  }
-
   async verifyVisibleByXpath(locator: string) {
     expect(await element(by.xpath(locator)).isPresent()).to.equal(true);
     const visibleElementCount = await element
