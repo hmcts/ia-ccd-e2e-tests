@@ -490,7 +490,7 @@ Given("I restart the browser", async function () {
 Then(/^I will make `?([^`]+)`? as Inactive$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
   await ccdFormPage.click("Continue", 0, 0, false);
-  await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
+  await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Update flag")]');
   const isFlagComment = await browser.element(By.xpath(`//*[@id='flagComment']`)).isPresent();
   await ccdFormPage.typeText(
     isFlagComment ? 'flagComment' : 'flagComments',
