@@ -1,8 +1,13 @@
-var { After, Before } = require('cucumber');
+var { After, Before, BeforeAll} = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
 let count = 0;
+
+BeforeAll(async function () {
+  await createTestCounterIfNone();
+
+});
 
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`;
