@@ -4,10 +4,10 @@ export class SelectFtpaApplicantType {
   private ccdFormPage = new CcdFormPage();
 
   async choseAppellant(clickContinue = false) {
-    await this.ccdFormPage.click('#ftpaApplicantType-appellant');
+    await this.ccdFormPage.click('Appellant');
   }
 
   async choseHomeOffice(clickContinue = false) {
-    await this.ccdFormPage.click('#ftpaApplicantType-respondent');
+    await this.ccdFormPage.click('Home Office');
   }
 }
