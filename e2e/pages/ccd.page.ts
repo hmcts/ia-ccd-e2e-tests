@@ -57,7 +57,7 @@ export class CcdPage extends AnyPage {
       await this.waitForXpathElementVisible(nextStepPath, 30000);
       await element(by.xpath(nextStepPath)).click();
       const goPath = '//button[contains(text(), "Go")]';
-      await this.doubleClick('xpath', goPath);
+      await element(by.xpath(goPath)).click();
       try {
         await this.waitForPageNavigation(overviewUrl, 30000);
         await this.waitForSpinner();
