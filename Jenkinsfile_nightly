@@ -93,16 +93,14 @@ withNightlyPipeline("nodejs", product, component) {
                 } catch (Error) {
                     unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
-                    if (params.skipBailFunctionalTests) {
-                        publishHTML([
-                                allowMissing         : true,
-                                alwaysLinkToLastBuild: true,
-                                keepAll              : true,
-                                reportDir            : "reports/tests/functional/",
-                                reportFiles          : 'index.html',
-                                reportName           : 'IAC - Appeal E2E Test Report'
-                        ])
-                    }
+                    publishHTML([
+                            allowMissing         : true,
+                            alwaysLinkToLastBuild: true,
+                            keepAll              : true,
+                            reportDir            : "reports/tests/functional/",
+                            reportFiles          : 'index.html',
+                            reportName           : 'IAC - Appeal E2E Test Report'
+                    ])
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
                     publishHTML([
