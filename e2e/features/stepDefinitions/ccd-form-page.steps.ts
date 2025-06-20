@@ -86,6 +86,10 @@ When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the
   await ccdFormPage.setFieldValue('', fieldValue, fieldType, instanceNumber);
 });
 
+When(/^I upload the `?([^`]+)`? document/, async function (fileName) {
+  await ccdFormPage.uploadFile(fileName, 0);
+});
+
 When(/^I (?:check|choose|select|toggle|type|upload) `?([^`]+)`? (?:for|from) the `?(first|second|third|)`?\s?`?([^`]+)`? `?(text|text area|document|email|)`?\s?field$/, async function (fieldValue, instanceNumber, fieldLabel, fieldType) {
   await ccdFormPage.setFieldValue(fieldLabel, fieldValue, fieldType, instanceNumber);
 });

@@ -56,7 +56,7 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
       | No      |
     And I select `Yes` for the `Do you want to upload a corrected Decision and Reasons document?` field
     And I type `Test Summary Changes` for the `Summarise the changes made in the corrected Decision and Reasons document` field
-    And I upload `{@SignedDecisionNoticeReheard.pdf}` for the `Decision and Reasons document` document field
+    And I upload the `SignedDecisionNoticeReheard.pdf` document
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `Correct decision error under rule 31` in the `What is the reason for updating the decision?` field
@@ -176,7 +176,7 @@ Feature: Update Tribunal Decision for Decided and FTPA Decided cases
       | No      |
     And I select `Yes` for the `Do you want to upload a corrected Decision and Reasons document?` field
     And I type `Test Summary Changes` for the `Summarise the changes made in the corrected Decision and Reasons document` field
-    And I upload `{@SignedDecisionNoticeReheard.pdf}` for the `Decision and Reasons document` document field
+    And I upload the `SignedDecisionNoticeReheard.pdf` document
     And I wait for 3 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
