@@ -338,7 +338,7 @@ export class MakeNewApplicationFlow {
 
   async completeBailTransfer(clickContinue = false) {
      await this.ccdFormPage.runAccessbility();
-    // await this.ccdFormPage.setFieldValue('Management of bail', 'No');
+     await this.ccdFormPage.setFieldValue('Management of bail', 'No');
      if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }

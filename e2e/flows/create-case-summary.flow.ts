@@ -5,10 +5,17 @@ export class CaseSummaryFlow {
 
   async createCaseSummary(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Create case summary');
-    await this.ccdFormPage.headingContains('Create case summary');
-    await this.ccdFormPage.uploadFile('CaseSummary.pdf');
-    await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the case summary', 'text area');
-    await this.ccdFormPage.click('Continue');
+    try {
+      await this.ccdFormPage.headingContains('Create case summary');
+      await this.ccdFormPage.uploadFile('CaseSummary.pdf');
+      await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the case summary', 'text area');
+      await this.ccdFormPage.click('Continue');
+    } catch {
+      await this.ccdFormPage.headingContains('Create case summary');
+      await this.ccdFormPage.uploadFile('CaseSummary.pdf');
+      await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the case summary', 'text area');
+      await this.ccdFormPage.click('Continue');
+    }
     await this.ccdFormPage.waitForXpathElementVisible('//button[contains(text(), "Upload")]');
     const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Upload');

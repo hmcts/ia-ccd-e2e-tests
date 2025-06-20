@@ -43,7 +43,7 @@ Feature: Bails SNL Hearing request as as Legal Rep
     And I click the `Bail` button
     And I click the `Continue` button
     And I should see the text `Participant attendance`
-    And I select how each of the 3 participants will attend the hearing
+    And I select how each of the 4 participants will attend the hearing
     And I click the `Continue` button
     And I add the `Hatton Cross` bail hearing location
     And I click the `Continue` button

@@ -289,6 +289,13 @@ export class CcdPage extends AnyPage {
     expect(visibleElementCount > 0).to.equal(true);
   }
 
+  async clickById(id: string) {
+    const locator = `//*[@id="${id}"]`;
+    await this.waitForXpathElementVisible(locator);
+    const elementToSelect = element(by.xpath(locator));
+    await elementToSelect.click();
+  }
+
   async verifyVisibleByXpath(locator: string) {
     expect(await element(by.xpath(locator)).isPresent()).to.equal(true);
     const visibleElementCount = await element
@@ -351,11 +358,11 @@ export class CcdPage extends AnyPage {
   async gotoTabs(match: string) {
     try {
       await this.waitForXpathElementVisible(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`, 30000);
-      await element(by.xpath(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`)).click();
+      await element(by.xpath(`//div[contains(@class, 'mat-tab-label-content')][contains(text(), '${match}')]`)).click();
     } catch {
       await element(by.xpath(`//button[contains(@class, 'mat-tab-header-pagination-after')]`)).click();
       await this.waitForXpathElementVisible(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`, 30000);
-      await element(by.xpath(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`)).click();
+      await element(by.xpath(`//div[contains(@class, 'mat-tab-label-content')][contains(text(), '${match}')]`)).click();
     }
   }
 }

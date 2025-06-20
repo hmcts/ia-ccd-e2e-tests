@@ -19,7 +19,7 @@ Feature: Pay and submit appeal by PBA - successful and failed payments (PA appea
     Then I should see the text `What happens next`
     Then I should see the text `You can now pay for this appeal in the 'Service Request' tab on the case details screen.`
     When I click the `Close and Return to case details` button if present
-    Then I should see the text `You must now pay for this appeal. You can do this via the Service Request tab.`
+    Then I should be on the overview page
     And I goto the `Service Request` tab
     Then I should see the text `Not paid`
     When I click the `Pay now` link
