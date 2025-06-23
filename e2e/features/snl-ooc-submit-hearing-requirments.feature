@@ -7,13 +7,12 @@ Feature: SnL Flow submit hearing requirements
     And I create a new case
     And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `PA` appeal
     # And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card
-    And I wait for 15 seconds
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     And I request respondent evidence
     And I wait for 3 seconds
     And I progress case to force request case building
@@ -182,7 +181,7 @@ Feature: SnL Flow submit hearing requirements
     And within the `Witness details` collection's first item, I should see `1` in the `Family name` field
 
     When I click the `Submit` button
-    When I click the `Close and Return to case details` button
+    When I click the `Close and Return to case details` button if present
 
     # Review hearing requirements (placeholder)
     # This flow requires testing for the field display changes
@@ -246,4 +245,4 @@ Feature: SnL Flow submit hearing requirements
     And I should see `Adding Additional instructions for the test` for the `Additional Instructions` field
 
     And I click the `Submit` button
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present

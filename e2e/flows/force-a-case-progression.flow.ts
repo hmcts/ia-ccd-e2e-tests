@@ -5,7 +5,6 @@ export class ForceACaseProgressionFlow {
 
   async forceRequestToCaseBuilding(clickContinue = false) {
     await this.ccdFormPage.selectNextStep("Force request case building");
-    await this.ccdFormPage.click("Go");
     await this.ccdFormPage.headingContains("Force request case building");
     await this.ccdFormPage.click("Continue");
     await this.ccdFormPage.setFieldValue(
@@ -22,7 +21,6 @@ export class ForceACaseProgressionFlow {
 
   async forceRequestToCaseUnderReview(clickContinue = false) {
     await this.ccdFormPage.selectNextStep("Force case - case under review");
-    await this.ccdFormPage.click("Go");
     await this.ccdFormPage.headingContains("Force case - case under review");
     await this.ccdFormPage.setFieldValue(
       "Reasons to force the case progression",
@@ -37,7 +35,6 @@ export class ForceACaseProgressionFlow {
 
   async forceCaseToHearingRequirments(clickContinue = false) {
     await this.ccdFormPage.selectNextStep("Force case - hearing reqs");
-    await this.ccdFormPage.click("Go");
     await this.ccdFormPage.headingContains("Force case - hearing reqs");
     await this.ccdFormPage.setFieldValue(
       "Reasons to force the case progression",

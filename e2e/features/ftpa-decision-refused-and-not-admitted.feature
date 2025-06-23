@@ -37,13 +37,13 @@ Feature: FTPA Appellant and Respondent application refused and not-admitted
     And I switch to be a `Legal Org User Rep A`
     And I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I click the `record the application decision` link
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -126,13 +126,13 @@ Feature: FTPA Appellant and Respondent application refused and not-admitted
 
   @ftpa-appellant-not-admitted @RIA-4404-appellant-not-admitted @RIA-4404
   Scenario: FTPA Appellant application not admitted
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I click the `record the application decision` link
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
     And I select `Application not admitted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -219,13 +219,13 @@ Feature: FTPA Appellant and Respondent application refused and not-admitted
     And I switch to be a `Home Office Generic`
     And I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I click the `record the application decision` link
     And I am on the `Leadership judge FTPA decision` page
     And I select Home Office for the applicant type
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -318,13 +318,13 @@ Feature: FTPA Appellant and Respondent application refused and not-admitted
   @ftpa-respondent-not-admitted @RIA-4404-respondent-not-admitted @RIA-4404
   Scenario: FTPA Appellant application not admitted
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I click the `record the application decision` link
     And I am on the `Leadership judge FTPA decision` page
     And I select Home Office for the applicant type
     And I select `Application not admitted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button

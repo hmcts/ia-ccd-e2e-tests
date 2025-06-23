@@ -12,6 +12,7 @@ Feature: End appeal
   Scenario: End appeal after submit appeal case officer
 
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     Then I end the appeal
     And I wait for 5 seconds
 

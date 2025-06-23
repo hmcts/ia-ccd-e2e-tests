@@ -185,7 +185,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `- None`
 
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -222,13 +222,13 @@ Feature: Case progression path when case and continue is disabled
     Then I am on the `Send direction` page
     When I type `Amend the evidence` for the `Explain the direction you are issuing` field
     And I select `Respondent` for the `Who are you giving the direction to?` field
-    And I type `31-12-2019` for the `By what date must they comply?` field
+    And I type `{$TODAY+8|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Amend the evidence` for the `Explain the direction you are issuing` answer
     And I should see `Respondent` for the `Who are you giving the direction to?` answer
-    And I should see `31 Dec 2019` for the `By what date must they comply?` answer
+    And I should see `{$TODAY+8|D MMM YYYY}` for the `By what date must they comply?` answer
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
@@ -239,7 +239,7 @@ Feature: Case progression path when case and continue is disabled
     Then I should see the `Directions` field
     And within the `Directions` collection's first item, I should see `Amend the evidence` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
-    And within the `Directions` collection's first item, I should see `31 Dec 2019` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+8|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
     # HO - APC user amend HO bundle
@@ -271,7 +271,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `Already uploaded files:`
     And I should see the text `- Evidence1.pdf`
     And I click the `Add new` button
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Document` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the updated evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -559,10 +559,10 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `Already uploaded files:`
     And I should see the text `- None`
 
-    When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Add any additional evidence here (Optional)` collection
-    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button
@@ -624,13 +624,13 @@ Feature: Case progression path when case and continue is disabled
     Then I am on the `Amend appeal response` page
     And I type `Do the thing` for the `Explain the direction you are issuing` field
     And I should see `Respondent` for the `Who are you giving the direction to?` field
-    And I type `15-10-2019` for the `By what date must they comply?` field
+    And I type `{$TODAY+4|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Do the thing` for the `Explain the direction you are issuing` answer
     And I should see `Respondent` for the `Who are you giving the direction to?` answer
-    And I should see `15 Oct 2019` for the `By what date must they comply?` answer
+    And I should see `{$TODAY+4|D MMM YYYY}` for the `By what date must they comply?` answer
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
@@ -666,10 +666,10 @@ Feature: Case progression path when case and continue is disabled
     And I should see the text `- AppealResponse.pdf`
     And I should see the text `- Evidence1.pdf`
 
-    When I upload `{@AppealResponseUpdated.pdf}` for the `Upload the appeal response` field
+    When I upload `{@AppealResponseUpdated.pdf}` for the `Upload the appeal response` document field
     And I type `This is the updated appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Add any additional evidence here (Optional)` collection
-    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@AppealResponseEvidenceUpdated.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@AppealResponseEvidenceUpdated.pdf}` for the `Document (Optional)` document field
     And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the updated evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button
@@ -984,7 +984,7 @@ Feature: Case progression path when case and continue is disabled
     Then I should see the text `Tell us which dates and explain why the case cannot be heard on these dates.`
     And I should see the text `Dates to avoid`
     When I click the `Add new` button
-    And I type `31-12-2019` for the `Date` field
+    And I type `{$TODAY+8|DD MM YYYY}` for the `Date` field
     And I type `New Year's Eve` for the `Reason` field
     And I click the `Continue` button
 
@@ -1012,7 +1012,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see `Yes` in the `Is there anything else you would like to request?` field
     And I should see `The appellant would like fresh orange juice and doughnuts` in the `Provide details of any additional requests and why they are necessary.` field
     And I should see the `Dates to avoid` field
-    And I should see `31 Dec 2019` in the `Date` field
+    And I should see `{$TODAY+8|D MMM YYYY}` in the `Date` field
     And I should see `New Year's Eve` in the `Reason` field
 
     When I click the `Submit` button
@@ -1566,7 +1566,7 @@ Feature: Case progression path when case and continue is disabled
     And the `Continue` button is disabled
 
     When I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Transfer` for the `Type of application` field
     And I type `some application reason` for the `Reason for application` field
@@ -1787,7 +1787,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see `González` in the `Family name` field
     And I should see `31 Dec 1999` in the `Date of birth` field
     And I should see `Finland` in the `Nationality` field
-    And I should see `No` in the `Does the appellant have a fixed address?` field
+    And I should see `No` in the `Does the appellant have a postal address?` field
     And I should see `Stephen Fenn` in the `Name` field
     And I should see `IA Legal Services` in the `Company` field
     And I should see `ia-law-firm-a@fake.hmcts.net` in the `Email` field

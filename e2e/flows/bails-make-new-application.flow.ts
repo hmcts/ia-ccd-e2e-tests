@@ -323,17 +323,22 @@ export class MakeNewApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
     await this.ccdFormPage.click('Add new');
-    await this.ccdFormPage.setFieldValue('Document', '{@GroundsForBailSupportingEvidence.pdf}');
+    await this.ccdFormPage.uploadFile('GroundsForBailSupportingEvidence.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document', 'This is a different supporting evidence');
-    await browser.sleep(8000);
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      if (clickContinue) {
+        try {
+          await this.ccdFormPage.click("Continue");
+        } catch {
+          await this.ccdFormPage.click("Continue");
+        }
+      }
     }
   }
 
   async completeBailTransfer(clickContinue = false) {
      await this.ccdFormPage.runAccessbility();
-    // await this.ccdFormPage.setFieldValue('Management of bail', 'No');
+     await this.ccdFormPage.setFieldValue('Management of bail', 'No');
      if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -397,9 +402,8 @@ export class MakeNewApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
     await this.ccdFormPage.click('Add new');
-    await this.ccdFormPage.setFieldValue('Document', '{@B1Form.pdf}');
+    await this.ccdFormPage.uploadFile('B1Form.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document', 'This is a new B1 form');
-    await browser.sleep(8000);
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -409,7 +413,6 @@ export class MakeNewApplicationFlow {
     await this.ccdFormPage.runAccessbility();
     if (clickContinue) {
       await this.ccdFormPage.click('Submit');
-      await browser.sleep(30000);
     }
   }
 
@@ -495,10 +498,11 @@ export class MakeNewApplicationFlow {
     if (user === 'Admin Officer') {
       await this.completeB1Upload(true);
     }
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

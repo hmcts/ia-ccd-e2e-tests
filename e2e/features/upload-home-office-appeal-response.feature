@@ -22,10 +22,10 @@ Feature: Upload appeal response - Home Office user
     And I should see the text `Already uploaded files:`
     And I should see the text `- None`
 
-    When I upload `{@AppealResponse.pdf}` for the `Response document` field
+    When I upload `{@AppealResponse.pdf}` for the `Response document` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Evidence (Optional)` collection
-    And within the `Evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Evidence (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button
@@ -59,10 +59,10 @@ Feature: Upload appeal response - Home Office user
     And I should see the text `Already uploaded files:`
     And I should see the text `- None`
 
-    When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Add any additional evidence here (Optional)` collection
-    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button
@@ -82,10 +82,10 @@ Feature: Upload appeal response - Home Office user
     And I should see the text `Already uploaded files:`
     And I should see the text `- None`
 
-    When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` field
+    When I upload `{@AppealResponse.pdf}` for the `Upload the appeal response` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Add any additional evidence here (Optional)` collection
-    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button
@@ -172,13 +172,13 @@ Feature: Upload appeal response - Home Office user
     Then I am on the `Amend appeal response` page
     When I type `Amend the appeal response` for the `Explain the direction you are issuing` field
     And I should see `Respondent` for the `Who are you giving the direction to?` field
-    And I type `31-12-2019` for the `By what date must they comply?` field
+    And I type `{$TODAY+20|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Amend the appeal response` for the `Explain the direction you are issuing` answer
     And I should see `Respondent` for the `Who are you giving the direction to?` answer
-    And I should see `31 Dec 2019` for the `By what date must they comply?` answer
+    And I should see `{$TODAY+20|D MMM YYYY}` for the `By what date must they comply?` answer
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
@@ -200,10 +200,10 @@ Feature: Upload appeal response - Home Office user
     And I should see the text `- AppealResponse.pdf`
     And I should see the text `- Evidence1.pdf`
 
-    When I upload `{@AppealResponseUpdated.pdf}` for the `Upload the appeal response` field
+    When I upload `{@AppealResponseUpdated.pdf}` for the `Upload the appeal response` document field
     And I type `This is the updated appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Add any additional evidence here (Optional)` collection
-    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@AppealResponseEvidenceUpdated.pdf}` for the `Document (Optional)` field
+    And within the `Add any additional evidence here (Optional)` collection's first item, I upload `{@AppealResponseEvidenceUpdated.pdf}` for the `Document (Optional)` document field
     And within the `Add any additional evidence here (Optional)` collection's first item, I type `This is the updated evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button

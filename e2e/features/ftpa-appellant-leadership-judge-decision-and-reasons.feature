@@ -32,7 +32,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
   @ftpa-appellant-leadership-judge-decision-granted @ftpa-appellant-leadership-judge-decision @RIA-1434 @RIA-2564 @RIA-3211
   Scenario: FTPA appellant leadership judge decision - Granted
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -40,7 +40,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission granted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -341,7 +341,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -349,7 +349,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission granted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -358,7 +358,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -412,7 +412,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
   @ftpa-appellant-leadership-judge-decision-partially-granted @ftpa-appellant-leadership-judge-decision @RIA-1434 @RIA-2564 @RIA-3211
   Scenario: FTPA appellant leadership judge decision - Partially granted
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -420,7 +420,7 @@ Feature: Leadership judge record the appellant decision and reasons
     Then I click the `Continue` button
     And I select `Permission partially granted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -728,7 +728,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -736,7 +736,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission partially granted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -745,7 +745,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -798,7 +798,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
   @ftpa-appellant-leadership-judge-decision-refused @ftpa-appellant-leadership-judge-decision @RIA-1434 @RIA-2564 @RIA-3211
   Scenario: FTPA appellant leadership judge decision - refused
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -806,7 +806,7 @@ Feature: Leadership judge record the appellant decision and reasons
     Then I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -1038,7 +1038,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I switch to be a `Home Office POU`
     And I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -1046,7 +1046,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -1087,7 +1087,7 @@ Feature: Leadership judge record the appellant decision and reasons
 
   @ftpa-appellant-leadership-judge-decision-not-admitted @ftpa-appellant-leadership-judge-decision @RIA-1434 @RIA-2564
   Scenario: FTPA appellant leadership judge decision - Not admitted
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Appellant for the applicant type
@@ -1095,7 +1095,7 @@ Feature: Leadership judge record the appellant decision and reasons
     Then I click the `Continue` button
     And I select `Application not admitted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -1325,7 +1325,7 @@ Feature: Leadership judge record the appellant decision and reasons
     And I should not see the `FTPA Decision and Reasons document` field
 
     And I apply for respondent FTPA
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Leadership judge FTPA decision` Next step
     And I am on the `Leadership judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -1333,7 +1333,7 @@ Feature: Leadership judge record the appellant decision and reasons
     Then I click the `Continue` button
     And I select `Permission granted` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button

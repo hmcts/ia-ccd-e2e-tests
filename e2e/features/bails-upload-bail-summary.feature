@@ -6,9 +6,7 @@ Feature: Bails Upload Bail Summary
    And I submit my bail application as a `Legal Rep`
    And I should see the text `What happens next`
    # Listing steps need to go here
-    And I wait for 10 seconds
     And I switch to be a `Admin Officer Bails`
-    And I wait for 10 seconds
     And I list the bail case
     
    @upload-bail-summary @RIA-5707 @bails-full @bails-regression @bails-summarytest 
@@ -21,7 +19,6 @@ Feature: Bails Upload Bail Summary
     And I click the `Continue` button
     Then I see the text `Check your answers`
     When I click the `Upload` button
-    And I wait for 15 seconds
 
     Then I should see the text `You have uploaded the Bail Summary`
     When I click the `Close and Return to case details` button if present

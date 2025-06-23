@@ -10,9 +10,7 @@
     "test:linuxFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform linux; npx @puppeteer/browsers install chromedriver@123 --platform linux; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:macFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform mac; npx @puppeteer/browsers install chromedriver@123 --platform mac; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:windowsFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform win64; npx @puppeteer/browsers install chromedriver@123 --platform win64; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.windows.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
-    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowser' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
-    "setAatVaultEnvVariables": "zsh ./e2e/support/set_env_vars_from_vault.zsh ia-aat",
-    "setDemoVaultEnvVariables": "zsh ./e2e/support/set_env_vars_from_vault.zsh ia-demo"
+    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowser' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled"
   },
   "pre-commit": [
     "lint"
@@ -72,5 +70,6 @@
     "tough-cookie": "4.1.3",
     "ws": "^6.2.3",
     "micromatch": "4.0.8"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

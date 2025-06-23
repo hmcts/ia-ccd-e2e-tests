@@ -18,7 +18,7 @@ Feature: Record application
     And the `Continue` button is disabled
 
     When I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Withdraw` for the `Type of application` field
     And I type `some application reason` for the `Reason for application` field
@@ -73,7 +73,7 @@ Feature: Record application
     And the `Continue` button is disabled
 
     When I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Time extension` for the `Type of application` field
     And I type `some application reason` for the `Reason for application` field
@@ -123,7 +123,7 @@ Feature: Record application
     Then I am on the `Record an application` page
 
     When I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The respondent` label
     And I select `Withdraw` for the `Type of application` field
     And I type `some application reason` for the `Reason for application` field
@@ -241,7 +241,7 @@ Feature: Record application
     And the `Continue` button is disabled
 
     When I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Transfer` for the `Type of application` field
     And I type `some application reason` for the `Reason for application` field
@@ -321,7 +321,7 @@ Feature: Record application
     And the `Continue` button is disabled
 
     When I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select <applicationType> for the `Type of application` field
     And I type `some application reason` for the `Reason for application` field

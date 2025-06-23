@@ -6,9 +6,6 @@ export class FtpaAppellantAppealFlow {
 
   async appeal(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Apply for permission to appeal');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.addCollectionItem('Grounds of the application');
 
@@ -23,10 +20,11 @@ export class FtpaAppellantAppealFlow {
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the FTPA Appellant evidence', 'text area', 'first', 'Supporting evidence', 'first');
     await browser.sleep(1000);
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

@@ -1,9 +1,8 @@
-import { AuthenticationFlow } from '../../flows/authentication.flow';
+import { AuthenticationFlow, UserRole } from '../../flows/authentication.flow';
 import { CcdPage } from '../../pages/ccd.page';
-import { Given, Then, When } from 'cucumber';
+import { Given, Then } from 'cucumber';
 import { IdamSignInPage } from '../../pages/idam-sign-in.page';
 import { expect } from 'chai';
-import { browser } from 'protractor';
 
 const iaConfig = require('../../ia.conf');
 
@@ -16,43 +15,28 @@ Given('I am not signed in', async function () {
   await authenticationFlow.signOut();
 });
 
-Given(/^I am signed in as a `?Case (?:Officer|Worker)`?$/, async function () {
-  await authenticationFlow.signInAsCaseOfficer();
+Given(/^I am signed in as a `?([A-z ]+)?`$/, async function (role: UserRole) {
+  await authenticationFlow.signInByRole(role);
 });
 
-Given(/^I am signed in as a `?(?:Admin Officer)`?$/, async function () {
-  await authenticationFlow.signInAsAdminOfficer();
+Given(/^I sign back in as a `?([A-z ]+)?`$/, async function (role: UserRole) {
+  await authenticationFlow.signInByRole(role);
 });
 
-Given(/^I am signed in as a `?(?:Home Office APC)`?$/, async function () {
-  await authenticationFlow.signInAsHomeOfficeApc();
+Given(/^I switch to be a `?([A-z ]+)?`$/, async function (role: UserRole) {
+  const currentUrl = await ccdPage.getCurrentUrl();
+  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
+  await authenticationFlow.signInByRole(role);
+  try {
+    await ccdPage.get(caseUrl);
+    await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
+  } catch {
+    await ccdPage.get(caseUrl);
+    await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
+  }
 });
 
-Given(/^I am signed in as a `?(?:Home Office LART)`?$/, async function () {
-  await authenticationFlow.signInAsHomeOfficeLart();
-});
-
-Given(/^I am signed in as a `?(?:Home Office POU)`?$/, async function () {
-  await authenticationFlow.signInAsHomeOfficePou();
-});
-
-Given(/^I am signed in as a `?(?:Home Office Generic)`?$/, async function () {
-  await authenticationFlow.signInAsHomeOfficeGeneric();
-});
-
-Given(/^I am signed in as a `?(?:Home Office Bails)`?$/, async function () {
-  await authenticationFlow.signInAsHomeOfficeBails();
-});
-
-Given(/^I am signed in as a `?(?:Judge)`?$/, async function () {
-  await authenticationFlow.signInAsJudge();
-});
-
-Given(/^I am signed in as(?:| a) `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmA();
-});
-
-Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? without any cases$/, async function () {
+Given(/^I am signed in as a `Legal Rep` without any cases$/, async function () {
   if (iaConfig.WaitForAngular) {
     await authenticationFlow.signInAsLawFirmB();
   } else {
@@ -60,287 +44,8 @@ Given(/^I am signed in as(?:| a| another) `?(?:Solicitor|Legal Rep)(?:| B)`? wit
   }
 });
 
-Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| A)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgUserA();
-});
-
-When(/^I sign back in as(?:| a) `?(?:|Legal Org User Rep)(?:| A)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgUserA();
-});
-
-When(/^I sign back in as(?:| a) `?(?:|Legal Org User Rep)(?:| C)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgUserC();
-});
-
-Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| B)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgUserB();
-});
-
-Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| C)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgUserC();
-});
-
-Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| D)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgUserD();
-});
-
-Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| Creator)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgCreator();
-});
-
-Given(/^I am signed in as(?:| a) `?(?:|Legal Org2 User Rep)(?:| Creator)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrg2Creator();
-});
-
-Given(/^I switch to be a `?Case (?:Officer|Worker)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsCaseOfficer();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a Sr `?Case (?:Officer|Worker)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsSrCaseOfficer();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-});
-
-Given(/^I switch to be a `?(?:Admin Officer)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsAdminOfficer();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a `?(?:Solicitor|Legal Rep)(?:| A)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsLawFirmA();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-});
-
-Given(/^I switch to be a `?(?:Home Office APC)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsHomeOfficeApc();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a `?(?:Home Office LART)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsHomeOfficeLart();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-});
-
-Given(/^I switch to be a `?(?:Home Office POU)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsHomeOfficePou();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-});
-
-Given(/^I switch to be a `?(?:Home Office Generic)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsHomeOfficeGeneric();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-});
-
-Given(/^I switch to be a `?(?:Home Office Bails)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsHomeOfficeBails();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a `?(?:Judge)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsJudge();
-  await browser.sleep(100);
-  // await ccdPage.contentContains('Immigration');
-  await ccdPage.get(caseUrl);
-  // await ccdPage.contentContains('Immigration');
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| A)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsLawFirmOrgUserA();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| B)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsLawFirmOrgUserB();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| C)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsLawFirmOrgUserC();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-});
-
-Given(/^I switch to be a `?(?:|Legal Ops)(?:| A)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsLegalOpsA();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-});
-
-Given(/^I switch to be a `?(?:|Judicial)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsJudicial();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-});
-
-Given(/^I switch to be a `?(?:|WaAdmin)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsWaAdmin();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-});
 Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {
   await idamSignInPage.waitUntilLoaded();
   expect(await ccdPage.isLoaded()).to.equal(false);
   expect(await idamSignInPage.isLoaded()).to.equal(true);
-});
-
-Given(/^I am signed in as a `?(?:Admin Officer Bails)`?$/, async function () {
-  await authenticationFlow.signInAsAdminOfficerBails();
-});
-
-Given(/^I am signed in as a `?(?:Judge Bails)`?$/, async function () {
-  await authenticationFlow.signInAsJudgeBails();
-});
-
-Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| A Bails)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgUserABails();
-});
-
-Given(/^I am signed in as(?:| a) `?(?:|Legal Org User Rep)(?:| B Bails)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgUserBBails();
-});
-
-When(/^I sign back in as(?:| a) `?(?:|Legal Org User Rep)(?:| A Bails)`?$/, async function () {
-  await authenticationFlow.signInAsLawFirmOrgUserABails();
-});
-
-Given(/^I switch to be a `?(?:Judge Bails)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsJudgeBails();
-  await browser.sleep(100);
-  // await ccdPage.contentContains('Immigration');
-  await ccdPage.get(caseUrl);
-  // await ccdPage.contentContains('Immigration');
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| A Bails)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsLawFirmOrgUserABails();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a `?(?:|Legal Org User Rep)(?:| B Bails)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsLawFirmOrgUserBBails();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
-});
-
-Given(/^I switch to be a `?(?:Admin Officer Bails)`?$/, async function () {
-  await browser.sleep(100);
-  const currentUrl = await ccdPage.getCurrentUrl();
-  const caseUrl = currentUrl.match(caseUrlMatcher)[0];
-  await authenticationFlow.signInAsAdminOfficerBails();
-  await browser.sleep(100);
-  await ccdPage.get(caseUrl);
-  await browser.sleep(7000);
-  if (!(await ccdPage.overViewContains('Overview'))) {
-    await ccdPage.get(caseUrl);
-  }
 });

@@ -1,12 +1,15 @@
-var { After, Before } = require('cucumber');
+var { After, Before, BeforeAll} = require('cucumber');
 var { browser } = require('protractor');
 const fs = require('fs');
 const path = require('path');
 let count = 0;
 
+BeforeAll(async function () {
+  await createNewTestCounter();
+});
+
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`;
-  await createTestCounterIfNone();
   await addToTotalTestsIfNotExists(test);
 });
 
@@ -22,8 +25,21 @@ After(async function (scenario) {
       if (err) {
         console.error(`Error creating failed screenshot folder: ${scenario.pickle.name}`, err);
       }
-    });
-    await fs.writeFileSync(path.join(folderPath, `failedScreenshot${count}.png`), decodedImage, { encoding: 'base64' });
+    })
+    try {
+      await fs.writeFileSync(path.join(folderPath, `failedScreenshot${count}.png`), decodedImage, {encoding: 'base64'});
+    } catch {
+      await fs.mkdir(folderPath, { recursive: true }, (err) => {
+        if (err) {
+          console.error(`Error creating failed screenshot folder: ${scenario.pickle.name}`, err);
+        }
+      })
+      try {
+        await fs.writeFileSync(path.join(folderPath, `failedScreenshot${count}.png`), decodedImage, {encoding: 'base64'});
+      } catch {
+        console.error(`Error writing failed screenshot ${count} for scenario: ${scenario.pickle.name}`);
+      }
+    }
 
     //fetch browser logs
     let browserLog = await browser.manage().logs().get('browser');
@@ -46,7 +62,7 @@ After(async function (scenario) {
 });
 
 async function addToTotalTestsIfNotExists(stringVar) {
-  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
+  const testCounterPath = path.join(process.cwd(), 'e2e', 'testCounter.json');
   await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
@@ -72,7 +88,7 @@ async function addToTotalTestsIfNotExists(stringVar) {
 }
 
 async function addToPassedTests(stringVar) {
-  let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
+  const testCounterPath = path.join(process.cwd(), 'e2e', 'testCounter.json');
   await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
@@ -104,26 +120,18 @@ function sleep(milliseconds) {
   }
 }
 
-async function createTestCounterIfNone() {
+async function createNewTestCounter() {
   const filePath = path.join(process.cwd(), 'e2e', 'testCounter.json');
   const defaultContent = {
     totalTests: [],
     passedTests: [],
   };
 
-  // Check if the file exists
-  await fs.access(filePath, fs.constants.F_OK, async (err) => {
+  await fs.writeFile(filePath, JSON.stringify(defaultContent, null, 2), (err) => {
     if (err) {
-      // File doesn't exist, create it with default content
-      await fs.writeFile(filePath, JSON.stringify(defaultContent, null, 2), (err) => {
-        if (err) {
-          console.error('Error creating testCounter.json:', err);
-        } else {
-          console.log('testCounter.json created successfully.');
-        }
-      });
+      console.error('Error creating testCounter.json:', err);
     } else {
-      console.log('File already exists.');
+      console.log('testCounter.json created successfully.');
     }
   });
 }

@@ -1,16 +1,12 @@
 Feature: Bails Upload signed decision notice
   Background:
     Given I am signed in as a `Home Office Bails`
-    And I wait for 10 seconds
     And I create a new bail application
     And I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
    And I submit my bail application as a `Home Office Bails`
    And I should see the text `What happens next`
-   And I wait for 10 seconds
     And I switch to be a `Admin Officer Bails`
-    And I wait for 10 seconds
     And I list the bail case
-    And I wait for 10 seconds
      When I switch to be a `Home Office Bails`
     And I upload the bail summary
    
@@ -22,7 +18,7 @@ Feature: Bails Upload signed decision notice
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     And The page is accessible
-    When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` field
+    When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` document field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -44,7 +40,7 @@ Feature: Bails Upload signed decision notice
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     And The page is accessible
-    When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` field
+    When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` document field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -66,7 +62,7 @@ Feature: Bails Upload signed decision notice
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     And The page is accessible
-    When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` field
+    When I upload `{@SignedDecisionNoticeGranted.pdf}` for the `Decision document` document field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -89,7 +85,7 @@ Feature: Bails Upload signed decision notice
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
     And The page is accessible
-    When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` field
+    When I upload `{@SignedDecisionNoticeRefused.pdf}` for the `Decision document` document field
     And I wait for 5 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page

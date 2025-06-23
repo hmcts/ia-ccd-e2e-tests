@@ -16,7 +16,7 @@ Feature: Record out of time decision feature
     And I click the `record an out of time decision` link
 
     Then I select `Appeal is in time` for the `Decision` field
-    And I upload `{@Evidence1.pdf}` for the `Upload decision notice` field
+    And I upload `{@Evidence1.pdf}` for the `Upload decision notice` document field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
@@ -53,7 +53,7 @@ Feature: Record out of time decision feature
     And I click the `record an out of time decision` link
 
     Then I select `Appeal is out of time but can proceed` for the `Decision` field
-    And I upload `{@Evidence1.pdf}` for the `Upload decision notice` field
+    And I upload `{@Evidence1.pdf}` for the `Upload decision notice` document field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
@@ -90,7 +90,7 @@ Feature: Record out of time decision feature
     And I click the `record an out of time decision` link
 
     Then I select `Appeal is out of time and cannot proceed` for the `Decision` field
-    And I upload `{@Evidence1.pdf}` for the `Upload decision notice` field
+    And I upload `{@Evidence1.pdf}` for the `Upload decision notice` document field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page

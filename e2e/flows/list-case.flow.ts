@@ -7,9 +7,6 @@ export class ListCaseFlow {
 
   async listTheCase(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('List the case');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2024');
     await this.ccdFormPage.setFieldValue('Listing location', 'Atlantic Quay - Glasgow');
@@ -20,18 +17,16 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
   async listTheCaseAsRemoteHearing(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('List the case');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2019');
     await this.ccdFormPage.setFieldValue('Location', 'Remote hearing');
@@ -41,18 +36,16 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
   async reListTheCase(clickContinue = false, lengthOfHearingInHours = '6') {
     await this.ccdFormPage.selectNextStep('Edit case listing');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Edit case listing');
     await this.ccdFormPage.setFieldValue('Location', 'Taylor House');
@@ -62,19 +55,16 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
-      await this.ccdFormPage.contentContains('You have listed the case');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
   async reListTheCaseAsRemoteHearing(clickContinue = false, lengthOfHearingInHours = '3') {
     await this.ccdFormPage.selectNextStep('Edit case listing');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Edit case listing');
     await this.ccdFormPage.setFieldValue('Location', 'Remote hearing');
@@ -84,19 +74,16 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+16|DD-MM-YYYY} 11:45:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
-      await this.ccdFormPage.contentContains('You have listed the case');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 
   async reListTheCaseAsRemoteHearingWithNoChanges(clickContinue = false, lengthOfHearingInHours = '6') {
     await this.ccdFormPage.selectNextStep('Edit case listing');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Edit case listing');
     await this.ccdFormPage.setFieldValue('Location', 'Remote hearing');
@@ -106,18 +93,17 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');
 
     await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
         if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
-            await this.ccdFormPage.contentContains('You have listed the case');
+            await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
         }
     }
 
     async listTheBailCase(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Case listing');
-        await this.ccdFormPage.click('Go');
         await this.ccdFormPage.setFieldValue('Listing event', 'Initial listing');
         await this.ccdFormPage.setFieldValue('Listing location', 'Hatton Cross Tribunal Hearing Centre');
         await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
@@ -127,16 +113,16 @@ export class ListCaseFlow {
             '{$TODAY+14|DD-MM-YYYY} 10:30:00'
         );
         await this.ccdFormPage.click('Continue');
+      const currentUrl = await this.ccdFormPage.getCurrentUrl();
         await this.ccdFormPage.click('List case');
         if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+            await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
         }
     }
 
     async reListTheBailCase(clickContinue = false) {
 
         await this.ccdFormPage.selectNextStep('Case listing');
-        await this.ccdFormPage.click('Go');
         await this.ccdFormPage.setFieldValue('Listing event', 'Relisting');
         await this.ccdFormPage.setFieldValue('Listing location', 'Hatton Cross Tribunal Hearing Centre');
         await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
@@ -149,10 +135,11 @@ export class ListCaseFlow {
             '{$TODAY+14|DD-MM-YYYY} 11:30:00'
         );
         await this.ccdFormPage.click('Continue');
+      const currentUrl = await this.ccdFormPage.getCurrentUrl();
         await this.ccdFormPage.click('List case');
 
         if (clickContinue) {
-            await this.ccdFormPage.click('Close and Return to case details');
+            await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
         }
     }
 }

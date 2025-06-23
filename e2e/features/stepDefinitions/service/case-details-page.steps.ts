@@ -2,7 +2,6 @@ import { CcdPage } from '../../../pages/ccd.page';
 import { Then } from 'cucumber';
 import { expect } from 'chai';
 import { Wait } from '../../../enums/wait';
-import { browser } from 'protractor';
 
 const ccdPage = new CcdPage();
 
@@ -14,9 +13,6 @@ Then(/^I should see an alert confirming the case `?([^`]+)`?$/, async function (
 Then(/^I select the `?([^`]+)`? Next step$/, async function (nextStep) {
   await ccdPage.runAccessbility();
   await ccdPage.selectNextStep(nextStep);
-  await browser.sleep(5000);
-  let overviewUrl = await browser.getCurrentUrl();
-  await ccdPage.flakeyClick('Go', overviewUrl);
 });
 
 Then(/^I should not see the decision fields$/, async function () {

@@ -1,14 +1,10 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
 
 export class MarkAppealAsPaidFlow {
   private ccdFormPage = new CcdFormPage();
 
   async markAppealAsPaid(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Mark appeal as paid');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('Mark appeal as paid');
     await this.ccdFormPage.setFieldValue('Payment date', '{$TODAY|DD-MM-YYYY}');
@@ -21,10 +17,11 @@ export class MarkAppealAsPaidFlow {
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.headingContains('Check your answers');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Mark as paid');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

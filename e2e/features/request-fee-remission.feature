@@ -15,27 +15,27 @@ Feature: Apply for a late remission
 
     When I switch to be a `Legal Rep`
     Then I select the `Request a fee remission` Next step
-    And I am on the `Fee remissions` page
-    And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    And I am on the `Fee remission` page
+    And I select `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
     And I should see the text `More about Help with Fees`
     And I should see the text `Your client can apply for Help with Fees (opens in new tab). They will be sent a reference number immediately after applying.`
     And I should see the text `More about Exceptional Circumstances Remissions`
     And I should see the text `Read the Tribunal Fees guidance (opens in a new tab) for more information on Exceptional Circumstances Remissions.`
     And I click the `Continue` button
 
-    Then I am on the `Fee remissions` page
-    And I select `My client is being provided with Asylum Support Funding under sections 95 or 98 of the Immigration and Asylum Act 1999` for the `Choose one of the following statements` field
+    Then I am on the `Fee remission` page
+    And I select `The appellant is being provided with Asylum Support Funding under sections 95 or 98 of the Immigration and Asylum Act 1999` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Then I am on the `Asylum support` page
     And I should see the text `Enter the Asylum Support reference number. You can find this on the Asylum Support confirmation letter your client received from the Home Office.`
     And I type `20/02/1234` for the `Asylum Support reference number` field
-    And I upload `{@Evidence1.pdf}` for the `Asylum Support confirmation letter (Optional)` field
+    And I upload `{@Evidence1.pdf}` for the `Asylum Support confirmation letter (Optional)` document field
     And I wait for 2 seconds
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
-    And I should see `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
+    And I should see `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
     And I should see `20/02/1234` for the `Asylum Support reference number` answer
     And I should see `Evidence1.pdf` in the `Asylum Support confirmation letter` field
     And I click the `Submit` button

@@ -1,5 +1,4 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
 
 export class MakeAnApplication {
   private ccdFormPage = new CcdFormPage();
@@ -11,9 +10,6 @@ export class MakeAnApplication {
 
   async chooseMakeAnApplicationType(clickContinue = false, applicationType) {
     await this.ccdFormPage.selectNextStep('Make an application');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Type of application', applicationType);
 
@@ -60,10 +56,11 @@ export class MakeAnApplication {
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.headingContains('Check your answers');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

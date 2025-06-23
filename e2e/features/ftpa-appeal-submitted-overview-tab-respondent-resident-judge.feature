@@ -36,7 +36,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
   @ftpa-reheard-feature @ftpa-reheard-rule-35 @RIA-3652-reheard35 @RIA-3652
   Scenario: New overview tab for appeal submitted - FTPA respondent resident judge decision (Reheard Rule 35)
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -44,13 +44,13 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -322,7 +322,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
   @ftpa-reheard-feature @ftpa-reheard-rule-32 @RIA-3652-reheard32 @RIA-3652
   Scenario: New overview tab for appeal submitted - FTPA respondent resident judge decision (Reheard Rule 32)
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -330,7 +330,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     And I click the `Continue` button
@@ -607,7 +607,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
   @ftpa-reheard-feature @ftpa-refused @RIA-3652-refused @RIA-3652
   Scenario: FTPA respondent resident judge decision - refused (shows error message)
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
@@ -615,7 +615,7 @@ Feature: New overview tab for appeal submitted - FTPA reheard decision (resident
     And I click the `Continue` button
     And I select `Permission refused` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
 
     When I click the `Continue` button

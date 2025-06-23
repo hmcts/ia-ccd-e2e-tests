@@ -372,9 +372,8 @@ export class EditBailApplicationPostSubmitFlow {
   async completeB1Upload(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(1000);
-    await this.ccdFormPage.setFieldValue('Document', '{@B1Form.pdf}');
+    await this.ccdFormPage.uploadFile('B1Form.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document', 'Edited this B1 form');
-    await browser.sleep(8000);
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -384,15 +383,11 @@ export class EditBailApplicationPostSubmitFlow {
     await this.ccdFormPage.runAccessbility();
     if (clickContinue) {
       await this.ccdFormPage.click('Save application');
-      await browser.sleep(10000);
     }
   }
 
   async editSubmittedApplication(clickContinue = false, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string, previousLegalRepresentativeOrNot: string) {
     await this.ccdFormPage.selectNextStep('Edit the application');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.completePreviousBailApplication(true);
     await this.ccdFormPage.click('Continue');
     await this.completeWhichPartySentApplication(true, 'Applicant');
@@ -466,10 +461,11 @@ export class EditBailApplicationPostSubmitFlow {
     } else {
       await this.completeLegalRepYesNo(true, 'No');
     }
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

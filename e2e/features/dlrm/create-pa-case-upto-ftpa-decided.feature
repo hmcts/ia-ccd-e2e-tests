@@ -4,7 +4,7 @@ Feature: Create PA case upto FTPA submitted
         Given I am signed in as a `Legal Org User Rep A`
         And I create a new case
         And I save my initial PA appeal type without remission and with hearing fee and pay now
-        And I wait for 10 seconds
+        And I click the `Close and Return to case details` button if present
         And I wait for 2 seconds
         And I pay for and submit my appeal by Card
         And I switch to be a `Case Officer`
@@ -35,8 +35,6 @@ Feature: Create PA case upto FTPA submitted
         And I wait for 2 seconds
         And I create case summary
         And I generate the hearing bundle
-        And I wait for 30 seconds
-        And I refresh the page
         And I wait for 4 seconds
 
         When I select the `Start decision and reasons` Next step

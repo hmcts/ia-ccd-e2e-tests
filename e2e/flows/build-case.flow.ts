@@ -1,16 +1,10 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
-
-const isSaveAndContinueEnabled = require('../ia.conf').isSaveAndContinueEnabled === 'true';
 
 export class BuildCaseFlow {
   private ccdFormPage = new CcdFormPage();
 
   async buildCase(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Build your case');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.ccdFormPage.uploadFile('CaseArgument.pdf');
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the case argument', 'text area');
 
@@ -21,13 +15,11 @@ export class BuildCaseFlow {
 
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'The is the case argument evidence', 'text area', 'first', 'Evidence (Optional)', 'first');
     await this.ccdFormPage.click('Continue');
-    let buttonName = 'Submit Case';
-    if (isSaveAndContinueEnabled) {
-      buttonName = 'Upload';
-    }
-    await this.ccdFormPage.click(buttonName);
+
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
+    await this.ccdFormPage.click('Submit Case');
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

@@ -49,11 +49,11 @@ Feature: FTPA Appellant application to the Upper Tribunal
     Then I should see the text `Upload any other evidence that supports this application (Optional)`
 
     When I add an item to the `Grounds of the application` collection
-    And within the `Grounds of the application` collection's first item, I upload `{@FTPAAppellantGrounds.pdf}` for the `Document` field
+    And within the `Grounds of the application` collection's first item, I upload `{@FTPAAppellantGrounds.pdf}` for the `Document` document field
     And within the `Grounds of the application` collection's first item, I type `This is the FTPA Appellant grounds` for the `Describe the document` field
 
     When I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence` collection's first item, I upload `{@FTPAAppellantEvidence.pdf}` for the `Document (Optional)` field
+    And within the `Supporting evidence` collection's first item, I upload `{@FTPAAppellantEvidence.pdf}` for the `Document (Optional)` document field
     And within the `Supporting evidence` collection's first item, I type `This is the FTPA Appellant evidence` for the `Describe the document (Optional)` field
     And I click the `Continue` button
 

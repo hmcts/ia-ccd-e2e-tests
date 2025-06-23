@@ -7,14 +7,14 @@ Feature: Submit appeal with has a remission
     And I complete the `Home Office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
-    And I complete the `Tell us about your client's nationality` page
-    And I complete the `Your client's address` page
+    And I complete the `What is the appellant's nationality?` page
+    And I complete the `Appellant's address` page
     And I complete the `The appellant's contact preference` page
     And I complete the `EA appeal type` page
     And I complete the `EA appeal grounds` page
     And I complete the `Deportation order` page
     And I complete the `New matters` page
-    And I complete the `Has your client appealed against any other UK immigration decisions?` page
+    And I complete the `Other appeals` page
     And I complete the `Legal representative details` page
 
   @submit-appeal-with-remission  @RIA-3088
@@ -23,11 +23,11 @@ Feature: Submit appeal with has a remission
     Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
-    Given I am on the `Fee remissions` page
-    And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    Given I am on the `Fee remission` page
+    And I select `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
-    And I select `My client receives Legal Aid` for the `Choose one of the following statements` field
+    And I select `The appellant receives Legal Aid` for the `Choose one of the following statements` field
     And I click the `Continue` button
     When I type `1A234B` for the `Legal Aid account number` field
     And I click the `Continue` button
@@ -37,7 +37,7 @@ Feature: Submit appeal with has a remission
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
-    And I should see `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
+    And I should see `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
 
     When I click the `Save and continue` button
     Then I should see the text `The appeal has been saved`

@@ -1,4 +1,3 @@
-import { browser } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class BailsAddCaseNoteFlow {
@@ -9,15 +8,19 @@ export class BailsAddCaseNoteFlow {
     if (applicationNumber === '') {
       await this.ccdFormPage.setFieldValue('Subject', 'Case note subject');
       await this.ccdFormPage.setFieldValue('Case note', 'Case note text.');
-      await this.ccdFormPage.setFieldValue('Upload a document (Optional)', '{@BailsCaseNote.pdf}');
+      await this.ccdFormPage.setFieldValue('Upload a document (Optional)', '{@BailsCaseNote.pdf}', 'document');
     } else {
       await this.ccdFormPage.setFieldValue('Subject', 'Case note subject from application ' + applicationNumber);
       await this.ccdFormPage.setFieldValue('Case note', 'Case note text. This is from application ' + applicationNumber);
-      await this.ccdFormPage.setFieldValue('Upload a document (Optional)', '{@BailsCaseNote.pdf}');
+      await this.ccdFormPage.setFieldValue('Upload a document (Optional)', '{@BailsCaseNote.pdf}', 'document');
     }
-    await browser.sleep(2000);
     if (clickContinue) {
-      await this.ccdFormPage.click('Continue');
+      try {
+        await this.ccdFormPage.click('Continue');
+      } catch {
+        await this.ccdFormPage.click('Continue');
+
+      }
     }
   }
 
@@ -25,19 +28,16 @@ export class BailsAddCaseNoteFlow {
     await this.ccdFormPage.runAccessbility();
     if (clickContinue) {
       await this.ccdFormPage.click('Add case note');
-      await browser.sleep(5000);
     }
   }
 
   async addCaseNote(clickContinue = false, applicationNumber: string) {
     await this.ccdFormPage.selectNextStep('Add case note');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.completeCaseNoteDetails(true, applicationNumber);
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

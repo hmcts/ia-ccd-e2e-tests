@@ -1,5 +1,5 @@
 import { CcdFormPage } from "../pages/ccd-form.page";
-import { browser } from "protractor";
+import { browser, by, element, ElementFinder } from "protractor";
 
 const isOutOfCountryEnabled =
   require("../ia.conf").isOutOfCountryEnabled === "true";
@@ -9,9 +9,6 @@ export class SubmitHearingRequirementsFlow {
 
   async submitHearingRequirements(clickContinue = false, isYesPath = false) {
     await this.ccdFormPage.selectNextStep("Submit hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains("Submit hearing requirements");
 
@@ -33,9 +30,6 @@ export class SubmitHearingRequirementsFlow {
     inCountry = true
   ) {
     await this.ccdFormPage.selectNextStep("Submit hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     // await this.ccdFormPage.headingContains('Submit hearing requirements');
     if (isYesPath) {
@@ -61,9 +55,6 @@ export class SubmitHearingRequirementsFlow {
 
   async updateHearingRequirements(clickContinue = false, isYesPath = false) {
     await this.ccdFormPage.selectNextStep("Update hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     if (isYesPath) {
       await this.updateHearingRequirementsYesPath();
@@ -84,9 +75,6 @@ export class SubmitHearingRequirementsFlow {
     inCountry = true
   ) {
     await this.ccdFormPage.selectNextStep("Update hearing requirements");
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick("Go", overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     if (isYesPath) {
       if (inCountry) {
@@ -134,7 +122,6 @@ export class SubmitHearingRequirementsFlow {
       "Will any witnesses attend the hearing?",
       "Yes"
     );
-    await browser.sleep(5000);
     await this.ccdFormPage.click("Add new");
     await this.ccdFormPage.setFieldValue("Name", "Jenny button");
     await this.ccdFormPage.click("Continue");
@@ -1117,5 +1104,36 @@ export class SubmitHearingRequirementsFlow {
     await this.ccdFormPage.click("Hatton Cross Tribunal Hearing Centre");
     await browser.sleep(3000);
     await this.ccdFormPage.click("Add location");
+  }
+
+  async selectParticipantAttendingMethods(numberOfParticipants: number) {
+    for (let i = 0; i < numberOfParticipants; i++) {
+      const selector = `#partyChannel${i}`;
+      const dropdownList = element(by.css(selector));
+      const option = dropdownList
+        .element(by.cssContainingText('option', 'In Person'));
+      await option.click();
+    }
+  }
+
+  async noSpecificJudge(judgeType: string) {
+    await element(by.css('#noSpecificJudge')).click();
+    let label: ElementFinder;
+    if (judgeType.toLowerCase().includes("tribunal")) {
+      label = element(by.cssContainingText('label.govuk-checkboxes__label', 'Tribunal Judge'));
+    } else if (judgeType.toLowerCase().includes("president")) {
+      label = element(by.cssContainingText('label.govuk-checkboxes__label', 'President of Tribunal'));
+    } else if (judgeType.toLowerCase().includes("resident")) {
+      label = element(by.cssContainingText('label.govuk-checkboxes__label', 'Resident Immigration Judge'));
+    } else {
+      throw new Error(`Unknown judge type: ${judgeType}`);
+    }
+    const checkboxId = await label.getAttribute('for');
+    const checkbox = element.all(by.css('input.govuk-checkboxes__input'))
+      .filter(elem => elem.getAttribute('value').then(value => value === checkboxId))
+      .get(0);
+    if (!(await checkbox.isSelected())) {
+      await checkbox.click();
+    }
   }
 }

@@ -5,12 +5,11 @@ export class UploadSignedDecisionNotice {
   private ccdFormPage = new CcdFormPage();
 
   async uploadSignedDecisionNoticeFile(clickContinue = false, decision) {
-    await browser.sleep(5000);
     await this.ccdFormPage.runAccessbility();
     if (decision === 'Refused') {
-      await this.ccdFormPage.setFieldValue('Decision document', '{@SignedDecisionNoticeRefused.pdf}');
+      await this.ccdFormPage.setFieldValue('Decision document', '{@SignedDecisionNoticeRefused.pdf}', 'document');
     } else {
-      await this.ccdFormPage.setFieldValue('Decision document', '{@SignedDecisionNoticeGranted.pdf}');
+      await this.ccdFormPage.setFieldValue('Decision document', '{@SignedDecisionNoticeGranted.pdf}', 'document');
     }
     await browser.sleep(3000);
     if (clickContinue) {
@@ -22,14 +21,11 @@ export class UploadSignedDecisionNotice {
     await browser.sleep(5000);
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.selectNextStep('Upload signed decision notice');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.uploadSignedDecisionNoticeFile(true, decision);
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Upload');
-    await browser.sleep(5000);
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

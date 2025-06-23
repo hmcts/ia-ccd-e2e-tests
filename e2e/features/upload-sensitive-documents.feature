@@ -18,7 +18,7 @@ Feature: Upload sensitive documents
 
     When I select `The respondent` for the `Document supplied by` field
     And I add an item to the `Sensitive document` collection
-    And within the `Sensitive document` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
+    And within the `Sensitive document` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` document field
     And within the `Sensitive document` collection's first item, I type `This is a sensitive document` for the `Describe the document` field
     Then the `Continue` button is enabled
 

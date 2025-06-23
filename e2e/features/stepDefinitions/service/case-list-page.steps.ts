@@ -2,6 +2,7 @@ import { CaseListFlow } from '../../../flows/case-list.flow';
 import { CcdFormPage } from '../../../pages/ccd-form.page';
 import { When } from 'cucumber';
 import { expect } from 'chai';
+import { browser } from "protractor";
 
 const caseListFlow = new CaseListFlow();
 const ccdFormPage = new CcdFormPage();
@@ -12,6 +13,13 @@ When(/^I open `?([^`]+)`?$/, async function (uri) {
 
 When('I go to the `Case List`', async function () {
   await ccdFormPage.get('/list/case');
+  const jurisdictionPath = '//select[@id="wb-jurisdiction"]' + '/option[normalize-space()="Immigration & Asylum"]';
+  try {
+    await ccdFormPage.waitForXpathElementVisible(jurisdictionPath);
+  } catch {
+    browser.refresh();
+    await ccdFormPage.waitForXpathElementVisible(jurisdictionPath);
+  }
 });
 
 When('I attempt to go to the `Case List`', async function () {

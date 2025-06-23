@@ -38,7 +38,6 @@ Feature: Start decision and reasons
     And I wait for 2 seconds
     And I create case summary
     And I generate the hearing bundle
-    And I wait for 30 seconds
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
 

@@ -9,7 +9,7 @@ properties([
         string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
         string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
         string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
-        string(name: 'RETRIES', defaultValue: '5', description: 'The number of retries to set for tests'),
+        string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
         string(name: 'SPECIFIC_TAGS', defaultValue: '', description: 'Tag for a specific run of tests'),
     ])
 ])
@@ -29,8 +29,8 @@ def secrets = [
         secret('test-law-firm-b-password', 'TEST_LAW_FIRM_B_PASSWORD'),
         secret('test-law-firm-c-username', 'TEST_LAW_FIRM_C_USERNAME'),
         secret('test-law-firm-c-password', 'TEST_LAW_FIRM_C_PASSWORD'),
-        secret('test-adminofficer-username', 'TEST_ADMINOFFICER_USERNAME'),
-        secret('test-adminofficer-password', 'TEST_ADMINOFFICER_PASSWORD'),
+        secret('wa-test-adminofficer-username', 'TEST_ADMINOFFICER_USERNAME'),
+        secret('wa-test-adminofficer-password', 'TEST_ADMINOFFICER_PASSWORD'),
 
         secret('test-homeoffice-apc-username', 'TEST_HOMEOFFICE_APC_USERNAME'),
         secret('test-homeoffice-apc-password', 'TEST_HOMEOFFICE_APC_PASSWORD'),
