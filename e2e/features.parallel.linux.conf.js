@@ -86,8 +86,8 @@ let config = {
   afterLaunch: () => {
     let passedTests = getPassedTestsArray();
     let totalTests = getTotalTestsArray();
-    if (passedTests.length !== totalTests.length) {
-      const failedTests = totalTests.filter((item) => !passedTests.includes(item));
+    const failedTests = totalTests.filter((item) => !passedTests.includes(item));
+    if (failedTests.length > 0) {
       console.log('Tests failed including retries: ' + failedTests);
       process.exit(1);
     } else {
