@@ -4,7 +4,6 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial HU appeal type without remission and with hearing fee and pay now
-    And I wait for 10 seconds
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     And I pay for and submit my appeal by Card

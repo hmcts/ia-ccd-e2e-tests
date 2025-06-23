@@ -4,7 +4,7 @@ Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     When I click the `pay for and submit your appeal` link
     Then I should see the `Select PBA number` page
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
@@ -21,7 +21,7 @@ Background:
     # And I click the `Record an application` link
     
     # Then I add an item to the `Application email` collection
-    # And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    # And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     # And I click the `The legal representative` label
     And I select `Change hearing centre` for the `Type of application` field
     And I type `change hearing centre reason` for the `Reason for application` field

@@ -1,18 +1,121 @@
-import { browser, element, protractor, by } from 'protractor';
+import { browser } from 'protractor';
 import { IdamSignInPage } from '../pages/idam-sign-in.page';
+import { CcdPage } from "../pages/ccd.page";
 
 const iaConfig = require('../ia.conf');
 
+export type UserRole =
+  'Case Officer' |
+  'Sr Case Officer' |
+  'Admin Officer' |
+  'Legal Rep' |
+  'Home Office APC' |
+  'Home Office LART' |
+  'Home Office POU' |
+  'Home Office Generic' |
+  'Home Office Bails' |
+  'Judge' |
+  'Legal Org User Rep A' |
+  'Legal Org User Rep B' |
+  'Legal Org User Rep C' |
+  'Legal Org User Rep D' |
+  'Legal Org User Rep Creator' |
+  'Legal Org2 User Rep Creator' |
+  'Legal Ops A' |
+  'Judicial' |
+  'WaAdmin' |
+  'Judge Bails' |
+  'Legal Org User Rep A Bails' |
+  'Legal Org User Rep B Bails' |
+  'Admin Officer Bails';
+
 export class AuthenticationFlow {
   private idamSignInPage = new IdamSignInPage();
+  private ccdPage = new CcdPage();
 
   async signOut() {
     await browser.waitForAngularEnabled(false);
     await browser.driver.manage().deleteAllCookies();
     await browser.get(iaConfig.CcdWebUrl + '/auth/logout');
-    await browser.sleep(1000);
+    await browser.sleep(3000);
     await browser.get(iaConfig.CcdWebUrl + '/');
     await this.idamSignInPage.waitUntilLoaded();
+  }
+
+  async signInByRole(role: UserRole) {
+    switch (role) {
+      case 'Case Officer':
+        await this.signInAsCaseOfficer();
+        break;
+      case 'Sr Case Officer':
+        await this.signInAsSrCaseOfficer();
+        break;
+      case 'Admin Officer':
+        await this.signInAsAdminOfficer();
+        break;
+      case 'Legal Rep':
+        await this.signInAsLawFirmA();
+        break;
+      case 'Home Office APC':
+        await this.signInAsHomeOfficeApc();
+        break;
+      case 'Home Office LART':
+        await this.signInAsHomeOfficeLart();
+        break;
+      case 'Home Office POU':
+        await this.signInAsHomeOfficePou();
+        break;
+      case 'Home Office Generic':
+        await this.signInAsHomeOfficeGeneric();
+        break;
+      case 'Home Office Bails':
+        await this.signInAsHomeOfficeBails();
+        break;
+      case 'Judge':
+        await this.signInAsJudge();
+        break;
+      case 'Legal Org User Rep A':
+        await this.signInAsLawFirmOrgUserA();
+        break;
+      case 'Legal Org User Rep B':
+        await this.signInAsLawFirmOrgUserB();
+        break;
+      case 'Legal Org User Rep C':
+        await this.signInAsLawFirmOrgUserC();
+        break;
+      case 'Legal Ops A':
+        await this.signInAsLegalOpsA();
+        break;
+      case 'Judicial':
+        await this.signInAsJudicial();
+        break;
+      case 'WaAdmin':
+        await this.signInAsWaAdmin();
+        break;
+      case 'Judge Bails':
+        await this.signInAsJudgeBails();
+        break;
+      case 'Legal Org User Rep A Bails':
+        await this.signInAsLawFirmOrgUserABails();
+        break;
+      case 'Legal Org User Rep B Bails':
+        await this.signInAsLawFirmOrgUserBBails();
+        break;
+      case 'Admin Officer Bails':
+        await this.signInAsAdminOfficerBails();
+        break;
+      case 'Legal Org User Rep D':
+        await this.signInAsLawFirmOrgUserD();
+        break;
+      case 'Legal Org User Rep Creator':
+        await this.signInAsLawFirmOrgCreator();
+        break;
+      case 'Legal Org2 User Rep Creator':
+        await this.signInAsLawFirmOrg2Creator();
+        break;
+      default:
+        throw new Error(`Unknown role: ${role}`);
+    }
   }
 
   async signInAsCaseOfficer() {
@@ -129,21 +232,6 @@ export class AuthenticationFlow {
         } else {
           await this.idamSignInPage.signIn(iaConfig.TestHomeOfficeBailsUserName, iaConfig.TestHomeOfficeBailsPassword);
         }
-        await this.checkExUiLoaded();
-        break;
-      } catch (err) {
-        console.log('Unsuccessful log in');
-        console.log(err);
-      }
-    }
-  }
-
-  async signInAsJudiciary() {
-    for (let i = 0; i < 5; i++) {
-      try {
-        await this.signOut();
-        await this.idamSignInPage.waitUntilLoaded();
-        await this.idamSignInPage.signIn(iaConfig.TestJudiciaryUserName, iaConfig.TestJudiciaryPassword);
         await this.checkExUiLoaded();
         break;
       } catch (err) {
@@ -426,7 +514,8 @@ export class AuthenticationFlow {
   }
 
   async checkExUiLoaded() {
-    let EC = protractor.ExpectedConditions;
-    await browser.wait(EC.visibilityOf(element(by.linkText('Sign out'))), 30000);
+    await this.ccdPage.waitForSpinner();
+    const signOutPath = '//a[contains(@class, "hmcts-header__navigation-link")][contains(text(), "Sign out")]';
+    await this.ccdPage.waitForXpathElementVisible(signOutPath);
   }
 }

@@ -157,6 +157,6 @@ Feature: Pay offline pa by card
     And I click the `Appeal` tab
     Then I should see the `Appeal details` page
     And I should see `I do not have this document` for the `Reason you cannot provide the Notice of Decision` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field

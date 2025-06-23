@@ -1,17 +1,10 @@
-import { browser } from 'protractor';
-import { Wait } from '../enums/wait';
 import { CcdFormPage } from '../pages/ccd-form.page';
 
 export class StartDecisionAndReasonsFlow {
   private ccdFormPage = new CcdFormPage();
 
   async startDecisionAndReasons(clickContinue = false) {
-    await browser.sleep(Wait.normal);
-    await this.ccdFormPage.refresh();
     await this.ccdFormPage.selectNextStep('Start decision and reasons');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.setFieldValue('Introduction (Optional)', 'some introduction');
     await this.ccdFormPage.click('Continue');
@@ -27,8 +20,9 @@ export class StartDecisionAndReasonsFlow {
     await this.ccdFormPage.setFieldValue("The appellant's schedule of issues (Optional)", 'some schedule');
     await this.ccdFormPage.click('Continue');
 
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Save');
 
-    await this.ccdFormPage.click('Close and Return to case details');
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 }

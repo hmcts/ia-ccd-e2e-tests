@@ -27,7 +27,7 @@ Feature: Upload Home Office bundle
     Then I am on the `Upload Home Office bundle` page
 
     When I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -52,7 +52,7 @@ Feature: Upload Home Office bundle
     And I should see the text `- None`
 
     When I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidence.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the evidence` for the `Describe the document` field
 
     When I click the `Continue` button
@@ -85,13 +85,13 @@ Feature: Upload Home Office bundle
     Then I am on the `Send direction` page
     When I type `Amend the evidence` for the `Explain the direction you are issuing` field
     And I select `Respondent` for the `Who are you giving the direction to?` field
-    And I type `31-12-2019` for the `By what date must they comply?` field
+    And I type `{$TODAY+20|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Amend the evidence` for the `Explain the direction you are issuing` answer
     And I should see `Respondent` for the `Who are you giving the direction to?` answer
-    And I should see `31 Dec 2019` for the `By what date must they comply?` answer
+    And I should see `{$TODAY+20|D MMM YYYY}` for the `By what date must they comply?` answer
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
@@ -109,7 +109,7 @@ Feature: Upload Home Office bundle
     And I should see the text `Already uploaded files:`
     And I should see the text `- RespondentEvidence.pdf`
     When I click the `Add new` button
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Upload a file` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@RespondentEvidenceUpdated.pdf}` for the `Upload a file` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the updated evidence` for the `Describe the document` field
 
     When I click the `Continue` button

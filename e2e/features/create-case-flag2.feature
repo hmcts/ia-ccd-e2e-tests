@@ -21,13 +21,14 @@ Feature: Create and manage Case Flags for TCW
         Then I should see the text `Complex Case`
 
     @appeal-nightly-test @caseflag @caseflag
-    Scenario: Create a case Flag and make In Active
+    Scenario: Create a case Flag and make Inactive
         And I switch to be a `Case Officer`
+        And I check the case has been paid for
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page
         And I have created a `Complex Case` Flag in `Case level`
         Then I should see an alert confirming the case `has been updated with event: Create Flag`
         When I select the `Manage Flags` Next step
-        And I will make `Complex Case` as In Active
+        And I will make `Complex Case` as Inactive
         Then I should see an alert confirming the case `has been updated with event: Manage Flag`
 

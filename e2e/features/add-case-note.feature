@@ -12,6 +12,7 @@ Feature: Add a case note
   Scenario: Add a case note with document
 
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     When I select the `Add case note` Next step
     Then I am on the `Add case note` page
     And I should see the text `Add your case note below`
@@ -19,13 +20,12 @@ Feature: Add a case note
     When I type `some case note description` for the `Case note` field
     Then the `Continue` button is enabled
 
-    When I upload `{@test.doc}` for the `Upload a document (Optional)` field
-    And I wait for 5 seconds
+    When I upload `{@CaseNote.doc}` for the `Upload a document (Optional)` document field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `some case note subject` in the `Subject` field
     And I should see `some case note description` in the `Case note` field
-    And I should see `test.doc` in the `Upload a document` field
+    And I should see `CaseNote.doc` in the `Upload a document` field
 
     When I click the `Save note` button
     Then I should see the text `You have added a case note`
@@ -39,7 +39,7 @@ Feature: Add a case note
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `some case note subject` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `some case note description` for the `Case note` field
-    And within the `Case notes` collection's first item, I should see `test.doc` for the `Document` field
+    And within the `Case notes` collection's first item, I should see `CaseNote.doc` for the `Document` field
     And within the `Case notes` collection's first item, I should see `Case Officer` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
@@ -133,12 +133,12 @@ Feature: Add a case note
     When I type `some case note description` for the `Case note` field
     Then the `Continue` button is enabled
 
-    When I upload `{@test.doc}` for the `Upload a document (Optional)` field
+    When I upload `{@CaseNote.doc}` for the `Upload a document (Optional)` document field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `some case note subject` in the `Subject` field
     And I should see `some case note description` in the `Case note` field
-    And I should see `test.doc` in the `Upload a document` field
+    And I should see `CaseNote.doc` in the `Upload a document` field
 
     When I click the `Save note` button
     And I should see the text `You have added a case note`
@@ -152,7 +152,7 @@ Feature: Add a case note
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `some case note subject` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `some case note description` for the `Case note` field
-    And within the `Case notes` collection's first item, I should see `test.doc` for the `Document` field
+    And within the `Case notes` collection's first item, I should see `CaseNote.doc` for the `Document` field
     And within the `Case notes` collection's first item, I should see `Judge X` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 
@@ -246,12 +246,12 @@ Feature: Add a case note
     When I type `some case note description` for the `Case note` field
     Then the `Continue` button is enabled
 
-    When I upload `{@test.doc}` for the `Upload a document (Optional)` field
+    When I upload `{@CaseNote.doc}` for the `Upload a document (Optional)` document field
     And I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `some case note subject` in the `Subject` field
     And I should see `some case note description` in the `Case note` field
-    And I should see `test.doc` in the `Upload a document` field
+    And I should see `CaseNote.doc` in the `Upload a document` field
 
     When I click the `Save note` button
     And I should see the text `You have added a case note`
@@ -265,7 +265,7 @@ Feature: Add a case note
     Then I should see the `Case notes` field
     And within the `Case notes` collection's first item, I should see `some case note subject` for the `Subject` field
     And within the `Case notes` collection's first item, I should see `some case note description` for the `Case note` field
-    And within the `Case notes` collection's first item, I should see `test.doc` for the `Document` field
+    And within the `Case notes` collection's first item, I should see `CaseNote.doc` for the `Document` field
     And within the `Case notes` collection's first item, I should see `Admin Officer` for the `User` field
     And within the `Case notes` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date added` field
 

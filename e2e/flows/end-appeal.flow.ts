@@ -1,14 +1,10 @@
 import { CcdFormPage } from '../pages/ccd-form.page';
-import { browser } from 'protractor';
 
 export class EndAppealFlow {
   private ccdFormPage = new CcdFormPage();
 
   async endAppeal(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('End the appeal');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
 
     await this.ccdFormPage.headingContains('End the appeal');
     await this.ccdFormPage.click('Struck out');
@@ -22,10 +18,11 @@ export class EndAppealFlow {
     await this.ccdFormPage.click('Continue');
 
     await this.ccdFormPage.headingContains('Check your answers');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('End appeal');
 
     if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
   }
 }

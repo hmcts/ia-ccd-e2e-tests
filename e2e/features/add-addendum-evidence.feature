@@ -42,7 +42,7 @@ Feature: Add addendum evidence
 
     When I click the <supplier> label
     And I add an item to the `Evidence` collection
-    And within the `Evidence` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
+    And within the `Evidence` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` document field
     And within the `Evidence` collection's first item, I type `some description` for the `Why it was late` field
 
     And I click the `Continue` button

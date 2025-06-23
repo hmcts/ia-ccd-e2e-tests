@@ -1,8 +1,11 @@
 import { CcdPage } from "./ccd.page";
-import { $, browser, ExpectedConditions, By, by, protractor } from "protractor";
+import { $, browser, ExpectedConditions, By, protractor } from "protractor";
+import { Field } from "../fields/field";
+import { expect } from "chai";
+
 const remote = require("selenium-webdriver/remote");
 const path = require("path");
-const { WebDriver } = require("selenium-webdriver");
+const {WebDriver} = require("selenium-webdriver");
 
 export class CcdFormPage extends CcdPage {
   async fieldErrorContains(match: string) {
@@ -42,13 +45,25 @@ export class CcdFormPage extends CcdPage {
     complexFieldLabel?: string,
     collectionItemNumber?: string | number
   ) {
-    const field = await this.fields.find(
-      "",
-      fieldLabel,
-      instanceNumber,
-      complexFieldLabel,
-      collectionItemNumber
-    );
+    let field: Field;
+    try {
+      field = await this.fields.find(
+        "select list",
+        fieldLabel,
+        instanceNumber,
+        complexFieldLabel,
+        collectionItemNumber
+      );
+      expect(!!field && (await field.isDisplayed())).to.equal(true);
+    } catch {
+      field = await this.fields.find(
+        "",
+        fieldLabel,
+        instanceNumber,
+        complexFieldLabel,
+        collectionItemNumber
+      );
+    }
 
     if (!!field && (await field.isDisplayed())) {
       return await field.getOptions();
@@ -60,20 +75,21 @@ export class CcdFormPage extends CcdPage {
   async setFieldValue(fieldLabel: string, fieldValue: string, fieldType?: string, instanceNumber?: string | number, complexFieldLabel?: string, collectionItemNumber?: string | number) {
     const field = await this.fields.find(fieldType, fieldLabel, instanceNumber, complexFieldLabel, collectionItemNumber);
 
-    if (!!field && (await field.isDisplayed())) {
+    if (!!field && (fieldType === 'document' || await field.isDisplayed())) {
       const expandedFieldValue = await this.valueExpander.expand(fieldValue);
       await field.setValue(expandedFieldValue);
     } else {
       throw 'Cannot find field with label: ' + fieldLabel;
     }
     if (fieldType === 'document') {
-      // await browser.sleep(Wait.short);
       await browser.sleep(15000);
     }
   }
+
   async typeText(ID: string, text: string) {
     browser.driver.findElement(By.xpath(`//*[@id='${ID}']`)).sendKeys(text);
   }
+
   async typeTextBasedOnClass(className: string, text: string) {
     browser.driver.findElement(By.xpath(`//*[contains(@class,'${className}')]`)).sendKeys(text);
   }
@@ -82,26 +98,43 @@ export class CcdFormPage extends CcdPage {
     browser.driver.findElement(By.xpath(`//*[@id='${ID}']`));
     browser.actions().sendKeys(protractor.Key.ENTER).perform();
   }
+
   async selectInterpreterLanguage(Language = '') {
     await browser.sleep(3000);
     await this.typeTextBasedOnClass('mat-autocomplete-trigger', Language);
     await browser.sleep(3000);
     await this.click(Language);
   }
+
   async clickElement(fieldID: any) {
     browser.driver.findElement(By.xpath(`//*[@id='${fieldID}']`)).click();
   }
+
   async uploadFile(filename: string, number = 0) {
     await browser.sleep(1000);
     let fileDetector = WebDriver.fileDetector;
     browser.setFileDetector(new remote.FileDetector());
     let absolutePath = path.resolve("documents", filename);
     await browser.element
-      .all(by.css("input[type=file]"))
+      .all(By.css("input[type=file]"))
       .get(number)
       .sendKeys(absolutePath);
     browser.setFileDetector(fileDetector);
-    await browser.sleep(5000);
+    let uploadingMessagePresent = await browser.element(By.xpath('//span[contains(@class, "error-message")][contains(text(), "Uploading")]')).isDisplayed();
+    while (uploadingMessagePresent) {
+      browser.sleep(1000);
+      uploadingMessagePresent = await browser.element(By.xpath('//span[contains(@class, "error-message")][contains(text(), "Uploading")]')).isDisplayed();
+    }
+    await browser.sleep(7000);
+  }
 
+  async uploadFileToElement(someElement, filename: string) {
+    await browser.sleep(1000);
+    let fileDetector = WebDriver.fileDetector;
+    browser.setFileDetector(new remote.FileDetector());
+    let absolutePath = path.resolve("documents", filename);
+    await someElement.sendKeys(absolutePath);
+    browser.setFileDetector(fileDetector);
+    await browser.sleep(7000);
   }
 }

@@ -36,14 +36,14 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Appellant for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Allowed` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -83,14 +83,14 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Allowed` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -135,14 +135,14 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Appellant for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Allowed` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -182,14 +182,14 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Dismissed on all grounds` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -241,14 +241,14 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Appellant for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Dismissed on all grounds for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -288,14 +288,14 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Dismissed on all grounds` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -347,14 +347,14 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Legal Org User Rep A`
     Then I apply for appellant FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Appellant for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Dismissed on all grounds for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field
@@ -394,14 +394,14 @@ Feature: Final display for FTPA decision and reasons
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and remade in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I select `Allowed` for the `What is the First-tier Tribunal's decision on this case following the FTPA?` field

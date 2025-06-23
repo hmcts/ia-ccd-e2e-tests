@@ -7,14 +7,14 @@ Feature: Submit appeal with asylum support remission
     And I complete the `Home Office details` page
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
-    And I complete the `Tell us about your client's nationality` page
-    And I complete the `Your client's address` page
+    And I complete the `What is the appellant's nationality?` page
+    And I complete the `Appellant's address` page
     And I complete the `The appellant's contact preference` page
     And I complete the `EA appeal type` page
     And I complete the `EA appeal grounds` page
     And I complete the `Deportation order` page
     And I complete the `New matters` page
-    And I complete the `Has your client appealed against any other UK immigration decisions?` page
+    And I complete the `Other appeals` page
     And I complete the `Legal representative details` page
 
   @submit-appeal-with-asylum-support-remission  @RIA-3685
@@ -23,16 +23,16 @@ Feature: Submit appeal with asylum support remission
     Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
-    Given I am on the `Fee remissions` page
-    And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    Given I am on the `Fee remission` page
+    And I select `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
-    And I select `My client is being provided with Asylum Support Funding under sections 95 or 98 of the Immigration and Asylum Act 1999` for the `Choose one of the following statements` field
+    And I select `The appellant is being provided with Asylum Support Funding under sections 95 or 98 of the Immigration and Asylum Act 1999` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     And I should see the text `Enter the Asylum Support reference number. You can find this on the Asylum Support confirmation letter your client received from the Home Office.`
     And I type `20/02/1234` for the `Asylum Support reference number` field
-    And I upload `{@Evidence1.pdf}` for the `Asylum Support confirmation letter (Optional)` field
+    And I upload `{@Evidence1.pdf}` for the `Asylum Support confirmation letter (Optional)` document field
     And I wait for 10 seconds
     And I click the `Continue` button
 
@@ -41,7 +41,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
-    And I should see `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
+    And I should see `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
     And I should see `20/02/1234` for the `Asylum Support reference number` answer
     And I should see `Evidence1.pdf` in the `Asylum Support confirmation letter` field
 
@@ -103,11 +103,11 @@ Feature: Submit appeal with asylum support remission
     Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
-    Given I am on the `Fee remissions` page
-    And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    Given I am on the `Fee remission` page
+    And I select `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
-    And I select `My client receives Legal Aid` for the `Choose one of the following statements` field
+    And I select `The appellant receives Legal Aid` for the `Choose one of the following statements` field
     And I click the `Continue` button
     And I type `1A234B` for the `Legal Aid account number` field
     And I click the `Continue` button
@@ -117,7 +117,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
-    And I should see `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
+    And I should see `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
     And I should see `1A234B` for the `Legal Aid account number` answer
 
     When I click the `Save and continue` button
@@ -199,16 +199,16 @@ Feature: Submit appeal with asylum support remission
     Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
-    Given I am on the `Fee remissions` page
-    And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    Given I am on the `Fee remission` page
+    And I select `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
-    And I select `My client receives (or has parental responsibility for a person who receives) benefit services or accommodation provided by a local authority under section 17 of the Children Act 1989, section 22 of the Children (Scotland) Act 1995, article 18 of the Children (Northern Ireland) Order 1995 or section 37 of the Social Services and Well-being (Wales) Act 2014` for the `Choose one of the following statements` field
+    And I select `The appellant receives (or has parental responsibility for a person who receives) benefit services or accommodation provided by a local authority under section 17 of the Children Act 1989, section 22 of the Children (Scotland) Act 1995, article 18 of the Children (Northern Ireland) Order 1995 or section 37 of the Social Services and Well-being (Wales) Act 2014` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Then I am on the `Section 17` page
     And I should see the text `You need to provide a copy of a letter from the local authority confirming your client's benefit or accommodation support.`
-    And I upload `{@Evidence1.pdf}` for the `Local authority letter` field
+    And I upload `{@Evidence1.pdf}` for the `Local authority letter` document field
     And I wait for 10 seconds
     And I click the `Continue` button
 
@@ -217,7 +217,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
-    And I should see `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
+    And I should see `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
     And I should see `Evidence1.pdf` in the `Local authority letter` field
 
     When I click the `Save and continue` button
@@ -298,16 +298,16 @@ Feature: Submit appeal with asylum support remission
     Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
-    Given I am on the `Fee remissions` page
-    And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    Given I am on the `Fee remission` page
+    And I select `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
-    And I select `My client's accommodation is being provided by a local authority under section 20 of the Children Act 1989, section 25 of the Children (Scotland) Act 1995, article 21 of the Children (Northern Ireland) Order 1995 or section 76 of the Social Services and Well-being (Wales) Act 2014` for the `Choose one of the following statements` field
+    And I select `The appellant's accommodation is being provided by a local authority under section 20 of the Children Act 1989, section 25 of the Children (Scotland) Act 1995, article 21 of the Children (Northern Ireland) Order 1995 or section 76 of the Social Services and Well-being (Wales) Act 2014` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Then I am on the `Section 20` page
     And I should see the text `You need to provide a copy of a letter from the local authority confirming your client's benefit or accommodation support.`
-    And I upload `{@Evidence1.pdf}` for the `Local authority letter` field
+    And I upload `{@Evidence1.pdf}` for the `Local authority letter` document field
     And I wait for 10 seconds
     And I click the `Continue` button
 
@@ -316,7 +316,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
-    And I should see `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
+    And I should see `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
     And I should see `Evidence1.pdf` in the `Local authority letter` field
 
     When I click the `Save and continue` button
@@ -397,8 +397,8 @@ Feature: Submit appeal with asylum support remission
     Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
-    Given I am on the `Fee remissions` page
-    And I select `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
+    Given I am on the `Fee remission` page
+    And I select `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     And I select `The Home Office waived the fee for the application this appeal relates to because it came under exceptions 4.5 or 9.4 of the Immigration and Nationality (Fees) Regulations 2016` for the `Choose one of the following statements` field
@@ -406,7 +406,7 @@ Feature: Submit appeal with asylum support remission
 
     Then I am on the `Home Office Waiver` page
     And I should see the text `You need to provide a copy of the Home Office fee waiver letter to validate this fee remission.`
-    And I upload `{@Evidence1.pdf}` for the `Home Office fee waiver letter (Optional)` field
+    And I upload `{@Evidence1.pdf}` for the `Home Office fee waiver letter (Optional)` document field
     And I wait for 10 seconds
     And I click the `Continue` button
 
@@ -415,7 +415,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
-    And I should see `My client has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
+    And I should see `The appellant has a remission, e.g. Asylum support, Legal Aid, Home Office waiver, Section 17/20` for the `Choose one of the following statements` answer
     And I should see `Evidence1.pdf` in the `Home Office fee waiver letter` field
 
     When I click the `Save and continue` button
@@ -493,11 +493,11 @@ Feature: Submit appeal with asylum support remission
   @submit-appeal-with-help-with-fees  @RIA-3084
   Scenario: Submit EA appeal type with help with fees
 
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
     And I click the `Continue` button
 
-    Given I am on the `Fee remissions` page
-    And I select `My client has a Help with Fees reference number` for the `Choose one of the following statements` field
+    Given I am on the `Fee remission` page
+    And I select `The appellant has applied for help with fees` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Then I am on the `Help with Fees` page
@@ -509,7 +509,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
-    And I should see `My client has a Help with Fees reference number` for the `Choose one of the following statements` answer
+    And I should see `The appellant has applied for help with fees` for the `Choose one of the following statements` answer
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` answer
 
     When I click the `Save and continue` button
@@ -590,11 +590,11 @@ Feature: Submit appeal with asylum support remission
 
   @submit-appeal-with-exceptional-circumstances-remission  @RIA-3085
   Scenario: Submit appeal with Exceptional circumstances remission
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
     And I click the `Continue` button
 
-    Given I am on the `Fee remissions` page
-    And I select `My client wants to apply for an Exceptional Circumstances Remission` for the `Choose one of the following statements` field
+    Given I am on the `Fee remission` page
+    And I select `The appellant wants to apply for an Exceptional Circumstances Remission` for the `Choose one of the following statements` field
     And I click the `Continue` button
 
     Then I am on the `Exceptional Circumstances Remission` page
@@ -608,7 +608,7 @@ Feature: Submit appeal with asylum support remission
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
-    And I should see `My client wants to apply for an Exceptional Circumstances Remission` for the `Choose one of the following statements` answer
+    And I should see `The appellant wants to apply for an Exceptional Circumstances Remission` for the `Choose one of the following statements` answer
     And I should see `Test data for exceptional circumstances` for the `Explain the exceptional circumstances which justify remission of the fee` answer
     And I should see `Evidence1.pdf` in the `Supporting evidence` field
 

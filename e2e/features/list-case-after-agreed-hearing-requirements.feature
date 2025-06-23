@@ -6,7 +6,7 @@ Feature: List case and edit case listing after agreed hearing requirements stage
     Then I wait for 10 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     And I submit my appeal
     And I switch to be a `Case Officer`
     And I wait for 2 seconds

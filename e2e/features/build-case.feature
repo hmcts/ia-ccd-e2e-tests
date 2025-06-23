@@ -18,11 +18,11 @@ Feature: Build case
     And the `Continue` button is disabled
     And I should see the text `You must upload your appeal skeleton argument to submit your case`
 
-    When I upload `{@CaseArgument.pdf}` for the `Appeal skeleton argument` field
+    When I upload `{@CaseArgument.pdf}` for the `Appeal skeleton argument` document field
     Then the `Continue` button is enabled
     When I type `This is the case argument` for the `Describe the document (Optional)` field
     And I add an item to the `Evidence (Optional)` collection
-    And within the `Evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Evidence (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button

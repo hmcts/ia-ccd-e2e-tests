@@ -1,54 +1,52 @@
 Feature: Bails SNL Hearing request as Admin Officer
- Background:
-   Given I am signed in as a `Admin Officer Bails`
-   When I create a new bail application
-   Then I save my initial application as a `Admin Officer` for a Prison detention with two financial condition supporters and with no Legal Representative
 
-   @bail-Admintest @bail-nightly-test
+  Background:
+    Given I am signed in as a `Admin Officer Bails`
+    And I create a new bail application
+    And I save my initial application as a `Admin Officer` for a Prison detention with two financial condition supporters and with no Legal Representative
+    And I submit my bail application as a `Admin Officer`
+    And I click the `Close and Return to case details` button if present
+
+  @bail-Admintest @bail-nightly-test
   Scenario: Bails Hearing request as Admin Officer
-    When I select the `Submit the application` Next step
-    Then I am on the `Submit the application` page
+
+    Then I should see the text `Please Confirm location where Applicant is detained is correct, and they are held on immigration matters, before listing the case for hearing in List Assist.`
+    When I select the `Confirm detention location` Next step
+    Then I am on the `Confirm detention location` page
     And The page is accessible
-    And I click the `Submit` button
-    Then I should see the text `You have submitted this application`
-    When I click the `Close and Return to case details` button if present
-    And I wait for 10 seconds
+    When I select `Yes` for the `Have you verified if the Applicant's place of detention is correct?` field
+    And I click the `Continue` button
+    Then I am on the `Check your answers` page
+    And The page is accessible
+    And I should see `Yes` for the `Have you verified if the Applicant's place of detention is correct?` field
+    When I click the `Submit` button
+    Then I should see an alert confirming the case `has been updated with event: Confirm detention location`
+    And I should see the text `You must now add any case flags for interpreter or hearing requirement.`
     When I select the `Create Flag` Next step
     And I have created a `Urgent case` Flag in `Case level`
-    And I wait for 10 seconds
     When I select the `Create Flag` Next step
-    And I wait for 10 seconds
     And I have created a `Language Interpreter` Flag in `Harri Pugh` and language name is `Korean`
-    And I wait for 10 seconds
     When I select the `Create Flag` Next step
-    And I wait for 10 seconds
     And I have created a `Reasonable adjustment` Flag in `Harri Pugh` and signlanguage name is `British Sign Language (BSL)`
-    And I wait for 10 seconds
     When I select the `Create Flag` Next step
-    And I wait for 10 seconds
     And I have created a `Language Interpreter` Flag in `John Smith` and language name is `Telugu`
-    And I wait for 10 seconds
     When I select the `Create Flag` Next step
-    And I wait for 10 seconds
     And I have created a `Reasonable adjustment` Flag in `John Smith` and signlanguage name is `British Sign Language (BSL)`
-    And I wait for 10 seconds
 
     ##Hearing Request
-    And I wait for 3 seconds
     When I goto the `Hearings` tab
-    And I wait for 8 seconds
     And I click the `Request a hearing` button
-    And I wait for 3 seconds
     And I should see the text `Hearing requirements`
     And I should see the text `Any reasonable adjustments on this page will be included in the hearing request.`
     When I click the `Continue` button
-    And I wait for 3 seconds
     And I should see the text `Do you require any additional facilities?`
     When I click the `Continue` button
     And I click the `Bail` button
     And I click the `Continue` button
+    And I should see the text `Participant attendance`
+    And I select how each of the 3 participants will attend the hearing
     And I click the `Continue` button
-     And I add the `Hatton Cross` bail hearing location
+    And I add the `Hatton Cross` bail hearing location
     And I click the `Continue` button
     And I should see the text `Do you want a specific judge?`
     And I click the `Continue` button
@@ -56,5 +54,6 @@ Feature: Bails SNL Hearing request as Admin Officer
     And I click the `Continue` button
     And I should see the text `Enter any additional instructions for the hearing`
     And I click the `Continue` button
+    And I should see the text `Check your answers before sending your request`
     And I click the `Submit request` button
     And I should see the text `Hearing request submitted`

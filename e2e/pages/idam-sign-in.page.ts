@@ -1,7 +1,6 @@
 import { $, browser, ExpectedConditions } from 'protractor';
 import { AnyPage } from './any.page';
 import { FormFiller } from '../helpers/form-filler';
-import { Wait } from '../enums/wait';
 
 export class IdamSignInPage extends AnyPage {
   private formFiller = new FormFiller();
@@ -25,6 +24,6 @@ export class IdamSignInPage extends AnyPage {
   }
 
   async waitUntilLoaded() {
-    await browser.driver.wait(ExpectedConditions.visibilityOf($(this.signInButton)), Wait.normal, 'IDAM Sign In page did not load in time');
+    await browser.driver.wait(ExpectedConditions.visibilityOf($(this.signInButton)), 30000, 'IDAM Sign In page did not load in time');
   }
 }

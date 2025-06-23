@@ -60,7 +60,7 @@ Feature: Bails Edit bail documents
     And The page is accessible
     When I click the first `Add new` button
     And within the `Applicant documents (Optional)` collection's third item, I type `Somebody testing this` for the `Supplied by (Optional)` field
-    And within the `Applicant documents (Optional)` collection's third item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Applicant documents (Optional)` collection's third item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Applicant documents (Optional)` collection's third item, I type `This is a new document that wasn't here before` for the `Description (Optional)` field
     And within the `Applicant documents (Optional)` collection's third item, I type `10-02-2022` for the `Date uploaded (Optional)` field
     And I click the `Continue` button
@@ -92,7 +92,7 @@ Feature: Bails Edit bail documents
     And within the `Applicant documents (Optional)` collection's first item, I type `This is a new description that wasn't here before` for the `Description (Optional)` field
     And I click the first `Add new` button
     And within the `Applicant documents (Optional)` collection's second item, I type `Somebody testing this` for the `Supplied by (Optional)` field
-    And within the `Applicant documents (Optional)` collection's second item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Applicant documents (Optional)` collection's second item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Applicant documents (Optional)` collection's second item, I type `This is a new document that wasn't here before` for the `Description (Optional)` field
     And within the `Applicant documents (Optional)` collection's second item, I type `10-02-2022` for the `Date uploaded (Optional)` field
     And I click the `Continue` button
@@ -126,7 +126,7 @@ Feature: Bails Edit bail documents
     And within the `Applicant documents (Optional)` collection's first item, I type `This is a new description that wasn't here before` for the `Description (Optional)` field
     And I click the first `Add new` button
     And within the `Applicant documents (Optional)` collection's second item, I type `Somebody testing this` for the `Supplied by (Optional)` field
-    And within the `Applicant documents (Optional)` collection's second item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Applicant documents (Optional)` collection's second item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Applicant documents (Optional)` collection's second item, I type `This is a new document that wasn't here before` for the `Description (Optional)` field
     And within the `Applicant documents (Optional)` collection's second item, I type `10-02-2022` for the `Date uploaded (Optional)` field
     And I click the `Continue` button

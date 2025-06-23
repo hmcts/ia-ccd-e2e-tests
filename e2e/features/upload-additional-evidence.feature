@@ -33,7 +33,7 @@ Feature: Submit case
     And the `Continue` button is disabled
 
     When I add an item to the `Upload documents` collection
-    And within the `Upload documents` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
+    And within the `Upload documents` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` document field
     And within the `Upload documents` collection's first item, I type `This is the additional evidence` for the `Explain why you are submitting this evidence after the appeal skeleton argument.` field
 
     When I click the `Continue` button
@@ -78,19 +78,19 @@ Feature: Submit case
     And the `Continue` button is disabled
 
     When I add an item to the `Upload documents` collection
-    And within the `Upload documents` collection's first item, I upload `{@test.doc}` for the `Document` field
+    And within the `Upload documents` collection's first item, I upload `{@test.doc}` for the `Document` document field
     And within the `Upload documents` collection's first item, I type `This is an older Word document` for the `Explain why you are submitting this evidence after the appeal skeleton argument.` field
 
     When I add an item to the `Upload documents` collection
-    And within the `Upload documents` collection's second item, I upload `{@test.docx}` for the `Document` field
+    And within the `Upload documents` collection's second item, I upload `{@test.docx}` for the `Document` document field
     And within the `Upload documents` collection's second item, I type `This is a newer Word document` for the `Explain why you are submitting this evidence after the appeal skeleton argument.` field
 
     When I add an item to the `Upload documents` collection
-    And within the `Upload documents` collection's third item, I upload `{@test.png}` for the `Document` field
+    And within the `Upload documents` collection's third item, I upload `{@test.png}` for the `Document` document field
     And within the `Upload documents` collection's third item, I type `This is a PNG file` for the `Explain why you are submitting this evidence after the appeal skeleton argument.` field
 
     When I add an item to the `Upload documents` collection
-    And within the `Upload documents` collection's fourth item, I upload `{@test.jpg}` for the `Document` field
+    And within the `Upload documents` collection's fourth item, I upload `{@test.jpg}` for the `Document` document field
     And within the `Upload documents` collection's fourth item, I type `This is a JPEG file` for the `Explain why you are submitting this evidence after the appeal skeleton argument.` field
 
     When I click the `Continue` button

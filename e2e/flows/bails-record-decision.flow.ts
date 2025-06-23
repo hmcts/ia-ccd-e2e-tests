@@ -172,7 +172,6 @@ export class RecordDecision {
     await browser.sleep(this.waitTime);
     if (clickContinue) {
       await this.ccdFormPage.click('Record decision');
-      browser.sleep(30000);
     }
   }
 
@@ -192,15 +191,11 @@ export class RecordDecision {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(this.waitTime);
     await this.ccdFormPage.selectNextStep('Record the decision');
-    let overviewUrl = await browser.getCurrentUrl();
-    await this.ccdFormPage.flakeyClick('Go', overviewUrl);
-    await this.ccdFormPage.waitForSpinner();
     await this.completeJudgeName(true);
     await this.completeSsConsent(true, SsConsentYesOrNo);
     await this.completeTribunalDecision(true, tribunalDecision);
     if (tribunalDecision === 'Refused') {
       await this.completeReasonsForRefusal(true, 'No');
-      await this.completeCheckYourAnswers(true);
     } else if (tribunalDecision === 'Granted') {
       await this.completeReleaseStatus(true, releaseStatusYesOrNo);
       await this.completeConditions(true, conditions);
@@ -213,7 +208,6 @@ export class RecordDecision {
         }
       }
       await this.completeBailTransfer(true, bailTransferYesOrNo);
-      await this.completeCheckYourAnswers(true);
     } else if (tribunalDecision === 'Minded to grant') {
       await this.completeReasonsForDecision(true);
       await this.completeSsConsentDecision(true, SsConsentDecisionYesOrNo);
@@ -232,11 +226,10 @@ export class RecordDecision {
           }
         }
         await this.completeBailTransfer(true, bailTransferYesOrNo);
-        await this.completeCheckYourAnswers(true);
       }
     }
-    if (clickContinue) {
-      await this.ccdFormPage.click('Close and Return to case details');
-    }
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 }

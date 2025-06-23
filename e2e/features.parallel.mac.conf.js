@@ -21,7 +21,7 @@ let config = {
     'no-source': true,
     strict: true,
     format: ['node_modules/cucumber-pretty', 'json:./reports/tests/functional/results.json'],
-    retry: process.env.RETRIES || 5,
+    retry: parseInt(process.env.RETRIES || 3)
   },
 
   directConnect: true,
@@ -88,7 +88,7 @@ let config = {
     let totalTests = getTotalTestsArray();
     if (passedTests.length !== totalTests.length) {
       const failedTests = totalTests.filter((item) => !passedTests.includes(item));
-      console.log('Tests failed including retries: ' + failedTests);
+      console.log('Tests failed including retries: ' + failedTests.toString().split(',').join("\n"));
       process.exit(1);
     } else {
       console.log(`Tests passed after retries. Number of total tests: ${totalTests.length}. Number of passed tests: ${passedTests.length}.`);

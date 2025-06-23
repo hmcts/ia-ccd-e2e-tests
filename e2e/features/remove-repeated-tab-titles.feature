@@ -42,7 +42,7 @@ Feature: Remove repeated tab titles
     When I type `some case note description` for the `Case note` field
     Then the `Continue` button is enabled
 
-    When I upload `{@test.doc}` for the `Upload a document (Optional)` field
+    When I upload `{@test.doc}` for the `Upload a document (Optional)` document field
     And I wait for 10 seconds
     And I click the `Continue` button
     Then I am on the `Check your answers` page
@@ -82,7 +82,7 @@ Feature: Remove repeated tab titles
     And the `Continue` button is disabled
     And I type `A reason to update appeal details` for the `Tell us which appeal details you want to update and explain why the changes are necessary.` field
     And I add an item to the `Supporting evidence (Optional)` collection
-    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `document` field without a label
+    And within the `Supporting evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the document field without a label
     And I wait for the spinner
 
     When I click the `Continue` button

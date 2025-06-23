@@ -19,7 +19,7 @@ Feature: Edit appeal application
     Given I am on the `Basic details` page
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
@@ -41,7 +41,7 @@ Feature: Edit appeal application
     Given I am on the `New matters` page
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    Given I am on the `Other appeals` page
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page
@@ -55,7 +55,7 @@ Feature: Edit appeal application
     And I should see `González` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
+    And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Text message` for the `Communication Preference` answer
     And I should see `07930111111` for the `Mobile phone number` answer
     And I should see `Revocation of a protection status` for the `Decision type` answer
@@ -84,7 +84,7 @@ Feature: Edit appeal application
     And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
     #And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
-    And I should see `No` for the `Does the appellant have a fixed address?` field
+    And I should see `No` for the `Does the appellant have a postal address?` field
     And I should see `Text message` for the `Communication Preference` field
     And I should see `07930111111` for the `Mobile phone number` field
     And I should see `Stephen Fenn` for the `Name` field
@@ -134,7 +134,7 @@ Feature: Edit appeal application
     And I click the `Record an application` link
     Then I am on the `Record an application` page
     And I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Update appeal details` for the `Type of application` field
     And I type `update appeal details reason` for the `Reason for application` field
@@ -194,7 +194,7 @@ Feature: Edit appeal application
     And I type `Smith` for the `Family name` field
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
@@ -206,7 +206,7 @@ Feature: Edit appeal application
     Given I am on the `New matters` page
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    Given I am on the `Other appeals` page
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page
@@ -220,7 +220,7 @@ Feature: Edit appeal application
     And I should see `Smith` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
+    And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer
@@ -272,7 +272,7 @@ Feature: Edit appeal application
     And I click the `Record an application` link
     Then I am on the `Record an application` page
     And I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Update appeal details` for the `Type of application` field
     And I type `update appeal details reason` for the `Reason for application` field
@@ -332,7 +332,7 @@ Feature: Edit appeal application
     And I type `Smith` for the `Family name` field
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
@@ -344,7 +344,7 @@ Feature: Edit appeal application
     Given I am on the `New matters` page
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    Given I am on the `Other appeals` page
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page
@@ -361,7 +361,7 @@ Feature: Edit appeal application
     And I should see `Smith` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
+    And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer

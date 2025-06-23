@@ -5,15 +5,13 @@ Feature: SnL Flow Auto creation of caseflags
     And I wait for 10 seconds
     And I create a new case
     And I save my initial HU appeal type without remission and with hearing fee and pay now
-    And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card
-    And I wait for 15 seconds
     And I switch to be a `Case Officer`
-    And I wait for 10 seconds
     # And I request home office data
+    And I check the case has been paid for
     And I request respondent evidence
       #"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
@@ -38,8 +36,9 @@ Feature: SnL Flow Auto creation of caseflags
 
   @nightly-test @snl
   Scenario: SnL flow Auto case flags appear in Case flags Tab
+    And I switch to be a `Admin Officer`
     And I wait for 3 seconds
-    When I goto the `hearings` tab
+    When I goto the `Hearings` tab
     # And I wait for 8 seconds
     # And I click the `Request a hearing` button
     # And I wait for 3 seconds

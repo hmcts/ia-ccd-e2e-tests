@@ -7,8 +7,8 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     And I click the `Close and Return to case details` button if present
     Then I should be on the overview page
     And I submit my appeal before paying
-    Then I should see the text `You must now pay for this appeal. First create a service request, you can do this by selecting 'Create a service request' from the 'Next step' dropdown list. Then select 'Go'.`
-    When I click the `create a service request` link
+    Then I should see the text `You must now pay for this appeal.`
+    When I select the `Create a service request` Next step
     Then I should see the `Pay for this appeal` page
     And I should see the text `Next step - payment`
     And I should see the text `Select 'Submit' to create the service request`
@@ -19,8 +19,8 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     Then I should see the text `What happens next`
     Then I should see the text `You can now pay for this appeal in the 'Service Request' tab on the case details screen.`
     When I click the `Close and Return to case details` button if present
-    Then I should see the text `You must now pay for this appeal. You can do this via the Service Request tab.`
-    And I click the `Service Request` link
+    Then I should be on the overview page
+    And I goto the `Service Request` tab
     Then I should see the text `Not paid`
     When I click the `Pay now` link
     And I wait for 5 seconds
@@ -34,14 +34,14 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
   Scenario: Pay and submit appeal - successful payment (EA appeal type)
     When I type `4444333322221111` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`
-    And I type `24` for the field with ID `expiry-year`
+    And I type `30` for the field with ID `expiry-year`
     And I type `Test User` for the field with ID `cardholder-name`
     And I type `123` for the field with ID `cvc`
     And I type `123 Fake Street` for the field with ID `address-line-1`
-    And I type `Fakeicester` for the field with ID `address-city`
+    And I type `London` for the field with ID `address-city`
     And I type `FE1 2EF` for the field with ID `address-postcode`
     And I type `test@test.com` for the field with ID `email`
-    And I click the `Continue` button
+    And I click the Continue button on the Pay by card page
     Then I should see the text `Payment summary`
     When I click the `Confirm payment` button
     And I wait for 5 seconds
@@ -57,7 +57,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
 
 
   @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-ea-declined
@@ -65,14 +65,14 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
 
     When I type `4000000000000002` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`
-    And I type `24` for the field with ID `expiry-year`
+    And I type `30` for the field with ID `expiry-year`
     And I type `Test User` for the field with ID `cardholder-name`
     And I type `123` for the field with ID `cvc`
     And I type `123 Fake Street` for the field with ID `address-line-1`
-    And I type `Fakeicester` for the field with ID `address-city`
+    And I type `London` for the field with ID `address-city`
     And I type `FE1 2EF` for the field with ID `address-postcode`
     And I type `test@test.com` for the field with ID `email`
-    And I click the `Continue` button
+    And I click the Continue button on the Pay by card page
     Then I should see the text `Your payment has been declined`
     And I should see the text `No money has been taken from your account.`
     When I click the `Continue` button
@@ -85,14 +85,14 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
 
     When I type `4000000000000119` for the field with ID `card-no`
     And I type `10` for the field with ID `expiry-month`
-    And I type `24` for the field with ID `expiry-year`
+    And I type `30` for the field with ID `expiry-year`
     And I type `Test User` for the field with ID `cardholder-name`
     And I type `123` for the field with ID `cvc`
     And I type `123 Fake Street` for the field with ID `address-line-1`
-    And I type `Fakeicester` for the field with ID `address-city`
+    And I type `London` for the field with ID `address-city`
     And I type `FE1 2EF` for the field with ID `address-postcode`
     And I type `test@test.com` for the field with ID `email`
-    And I click the `Continue` button
+    And I click the Continue button on the Pay by card page
     Then I should see the text `We’re experiencing technical problems`
     And I should see the text `No money has been taken from your account.`
     When I click the `Cancel and go back to try the payment again` link

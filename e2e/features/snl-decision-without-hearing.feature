@@ -8,13 +8,12 @@ Feature: SNL Decision without a hearing from respondent review state
   @RIA-2122 
   Scenario: SNL flow Case Officer makes a decision without a hearing respondentReview
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card
-    And I wait for 15 seconds
     And I switch to be a `Case Officer`
+    And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
     And I upload respondent evidence
@@ -30,14 +29,12 @@ Feature: SNL Decision without a hearing from respondent review state
 
   Scenario: SNL flow Case Officer makes a decision without a hearing Force case flow
     And I save my initial EU appeal type without remission and with hearing fee and pay now
-    And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
-    Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
+    Then I should see `You still need to submit your appeal.`
+    And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
-    And I wait for 10 seconds
+    And I check the case has been paid for
     And I request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
@@ -63,13 +60,12 @@ Feature: SNL Decision without a hearing from respondent review state
   Scenario: SNL flow Case Officer makes a decision without a hearing for out of country flow
     And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `EU` appeal
     And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
-    Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
+    Then I should see `You still need to submit your appeal.`
+    And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
-    And I wait for 10 seconds
+    And I check the case has been paid for
     And I request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
@@ -87,13 +83,12 @@ Feature: SNL Decision without a hearing from respondent review state
   Scenario: SNL flow Case Officer makes a decision without a hearing for out of country flow in listing state
     And I save my out of country appeal with sponsor given name `Smith` family name `Benett` contactPreference `wantsSms` authorisation `Yes` for `EU` appeal
     And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
-    Then I should see the text `You still need to submit your appeal.`
-    And I pay for and submit my appeal by Card for a non PA appeal type
-    And I wait for 15 seconds
+    Then I should see `You still need to submit your appeal.`
+    And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
-    And I wait for 10 seconds
+    And I check the case has been paid for
     And I request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step

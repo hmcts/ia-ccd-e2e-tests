@@ -35,14 +35,14 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
   Scenario: New Overview tab - FTPA resident judge records the appellant Reheard Decision (Reheard Rule 32) and POU applies for respondent FTPA
 
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 32` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I type `These are list of instructions` for the `Listing instructions (Optional)` field
@@ -68,7 +68,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`
@@ -161,19 +161,19 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
   Scenario: New Overview tab - FTPA resident judge records the appellant Reheard Decision (Reheard Rule 35) and POU applies for respondent FTPA
 
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
     And I click the `Continue` button
     And I type `These are list of instructions` for the `Listing instructions (Optional)` field
@@ -198,7 +198,7 @@ Feature: New Overview tab - FTPA resident judge records the respondent Reheard D
     And within the `FTPA Decision and Reasons document` collection's first item, I should see `This is the ftpa decision and reasons` in the `Describe the document` field
     And I should see `{$TODAY|D MMM YYYY}` in the `Decision date` field
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     And I click the `Overview` tab
     And I should see the image `appeal_reheard.png`
     And I should see the text `The appeal is being reheard. A Tribunal Caseworker will review any Tribunal instructions and then the listing team will relist the case.`

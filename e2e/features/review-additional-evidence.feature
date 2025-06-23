@@ -42,7 +42,7 @@ Feature: Review Additional Evidence
     And I select the `Upload additional evidence` Next step
 
     When I add an item to the `Additional evidence` collection
-    And within the `Additional evidence` collection's first item, I upload `{@HomeOfficeEvidence.pdf}` for the `Document` field
+    And within the `Additional evidence` collection's first item, I upload `{@HomeOfficeEvidence.pdf}` for the `Document` document field
     And within the `Additional evidence` collection's first item, I type `This is the additional Home Office evidence` for the `Why it was late` field
     And I click the `Continue` button
     Then I am on the `Check your answers` page

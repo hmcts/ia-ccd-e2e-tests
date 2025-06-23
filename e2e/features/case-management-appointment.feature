@@ -10,7 +10,7 @@ Feature: Submit reasons for appeal
     And I click the `upload the Home Office bundle` link
     And I am on the `Upload Home Office bundle` page
     And I add an item to the `Upload Home Office bundle` collection
-    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` field
+    And within the `Upload Home Office bundle` collection's first item, I upload `{@Evidence1.pdf}` for the `Document` document field
     And within the `Upload Home Office bundle` collection's first item, I type `This is the respondent evidence` for the `Describe the document` field
     And I click the `Continue` button
     And I am on the `Check your answers` page
