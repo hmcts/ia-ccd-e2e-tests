@@ -93,14 +93,16 @@ withNightlyPipeline("nodejs", product, component) {
                 } catch (Error) {
                     unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
-                    publishHTML([
-                            allowMissing         : true,
-                            alwaysLinkToLastBuild: true,
-                            keepAll              : true,
-                            reportDir            : "reports/tests/functional/",
-                            reportFiles          : 'index.html',
-                            reportName           : 'IAC - Appeal E2E Test Report'
-                    ])
+                    if (params.skipBailFunctionalTests) {
+                        publishHTML([
+                                allowMissing         : true,
+                                alwaysLinkToLastBuild: true,
+                                keepAll              : true,
+                                reportDir            : "reports/tests/functional/",
+                                reportFiles          : 'index.html',
+                                reportName           : 'IAC - Appeal E2E Test Report'
+                        ])
+                    }
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
                     publishHTML([
@@ -127,7 +129,7 @@ withNightlyPipeline("nodejs", product, component) {
                             keepAll              : true,
                             reportDir            : "reports/tests/functional/",
                             reportFiles          : 'index.html',
-                            reportName           : 'IAC - Bail E2E Test Report'
+                            reportName           : params.skipAppealFunctionalTests ? 'IAC - Bail E2E Test Report' : 'IAC - Appeal and Bails E2E Test Report'
                     ])
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'

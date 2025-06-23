@@ -5,13 +5,11 @@ const path = require('path');
 let count = 0;
 
 BeforeAll(async function () {
-  await createTestCounterIfNone();
-
+  await createNewTestCounter();
 });
 
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`;
-  await createTestCounterIfNone();
   await addToTotalTestsIfNotExists(test);
 });
 
@@ -122,26 +120,18 @@ function sleep(milliseconds) {
   }
 }
 
-async function createTestCounterIfNone() {
+async function createNewTestCounter() {
   const filePath = path.join(process.cwd(), 'e2e', 'testCounter.json');
   const defaultContent = {
     totalTests: [],
     passedTests: [],
   };
 
-  // Check if the file exists
-  await fs.access(filePath, fs.constants.F_OK, async (err) => {
+  await fs.writeFile(filePath, JSON.stringify(defaultContent, null, 2), (err) => {
     if (err) {
-      // File doesn't exist, create it with default content
-      await fs.writeFile(filePath, JSON.stringify(defaultContent, null, 2), (err) => {
-        if (err) {
-          console.error('Error creating testCounter.json:', err);
-        } else {
-          console.log('testCounter.json created successfully.');
-        }
-      });
+      console.error('Error creating testCounter.json:', err);
     } else {
-      console.log('File already exists.');
+      console.log('testCounter.json created successfully.');
     }
   });
 }
