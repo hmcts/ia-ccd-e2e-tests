@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "create:testCounter": "cat > testCounter.json <<< '{}'",
+    "create:testCounter": "cat > e2e/testCounter.json <<< '{}'",
     "test:setupFunctional": "npx @puppeteer/browsers install chrome@123 --platform linux; npx @puppeteer/browsers install chromedriver@123 --platform linux; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192';",
     "test:appealFullfunctional": "yarn create:testCounter; yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @appeal-test-test; protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@appeal-test-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:bailFullfunctional": "yarn create:testCounter; yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @bail-test-test; protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@bail-test-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
