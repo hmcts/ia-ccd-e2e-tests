@@ -4,10 +4,6 @@ const fs = require('fs');
 const path = require('path');
 let count = 0;
 
-BeforeAll(async function () {
-  await createNewTestCounter();
-});
-
 Before(async function (scenario) {
   let test = `${scenario.sourceLocation.uri}:${scenario.sourceLocation.line}`;
   await addToTotalTestsIfNotExists(test);
@@ -120,18 +116,3 @@ function sleep(milliseconds) {
   }
 }
 
-async function createNewTestCounter() {
-  const filePath = path.join(process.cwd(), 'e2e', 'testCounter.json');
-  const defaultContent = {
-    totalTests: [],
-    passedTests: [],
-  };
-
-  await fs.writeFile(filePath, JSON.stringify(defaultContent, null, 2), (err) => {
-    if (err) {
-      console.error('Error creating testCounter.json:', err);
-    } else {
-      console.log('testCounter.json created successfully.');
-    }
-  });
-}

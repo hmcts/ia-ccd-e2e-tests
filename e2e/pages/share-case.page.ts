@@ -4,7 +4,6 @@ import { CcdFormPage } from './ccd-form.page';
 
 const BrowserWaits = require('../support/customWaits');
 const ccdFormPage = new CcdFormPage();
-const iaConfig = require('../ia.conf');
 
 export class ShareCasePage {
   private userEmailInput: any;
@@ -249,11 +248,7 @@ export class ShareCasePage {
     const jurisdictionPath = '//select[@id="wb-jurisdiction"]' + '/option[normalize-space()="Immigration & Asylum"]';
     await ccdFormPage.waitForXpathElementVisible(jurisdictionPath);
     await element(by.xpath(jurisdictionPath)).click();
-    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
-      await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
-    } else if (iaConfig.CcdWebUrl.includes('demo')) {
-      await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
-    }
+    await element(by.xpath('//option[contains(text(), "Appeal*")]')).click();
     const appealRefPath = '//*[@id="appealReferenceNumber"]';
     try {
       await ccdFormPage.waitForXpathElementVisible(appealRefPath);
