@@ -6,7 +6,7 @@ Feature: Bails Add a case flag to bails application
         And I submit my bail application as a `Legal Rep`
         And I should see the text `What happens next`
 
-    @bail-nightly-test @caseflag
+    @bail-nightly-test @caseflag @bail-test-test
     Scenario: Create a case Flag
         And I switch to be a `Admin Officer Bails`
         When I select the `Create Flag` Next step
