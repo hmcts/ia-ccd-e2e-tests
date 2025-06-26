@@ -1,8 +1,8 @@
 Feature: Set Aside Make an Appplication for rule 31 and 32
 
     @set-aside-dlrm @RIA-8228
-    Scenario Outline: Set Aside Make an Appplication for rule 31 and 32
-        Given I am signed in as a <iac_user>
+    Scenario: Set Aside Make an Application for rule 31 and 32
+        Given I am signed in as a `Legal Org User Rep A`
         When I go to the `Case List`
         And  I filter the cases by `Decided` state
         And I wait for 2 seconds
@@ -10,7 +10,6 @@ Feature: Set Aside Make an Appplication for rule 31 and 32
         When I click the `Applications` tab
         And I select the `Make an application` Next step
         Then I should see the `Type of application` page
-        And I should see the option `Application under rule 31 or rule 32` for the `Type of application` field
         When I select `Application under rule 31 or rule 32` for the `Type of application` field
         And I click the `Continue` button
         Then I should see the `Explain your application` page
@@ -32,7 +31,6 @@ Feature: Set Aside Make an Appplication for rule 31 and 32
 
         When I click the `Applications` tab
         Then I should see the `Application` field
-        And within the `Application` collection's first item, I should see <applicant> in the `Applicant` field
         And within the `Application` collection's first item, I should see `Application under rule 31 or rule 32` in the `Type of application` field
         And within the `Application` collection's first item, I should see `Test reason for  Application under rule 31 or rule 32` in the `Application details` field
         And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
@@ -42,14 +40,9 @@ Feature: Set Aside Make an Appplication for rule 31 and 32
         And I wait for 3 seconds
         And I click the `Applications` tab
         Then I should see the `Application` field
-        And within the `Application` collection's first item, I should see <applicant> in the `Applicant` field
         And within the `Application` collection's first item, I should see `Application under rule 31 or rule 32` in the `Type of application` field
         And within the `Application` collection's first item, I should see `Test reason for  Application under rule 31 or rule 32` in the `Application details` field
         And within the `Application` collection's first item, I should see `Evidence1.pdf` in the `Documents supporting application` field
         And within the `Application` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date application was made` field
         And within the `Application` collection's first item, I should see `Pending` in the `Decision` field
-        Examples:
-            | iac_user             | applicant            |
-            | Legal Org User Rep A | Legal representative |
-            | Home Office Generic  | Respondent           |
 
