@@ -278,7 +278,7 @@ export class StartAppealFlow {
     if (appealType === "EU") {
       await this.ccdFormPage.setFieldValue(
         "Type of appeal",
-        "EU Settlement Scheme"
+        "Refusal of application under the EU Settlement Scheme"
       );
     }
     if (clickContinue) {
