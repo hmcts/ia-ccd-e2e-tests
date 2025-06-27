@@ -550,6 +550,7 @@ export class StartAppealFlow {
     // if (appealType !== 'EU') {
     //   await this.completedGivenAppealGrounds(true, appealType);
     // }
+    await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     // await this.completeNewMatters(true); ICC_Automation-ToDo : bug new matters not shwon
     await this.completeOtherAppeals(true);
@@ -589,7 +590,7 @@ export class StartAppealFlow {
     // }
     await this.completeBasicDetails(true, true);
     await this.completeNationality(true);
-    await this.completeClientAddress(false, true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
+    await this.completeClientAddress(true, true, '2 Hawthorn Drive, Yeadon, Leeds', 'LS19 7XB');
     // await this.completeClientAddress(true, true, address, postcode, true);
     // await this.completeContactPreference(true);
     await this.ccdFormPage.setFieldValue('Mobile number (Optional)', '07977111111');
