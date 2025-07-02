@@ -111,7 +111,7 @@ Feature: Final display for FTPA decision and reasons
 
     When I switch to be a `Judge`
     And I select the `Decide FTPA application` Next step
-    And I select Appellant for the applicant type
+    And I select Home Office for the applicant type
     And I click the `Continue` button
     And I select `Permission granted` for the `The outcome of the application` field
     And I click the `Continue` button
