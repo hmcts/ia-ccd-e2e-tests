@@ -387,6 +387,30 @@ Given(
 );
 
 Given(
+    /^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`? for an prison facility$/,
+    async function (appealType, feeType, paymentChoice) {
+        await startAppealFlow.saveInitialDetainedAppealWithoutRemission(
+            true,
+            appealType,
+            feeType,
+            paymentChoice
+        );
+    }
+);
+
+Given(
+    /^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`? for an other facility$/,
+    async function (appealType, feeType, paymentChoice) {
+        await startAppealFlow.saveInitialDetainedOtherAppealWithoutRemission(
+            true,
+            appealType,
+            feeType,
+            paymentChoice
+        );
+    }
+);
+
+Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee$/,
   async function (appealType, remission, feeType) {
     await startAppealFlow.saveInitialAppealWithFee(
@@ -517,6 +541,17 @@ Given(
       hearingOption
     );
   }
+);
+
+Given(
+    /^I save my initial `?([^\s`]+)`? appeal for nonPayment `?([^\s`]+)`? hearing for an Immigration removal centre detention facility$/,
+    async function (appealType, hearingOption) {
+        await startAppealFlow.saveInitialNonPaymentDetainedAppeal(
+            true,
+            appealType,
+            hearingOption,
+        );
+    }
 );
 
 Given("I wait for any found addresses to load", async function () {
