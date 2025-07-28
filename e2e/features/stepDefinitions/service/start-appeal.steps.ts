@@ -290,6 +290,18 @@ Given(
   }
 );
 
+Given(
+  /^I save my initial internal `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/,
+   async function (appealType, feeType, paymentChoice) {
+    await startAppealFlow.saveInitialInternalAppealWithoutRemission(
+      true,
+      appealType,
+      feeType,
+      paymentChoice
+    );
+  }
+);
+
 // tslint:disable-next-line:max-line-length
 Given(
   /^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s`]+)`? with address `?([^\s`]+)`? and with sponsor `?([^\s`]+)`?$/,
