@@ -49,9 +49,9 @@ export class PayAndSubmitAppealFlow {
       await this.ccdPage.waitForXpathElementVisible(appealDetailsPath);
 
       const isPaymentPendingCount: number = await element
-        .all(by.xpath('//span[contains(text(), "Payment pending")]'))
-        .filter(async e => await e.isPresent())
-        .count();
+          .all(by.xpath('//span[contains(text(), "Payment pending")]'))
+          .filter(async e => await e.isPresent())
+          .count();
       isPaymentPending = isPaymentPendingCount > 0;
     }
   }
@@ -111,9 +111,9 @@ export class PayAndSubmitAppealFlow {
 
   async checkCasePaidCaseOfficer() {
     const badNextTextCount = element
-      .all(by.xpath('//p[contains(text(), "This appeal is awaiting payment.")]'))
-      .filter(e => e.isDisplayed())
-      .count();
+        .all(by.xpath('//p[contains(text(), "This appeal is awaiting payment.")]'))
+        .filter(e => e.isDisplayed())
+        .count();
     const nextStepPath = '//select[@id="next-step"]';
     const url = await this.ccdPage.getCurrentUrl();
     await this.ccdPage.waitForXpathElementVisible(nextStepPath);
@@ -134,5 +134,19 @@ export class PayAndSubmitAppealFlow {
     } catch {
       await this.ccdFormPage.click('Continue');
     }
+  }
+
+  async markAppealAsPaid() {
+    await this.ccdFormPage.selectNextStep('Mark appeal as paid');
+    await this.ccdFormPage.headingContains('Mark appeal as paid');
+    await this.ccdFormPage.setFieldValue('Amount paid', '140');
+    await this.ccdFormPage.setFieldValue('Payment date', '22-07-2025');
+    await this.ccdFormPage.setFieldValue('Additional payment information (Optional)', 'Payment is now complete');
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.contentContains('Check your answers');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
+    await this.ccdFormPage.click('Mark as paid');
+
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 }
