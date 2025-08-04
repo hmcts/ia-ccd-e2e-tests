@@ -70,7 +70,7 @@ Feature: Progress Detained RP Appeal upto FTPA decided
     And I wait for 2 seconds
 
   @detained-rp-case
-  Scenario: FTPA judge decision - Partially granted
+  Scenario: FTPA judge decision - Granted/Partially granted
 
     Then I apply for appellant FTPA
 
@@ -113,7 +113,7 @@ Feature: Progress Detained RP Appeal upto FTPA decided
     And I select the `Decide FTPA application` Next step
     And I select Home Office for the applicant type
     And I click the `Continue` button
-    And I select `Permission granted` for the `The outcome of the application` field
+    And I select `Permission partially granted` for the `The outcome of the application` field
     And I click the `Continue` button
     And I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And I click the `Continue` button

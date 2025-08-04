@@ -68,8 +68,8 @@ Feature: Progress Detained PA Appeal upto FTPA decided
     When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
-  @detained-pa-case @test1
-  Scenario: FTPA judge decision - Granted
+  @detained-pa-case
+  Scenario: FTPA judge decision - Refused/Granted
 
     Then I apply for appellant FTPA
 
@@ -78,32 +78,31 @@ Feature: Progress Detained PA Appeal upto FTPA decided
     And I select the `Decide FTPA application` Next step
     And I select Appellant for the applicant type
     And I click the `Continue` button
-    And I select `Permission granted` for the `The outcome of the application` field
+    And I select `Permission refused` for the `The outcome of the application` field
     And I click the `Continue` button
     And I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And I click the `Continue` button
-    And I select `No` for the `Notice of Intention to Set Aside sent?` field
-    And I click the `Continue` button
-    And I should see `Notes for the Upper Tribunal`
+    And I select `Yes` for the `Notice of Intention to Set Aside sent?` field
+    And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I click the `Continue` button
     And I should see `Check your answers`
     And I click the `Submit` button
     And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Decide FTPA application`
     And I click the `Overview` tab
-    And I should see the image `ftpaGranted.png`
+    And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Legal Org User Rep A`
     And I click the `Overview` tab
-    And I should see the image `ftpaGranted.png`
+    And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Case Officer`
     And I click the `Overview` tab
-    And I should see the image `ftpaGranted.png`
+    And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Admin Officer`
     And I click the `Overview` tab
-    And I should see the image `ftpaGranted.png`
+    And I should see the image `appeal_dismissed.png`
 
     When I switch to be a `Home Office POU`
     Then I apply for respondent FTPA
