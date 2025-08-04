@@ -407,6 +407,19 @@ Given(
 );
 
 Given(
+    /^I save my initial (aip|lr) internal ([A-Za-z]+) appeal type without remission and (with|without) hearing fee and pay (now|later) for an prison facility$/,
+    async function (internalJourneyType, appealType, feeType, paymentChoice) {
+        await startAppealFlow.saveInitialAipDetainedAppealWithoutRemission(
+            true,
+            appealType,
+            feeType,
+            paymentChoice,
+            internalJourneyType
+        );
+    }
+);
+
+Given(
     /^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`? for an other facility$/,
     async function (appealType, feeType, paymentChoice) {
         await startAppealFlow.saveInitialDetainedOtherAppealWithoutRemission(
@@ -414,6 +427,19 @@ Given(
             appealType,
             feeType,
             paymentChoice
+        );
+    }
+);
+
+Given(
+    /^I save my initial (aip|lr) internal ([A-Za-z]+) appeal type without remission and (with|without) hearing fee and pay (now|later) for an other facility$/,
+    async function (internalJourneyType, appealType, feeType, paymentChoice) {
+        await startAppealFlow.saveInitialAipDetainedOtherAppealWithoutRemission(
+            true,
+            appealType,
+            feeType,
+            paymentChoice,
+            internalJourneyType
         );
     }
 );
@@ -558,6 +584,18 @@ Given(
             true,
             appealType,
             hearingOption,
+        );
+    }
+);
+
+Given(
+    /^I save my initial (aip|lr) internal ([A-Za-z]+) appeal for nonPayment (with|without) hearing for an Immigration removal centre detention facility$/,
+    async function (internalJourneyType, appealType, hearingOption) {
+        await startAppealFlow.saveInitialAipInternalNonPaymentDetainedAppeal(
+            true,
+            appealType,
+            hearingOption,
+            internalJourneyType
         );
     }
 );
