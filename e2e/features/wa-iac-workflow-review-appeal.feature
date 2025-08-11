@@ -8,14 +8,14 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     When I save my initial DC appeal for nonPayment without hearing
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     And I click the `Overview` tab
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Submit` button
     Then I should see the text `Your appeal has been submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -23,14 +23,14 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     When I save my initial RP appeal for nonPayment without hearing
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     And I click the `Overview` tab
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Submit` button
     Then I should see the text `Your appeal has been submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -38,14 +38,14 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial PA appeal type without remission and with hearing fee and pay later
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     And I click the `Overview` tab
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
     And I click the `Continue` button
     When I click the `Submit` button
     Then I should see the text `Your appeal has been submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -53,7 +53,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     When I click the `pay for and submit your appeal` link
     Then I should see the `Select PBA number` page
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
@@ -62,7 +62,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
     And I click the `Available tasks` link
@@ -77,7 +77,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -85,7 +85,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -93,7 +93,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial HU appeal type without remission and with hearing fee and pay offline
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     And I click the `Overview` tab
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
@@ -109,7 +109,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I type `Payment is now complete` for the `Additional payment information (Optional) field
     And I click the `Continue` button
 
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -117,7 +117,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -125,7 +125,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I select the `Mark appeal as not paid` Next step
     And I click the `Mark as not paid` button
     Then I should see the text `What happens next`
@@ -136,7 +136,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -144,7 +144,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I select the `Mark appeal as not paid` Next step
     And I click the `Mark as not paid` button
     Then I should see the text `What happens next`
@@ -159,7 +159,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I wait for 2 seconds
     Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.'
 
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -167,7 +167,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -175,7 +175,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I select the `Mark appeal as not paid` Next step
     And I click the `Mark as not paid` button
     Then I should see the text `What happens next`
@@ -190,7 +190,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I wait for 2 seconds
     Then I should see the text `You have submitted your appeal. A Tribunal Caseworker will now review your appeal.'
 
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -198,7 +198,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -225,7 +225,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     And I wait for 10 seconds
 
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
 
@@ -233,7 +233,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -241,7 +241,7 @@ Feature: Work allocation Task list and Task Manager for review appeal
     And I click the `Continue` button
     When I click the `Pay and submit now` button
     Then I should see the text `Your appeal has been paid for and submitted`
-    And I switch to be a Sr `Case Officer`
+    And I switch to be a `Sr Case Officer`
     And I click the `Task list` link
     And I wait for 10 seconds
     And I click the `Available tasks` link

@@ -17,7 +17,7 @@ Feature: Send direction action
 
     When I type `Do the thing` for the `Explain the direction you are issuing` field
     And I select `Legal representative` for the `Who are you giving the direction to?` field
-    And I type `31-12-2018` for the `By what date must they comply?` field
+    And I type `{$TODAY+8|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
     And I click the `Send direction` button
     And I click the `directions tab` link
@@ -26,7 +26,7 @@ Feature: Send direction action
     And I should see the `Directions` field
     And within the `Directions` collection's first item, I should see `Do the thing` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
-    And within the `Directions` collection's first item, I should see `31 Dec 2018` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+8|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
     When I click the `Change a direction due date` link
@@ -63,7 +63,7 @@ Feature: Send direction action
     And within the `Directions` collection's first item, I should see `31 Dec 2022` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-    And within the `Previous dates` collection's first item, I should see `31 Dec 2018` for the `Date due` field
+    And within the `Previous dates` collection's first item, I should see `{$TODAY+8|D MMM YYYY}` for the `Date due` field
     And within the `Previous dates` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
   @regression @send-direction @RIA-602 @RIA-723 @RIA-2240
@@ -77,7 +77,7 @@ Feature: Send direction action
 
     When I type `Do the thing` for the `Explain the direction you are issuing` field
     And I select `Legal representative` for the `Who are you giving the direction to?` field
-    And I type `31-12-2018` for the `By what date must they comply?` field
+    And I type `{$TODAY+8|DD MM YYYY}` for the `By what date must they comply?` field
     And I click the `Continue` button
     And I click the `Send direction` button
     
@@ -88,7 +88,7 @@ Feature: Send direction action
     And I should see the `Directions` field
     And within the `Directions` collection's first item, I should see `Do the thing` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Legal representative` for the `Parties` field
-    And within the `Directions` collection's first item, I should see `31 Dec 2018` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+8|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
     
@@ -127,5 +127,5 @@ Feature: Send direction action
     And within the `Directions` collection's first item, I should see `31 Dec 2022` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field
 
-    And within the `Previous dates` collection's first item, I should see `31 Dec 2018` for the `Date due` field
+    And within the `Previous dates` collection's first item, I should see `{$TODAY+8|D MMM YYYY}` for the `Date due` field
     And within the `Previous dates` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

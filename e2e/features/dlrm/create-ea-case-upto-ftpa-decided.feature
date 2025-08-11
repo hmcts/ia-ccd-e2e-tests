@@ -4,8 +4,7 @@ Feature: Create EA case upto FTPA submitted
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I wait for 10 seconds
-    And I wait for 2 seconds
+    And I click the `Close and Return to case details` button if present
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
     And I check the case has been paid for
@@ -34,7 +33,6 @@ Feature: Create EA case upto FTPA submitted
     And I wait for 2 seconds
     And I create case summary
     And I generate the hearing bundle
-    And I wait for 30 seconds
     And I refresh the page
     And I wait for 4 seconds
 
@@ -67,10 +65,42 @@ Feature: Create EA case upto FTPA submitted
 
     And I prepare decision and reasons
     And I send decision and reasons
-    When I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds
 
   @dlrm-ea-case  @dlrm-cases
-  Scenario: PA case submit FTPA
-    Then I wait for 2 seconds
-    # Then I apply for appellant FTPA
+  Scenario: FTPA judge decision - Permission refused
+
+    When I switch to be a `Home Office POU`
+    Then I apply for respondent FTPA
+
+    When I switch to be a `Judge`
+    And I select the `Decide FTPA application` Next step
+    And I select Home Office for the applicant type
+    And I click the `Continue` button
+    And I select `Permission refused` for the `The outcome of the application` field
+    And I click the `Continue` button
+    And I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
+    And I click the `Continue` button
+    And I select `Yes` for the `Notice of Intention to Set Aside sent?` field
+    And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
+    And I click the `Continue` button
+    And I am on the `Check your answers` page
+    And I click the `Submit` button
+    And I wait for the spinner
+    And I click the `Close and Return to case details` button if present
+    And I should see an alert confirming the case `has been updated with event: Decide FTPA application`
+
+    And I click the `Overview` tab
+    And I should see the image `appeal_dismissed.png`
+
+    When I switch to be a `Legal Org User Rep A`
+    And I click the `Overview` tab
+    And I should see the image `appeal_dismissed.png`
+
+    When I switch to be a `Case Officer`
+    And I click the `Overview` tab
+    And I should see the image `appeal_dismissed.png`
+
+    When I switch to be a `Admin Officer`
+    And I click the `Overview` tab
+    And I should see the image `appeal_dismissed.png`

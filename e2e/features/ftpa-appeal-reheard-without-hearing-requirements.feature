@@ -37,7 +37,7 @@ Feature: Submit without hearing requirements for appeal submitted - FTPA reheard
     When I switch to be a `Admin Officer`
     Then I select the `Upload hearing recording` Next step
     And I add an item to the `Recordings` collection
-    And within the `Recordings` collection's first item, I upload `{@HearingRecording.mp3}` for the `Audio file` field
+    And within the `Recordings` collection's first item, I upload `{@HearingRecording.mp3}` for the `Audio file` document field
     And within the `Recordings` collection's first item, I type `some description` for the `Describe the file` field
     And I click the `Continue` button
     And I click the `Upload` button
@@ -70,19 +70,19 @@ Feature: Submit without hearing requirements for appeal submitted - FTPA reheard
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
 
-    When I switch to be a Judge
+    When I switch to be a `Judge`
     Then I select the `Resident judge FTPA decision` Next step
     And I am on the `Resident judge FTPA decision` page
     And I select Home Office for the applicant type
     And I click the `Continue` button
     And I select `Decision set aside and to be reheard in the First-tier under rule 35` for the `The outcome of the application` field
     And I add an item to the `FTPA Decision and Reasons document` collection
-    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` field
+    And within the `FTPA Decision and Reasons document` collection's first item, I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And within the `FTPA Decision and Reasons document` collection's first item, I type `This is the ftpa decision and reasons` for the `Describe the document` field
     And I click the `Continue` button
     And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
     And I add an item to the `Notice communication` collection
-    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` field
+    And within the `Notice communication` collection's first item, I upload `{@FTPANoticeOfCommunication.pdf}` for the `Document` document field
     And within the `Notice communication` collection's first item, I type `This is the ftpa notice of communication` for the `Describe the document` field
     And I click the `Continue` button
     And I type `These are list of instructions` for the `Listing instructions (Optional)` field

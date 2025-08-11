@@ -25,7 +25,7 @@ Feature: Out of country appeal with no address and no sponsor
     And I should see `A decision either 1) to refuse a human rights claim made following an application for entry clearance or 2) to refuse a permit to enter the UK under the Immigration (European Economic Area) Regulation 2016` for the `Out of country decision` field
 
     When I click the `Appellant` tab
-    And I should see `No` for the `Does your client have a sponsor?` field
+    And I should see `No` for the `Does the appellant have a sponsor?` field
     And I should see `No` for the `Does your client have a correspondence address outside the UK?` field
 
 

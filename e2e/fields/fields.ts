@@ -171,7 +171,7 @@ export class Fields {
     const cardinalInstanceNumber = typeof instanceNumber === 'number' ? instanceNumber : OrdinalToCardinal.convertWordToNumber(instanceNumber);
 
     for (let i = 0; i < this.fieldFinders.length; i++) {
-      if (!!fieldType) {
+      if (fieldType === '' || !!fieldType) {
         if ((await this.fieldFinders[i].getFieldType()) !== fieldType) {
           continue;
         }

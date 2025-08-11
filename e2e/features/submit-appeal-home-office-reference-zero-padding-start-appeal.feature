@@ -16,8 +16,8 @@ Feature: Home Office CID Reference number is zero padded - start appeal
 
     And I complete the `Upload the Notice of Decision` page
     And I complete the `Basic details` page
-    And I complete the `Tell us about your client's nationality` page
-    And I complete the `Your client's address` page
+    And I complete the `What is the appellant's nationality?` page
+    And I complete the `Appellant's address` page
     And I complete the `The appellant's contact preference` page
 
 
@@ -38,8 +38,8 @@ Feature: Home Office CID Reference number is zero padded - start appeal
     And I type `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
-    When I select `Yes, but I don't have an appeal number` for the `Other appeals` field
+    Given I am on the `Other appeals` page
+    When I select `Yes, but an appeal number was not provided` for the `Has the appellant appealed against any other UK immigration decision?` field
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page

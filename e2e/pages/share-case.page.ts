@@ -4,7 +4,6 @@ import { CcdFormPage } from './ccd-form.page';
 
 const BrowserWaits = require('../support/customWaits');
 const ccdFormPage = new CcdFormPage();
-const iaConfig = require('../ia.conf');
 
 export class ShareCasePage {
   private userEmailInput: any;
@@ -64,8 +63,14 @@ export class ShareCasePage {
   }
 
   async selectFirstCaseCheckbox() {
-    await browser.sleep(5000);
-    await element(by.xpath('(//input[@class="govuk-checkboxes__input"])[2]')).click();
+    const checkboxPaths = '//input[@class="govuk-checkboxes__input"]';
+    const checkBoxCount = await element.all(by.xpath(checkboxPaths)).count();
+    if (checkBoxCount === 0) {
+      throw Error('No cases found to share...');
+    } else if (checkBoxCount > 2) {
+      throw Error('Multiple cases found for HMCTS reference');
+    }
+    await element.all(by.xpath(checkboxPaths)).first().click();
   }
 
   async getCaseIdToBeShared(shortWait = false) {
@@ -235,24 +240,28 @@ export class ShareCasePage {
 
   async getAppealReference() {
     let appealReferenceTitle = await element.all(by.xpath('(//h1)[1]')).getText();
-    let appealReference = appealReferenceTitle.toString().substring(16, 30);
-    this.appealReference = appealReference;
+    this.appealReference = appealReferenceTitle.toString().substring(16, 30);
     console.log('\n\tCase has reference : ' + this.appealReference + '\n');
   }
 
   async filterByAppealReference() {
     const jurisdictionPath = '//select[@id="wb-jurisdiction"]' + '/option[normalize-space()="Immigration & Asylum"]';
+    await ccdFormPage.waitForXpathElementVisible(jurisdictionPath);
     await element(by.xpath(jurisdictionPath)).click();
-    if (iaConfig.CcdWebUrl.includes('aat') || iaConfig.CcdWebUrl.includes('pr')) {
-      await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
-    } else if (iaConfig.CcdWebUrl.includes('demo')) {
-      await ccdFormPage.setFieldValue('Case type', 'Appeal* ia-ccd-definit');
+    await element(by.xpath('//option[contains(text(), "Appeal*")]')).click();
+    const appealRefPath = '//*[@id="appealReferenceNumber"]';
+    try {
+      await ccdFormPage.waitForXpathElementVisible(appealRefPath);
+    } catch {
+      await element(by.xpath('//button[@title="Reset filter"]')).click();
+      await ccdFormPage.waitForXpathElementVisible(appealRefPath);
+      await ccdFormPage.waitForSpinner();
     }
-    // await ccdFormPage.setFieldValue('Case type', 'Appeal* master');
-    await browser.sleep(7000);
-    let appealRefField = element(by.xpath("//*[@id='appealReferenceNumber']"));
+    const appealRefField = element(by.xpath(appealRefPath));
     await appealRefField.clear();
     await appealRefField.sendKeys(this.appealReference);
-    await element(by.xpath("//*[@title='Apply filter']")).click();
+    await ccdFormPage.waitForSpinner();
+    await element(by.xpath("//button[@title='Apply filter']")).click();
+    await ccdFormPage.waitForSpinner();
   }
 }

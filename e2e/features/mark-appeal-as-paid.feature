@@ -263,7 +263,7 @@ Feature: Mark appeal as paid
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Paid` for the `Payment status` field
     And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
 
 
     When I switch to be a `Home Office Generic`
@@ -274,7 +274,7 @@ Feature: Mark appeal as paid
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Paid` for the `Payment status` field
     And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
 
 
   @Mark-appeal-as-paid-HU @RIA-3473-HU @RIA-3473 @RIA-3014
@@ -292,7 +292,7 @@ Feature: Mark appeal as paid
     And I should see `Refusal of a human rights claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Payment pending` for the `Payment status` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
     Then I switch to be a `Admin Officer`
@@ -332,7 +332,7 @@ Feature: Mark appeal as paid
     And I should see `£80.00` for the `Amount paid` field
     And I should see `Paid` for the `Payment status` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
     When I switch to be a `Legal Rep`
@@ -348,7 +348,7 @@ Feature: Mark appeal as paid
     And I should see `31 Aug 2020` for the `Payment date` field
     And I should see `£80.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
     When I switch to be a `Case Officer`
@@ -360,7 +360,7 @@ Feature: Mark appeal as paid
     And I should see `31 Aug 2020` for the `Payment date` field
     And I should see `£80.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
     When I switch to be a `Judge`
@@ -372,7 +372,7 @@ Feature: Mark appeal as paid
     And I should see `31 Aug 2020` for the `Payment date` field
     And I should see `£80.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
     When I switch to be a `Home Office APC`
@@ -382,7 +382,7 @@ Feature: Mark appeal as paid
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
     And I should see `£80.00` for the `Amount paid` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
     When I switch to be a `Home Office LART`
@@ -392,7 +392,7 @@ Feature: Mark appeal as paid
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
     And I should see `£80.00` for the `Amount paid` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
     When I switch to be a `Home Office POU`
@@ -402,7 +402,7 @@ Feature: Mark appeal as paid
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
     And I should see `£80.00` for the `Amount paid` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
 
@@ -413,7 +413,7 @@ Feature: Mark appeal as paid
     And I should see `Removing the appellant from the UK would be unlawful under section 6 of the Human Rights Act 1998` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
     And I should see `£80.00` for the `Amount paid` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
   @End-appeal-HU @RIA-3473-end-appeal-HU @RIA-3473

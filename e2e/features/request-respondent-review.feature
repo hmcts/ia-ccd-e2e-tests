@@ -5,7 +5,7 @@ Feature: Request respondent evidence
     And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 5 seconds
+    And I click the `Close and Return to case details` button if present
     Then I should see the text `Do this next`
     And I pay for and submit my appeal by PBA
     And I wait for 15 seconds
@@ -81,13 +81,13 @@ Feature: Request respondent evidence
     When I select the `Request respondent review` Next step
     Then I am on the `Request respondent review` page
     When I type `Something else` for the `Explain the direction you are issuing` field
-    When I type `31-12-2020` for the `By what date must they comply?` field
+    When I type `{$TODAY+20|DD MM YYYY}` for the `By what date must they comply?` field
 
     When I click the `Continue` button
     Then I am on the `Check your answers` page
     And I should see `Something else` for the `Explain the direction you are issuing` field
     And I should see `Respondent` for the `Who are you giving the direction to?` field
-    And I should see `31 Dec 2020` for the `By what date must they comply?` field
+    And I should see `{$TODAY+20|D MMM YYYY}` for the `By what date must they comply?` field
 
     When I click the `Send direction` button
     Then I should see the text `You have sent a direction`
@@ -98,5 +98,5 @@ Feature: Request respondent evidence
     And I click the `Directions` tab
     And within the `Directions` collection's first item, I should see `Something else` for the `Explanation` field
     And within the `Directions` collection's first item, I should see `Respondent` for the `Parties` field
-    And within the `Directions` collection's first item, I should see `31 Dec 2020` for the `Date due` field
+    And within the `Directions` collection's first item, I should see `{$TODAY+20|D MMM YYYY}` for the `Date due` field
     And within the `Directions` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date sent` field

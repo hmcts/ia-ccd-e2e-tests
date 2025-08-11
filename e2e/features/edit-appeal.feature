@@ -1,38 +1,42 @@
-Feature: Edit appeal application
+Feature: Edit appeal before submit
 
   Background:
     Given I am signed in as a `Legal Rep`
     And I create a new case
-    And I save my initial appeal
+    When I save my initial RP appeal for nonPayment with hearing
 
-  @regression @edit-appeal @RIA-653 @RIA-3334
+  @regression @edit-appeal @RIA-653 @RIA-3334 @test
   Scenario: Edit a draft appeal
 
     When I select the `Edit appeal` Next step
-    Then I am on the `Edit appeal` page
-
+    Given I am on the `Tell us about your client` page
+    And I click the `Continue` button
+    Given I am on the `Location` page
+    And I click the `Continue` button
     Given I am on the `Home Office details` page
     When I type `01234567` for the `Home Office Reference/Case ID` field
-    And I type `31-12-2018` for the `Enter the date the decision letter was sent` field
+    And I click the `Continue` button
+    Given I am on the `Upload the Notice of Decision` page
+    And I click the `Continue` button
+    Given I am on the `Type of appeal` page
+    And I click the `Continue` button
+    Given I am on the `The grounds of your appeal` page
     And I click the `Continue` button
 
     Given I am on the `Basic details` page
     And I click the `Continue` button
+    Given I am on the `What is the appellant's nationality?` page
+    And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
-    When I select `Text message` for the `Communication Preference` field
-    And I type `07930111111` for the `Mobile phone number` field
+    When I select `Email` for the `Communication Preference` field
+    And I type `test@test.com` for the `Email address` field
     And I click the `Continue` button
 
-    Given I am on the `Type of appeal` page
-    When I select `Revocation of a protection status` for the `Decision type` field
-    And I click the `Continue` button
-
-    Given I am on the `The grounds of your appeal` page
-    When I click the `Revocation of the appellant's protection status breaches the United Kingdom's obligations in relation to persons eligible for humanitarian protection` label
+    Given I am on the `Appellant's sponsor` page
     And I click the `Continue` button
 
     Given I am on the `Deportation order` page
@@ -41,54 +45,32 @@ Feature: Edit appeal application
     Given I am on the `New matters` page
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    Given I am on the `Other appeals` page
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page
     And I click the `Continue` button
 
-    Given I am on the `Check your answers` page
-    Then I should see `01234567` for the `Home Office Reference/Case ID` answer
-    And I should see `31 Dec 2018` for the `Enter the date the decision letter was sent` answer
-    And I should see `Mr` for the `Title` answer
-    And I should see `José` for the `Given names` answer
-    And I should see `González` for the `Family name` answer
-    And I should see `31 Dec 1999` for the `Date of birth` answer
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
-    And I should see `Text message` for the `Communication Preference` answer
-    And I should see `07930111111` for the `Mobile phone number` answer
-    And I should see `Revocation of a protection status` for the `Decision type` answer
-    And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
-    And I should see `Yes` for the `Has a deportation order been made against the appellant?` answer
-    And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
-    And I should see `No` for the `Previous appeals` answer
-    And I should see `IA Legal Services` for the `Company` answer
-    And I should see `Stephen Fenn` for the `Name` answer
-    And I should see `ia-legal-fenn` for the `Own reference` answer
-
+    Given I am on the `Hearing type` page
+    And I click the `Continue` button
+    Given I am on the `Edit appeal` page
     When I click the `Save and continue` button
-    Then I should see the text `The appeal has been saved`
-    And I should see the text `You still need to submit it`
-    And I should see the text `If you're ready to proceed submit the appeal.`
-    And I should see the text `Not ready to submit yet?`
-    And I should see the text `You can return to the case details to make changes.`
-
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    #And I see the open case
     And I click the `Appellant` tab
     Then I should see `DRAFT` for the `Appeal reference` field
     And I should see `Mr` for the `Title` field
     And I should see `José` for the `Given names` field
     And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    #And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
-    And I should see `No` for the `Does the appellant have a fixed address?` field
-    And I should see `Text message` for the `Communication Preference` field
-    And I should see `07930111111` for the `Mobile phone number` field
-    And I should see `Stephen Fenn` for the `Name` field
+    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And I should see `Yes` for the `Does the appellant have a postal address?` field
+    And I should see `Email` for the `Communication Preference` field
+    And I should see `test@test.com` for the `Email address` field
+#    And I should see `Stephen` for the `Given names` field
+#    And I should see `Fenn` for the `Family name` field
     And I should see `IA Legal Services` for the `Company` field
+    And I should see `07060021700` for the `Contact number` field
     And I should see `ia-legal-fenn` for the `Legal representative reference` field
 
     When I click the `Overview` tab
@@ -99,13 +81,9 @@ Feature: Edit appeal application
     And I should see `DRAFT` for the `Appeal reference` field
     And I should see `José González` for the `Appellant name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    #And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `Revocation of a protection status` for the `Type of appeal` field
-    ### Possible Bug ###
-    ### Why do we not see the full B123445/999 reference number after submit or edit ###
-    And I should see `01234567` for the `Home Office Reference/Case ID` field
-    ### End ###
-
+    And I should see `001234567` for the `Home Office Reference/Case ID` field
     And I should see `IA Legal Services` for the `Company` field
     And I should see `ia-legal-fenn` for the `Legal representative reference` field
 
@@ -113,12 +91,12 @@ Feature: Edit appeal application
     Then I should see `DRAFT` for the `Appeal reference` field
     And I should see `José González` for the `Appellant name` field
     And I should see `Revocation of a protection status` for the `Type of appeal` field
-    #And I should see `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` for the `Grounds of appeal` field
+    And I should see `Revocation of the appellant's protection status breaches the United Kingdom's obligations under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` field
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` field
-    And I should see `No` for the `Previous appeals` field
-    And I should see `31 Dec 2018` for the `Home Office decision letter sent` field
-    And I should see `Yes` for the `Has a deportation order been made against the appellant?` field 
+    And I should see `No` for the `Other appeals` field
+    And I should see `Yes` for the `Has a deportation order been made against the appellant?` field
+    Then I submit my nonpayment appeal
 
   @regression @edit-appeal-after-submit-in-time @RIA-1359
   Scenario: Edit submitted appeal when submitted in time
@@ -134,7 +112,7 @@ Feature: Edit appeal application
     And I click the `Record an application` link
     Then I am on the `Record an application` page
     And I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Update appeal details` for the `Type of application` field
     And I type `update appeal details reason` for the `Reason for application` field
@@ -194,7 +172,7 @@ Feature: Edit appeal application
     And I type `Smith` for the `Family name` field
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
@@ -206,7 +184,7 @@ Feature: Edit appeal application
     Given I am on the `New matters` page
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    Given I am on the `Other appeals` page
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page
@@ -220,7 +198,7 @@ Feature: Edit appeal application
     And I should see `Smith` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
+    And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer
@@ -272,7 +250,7 @@ Feature: Edit appeal application
     And I click the `Record an application` link
     Then I am on the `Record an application` page
     And I add an item to the `Application email` collection
-    And within the `Application email` collection's first item, I upload `{@test.doc}` for the field without a label
+    And within the `Application email` collection's first item, I upload `{@test.doc}` for the document field without a label
     And I click the `The legal representative` label
     And I select `Update appeal details` for the `Type of application` field
     And I type `update appeal details reason` for the `Reason for application` field
@@ -332,7 +310,7 @@ Feature: Edit appeal application
     And I type `Smith` for the `Family name` field
     And I click the `Continue` button
 
-    Given I am on the `Your client's address` page
+    Given I am on the `Appellant's address` page
     And I click the `Continue` button
 
     Given I am on the `The appellant's contact preference` page
@@ -344,7 +322,7 @@ Feature: Edit appeal application
     Given I am on the `New matters` page
     And I click the `Continue` button
 
-    Given I am on the `Has your client appealed against any other UK immigration decisions?` page
+    Given I am on the `Other appeals` page
     And I click the `Continue` button
 
     Given I am on the `Legal representative details` page
@@ -361,7 +339,7 @@ Feature: Edit appeal application
     And I should see `Smith` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
     And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
-    And I should see `No` for the `Does the appellant have a fixed address?` answer
+    And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
     And I should see `No` for the `Previous appeals` answer

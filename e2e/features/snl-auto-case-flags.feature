@@ -5,14 +5,12 @@
     And I wait for 30 seconds
     And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I wait for 12 seconds
-    And I click the `Close and Return to case details` button
+    And I click the `Close and Return to case details` button if present
     And I wait for 5 second
-    Then I should see the text `You still need to submit your appeal.`
+    Then I should see `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card
-    And I wait for 15 seconds
     And I switch to be a `Case Officer`
-    And I wait for 10 seconds
+     And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
     And I wait for 3 seconds

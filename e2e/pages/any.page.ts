@@ -1,10 +1,20 @@
 import { browser, by, element, ElementFinder, protractor } from "protractor";
+import { expect } from 'chai';
 import { Wait } from "../enums/wait";
 import { ValueExpander } from "../helpers/value-expander";
+
 const AxeRunner = require("../helpers/accessibility/axe-runner");
 const iaConfig = require("../ia.conf");
 const BrowserWaits = require("../support/customWaits");
 
+const submitButtons = [
+  "Continue",
+  "Submit",
+  "Send direction",
+  "Upload",
+  "Request Home Office data",
+  "Save"
+];
 export class AnyPage {
   protected readonly valueExpander = new ValueExpander();
 
@@ -45,7 +55,8 @@ export class AnyPage {
   async click(
     linkText: string,
     xpathIndex = 0,
-    waitForNavigationTime?: number
+    waitForNavigationTime?: number,
+    shouldWaitForNavigation = true
   ) {
     const expandedLinkText = await this.valueExpander.expand(linkText);
 
@@ -67,7 +78,7 @@ export class AnyPage {
         linkText === "Close and Return to case details" ? Wait.long : Wait.short
       );
     } catch (e) {
-      // do nothing and carry on ...
+      console.log(linkText + " not found on page.");
     }
 
     const button = await element
@@ -77,10 +88,32 @@ export class AnyPage {
 
     if (await button.isPresent()) {
       await BrowserWaits.waitForelementToBeClickable(button);
-      let thisPageUrl = await browser.getCurrentUrl();
+      await this.waitForSpinner(180000);
+      const unexpectedError = element(by.xpath('//*[contains(text(),"Something unexpected happened")]'));
+      const nullIndexError = element(by.xpath('//*[contains(text(),"Cannot read properties of null")]'));
+      const couldNotBeCreated = element(by.xpath('//*[contains(text(),"The event could not be created")]'));
+      const thisPageUrl = await browser.getCurrentUrl();
       await button.click();
-      if (linkText === "Continue") {
+      await this.waitForSpinner(180000);
+      try {
+        expect(await unexpectedError.isPresent()).to.equal(false);
+        expect(await nullIndexError.isPresent()).to.equal(false);
+        expect(await couldNotBeCreated.isPresent()).to.equal(false);
+      } catch {
+        await button.click();
+      }
+      if (submitButtons.includes(linkText) && shouldWaitForNavigation) {
+        await this.waitForSpinner(180000);
         await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
+        try {
+          expect(await unexpectedError.isPresent()).to.equal(false);
+          expect(await nullIndexError.isPresent()).to.equal(false);
+          expect(await couldNotBeCreated.isPresent()).to.equal(false);
+        } catch {
+          await button.click();
+          await this.waitForSpinner(180000);
+          await this.waitForPageNavigation(thisPageUrl, waitForNavigationTime);
+        }
       }
       return;
     }
@@ -127,15 +160,16 @@ export class AnyPage {
 
         return currentPageUrl !== nextPage;
       },
-      waitForNavigationTime ? waitForNavigationTime : 60000,
+      waitForNavigationTime ? waitForNavigationTime : 30000,
       "Navigation to next page taking too long " +
-        (waitForNavigationTime ? waitForNavigationTime : 60000) +
-        ". Current page " +
-        currentPageUrl +
-        ". Errors => " +
-        pageErrors
+      (waitForNavigationTime ? waitForNavigationTime : 30000) +
+      ". Current page " +
+      currentPageUrl +
+      ". Errors => " +
+      pageErrors
     );
   }
+
   async isButtonEnabled(match: string, shortWait = false) {
     const expandedMatch = await this.valueExpander.expand(match);
 
@@ -147,9 +181,9 @@ export class AnyPage {
               .all(
                 by.xpath(
                   "//*[self::button or self::a]" +
-                    '[contains(normalize-space(), "' +
-                    expandedMatch +
-                    '") and not(ancestor::*[@hidden])]'
+                  '[contains(normalize-space(), "' +
+                  expandedMatch +
+                  '") and not(ancestor::*[@hidden])]'
                 )
               )
               .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
@@ -175,9 +209,9 @@ export class AnyPage {
               .all(
                 by.xpath(
                   '//label[contains(normalize-space(),"' +
-                    expandedMatch +
-                    '")]' +
-                    "/../select/option[string-length(@value) > 0]"
+                  expandedMatch +
+                  '")]' +
+                  "/../select/option[string-length(@value) > 0]"
                 )
               )
               .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
@@ -204,9 +238,9 @@ export class AnyPage {
               .all(
                 by.xpath(
                   "//*[self::button or self::a]" +
-                    '[contains(normalize-space(), "' +
-                    expandedMatch +
-                    '") and not(ancestor::*[@hidden])]'
+                  '[contains(normalize-space(), "' +
+                  expandedMatch +
+                  '") and not(ancestor::*[@hidden])]'
                 )
               )
               .filter((e) => e.isPresent() && e.isDisplayed())
@@ -233,9 +267,9 @@ export class AnyPage {
               .all(
                 by.xpath(
                   "//*[self::h1 or self::h2 or self::h3 or self::caption]" +
-                    '[contains(normalize-space(), "' +
-                    expandedMatch +
-                    '") and not(ancestor::*[@hidden])]'
+                  '[contains(normalize-space(), "' +
+                  expandedMatch +
+                  '") and not(ancestor::*[@hidden])]'
                 )
               )
               .filter((e) => e.isPresent() && e.isDisplayed())
@@ -353,11 +387,11 @@ export class AnyPage {
     }
   }
 
-  async waitForSpinner() {
+  async waitForSpinner(timeout= 60000) {
     let EC = protractor.ExpectedConditions;
     await browser.wait(
       EC.invisibilityOf(element(by.css("div.spinner-container"))),
-      60000,
+      timeout,
       "Spinner did not stop."
     );
   }
@@ -368,7 +402,8 @@ export class AnyPage {
       await BrowserWaits.waitForElement(button);
       await BrowserWaits.waitForelementToBeClickable(button);
       await button.click();
-    } catch {}
+    } catch {
+    }
   }
 
   async createCaseClickable() {
@@ -385,11 +420,6 @@ export class AnyPage {
 
   async goToUrl(URL) {
     browser.driver.get(URL);
-  }
-
-  async gotoTabs(match: string) {
-    await browser.sleep(100);
-    await element(by.xpath(`//div[contains(text(), '${match}')]`)).click();
   }
 
   async stopSpinnerLoad() {

@@ -14,19 +14,20 @@ Feature: Create and manage Case Flags For Admin
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page
         And I have created a `Complex Case` Flag in `Case level`
+        Then I should see an alert confirming the case `has been updated with event: Create Flag`
         When I goto the `Case flags` tab
         Then I should see the text `Case level flags`
         Then I should see the text `Complex Case`
 
     @appeal-nightly-test @caseflag
-    Scenario: Create a case Flag and make In Active
+    Scenario: Create a case Flag and make Inactive
         And I switch to be a `Admin Officer`
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page
         And I have created a `Complex Case` Flag in `Case level`
         Then I should see an alert confirming the case `has been updated with event: Create Flag`
         When I select the `Manage Flags` Next step
-        And I will make `Complex Case` as In Active
+        And I will make `Complex Case` as Inactive
         Then I should see an alert confirming the case `has been updated with event: Manage Flag`
 
 

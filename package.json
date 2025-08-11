@@ -4,16 +4,15 @@
   "private": true,
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "test": "npm run test:setupFunctional",
+    "create:testCounter": "cat > e2e/testCounter.json <<< '{\"totalTests\": [], \"passedTests\": []}'",
+    "test": "echo \"No tests defined\" && exit 0",
     "test:setupFunctional": "npx @puppeteer/browsers install chrome@123 --platform linux; npx @puppeteer/browsers install chromedriver@123 --platform linux; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192';",
-    "test:appealFullfunctional": "yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @appeal-nightly-test; protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@appeal-nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
-    "test:bailFullfunctional": "yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @bail-nightly-test; protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@bail-nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+    "test:appealFullfunctional": "yarn create:testCounter; yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @appeal-nightly-test; protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@appeal-nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+    "test:bailFullfunctional": "yarn create:testCounter; yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @bail-nightly-test; protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@bail-nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:linuxFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform linux; npx @puppeteer/browsers install chromedriver@123 --platform linux; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:macFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform mac; npx @puppeteer/browsers install chromedriver@123 --platform mac; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:windowsFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform win64; npx @puppeteer/browsers install chromedriver@123 --platform win64; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.windows.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
-    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowser' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
-    "setAatVaultEnvVariables": "zsh ./e2e/support/set_env_vars_from_vault.zsh ia-aat",
-    "setDemoVaultEnvVariables": "zsh ./e2e/support/set_env_vars_from_vault.zsh ia-demo"
+    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowser' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled"
   },
   "pre-commit": [
     "lint"
@@ -73,9 +72,11 @@
     "tough-cookie": "4.1.3",
     "ws": "^6.2.3",
     "micromatch": "4.0.8",
+    "brace-expansion": "^1.1.12",
+    "form-data": "^4.0.2",
+    "cross-spawn": "^6.0.6",
+    "@babel/runtime-corejs3": "^7.26.10",
     "tmp": "^0.2.4"
   },
-  "overrides": {
-    "cross-spawn": "^7.0.5"
-  }
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

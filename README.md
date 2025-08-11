@@ -27,13 +27,13 @@ yarn install
 Before running the tests for the first time, if you are testing against AAT or Preview environments, run
 
 ```bash
-yarn setAatVaultEnvVariables;
+source ./e2e/support/set_env_vars_from_vault.zsh aat
 ```
 
 If you are testing against Demo environment, run
 
 ```bash
-yarn setDemoVaultEnvVariables;
+source ./e2e/support/set_env_vars_from_vault.zsh demo
 ```
 
 Then to run the tests off your machine, if you are wanting to run tests for the tag `@this-new-test`, depending on your OS, in the `package.json` find one of the following:

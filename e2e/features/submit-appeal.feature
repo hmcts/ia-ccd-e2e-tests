@@ -16,7 +16,6 @@ Feature: Submit appeal application
     And I agree to the declaration
     # And I click the `Continue` button
     When I click the `Submit` button
-    And I wait for 30 seconds
     Then I should see the text `Your appeal has been submitted`
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds

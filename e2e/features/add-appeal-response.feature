@@ -22,10 +22,10 @@ Feature: Add respondent response
     And I should see the text `Already uploaded files:`
     And I should see the text `- None`
 
-    When I upload `{@AppealResponse.pdf}` for the `Response document` field
+    When I upload `{@AppealResponse.pdf}` for the `Response document` document field
     And I type `This is the appeal response` for the `Describe the document (Optional)` field
     And I add an item to the `Evidence (Optional)` collection
-    And within the `Evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` field
+    And within the `Evidence (Optional)` collection's first item, I upload `{@Evidence1.pdf}` for the `Document (Optional)` document field
     And within the `Evidence (Optional)` collection's first item, I type `This is the evidence` for the `Describe the document (Optional)` field
 
     When I click the `Continue` button

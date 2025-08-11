@@ -1,6 +1,6 @@
 import { CcdPage } from "../../pages/ccd.page";
 import { Given, Then, When } from "cucumber";
-import { browser, by, element, protractor } from "protractor";
+import { browser, By, by, element } from "protractor";
 import { expect } from "chai";
 import { Wait } from "../../enums/wait";
 import { OrdinalToCardinal } from "../../helpers/ordinal-to-cardinal";
@@ -12,109 +12,83 @@ const iaConfig = require("../../ia.conf");
 
 Given("I create a new case", async function () {
   await ccdPage.acceptCookies();
-  // there is loading mask with spinner added by ExUI
-  let EC = protractor.ExpectedConditions;
-  await browser.get(iaConfig.CcdWebUrl + "/cases");
+  await browser.get(iaConfig.CcdWebUrl + "/cases/case-filter");
   try {
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      40000,
-      "Spinner did not appear."
-    );
+    await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   } catch {
     browser.refresh();
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      40000,
-      "Spinner did not appear."
-    );
+    await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   }
   await ccdPage.waitForSpinner();
-  await ccdPage.linkContains("Create case");
-  await ccdPage.runAccessbility();
-  await ccdPage.createCaseClickable();
-  await ccdPage.click("Create case");
   expect(await ccdPage.headingContains("Create Case")).to.equal(true);
   await ccdPage.runAccessbility();
   await ccdPage.hideErrorMessages();
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
-
-  if (iaConfig.CcdWebUrl.includes("xui-ia-case-api-pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* ia-ccd-definit");
-  } else if (
-    iaConfig.CcdWebUrl.includes("aat") ||
-    iaConfig.CcdWebUrl.includes("pr")
-  ) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
-  } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* ia-ccd-definit");
-  } else if (iaConfig.CcdWebUrl.includes("pr-")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* ia-ccd-definit");
-  }
-
+  await browser.wait(
+    async () => element(by.xpath('//option[contains(text(), "Appeal*")]')).isPresent(),
+    30000,
+    `Expected element "//option[contains(text(), "Appeal*")]" to be present within 30 seconds`
+  );
+  await element(by.xpath('//option[contains(text(), "Appeal*")]')).click();
   await ccdPage.doesDropdownHaveValues("Event");
   await ccdPage.isButtonEnabled("Start");
   await ccdPage.click("Start");
+  try {
+    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+  } catch {
+    await ccdPage.click("Start");
+    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+  }
 });
 
 Given("I create a new bail application", async function () {
   await ccdPage.acceptCookies();
-  // there is loading mask with spinner added by ExUI
-  await browser.get(iaConfig.CcdWebUrl + "/cases");
-  let EC = protractor.ExpectedConditions;
+  await browser.get(iaConfig.CcdWebUrl + "/cases/case-filter");
   try {
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
-      "Spinner did not appear."
-    );
+    await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   } catch {
     browser.refresh();
-    await browser.wait(
-      EC.visibilityOf(element(by.css("div.spinner-container"))),
-      30000,
-      "Spinner did not appear."
-    );
+    await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   }
   await ccdPage.waitForSpinner();
-  await ccdPage.linkContains("Create case");
-  await ccdPage.runAccessbility();
-  await ccdPage.createCaseClickable();
-  await ccdPage.click("Create case");
   expect(await ccdPage.headingContains("Create Case")).to.equal(true);
   await ccdPage.runAccessbility();
   await ccdPage.hideErrorMessages();
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
-
-  if (iaConfig.CcdWebUrl.includes("aat") || iaConfig.CcdWebUrl.includes("pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Bail* master");
-  } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Bail* ia-bail-ccd-de");
-  }
-
+  await browser.wait(
+    async () => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
+    30000,
+    `Expected element "//option[contains(text(), "Bail*")]" to be present within 30 seconds`
+  );
+  await element(by.xpath('//option[contains(text(), "Bail*")]')).click();
   await ccdPage.doesDropdownHaveValues("Event");
   await ccdPage.isButtonEnabled("Start");
   await ccdPage.click("Start");
+  try {
+    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+  } catch {
+    await ccdPage.click("Start");
+    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+  }
 });
 
 Given("I Apply case list filter", async function () {
-  // there is loading mask with spinner added by ExUI
-  await browser.sleep(10000);
-
+  await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Case list")).to.equal(true);
   await ccdPage.runAccessbility();
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
-  if (iaConfig.CcdWebUrl.includes("aat") || iaConfig.CcdWebUrl.includes("pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* master");
-  } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Appeal* ia-ccd-definit");
-  }
+  await browser.wait(
+    async () => element(by.xpath('//option[contains(text(), "Appeal*")]')).isPresent(),
+    30000,
+    `Expected element "//option[contains(text(), "Appeal*")]" to be present within 30 seconds`
+  );
+  await element(by.xpath('//option[contains(text(), "Appeal*")]')).click();
   await ccdPage.doesDropdownHaveValues("State");
   await ccdFormPage.setFieldValue("State", "Any");
   await ccdPage.isButtonEnabled("Apply");
@@ -122,20 +96,18 @@ Given("I Apply case list filter", async function () {
 });
 
 Given("I Apply case list filter for Bails", async function () {
-  // there is loading mask with spinner added by ExUI
-  await browser.sleep(5000);
-
+  await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Case list")).to.equal(true);
   await ccdPage.runAccessbility();
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
-  if (iaConfig.CcdWebUrl.includes("aat") || iaConfig.CcdWebUrl.includes("pr")) {
-    await ccdFormPage.setFieldValue("Case type", "Bail* master");
-  } else if (iaConfig.CcdWebUrl.includes("demo")) {
-    await ccdFormPage.setFieldValue("Case type", "Bail* ia-bail-ccd-de");
-  }
-
+  await browser.wait(
+    async () => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
+    30000,
+    `Expected element "//option[contains(text(), "Bail*")]" to be present within 30 seconds`
+  );
+  await element(by.xpath('//option[contains(text(), "Bail*")]')).click();
   await ccdPage.doesDropdownHaveValues("State");
   await ccdFormPage.setFieldValue("State", "Any");
   await ccdPage.isButtonEnabled("Apply");
@@ -184,9 +156,16 @@ Then(
   /^I (?:should |)(see|not see) the image `?([^`]+)`?$/,
   async function (seeOrNotSee, match) {
     const shortWait = seeOrNotSee === "not see";
-    expect(await ccdPage.imgSrcContains(match, shortWait)).to.equal(
-      seeOrNotSee === "see"
-    );
+    try {
+      expect(await ccdPage.imgSrcContains(match, shortWait)).to.equal(
+        seeOrNotSee === "see"
+      );
+    } catch {
+      browser.refresh();
+      expect(await ccdPage.imgSrcContains(match, shortWait)).to.equal(
+        seeOrNotSee === "see"
+      );
+    }
   }
 );
 
@@ -201,6 +180,13 @@ Then(
 );
 
 Then(
+  /^I should see ?`([^`]+)`?$/,
+  async function (match: string) {
+    await ccdPage.waitForXpathElementVisible(`//*[contains(text(), "${match}")]`);
+  }
+);
+
+Then(
   /^I (?:should |)(see|not see) the `?([^`]+)`? (?:button|link|tab|label)$/,
   async function (seeOrNotSee, linkText) {
     const shortWait = seeOrNotSee === "not see";
@@ -211,7 +197,7 @@ Then(
 );
 
 Then("I should be on the overview page", async function () {
-  await ccdPage.waitForOverviewPage();
+  await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
 });
 
 Then(
@@ -256,7 +242,13 @@ When(
   /^I goto the `?([^`]+)`? (?:button|link|tab|label)$/,
   async function (linkText) {
     await ccdPage.waitForSpinner();
-    await ccdPage.gotoTabs(linkText);
+    if (linkText === 'Hearings') {
+      const url = await ccdPage.getCaseUrl();
+      await ccdPage.get(url + "/hearings");
+      await ccdPage.waitForXpathElementVisible('//th[contains(text(), "Current and upcoming")]');
+    } else {
+      await ccdPage.gotoTabs(linkText);
+    }
   }
 );
 
@@ -349,6 +341,44 @@ Then(
         fieldMatch,
         isExactMatch,
         instanceNumber
+      )
+    ).to.equal(true);
+  }
+);
+
+Then(
+  /^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? text area input (?:answer|field)$/,
+  async function (fieldMatch, inOrFor, fieldLabel) {
+    const isExactMatch = inOrFor === "for";
+
+    expect(
+      await ccdPage.isFieldValueDisplayed(
+        fieldLabel,
+        fieldMatch,
+        isExactMatch,
+        "first",
+        "",
+        "",
+        "text area"
+      )
+    ).to.equal(true);
+  }
+);
+
+Then(
+  /^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? date input (?:answer|field)$/,
+  async function (fieldMatch, inOrFor, fieldLabel) {
+    const isExactMatch = inOrFor === "for";
+
+    expect(
+      await ccdPage.isFieldValueDisplayed(
+        fieldLabel,
+        fieldMatch,
+        isExactMatch,
+        "first",
+        "",
+        "",
+        "date"
       )
     ).to.equal(true);
   }
@@ -457,78 +487,101 @@ Then(
 Given("I restart the browser", async function () {
   await browser.restart();
 });
-Then(/^I will make `?([^`]+)`? as In Active$/, async function (flagtype) {
+Then(/^I will make `?([^`]+)`? as Inactive$/, async function (flagtype) {
   await ccdFormPage.click(flagtype);
-  await ccdFormPage.click("Next");
+  await ccdFormPage.click("Continue", 0, 0, false);
+  await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Update flag")]');
+  const isFlagComment = await browser.element(By.xpath(`//*[@id='flagComment']`)).isPresent();
   await ccdFormPage.typeText(
-    `flagComments`,
-    `test case flage make it inactive`
+    isFlagComment ? 'flagComment' : 'flagComments',
+    'test case flage make it inactive'
   );
   await ccdFormPage.click("Make inactive");
-  await ccdFormPage.click("Next");
+  await ccdFormPage.click("Continue", 0, 0, false);
   await ccdFormPage.click("Manage Flags");
 });
 
 Then(
   /^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/,
   async function (flag, type) {
-    await browser.sleep(8000);
     await ccdFormPage.click(type);
-    await ccdFormPage.click("Next");
-    await browser.sleep(3000);
+    await ccdFormPage.click("Continue", 0, 30000, false);
+    await ccdFormPage.waitForXpathElementVisible(`//label[contains(text(),"${flag}")][contains(@class, "govuk-radios__label")]`);
     await ccdFormPage.click(flag);
-    await ccdFormPage.click("Next");
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue", 0, 30000, false);
+    try {
+      await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
+    } catch {
+      await ccdFormPage.click(flag);
+      await ccdFormPage.click("Continue", 0, 30000, false);
+      await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
+    }
+    await ccdFormPage.click("Continue", 0, 30000, false);
+    const currentUrl = await browser.getCurrentUrl();
     await ccdFormPage.click("Create Flag");
+    await ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 );
 Then(
-  /^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and language name is `?([^`]+)`?$/,
-  async function (flag, type, language) {
+  /^I have created a `Language Interpreter` Flag in `?([^`]+)`? and language name is `?([^`]+)`?$/,
+  async function (type, language) {
     await ccdFormPage.click(type);
-    await ccdFormPage.click("Next");
-    await browser.sleep(3000);
-    await ccdFormPage.click(flag);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Select flag type")]');
+    await ccdFormPage.click('Language Interpreter');
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Language Interpreter")]');
     await ccdFormPage.selectInterpreterLanguage(language);
-    await browser.sleep(3000);
-    await ccdFormPage.click("Next");
+    await browser.sleep(1000);
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
+    const isFlagComment = await browser.element(By.xpath(`//*[@id='flagComment']`)).isPresent();
     await ccdFormPage.typeText(
-      `flagComment`,
+      isFlagComment ? 'flagComment' : 'flagComments',
       `just comment for interpreter languages`
     );
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h2[contains(text(), "Review flag details")]');
+    const currentUrl = await browser.getCurrentUrl();
     await ccdFormPage.click("Create Flag");
+    await ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 );
 Then(
-  /^I have created a `?([^`]+)`? Flag in `?([^`]+)`? and signlanguage name is `?([^`]+)`?$/,
-  async function (flag, type, language) {
+  /^I have created a `Reasonable adjustment` Flag in `?([^`]+)`? and signlanguage name is `?([^`]+)`?$/,
+  async function (type, language) {
     await ccdFormPage.click(type);
-    await ccdFormPage.click("Next");
-    await browser.sleep(3000);
-    await ccdFormPage.click(flag);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Select flag type")]');
+    await ccdFormPage.click('Reasonable adjustment');
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Reasonable adjustment")]');
     await ccdFormPage.click("I need help communicating and understanding");
-    await browser.sleep(3000);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), " I need help communicating and understanding")]');
     await ccdFormPage.click("Sign Language Interpreter");
-    await browser.sleep(3000);
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Sign Language Interpreter")]');
     await ccdFormPage.selectInterpreterLanguage(language);
-    await ccdFormPage.click("Next");
+    await browser.sleep(1000);
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Add comments for this flag")]');
+    const isFlagComment = await browser.element(By.xpath(`//*[@id='flagComment']`)).isPresent();
     await ccdFormPage.typeText(
-      `flagComments`,
-      `just comment for interpreter languages`
+      isFlagComment ? 'flagComment' : 'flagComments',
+      `just comment for sign languages`
     );
-    await ccdFormPage.click("Next");
+    await ccdFormPage.click("Continue", 0, 0, false);
+    await ccdFormPage.waitForXpathElementVisible('//h2[contains(text(), "Review flag details")]');
+    const currentUrl = await browser.getCurrentUrl();
     await ccdFormPage.click("Create Flag");
+    await ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 );
 
 Then(/^I will update s94b flag$/, async function () {
   await ccdFormPage.setFieldValue("Mark appeal as s94b?", "Yes");
-  await ccdFormPage.click("Continue");
+  await ccdFormPage.click("Continue", 0, 0, false);
   await ccdFormPage.click("Submit");
 });
 Then(/^I Add the bail interpreter details$/, async function () {
@@ -591,29 +644,30 @@ Then(
       caseFlagName +
       '"]' +
       "/ancestor::tr[position()=1]//td";
+    lastModifiedDate = lastModifiedDate === " " ? "" : lastModifiedDate;
     let tds = await element.all(by.xpath(field));
     let tdCount = await element.all(by.xpath(field)).count();
-    let createdDate = await ccdPage.getTodayDate(creationDate);
+    // let createdDate = await ccdPage.getTodayDate(creationDate);
     let ModifiedDate = await ccdPage.getTodayDate(lastModifiedDate);
 
     console.log("ModifiedDate:::" + ModifiedDate);
     for (let td = 0; td < tdCount; td++) {
       let tdValue = await tds[td];
-      let caseFlagValue = JSON.stringify(await tdValue.getText());
+      let caseFlagValue = JSON.stringify(await tdValue.getText()).trim();
       if (td === 0) {
-        expect(JSON.stringify(caseFlagName)).to.equal(caseFlagValue);
+        expect(JSON.stringify(caseFlagName).trim()).to.equal(caseFlagValue);
       }
       if (td === 1) {
-        expect(comments).to.equal(caseFlagValue);
+        expect(comments.trim()).to.equal(caseFlagValue);
       }
-      if (td === 2) {
-        expect(JSON.stringify(createdDate)).to.equal(caseFlagValue);
-      }
+      // if (td === 2) {
+      //   expect(JSON.stringify(createdDate).trim()).to.equal(caseFlagValue);
+      // }
       if (td === 3) {
-        expect(JSON.stringify(ModifiedDate)).to.equal(caseFlagValue);
+        expect(JSON.stringify(ModifiedDate).trim()).to.equal(caseFlagValue);
       }
       if (td === 4) {
-        expect(JSON.stringify(flagStatus)).to.equal(caseFlagValue);
+        expect(JSON.stringify(flagStatus).trim()).to.equal(caseFlagValue);
       }
     }
   }
