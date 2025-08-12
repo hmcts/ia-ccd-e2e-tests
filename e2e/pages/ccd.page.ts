@@ -214,8 +214,18 @@ export class CcdPage extends AnyPage {
   }
 
   async acceptCookies() {
-    let userID = (await browser.manage().getCookie("__userid__"))["value"];
-    let cookieName = `hmcts-exui-cookies-${userID}-mc-accepted`;
+    let userIdCookie = await browser.manage().getCookie("__userid__");
+    let userId: string;
+    if (userIdCookie == null) {
+      const sessionStorageData: string = await browser.executeScript(() => {
+        return JSON.stringify(sessionStorage);
+      });
+      const sessionStorageJson = JSON.parse(sessionStorageData);
+      userId = sessionStorageJson['userDetails']['uid'];
+    } else {
+      userId = userIdCookie["value"];
+    }
+    let cookieName = `hmcts-exui-cookies-${userId}-mc-accepted`;
     let cookieValue = "true";
     let cookieDomain =
       iaConfig.CcdWebUrl.split("/")[iaConfig.CcdWebUrl.split("/").length - 1];
