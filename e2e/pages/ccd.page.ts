@@ -221,7 +221,7 @@ export class CcdPage extends AnyPage {
         return JSON.stringify(sessionStorage);
       });
       const sessionStorageJson = JSON.parse(sessionStorageData);
-      userId = sessionStorageJson['userDetails']['uid'];
+      userId = sessionStorageJson['userDetails'] != null ? sessionStorageJson['userDetails']['uid'] : "";
     } else {
       userId = userIdCookie["value"];
     }
