@@ -42,9 +42,9 @@ export class AuthenticationFlow {
     await this.idamSignInPage.waitUntilLoaded();
   }
 
-  async doSomeTestThing() {
-    let retryCount = (await browser.getSession());
-    console.log(retryCount);
+  doSomeTestThing() {
+    let randomNumber = Math.floor(Math.random() * 3) + 1;
+    expect(randomNumber > 1);
   }
 
   async signInByRole(role: UserRole) {
