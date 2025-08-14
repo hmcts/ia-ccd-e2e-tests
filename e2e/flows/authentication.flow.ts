@@ -478,22 +478,14 @@ export class AuthenticationFlow {
   async signInAsLawFirmOrgUserABails() {
     for (let i = 0; i < 5; i++) {
       try {
-        console.log('START: signOut');
         await this.signOut();
-        console.log('END: signOut');
-        console.log('START: waitUntilLoaded');
         await this.idamSignInPage.waitUntilLoaded();
-        console.log('END: waitUntilLoaded');
-        console.log('START: signIn');
         if (iaConfig.CcdWebUrl.includes('localhost')) {
           await this.idamSignInPage.signIn(iaConfig.TestLawFirmOrgCreatorUserName, iaConfig.TestLawFirmOrgCreatorPassword);
         } else {
           await this.idamSignInPage.signIn(iaConfig.TestLawFirmOrgABailsUserName, iaConfig.TestLawFirmOrgABailsPassword);
         }
-        console.log('END: signIn');
-        console.log('START: checkExUiLoaded');
         await this.checkExUiLoaded();
-        console.log('END: checkExUiLoaded');
         break;
       } catch (err) {
         console.log('Unsuccessful log in');
