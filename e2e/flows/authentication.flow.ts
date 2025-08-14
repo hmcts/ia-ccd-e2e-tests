@@ -44,8 +44,9 @@ export class AuthenticationFlow {
   }
 
   doSomeTestThing() {
-    let randomNumber = Math.floor(Math.random() * 3) + 1;
-    expect(randomNumber > 1);
+    let randomNumber = Math.random() * 3;
+    console.log(`Random number generated: ${randomNumber}`);
+    expect(randomNumber).to.be.greaterThan(1);
   }
 
   async signInByRole(role: UserRole) {
