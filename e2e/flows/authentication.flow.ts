@@ -74,7 +74,7 @@ export class AuthenticationFlow {
 
     if (
       (browserName === 'MicrosoftEdge' && retryState[browserKey] === 1) || // Fail first time for msEdge
-      (browserName === 'firefox' && retryState[browserKey] === 2) // Fail second time for firefox
+      (browserName === 'firefox' && retryState[browserKey] === 3) // Fail second time for firefox
     ) {
       console.log(`Simulating failure for ${browserKey} on attempt ${retryState[browserKey]}`);
       assert(false);
