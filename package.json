@@ -11,7 +11,7 @@
     "test:linuxFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform linux; npx @puppeteer/browsers install chromedriver@123 --platform linux; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:macFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform mac; npx @puppeteer/browsers install chromedriver@123 --platform mac; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:windowsFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform win64; npx @puppeteer/browsers install chromedriver@123 --platform win64; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; protractor e2e/features.parallel.windows.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
-    "test:crossbrowser": "protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowser' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled"
+    "test:crossbrowser": "XBROWSER='true'; yarn create:testCounter; protractor ./e2e/features.crossbrowser.conf.js --parallel-scenarios --cucumberOpts.tags=~@toggled-off --cucumberOpts.tags='@xbrowser' --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled"
   },
   "pre-commit": [
     "lint"
