@@ -84,7 +84,7 @@ const config = {
         const failedTests = totalTests.filter((item) => !passedTests.includes(item));
         console.log(passedTests, totalTests, failedTests);
         if (failedTests.length > 0) {
-            console.log('Tests failed. See report.');
+            console.log('Tests failed. Retrying. Failed tests: ' + failedTests);
             return retry.afterLaunch(1);
         } else {
             console.log('Tests passed.');
