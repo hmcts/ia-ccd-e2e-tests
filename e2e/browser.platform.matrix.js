@@ -14,9 +14,12 @@ module.exports = {
     {
       browserName: 'firefox',
       version: 'latest',
-      platform: {
-        name: 'Windows',
-        version: '10'
+      platform: 'Windows 10',
+      metadata: {
+        platform: {
+          name: 'Windows',
+          version: '10'
+        }
       },
       name: 'ia-firefox-windows-test',
       tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
@@ -39,9 +42,12 @@ module.exports = {
     {
       browserName: 'firefox',
       version: 'latest',
-      platform: {
-        name: 'macOS',
-        version: '10.13'
+      platform: 'macOS 10.13',
+      metadata: {
+        platform: {
+          name: 'Mac OS',
+          version: '10.13'
+        }
       },
       name: 'ia-firefox-mac-test',
       tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
@@ -64,9 +70,12 @@ module.exports = {
     {
       browserName: 'MicrosoftEdge',
       version: 'latest',
-      platform: {
-        name: 'Windows',
-        version: '10'
+      platform: 'Windows 10',
+      metadata: {
+        platform: {
+          name: 'Windows',
+          version: '10'
+        }
       },
       name: 'ia-microsoft-edge-windows-test',
       tunnelIdentifier: process.env.TUNNEL_IDENTIFIER || 'reformtunnel',
