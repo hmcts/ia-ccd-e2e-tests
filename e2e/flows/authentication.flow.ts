@@ -42,6 +42,11 @@ export class AuthenticationFlow {
     await this.idamSignInPage.waitUntilLoaded();
   }
 
+  async doSomeTestThing() {
+    let retryCount = (await browser.getSession()).toJSON();
+    console.log(retryCount);
+  }
+
   async signInByRole(role: UserRole) {
     switch (role) {
       case 'Case Officer':
