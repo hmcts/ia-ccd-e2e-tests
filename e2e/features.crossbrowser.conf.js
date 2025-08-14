@@ -11,7 +11,7 @@ const config = {
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-        require: ['./cucumber.crossbrowser.conf.js', './features/stepDefinitions/**/*.steps.ts'],
+        require: ['./cucumber.crossbrowser.conf.js', './features/stepDefinitions/**/*.steps.ts', './support/hooks.js'],
         keepAlive: false,
         tags: false,
         profile: false,
@@ -45,7 +45,7 @@ const config = {
             options: {
                 saveCollectedJSON: true,
                 automaticallyGenerateReport: true,
-                removeExistingJsonReportFile: true,
+                removeExistingJsonReportFile: false,
                 reportName: 'IA Service Cross Browser Test',
                 jsonDir: 'reports/tests/crossbrowser',
                 reportPath: 'reports/tests/crossbrowser',
@@ -79,6 +79,10 @@ const config = {
 
     afterLaunch() {
         let passedPercentage = extractPassedPercentage();
+        let passedTests = getPassedTestsArray();
+        let totalTests = getTotalTestsArray();
+        const failedTests = totalTests.filter((item) => !passedTests.includes(item));
+        console.log(passedTests, totalTests, failedTests);
         if (passedPercentage === 100 || passedPercentage === 100.00 || passedPercentage === '100' || passedPercentage === '100.00') {
             console.log('Tests passed.');
             process.exit(0);
@@ -103,6 +107,31 @@ function extractPassedPercentage() {
     } catch (err) {
         console.error('Error reading or parsing the file:', err);
         return null;
+    }
+}
+
+
+function getTotalTestsArray() {
+    let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
+    try {
+        const data = fs.readFileSync(testCounterPath, 'utf8');
+        const counterData = JSON.parse(data);
+        return counterData.totalTests;
+    } catch (err) {
+        console.error('Error reading file:', err);
+        return [];
+    }
+}
+
+function getPassedTestsArray() {
+    let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
+    try {
+        const data = fs.readFileSync(testCounterPath, 'utf8');
+        const counterData = JSON.parse(data);
+        return counterData.passedTests;
+    } catch (err) {
+        console.error('Error reading file:', err);
+        return [];
     }
 }
 
