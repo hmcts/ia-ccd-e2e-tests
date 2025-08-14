@@ -13,7 +13,7 @@ module.exports = {
   IdamApiUrl: process.env.IDAM_URL || 'http://idam-api.aat.platform.hmcts.net',
   s2sUrl: process.env.S2S_URL || 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal',
   TestOutputDir: process.env.E2E_OUTPUT_DIR || './reports/tests',
-  TestForAccessibility: process.env.TESTS_FOR_ACCESSIBILITY === 'true',
+  TestForAccessibility: process.env.TESTS_FOR_ACCESSIBILITY === 'true' && process.env.XBROWSER !== 'true',
 
   TestCaseOfficerUserName: process.env.TEST_CASEOFFICER_USERNAME,
   TestCaseOfficerPassword: process.env.TEST_CASEOFFICER_PASSWORD,
@@ -62,6 +62,5 @@ module.exports = {
   TestLawFirmOrgBBailsPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_B_BAILS_PASSWORD,
   isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
   isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false,
-  isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true',
-  TestForAccessibility: true
+  isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true'
 };
