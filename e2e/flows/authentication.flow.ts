@@ -43,7 +43,7 @@ export class AuthenticationFlow {
   }
 
   async doSomeTestThing() {
-    let retryCount = (await browser.getSession()).toJSON();
+    let retryCount = (await browser.getSession());
     console.log(retryCount);
   }
 
