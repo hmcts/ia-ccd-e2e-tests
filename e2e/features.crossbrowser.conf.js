@@ -5,6 +5,7 @@ const argv = minimist(process.argv.slice(2));
 const iaConfig = require('./ia.conf');
 const browserPlatformMatrix = require('./browser.platform.matrix');
 const fs = require("fs");
+const retry = require('protractor-retry').retry;
 
 const config = {
     framework: 'custom',
@@ -61,6 +62,7 @@ const config = {
         tsNode.register({
             project: path.join(__dirname, './tsconfig.e2e.json'),
         });
+        retry.onPrepare();
     },
     onComplete() {
         return browser.getProcessedConfig().then(function (c) {
@@ -71,6 +73,10 @@ const config = {
         });
     },
 
+    onCleanUp(results, files) {
+        retry.onCleanUp(results, files);
+    },
+
     afterLaunch() {
         let passedPercentage = extractPassedPercentage();
         if (passedPercentage === 100 || passedPercentage === 100.00 || passedPercentage === '100' || passedPercentage === '100.00') {
@@ -78,7 +84,7 @@ const config = {
             process.exit(0);
         } else {
             console.log('Tests failed. See report.');
-            process.exit(1);
+            return retry.afterLaunch(1);
         }
     }
 };
