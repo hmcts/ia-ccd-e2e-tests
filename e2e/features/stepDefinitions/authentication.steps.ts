@@ -19,8 +19,8 @@ Given(/^I am signed in as a `?([A-z ]+)?`$/, async function (role: UserRole) {
   await authenticationFlow.signInByRole(role);
 });
 
-Given('I do something',  () => {
-  authenticationFlow.doSomeTestThing();
+Given('I do something',  async () => {
+  await authenticationFlow.doSomeTestThing();
 });
 
 Given(/^I sign back in as a `?([A-z ]+)?`$/, async function (role: UserRole) {

@@ -1,7 +1,7 @@
 import { browser } from 'protractor';
 import { IdamSignInPage } from '../pages/idam-sign-in.page';
 import { CcdPage } from "../pages/ccd.page";
-import { expect } from 'chai';
+import { assert } from 'chai';
 
 const iaConfig = require('../ia.conf');
 
@@ -33,6 +33,7 @@ export type UserRole =
 export class AuthenticationFlow {
   private idamSignInPage = new IdamSignInPage();
   private ccdPage = new CcdPage();
+  private retryState: { [key: string]: number } = {};
 
   async signOut() {
     await browser.waitForAngularEnabled(false);
@@ -43,10 +44,28 @@ export class AuthenticationFlow {
     await this.idamSignInPage.waitUntilLoaded();
   }
 
-  doSomeTestThing() {
-    let randomNumber = Math.random() * 3;
-    console.log(`Random number generated: ${randomNumber}`);
-    expect(randomNumber).to.be.greaterThan(2);
+  async doSomeTestThing() {
+    const capabilities = await browser.getCapabilities();
+    const browserName = capabilities.get('browserName');
+    const browserKey = `${browserName}-${capabilities.get('platform')}`;
+
+    // Initialize retry state for the browser if not already set
+    if (!this.retryState[browserKey]) {
+      this.retryState[browserKey] = 0;
+    }
+
+    this.retryState[browserKey]++;
+
+    if (
+      (browserName === 'MicrosoftEdge' && this.retryState[browserKey] === 1) || // Fail first time for msEdge
+      ((browserName === 'firefox' && this.retryState[browserKey] === 2)) // Fail second time for firefox
+    ) {
+      console.log(`Simulating failure for ${browserKey} on attempt ${this.retryState[browserKey]}`);
+      assert(false);
+    } else {
+      console.log(`Simulating success for ${browserKey} on attempt ${this.retryState[browserKey]}`);
+      assert(true);
+    }
   }
 
   async signInByRole(role: UserRole) {

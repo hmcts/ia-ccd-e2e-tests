@@ -84,7 +84,7 @@ const config = {
             process.exit(0);
         } else {
             console.log('Tests failed. See report.');
-            return retry.afterLaunch(3);
+            return retry.afterLaunch(1);
         }
     }
 };
