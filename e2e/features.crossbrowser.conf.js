@@ -78,38 +78,19 @@ const config = {
     },
 
     afterLaunch() {
-        let passedPercentage = extractPassedPercentage();
         let passedTests = getPassedTestsArray();
         let totalTests = getTotalTestsArray();
         const failedTests = totalTests.filter((item) => !passedTests.includes(item));
-        console.log(passedTests, totalTests, failedTests);
-        if (passedPercentage === 100 || passedPercentage === 100.00 || passedPercentage === '100' || passedPercentage === '100.00') {
-            console.log('Tests passed.');
-            process.exit(0);
-        } else {
-            console.log('Tests failed. See report.');
+        if (failedTests.length > 0) {
+            console.log('Tests failed: ' + failedTests);
+            console.log('Retrying...')
             return retry.afterLaunch(1);
+        } else {
+            console.log(`Tests passed after retries. Number of total tests: ${totalTests.length}. Number of passed tests: ${passedTests.length}.`);
+            process.exit(0);
         }
     }
 };
-
-function extractPassedPercentage() {
-    const filePath = path.join(__dirname, '../reports/tests/crossbrowser/enriched-output.json');
-    try {
-        const data = fs.readFileSync(filePath, 'utf8');
-        const jsonData = JSON.parse(data);
-        if (jsonData && jsonData.scenarios && jsonData.scenarios.passedPercentage) {
-            return jsonData.scenarios.passedPercentage;
-        } else {
-            console.error('Passed percentage not found in the file.');
-            return null;
-        }
-    } catch (err) {
-        console.error('Error reading or parsing the file:', err);
-        return null;
-    }
-}
-
 
 function getTotalTestsArray() {
     let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
