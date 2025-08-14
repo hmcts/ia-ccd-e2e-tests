@@ -11,7 +11,7 @@ const config = {
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-        require: ['./cucumber.crossbrowser.conf.js', './features/stepDefinitions/**/*.steps.ts', './support/hooks.js'],
+        require: ['./cucumber.crossbrowser.conf.js', './features/stepDefinitions/**/*.steps.ts'],
         keepAlive: false,
         tags: false,
         profile: false,
@@ -45,7 +45,7 @@ const config = {
             options: {
                 saveCollectedJSON: true,
                 automaticallyGenerateReport: true,
-                removeExistingJsonReportFile: false,
+                removeExistingJsonReportFile: true,
                 reportName: 'IA Service Cross Browser Test',
                 jsonDir: 'reports/tests/crossbrowser',
                 reportPath: 'reports/tests/crossbrowser',
@@ -78,41 +78,64 @@ const config = {
     },
 
     afterLaunch() {
-        let passedTests = getPassedTestsArray();
-        let totalTests = getTotalTestsArray();
+        updatePassedTests()
+        let passedTests = getTestsArray('passedTests');
+        let totalTests = getTestsArray('totalTests');
         const failedTests = totalTests.filter((item) => !passedTests.includes(item));
+        console.log(passedTests, totalTests, failedTests);
         if (failedTests.length > 0) {
-            console.log('Tests failed: ' + failedTests);
-            console.log('Retrying...')
+            console.log('Tests failed. See report.');
             return retry.afterLaunch(1);
         } else {
-            console.log(`Tests passed after retries. Number of total tests: ${totalTests.length}. Number of passed tests: ${passedTests.length}.`);
+            console.log('Tests passed.');
             process.exit(0);
         }
     }
 };
 
-function getTotalTestsArray() {
+function updatePassedTests() {
+    const filePath = path.join(__dirname, '../reports/tests/crossbrowser/enriched-output.json');
+    try {
+        const data = fs.readFileSync(filePath, 'utf8');
+        const jsonData = JSON.parse(data);
+        if (jsonData && jsonData.features && typeof jsonData.features === 'object') {
+            jsonData.features.forEach((feature => {
+                addToTestsIfNotExists('totalTests', `${feature.metadata.browser.name}-${feature.metadata.platform.name}`);
+                if (!feature.isFailed) {
+                    addToTestsIfNotExists('passedTests', `${feature.metadata.browser.name}-${feature.metadata.platform.name}`);
+                }
+            }))
+        } else {
+            console.error('"features" not found in the file.');
+        }
+    } catch (err) {
+        console.error('Error reading or parsing the file:', err);
+    }
+}
+
+function getTestsArray(object) {
     let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
     try {
         const data = fs.readFileSync(testCounterPath, 'utf8');
         const counterData = JSON.parse(data);
-        return counterData.totalTests;
+        return counterData[object];
     } catch (err) {
         console.error('Error reading file:', err);
         return [];
     }
 }
 
-function getPassedTestsArray() {
-    let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
+function addToTestsIfNotExists(object, stringVar) {
+    const testCounterPath = path.join(process.cwd(), 'e2e', 'testCounter.json');
+    const data = fs.readFileSync(testCounterPath, 'utf8');
     try {
-        const data = fs.readFileSync(testCounterPath, 'utf8');
         const counterData = JSON.parse(data);
-        return counterData.passedTests;
-    } catch (err) {
-        console.error('Error reading file:', err);
-        return [];
+        if (!counterData[object].includes(stringVar)) {
+            counterData[object].push(stringVar);
+            fs.writeFileSync(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8');
+        }
+    } catch (error) {
+        console.error('Error parsing JSON:', error);
     }
 }
 
