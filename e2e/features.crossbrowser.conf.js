@@ -8,6 +8,7 @@ const fs = require("fs");
 const retry = require('protractor-retry').retry;
 
 const config = {
+    retryState: {"MicrosoftEdge-Windows": 0, "firefox-ANY": 0},
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
@@ -107,3 +108,5 @@ function extractPassedPercentage() {
 }
 
 exports.config = config;
+
+module.exports = config

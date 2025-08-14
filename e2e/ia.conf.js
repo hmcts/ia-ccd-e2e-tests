@@ -14,7 +14,7 @@ module.exports = {
   s2sUrl: process.env.S2S_URL || 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal',
   TestOutputDir: process.env.E2E_OUTPUT_DIR || './reports/tests',
   TestForAccessibility: process.env.TESTS_FOR_ACCESSIBILITY === 'true' && process.env.XBROWSER !== 'true',
-  retryState: {"MicrosoftEdge-Windows": 0, "firefox-ANY": 0},
+
   TestCaseOfficerUserName: process.env.TEST_CASEOFFICER_USERNAME,
   TestCaseOfficerPassword: process.env.TEST_CASEOFFICER_PASSWORD,
   TestAdminOfficerUserName: process.env.TEST_ADMINOFFICER_USERNAME,

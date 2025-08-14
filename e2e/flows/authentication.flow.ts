@@ -3,6 +3,7 @@ import { IdamSignInPage } from '../pages/idam-sign-in.page';
 import { CcdPage } from "../pages/ccd.page";
 import { assert } from 'chai';
 const iaConfig = require('../ia.conf');
+const crossBrowserConfig = require('../features.crossbrowser.conf.js');
 
 export type UserRole =
   'Case Officer' |
@@ -47,16 +48,16 @@ export class AuthenticationFlow {
     const browserName = capabilities.get('browserName');
     const browserKey = `${browserName}-${capabilities.get('platform')}`;
 
-    iaConfig.retryState[browserKey]++;
+    crossBrowserConfig.retryState[browserKey]++;
 
     if (
-      (browserName === 'MicrosoftEdge' && iaConfig.retryState[browserKey] === 1) || // Fail first time for msEdge
-      ((browserName === 'firefox' && iaConfig.retryState[browserKey] === 2)) // Fail second time for firefox
+      (browserName === 'MicrosoftEdge' && crossBrowserConfig.retryState[browserKey] === 1) || // Fail first time for msEdge
+      ((browserName === 'firefox' && crossBrowserConfig.retryState[browserKey] === 2)) // Fail second time for firefox
     ) {
-      console.log(`Simulating failure for ${browserKey} on attempt ${iaConfig.retryState[browserKey]}`);
+      console.log(`Simulating failure for ${browserKey} on attempt ${crossBrowserConfig.retryState[browserKey]}`);
       assert(false);
     } else {
-      console.log(`Simulating success for ${browserKey} on attempt ${iaConfig.retryState[browserKey]}`);
+      console.log(`Simulating success for ${browserKey} on attempt ${crossBrowserConfig.retryState[browserKey]}`);
       assert(true);
     }
   }
