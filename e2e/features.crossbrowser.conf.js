@@ -20,7 +20,7 @@ const config = {
         'no-source': true,
         strict: true,
         format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
-        retry: 0,
+        retry: 1,
     },
 
     sauceSeleniumAddress: 'ondemand.eu-central-1.saucelabs.com:443/wd/hub',

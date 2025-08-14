@@ -1,10 +1,8 @@
 import { browser } from 'protractor';
 import { IdamSignInPage } from '../pages/idam-sign-in.page';
 import { CcdPage } from "../pages/ccd.page";
-import { assert } from 'chai';
+
 const iaConfig = require('../ia.conf');
-import * as fs from 'fs';
-import * as path from 'path';
 
 export type UserRole =
   'Case Officer' |
@@ -34,55 +32,6 @@ export type UserRole =
 export class AuthenticationFlow {
   private idamSignInPage = new IdamSignInPage();
   private ccdPage = new CcdPage();
-  private retryStateFilePath = path.join(__dirname, '../../retryState.json');
-
-  private getRetryState(): { [key: string]: number } {
-    try {
-      const data = fs.readFileSync(this.retryStateFilePath, 'utf8');
-      return JSON.parse(data);
-    } catch (err) {
-      console.error('Error reading retryState.json:', err);
-      return {};
-    }
-  }
-
-  private updateRetryState(state: { [key: string]: number }) {
-    try {
-      fs.writeFileSync(this.retryStateFilePath, JSON.stringify(state, null, 2), 'utf8');
-    } catch (err) {
-      console.error('Error writing to retryState.json:', err);
-    }
-  }
-
-  async doSomeTestThing() {
-    const capabilities = await browser.getCapabilities();
-    const browserName = capabilities.get('browserName');
-    const platform = capabilities.get('platform') || 'ANY';
-    const browserKey = `${browserName}-${platform}`;
-
-    const retryState = this.getRetryState();
-
-    // Initialize retry state for the browser if not already set
-    if (!retryState[browserKey]) {
-      retryState[browserKey] = 0;
-    }
-
-    retryState[browserKey]++;
-
-    // Update the retry state in the file
-    this.updateRetryState(retryState);
-
-    if (
-      (browserName === 'MicrosoftEdge' && retryState[browserKey] === 1) || // Fail first time for msEdge
-      (browserName === 'firefox' && retryState[browserKey] === 3) // Fail second time for firefox
-    ) {
-      console.log(`Simulating failure for ${browserKey} on attempt ${retryState[browserKey]}`);
-      assert(false);
-    } else {
-      console.log(`Simulating success for ${browserKey} on attempt ${retryState[browserKey]}`);
-      assert(true);
-    }
-  }
 
   async signOut() {
     await browser.waitForAngularEnabled(false);
