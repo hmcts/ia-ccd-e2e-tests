@@ -108,5 +108,3 @@ function extractPassedPercentage() {
 }
 
 exports.config = config;
-
-module.exports = config
