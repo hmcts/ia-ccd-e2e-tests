@@ -1,6 +1,7 @@
 import { browser } from 'protractor';
 import { IdamSignInPage } from '../pages/idam-sign-in.page';
 import { CcdPage } from "../pages/ccd.page";
+import { expect } from 'chai';
 
 const iaConfig = require('../ia.conf');
 
