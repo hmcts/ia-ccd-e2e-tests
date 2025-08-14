@@ -6,8 +6,8 @@ const iaConfig = require('./ia.conf');
 const browserPlatformMatrix = require('./browser.platform.matrix');
 const fs = require("fs");
 const retry = require('protractor-retry').retry;
+
 const config = {
-    retryState: {},
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
