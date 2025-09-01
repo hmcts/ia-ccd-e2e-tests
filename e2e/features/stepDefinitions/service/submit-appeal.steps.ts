@@ -24,6 +24,10 @@ Then(/^I pay for and submit my appeal by PBA/, async function () {
   await payAndSubmitAppealFlow.payForAppealByPBA();
 });
 
+Then(/^I mark appeal as paid/, async function () {
+  await payAndSubmitAppealFlow.markAppealAsPaid();
+});
+
 Then(/^I pay for and submit my appeal by Card$/, async function () {
   await submitAppealFlow.submitAppeal();
   await payAndSubmitAppealFlow.createServiceRequest();
