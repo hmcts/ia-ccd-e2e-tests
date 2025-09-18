@@ -67,15 +67,26 @@ export class StartAppealFlow {
     await this.ccdFormPage.runAccessbility();
     if (homeOfficeReferenceNumber !== "") {
       await this.ccdFormPage.setFieldValue(
-        "Home Office Reference/Case ID",
+        "Home Office UAN or GWF reference",
         homeOfficeReferenceNumber
       );
     } else {
       await this.ccdFormPage.setFieldValue(
-        "Home Office Reference/Case ID",
-        "012345678"
+        "Home Office UAN or GWF reference",
+        "GWF012345678"
       );
     }
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeHomeOfficeDecisionDate(
+    clickContinue = false,
+    ooc = false
+  ) {
+    await this.ccdFormPage.runAccessbility();
     if (ooc) {
       await this.ccdFormPage.setFieldValue(
         "Date letter received",
@@ -470,9 +481,9 @@ export class StartAppealFlow {
   ) {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecision(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeUploadNoticeDecision(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -581,9 +592,9 @@ export class StartAppealFlow {
     await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, appellantInUk);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeClientAddress(true, false, "", "");
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -611,9 +622,9 @@ export class StartAppealFlow {
     await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, appellantInUk);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeClientAddress(true, false, "", "");
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -1056,9 +1067,9 @@ export class StartAppealFlow {
   ) {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -1074,9 +1085,9 @@ export class StartAppealFlow {
       false,
       homeOfficeReferenceNumber
     );
-    await this.completeUploadNoticeDecision(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeUploadNoticeDecision(true);
     await this.completeClientAddress(true, false, "", "");
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);

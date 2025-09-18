@@ -27,8 +27,8 @@ Given(
   }
 );
 
-Given("I complete the `Home Office details` page", async function () {
-  expect(await ccdFormPage.headingContains("Home Office details")).to.equal(
+Given("I complete the `Home Office reference number` page", async function () {
+  expect(await ccdFormPage.headingContains("Home Office reference number")).to.equal(
     true
   );
   await startAppealFlow.completeHomeOfficeReference(true);
