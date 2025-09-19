@@ -35,17 +35,10 @@ Given("I complete the `Home Office reference number` page", async function () {
 });
 
 Given("I complete the `Home Office details ooc` page", async function () {
-  expect(await ccdFormPage.headingContains("Home Office details")).to.equal(
+  expect(await ccdFormPage.headingContains("Home Office reference number")).to.equal(
     true
   );
   await startAppealFlow.completeHomeOfficeReference(true, true);
-});
-
-Given("I complete the `Upload the Notice of Decision` page", async function () {
-  expect(
-    await ccdFormPage.headingContains("Upload the Notice of Decision")
-  ).to.equal(true);
-  await startAppealFlow.completeUploadNoticeDecision(true);
 });
 
 Given("I complete the `Basic details` form", async function () {
@@ -69,6 +62,13 @@ Given(
     await startAppealFlow.completeNationality(true);
   }
 );
+
+Given("I complete the `Upload the Notice of Decision` page", async function () {
+  expect(
+    await ccdFormPage.headingContains("Upload the Notice of Decision")
+  ).to.equal(true);
+  await startAppealFlow.completeUploadNoticeDecision(true);
+});
 
 Given("I complete the `Appellant's address` page", async function () {
   expect(await ccdFormPage.headingContains("Appellant's address")).to.equal(

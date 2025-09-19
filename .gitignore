@@ -8,3 +8,9 @@ package-lock.json
 /chrome
 /chromedriver
 /.yarn/
+
+# Cucumber
+cucumberTaggedFiles.json
+
+# Protractor
+protractorFailuresReport/

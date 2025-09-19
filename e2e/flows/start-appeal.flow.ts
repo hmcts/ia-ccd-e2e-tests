@@ -94,7 +94,7 @@ export class StartAppealFlow {
       );
     } else {
       await this.ccdFormPage.setFieldValue(
-        "What date was the Home Office decision letter sent?",
+        "Home Office decision date",
         "{$TODAY-10}"
       );
     }
@@ -504,13 +504,14 @@ export class StartAppealFlow {
     address = "44 Millhouse Drive, Glasgow",
     postcode = "G20 0UE"
   ) {
-    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+    await this.completeClientDetails(true);
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
-    await this.completeBasicDetails(true);
-    await this.completeNationality(true);
+    await this.completeHomeOfficeDecisionDate(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -533,7 +534,7 @@ export class StartAppealFlow {
     address = "",
     postcode = ""
   ) {
-    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+    await this.completeClientDetails(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -560,7 +561,7 @@ export class StartAppealFlow {
     address = "44 Millhouse Drive, Glasgow",
     postcode = "G20 0UE"
   ) {
-    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+    await this.completeClientDetails(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -833,7 +834,7 @@ export class StartAppealFlow {
     address = "",
     postcode = ""
   ) {
-    await this.completeClientDetails(false);
+    await this.completeClientDetails(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -920,7 +921,7 @@ export class StartAppealFlow {
     address = "",
     postcode = ""
   ) {
-    await this.completeClientDetails(false);
+    await this.completeClientDetails(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -949,7 +950,7 @@ export class StartAppealFlow {
     address = "",
     postcode = ""
   ) {
-    await this.completeClientDetails(false);
+    await this.completeClientDetails(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -1048,15 +1049,10 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  async completeClientDetails(
-    clickContinue = false,
-    hasFixedAddress = false,
-    address = "",
-    postcode = ""
-  ) {
-    await this.completeScreeningQuestions(true);
-    await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
+  async completeClientDetails(clickContinue = false) {
+    await this.completeScreeningQuestions(clickContinue);
+    await this.completeHomeOfficeReference(clickContinue);
+//    await this.completeUploadNoticeDecisionNoUpload(true);
   }
 
   async completeOutOfTimeClientDetails(
