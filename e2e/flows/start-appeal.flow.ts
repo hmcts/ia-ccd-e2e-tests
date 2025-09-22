@@ -61,21 +61,14 @@ export class StartAppealFlow {
 
   async completeHomeOfficeReference(
     clickContinue = false,
-    ooc = false,
     homeOfficeReferenceNumber = ""
   ) {
     await this.ccdFormPage.runAccessbility();
-    if (homeOfficeReferenceNumber !== "") {
-      await this.ccdFormPage.setFieldValue(
-        "Home Office UAN or GWF reference",
-        homeOfficeReferenceNumber
-      );
-    } else {
-      await this.ccdFormPage.setFieldValue(
-        "Home Office UAN or GWF reference",
-        "GWF012345678"
-      );
-    }
+
+    await this.ccdFormPage.setFieldValue(
+      "Home Office UAN or GWF reference",
+      homeOfficeReferenceNumber || "GWF012345678"
+    );
 
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
@@ -512,6 +505,7 @@ export class StartAppealFlow {
       await this.completedGivenAppealGrounds(true, appealType);
     }
     await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -1052,7 +1046,6 @@ export class StartAppealFlow {
   async completeClientDetails(clickContinue = false) {
     await this.completeScreeningQuestions(clickContinue);
     await this.completeHomeOfficeReference(clickContinue);
-//    await this.completeUploadNoticeDecisionNoUpload(true);
   }
 
   async completeOutOfTimeClientDetails(
@@ -1078,7 +1071,6 @@ export class StartAppealFlow {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReference(
       true,
-      false,
       homeOfficeReferenceNumber
     );
     await this.completeBasicDetails(true);
@@ -1288,17 +1280,11 @@ export class StartAppealFlow {
     homeOfficeReferenceNumber = "",
     lateAppeal = ""
   ) {
-    if (homeOfficeReferenceNumber !== "") {
-      await this.ccdFormPage.setFieldValue(
-        "Home Office Reference/Case ID",
-        homeOfficeReferenceNumber
-      );
-    } else {
-      await this.ccdFormPage.setFieldValue(
-        "Home Office Reference/Case ID",
-        "01234567"
-      );
-    }
+
+    await this.ccdFormPage.setFieldValue(
+      "Home Office Reference/Case ID",
+      homeOfficeReferenceNumber || "01234567"
+    );
 
     if (lateAppeal === "late") {
       await this.ccdFormPage.setFieldValue(
