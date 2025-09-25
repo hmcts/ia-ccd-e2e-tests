@@ -72,11 +72,17 @@ export class CcdPage extends AnyPage {
   async triggerEventByUrl(overviewUrl: string, nextStep: string) {
     const url = await this.getCaseUrl(overviewUrl);
     const nextStepSlug: string | string[] | null = eventMappings[nextStep] || null;
+
     if (!nextStepSlug) {
       throw new Error(`No mapping found for next step: ${nextStep}`);
     }
     if (typeof nextStepSlug === "string") {
-      await this.triggerEventByUrlAttempt(url, nextStepSlug, nextStep);
+      let hasFound: boolean = await this.triggerEventByUrlAttempt(url, nextStepSlug, nextStep);
+      if (!hasFound) {
+        console.log(`Event not found for slug: ${nextStepSlug}`);
+      } else {
+        console.log(`Event successfully triggered for slug: ${nextStepSlug}`);
+      }
     } else {
       for (const slug of nextStepSlug) {
         let hasFound: boolean = await this.triggerEventByUrlAttempt(url, slug, nextStep);

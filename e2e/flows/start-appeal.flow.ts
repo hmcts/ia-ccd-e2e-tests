@@ -214,9 +214,9 @@ export class StartAppealFlow {
       await this.ccdFormPage.click("Yes");
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", postcode);
       await this.ccdFormPage.click("Find address");
+      await browser.sleep(1000); // needed to ensure address look-up has finished before selecting the address
       await this.ccdFormPage.doesDropdownHaveValues("Select an address");
       await this.ccdFormPage.setFieldValue("Select an address", address);
-      // await this.ccdFormPage.click('Continue');
     }
 
     if (clickContinue) {
@@ -556,12 +556,14 @@ export class StartAppealFlow {
     postcode = "G20 0UE"
   ) {
     await this.completeClientDetails(true);
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
-    await this.completeBasicDetails(true);
-    await this.completeNationality(true);
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
