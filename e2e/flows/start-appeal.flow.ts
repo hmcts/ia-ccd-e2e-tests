@@ -211,10 +211,11 @@ export class StartAppealFlow {
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", postcode);
       await this.ccdFormPage.click("Find address");
       await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+      await browser.sleep(4000);
       await this.ccdFormPage.setFieldValue("Select an address", address);
       // await this.ccdFormPage.click('Continue');
     }
-
+    await browser.sleep(2000);
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
     }
@@ -1358,8 +1359,9 @@ export class StartAppealFlow {
     await this.ccdFormPage.setFieldValue("Enter a UK postcode", postcode);
     await this.ccdFormPage.click("Find address");
     await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+    await browser.sleep(4000);
     await this.ccdFormPage.setFieldValue("Select an address", address);
-
+    await browser.sleep(2000);
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
     }
