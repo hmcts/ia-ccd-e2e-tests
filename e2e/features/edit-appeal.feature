@@ -5,7 +5,7 @@ Feature: Edit appeal before submit
     And I create a new case
     When I save my initial RP appeal for nonPayment with hearing
 
-  @regression @edit-appeal @RIA-653 @RIA-3334 @test
+  @regression @edit-appeal @RIA-653 @RIA-3334
   Scenario: Edit a draft appeal
 
     When I select the `Edit appeal` Next step
