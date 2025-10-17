@@ -1,0 +1,13 @@
+{
+  "totalTests": [
+    "e2e/features/start-decisions-and-reasons.feature:46",
+    "e2e/features/detainedAppeals/detained-irc-rp-appellant-aip-admin.feature:74",
+    "e2e/features/detainedAppeals/detained-irc-rp-appellant-legalrep.feature:74",
+    "e2e/features/detainedAppeals/detained-prison-hu-appellant-legalrep.feature:72",
+    "e2e/features/detainedAppeals/detained-other-pa-appellant-aip-admin.feature:73",
+    "e2e/features/detainedAppeals/detained-other-pa-appellant-aip-admin.feature:74",
+    "e2e/features/detainedAppeals/detained-prison-ea-appellant-aip-admin.feature:73",
+    "e2e/features/detainedAppeals/detained-prison-eu-appellant-lr-admin.feature:73"
+  ],
+  "passedTests": []
+}

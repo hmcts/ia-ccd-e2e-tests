@@ -1,3 +1,4 @@
+@test1
 Feature: Progress Detained RP Appeal upto FTPA decided
 
   Background:
