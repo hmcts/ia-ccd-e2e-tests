@@ -121,6 +121,14 @@ export class EditBailApplicationPostSubmitFlow {
     }
   }
 
+  async completeProbationOffenderManager(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue("Probation offender manager", "No");
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
   async completeFinancialConditionAgree(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Financial condition', 'No');
@@ -406,6 +414,7 @@ export class EditBailApplicationPostSubmitFlow {
     await this.completeApplicantMobilePhone(true);
     await this.completeAppealHearingPending(true);
     await this.completeApplicantPlaceToLive(true);
+    await this.completeProbationOffenderManager(true);
     await this.completeFinancialConditionAgree(true);
     if (noOfSupporters === 'no') {
       await this.completeFinancialConditionSupporter(true, 'No');
