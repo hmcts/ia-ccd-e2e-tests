@@ -79,21 +79,11 @@ export class NoticeOfChangePage {
     browser.driver.findElement(By.xpath('//*[@id="notifyEveryParty"]')).click();
   }
 
-  async getLatestCaseIdFromUrl(shortWait = false) {
-    let url = await browser.driver.getCurrentUrl();
-    let startIndex = url.indexOf('case-details/');
-    let endIndex;
-    if (url.includes('/trigger')) {
-      endIndex = url.indexOf('/trigger');
-    } else if (url.includes('#')) {
-      endIndex = url.indexOf('#');
-    }
-    let caseId;
-    if (url.includes('/trigger') || url.includes('#')) {
-      caseId = url.substring(startIndex + 13, endIndex);
-    } else {
-      caseId = url.substring(startIndex + 13);
-    }
+  async getLatestCaseIdFromUrl() {
+    const caseUrlMatcher = /\d{16}/g;
+    const currentUrl = await browser.driver.getCurrentUrl();
+    const caseIdIndex = currentUrl.search(caseUrlMatcher);
+    const caseId = currentUrl.substring(caseIdIndex, caseIdIndex + 16)
 
     this.noticeOfChangeCaseId = caseId;
     this.latestCaseId = caseId;
