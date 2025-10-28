@@ -74,7 +74,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow (Eagle Building)` for the `Hearing centre` field
     And I should see the option `Glasgow Tribunals Centre` for the `Hearing centre` field
-    And I should see the option `Coventry Magistrates Court` for the `Hearing centre` field
+    And I should see the option `Coventry Magistrates' Court` for the `Hearing centre` field
     And I should see the option `Newcastle Civil & Family Courts and Tribunals Centre` for the `Hearing centre` field
     And I should see the option `Nottingham Justice Centre` for the `Hearing centre` field
     And I should see the option `30 minutes` for the `Length` field
@@ -168,7 +168,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow (Eagle Building)` for the `Hearing centre` field
     And I should see the option `Glasgow Tribunals Centre` for the `Hearing centre` field
-    And I should see the option `Coventry Magistrates Court` for the `Hearing centre` field
+    And I should see the option `Coventry Magistrates' Court` for the `Hearing centre` field
     And I should see the option `Newcastle Civil & Family Courts and Tribunals Centre` for the `Hearing centre` field
     And I should see the option `Nottingham Justice Centre` for the `Hearing centre` field
     And I should see the option `30 minutes` for the `Length` field
@@ -263,7 +263,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow (Eagle Building)` for the `Hearing centre` field
     And I should see the option `Glasgow Tribunals Centre` for the `Hearing centre` field
-    And I should see the option `Coventry Magistrates Court` for the `Hearing centre` field
+    And I should see the option `Coventry Magistrates' Court` for the `Hearing centre` field
     And I should see the option `Newcastle Civil & Family Courts and Tribunals Centre` for the `Hearing centre` field
     And I should see the option `Nottingham Justice Centre` for the `Hearing centre` field
     And I should see the option `30 minutes` for the `Length` field
@@ -357,7 +357,7 @@ Feature: Relist an adjourned hearing without a date case
     And I should see the option `Hatton Cross` for the `Hearing centre` field
     And I should see the option `Glasgow (Eagle Building)` for the `Hearing centre` field
     And I should see the option `Glasgow Tribunals Centre` for the `Hearing centre` field
-    And I should see the option `Coventry Magistrates Court` for the `Hearing centre` field
+    And I should see the option `Coventry Magistrates' Court` for the `Hearing centre` field
     And I should see the option `Newcastle Civil & Family Courts and Tribunals Centre` for the `Hearing centre` field
     And I should see the option `Nottingham Justice Centre` for the `Hearing centre` field
     And I should see the option `30 minutes` for the `Length` field
