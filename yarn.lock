@@ -1559,7 +1559,7 @@ __metadata:
     jsonwebtoken: "npm:^9.0.2"
     moment: "npm:^2.29.2"
     multiple-cucumber-html-reporter: "npm:^3.6.2"
-    otp: "npm:^2.0.1"
+    otp: "npm:^0.1.3"
     pre-commit: "npm:^1.2.2"
     protractor: "npm:^5.4.2"
     protractor-beautiful-reporter: "npm:^1.2.5"
@@ -2271,10 +2271,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"otp@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "otp@npm:2.0.1"
-  checksum: 10/5d2092126a1d26c5d2d9dafa5ceab08c85ac3b6e35c39df2d2c979cc54f5fff028ac05cffa7fdb887c411579bcf72c961deb0a01d693eba3d5083176ecccc26e
+"otp@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "otp@npm:0.1.3"
+  dependencies:
+    thirty-two: "npm:^0.0.2"
+  checksum: 10/82c8511323ef82a18c7dd9f1b479c18a653fcb664023aa67bb1d48721fff7282e81fa9be56735c246f2e85757d9f4e3181a1851e2c4e61f1378c6e80bbaac846
   languageName: node
   linkType: hard
 
@@ -3104,6 +3106,13 @@ __metadata:
   dependencies:
     any-promise: "npm:^1.0.0"
   checksum: 10/486e1283a867440a904e36741ff1a177faa827cf94d69506f7e3ae4187b9afdf9ec368b3d8da225c192bfe2eb943f3f0080594156bf39f21b57cd1411e2e7f6d
+  languageName: node
+  linkType: hard
+
+"thirty-two@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "thirty-two@npm:0.0.2"
+  checksum: 10/e5766d18e713fca70c6795c24063299ddfebec1ebe0c338df06d5be14f3def140e49f6bbff283d6149cf34be99b31dd0e8cff41664adec8df131335dfda1d764
   languageName: node
   linkType: hard
 
