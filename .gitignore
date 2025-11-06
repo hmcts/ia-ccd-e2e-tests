@@ -7,6 +7,7 @@ package-lock.json
 .DS_Store
 /chrome
 /chromedriver
+/.yarn/cache
 
 # Cucumber
 cucumberTaggedFiles.json
