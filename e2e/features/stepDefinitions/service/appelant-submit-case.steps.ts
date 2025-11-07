@@ -1,7 +1,7 @@
 import { Given, Then } from 'cucumber';
 import { getS2sToken } from '../../../aip/s2s';
 import { CcdService, Events } from '../../../aip/ccd-service';
-import { createUser } from '../../../aip/idam-service';
+import { createUser, getUserId, getUserToken } from '../../../aip/idam-service';
 import { CcdPage } from '../../../pages/ccd.page';
 import { expect } from 'chai';
 const iaConfig = require('../../../ia.conf');
@@ -11,8 +11,8 @@ const ccdUrl = iaConfig.CcdWebUrl;
 
 Given(/^An appellant has submitted an appeal$/, async function () {
   const appellantConfig = await createUser();
-  const userToken = appellantConfig.userToken;
-  const userId = appellantConfig.userId;
+  const userToken = await getUserToken(appellantConfig);
+  const userId = await getUserId(userToken);
   const serviceToken = await getS2sToken();
   const ccdService = new CcdService();
   const securityHeaders = { userToken, serviceToken };

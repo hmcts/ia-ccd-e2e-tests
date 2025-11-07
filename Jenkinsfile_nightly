@@ -1,18 +1,33 @@
 #!groovy
 
-properties([
-    pipelineTriggers([cron('H 8 * * 1-5')]),
-    parameters([
-        booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-        booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-        booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-        string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
-        string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
-        string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
-        string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
-        string(name: 'SPECIFIC_TAGS', defaultValue: '', description: 'Tag for a specific run of tests'),
+if (env.BRANCH_NAME == 'master') {
+    properties([
+        pipelineTriggers([cron('H 8 * * 1-5')]),
+        parameters([
+            booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
+            booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
+            booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
+            string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
+            string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
+            string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
+            string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
+            string(name: 'SPECIFIC_TAGS', defaultValue: '', description: 'Tag for a specific run of tests'),
+        ])
     ])
-])
+} else {
+properties([
+        parameters([
+            booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
+            booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
+            booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
+            string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
+            string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
+            string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
+            string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
+            string(name: 'SPECIFIC_TAGS', defaultValue: '', description: 'Tag for a specific run of tests'),
+        ])
+    ])
+}
 
 @Library("Infrastructure")
 
@@ -21,8 +36,6 @@ def component = "ccd-e2e-tests"
 
 def secrets = [
     'ia-aat': [
-        secret('s2s-secret', 'S2S_SECRET'),
-        secret('idam-secret', 'IDAM_SECRET'),
         secret('test-caseofficer-username', 'TEST_CASEOFFICER_USERNAME'),
         secret('test-caseofficer-password', 'TEST_CASEOFFICER_PASSWORD'),
         secret('test-law-firm-a-username', 'TEST_LAW_FIRM_A_USERNAME'),
@@ -63,10 +76,7 @@ def secrets = [
         secret('test-law-firm-noc-a-bails-password', 'TEST_LAW_FIRM_SHARE_CASE_A_BAILS_PASSWORD'),
         secret('test-law-firm-noc-b-bails-username', 'TEST_LAW_FIRM_SHARE_CASE_B_BAILS_USERNAME'),
         secret('test-law-firm-noc-b-bails-password', 'TEST_LAW_FIRM_SHARE_CASE_B_BAILS_PASSWORD')
-    ],
-    'rpx-${env}': [
-        secret('mc-idam-client-secret', 'IDAM_CLIENT_SECRET')
-    ],
+    ]
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
@@ -90,9 +100,6 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
-    env.S2S_URL = 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'
-    env.IDAM_TESTING_SUPPORT_URL = 'https://idam-testing-support-api.aat.platform.hmcts.net'
-
     afterAlways('DependencyCheckNightly') {
         if (!params.skipAppealFunctionalTests) {
             stage('Appeal Full Functional Tests') {
