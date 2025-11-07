@@ -1,30 +1,36 @@
 #!groovy
 
+// Unified Jenkinsfile: Scheduled runs on master, manual runs on any branch/PR
+// Only schedule automated runs on master, but allow manual runs on any branch/PR
+def defaultBranch = (env.BRANCH_NAME == 'master') ? 'master' : (env.BRANCH_NAME ?: 'master')
+
 if (env.BRANCH_NAME == 'master') {
     properties([
         pipelineTriggers([cron('H 8 * * 1-5')]),
         parameters([
-            booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-            booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-            booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-            string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
-            string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
-            string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
-            string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
-            string(name: 'SPECIFIC_TAGS', defaultValue: '', description: 'Tag for a specific run of tests'),
+            string(name: 'BRANCH_TO_TEST', defaultValue: 'master', description: '🔀 Git branch or PR to checkout and test (e.g., master, feature/my-branch, PR-123)'),
+            string(name: 'SPECIFIC_TAGS', defaultValue: '', description: '🏷️ Specific Cucumber tag to run (e.g., @this-new-test-nish). Leave empty to run full test suites.'),
+            booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: '⏭️ Skip appeal functional tests (ignored if SPECIFIC_TAGS is set)'),
+            booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: '⏭️ Skip bail functional tests (ignored if SPECIFIC_TAGS is set)'),
+            booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: '⏭️ Skip cross-browser tests'),
+            string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: '🌐 URL to test against'),
+            string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: '🌐 CCD Gateway URL'),
+            string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: '⚡ Number of parallel test instances'),
+            string(name: 'RETRIES', defaultValue: '4', description: '🔄 Number of test retries'),
         ])
     ])
 } else {
-properties([
+    properties([
         parameters([
-            booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-            booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-            booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-            string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
-            string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
-            string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
-            string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
-            string(name: 'SPECIFIC_TAGS', defaultValue: '', description: 'Tag for a specific run of tests'),
+            string(name: 'BRANCH_TO_TEST', defaultValue: defaultBranch, description: '🔀 Git branch or PR to checkout and test (default: current branch)'),
+            string(name: 'SPECIFIC_TAGS', defaultValue: '', description: '🏷️ Specific Cucumber tag to run (e.g., @this-new-test-nish). Leave empty to run full test suites.'),
+            booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: '⏭️ Skip appeal functional tests (ignored if SPECIFIC_TAGS is set)'),
+            booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: '⏭️ Skip bail functional tests (ignored if SPECIFIC_TAGS is set)'),
+            booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: '⏭️ Skip cross-browser tests'),
+            string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: '🌐 URL to test against'),
+            string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: '🌐 CCD Gateway URL'),
+            string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: '⚡ Number of parallel test instances'),
+            string(name: 'RETRIES', defaultValue: '4', description: '🔄 Number of test retries'),
         ])
     ])
 }
@@ -91,6 +97,22 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
 withNightlyPipeline("nodejs", product, component) {
+    
+    // Checkout the specified branch or PR if different from current
+    if (params.BRANCH_TO_TEST && params.BRANCH_TO_TEST != '' && params.BRANCH_TO_TEST != env.BRANCH_NAME) {
+        stage('Checkout Specified Branch') {
+            echo "🔀 Checking out branch: ${params.BRANCH_TO_TEST}"
+            echo "📍 Current branch: ${env.BRANCH_NAME}"
+            checkout([
+                $class: 'GitSCM',
+                branches: [[name: params.BRANCH_TO_TEST]],
+                userRemoteConfigs: scm.userRemoteConfigs
+            ])
+        }
+    } else {
+        echo "✅ Using current branch: ${env.BRANCH_NAME}"
+    }
+    
     loadVaultSecrets(secrets)
 
     env.TEST_E2E_URL_WEB = params.URL_TO_TEST
@@ -162,6 +184,8 @@ withNightlyPipeline("nodejs", product, component) {
         if (params.SPECIFIC_TAGS != '') {
             stage('Specifically Tagged Full Functional Tests') {
                 try {
+                    echo "🏷️  Running tests with tag: ${params.SPECIFIC_TAGS}"
+                    echo "🔀 Branch: ${params.BRANCH_TO_TEST ?: env.BRANCH_NAME}"
                     yarnBuilder.yarn("test:setupFunctional")
                     script {
                         sh "node e2e/cucumberTagSearcher.js ${params.SPECIFIC_TAGS}; yarn protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=${params.SPECIFIC_TAGS}"
