@@ -83,7 +83,7 @@ export class NoticeOfChangePage {
     const caseUrlMatcher = /\d{16}/g;
     const currentUrl = await browser.driver.getCurrentUrl();
     const caseIdIndex = currentUrl.search(caseUrlMatcher);
-    const caseId = currentUrl.substring(caseIdIndex, caseIdIndex + 16);
+    const caseId = currentUrl.substring(caseIdIndex, caseIdIndex + 16)
 
     this.noticeOfChangeCaseId = caseId;
     this.latestCaseId = caseId;
