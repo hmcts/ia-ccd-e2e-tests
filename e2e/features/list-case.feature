@@ -38,17 +38,17 @@ Feature: List case
     And I should see the option `Atlantic Quay - Glasgow` for the `Listing location` field
     And I should see the option `Newcastle Civil And Family Courts And Tribunals Centre` for the `Listing location` field
     And I should see the option `Hatton Cross Tribunal Hearing Centre` for the `Listing location` field
-    And I should see the option `North Tyneside Magistrates' Court` for the `Listing location` field
+    And I should see the option `North Tyneside Magistrates Court` for the `Listing location` field
     And I should see the option `Manchester Tribunal Hearing Centre - Piccadilly Exchange` for the `Listing location` field
-    And I should see the option `Leeds Magistrates' Court and Family Court` for the `Listing location` field
-    And I should see the option `Bradford and Keighley Magistrates' Court and Family Court` for the `Listing location` field
-    And I should see the option `Nottingham Magistrates' Court` for the `Listing location` field
+    And I should see the option `Leeds Magistrates Court and Family Court` for the `Listing location` field
+    And I should see the option `Bradford and Keighley Magistrates Court and Family Court` for the `Listing location` field
+    And I should see the option `Nottingham Magistrates Court` for the `Listing location` field
     And I should see the option `Yarls Wood Immigration And Asylum Hearing Centre` for the `Listing location` field
     And I should see the option `Bradford Tribunal Hearing Centre` for the `Listing location` field
-    And I should see the option `Hendon Magistrates' Court` for the `Listing location` field
+    And I should see the option `Hendon Magistrates Court` for the `Listing location` field
     And I should see the option `Taylor House Tribunal Hearing Centre` for the `Listing location` field
-    And I should see the option `Manchester Magistrates' Court` for the `Listing location` field
-    And I should see the option `Coventry Magistrates' Court` for the `Listing location` field
+    And I should see the option `Manchester Magistrates Court` for the `Listing location` field
+    And I should see the option `Coventry Magistrates Court` for the `Listing location` field
     And I should see the option `Alloa Sheriff Court` for the `Listing location` field
     And I should see the option `Belfast Laganside Court` for the `Listing location` field
 

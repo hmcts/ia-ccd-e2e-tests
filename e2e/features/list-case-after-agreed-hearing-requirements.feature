@@ -48,7 +48,7 @@ Feature: List case and edit case listing after agreed hearing requirements stage
     And I should see the option `Birmingham` for the `Location` field
     And I should see the option `Hatton Cross` for the `Location` field
     And I should see the option `Glasgow` for the `Location` field
-    And I should see the option `Coventry Magistrates' Court` for the `Location` field
+    And I should see the option `Coventry Magistrates Court` for the `Location` field
     And I should see the option `Belfast` for the `Location` field
     And I should see the option `Remote hearing` for the `Location` field
     And I should see the option `Decision Without Hearing` for the `Location` field
