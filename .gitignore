@@ -8,12 +8,3 @@ package-lock.json
 /chrome
 /chromedriver
 /.yarn/
-
-# Cucumber
-cucumberTaggedFiles.json
-
-# Protractor
-protractorFailuresReport/
-
-# If you run the tests locally, you might have this
-e2e/testCounter.json
