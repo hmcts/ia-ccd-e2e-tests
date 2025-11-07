@@ -45,7 +45,8 @@ Given("I complete the `Home Office details ooc` page", async function () {
   expect(await ccdFormPage.headingContains("Home Office reference number")).to.equal(
     true
   );
-  await startAppealFlow.completeHomeOfficeReference(true, true);
+//  await startAppealFlow.completeHomeOfficeReference(true, true); - this used to include the Decision Date (OOC = true)
+  await startAppealFlow.completeHomeOfficeReference(true);
 });
 
 Given("I complete the `Basic details` form", async function () {
