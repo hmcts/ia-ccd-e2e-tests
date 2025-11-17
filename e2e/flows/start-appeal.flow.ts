@@ -1087,9 +1087,7 @@ export class StartAppealFlow {
     await this.completeAppealGrounds(true);
     await this.completeHomeOfficeDecisionDate(true);
     await this.completeUploadNoticeDecision(true);
-    
     await this.completeSponsorQuestion(true);
-   
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -1102,7 +1100,7 @@ export class StartAppealFlow {
     let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
     await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);  
-   }
+  }
 
   async completeHearingOption(clickContinue = false, hearingOption = "") {
     await this.ccdFormPage.runAccessbility();
