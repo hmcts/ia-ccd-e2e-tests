@@ -15,7 +15,7 @@ export class StartAppealFlow {
       // await this.ccdFormPage.headingContains('Tell us about your client')
 
       await this.ccdFormPage.setFieldValue(
-        "Is your client currently living in the United Kingdom?",
+        "Is the appellant currently living in the United Kingdom?",
         "Yes"
       );
     } else {
@@ -148,7 +148,7 @@ export class StartAppealFlow {
   ) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
-      "Home Office Reference/Case ID",
+      "Home Office UAN or GWF reference",
       "01234567"
     );
     await this.ccdFormPage.setFieldValue(
@@ -349,7 +349,7 @@ export class StartAppealFlow {
   async completeNewMatters(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
-      "Are there any new reasons your client wishes to remain in the UK " +
+      "Are there any reasons the appellant wishes to remain in the UK " +
         "or any new grounds on which they should be permitted to stay?",
       "Yes"
     );
@@ -501,14 +501,14 @@ export class StartAppealFlow {
     await this.completeClientDetails(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeContactPreference(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
     await this.completeHomeOfficeDecisionDate(true);
     await this.completeUploadNoticeDecisionNoUpload(true);
-    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
-    await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
@@ -559,14 +559,14 @@ export class StartAppealFlow {
     await this.completeClientDetails(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeContactPreference(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
     await this.completeHomeOfficeDecisionDate(true);
     await this.completeUploadNoticeDecisionNoUpload(true);
-    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
-    await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
@@ -1028,14 +1028,14 @@ export class StartAppealFlow {
   async saveOutOfTimeAppeal(clickContinue = false) {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
-    await this.completeUploadNoticeDecision(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
     await this.completeClientAddress(true);
     await this.completeContactPreference(true);
-    await this.completeSponsorQuestion(true);
     await this.completeAppealType(true);
     await this.completeAppealGrounds(true);
+    await this.completeUploadNoticeDecision(true);
+    await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -1069,6 +1069,9 @@ export class StartAppealFlow {
 
   async saveInitialAppealWithHomeOfficeReference(
     clickContinue = false,
+    appealType = "",
+    feeType = "without",
+    paymentChoice = "Pay Later",
     homeOfficeReferenceNumber = ""
   ) {
     await this.completeScreeningQuestions(true);
@@ -1078,18 +1081,28 @@ export class StartAppealFlow {
     );
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
-    await this.completeUploadNoticeDecision(true);
     await this.completeClientAddress(true, false, "", "");
     await this.completeContactPreference(true);
-    await this.completeSponsorQuestion(true);
     await this.completeAppealType(true);
     await this.completeAppealGrounds(true);
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecision(true);
+    
+    await this.completeSponsorQuestion(true);
+   
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
     await this.completeLegalRepresentativeDetails(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, "no remission");
+    if (appealType === "PA") {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
-  }
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);  
+   }
 
   async completeHearingOption(clickContinue = false, hearingOption = "") {
     await this.ccdFormPage.runAccessbility();

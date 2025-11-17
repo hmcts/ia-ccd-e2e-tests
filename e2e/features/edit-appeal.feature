@@ -16,12 +16,6 @@ Feature: Edit appeal before submit
     Given I am on the `Home Office details` page
     When I type `01234567` for the `Home Office UAN or GWF reference` field
     And I click the `Continue` button
-    Given I am on the `Upload the Notice of Decision` page
-    And I click the `Continue` button
-    Given I am on the `Type of appeal` page
-    And I click the `Continue` button
-    Given I am on the `The grounds of your appeal` page
-    And I click the `Continue` button
 
     Given I am on the `Basic details` page
     And I click the `Continue` button
@@ -35,6 +29,21 @@ Feature: Edit appeal before submit
     When I select `Email` for the `Communication Preference` field
     And I type `test@test.com` for the `Email address` field
     And I click the `Continue` button
+
+    Given I am on the `Type of appeal` page
+    And I click the `Continue` button
+    Given I am on the `The grounds of your appeal` page
+    And I click the `Continue` button
+
+    And I complete the `Home Office decision date` page
+    And I click the `Continue` button
+
+    Given I am on the `Upload the Notice of Decision` page
+    And I click the `Continue` button
+
+    
+
+    
 
     Given I am on the `Appellant's sponsor` page
     And I click the `Continue` button
