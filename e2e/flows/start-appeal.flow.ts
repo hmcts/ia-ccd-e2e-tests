@@ -15,7 +15,7 @@ export class StartAppealFlow {
       // await this.ccdFormPage.headingContains('Tell us about your client')
 
       await this.ccdFormPage.setFieldValue(
-        "Is your client currently living in the United Kingdom?",
+        "Is the appellant currently living in the United Kingdom?",
         "Yes"
       );
     } else {
@@ -61,29 +61,33 @@ export class StartAppealFlow {
 
   async completeHomeOfficeReference(
     clickContinue = false,
-    ooc = false,
     homeOfficeReferenceNumber = ""
   ) {
     await this.ccdFormPage.runAccessbility();
-    if (homeOfficeReferenceNumber !== "") {
-      await this.ccdFormPage.setFieldValue(
-        "Home Office Reference/Case ID",
-        homeOfficeReferenceNumber
-      );
-    } else {
-      await this.ccdFormPage.setFieldValue(
-        "Home Office Reference/Case ID",
-        "012345678"
-      );
+
+    await this.ccdFormPage.setFieldValue(
+      "Home Office UAN or GWF reference",
+      homeOfficeReferenceNumber || "012345678"
+    );
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
     }
+  }
+
+  async completeHomeOfficeDecisionDate(
+    clickContinue = false,
+    ooc = false
+  ) {
+    await this.ccdFormPage.runAccessbility();
     if (ooc) {
       await this.ccdFormPage.setFieldValue(
-        "Date letter received",
+        "Date of entry clearance decision",
         "{$TODAY-2}"
       );
     } else {
       await this.ccdFormPage.setFieldValue(
-        "What date was the Home Office decision letter sent?",
+        "Home Office decision date",
         "{$TODAY-10}"
       );
     }
@@ -144,7 +148,7 @@ export class StartAppealFlow {
   ) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
-      "Home Office Reference/Case ID",
+      "Home Office UAN or GWF reference",
       "01234567"
     );
     await this.ccdFormPage.setFieldValue(
@@ -210,10 +214,10 @@ export class StartAppealFlow {
       await this.ccdFormPage.click("Yes");
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", postcode);
       await this.ccdFormPage.click("Find address");
+      await browser.sleep(1000); // needed to ensure address look-up has finished before selecting the address
       await this.ccdFormPage.doesDropdownHaveValues("Select an address");
       await browser.sleep(4000);
       await this.ccdFormPage.setFieldValue("Select an address", address);
-      // await this.ccdFormPage.click('Continue');
     }
     await browser.sleep(2000);
     if (clickContinue) {
@@ -345,7 +349,7 @@ export class StartAppealFlow {
   async completeNewMatters(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
-      "Are there any new reasons your client wishes to remain in the UK " +
+      "Are there any reasons the appellant wishes to remain in the UK " +
         "or any new grounds on which they should be permitted to stay?",
       "Yes"
     );
@@ -471,9 +475,9 @@ export class StartAppealFlow {
   ) {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecision(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeUploadNoticeDecision(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -494,15 +498,17 @@ export class StartAppealFlow {
     address = "44 Millhouse Drive, Glasgow",
     postcode = "G20 0UE"
   ) {
-    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
-    await this.completeGivenAppealType(true, appealType);
-    if (appealType !== "EU") {
-      await this.completedGivenAppealGrounds(true, appealType);
-    }
+    await this.completeClientDetails(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
+    await this.completeGivenAppealType(true, appealType);
+    if (appealType !== "EU") {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
@@ -523,7 +529,7 @@ export class StartAppealFlow {
     address = "",
     postcode = ""
   ) {
-    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
+    await this.completeClientDetails(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -550,15 +556,17 @@ export class StartAppealFlow {
     address = "44 Millhouse Drive, Glasgow",
     postcode = "G20 0UE"
   ) {
-    await this.completeClientDetails(false, hasFixedAddress, address, postcode);
-    await this.completeGivenAppealType(true, appealType);
-    if (appealType !== "EU") {
-      await this.completedGivenAppealGrounds(true, appealType);
-    }
+    await this.completeClientDetails(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
+    await this.completeGivenAppealType(true, appealType);
+    if (appealType !== "EU") {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
@@ -582,9 +590,9 @@ export class StartAppealFlow {
     await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, appellantInUk);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeClientAddress(true, false, "", "");
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -612,9 +620,9 @@ export class StartAppealFlow {
     await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, appellantInUk);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeClientAddress(true, false, "", "");
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -823,7 +831,7 @@ export class StartAppealFlow {
     address = "",
     postcode = ""
   ) {
-    await this.completeClientDetails(false);
+    await this.completeClientDetails(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -910,7 +918,7 @@ export class StartAppealFlow {
     address = "",
     postcode = ""
   ) {
-    await this.completeClientDetails(false);
+    await this.completeClientDetails(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -939,7 +947,7 @@ export class StartAppealFlow {
     address = "",
     postcode = ""
   ) {
-    await this.completeClientDetails(false);
+    await this.completeClientDetails(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
@@ -1020,14 +1028,14 @@ export class StartAppealFlow {
   async saveOutOfTimeAppeal(clickContinue = false) {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
-    await this.completeUploadNoticeDecision(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
     await this.completeClientAddress(true);
     await this.completeContactPreference(true);
-    await this.completeSponsorQuestion(true);
     await this.completeAppealType(true);
     await this.completeAppealGrounds(true);
+    await this.completeUploadNoticeDecision(true);
+    await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
@@ -1038,15 +1046,9 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  async completeClientDetails(
-    clickContinue = false,
-    hasFixedAddress = false,
-    address = "",
-    postcode = ""
-  ) {
-    await this.completeScreeningQuestions(true);
-    await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
+  async completeClientDetails(clickContinue = false) {
+    await this.completeScreeningQuestions(clickContinue);
+    await this.completeHomeOfficeReference(clickContinue);
   }
 
   async completeOutOfTimeClientDetails(
@@ -1057,9 +1059,9 @@ export class StartAppealFlow {
   ) {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReferenceWithOutOfTimeDecisionLetter(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeContactPreference(true);
     await this.completeSponsorQuestion(true);
@@ -1067,27 +1069,37 @@ export class StartAppealFlow {
 
   async saveInitialAppealWithHomeOfficeReference(
     clickContinue = false,
+    appealType = "",
+    feeType = "without",
+    paymentChoice = "Pay Later",
     homeOfficeReferenceNumber = ""
   ) {
     await this.completeScreeningQuestions(true);
     await this.completeHomeOfficeReference(
       true,
-      false,
       homeOfficeReferenceNumber
     );
-    await this.completeUploadNoticeDecision(true);
     await this.completeBasicDetails(true);
     await this.completeNationality(true);
     await this.completeClientAddress(true, false, "", "");
     await this.completeContactPreference(true);
-    await this.completeSponsorQuestion(true);
     await this.completeAppealType(true);
     await this.completeAppealGrounds(true);
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecision(true);
+    await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeNewMatters(true);
     await this.completeOtherAppeals(true);
     await this.completeLegalRepresentativeDetails(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, "no remission");
+    if (appealType === "PA") {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 
   async completeHearingOption(clickContinue = false, hearingOption = "") {
@@ -1282,17 +1294,11 @@ export class StartAppealFlow {
     homeOfficeReferenceNumber = "",
     lateAppeal = ""
   ) {
-    if (homeOfficeReferenceNumber !== "") {
-      await this.ccdFormPage.setFieldValue(
-        "Home Office Reference/Case ID",
-        homeOfficeReferenceNumber
-      );
-    } else {
-      await this.ccdFormPage.setFieldValue(
-        "Home Office Reference/Case ID",
-        "01234567"
-      );
-    }
+
+    await this.ccdFormPage.setFieldValue(
+      "Home Office Reference/Case ID",
+      homeOfficeReferenceNumber || "01234567"
+    );
 
     if (lateAppeal === "late") {
       await this.ccdFormPage.setFieldValue(

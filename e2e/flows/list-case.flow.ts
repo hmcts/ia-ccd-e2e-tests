@@ -11,7 +11,7 @@ export class ListCaseFlow {
     await this.ccdFormPage.setFieldValue('Listing reference', 'LP/12345/2024');
     await this.ccdFormPage.setFieldValue('Listing location', 'Atlantic Quay - Glasgow');
     await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
-    await this.ccdFormPage.typeText('listingLength_hours', '2');
+    // await this.ccdFormPage.typeText('listingLength_hours', '2');
     await this.ccdFormPage.typeText('listingLength_minutes', '0');
 
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');

@@ -9,7 +9,7 @@ export class HearingBundleFlow {
     await this.ccdFormPage.selectNextStep('Generate hearing bundle');
 
     let currentUrl = await this.ccdFormPage.getCurrentUrl();
-    await this.ccdFormPage.click('Generate');
+    await this.ccdFormPage.click('Submit');
 
     await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
 

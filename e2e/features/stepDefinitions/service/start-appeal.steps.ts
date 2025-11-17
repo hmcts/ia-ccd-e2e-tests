@@ -27,25 +27,26 @@ Given(
   }
 );
 
-Given("I complete the `Home Office details` page", async function () {
-  expect(await ccdFormPage.headingContains("Home Office details")).to.equal(
+Given("I complete the `Home Office reference number` page", async function () {
+  expect(await ccdFormPage.headingContains("Home Office reference number")).to.equal(
     true
   );
   await startAppealFlow.completeHomeOfficeReference(true);
 });
 
-Given("I complete the `Home Office details ooc` page", async function () {
-  expect(await ccdFormPage.headingContains("Home Office details")).to.equal(
+Given("I complete the `Home Office decision date` page", async function () {
+  expect(await ccdFormPage.headingContains("Home Office decision date")).to.equal(
     true
   );
-  await startAppealFlow.completeHomeOfficeReference(true, true);
+  await startAppealFlow.completeHomeOfficeDecisionDate(true);
 });
 
-Given("I complete the `Upload the Notice of Decision` page", async function () {
-  expect(
-    await ccdFormPage.headingContains("Upload the Notice of Decision")
-  ).to.equal(true);
-  await startAppealFlow.completeUploadNoticeDecision(true);
+Given("I complete the `Home Office details ooc` page", async function () {
+  expect(await ccdFormPage.headingContains("Home Office reference number")).to.equal(
+    true
+  );
+//  await startAppealFlow.completeHomeOfficeReference(true, true); - this used to include the Decision Date (OOC = true)
+  await startAppealFlow.completeHomeOfficeReference(true);
 });
 
 Given("I complete the `Basic details` form", async function () {
@@ -69,6 +70,13 @@ Given(
     await startAppealFlow.completeNationality(true);
   }
 );
+
+Given("I complete the `Upload the Notice of Decision` page", async function () {
+  expect(
+    await ccdFormPage.headingContains("Upload the Notice of Decision")
+  ).to.equal(true);
+  await startAppealFlow.completeUploadNoticeDecision(true);
+});
 
 Given("I complete the `Appellant's address` page", async function () {
   expect(await ccdFormPage.headingContains("Appellant's address")).to.equal(
