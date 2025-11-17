@@ -67,7 +67,7 @@ export class StartAppealFlow {
 
     await this.ccdFormPage.setFieldValue(
       "Home Office UAN or GWF reference",
-      homeOfficeReferenceNumber || "GWF012345678"
+      homeOfficeReferenceNumber || "012345678"
     );
 
     if (clickContinue) {
@@ -82,7 +82,7 @@ export class StartAppealFlow {
     await this.ccdFormPage.runAccessbility();
     if (ooc) {
       await this.ccdFormPage.setFieldValue(
-        "Date letter received",
+        "Date of entry clearance decision",
         "{$TODAY-2}"
       );
     } else {
