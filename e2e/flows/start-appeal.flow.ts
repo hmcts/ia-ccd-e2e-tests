@@ -1099,7 +1099,7 @@ export class StartAppealFlow {
     }
     let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
-    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);  
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 
   async completeHearingOption(clickContinue = false, hearingOption = "") {
