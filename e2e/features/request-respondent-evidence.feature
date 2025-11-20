@@ -39,6 +39,7 @@ Feature: Request respondent evidence
 
     When I select the `Request respondent evidence` Next step
     Then I am on the `Request respondent evidence` page
+    And I see the default text in the Request respondent evidence text area input field
     And I should see `A notice of appeal has been lodged against this decision.` in the `Explain the direction you are issuing` text area input field
     And I should see `By the date indicated below the respondent is directed to supply the documents:` in the `Explain the direction you are issuing` text area input field
     And I should see `The bundle must comply with (i) Rule 23 or Rule 24 of the Tribunal Procedure Rules 2014 (as applicable) and (ii) Practice Direction (1.11.2024) Part 3, sections 7.1 – 7.4. Specifically, the bundle must contain:` in the `Explain the direction you are issuing` text area input field
