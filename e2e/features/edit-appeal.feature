@@ -5,7 +5,7 @@ Feature: Edit appeal before submit
     And I create a new case
     When I save my initial RP appeal for nonPayment with hearing
 
-  @regression @edit-appeal @RIA-653 @RIA-3334 @test
+  @regression @edit-appeal @RIA-653 @RIA-3334
   Scenario: Edit a draft appeal
 
     When I select the `Edit appeal` Next step
@@ -14,13 +14,7 @@ Feature: Edit appeal before submit
     Given I am on the `Location` page
     And I click the `Continue` button
     Given I am on the `Home Office details` page
-    When I type `01234567` for the `Home Office Reference/Case ID` field
-    And I click the `Continue` button
-    Given I am on the `Upload the Notice of Decision` page
-    And I click the `Continue` button
-    Given I am on the `Type of appeal` page
-    And I click the `Continue` button
-    Given I am on the `The grounds of your appeal` page
+    When I type `01234567` for the `Home Office UAN or GWF reference` field
     And I click the `Continue` button
 
     Given I am on the `Basic details` page
@@ -35,6 +29,21 @@ Feature: Edit appeal before submit
     When I select `Email` for the `Communication Preference` field
     And I type `test@test.com` for the `Email address` field
     And I click the `Continue` button
+
+    Given I am on the `Type of appeal` page
+    And I click the `Continue` button
+    Given I am on the `The grounds of your appeal` page
+    And I click the `Continue` button
+
+    And I complete the `Home Office decision date` page
+    And I click the `Continue` button
+
+    Given I am on the `Upload the Notice of Decision` page
+    And I click the `Continue` button
+
+    
+
+    
 
     Given I am on the `Appellant's sponsor` page
     And I click the `Continue` button
@@ -83,7 +92,7 @@ Feature: Edit appeal before submit
     And I should see `31 Dec 1999` for the `Date of birth` field
     And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
     And I should see `Revocation of a protection status` for the `Type of appeal` field
-    And I should see `001234567` for the `Home Office Reference/Case ID` field
+    And I should see `001234567` for the `Home Office UAN or GWF reference` field
     And I should see `IA Legal Services` for the `Company` field
     And I should see `ia-legal-fenn` for the `Legal representative reference` field
 
@@ -161,7 +170,7 @@ Feature: Edit appeal before submit
     Then I am on the `Edit appeal` page
 
     Given I am on the `Home Office details` page
-    When I type `01234567` for the `Home Office Reference/Case ID` field
+    When I type `01234567` for the `Home Office UAN or GWF reference` field
     And I type `{$TODAY-3|DD-MM-YYYY}` for the `Enter the date the decision letter was sent` field
     And I click the `Continue` button
 
@@ -299,7 +308,7 @@ Feature: Edit appeal before submit
     Then I am on the `Edit appeal` page
 
     Given I am on the `Home Office details` page
-    When I type `01234567` for the `Home Office Reference/Case ID` field
+    When I type `01234567` for the `Home Office UAN or GWF reference` field
     And I type `15-09-2018` for the `Enter the date the decision letter was sent` field
     And I click the `Continue` button
 

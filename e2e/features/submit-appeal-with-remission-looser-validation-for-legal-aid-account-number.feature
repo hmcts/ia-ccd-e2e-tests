@@ -4,14 +4,15 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
     And I complete the `Tell us about your client` page
-    And I complete the `Home Office details` page
-    And I complete the `Upload the Notice of Decision` page
-    And I complete the `EA appeal type` page
-    And I complete the `EA appeal grounds` page
+    And I complete the `Home Office reference number` page
     And I complete the `Basic details` page
     And I complete the `What is the appellant's nationality?` page
     And I complete the `Appellant's address` page
     And I complete the `The appellant's contact preference` page
+    And I complete the `EA appeal type` page
+    And I complete the `EA appeal grounds` page
+    And I complete the `Home Office decision date` page
+    And I complete the `Upload the Notice of Decision` page
     And I complete the `Appellant's sponsor` page
     And I complete the `Deportation order` page
     And I complete the `New matters` page

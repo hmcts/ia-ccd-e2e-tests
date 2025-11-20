@@ -4,10 +4,13 @@ Feature: Address details are validated
     Given I am signed in as a `Legal Rep`
     And I create a new case
     And I complete the `Tell us about your client` page
-    And I complete the `Home Office details` page
-    And I complete the `Upload the Notice of Decision` page
+    And I complete the `Home Office reference number` page
     And I complete the `Basic details` page
     And I complete the `What is the appellant's nationality?` page
+    And I complete the `Type of appeal` page
+    And I complete the `The grounds of your appeal` page
+    And I complete the `Home Office decision date` page
+    And I complete the `Upload the Notice of Decision` page
 
   @regression @start-appeal @alternate @RIA-732
   Scenario: Legal rep indicates there is no fixed address for the appellant

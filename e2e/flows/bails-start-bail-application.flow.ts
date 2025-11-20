@@ -181,10 +181,20 @@ export class StartBailApplicationFlow {
     await this.ccdFormPage.setFieldValue("Enter a UK postcode", "SW1A 2AA");
     await this.ccdFormPage.click("Find address");
     await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+    await browser.sleep(4000);
     await this.ccdFormPage.setFieldValue(
       "Select an address",
       "Prime Minister & First Lord Of The Treasury, 10 Downing Street, London"
     );
+    await browser.sleep(2000);
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeProbationOffenderManager(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue("Probation offender manager", "No");
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
     }
@@ -347,6 +357,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", "CH5 3QW");
       await this.ccdFormPage.click("Find address");
       await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+      await browser.sleep(4000);
       await this.ccdFormPage.setFieldValue(
         "Select an address",
         "J & P Engineering Services Ltd, Wellington House, Manor Lane, Penarlag Hawarden Industrial Park Airfield View, Glannau Dyfrdwy"
@@ -356,11 +367,13 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", "SW1A 1AA");
       await this.ccdFormPage.click("Find address");
       await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+      await browser.sleep(4000);
       await this.ccdFormPage.setFieldValue(
         "Select an address",
         "Buckingham Palace, London"
       );
     }
+    await browser.sleep(2000);
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
     }
@@ -725,6 +738,7 @@ export class StartBailApplicationFlow {
     await this.completeAppealHearingPending(true);
     await this.completeApplicantPlaceToLive(true);
     await this.completeApplicantAddress(true);
+    await this.completeProbationOffenderManager(true);
     await this.completeFinancialConditionAgree(true);
     if (noOfSupporters === 'no') {
       await this.completeFinancialConditionSupporter(true, 'No');
@@ -815,6 +829,7 @@ export class StartBailApplicationFlow {
     await this.completeAppealHearingPending(true);
     await this.completeApplicantPlaceToLive(true);
     await this.completeApplicantAddress(true);
+    await this.completeProbationOffenderManager(true);
     await this.completeFinancialConditionAgree(true);
 
     if (noOfSupporters === 'no') {

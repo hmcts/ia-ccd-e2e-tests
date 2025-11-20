@@ -72,11 +72,17 @@ export class CcdPage extends AnyPage {
   async triggerEventByUrl(overviewUrl: string, nextStep: string) {
     const url = await this.getCaseUrl(overviewUrl);
     const nextStepSlug: string | string[] | null = eventMappings[nextStep] || null;
+
     if (!nextStepSlug) {
       throw new Error(`No mapping found for next step: ${nextStep}`);
     }
     if (typeof nextStepSlug === "string") {
-      await this.triggerEventByUrlAttempt(url, nextStepSlug, nextStep);
+      let hasFound: boolean = await this.triggerEventByUrlAttempt(url, nextStepSlug, nextStep);
+      if (!hasFound) {
+        console.log(`Event not found for slug: ${nextStepSlug}`);
+      } else {
+        console.log(`Event successfully triggered for slug: ${nextStepSlug}`);
+      }
     } else {
       for (const slug of nextStepSlug) {
         let hasFound: boolean = await this.triggerEventByUrlAttempt(url, slug, nextStep);
@@ -214,8 +220,18 @@ export class CcdPage extends AnyPage {
   }
 
   async acceptCookies() {
-    let userID = (await browser.manage().getCookie("__userid__"))["value"];
-    let cookieName = `hmcts-exui-cookies-${userID}-mc-accepted`;
+    let userIdCookie = await browser.manage().getCookie("__userid__");
+    let userId: string;
+    if (userIdCookie == null) {
+      const sessionStorageData: string = await browser.executeScript(() => {
+        return JSON.stringify(sessionStorage);
+      });
+      const sessionStorageJson = JSON.parse(sessionStorageData);
+      userId = sessionStorageJson['userDetails'] != null ? sessionStorageJson['userDetails']['uid'] : "";
+    } else {
+      userId = userIdCookie["value"];
+    }
+    let cookieName = `hmcts-exui-cookies-${userId}-mc-accepted`;
     let cookieValue = "true";
     let cookieDomain =
       iaConfig.CcdWebUrl.split("/")[iaConfig.CcdWebUrl.split("/").length - 1];
