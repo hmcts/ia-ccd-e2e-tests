@@ -25,4 +25,4 @@ Then(/^I upload Home Office bundle$/, async function () {
 
 Then('I see the default text in the Request respondent evidence text area input field', async function () {
   await uploadRespondentEvidenceFlow.verifyDefaultTextInTextArea();
-})
+});
