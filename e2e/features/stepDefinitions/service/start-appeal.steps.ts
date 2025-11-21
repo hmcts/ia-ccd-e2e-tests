@@ -17,16 +17,6 @@ Given("I complete the `Tell us about your client` page", async function () {
   await startAppealFlow.completeScreeningQuestions(true);
 });
 
-Given(
-  "I complete the `Tell us about your client out of country` page",
-  async function () {
-    expect(
-      await ccdFormPage.headingContains("Tell us about your client")
-    ).to.equal(true);
-    await startAppealFlow.completeScreeningQuestionsOutOfCountry(true);
-  }
-);
-
 Given("I complete the `Home Office reference number` page", async function () {
   expect(await ccdFormPage.headingContains("Home Office reference number")).to.equal(
     true
