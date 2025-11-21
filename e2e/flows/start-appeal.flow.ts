@@ -8,35 +8,20 @@ export class StartAppealFlow {
   private ccdFormPage = new CcdFormPage();
 
   async completeScreeningQuestions(clickContinue = false) {
-    if (isOutOfCountryEnabled) {
-      await this.completeScreeningQuestionsOutOfCountry(clickContinue);
-
-      /* Removing this check as it takes too long and causes the nightly test run to fail */
-      // await this.ccdFormPage.headingContains('Tell us about your client')
 
       await this.ccdFormPage.setFieldValue(
-        "Is the appellant currently living in the United Kingdom?",
-        "Yes"
+          "Is the appellant currently living in the United Kingdom?",
+          "Yes"
       );
-    } else {
-      await this.ccdFormPage.runAccessbility();
-      await this.ccdFormPage.click("My client is living in the UK");
-      await this.ccdFormPage.click("My client is not in detention");
-    }
-
-    if (clickContinue) {
       await this.ccdFormPage.click("Continue");
+      await this.ccdFormPage.setFieldValue(
+          "Is the appellant currently in detention?",
+          "No"
+      );
+      if (clickContinue) {
+        await this.ccdFormPage.click("Continue");
+      }
     }
-  }
-
-  async completeScreeningQuestionsOutOfCountry(clickContinue = false) {
-    await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.click("My client is not in detention");
-
-    if (clickContinue) {
-      await this.ccdFormPage.click("Continue");
-    }
-  }
 
   async completeOutOfCountryQuestion(
     clickContinue = false,
@@ -44,12 +29,12 @@ export class StartAppealFlow {
   ) {
     if (appellantInUk === "No") {
       await this.ccdFormPage.setFieldValue(
-        "Is your client currently living in the United Kingdom?",
+        "Is the appellant currently living in the United Kingdom?",
         "No"
       );
     } else {
       await this.ccdFormPage.setFieldValue(
-        "Is your client currently living in the United Kingdom?",
+        "Is the appellant currently living in the United Kingdom?",
         "Yes"
       );
     }
@@ -587,7 +572,6 @@ export class StartAppealFlow {
     appealType = "",
     appellantInUk = ""
   ) {
-    await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, appellantInUk);
     await this.completeHomeOfficeReference(true);
     await this.completeBasicDetails(true);
@@ -617,7 +601,6 @@ export class StartAppealFlow {
     feeType = "",
     appellantInUk = ""
   ) {
-    await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, appellantInUk);
     await this.completeHomeOfficeReference(true);
     await this.completeBasicDetails(true);
@@ -655,7 +638,6 @@ export class StartAppealFlow {
     hasAddress = "Yes",
     hasSponsor = "Yes"
   ) {
-    await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, appellantInUk);
     await this.completeDecisionType(true, decisionType);
     if (
@@ -704,7 +686,6 @@ export class StartAppealFlow {
     hasAddress = "Yes",
     hasSponsor = "Yes"
   ) {
-    await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, appellantInUk);
     await this.completeDecisionType(true, decisionType);
     if (decisionType === "refusalOfHumanRights") {
@@ -750,7 +731,6 @@ export class StartAppealFlow {
     authorisation = "",
     appealType = ""
   ) {
-    await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, "No");
     await this.completeDecisionType(true, "refusalOfHumanRights");
     await this.completeGlobalWebFormReference(true, "GWF1234567");
@@ -789,7 +769,6 @@ export class StartAppealFlow {
     authorisation = "",
     appealType = ""
   ) {
-    await this.completeScreeningQuestionsOutOfCountry(true);
     await this.completeOutOfCountryQuestion(true, "No");
     await this.completeDecisionType(true, "refusalOfHumanRights");
     await this.completeGlobalWebFormReference(true, "GWF1234567");
