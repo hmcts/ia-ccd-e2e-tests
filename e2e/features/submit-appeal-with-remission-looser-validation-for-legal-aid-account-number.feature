@@ -3,7 +3,7 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
   Background:
     Given I am signed in as a `Legal Org User Rep A`
     And I create a new case
-    And I complete the `Tell us about your client` page
+    And I complete the `Appellant currently living` page
     And I complete the `Home Office reference number` page
     And I complete the `Basic details` page
     And I complete the `What is the appellant's nationality?` page
@@ -35,7 +35,7 @@ Feature: Submit appeal with remission (looser validation for legal aid account n
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
-    Then I should see `012345678` for the `Home Office Reference/Case ID` answer
+    Then I should see `012345678` for the `Home Office UAN or GWF reference` answer
     And I should see `Mr` for the `Title` answer
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer

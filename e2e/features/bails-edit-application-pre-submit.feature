@@ -8,7 +8,7 @@ Feature: Bails Edit application preSubmit
     When I edit my saved application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
     Then I should see the text `Your application details have been updated`
     When I click the `Close and Return to case details` button if present
-    
+    And I wait for 5 seconds
     And I should see `Harry Pughes` for the `Applicant name` field
     And I should see `Yarlswood` for the `Immigration removal centre` field
     And I should see `Yarls Wood Immigration And Asylum Hearing Centre` for the `Hearing centre` field

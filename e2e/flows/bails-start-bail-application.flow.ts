@@ -357,7 +357,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", "CH5 3QW");
       await this.ccdFormPage.click("Find address");
       await this.ccdFormPage.doesDropdownHaveValues("Select an address");
-      await browser.sleep(4000);
+      await browser.sleep(5000);
       await this.ccdFormPage.setFieldValue(
         "Select an address",
         "J & P Engineering Services Ltd, Wellington House, Manor Lane, Penarlag Hawarden Industrial Park Airfield View, Glannau Dyfrdwy"
@@ -367,7 +367,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", "SW1A 1AA");
       await this.ccdFormPage.click("Find address");
       await this.ccdFormPage.doesDropdownHaveValues("Select an address");
-      await browser.sleep(4000);
+      await browser.sleep(5000);
       await this.ccdFormPage.setFieldValue(
         "Select an address",
         "Buckingham Palace, London"

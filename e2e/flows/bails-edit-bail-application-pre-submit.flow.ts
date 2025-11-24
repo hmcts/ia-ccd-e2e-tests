@@ -455,11 +455,11 @@ export class EditBailApplicationPreSubmitFlow {
     }
     await this.completeGroundsForBail(true);
     await this.completeSupportingEvidenceYesNo(true);
-    await this.completeBailTransfer(true);
     await this.completeInterpreterRequirements(true);
     if (noOfSupporters !== 'no') {
       await this.completeFinancialConditionSupporterInterpreterRequirements(true);
     }
+    await this.completeBailTransfer(true);
     await this.completeDisabilityRequirements(true);
     await this.completeVideoLinkRequirements(true);
     if (legalRepresentativeOrNot === 'a') {

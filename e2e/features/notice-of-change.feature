@@ -104,6 +104,7 @@ Feature: Notice of Change (common component)
     And I click the `Continue` button
     And I select all the submit checkboxes
     And I click the `Submit` button
+    And I wait for 5 seconds
     And I should see the text `Notice of change successful`
     And I should see the text `You're now representing a client on case`
     And I should see the `View this case` link
