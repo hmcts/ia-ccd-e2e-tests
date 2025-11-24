@@ -10,18 +10,12 @@ const isOutOfCountryEnabled =
 const ccdFormPage = new CcdFormPage();
 const startAppealFlow = new StartAppealFlow();
 
-Given("I complete the `Tell us about your client` page", async function () {
-  expect(
-    await ccdFormPage.headingContains("Tell us about your client")
-  ).to.equal(true);
-  await startAppealFlow.completeScreeningQuestions(true);
+Given("I complete the `Appellant currently living` page", async function () {
+    await startAppealFlow.completeScreeningQuestions(true);
 });
 
 Given("I complete the `Home Office reference number` page", async function () {
-  expect(await ccdFormPage.headingContains("Home Office reference number")).to.equal(
-    true
-  );
-  await startAppealFlow.completeHomeOfficeReference(true);
+    await startAppealFlow.completeHomeOfficeReference(true);
 });
 
 Given("I complete the `Home Office decision date` page", async function () {

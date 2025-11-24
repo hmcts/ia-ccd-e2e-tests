@@ -1,5 +1,6 @@
 import { browser, by, element } from 'protractor';
 import { CcdFormPage } from '../pages/ccd-form.page';
+import { expect } from 'chai';
 
 export class UploadRespondentEvidenceFlow {
   private ccdFormPage = new CcdFormPage();
@@ -42,27 +43,28 @@ export class UploadRespondentEvidenceFlow {
   async verifyDefaultTextInTextArea() {
     const cssPath = '#sendDirectionExplanation';
     const textArea = element(by.css(cssPath));
-    const actualText = await textArea.getText();
-    expect(actualText).toContain('A notice of appeal has been lodged against this decision.');
-    expect(actualText).toContain('By the date indicated below the respondent is directed to supply the documents:');
-    expect(actualText).toContain('The bundle must comply with (i) Rule 23 or Rule 24 of the Tribunal Procedure Rules 2014 (as applicable) and (ii) Practice Direction (1.11.2024) Part 3, sections 7.1 - 7.4. Specifically, the bundle must contain:');
-    expect(actualText).toContain('- the notice of decision appealed against.');
-    expect(actualText).toContain('- any other document provided to the appellant giving reasons for that decision.');
-    expect(actualText).toContain('- any evidence or material relevant to the disputed issues.');
-    expect(actualText).toContain('- any statements of evidence.');
-    expect(actualText).toContain('- the application form.');
-    expect(actualText).toContain('- any record of interview with the appellant in relation to the decision being appealed.');
-    expect(actualText).toContain('- any previous decision(s) of the Tribunal and Upper Tribunal (IAC) relating to the appellant.');
-    expect(actualText).toContain('- any other unpublished documents on which you rely.');
-    expect(actualText).toContain('- the notice of any other appealable decision made in relation to the appellant.');
-    expect(actualText).toContain('Where the appeal involves deportation, you must also include the following evidence:');
-    expect(actualText).toContain('- a copy of the Certificate of Conviction.');
-    expect(actualText).toContain('- a copy of any indictment/charge.');
-    expect(actualText).toContain('- a transcript of the Sentencing Judge\'s Remarks.');
-    expect(actualText).toContain('- a copy of any Pre-Sentence Report.');
-    expect(actualText).toContain('- a copy of the appellant\'s criminal record.');
-    expect(actualText).toContain('- a copy of any Parole Report or other document relating to the appellant\'s period in custody and/or release.');
-    expect(actualText).toContain('- a copy of any mental health report.');
-    expect(actualText).toContain('Parties must ensure they conduct proceedings with procedural rigour. The Tribunal will not overlook breaches of the requirements of the Procedure Rules, Practice Statement or Practice Direction, nor failures to comply with directions issued by the Tribunal. Parties are reminded of the sanctions for non-compliance set out in paragraph 5.3 of the Practice Direction of 01.11.24.');
+    const actualText = await textArea.getAttribute('value');
+
+    expect(actualText).to.contain('A notice of appeal has been lodged against this decision.');
+    expect(actualText).to.contain('By the date indicated below the respondent is directed to supply the documents:');
+    expect(actualText).to.contain('The bundle must comply with (i) Rule 23 or Rule 24 of the Tribunal Procedure Rules 2014 (as applicable) and (ii) Practice Direction (1.11.2024) Part 3, sections 7.1 - 7.4. Specifically, the bundle must contain:');
+    expect(actualText).to.contain('- the notice of decision appealed against.');
+    expect(actualText).to.contain('- any other document provided to the appellant giving reasons for that decision.');
+    expect(actualText).to.contain('- any evidence or material relevant to the disputed issues.');
+    expect(actualText).to.contain('- any statements of evidence.');
+    expect(actualText).to.contain('- the application form.');
+    expect(actualText).to.contain('- any record of interview with the appellant in relation to the decision being appealed.');
+    expect(actualText).to.contain('- any previous decision(s) of the Tribunal and Upper Tribunal (IAC) relating to the appellant.');
+    expect(actualText).to.contain('- any other unpublished documents on which you rely.');
+    expect(actualText).to.contain('- the notice of any other appealable decision made in relation to the appellant.');
+    expect(actualText).to.contain('Where the appeal involves deportation, you must also include the following evidence:');
+    expect(actualText).to.contain('- a copy of the Certificate of Conviction.');
+    expect(actualText).to.contain('- a copy of any indictment/charge.');
+    expect(actualText).to.contain('- a transcript of the Sentencing Judge\'s Remarks.');
+    expect(actualText).to.contain('- a copy of any Pre-Sentence Report.');
+    expect(actualText).to.contain('- a copy of the appellant\'s criminal record.');
+    expect(actualText).to.contain('- a copy of any Parole Report or other document relating to the appellant\'s period in custody and/or release.');
+    expect(actualText).to.contain('- a copy of any mental health report.');
+    expect(actualText).to.contain('Parties must ensure they conduct proceedings with procedural rigour. The Tribunal will not overlook breaches of the requirements of the Procedure Rules, Practice Statement or Practice Direction, nor failures to comply with directions issued by the Tribunal. Parties are reminded of the sanctions for non-compliance set out in paragraph 5.3 of the Practice Direction of 01.11.24.');
   }
 }
