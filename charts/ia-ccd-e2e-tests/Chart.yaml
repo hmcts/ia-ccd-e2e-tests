@@ -1,0 +1,8 @@
+apiVersion: v2
+name: ia-ccd-e2e-tests
+home: https://github.com/hmcts/ia-ccd-e2e-tests
+version: 0.0.1
+description: Immigration & Asylum CCD E2E Tests
+maintainers:
+  - name: HMCTS Immigration & Asylum Team
+    email: ImmigrationandAsylum@HMCTS.NET
