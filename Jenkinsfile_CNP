@@ -3,7 +3,7 @@
 properties([
     pipelineTriggers([cron('H 8 * * 1-5')]),
     parameters([
-        booleanParam(name: 'SHOULD_RUN', defaultValue: 'false', description: 'Tick the checkbox to trigger tests in pipeline'),
+        booleanParam(name: 'SILENT_RUN', defaultValue: 'true', description: 'Set the checkbox false to trigger tests in pipeline'),
         booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
@@ -96,7 +96,7 @@ withNightlyPipeline("nodejs", product, component) {
     env.IDAM_TESTING_SUPPORT_URL = 'https://idam-testing-support-api.aat.platform.hmcts.net'
 
     afterAlways('DependencyCheckNightly') {
-        if (params.SHOULD_RUN) {
+        if (!params.SILENT_RUN) {
             if (!params.skipAppealFunctionalTests) {
                 stage('Appeal Full Functional Tests') {
                     try {
