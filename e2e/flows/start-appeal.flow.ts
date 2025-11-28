@@ -23,6 +23,164 @@ export class StartAppealFlow {
       }
     }
 
+  async completeDetainedScreeningQuestions(clickContinue = false) {
+
+    await this.ccdFormPage.setFieldValue(
+        "Is the appellant currently living in the United Kingdom?",
+        "Yes"
+    );
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeAipInternalDetainedScreeningQuestions(clickContinue = false, internalJourneyType = "") {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.headingContains('When did the Tribunal receive the appeal?');
+    await this.ccdFormPage.setFieldValue('Date appeal received', '{$TODAY-2}');
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.headingContains('Appellant\'s representation');
+    await this.ccdFormPage.runAccessbility();
+    if (internalJourneyType === "aip") {
+      await this.ccdFormPage.setFieldValue('Has the appeal form been submitted by an appellant in person?', 'Yes');
+      await this.ccdFormPage.click('Continue');
+    } else {
+      await this.ccdFormPage.setFieldValue('Has the appeal form been submitted by an appellant in person?', 'No, they have a legal representative');
+      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.setFieldValue('Enter the reasons the appeal was not submitted on MyHMCTS', 'LR Not Registered with MYHMCTS');
+      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.setFieldValue("Company", "IA Legal Services");
+      await this.ccdFormPage.setFieldValue("Given name", "Stephen");
+      await this.ccdFormPage.setFieldValue("Family name", "Fenn");
+      await this.ccdFormPage.setFieldValue("Email", "testlr@test.com");
+      await this.ccdFormPage.setFieldValue("Legal representative reference (Optional)", "ia-legal-fenn");
+      await this.ccdFormPage.click('Continue');
+      await this.ccdFormPage.setFieldValue(
+          "Does the legal representative have a UK address?",
+          "Yes"
+      );
+      await this.ccdFormPage.click("Yes");
+      await this.ccdFormPage.setFieldValue("Enter a UK postcode", "G20 0UE");
+      await this.ccdFormPage.click("Find address");
+      await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+      await this.ccdFormPage.setFieldValue("Select an address",  "44 Millhouse Drive, Glasgow");
+      await this.ccdFormPage.click('Continue');
+
+    }
+    await this.ccdFormPage.headingContains('Location');
+    await this.ccdFormPage.setFieldValue('Is the appellant currently living in the United Kingdom?', 'Yes');
+    await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.setFieldValue('Is the appellant currently in detention?', 'Yes');
+    await this.ccdFormPage.runAccessbility();
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
+  async completeAppellantDetentionQuestions(clickContinue = false) {
+
+    await this.ccdFormPage.setFieldValue(
+        "Is the appellant currently in detention?",
+        "Yes"
+    );
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeIrcDetentionFacility(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue("Detention facility", "Immigration removal centre");
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completePrisonDetentionFacility(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue("Detention facility", "Prison");
+    await this.ccdFormPage.setFieldValue(
+        "What is the appellant's NOMS number? (Optional)",
+        "987654321");
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeOtherDetentionFacility(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue("Detention facility", "Other");
+    await this.ccdFormPage.setFieldValue("Enter the name of the detention facility", "Other Facility");
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeWhichIRC(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue('Immigration removal centre name', 'Harmondsworth');
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
+    }
+  }
+
+  async completeWhichPrison(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue("Prison name", "HM Prison Aylesbury");
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completePendingBailApplicationQuestions(clickContinue = false) {
+
+    await this.ccdFormPage.setFieldValue(
+        "Does the appellant have a pending bail application?",
+        "No"
+    );
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeRemovalDirectionQuestions(clickContinue = false) {
+
+    await this.ccdFormPage.setFieldValue(
+        "Are removal directions currently set for the appellant?",
+        "No"
+    );
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeCustodialSentenceQuestions(clickContinue = false) {
+
+    await this.ccdFormPage.setFieldValue(
+        "Is the appellant still serving their custodial sentence?",
+        "No"
+    );
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeScreeningQuestionsOutOfCountry(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click("My client is not in detention");
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
   async completeOutOfCountryQuestion(
     clickContinue = false,
     appellantInUk = ""
@@ -113,7 +271,7 @@ export class StartAppealFlow {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.click("Add new");
     await browser.sleep(1000);
-    await this.ccdFormPage.waitForXpathElementVisible('//*[contains(text(),"You must upload the Notice of Decision")]');
+    await this.ccdFormPage.waitForXpathElementVisible('//*[contains(text(),"Notice of Decision")]');
     await this.ccdFormPage.uploadFile('Evidence1.pdf');
     await this.ccdFormPage.setFieldValue(
       "Describe the document",
@@ -125,6 +283,18 @@ export class StartAppealFlow {
     );
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeUploadAppealForm(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.click('Add new');
+    await this.ccdFormPage.setFieldValue('Document', '{@Evidence1.pdf}', 'document', 'first', 'Appeal Form', 'first');
+    await this.ccdFormPage.setFieldValue('Describe the document', 'This is the appeal form', 'text area', 'first', 'Appeal Form', 'first');
+    await browser.sleep(1000);
+
+    if (clickContinue) {
+      await this.ccdFormPage.click('Continue');
     }
   }
 
@@ -149,6 +319,17 @@ export class StartAppealFlow {
   async completeBasicDetails(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue("Title", "Mr");
+    await this.ccdFormPage.setFieldValue("Given names", "José");
+    await this.ccdFormPage.setFieldValue("Family name", "González");
+    await this.ccdFormPage.setFieldValue("Date of birth", "31-12-1999");
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
+  async completeInternalBasicDetails(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue("Given names", "José");
     await this.ccdFormPage.setFieldValue("Family name", "González");
     await this.ccdFormPage.setFieldValue("Date of birth", "31-12-1999");
@@ -210,6 +391,24 @@ export class StartAppealFlow {
     }
   }
 
+  async completeDetainedOtherClientAddress(
+      clickContinue = false,
+      hasFixedAddress = false,
+      address = "",
+      postcode = ""
+  ) {
+    await this.ccdFormPage.runAccessbility();
+
+    await this.ccdFormPage.setFieldValue("Enter a UK postcode", postcode);
+    await this.ccdFormPage.click("Find address");
+    await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+    await this.ccdFormPage.setFieldValue("Select an address", address);
+
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+
   async completeContactPreference(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
@@ -217,6 +416,14 @@ export class StartAppealFlow {
       "Text message"
     );
     await this.ccdFormPage.setFieldValue("Mobile phone number", "07977111111");
+    if (clickContinue) {
+      await this.ccdFormPage.click("Continue");
+    }
+  }
+  async completeInternalContactPreference(clickContinue = false) {
+    await this.ccdFormPage.runAccessbility();
+    await this.ccdFormPage.setFieldValue("Mobile number (Optional)", "07977111111");
+    await this.ccdFormPage.setFieldValue("Email address (Optional)", "testaip@test.com");
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
     }
@@ -505,6 +712,61 @@ export class StartAppealFlow {
     await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
 
+  async saveInitialNonPaymentDetainedAppeal(
+      clickContinue = false,
+      appealType = "",
+      hearingOption = "",
+  ) {
+    await this.completeDetainedClientDetails(false);
+    await this.completeIrcDetentionFacility(true);
+    await this.completeWhichIRC(true);
+    await this.completePendingBailApplicationQuestions(true);
+    await this.completeHomeOfficeReference(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
+    if (appealType !== "EU") {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeSponsorQuestion(true);
+    await this.completeDeportationOrder(true);
+    await this.completeRemovalDirectionQuestions(true);
+    await this.completeNewMatters(true);
+    await this.completeOtherAppeals(true);
+    await this.completeLegalRepresentativeDetails(true);
+    await this.completeHearingOption(true, hearingOption);
+    let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+  }
+
+  async saveInitialAipInternalNonPaymentDetainedAppeal(
+      clickContinue = false,
+      appealType = "",
+      hearingOption = "",
+      internalJourneyType = ""
+  ) {
+    await this.completeAipInternalDetainedClientDetails(false, internalJourneyType);
+    await this.completeIrcDetentionFacility(true);
+    await this.completeWhichIRC(true);
+    await this.completePendingBailApplicationQuestions(true);
+    await this.completeHomeOfficeReference(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
+    await this.completeInternalBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeInternalContactPreference(true);
+    await this.completeSponsorQuestion(true);
+    await this.completeDeportationOrder(true);
+    await this.completeRemovalDirectionQuestions(true);
+    await this.completeOtherAppeals(true);
+    await this.completeHearingOption(true, hearingOption);
+    await this.completeUploadAppealForm(true);
+    let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+  }
   async saveInitialAppealWithFee(
     clickContinue = false,
     appealType = "",
@@ -562,6 +824,148 @@ export class StartAppealFlow {
     if (appealType === "PA") {
       await this.completeHowToPay(true, paymentChoice);
     }
+    let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+  }
+
+  async saveInitialDetainedAppealWithoutRemission(
+      clickContinue = false,
+      appealType = "",
+      feeType = "",
+      paymentChoice = "",
+  ) {
+    await this.completeDetainedClientDetails(false);
+    await this.completePrisonDetentionFacility(true);
+    await this.completeWhichPrison(true);
+    await this.completeCustodialSentenceQuestions(true);
+    await this.completePendingBailApplicationQuestions(true);
+    await this.completeHomeOfficeReference(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
+    if (appealType !== "EU") {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeSponsorQuestion(true);
+    await this.completeDeportationOrder(true);
+    await this.completeRemovalDirectionQuestions(true);
+    await this.completeNewMatters(true);
+    await this.completeOtherAppeals(true);
+    await this.completeLegalRepresentativeDetails(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, "no remission");
+    if (appealType === "PA") {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+  }
+
+  async saveInitialAipDetainedAppealWithoutRemission(
+      clickContinue = false,
+      appealType = "",
+      feeType = "",
+      paymentChoice = "",
+      internalJourneyType = ""
+  ) {
+    await this.completeAipInternalDetainedClientDetails(true, internalJourneyType);
+    await this.completePrisonDetentionFacility(true);
+    await this.completeWhichPrison(true);
+    await this.completeCustodialSentenceQuestions(true);
+    await this.completePendingBailApplicationQuestions(true);
+    await this.completeHomeOfficeReference(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
+    await this.completeInternalBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeInternalContactPreference(true);
+    await this.completeSponsorQuestion(true);
+    await this.completeDeportationOrder(true);
+    await this.completeRemovalDirectionQuestions(true);
+    await this.completeOtherAppeals(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, "no remission");
+    if (appealType === "PA") {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    await this.completeUploadAppealForm(true);
+    let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+  }
+
+  async saveInitialDetainedOtherAppealWithoutRemission(
+      clickContinue = false,
+      appealType = "",
+      feeType = "",
+      paymentChoice = "",
+      hasFixedAddress = true,
+      address = "44 Millhouse Drive, Glasgow",
+      postcode = "G20 0UE"
+  ) {
+    await this.completeDetainedClientDetails(false);
+    await this.completeOtherDetentionFacility(true);
+    await this.completeCustodialSentenceQuestions(true);
+    await this.completePendingBailApplicationQuestions(true);
+    await this.completeHomeOfficeReference(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
+    if (appealType !== "EU") {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeDetainedOtherClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeSponsorQuestion(true);
+    await this.completeDeportationOrder(true);
+    await this.completeRemovalDirectionQuestions(true);
+    await this.completeNewMatters(true);
+    await this.completeOtherAppeals(true);
+    await this.completeLegalRepresentativeDetails(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, "no remission");
+    if (appealType === "PA") {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+  }
+
+  async saveInitialAipDetainedOtherAppealWithoutRemission(
+      clickContinue = false,
+      appealType = "",
+      feeType = "",
+      paymentChoice = "",
+      internalJourneyType = "",
+      hasFixedAddress = true,
+      address = "44 Millhouse Drive, Glasgow",
+      postcode = "G20 0UE",
+  ) {
+    await this.completeAipInternalDetainedClientDetails(true, internalJourneyType);
+    await this.completeOtherDetentionFacility(true);
+    await this.completeCustodialSentenceQuestions(true);
+    await this.completePendingBailApplicationQuestions(true);
+    await this.completeHomeOfficeReference(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeGivenAppealType(true, appealType);
+    await this.completeInternalBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeDetainedOtherClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeInternalContactPreference(true);
+    await this.completeSponsorQuestion(true);
+    await this.completeDeportationOrder(true);
+    await this.completeRemovalDirectionQuestions(true);
+    await this.completeOtherAppeals(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, "no remission");
+    if (appealType === "PA") {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    await this.completeUploadAppealForm(true);
     let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
     await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
@@ -1028,6 +1432,23 @@ export class StartAppealFlow {
   async completeClientDetails(clickContinue = false) {
     await this.completeScreeningQuestions(clickContinue);
     await this.completeHomeOfficeReference(clickContinue);
+  }
+
+  async completeDetainedClientDetails(
+      clickContinue = false,
+      hasFixedAddress = false,
+      address = "",
+      postcode = ""
+  ) {
+    await this.completeDetainedScreeningQuestions(true);
+    await this.completeAppellantDetentionQuestions(true);
+  }
+
+  async completeAipInternalDetainedClientDetails(
+      clickContinue = false,
+      internalJourneyType = "",
+  ) {
+    await this.completeAipInternalDetainedScreeningQuestions(true, internalJourneyType);
   }
 
   async completeOutOfTimeClientDetails(
