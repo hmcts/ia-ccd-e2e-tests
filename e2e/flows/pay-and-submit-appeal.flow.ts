@@ -102,7 +102,7 @@ export class PayAndSubmitAppealFlow {
     await this.ccdFormPage.click('Confirm payment');
 
     await this.ccdPage.click('Return to service request');
-    if (currentUrl.includes('preview')) {
+    if (['demo', 'preview'].some(testEnv => currentUrl.includes(testEnv))) {
       await this.ccdPage.goToUrl(currentUrl);
     }
     await this.ccdPage.gotoTabs('Overview');
