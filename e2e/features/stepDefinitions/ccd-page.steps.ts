@@ -499,7 +499,7 @@ Then(
       );
       result.push(res);
     }
-    expect(result.some(r => r === true)).to.be.true;
+    expect(result.some(r => r === true)).to.equal(true);
   }
 );
 
