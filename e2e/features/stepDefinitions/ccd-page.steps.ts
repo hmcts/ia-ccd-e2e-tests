@@ -473,6 +473,36 @@ Then(
   }
 );
 
+Then(
+  /^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see one of `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
+  async function (
+    instanceNumber,
+    collectionLabel,
+    collectionItemNumber,
+    fieldMatch,
+    inOrFor,
+    fieldLabel
+  ) {
+    const isExactMatch = inOrFor === "for";
+    const values = fieldMatch.split(',');
+
+    let result: boolean[] = [];
+
+    for (const value of values) {
+      const res = await ccdPage.isFieldValueDisplayed(
+        fieldLabel,
+        value,
+        isExactMatch,
+        instanceNumber,
+        collectionLabel,
+        collectionItemNumber
+      );
+      result.push(res);
+    }
+    expect(result.some(r => r === true)).to.equal(true);
+  }
+);
+
 Then(/^I go to the URL `?([^`]+)`?$/, async function (URL) {
   await ccdFormPage.goToUrl(URL);
 });
