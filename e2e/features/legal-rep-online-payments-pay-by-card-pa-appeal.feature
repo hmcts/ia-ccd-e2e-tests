@@ -5,7 +5,6 @@ Feature: Pay and submit appeal by card - successful and failed payments (PA appe
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I go to the overview page for the stored case
     Then I should be on the overview page
-    Then I should be on the overview page
     And I submit my appeal before paying
     Then I should see the text `You must now pay for this appeal.`
     When I select the `Create a service request` Next step

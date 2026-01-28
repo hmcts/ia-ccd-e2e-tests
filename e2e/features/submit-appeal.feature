@@ -5,7 +5,6 @@ Feature: Submit appeal application
     And I save my initial PA appeal type without remission and with hearing fee and pay later
     And I go to the overview page for the stored case
     Then I should be on the overview page
-    Then I should be on the overview page
 
   @appeal-nightly-test
   Scenario: Submit an appeal application

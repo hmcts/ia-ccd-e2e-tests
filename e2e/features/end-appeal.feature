@@ -5,7 +5,6 @@ Feature: End appeal
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I go to the overview page for the stored case
     Then I should be on the overview page
-    Then I should be on the overview page
     And I pay for and submit my appeal by Card
 
   @regression @end-appeal @RIA-823 @RIA-1677 @RIA-1678 @RIA-1766 @RIA-1486 @RIA-2239 @appeal-nightly-test

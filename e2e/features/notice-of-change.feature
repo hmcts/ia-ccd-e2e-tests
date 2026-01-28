@@ -6,7 +6,6 @@ Feature: Notice of Change (common component)
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I go to the overview page for the stored case
     Then I should be on the overview page
-    Then I should be on the overview page
     And I pay for and submit my appeal by Card
     And I get the most recent case id for the notice of change case
 

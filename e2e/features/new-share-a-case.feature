@@ -5,7 +5,6 @@ Feature: New Share a Case (common component)
     And I save my initial EA appeal type without remission and with hearing fee and pay now
     And I go to the overview page for the stored case
     Then I should be on the overview page
-    Then I should be on the overview page
     And I pay for and submit my appeal by Card
     Then I should see the text `Case record for EA`
     When I get the Appeal Reference

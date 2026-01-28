@@ -5,7 +5,6 @@ Feature: Legal representative make an application
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I go to the overview page for the stored case
     Then I should be on the overview page
-    Then I should be on the overview page
     And I pay for and submit my appeal by Card
 
   @Make-an-application-at-appeal-submitted @RIA-3457-make-an-application-at-appeal-submitted @RIA-3457 @appeal-nightly-test

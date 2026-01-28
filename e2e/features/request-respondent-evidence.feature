@@ -5,7 +5,6 @@ Feature: Request respondent evidence
     And I save my initial PA appeal type without remission and with hearing fee and pay now
     And I go to the overview page for the stored case
     Then I should be on the overview page
-    Then I should be on the overview page
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
     And I check the case has been paid for
