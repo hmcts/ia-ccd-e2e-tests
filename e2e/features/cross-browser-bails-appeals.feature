@@ -19,8 +19,8 @@ Feature: Cross-browser submit a bails application then an appeal application
 
     Then I create a new case
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     And I select the `Submit your appeal` Next step
     And I wait for 5 seconds
     Then I should see the `Declaration` page

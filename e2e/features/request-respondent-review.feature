@@ -2,11 +2,9 @@ Feature: Request respondent evidence
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
-    And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
-    Then I should see the text `Do this next`
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     And I pay for and submit my appeal by PBA
     And I wait for 15 seconds
     And I switch to be a `Case Officer`

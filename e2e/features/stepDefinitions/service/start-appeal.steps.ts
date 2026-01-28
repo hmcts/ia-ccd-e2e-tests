@@ -511,7 +511,7 @@ Given(
 Given(
   /^I save my initial `?([^\s`]+)`? appeal for nonPayment `?([^\s`]+)`? hearing$/,
   async function (appealType, hearingOption) {
-    await startAppealFlow.saveInitialNonPaymentAppeal(
+    await startAppealFlow.saveInitialAppealWithoutRemission(
       true,
       appealType,
       hearingOption

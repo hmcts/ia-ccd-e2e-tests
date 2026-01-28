@@ -547,9 +547,7 @@ export class StartAppealFlow {
     appealType = "",
     feeType = "",
     paymentChoice = "",
-    hasFixedAddress = true,
-    address = "44 Millhouse Drive, Glasgow",
-    postcode = "G20 0UE"
+    hasFixedAddress = true
   ) {
     const caseDataStr = fs.readFileSync(process.cwd() + '/data/casedata-base.json', 'utf8').toString();
     const caseData = JSON.parse(caseDataStr);
@@ -564,6 +562,7 @@ export class StartAppealFlow {
         };
         caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
         caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+        caseData.remissionType = 'noRemission';
         break;
       case "HU":
         caseData.appealType = 'refusalOfHumanRights';
@@ -574,6 +573,7 @@ export class StartAppealFlow {
         };
         caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
         caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+        caseData.remissionType = 'noRemission';
         break;
       case "PA":
         caseData.appealType = 'protection';
@@ -585,6 +585,13 @@ export class StartAppealFlow {
         };
         caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
         caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+        caseData.remissionType = 'noRemission';
+        break;
+      case "EU":
+        caseData.appealType = 'euSettlementScheme';
+        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+        caseData.remissionType = 'noRemission';
         break;
       case "RP":
         caseData.appealType = 'revocationOfProtection';
@@ -594,11 +601,6 @@ export class StartAppealFlow {
           ]
         };
         caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-        break;
-      case "EU":
-        caseData.appealType = 'euSettlementScheme';
-        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
         break;
       default:
       case "DC":
@@ -629,7 +631,6 @@ export class StartAppealFlow {
     }
 
     caseData.homeOfficeDecisionDate = this.getHoDecisionDate(false);
-    caseData.remissionType = 'noRemission';
     await createCase(caseData);
     const user: UserInfo = CaseHelper.getInstance().getLegalRep();
     CaseHelper.getInstance().setStoredCaseUrlFromId(user.caseId, 'IA', 'Asylum');

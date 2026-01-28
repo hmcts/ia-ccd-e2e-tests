@@ -2,12 +2,11 @@ Feature: s94b appeal
 
     Background:
         Given I am signed in as a `Legal Org User Rep A`
-        And I create a new case
 
     @regression @caseflag @appeal-nightly-test
     Scenario: S94B appeal for PA Case
         And I save my initial PA appeal type without remission and with hearing fee and pay now
-        And I click the `Close and Return to case details` button if present
+        And I go to the overview page for the stored case
         Then I should be on the overview page
         And I pay for and submit my appeal by Card
         And I switch to be a `Case Officer`
@@ -30,7 +29,7 @@ Feature: s94b appeal
     @regression @caseflag @appeal-nightly-test
     Scenario: S94B appeal for RP Case
         And I save my initial EA appeal type without remission and with hearing fee and pay now
-        And I click the `Close and Return to case details` button if present
+        And I go to the overview page for the stored case
         Then I should be on the overview page
         And I pay for and submit my appeal by Card
         And I switch to be a `Case Officer`
