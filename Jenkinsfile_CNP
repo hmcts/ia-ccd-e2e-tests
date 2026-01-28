@@ -11,7 +11,7 @@ properties([
         string(name: 'TEST_ENVIRONMENT', defaultValue: 'aat', description: 'The environment to pull azure keys from'),
         string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
         string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
-        string(name: 'SPECIFIC_TAGS', defaultValue: '@testy-test', description: 'Tag for a specific run of tests'),
+        string(name: 'SPECIFIC_TAGS', defaultValue: '', description: 'Tag for a specific run of tests'),
     ])
 ])
 
