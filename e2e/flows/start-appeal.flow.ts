@@ -536,10 +536,6 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  isPaidAppeal(appealType: string): boolean {
-    return ['EA', 'HU', 'PA', 'EU'].includes(appealType);
-  }
-
   getHoDecisionDate(isOutOfCountry: boolean): string {
     const date = new Date();
     date.setDate(date.getDate() - (isOutOfCountry ? 10 : 2));
@@ -555,9 +551,9 @@ export class StartAppealFlow {
     address = "44 Millhouse Drive, Glasgow",
     postcode = "G20 0UE"
   ) {
-    const caseDataStr = fs.readFileSync(process.cwd() + '/e2e/data/casedata-base.json', 'utf8').toString();
+    const caseDataStr = fs.readFileSync(process.cwd() + '/data/casedata-base.json', 'utf8').toString();
     const caseData = JSON.parse(caseDataStr);
-
+    const withoutHearing: boolean = feeType === "without";
     switch (appealType) {
       case "EA":
         caseData.appealType = 'refusalOfEu';
@@ -566,6 +562,8 @@ export class StartAppealFlow {
             "appealGroundsEuRefusal"
           ]
         };
+        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
         break;
       case "HU":
         caseData.appealType = 'refusalOfHumanRights';
@@ -574,15 +572,19 @@ export class StartAppealFlow {
             "humanRightsRefusal"
           ]
         };
+        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
         break;
       case "PA":
         caseData.appealType = 'protection';
-        caseData.paAppealTypePaymentOptions = paymentChoice === "later" ? 'payLater' : 'payNow';
+        caseData.paAppealTypePaymentOption = paymentChoice === "later" ? 'payLater' : 'payNow';
         caseData.appealGroundsProtection = {
           "values": [
             "protectionRefugeeConvention"
           ]
         };
+        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
         break;
       case "RP":
         caseData.appealType = 'revocationOfProtection';
@@ -591,9 +593,12 @@ export class StartAppealFlow {
             "revocationRefugeeConvention"
           ]
         };
+        caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
         break;
       case "EU":
         caseData.appealType = 'euSettlementScheme';
+        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
         break;
       default:
       case "DC":
@@ -603,15 +608,8 @@ export class StartAppealFlow {
             "disproportionateDeprivation"
           ]
         };
+        caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
         break;
-    }
-
-    const withoutHearing: boolean = feeType === "without";
-    if (this.isPaidAppeal(appealType)) {
-      caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
-    } else {
-      caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
     }
 
     if (hasFixedAddress) {

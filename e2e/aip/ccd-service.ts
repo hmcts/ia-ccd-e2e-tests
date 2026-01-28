@@ -270,8 +270,10 @@ async function createCase(caseData: any): Promise<CcdCaseDetails> {
   user.userToken = headers.userToken;
   const userId = await getUserId(headers.userToken);
   user.userId = userId;
+  console.log(`Starting create ${caseData.appealType} case for user '${userId}'`);
   const startEventResponse = await startCreateCase(userId, headers, true);
   const supplementaryDataRequest = generateSupplementaryId();
+  console.log(`Submitting create ${caseData.appealType} case for user '${userId}'`);
   const caseDetails: CcdCaseDetails =  await submitCreateCase(userId, headers, {
     event: {
       id: startEventResponse.event_id,
@@ -284,7 +286,7 @@ async function createCase(caseData: any): Promise<CcdCaseDetails> {
     supplementary_data_request: supplementaryDataRequest
   }, true);
   user.caseId = caseDetails.id;
-  console.log(`Created case for user '${userId}' with case id '${user.caseId}'`);
+  console.log(`Created ${caseData.appealType} case for user '${userId}' with case id '${user.caseId}'`);
   CaseHelper.getInstance().setLegalRep(user);
   return caseDetails;
 }
