@@ -606,7 +606,7 @@ export class StartAppealFlow {
         break;
     }
 
-    const withoutHearing: boolean = feeType === "without"
+    const withoutHearing: boolean = feeType === "without";
     if (this.isPaidAppeal(appealType)) {
       caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
       caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
