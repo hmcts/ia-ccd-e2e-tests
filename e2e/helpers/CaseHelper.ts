@@ -3,16 +3,19 @@ import { UserInfo } from "../aip/idam-service";
 const iaConfig = require('../ia.conf');
 const legalRepUserName: string = iaConfig.TestLawFirmOrgAUserName;
 const legalRepPassword: string = iaConfig.TestLawFirmOrgAPassword;
-const adminOfficerUserName: string = iaConfig.TestAdminOfficerBailsUserName;
-const adminOfficerPassword: string = iaConfig.TestAdminOfficerBailsPassword;
-const homeOfficeUserName: string = iaConfig.TestHomeOfficeBailsUserName;
-const homeOfficePassword: string = iaConfig.TestHomeOfficeBailsPassword;
+const legalRepBailUserName: string = iaConfig.TestLawFirmOrgABailsUserName;
+const legalRepBailPassword: string = iaConfig.TestLawFirmOrgABailsPassword;
+const adminOfficerBailUserName: string = iaConfig.TestAdminOfficerBailsUserName;
+const adminOfficerBailPassword: string = iaConfig.TestAdminOfficerBailsPassword;
+const homeOfficeBailUserName: string = iaConfig.TestHomeOfficeBailsUserName;
+const homeOfficeBailPassword: string = iaConfig.TestHomeOfficeBailsPassword;
 
 export default class CaseHelper {
   private static instance: CaseHelper;
   private legalRep: UserInfo = {email: "", password: ""};
-  private adminOfficer: UserInfo = {email: "", password: ""};
-  private homeOffice: UserInfo = {email: "", password: ""};
+  private legalRepBail: UserInfo = {email: "", password: ""};
+  private adminOfficerBail: UserInfo = {email: "", password: ""};
+  private homeOfficeBail: UserInfo = {email: "", password: ""};
   private caseUrl = "";
 
   public static getInstance(): CaseHelper {
@@ -33,37 +36,49 @@ export default class CaseHelper {
     return this.legalRep;
   }
 
-  setAdminOfficer(user: UserInfo) {
-    this.adminOfficer = user;
+
+  setLegalRepBail(user: UserInfo) {
+    this.legalRepBail = user;
   }
 
-  getAdminOfficer() {
-    if (this.adminOfficer.email === "") {
-      this.adminOfficer = {email: adminOfficerUserName, password: adminOfficerPassword};
+  getLegalRepBail() {
+    if (this.legalRepBail.email === "") {
+      this.legalRepBail = {email: legalRepBailUserName, password: legalRepBailPassword};
     }
-    return this.adminOfficer;
+    return this.legalRepBail;
   }
 
-  setHomeOffice(user: UserInfo) {
-    this.homeOffice = user;
+  setAdminOfficerBail(user: UserInfo) {
+    this.adminOfficerBail = user;
   }
 
-  getHomeOffice() {
-    if (this.homeOffice.email === "") {
-      this.homeOffice = {email: homeOfficeUserName, password: homeOfficePassword};
+  getAdminOfficerBail() {
+    if (this.adminOfficerBail.email === "") {
+      this.adminOfficerBail = {email: adminOfficerBailUserName, password: adminOfficerBailPassword};
     }
-    return this.homeOffice;
+    return this.adminOfficerBail;
+  }
+
+  setHomeOfficeBail(user: UserInfo) {
+    this.homeOfficeBail = user;
+  }
+
+  getHomeOfficeBail() {
+    if (this.homeOfficeBail.email === "") {
+      this.homeOfficeBail = {email: homeOfficeBailUserName, password: homeOfficeBailPassword};
+    }
+    return this.homeOfficeBail;
   }
 
 
   getBailUser(user: string) {
     switch (user) {
       case 'Legal Rep':
-        return this.getLegalRep();
+        return this.getLegalRepBail();
       case 'Admin Officer':
-        return this.getAdminOfficer();
+        return this.getAdminOfficerBail();
       case 'Home Office Bails':
-        return this.getHomeOffice();
+        return this.getHomeOfficeBail();
       default:
         throw new Error(`User role '${user}' is not defined in getUser function`);
     }
@@ -72,11 +87,11 @@ export default class CaseHelper {
   setBailUser(user: string, newUser: UserInfo) {
     switch (user) {
       case 'Legal Rep':
-        return this.setLegalRep(newUser);
+        return this.setLegalRepBail(newUser);
       case 'Admin Officer':
-        return this.setAdminOfficer(newUser);
+        return this.setAdminOfficerBail(newUser);
       case 'Home Office Bails':
-        return this.setHomeOffice(newUser);
+        return this.setHomeOfficeBail(newUser);
       default:
         throw new Error(`User role '${user}' is not defined in getUser function`);
     }

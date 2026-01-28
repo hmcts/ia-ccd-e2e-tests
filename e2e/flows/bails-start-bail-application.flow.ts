@@ -827,7 +827,6 @@ export class StartBailApplicationFlow {
     }
   }
 
-
   async saveInitialApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string, fileUpload = true) {
     const caseDataStr = fs
       .readFileSync(process.cwd() + '/e2e/data/startBailApplication-data.json', 'utf8').toString();
