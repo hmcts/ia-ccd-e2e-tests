@@ -203,6 +203,8 @@ Then("I should be on the overview page", async function () {
 
 Then("I go to the overview page for the stored case", async function () {
   await ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
+  await ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
+  await ccdPage.gotoTabs("Overview");
 });
 
 Then(

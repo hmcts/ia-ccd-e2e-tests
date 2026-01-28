@@ -1,8 +1,8 @@
 Feature: Bails Update interpreter details application as Legal Rep
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
-    When I create a new bail application
     Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with two financial condition supporters and with a Legal Representative with no files uploaded
+    And I go to the overview page for the stored case
     And I submit my bail application as a `Legal Rep`
 
   Scenario: Add Update interpreter details application

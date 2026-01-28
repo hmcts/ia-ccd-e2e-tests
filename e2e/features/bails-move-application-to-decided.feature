@@ -1,8 +1,8 @@
 Feature: Bails Move application to decided after a signed conditional bail decision notice has been uploaded
   Background:
     Given I am signed in as a `Home Office Bails`
-   And I create a new bail application
     And I save my initial application as a `Home Office Bails` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+    And I go to the overview page for the stored case
     And I submit my bail application as a `Home Office Bails`
     And I should see the text `What happens next`
     And I wait for 5 seconds

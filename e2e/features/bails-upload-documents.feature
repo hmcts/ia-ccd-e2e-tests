@@ -1,8 +1,8 @@
 Feature: Bails Upload Documents
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
-    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative
+    And I go to the overview page for the stored case
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
@@ -120,4 +120,3 @@ Feature: Bails Upload Documents
     And within the `Applicant documents` collection's first item, I should see `BailsExampleDocument.pdf` in the `Document` field
     And within the `Applicant documents` collection's first item, I should see `This is the a bails document that is being uploaded by the AO after uploading signed decision notice.` in the `Description` field
     And within the `Applicant documents` collection's first item, I should see `{$TODAY|D MMM YYYY}` for the `Date uploaded` field
-    

@@ -584,7 +584,7 @@ export class StartAppealFlow {
     paymentChoice = "",
     hasFixedAddress = true
   ) {
-    const caseDataStr = fs.readFileSync(process.cwd() + '/e2e/data/casedata-base.json', 'utf8').toString();
+    const caseDataStr = fs.readFileSync(process.cwd() + '/e2e/data/startAppeal-data.json', 'utf8').toString();
     const caseData = JSON.parse(caseDataStr);
     const withoutHearing: boolean = feeType === "without";
     switch (appealType) {

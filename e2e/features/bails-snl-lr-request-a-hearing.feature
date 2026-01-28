@@ -1,8 +1,8 @@
 Feature: Bails SNL Hearing request as as Legal Rep
   Background:
     Given I am signed in as a `Legal Org User Rep A Bails`
-    And I create a new bail application
     And I save my initial application as a `Legal Rep` for a Immigration removal centre detention with two financial condition supporters and with a Legal Representative with no files uploaded
+    And I go to the overview page for the stored case
     And I submit my bail application as a `Legal Rep`
 
   @submit-bail-application-legal-rep @bails-full @bails-regression @bail-nightly-test

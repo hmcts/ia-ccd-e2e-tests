@@ -1,5 +1,9 @@
 import { browser } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
+import * as fs from "fs";
+import CaseHelper from "../helpers/CaseHelper";
+import { createBailCase } from "../aip/ccd-service";
+import { UserInfo } from "../aip/idam-service";
 
 export class StartBailApplicationFlow {
   private ccdFormPage = new CcdFormPage();
@@ -138,6 +142,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click('Continue');
     }
   }
+
   async completeDateOfApplicantArrival(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue('Date of arrival in the UK (Optional)', '31-12-2009');
@@ -237,6 +242,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click("Continue");
     }
   }
+
   async completeFCSHearingReqInterpreterDetailsWithYes(
     clickContinue = false,
     noOfSupporters: string
@@ -321,6 +327,7 @@ export class StartBailApplicationFlow {
       }
     }
   }
+
   async completeFinancialConditionSupporter(clickContinue = false, choice) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
@@ -331,6 +338,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click("Continue");
     }
   }
+
   async completeFinancialConditionSupporterName(
     clickContinue = false,
     number = ""
@@ -348,6 +356,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click("Continue");
     }
   }
+
   async completeFinancialConditionSupporterAddress(
     clickContinue = false,
     number = ""
@@ -378,6 +387,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click("Continue");
     }
   }
+
   async completeFinancialConditionSupporterContactDetails(
     clickContinue = false,
     number = ""
@@ -412,6 +422,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click("Continue");
     }
   }
+
   async completeFinancialConditionSupporterDOB(
     clickContinue = false,
     number = ""
@@ -427,6 +438,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click("Continue");
     }
   }
+
   async completeFinancialConditionSupporterRelationship(
     clickContinue = false,
     number = ""
@@ -449,6 +461,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click("Continue");
     }
   }
+
   async completeFinancialConditionSupporterOccupation(
     clickContinue = false,
     number = ""
@@ -465,6 +478,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click("Continue");
     }
   }
+
   async completeFinancialConditionSupporterImmigrationStatus(
     clickContinue = false,
     number = ""
@@ -481,6 +495,7 @@ export class StartBailApplicationFlow {
       await this.ccdFormPage.click("Continue");
     }
   }
+
   async completeFinancialConditionSupporterNationality(
     clickContinue = false,
     number = ""
@@ -714,7 +729,7 @@ export class StartBailApplicationFlow {
     }
   }
 
-  async saveInitialApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
+  async saveInitialApplicationManual(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string, fileUpload = true) {
     await this.completePreviousBailApplication(true);
     await this.completeRefusedBail(true);
     await this.completeCreateNewApplication(true);
@@ -777,8 +792,12 @@ export class StartBailApplicationFlow {
     }
     await this.completeGroundsForBailInfo(true);
     await this.completeGroundsForBail(true);
-    await this.completeSupportingEvidenceYesNo(true, 'Yes');
-    await this.completeSupportingEvidenceUpload(true);
+    if (fileUpload) {
+      await this.completeSupportingEvidenceYesNo(true, 'Yes');
+      await this.completeSupportingEvidenceUpload(true);
+    } else {
+      await this.completeSupportingEvidenceYesNo(true, 'No');
+    }
     await this.completeBailTransfer(true);
     await this.completeApplicantHearingReqInterpreterDetailsWithYes(true);
     if (noOfSupporters === 'one' || noOfSupporters === 'two') {
@@ -808,90 +827,145 @@ export class StartBailApplicationFlow {
     }
   }
 
-  async saveInitialApplicationNoFiles(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string) {
-    await this.completePreviousBailApplication(true);
-    await this.completeRefusedBail(true);
-    await this.completeCreateNewApplication(true);
-    await this.completeBeforeYouStart(true);
-    await this.completeApplicantName(true);
-    await this.completeApplicantDOB(true);
-    await this.completeApplicantGender(true);
-    await this.completeApplicantNationality(true);
-    await this.completeApplicantReferenceNumber(true);
-    await this.completeDetentionFacility(true, detentionFacility);
-    if (detentionFacility === 'Prison') {
-      await this.completeWhichPrison(true);
+
+  async saveInitialApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string, fileUpload = true) {
+    const caseDataStr = fs
+      .readFileSync(process.cwd() + '/e2e/data/startBailApplication-data.json', 'utf8').toString();
+    const caseData = JSON.parse(caseDataStr);
+    if (user === 'Admin Officer') {
+      await this.completeWhichPartySentApplication(true, 'Applicant');
+      caseData.sentByChecklist = 'Applicant';
+      caseData.isAdmin = 'Yes';
+    } else if (user === 'Legal Rep') {
+      caseData.isLegalRep = 'Yes';
     } else {
-      await this.completeWhichIRC(true);
+      caseData.isHomeOffice = 'Yes';
     }
-    await this.completeDateOfApplicantArrival(true);
-    await this.completeApplicantMobilePhone(true);
-    await this.completeAppealHearingPending(true);
-    await this.completeApplicantPlaceToLive(true);
-    await this.completeApplicantAddress(true);
-    await this.completeProbationOffenderManager(true);
-    await this.completeFinancialConditionAgree(true);
+    if (detentionFacility === 'Prison') {
+      caseData.applicantDetainedLoc = 'prison';
+      caseData.applicantPrisonDetails = '987654321';
+      caseData.prisonName = 'Blundeston'
+    } else {
+      caseData.applicantDetainedLoc = 'immigrationRemovalCentre';
+      caseData.ircName = 'Harmondsworth';
+    }
 
     if (noOfSupporters === 'no') {
-      await this.completeFinancialConditionSupporter(true, 'No');
+      caseData.hasFinancialCondSupporter = 'No';
     } else {
-      await this.completeFinancialConditionSupporter(true, 'Yes');
-      await this.completeFinancialConditionSupporterName(true, '1');
-      await this.completeFinancialConditionSupporterAddress(true, '1');
-      await this.completeFinancialConditionSupporterContactDetails(true, '1');
-      await this.completeFinancialConditionSupporterDOB(true, '1');
-      await this.completeFinancialConditionSupporterRelationship(true, '1');
-      await this.completeFinancialConditionSupporterOccupation(true, '1');
-      await this.completeFinancialConditionSupporterImmigrationStatus(true, '1');
-      await this.completeFinancialConditionSupporterNationality(true, '1');
-      await this.completeFinancialConditionSupporterPassport(true, '1');
-      await this.completeFinancialConditionSupporterPassportNumber(true, '1');
-      await this.completeFinancialConditionSupporterUndertaking(true, '1');
+      caseData.hasFinancialCondSupporter = 'Yes';
+      caseData.supporterGivenNames = "John";
+      caseData.supporterFamilyNames = "Smith";
+      caseData.supporterAddressDetails = {
+        "AddressLine1": "J & P Engineering Services Ltd, Wellington House",
+        "AddressLine2": "Manor Lane",
+        "AddressLine3": "Penarlag Hawarden Industrial Park Airfield View",
+        "PostTown": "Glannau Dyfrdwy",
+        "County": "",
+        "PostCode": "CH5 3QW",
+        "Country": "Deyrnas Unedig"
+      };
+      caseData.supporterTelephoneNumber1 = "01182904610";
+      caseData.supporterMobileNumber1 = "07930111222";
+      caseData.supporterEmailAddress1 = "johnSmith@test.com";
+      caseData.supporterDOB = "1999-12-30";
+      caseData.supporterContactDetails = [
+        "telephone",
+        "mobile",
+        "email"
+      ];
+      caseData.supporterRelation = "Uncle";
+      caseData.supporterOccupation = "Lawyer";
+      caseData.supporterImmigration = "Citizen";
+      caseData.supporterNationality = [
+        {
+          "value": {
+            "code": "Uzbek"
+          },
+          "id": "59e3f1fc-d978-41a1-97b1-bcad31b58918"
+        }
+      ];
+      caseData.supporterHasPassport = "Yes";
+      caseData.supporterPassport = "123456789";
+      caseData.financialAmountSupporterUndertakes1 = "450";
       if (noOfSupporters === 'one') {
-        await this.completeAnotherFinancialConditionSupporter(true, '1', 'No');
+        caseData.hasFinancialCondSupporter2 = 'No';
       } else {
-        await this.completeAnotherFinancialConditionSupporter(true, '1', 'Yes');
-        await this.completeFinancialConditionSupporterName(true, '2');
-        await this.completeFinancialConditionSupporterAddress(true, '2');
-        await this.completeFinancialConditionSupporterContactDetails(true, '2');
-        await this.completeFinancialConditionSupporterDOB(true, '2');
-        await this.completeFinancialConditionSupporterRelationship(true, '2');
-        await this.completeFinancialConditionSupporterOccupation(true, '2');
-        await this.completeFinancialConditionSupporterImmigrationStatus(true, '2');
-        await this.completeFinancialConditionSupporterNationality(true, '2');
-        await this.completeFinancialConditionSupporterPassport(true, '2');
-        await this.completeFinancialConditionSupporterPassportNumber(true, '2');
-        await this.completeFinancialConditionSupporterUndertaking(true, '2');
+        caseData.hasFinancialCondSupporter2 = 'Yes';
+        caseData.supporter2GivenNames = "Jane";
+        caseData.supporter2FamilyNames = "Doe";
+        caseData.supporter2AddressDetails = {
+          "AddressLine1": "Buckingham Palace",
+          "AddressLine2": "",
+          "AddressLine3": "",
+          "PostTown": "London",
+          "County": "",
+          "PostCode": "SW1A 1AA",
+          "Country": "United Kingdom"
+        };
+        caseData.supporter2MobileNumber1 = "07930111222";
+        caseData.supporter2EmailAddress1 = "janeDoe@test.com";
+        caseData.supporter2DOB = "1999-12-29";
+        caseData.supporter2ContactDetails = [
+          "mobile",
+          "email"
+        ];
+        caseData.supporter2Relation = "Aunt";
+        caseData.supporter2Occupation = "Lawyer";
+        caseData.supporter2Immigration = "Immigrant";
+        caseData.supporter2Nationality = [
+          {
+            "value": {
+              "code": "Armenian"
+            },
+            "id": "ea15e6f3-0e90-44bb-ae6f-cfdb243b0e85"
+          }
+        ];
+        caseData.supporter2HasPassport = "Yes";
+        caseData.supporter2Passport = null;
+        caseData.financialAmountSupporter2Undertakes1 = "550";
         if (noOfSupporters === 'two') {
-          await this.completeAnotherFinancialConditionSupporter(true, '2', 'No');
+          caseData.hasFinancialCondSupporter3 = 'No';
         }
       }
     }
-    await this.completeGroundsForBailInfo(true);
-    await this.completeGroundsForBail(true);
-    await this.completeSupportingEvidenceYesNo(true, 'No');
-    await this.completeBailTransfer(true);
-    await this.completeApplicantHearingReqInterpreterDetailsWithYes(true);
-    if (noOfSupporters === 'one' || noOfSupporters === 'two') {
-      await this.completeFCSHearingReqInterpreterDetailsWithYes(true, noOfSupporters);
+    if (!fileUpload) {
+      caseData.uploadTheBailEvidenceDocs = null;
+      caseData.groundsForBailProvideEvidenceOption = 'No';
     }
-    // await this.completeInterpreterRequirements(true);
-    await this.completeDisabilityRequirements(true);
-    await this.completeVideoLinkRequirements(true);
+    if (noOfSupporters === 'no') {
+      caseData.fcsInterpreterYesNo = 'No';
+      caseData.fcs1InterpreterLanguageCategory = null;
+      caseData.fcs1InterpreterSpokenLanguage = null;
+      caseData.fcs1InterpreterSignLanguage = null;
+      caseData.fcs2InterpreterLanguageCategory = null;
+      caseData.fcs2InterpreterSpokenLanguage = null;
+      caseData.fcs2InterpreterSignLanguage = null;
+    } else if (noOfSupporters === 'one') {
+      caseData.fcs2InterpreterLanguageCategory = null;
+      caseData.fcs2InterpreterSpokenLanguage = null;
+      caseData.fcs2InterpreterSignLanguage = null;
+    }
+
     if (legalRepresentativeOrNot === 'a') {
+      caseData.hasLegalRep = "Yes";
+      caseData.legalRepCompany = "A Legal Representative Company";
+      caseData.legalRepName = "Stephen Fenn";
+      caseData.legalRepFamilyName = "Fenn";
+      caseData.legalRepPhone = "07292929292";
+      caseData.legalRepReference = "This is a reference";
       if (user === 'Legal Rep') {
-        await this.completeLegalRepDetails(true, 'LR');
-      } else {
-        await this.completeLegalRepYesNo(true, 'Yes');
-        await this.completeLegalRepDetails(true, 'NonLR');
+        caseData.legalRepEmail = user === 'Legal Rep' && CaseHelper.getInstance().getLegalRep().email !== "" ?
+          CaseHelper.getInstance().getLegalRep().email : "legalRep@test.com";
       }
     } else {
-      await this.completeLegalRepYesNo(true, 'No');
+      caseData.hasLegalRep = "No";
     }
-    await this.completeCheckYourAnswers(true);
-
-    if (clickContinue) {
-      await this.ccdFormPage.click("Close and Return to case details");
+    if (user !== 'Admin Officer') {
+      caseData.uploadB1FormDocs = null;
     }
+    await createBailCase(caseData, user);
+    const userInfo: UserInfo = CaseHelper.getInstance().getBailUser(user);
+    CaseHelper.getInstance().setStoredCaseUrlFromId(userInfo.caseId, 'IA', 'Bail');
   }
 }

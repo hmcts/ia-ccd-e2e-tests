@@ -291,6 +291,33 @@ async function createCase(caseData: any): Promise<CcdCaseDetails> {
   return caseDetails;
 }
 
+async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetails> {
+  let userInfo: UserInfo = CaseHelper.getInstance().getBailUser(user);
+  const headers = await getSecurityHeaders(userInfo);
+  userInfo.userToken = headers.userToken;
+  const userId = await getUserId(headers.userToken);
+  userInfo.userId = userId;
+  console.log(`Starting create bail case for user '${userId}'`);
+  const startEventResponse = await startBailCreateCase(userId, headers);
+  const supplementaryDataRequest = generateSupplementaryId();
+  console.log(`Submitting create bail case for user '${userId}'`);
+  const caseDetails: CcdCaseDetails =  await submitBailCreateCase(userId, headers, {
+    event: {
+      id: startEventResponse.event_id,
+      summary: 'Create bail case',
+      description: 'Create bail case'
+    },
+    data: caseData,
+    event_token: startEventResponse.token,
+    ignore_warning: true,
+    supplementary_data_request: supplementaryDataRequest
+  });
+  userInfo.caseId = caseDetails.id;
+  console.log(`Created bail case for user '${userId}' with case id '${userInfo.caseId}'`);
+  CaseHelper.getInstance().setBailUser(user, userInfo);
+  return caseDetails;
+}
+
 async function startCreateCase(userId: string, headers: SecurityHeaders, isLegalRep = false): Promise<StartEventResponse> {
   const url = `${ccdApiUrl}/${isLegalRep ? 'caseworkers' : 'citizens'}/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/event-triggers/startAppeal/token`;
   const response = await axios.get(url, createOptions(
@@ -301,6 +328,23 @@ async function startCreateCase(userId: string, headers: SecurityHeaders, isLegal
 
 async function submitCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData, isLegalRep = false): Promise<CcdCaseDetails> {
   const url = `${ccdApiUrl}/${isLegalRep ? 'caseworkers' : 'citizens'}/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases?ignore-warning=true`;
+  const options: any = createOptions(
+    headers
+  );
+  const response = await axios.post(url, startEvent, options);
+  return response.data;
+}
+
+async function startBailCreateCase(userId: string, headers: SecurityHeaders): Promise<StartEventResponse> {
+  const url = `${ccdApiUrl}/caseworkers/${userId}/jurisdictions/${jurisdictionId}/case-types/Bail/event-triggers/startApplication/token`;
+  const response = await axios.get(url, createOptions(
+    headers
+  ));
+  return response.data;
+}
+
+async function submitBailCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData): Promise<CcdCaseDetails> {
+  const url = `${ccdApiUrl}/caseworkers/${userId}/jurisdictions/${jurisdictionId}/case-types/Bail/cases?ignore-warning=true`;
   const options: any = createOptions(
     headers
   );
@@ -326,4 +370,4 @@ function generateSupplementaryId(): Record<string, Record<string, string>> {
   return request;
 }
 
-export { CcdService, CcdCaseDetails, Events, createCase };
+export { CcdService, CcdCaseDetails, Events, createCase, createBailCase };
