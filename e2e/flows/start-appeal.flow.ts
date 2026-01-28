@@ -556,7 +556,7 @@ export class StartAppealFlow {
     address = "44 Millhouse Drive, Glasgow",
     postcode = "G20 0UE"
   ) {
-    const caseDataStr = fs.readFileSync('../data/casedata-base.json', 'utf8').toString();
+    const caseDataStr = fs.readFileSync('./data/casedata-base.json', 'utf8').toString();
     const caseData = JSON.parse(caseDataStr);
 
     switch (appealType) {
