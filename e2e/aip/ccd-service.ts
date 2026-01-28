@@ -1,3 +1,7 @@
+import { getUserId, getUserToken, UserInfo } from "./idam-service";
+import { getS2sToken } from "./s2s";
+import axios from "axios";
+
 const rp = require('request-promise');
 const iaConfig = require('../ia.conf');
 
@@ -34,8 +38,8 @@ const Events = {
 };
 
 interface SecurityHeaders {
-  serviceToken: String;
-  userToken: String;
+  serviceToken: string;
+  userToken: string;
 }
 
 interface CaseData {
@@ -89,7 +93,10 @@ interface Subscription {
 
 interface CcdCaseDetails {
   id: string;
+  state?: string;
   case_data: CaseData;
+  created_date?: string;
+  last_modified?: string;
 }
 
 interface StartEventResponse {
@@ -108,6 +115,8 @@ interface SubmitEventData {
   data: Partial<CaseData>;
   event_token: string;
   ignore_warning: boolean;
+  supplementary_data_request?: Record<string, Record<string, string>>
+
 }
 
 interface TimeExtensionCollection {
@@ -248,4 +257,65 @@ function isoDate(date) {
   return dateLetterSentIso;
 }
 
-export { CcdService, CcdCaseDetails, Events };
+async function getSecurityHeaders(user: UserInfo): Promise<SecurityHeaders> {
+  const userToken: string = await getUserToken(user);
+  const serviceToken: string = await getS2sToken();
+  return {userToken, serviceToken};
+}
+
+async function createCase(user: UserInfo, caseData: any): Promise<CcdCaseDetails> {
+  const headers = await getSecurityHeaders(user);
+  const userId = await getUserId(headers.userToken);
+  const startEventResponse = await startCreateCase(userId, headers, true);
+  const supplementaryDataRequest = generateSupplementaryId();
+  return await submitCreateCase(userId, headers, {
+    event: {
+      id: startEventResponse.event_id,
+      summary: 'Create case LR',
+      description: 'Create case LR'
+    },
+    data: caseData,
+    event_token: startEventResponse.token,
+    ignore_warning: true,
+    supplementary_data_request: supplementaryDataRequest
+  }, true);
+}
+
+async function startCreateCase(userId: string, headers: SecurityHeaders, isLegalRep: boolean = false): Promise<StartEventResponse> {
+  const url = `${ccdApiUrl}/${isLegalRep ? 'caseworkers' : 'citizens'}/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/event-triggers/startAppeal/token`;
+  const response = await axios.get(url, createOptions(
+    headers
+  ));
+  return response.data;
+}
+
+async function submitCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData, isLegalRep: boolean = false): Promise<CcdCaseDetails> {
+  const url = `${ccdApiUrl}/${isLegalRep ? 'caseworkers' : 'citizens'}/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases?ignore-warning=true`;
+  const options: any = createOptions(
+    headers
+  );
+  const response = await axios.post(url, startEvent, options);
+  return response.data;
+}
+
+
+function createOptions(headers: SecurityHeaders) {
+  return {
+    headers: {
+      Authorization: headers.userToken,
+      ServiceAuthorization: headers.serviceToken,
+      'content-type': 'application/json'
+    }
+  };
+}
+
+function generateSupplementaryId(): Record<string, Record<string, string>> {
+  let serviceId: Record<string, string> = {};
+  serviceId['HMCTSServiceId'] = 'BFA1';
+  let request: Record<string, Record<string, string>> = {};
+  request['$set'] = serviceId;
+  return request;
+}
+
+
+export { CcdService, CcdCaseDetails, Events, createCase };

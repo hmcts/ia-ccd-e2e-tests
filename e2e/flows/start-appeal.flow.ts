@@ -1,27 +1,32 @@
 import { browser } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
+import * as fs from "fs";
+import { UserInfo } from "../aip/idam-service";
+import { createCase } from "../aip/ccd-service";
 
-const isOutOfCountryEnabled =
-  require("../ia.conf").isOutOfCountryEnabled === "true";
+const iaConfig = require('../ia.conf');
+const isOutOfCountryEnabled = iaConfig.isOutOfCountryEnabled === "true";
+const legalRepUserName: string = iaConfig.TestLawFirmOrgAUserName;
+const legalRepPassword: string = iaConfig.TestLawFirmOrgAPassword;
 
 export class StartAppealFlow {
   private ccdFormPage = new CcdFormPage();
 
   async completeScreeningQuestions(clickContinue = false) {
 
-      await this.ccdFormPage.setFieldValue(
-          "Is the appellant currently living in the United Kingdom?",
-          "Yes"
-      );
+    await this.ccdFormPage.setFieldValue(
+      "Is the appellant currently living in the United Kingdom?",
+      "Yes"
+    );
+    await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Is the appellant currently in detention?",
+      "No"
+    );
+    if (clickContinue) {
       await this.ccdFormPage.click("Continue");
-      await this.ccdFormPage.setFieldValue(
-          "Is the appellant currently in detention?",
-          "No"
-      );
-      if (clickContinue) {
-        await this.ccdFormPage.click("Continue");
-      }
     }
+  }
 
   async completeOutOfCountryQuestion(
     clickContinue = false,
@@ -335,7 +340,7 @@ export class StartAppealFlow {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
       "Are there any reasons the appellant wishes to remain in the UK " +
-        "or any new grounds on which they should be permitted to stay?",
+      "or any new grounds on which they should be permitted to stay?",
       "Yes"
     );
     await this.ccdFormPage.setFieldValue(
@@ -532,6 +537,16 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
+  isPaidAppeal(appealType: string): boolean {
+    return ['EA', 'HU', 'PA', 'EU'].includes(appealType);
+  }
+
+  getHoDecisionDate(isOutOfCountry: boolean): string {
+    const date = new Date();
+    date.setDate(date.getDate() - (isOutOfCountry ? 10 : 2));
+    return date.toISOString().split('T')[0];
+  }
+
   async saveInitialAppealWithoutRemission(
     clickContinue = false,
     appealType = "",
@@ -541,30 +556,84 @@ export class StartAppealFlow {
     address = "44 Millhouse Drive, Glasgow",
     postcode = "G20 0UE"
   ) {
-    await this.completeClientDetails(true);
-    await this.completeBasicDetails(true);
-    await this.completeNationality(true);
-    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
-    await this.completeContactPreference(true);
-    await this.completeGivenAppealType(true, appealType);
-    if (appealType !== "EU") {
-      await this.completedGivenAppealGrounds(true, appealType);
+    const caseDataStr = fs.readFileSync('../data/casedata-base.json', 'utf8').toString();
+    const caseData = JSON.parse(caseDataStr);
+
+    switch (appealType) {
+      case "EA":
+        caseData.appealType = 'refusalOfEu';
+        caseData.appealGroundsEuRefusal = {
+          values: [
+            "appealGroundsEuRefusal"
+          ]
+        }
+        break;
+      case "HU":
+        caseData.appealType = 'refusalOfHumanRights';
+        caseData.appealGroundsDecisionHumanRightsRefusal = {
+          values: [
+            "humanRightsRefusal"
+          ]
+        }
+        break;
+      case "PA":
+        caseData.appealType = 'protection';
+        caseData.paAppealTypePaymentOptions = paymentChoice === "later" ? 'payLater' : 'payNow';
+        caseData.appealGroundsProtection = {
+          "values": [
+            "protectionRefugeeConvention"
+          ]
+        }
+        break;
+      case "RP":
+        caseData.appealType = 'revocationOfProtection';
+        caseData.appealGroundsRevocation = {
+          "values": [
+            "revocationRefugeeConvention"
+          ]
+        }
+        break;
+      case "EU":
+        caseData.appealType = 'euSettlementScheme';
+        break;
+      default:
+      case "DC":
+        caseData.appealType = 'deprivation';
+        caseData.appealGroundsDeprivation = {
+          "values": [
+            "disproportionateDeprivation"
+          ]
+        }
+        break;
     }
-    await this.completeHomeOfficeDecisionDate(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
-    await this.completeSponsorQuestion(true);
-    await this.completeDeportationOrder(true);
-    await this.completeNewMatters(true);
-    await this.completeOtherAppeals(true);
-    await this.completeLegalRepresentativeDetails(true);
-    await this.completeGivenFee(true, feeType);
-    await this.completeRemissionDetails(true, "no remission");
-    if (appealType === "PA") {
-      await this.completeHowToPay(true, paymentChoice);
+
+    const decisionHearingOption = feeType === "without" ? 'decisionWithoutHearing' : 'decisionWithHearing';
+    if (this.isPaidAppeal(appealType)) {
+      caseData.rpDcAppealHearingOption = decisionHearingOption
+    } else {
+      caseData.decisionHearingFeeOption = decisionHearingOption
     }
-    let currentUrl = await browser.getCurrentUrl();
-    await this.completeCheckYourAnswers(true);
-    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+
+    if (hasFixedAddress) {
+      caseData.appellantHasFixedAddress = 'Yes';
+      caseData.appellantAddress = {
+        "AddressLine1": "44 Millhouse Drive",
+        "AddressLine2": "",
+        "AddressLine3": "",
+        "PostTown": "Glasgow",
+        "County": "",
+        "PostCode": "G20 0UE",
+        "Country": "United Kingdom"
+      }
+    } else {
+      caseData.appellantHasFixedAddress = 'No';
+      caseData.appellantAddress = null;
+    }
+
+    caseData.homeOfficeDecisionDate = this.getHoDecisionDate(false);
+    caseData.remissionType = 'noRemission';
+    const user: UserInfo = {email: legalRepUserName, password: legalRepPassword}
+    await createCase(user, caseData);
   }
 
   async saveInitialNonPaymentAppealOutOfCountry(
