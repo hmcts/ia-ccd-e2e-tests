@@ -542,6 +542,41 @@ export class StartAppealFlow {
     return date.toISOString().split('T')[0];
   }
 
+  async saveInitialAppealWithoutRemissionManual(
+    clickContinue = false,
+    appealType = "",
+    feeType = "",
+    paymentChoice = "",
+    hasFixedAddress = true,
+    address = "44 Millhouse Drive, Glasgow",
+    postcode = "G20 0UE"
+  ) {
+    await this.completeClientDetails(true);
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
+    await this.completeClientAddress(true, hasFixedAddress, address, postcode);
+    await this.completeContactPreference(true);
+    await this.completeGivenAppealType(true, appealType);
+    if (appealType !== "EU") {
+      await this.completedGivenAppealGrounds(true, appealType);
+    }
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeSponsorQuestion(true);
+    await this.completeDeportationOrder(true);
+    await this.completeNewMatters(true);
+    await this.completeOtherAppeals(true);
+    await this.completeLegalRepresentativeDetails(true);
+    await this.completeGivenFee(true, feeType);
+    await this.completeRemissionDetails(true, "no remission");
+    if (appealType === "PA") {
+      await this.completeHowToPay(true, paymentChoice);
+    }
+    let currentUrl = await browser.getCurrentUrl();
+    await this.completeCheckYourAnswers(true);
+    await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+  }
+
   async saveInitialAppealWithoutRemission(
     clickContinue = false,
     appealType = "",
