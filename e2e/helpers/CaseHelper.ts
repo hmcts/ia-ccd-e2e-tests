@@ -7,7 +7,7 @@ const legalRepPassword: string = iaConfig.TestLawFirmOrgAPassword;
 export default class CaseHelper {
   private static instance: CaseHelper;
   private legalRep: UserInfo = {email: "", password: ""};
-  private caseUrl: string = "";
+  private caseUrl = "";
 
   public static getInstance(): CaseHelper {
     if (!CaseHelper.instance) {
@@ -17,7 +17,7 @@ export default class CaseHelper {
   }
 
   setLegalRep(user: UserInfo) {
-    this.legalRep = user
+    this.legalRep = user;
   }
 
   getLegalRep() {
