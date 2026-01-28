@@ -1,6 +1,7 @@
 import { getUserId, getUserToken, UserInfo } from "./idam-service";
 import { getS2sToken } from "./s2s";
 import axios from "axios";
+import CaseHelper from "../helpers/CaseHelper";
 
 const rp = require('request-promise');
 const iaConfig = require('../ia.conf');
@@ -263,12 +264,15 @@ async function getSecurityHeaders(user: UserInfo): Promise<SecurityHeaders> {
   return {userToken, serviceToken};
 }
 
-async function createCase(user: UserInfo, caseData: any): Promise<CcdCaseDetails> {
+async function createCase(caseData: any): Promise<CcdCaseDetails> {
+  const user: UserInfo = CaseHelper.getInstance().getLegalRep();
   const headers = await getSecurityHeaders(user);
+  user.userToken = headers.userToken;
   const userId = await getUserId(headers.userToken);
+  user.userId = userId;
   const startEventResponse = await startCreateCase(userId, headers, true);
   const supplementaryDataRequest = generateSupplementaryId();
-  return await submitCreateCase(userId, headers, {
+  const caseDetails: CcdCaseDetails =  await submitCreateCase(userId, headers, {
     event: {
       id: startEventResponse.event_id,
       summary: 'Create case LR',
@@ -279,6 +283,10 @@ async function createCase(user: UserInfo, caseData: any): Promise<CcdCaseDetails
     ignore_warning: true,
     supplementary_data_request: supplementaryDataRequest
   }, true);
+  user.caseId = caseDetails.id;
+  console.log(`Created case for user '${userId}' with case id '${user.caseId}'`);
+  CaseHelper.getInstance().setLegalRep(user);
+  return caseDetails;
 }
 
 async function startCreateCase(userId: string, headers: SecurityHeaders, isLegalRep = false): Promise<StartEventResponse> {

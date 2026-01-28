@@ -5,6 +5,7 @@ import { expect } from "chai";
 import { Wait } from "../../enums/wait";
 import { OrdinalToCardinal } from "../../helpers/ordinal-to-cardinal";
 import { CcdFormPage } from "../../pages/ccd-form.page";
+import CaseHelper from "../../helpers/CaseHelper";
 
 const ccdPage = new CcdPage();
 const ccdFormPage = new CcdFormPage();
@@ -198,6 +199,10 @@ Then(
 
 Then("I should be on the overview page", async function () {
   await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
+});
+
+Then("I go to the overview page for the stored case", async function () {
+  await ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
 });
 
 Then(

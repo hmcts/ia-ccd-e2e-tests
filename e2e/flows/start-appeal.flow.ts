@@ -3,11 +3,10 @@ import { CcdFormPage } from "../pages/ccd-form.page";
 import * as fs from "fs";
 import { UserInfo } from "../aip/idam-service";
 import { createCase } from "../aip/ccd-service";
+import CaseHelper from "../helpers/CaseHelper";
 
 const iaConfig = require('../ia.conf');
 const isOutOfCountryEnabled = iaConfig.isOutOfCountryEnabled === "true";
-const legalRepUserName: string = iaConfig.TestLawFirmOrgAUserName;
-const legalRepPassword: string = iaConfig.TestLawFirmOrgAPassword;
 
 export class StartAppealFlow {
   private ccdFormPage = new CcdFormPage();
@@ -556,7 +555,7 @@ export class StartAppealFlow {
     address = "44 Millhouse Drive, Glasgow",
     postcode = "G20 0UE"
   ) {
-    const caseDataStr = fs.readFileSync('./data/casedata-base.json', 'utf8').toString();
+    const caseDataStr = fs.readFileSync(process.cwd() + '/data/casedata-base.json', 'utf8').toString();
     const caseData = JSON.parse(caseDataStr);
 
     switch (appealType) {
@@ -632,8 +631,9 @@ export class StartAppealFlow {
 
     caseData.homeOfficeDecisionDate = this.getHoDecisionDate(false);
     caseData.remissionType = 'noRemission';
-    const user: UserInfo = {email: legalRepUserName, password: legalRepPassword};
-    await createCase(user, caseData);
+    await createCase(caseData);
+    const user: UserInfo = CaseHelper.getInstance().getLegalRep();
+    CaseHelper.getInstance().setStoredCaseUrlFromId(user.caseId, 'IA', 'Asylum');
   }
 
   async saveInitialNonPaymentAppealOutOfCountry(
