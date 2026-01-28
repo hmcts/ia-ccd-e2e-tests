@@ -115,7 +115,7 @@ interface SubmitEventData {
   data: Partial<CaseData>;
   event_token: string;
   ignore_warning: boolean;
-  supplementary_data_request?: Record<string, Record<string, string>>
+  supplementary_data_request?: Record<string, Record<string, string>>;
 
 }
 
@@ -281,7 +281,7 @@ async function createCase(user: UserInfo, caseData: any): Promise<CcdCaseDetails
   }, true);
 }
 
-async function startCreateCase(userId: string, headers: SecurityHeaders, isLegalRep: boolean = false): Promise<StartEventResponse> {
+async function startCreateCase(userId: string, headers: SecurityHeaders, isLegalRep = false): Promise<StartEventResponse> {
   const url = `${ccdApiUrl}/${isLegalRep ? 'caseworkers' : 'citizens'}/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/event-triggers/startAppeal/token`;
   const response = await axios.get(url, createOptions(
     headers
@@ -289,7 +289,7 @@ async function startCreateCase(userId: string, headers: SecurityHeaders, isLegal
   return response.data;
 }
 
-async function submitCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData, isLegalRep: boolean = false): Promise<CcdCaseDetails> {
+async function submitCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData, isLegalRep = false): Promise<CcdCaseDetails> {
   const url = `${ccdApiUrl}/${isLegalRep ? 'caseworkers' : 'citizens'}/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases?ignore-warning=true`;
   const options: any = createOptions(
     headers
@@ -297,7 +297,6 @@ async function submitCreateCase(userId: string, headers: SecurityHeaders, startE
   const response = await axios.post(url, startEvent, options);
   return response.data;
 }
-
 
 function createOptions(headers: SecurityHeaders) {
   return {
@@ -316,6 +315,5 @@ function generateSupplementaryId(): Record<string, Record<string, string>> {
   request['$set'] = serviceId;
   return request;
 }
-
 
 export { CcdService, CcdCaseDetails, Events, createCase };

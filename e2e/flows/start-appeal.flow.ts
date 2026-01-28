@@ -566,7 +566,7 @@ export class StartAppealFlow {
           values: [
             "appealGroundsEuRefusal"
           ]
-        }
+        };
         break;
       case "HU":
         caseData.appealType = 'refusalOfHumanRights';
@@ -574,7 +574,7 @@ export class StartAppealFlow {
           values: [
             "humanRightsRefusal"
           ]
-        }
+        };
         break;
       case "PA":
         caseData.appealType = 'protection';
@@ -583,7 +583,7 @@ export class StartAppealFlow {
           "values": [
             "protectionRefugeeConvention"
           ]
-        }
+        };
         break;
       case "RP":
         caseData.appealType = 'revocationOfProtection';
@@ -591,7 +591,7 @@ export class StartAppealFlow {
           "values": [
             "revocationRefugeeConvention"
           ]
-        }
+        };
         break;
       case "EU":
         caseData.appealType = 'euSettlementScheme';
@@ -603,15 +603,15 @@ export class StartAppealFlow {
           "values": [
             "disproportionateDeprivation"
           ]
-        }
+        };
         break;
     }
 
     const decisionHearingOption = feeType === "without" ? 'decisionWithoutHearing' : 'decisionWithHearing';
     if (this.isPaidAppeal(appealType)) {
-      caseData.rpDcAppealHearingOption = decisionHearingOption
+      caseData.rpDcAppealHearingOption = decisionHearingOption;
     } else {
-      caseData.decisionHearingFeeOption = decisionHearingOption
+      caseData.decisionHearingFeeOption = decisionHearingOption;
     }
 
     if (hasFixedAddress) {
@@ -624,7 +624,7 @@ export class StartAppealFlow {
         "County": "",
         "PostCode": "G20 0UE",
         "Country": "United Kingdom"
-      }
+      };
     } else {
       caseData.appellantHasFixedAddress = 'No';
       caseData.appellantAddress = null;
@@ -632,7 +632,7 @@ export class StartAppealFlow {
 
     caseData.homeOfficeDecisionDate = this.getHoDecisionDate(false);
     caseData.remissionType = 'noRemission';
-    const user: UserInfo = {email: legalRepUserName, password: legalRepPassword}
+    const user: UserInfo = {email: legalRepUserName, password: legalRepPassword};
     await createCase(user, caseData);
   }
 
