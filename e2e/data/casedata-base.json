@@ -29,8 +29,6 @@
   "legalRepReferenceNumber": "ia-legal-fenn",
   "isFeePaymentEnabled": "Yes",
   "isRemissionsEnabled": "Yes",
-  "feeWithHearing": null,
-  "feeWithoutHearing": null,
   "journeyType": "rep",
   "checklist": {
     "checklist1": [],

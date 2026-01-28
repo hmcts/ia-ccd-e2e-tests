@@ -606,11 +606,12 @@ export class StartAppealFlow {
         break;
     }
 
-    const decisionHearingOption = feeType === "without" ? 'decisionWithoutHearing' : 'decisionWithHearing';
+    const withoutHearing: boolean = feeType === "without"
     if (this.isPaidAppeal(appealType)) {
-      caseData.rpDcAppealHearingOption = decisionHearingOption;
+      caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
     } else {
-      caseData.decisionHearingFeeOption = decisionHearingOption;
+      caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
     }
 
     if (hasFixedAddress) {
