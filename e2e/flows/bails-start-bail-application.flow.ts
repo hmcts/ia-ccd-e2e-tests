@@ -929,39 +929,41 @@ export class StartBailApplicationFlow {
       }
     }
     if (!fileUpload) {
-      caseData.uploadTheBailEvidenceDocs = null;
+      delete caseData.uploadTheBailEvidenceDocs;
       caseData.groundsForBailProvideEvidenceOption = 'No';
     }
     if (noOfSupporters === 'no') {
       caseData.fcsInterpreterYesNo = 'No';
-      caseData.fcs1InterpreterLanguageCategory = null;
-      caseData.fcs1InterpreterSpokenLanguage = null;
-      caseData.fcs1InterpreterSignLanguage = null;
-      caseData.fcs2InterpreterLanguageCategory = null;
-      caseData.fcs2InterpreterSpokenLanguage = null;
-      caseData.fcs2InterpreterSignLanguage = null;
+      delete caseData.fcs1InterpreterLanguageCategory;
+      delete caseData.fcs1InterpreterSpokenLanguage;
+      delete caseData.fcs1InterpreterSignLanguage;
+      delete caseData.fcs2InterpreterLanguageCategory;
+      delete caseData.fcs2InterpreterSpokenLanguage;
+      delete caseData.fcs2InterpreterSignLanguage;
     } else if (noOfSupporters === 'one') {
-      caseData.fcs2InterpreterLanguageCategory = null;
-      caseData.fcs2InterpreterSpokenLanguage = null;
-      caseData.fcs2InterpreterSignLanguage = null;
+      delete caseData.fcs2InterpreterLanguageCategory;
+      delete caseData.fcs2InterpreterSpokenLanguage;
+      delete caseData.fcs2InterpreterSignLanguage;
     }
 
     if (legalRepresentativeOrNot === 'a') {
-      caseData.hasLegalRep = "Yes";
       caseData.legalRepCompany = "A Legal Representative Company";
       caseData.legalRepName = "Stephen Fenn";
       caseData.legalRepFamilyName = "Fenn";
       caseData.legalRepPhone = "07292929292";
       caseData.legalRepReference = "This is a reference";
       if (user === 'Legal Rep') {
-        caseData.legalRepEmail = user === 'Legal Rep' && CaseHelper.getInstance().getLegalRep().email !== "" ?
+        caseData.legalRepEmail = CaseHelper.getInstance().getLegalRep().email !== "" ?
           CaseHelper.getInstance().getLegalRep().email : "legalRep@test.com";
+      } else {
+        caseData.hasLegalRep = "Yes";
+        caseData.legalRepEmail = "legalRep@test.com";
       }
     } else {
       caseData.hasLegalRep = "No";
     }
     if (user !== 'Admin Officer') {
-      caseData.uploadB1FormDocs = null;
+      delete caseData.uploadB1FormDocs;
     }
     await createBailCase(caseData, user);
     const userInfo: UserInfo = CaseHelper.getInstance().getBailUser(user);
