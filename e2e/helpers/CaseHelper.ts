@@ -26,10 +26,17 @@ export default class CaseHelper {
   }
 
   setLegalRep(user: UserInfo) {
-    this.legalRep = user;
+    if (iaConfig.xBrowser) {
+      this.setLegalRepBail(user);
+    } else {
+      this.legalRep = user;
+    }
   }
 
   getLegalRep() {
+    if (iaConfig.xBrowser) {
+      return this.getLegalRepBail();
+    }
     if (this.legalRep.email === "") {
       this.legalRep = {email: legalRepUserName, password: legalRepPassword};
     }

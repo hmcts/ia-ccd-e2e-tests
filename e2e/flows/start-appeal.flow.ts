@@ -669,7 +669,7 @@ export class StartAppealFlow {
     try {
       await createCase(caseData);
     } catch (e) {
-      console.error('Error creating bail case: ', e);
+      console.error('Error creating appeal case: ', e);
       console.log('Trying again...');
       await createCase(caseData);
     }

@@ -19,6 +19,7 @@ module.exports = {
   s2sSecret: process.env.S2S_SECRET || '',
   TestOutputDir: process.env.E2E_OUTPUT_DIR || './reports/tests',
   TestForAccessibility: process.env.TESTS_FOR_ACCESSIBILITY === 'true' && process.env.XBROWSER !== 'true',
+  xBrowser: process.env.XBROWSER === 'true',
 
   TestCaseOfficerUserName: process.env.TEST_CASEOFFICER_USERNAME,
   TestCaseOfficerPassword: process.env.TEST_CASEOFFICER_PASSWORD,
