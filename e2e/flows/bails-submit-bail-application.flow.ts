@@ -9,11 +9,11 @@ export class SubmitBailApplicationFlow {
 
     let currentUrl: string;
     try {
-      currentUrl = await this.submitStepsAndGetUrl(user)
+      currentUrl = await this.submitStepsAndGetUrl(user);
       await this.ccdFormPage.click('Submit');
     } catch (error) {
       await this.ccdFormPage.clickButtonIfVisible('Ok');
-      currentUrl = await this.submitStepsAndGetUrl(user)
+      currentUrl = await this.submitStepsAndGetUrl(user);
       await this.ccdFormPage.click('Submit');
     }
     if (clickContinue) {
