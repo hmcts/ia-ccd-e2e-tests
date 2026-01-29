@@ -1,8 +1,9 @@
 Feature: Cross-browser submit a bails application then an appeal application
  Background:
    Given I am signed in as a `Legal Org User Rep A Bails`
-   When I create a new bail application
-   Then I save my initial application manually as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative with no files uploaded
+   Then I save my initial application as a `Legal Rep` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative with no files uploaded
+   And I go to the overview page for the stored case
+   Then I should be on the overview page
 
   @xbrowser
   Scenario: Submit a bails application then an appeal application
@@ -17,8 +18,7 @@ Feature: Cross-browser submit a bails application then an appeal application
     And I wait for 5 seconds
     Then I should see the text `The Tribunal will list the case. You will be notified when this happens and the Notice of Hearing will be available in the documents tab.`
 
-    Then I create a new case
-    And I save my initial EA appeal type manually without remission and with hearing fee and pay now
+    When I save my initial EA appeal type without remission and with hearing fee and pay now
     And I go to the overview page for the stored case
     Then I should be on the overview page
     And I select the `Submit your appeal` Next step
