@@ -5,7 +5,7 @@ Feature: Cross-browser submit a bails application then an appeal application
    And I go to the overview page for the stored case
    Then I should be on the overview page
 
-  @xbrowser
+  @xBrowser
   Scenario: Submit a bails application then an appeal application
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
