@@ -843,7 +843,7 @@ export class StartBailApplicationFlow {
     if (detentionFacility === 'Prison') {
       caseData.applicantDetainedLoc = 'prison';
       caseData.applicantPrisonDetails = '987654321';
-      caseData.prisonName = 'Blundeston'
+      caseData.prisonName = 'Blundeston';
     } else {
       caseData.applicantDetainedLoc = 'immigrationRemovalCentre';
       caseData.ircName = 'Harmondsworth';

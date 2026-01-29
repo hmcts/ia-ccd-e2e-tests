@@ -36,7 +36,6 @@ export default class CaseHelper {
     return this.legalRep;
   }
 
-
   setLegalRepBail(user: UserInfo) {
     this.legalRepBail = user;
   }
@@ -69,7 +68,6 @@ export default class CaseHelper {
     }
     return this.homeOfficeBail;
   }
-
 
   getBailUser(user: string) {
     switch (user) {
