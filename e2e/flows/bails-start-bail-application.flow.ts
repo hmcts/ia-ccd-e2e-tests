@@ -832,7 +832,6 @@ export class StartBailApplicationFlow {
       .readFileSync(process.cwd() + '/e2e/data/startBailApplication-data.json', 'utf8').toString();
     const caseData = JSON.parse(caseDataStr);
     if (user === 'Admin Officer') {
-      await this.completeWhichPartySentApplication(true, 'Applicant');
       caseData.sentByChecklist = 'Applicant';
       caseData.isAdmin = 'Yes';
     } else if (user === 'Legal Rep') {
