@@ -9,7 +9,6 @@ Feature: Cross-browser submit a bails application then an appeal application
   Scenario: Submit a bails application then an appeal application
     When I select the `Submit the application` Next step
     Then I am on the `Submit the application` page
-    And The page is accessible
     When I click the `The applicant has confirmed that the facts stated in this application are true.` label
     And I click the `Submit` button
     Then I should see the text `You have submitted this application`
@@ -21,11 +20,7 @@ Feature: Cross-browser submit a bails application then an appeal application
     When I save my initial EA appeal type without remission and with hearing fee and pay now
     And I go to the overview page for the stored case
     Then I should be on the overview page
-    And I select the `Submit your appeal` Next step
-    And I wait for 5 seconds
-    Then I should see the `Declaration` page
-    And I agree to the declaration
-    When I click the `Submit` button
+    When I submit my bail application as a `Legal Rep` without continue
     Then I should see the text `Your appeal has been submitted`
     When I click the `Close and Return to case details` button if present
     Then I should see the text `Case record`

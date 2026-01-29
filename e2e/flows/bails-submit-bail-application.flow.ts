@@ -27,6 +27,7 @@ export class SubmitBailApplicationFlow {
       await this.ccdFormPage.waitForXpathElementVisible(declarationPath);
       await this.ccdFormPage.clickElement('declarationOnSubmit-declarationOnSubmit');
     }
+    await this.ccdFormPage.runAccessbility();
     return this.ccdFormPage.getCurrentUrl();
   }
 }

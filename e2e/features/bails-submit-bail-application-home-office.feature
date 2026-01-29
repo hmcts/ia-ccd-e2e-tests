@@ -7,10 +7,7 @@ Feature: Bails Submit bail application as Home Office User
 
   @submit-bail-application-home-office @bails-full @bails-regression
   Scenario: Submit bail application as Home Office
-    When I select the `Submit the application` Next step
-    Then I am on the `Submit the application` page
-    And The page is accessible
-    And I click the `Submit` button
+    When I submit my bail application as a `Home Office Bails` without continue
     Then I should see the text `You have submitted this application`
     When I click the `Close and Return to case details` button if present
-    And I wait for 10 seconds
+    Then I should be on the overview page
