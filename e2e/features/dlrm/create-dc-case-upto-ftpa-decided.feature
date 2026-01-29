@@ -2,9 +2,10 @@ Feature: Create DC case upto FTPA submitted
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I create a new case
     And I save my initial DC appeal for nonPayment without hearing
-    # And I wait for 10 seconds
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     And I submit my nonpayment appeal
     And I wait for 15 seconds
     And I switch to be a `Case Officer`

@@ -2,8 +2,9 @@ Feature: Edit appeal before submit
 
   Background:
     Given I am signed in as a `Legal Rep`
-    And I create a new case
     When I save my initial RP appeal for nonPayment with hearing
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
 
   @regression @edit-appeal @RIA-653 @RIA-3334
   Scenario: Edit a draft appeal

@@ -965,7 +965,13 @@ export class StartBailApplicationFlow {
     if (user !== 'Admin Officer') {
       delete caseData.uploadB1FormDocs;
     }
-    await createBailCase(caseData, user);
+    try {
+      await createBailCase(caseData, user);
+    } catch (e) {
+      console.error('Error creating bail case: ', e);
+      console.log('Trying again...');
+      await createBailCase(caseData, user);
+    }
     const userInfo: UserInfo = CaseHelper.getInstance().getBailUser(user);
     CaseHelper.getInstance().setStoredCaseUrlFromId(userInfo.caseId, 'IA', 'Bail');
   }

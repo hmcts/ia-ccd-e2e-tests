@@ -20,7 +20,7 @@ Feature: Bails Make new application
     Then I should see `Applicant` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
@@ -45,7 +45,7 @@ Feature: Bails Make new application
     Then I should see `Applicant` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
@@ -70,7 +70,7 @@ Feature: Bails Make new application
     Then I should see `Applicant` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
@@ -91,7 +91,7 @@ Feature: Bails Make new application
     Then I should see `Applicant` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `New grounds for bail` for the `Enter the bail grounds` field
@@ -121,7 +121,7 @@ Feature: Bails Make new application
     Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
@@ -146,7 +146,7 @@ Feature: Bails Make new application
     Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
@@ -171,7 +171,7 @@ Feature: Bails Make new application
     Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
@@ -191,7 +191,7 @@ Feature: Bails Make new application
     Then I should see `Home Office` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
 
 
     And I should see `No` for the `Address if bail granted` field
@@ -219,7 +219,7 @@ Feature: Bails Make new application
     Then I should see `Legal Representative` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
@@ -246,7 +246,7 @@ Feature: Bails Make new application
     Then I should see `Legal Representative` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
@@ -273,7 +273,7 @@ Feature: Bails Make new application
     Then I should see `Legal Representative` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field
@@ -295,7 +295,7 @@ Feature: Bails Make new application
     Then I should see `Legal Representative` for the `Application submitted by` field
     And I should see `Harri` for the `Given names` field
     And I should see `No` for the `Mobile phone` field
-    And I should see `01234567` for the `Home Office reference` field
+    And I should see `012345678` for the `Home Office reference` field
     And I should see `No` for the `Address if bail granted` field
     And I should see `No` for the `Financial condition` field
     And I should see `No` for the `Financial condition supporter` field

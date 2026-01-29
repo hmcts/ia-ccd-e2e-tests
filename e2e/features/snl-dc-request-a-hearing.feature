@@ -2,16 +2,14 @@ Feature: SnL Flow DC hearing request
 
    Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I refresh the page
-    And I wait for 10 seconds
-    And I create a new case
 
   @nightly-test @snl 
   Scenario: SnL hearing request in country flow for DC appeal
 
     When I save my initial DC appeal for nonPayment with hearing
-    When I click the `Close and Return to case details` button if present
-    And I wait for 12 seconds
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     Then I submit my nonpayment appeal
     And I wait for 12 seconds
     And I switch to be a `Case Officer`

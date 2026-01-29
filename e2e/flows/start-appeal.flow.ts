@@ -666,7 +666,13 @@ export class StartAppealFlow {
     }
 
     caseData.homeOfficeDecisionDate = this.getHoDecisionDate(false);
-    await createCase(caseData);
+    try {
+      await createCase(caseData);
+    } catch (e) {
+      console.error('Error creating bail case: ', e);
+      console.log('Trying again...');
+      await createCase(caseData);
+    }
     const user: UserInfo = CaseHelper.getInstance().getLegalRep();
     CaseHelper.getInstance().setStoredCaseUrlFromId(user.caseId, 'IA', 'Asylum');
   }

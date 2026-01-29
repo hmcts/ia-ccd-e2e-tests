@@ -8,6 +8,8 @@ export class EndAppealFlow {
 
     await this.ccdFormPage.headingContains('End the appeal');
     await this.ccdFormPage.click('Struck out');
+    await this.ccdFormPage.click('Continue');
+
     await this.ccdFormPage.setFieldValue('Reasons for this outcome', 'some end appeal reason', 'text area');
 
     await this.ccdFormPage.click('Continue');

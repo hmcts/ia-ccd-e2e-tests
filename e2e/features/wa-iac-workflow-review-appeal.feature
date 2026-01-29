@@ -2,14 +2,14 @@ Feature: Work allocation Task list and Task Manager for review appeal
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I create a new case
 
   @Task-created @RIA-4605-DC-AppealSubmitted
   Scenario: Task created and visible to TCW's
 
     When I save my initial DC appeal for nonPayment without hearing
-    And I click the `Close and Return to case details` button if present
-    And I click the `Overview` tab
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
     And I click the `Continue` button
@@ -23,8 +23,9 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     When I save my initial RP appeal for nonPayment without hearing
-    And I click the `Close and Return to case details` button if present
-    And I click the `Overview` tab
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
     And I click the `Continue` button

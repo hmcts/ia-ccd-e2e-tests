@@ -2,13 +2,14 @@ Feature: Payment validation for non-payment appeal type
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I create a new case
 
   @payment-validation-for-non-payment-appeal-type-RP @payment-validation-for-non-payment_appeal-type @RIA-3654
   Scenario: Select initial appeal with RP appeal type and validate payment errors
 
     When I save my initial RP appeal for nonPayment without hearing
-    And I click the `Overview` tab
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     And I select the `Pay and submit` Next step
     And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
@@ -26,7 +27,9 @@ Feature: Payment validation for non-payment appeal type
   Scenario: Select initial appeal with DC appeal type and validate payment errors
 
     When I save my initial DC appeal for nonPayment without hearing
-    And I click the `Overview` tab
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     And I select the `Pay and submit` Next step
     And I should see the text `The Pay for and submit your appeal option is not available. Select Submit your appeal if you want to submit the appeal now.`
 
@@ -56,6 +59,9 @@ Feature: Payment validation for non-payment appeal type
   Scenario: Submit RP appeal type with hearing option
 
     When I save my initial RP appeal for nonPayment with hearing
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
@@ -93,6 +99,9 @@ Feature: Payment validation for non-payment appeal type
   Scenario: Submit RP appeal type with hearing option
 
     When I save my initial DC appeal for nonPayment with hearing
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
@@ -130,6 +139,9 @@ Feature: Payment validation for non-payment appeal type
   Scenario: Submit RP appeal type with hearing option
 
     When I save my initial RP appeal for nonPayment without hearing
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
@@ -167,6 +179,9 @@ Feature: Payment validation for non-payment appeal type
   Scenario: Submit RP appeal type with hearing option
 
     When I save my initial DC appeal for nonPayment without hearing
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     Then I submit my nonpayment appeal
 
     Then I click the `Appeal` tab
