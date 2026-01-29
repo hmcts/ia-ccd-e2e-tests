@@ -96,8 +96,6 @@ withNightlyPipeline("nodejs", product, component) {
     env.PUPPETEER_SKIP_DOWNLOAD = 'true'
     env.PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = 'true'
     env.APPLICATIONINSIGHTS_NO_DIAGNOSTIC_CHANNEL = 'true'
-    env.CI = 'true'
-    env.NODE_OPTIONS = '--max-old-space-size=2048'
 
     afterAlways('DependencyCheckNightly') {
         if (!params.skipAppealFunctionalTests) {
