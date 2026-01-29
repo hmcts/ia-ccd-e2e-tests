@@ -175,13 +175,14 @@ export const eventMappings = {
   "Revoke case access": "revokeCaseAccess",
   "Save notifications to data": "saveNotificationsToData",
   "Manage Case TTL": "ManageTTL",
+  // Bail specific
   "Start the application": "startApplication",
   "Submit the application": "submitApplication",
   "Upload Bail Summary": "uploadBailSummary",
   "Record the decision event": "recordTheDecision",
   "Upload signed decision notice": "uploadSignedDecisionNotice",
+  "Upload signed decision notice Conditional Bail": "uploadSignedDecisionNoticeConditionalGrant",
   "Move application to decided": "moveApplicationToDecided",
-  // Bail specific
   "End the application": "endApplication",
   "Upload documents": "uploadDocuments",
   "Make new application": "makeNewApplication",

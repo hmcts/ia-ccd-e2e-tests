@@ -42,6 +42,23 @@ export class CcdPage extends AnyPage {
     ).click();
   }
 
+  async runSelectNextStepCatchCode(overviewUrl: string, nextStepPath: string) {
+    console.log(`Next step URL attempt failed - trying via Go button`);
+    await browser.get(overviewUrl);
+    await this.waitForXpathElementVisible(nextStepPath, 30000);
+    await element(by.xpath(nextStepPath)).click();
+    const goPath = '//button[contains(text(), "Go")]';
+    await element(by.xpath(goPath)).click();
+    try {
+      await this.waitForPageNavigation(overviewUrl, 30000);
+      await this.waitForSpinner();
+    } catch {
+      await this.doubleClick('xpath', goPath);
+      await this.waitForPageNavigation(overviewUrl, 30000);
+      await this.waitForSpinner();
+    }
+  }
+
   async selectNextStep(nextStep: string) {
     const nextStepPath =
       '//select[@id="next-step"]' +
@@ -52,20 +69,25 @@ export class CcdPage extends AnyPage {
     try {
       await this.triggerEventByUrl(overviewUrl, nextStep);
     } catch {
-      console.log(`Next step URL attempt failed - trying via Go button`);
-      await browser.get(overviewUrl);
-      await this.waitForXpathElementVisible(nextStepPath, 30000);
-      await element(by.xpath(nextStepPath)).click();
-      const goPath = '//button[contains(text(), "Go")]';
-      await element(by.xpath(goPath)).click();
-      try {
-        await this.waitForPageNavigation(overviewUrl, 30000);
-        await this.waitForSpinner();
-      } catch {
-        await this.doubleClick('xpath', goPath);
-        await this.waitForPageNavigation(overviewUrl, 30000);
-        await this.waitForSpinner();
-      }
+      await this.runSelectNextStepCatchCode(overviewUrl, nextStepPath);
+    }
+  }
+
+  async selectUploadSignedNoticeConditionalBail() {
+    const nextStep = 'Upload signed decision notice';
+    const nextStepPath =
+      '//select[@id="next-step"]' +
+      '/option[normalize-space()="' +
+      nextStep +
+      '"]';
+    const overviewUrl = await browser.getCurrentUrl();
+    const url = await this.getCaseUrl(overviewUrl);
+    const nextStepSlug: string | string[] | null = eventMappings['Upload signed decision notice Conditional Bail'] || null;
+    try {
+      await this.triggerEventByUrlAttempt(url, nextStepSlug, nextStep);
+      console.log(`Event successfully triggered for slug: ${nextStepSlug}`);
+    } catch {
+      await this.runSelectNextStepCatchCode(overviewUrl, nextStepPath);
     }
   }
 
