@@ -113,6 +113,6 @@ Feature: Notice of Change (common component)
 
     Given I am signed in as a `Legal Org User Rep A`
     When I enter the removed case id in the url
-    Then I should be redirected to the case list page
+    Then I should be redirected to the No results found page
 
 

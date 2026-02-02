@@ -98,7 +98,7 @@ export class NoticeOfChangePage {
     await browser.wait(
       async () => {
         let url = await browser.getCurrentUrl();
-        return url === `${ccdUrl}/cases`;
+        return url === `${ccdUrl}/search/noresults`;
       },
       60000,
       'User was not redirected to the case list.',

@@ -47,7 +47,7 @@ Then('I enter the removed case id in the url', async function () {
   await noticeOfChangePage.goToRemovedCase();
 });
 
-Then('I should be redirected to the case list page', async function () {
+Then('I should be redirected to the No results found page', async function () {
   await noticeOfChangePage.checkCaseRemoved();
 });
 
