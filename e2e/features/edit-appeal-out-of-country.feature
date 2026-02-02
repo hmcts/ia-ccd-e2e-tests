@@ -8,7 +8,8 @@ Feature: Out of Country - Edit appeal
   Scenario: Edit In country appeal to Out of country
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     When I click the `Overview` tab
     Then I should see `No` for the `Out of country` field
     And I should see `001234567` for the `Home Office Reference/Case ID` field

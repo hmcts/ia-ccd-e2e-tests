@@ -47,7 +47,7 @@ test:windowsFullfunctional;
 And replace the 2 instances of `@TAG_TO_CHANGE` with your tag (in this case `@this-new-test)`, so say we are on a Mac, then we would have
 
 ```
-"test:macFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform mac; npx @puppeteer/browsers install chromedriver@123 --platform mac; TESTS_FOR_ACCESSIBILITY='true'; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @this-new-test; protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@this-new-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
+"test:macFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform mac; npx @puppeteer/browsers install chromedriver@123 --platform mac; TESTS_FOR_ACCESSIBILITY=true; NODE_OPTIONS='--max-old-space-size=8192'; node e2e/cucumberTagSearcher.js @this-new-test; protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@this-new-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
 ```
 
 Finally, in your terminal, run the command that matches your OS from the following:

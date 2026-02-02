@@ -2,15 +2,13 @@ Feature: SnL Flow S94B flag with Type-C facility in hearing request
 
    Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 10 seconds
-    And I create a new case
 
   @nightly-test @snl
   Scenario: SnL hearing request in country flow for S94B flag with Type-C facility for PA appeal
 
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
-    And I wait for 5 second
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     Then I should see `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`

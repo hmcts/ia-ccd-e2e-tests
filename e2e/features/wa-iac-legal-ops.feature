@@ -1,15 +1,11 @@
 Feature: Work allocation R2 legal-ops scenarios
 Background:
   Given I am signed in as a `Legal Org User Rep A`
-  Then I wait for 10 seconds
-  And I create a new case
 
   And I save my initial HU appeal type without remission and with hearing fee and pay offline
-  And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-  Then I wait for 5 seconds
+  And I go to the overview page for the stored case
+  Then I should be on the overview page
   And I submit my nonpayment appeal
-  Then I wait for 10 seconds
   And I switch to be a `Legal Ops A`
 
   @legal-Ops @RIA-4923 @legal-ops-reserve-to-me@work-allocation-3

@@ -2,9 +2,9 @@ Feature: Submit change hearing centre
 
 Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     When I click the `pay for and submit your appeal` link
     Then I should see the `Select PBA number` page
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field

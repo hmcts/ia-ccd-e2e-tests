@@ -20,7 +20,12 @@ export class UploadSignedDecisionNotice {
   async uploadSignedDecisionNotice(clickContinue = false, decision) {
     await browser.sleep(5000);
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.selectNextStep('Upload signed decision notice');
+    const isConditionalBailUploadDecision = decision === 'Conditional Grant';
+    if (isConditionalBailUploadDecision) {
+      await this.ccdFormPage.selectUploadSignedNoticeConditionalBail();
+    } else {
+      await this.ccdFormPage.selectNextStep('Upload signed decision notice');
+    }
     await this.uploadSignedDecisionNoticeFile(true, decision);
     const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Upload');

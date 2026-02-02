@@ -2,12 +2,14 @@ Feature: SnL Flow RP hearing request
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I create a new case
 
   @appeal-nightly-test
   Scenario: SnL hearing request in country flow for RP appeal
 
     When I save my initial RP appeal for nonPayment with hearing
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     Then I submit my nonpayment appeal
     And I switch to be a `Case Officer`
     And I check the case has been paid for

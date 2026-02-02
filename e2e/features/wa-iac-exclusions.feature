@@ -1,14 +1,11 @@
 Feature: Work allocation R2 exclusion scenarios
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I create a new case
 
     And I save my initial HU appeal type without remission and with hearing fee and pay offline
-    And I click the `Close and Return to case details` button if present
-    And I wait for 2 seconds
-    Then I wait for 5 seconds
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     And I submit my nonpayment appeal
-    Then I wait for 10 seconds
 
   @legal-Ops @RIA-4923 @legal-ops-exclude-himself @work-allocation-3
   Scenario: Legal-Ops excluding himself(exclude me)

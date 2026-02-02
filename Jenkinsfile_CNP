@@ -93,6 +93,9 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
     env.S2S_URL = 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'
     env.IDAM_TESTING_SUPPORT_URL = 'https://idam-testing-support-api.aat.platform.hmcts.net'
+    env.PUPPETEER_SKIP_DOWNLOAD = 'true'
+    env.PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = 'true'
+    env.APPLICATIONINSIGHTS_NO_DIAGNOSTIC_CHANNEL = 'true'
 
     afterAlways('DependencyCheckNightly') {
         if (!params.skipAppealFunctionalTests) {

@@ -1,27 +1,31 @@
 import { browser } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
+import * as fs from "fs";
+import { UserInfo } from "../aip/idam-service";
+import { createCase } from "../aip/ccd-service";
+import CaseHelper from "../helpers/CaseHelper";
 
-const isOutOfCountryEnabled =
-  require("../ia.conf").isOutOfCountryEnabled === "true";
+const iaConfig = require('../ia.conf');
+const isOutOfCountryEnabled = iaConfig.isOutOfCountryEnabled === "true";
 
 export class StartAppealFlow {
   private ccdFormPage = new CcdFormPage();
 
   async completeScreeningQuestions(clickContinue = false) {
 
-      await this.ccdFormPage.setFieldValue(
-          "Is the appellant currently living in the United Kingdom?",
-          "Yes"
-      );
+    await this.ccdFormPage.setFieldValue(
+      "Is the appellant currently living in the United Kingdom?",
+      "Yes"
+    );
+    await this.ccdFormPage.click("Continue");
+    await this.ccdFormPage.setFieldValue(
+      "Is the appellant currently in detention?",
+      "No"
+    );
+    if (clickContinue) {
       await this.ccdFormPage.click("Continue");
-      await this.ccdFormPage.setFieldValue(
-          "Is the appellant currently in detention?",
-          "No"
-      );
-      if (clickContinue) {
-        await this.ccdFormPage.click("Continue");
-      }
     }
+  }
 
   async completeOutOfCountryQuestion(
     clickContinue = false,
@@ -335,7 +339,7 @@ export class StartAppealFlow {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
       "Are there any reasons the appellant wishes to remain in the UK " +
-        "or any new grounds on which they should be permitted to stay?",
+      "or any new grounds on which they should be permitted to stay?",
       "Yes"
     );
     await this.ccdFormPage.setFieldValue(
@@ -532,7 +536,13 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  async saveInitialAppealWithoutRemission(
+  getHoDecisionDate(isOutOfCountry: boolean): string {
+    const date = new Date();
+    date.setDate(date.getDate() - (isOutOfCountry ? 10 : 2));
+    return date.toISOString().split('T')[0];
+  }
+
+  async saveInitialAppealWithoutRemissionManual(
     clickContinue = false,
     appealType = "",
     feeType = "",
@@ -565,6 +575,106 @@ export class StartAppealFlow {
     let currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
     await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+  }
+
+  async saveInitialAppealWithoutRemission(
+    clickContinue = false,
+    appealType = "",
+    feeType = "",
+    paymentChoice = "",
+    hasFixedAddress = true
+  ) {
+    const caseDataStr = fs.readFileSync(process.cwd() + '/e2e/data/startAppeal-data.json', 'utf8').toString();
+    const caseData = JSON.parse(caseDataStr);
+    const withoutHearing: boolean = feeType === "without";
+    switch (appealType) {
+      case "EA":
+        caseData.appealType = 'refusalOfEu';
+        caseData.appealGroundsEuRefusal = {
+          values: [
+            "appealGroundsEuRefusal"
+          ]
+        };
+        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+        caseData.remissionType = 'noRemission';
+        break;
+      case "HU":
+        caseData.appealType = 'refusalOfHumanRights';
+        caseData.appealGroundsDecisionHumanRightsRefusal = {
+          values: [
+            "humanRightsRefusal"
+          ]
+        };
+        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+        caseData.remissionType = 'noRemission';
+        break;
+      case "PA":
+        caseData.appealType = 'protection';
+        caseData.paAppealTypePaymentOption = paymentChoice === "later" ? 'payLater' : 'payNow';
+        caseData.appealGroundsProtection = {
+          "values": [
+            "protectionRefugeeConvention"
+          ]
+        };
+        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+        caseData.remissionType = 'noRemission';
+        break;
+      case "EU":
+        caseData.appealType = 'euSettlementScheme';
+        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+        caseData.remissionType = 'noRemission';
+        break;
+      case "RP":
+        caseData.appealType = 'revocationOfProtection';
+        caseData.appealGroundsRevocation = {
+          "values": [
+            "revocationRefugeeConvention"
+          ]
+        };
+        caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        break;
+      default:
+      case "DC":
+        caseData.appealType = 'deprivation';
+        caseData.appealGroundsDeprivation = {
+          "values": [
+            "disproportionateDeprivation"
+          ]
+        };
+        caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+        break;
+    }
+
+    if (hasFixedAddress) {
+      caseData.appellantHasFixedAddress = 'Yes';
+      caseData.appellantAddress = {
+        "AddressLine1": "44 Millhouse Drive",
+        "AddressLine2": "",
+        "AddressLine3": "",
+        "PostTown": "Glasgow",
+        "County": "",
+        "PostCode": "G20 0UE",
+        "Country": "United Kingdom"
+      };
+    } else {
+      caseData.appellantHasFixedAddress = 'No';
+      caseData.appellantAddress = null;
+    }
+
+    caseData.homeOfficeDecisionDate = this.getHoDecisionDate(false);
+    try {
+      await createCase(caseData);
+    } catch (e) {
+      console.error('Error creating appeal case: ', e);
+      console.log('Trying again...');
+      await createCase(caseData);
+    }
+    const user: UserInfo = CaseHelper.getInstance().getLegalRep();
+    CaseHelper.getInstance().setStoredCaseUrlFromId(user.caseId, 'IA', 'Asylum');
   }
 
   async saveInitialNonPaymentAppealOutOfCountry(

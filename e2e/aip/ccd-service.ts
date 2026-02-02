@@ -1,3 +1,8 @@
+import { getUserId, getUserToken, UserInfo } from "./idam-service";
+import { getS2sToken } from "./s2s";
+import axios from "axios";
+import CaseHelper from "../helpers/CaseHelper";
+
 const rp = require('request-promise');
 const iaConfig = require('../ia.conf');
 
@@ -34,8 +39,8 @@ const Events = {
 };
 
 interface SecurityHeaders {
-  serviceToken: String;
-  userToken: String;
+  serviceToken: string;
+  userToken: string;
 }
 
 interface CaseData {
@@ -89,7 +94,10 @@ interface Subscription {
 
 interface CcdCaseDetails {
   id: string;
+  state?: string;
   case_data: CaseData;
+  created_date?: string;
+  last_modified?: string;
 }
 
 interface StartEventResponse {
@@ -108,6 +116,8 @@ interface SubmitEventData {
   data: Partial<CaseData>;
   event_token: string;
   ignore_warning: boolean;
+  supplementary_data_request?: Record<string, Record<string, string>>;
+
 }
 
 interface TimeExtensionCollection {
@@ -248,4 +258,116 @@ function isoDate(date) {
   return dateLetterSentIso;
 }
 
-export { CcdService, CcdCaseDetails, Events };
+async function getSecurityHeaders(user: UserInfo): Promise<SecurityHeaders> {
+  const userToken: string = await getUserToken(user);
+  const serviceToken: string = await getS2sToken();
+  return {userToken, serviceToken};
+}
+
+async function createCase(caseData: any): Promise<CcdCaseDetails> {
+  const user: UserInfo = CaseHelper.getInstance().getLegalRep();
+  const headers = await getSecurityHeaders(user);
+  user.userToken = headers.userToken;
+  const userId = await getUserId(headers.userToken);
+  user.userId = userId;
+  console.log(`Starting create ${caseData.appealType} case for user '${userId}'`);
+  const startEventResponse = await startCreateCase(userId, headers, true);
+  const supplementaryDataRequest = generateSupplementaryId();
+  console.log(`Submitting create ${caseData.appealType} case for user '${userId}'`);
+  const caseDetails: CcdCaseDetails =  await submitCreateCase(userId, headers, {
+    event: {
+      id: startEventResponse.event_id,
+      summary: 'Create case LR',
+      description: 'Create case LR'
+    },
+    data: caseData,
+    event_token: startEventResponse.token,
+    ignore_warning: true,
+    supplementary_data_request: supplementaryDataRequest
+  }, true);
+  user.caseId = caseDetails.id;
+  console.log(`Created ${caseData.appealType} case for user '${userId}' with case id '${user.caseId}'`);
+  CaseHelper.getInstance().setLegalRep(user);
+  return caseDetails;
+}
+
+async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetails> {
+  let userInfo: UserInfo = CaseHelper.getInstance().getBailUser(user);
+  const headers = await getSecurityHeaders(userInfo);
+  userInfo.userToken = headers.userToken;
+  const userId = await getUserId(headers.userToken);
+  userInfo.userId = userId;
+  console.log(`Starting create bail case for user '${userId}'`);
+  const startEventResponse = await startBailCreateCase(userId, headers);
+  const supplementaryDataRequest = generateSupplementaryId();
+  console.log(`Submitting create bail case for user '${userId}'`);
+  const caseDetails: CcdCaseDetails =  await submitBailCreateCase(userId, headers, {
+    event: {
+      id: startEventResponse.event_id,
+      summary: 'Create bail case',
+      description: 'Create bail case'
+    },
+    data: caseData,
+    event_token: startEventResponse.token,
+    ignore_warning: true,
+    supplementary_data_request: supplementaryDataRequest
+  });
+  userInfo.caseId = caseDetails.id;
+  console.log(`Created bail case for user '${userId}' with case id '${userInfo.caseId}'`);
+  CaseHelper.getInstance().setBailUser(user, userInfo);
+  return caseDetails;
+}
+
+async function startCreateCase(userId: string, headers: SecurityHeaders, isLegalRep = false): Promise<StartEventResponse> {
+  const url = `${ccdApiUrl}/${isLegalRep ? 'caseworkers' : 'citizens'}/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/event-triggers/startAppeal/token`;
+  const response = await axios.get(url, createOptions(
+    headers
+  ));
+  return response.data;
+}
+
+async function submitCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData, isLegalRep = false): Promise<CcdCaseDetails> {
+  const url = `${ccdApiUrl}/${isLegalRep ? 'caseworkers' : 'citizens'}/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases?ignore-warning=true`;
+  const options: any = createOptions(
+    headers
+  );
+  const response = await axios.post(url, startEvent, options);
+  return response.data;
+}
+
+async function startBailCreateCase(userId: string, headers: SecurityHeaders): Promise<StartEventResponse> {
+  const url = `${ccdApiUrl}/caseworkers/${userId}/jurisdictions/${jurisdictionId}/case-types/Bail/event-triggers/startApplication/token`;
+  const response = await axios.get(url, createOptions(
+    headers
+  ));
+  return response.data;
+}
+
+async function submitBailCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData): Promise<CcdCaseDetails> {
+  const url = `${ccdApiUrl}/caseworkers/${userId}/jurisdictions/${jurisdictionId}/case-types/Bail/cases?ignore-warning=true`;
+  const options: any = createOptions(
+    headers
+  );
+  const response = await axios.post(url, startEvent, options);
+  return response.data;
+}
+
+function createOptions(headers: SecurityHeaders) {
+  return {
+    headers: {
+      Authorization: headers.userToken,
+      ServiceAuthorization: headers.serviceToken,
+      'content-type': 'application/json'
+    }
+  };
+}
+
+function generateSupplementaryId(): Record<string, Record<string, string>> {
+  let serviceId: Record<string, string> = {};
+  serviceId['HMCTSServiceId'] = 'BFA1';
+  let request: Record<string, Record<string, string>> = {};
+  request['$set'] = serviceId;
+  return request;
+}
+
+export { CcdService, CcdCaseDetails, Events, createCase, createBailCase };

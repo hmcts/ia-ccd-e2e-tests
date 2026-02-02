@@ -2,14 +2,14 @@ Feature: Work allocation Task list and Task Manager for review appeal
 
   Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I create a new case
 
   @Task-created @RIA-4605-DC-AppealSubmitted
   Scenario: Task created and visible to TCW's
 
     When I save my initial DC appeal for nonPayment without hearing
-    And I click the `Close and Return to case details` button if present
-    And I click the `Overview` tab
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
     And I click the `Continue` button
@@ -23,8 +23,9 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     When I save my initial RP appeal for nonPayment without hearing
-    And I click the `Close and Return to case details` button if present
-    And I click the `Overview` tab
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
+
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
     And I click the `Continue` button
@@ -38,8 +39,8 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial PA appeal type without remission and with hearing fee and pay later
-    And I click the `Close and Return to case details` button if present
-    And I click the `Overview` tab
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
     And I click the `Continue` button
@@ -53,7 +54,8 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     When I click the `pay for and submit your appeal` link
     Then I should see the `Select PBA number` page
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
@@ -77,7 +79,8 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -93,7 +96,8 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial HU appeal type without remission and with hearing fee and pay offline
-    And I click the `Close and Return to case details` button if present
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     And I click the `Overview` tab
     And I select the `Submit your appeal` Next step
     And I agree to the declaration
@@ -117,7 +121,8 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -136,7 +141,8 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -167,7 +173,8 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -198,7 +205,8 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button
@@ -233,7 +241,8 @@ Feature: Work allocation Task list and Task Manager for review appeal
   Scenario: Task created and visible to TCW's
 
     And I save my initial EA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     When I click the `pay for and submit your appeal` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
     And I click the `Continue` button

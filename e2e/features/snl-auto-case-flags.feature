@@ -1,16 +1,14 @@
-  Feature: SnL Flow Auto creation of caseflags
+Feature: SnL Flow Auto creation of caseflags
 
-   Background:
+  Background:
     Given I am signed in as a `Legal Org User Rep A`
-    And I wait for 30 seconds
-    And I create a new case
     And I save my initial PA appeal type without remission and with hearing fee and pay now
-    And I click the `Close and Return to case details` button if present
-    And I wait for 5 second
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
     Then I should see `You still need to submit your appeal.`
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
-     And I check the case has been paid for
+    And I check the case has been paid for
     And I request home office data
     And I request respondent evidence
     And I wait for 3 seconds
@@ -23,8 +21,8 @@
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
     And I record agreed hearing requirements yes path
- 
-  @nightly-test @snl 
+
+  @nightly-test @snl
   Scenario: SnL flow Auto case flags appear in Case flags Tab
 
     When I goto the `Case flags` tab

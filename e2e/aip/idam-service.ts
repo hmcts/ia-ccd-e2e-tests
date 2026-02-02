@@ -118,4 +118,4 @@ async function getUserId(userToken: string) {
   }
 }
 
-export { createUser };
+export { createUser, UserInfo, getUserToken, getUserId };
