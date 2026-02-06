@@ -1,9 +1,9 @@
 import { browser } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
-import * as fs from "fs";
 import CaseHelper from "../helpers/CaseHelper";
 import { createBailCase } from "../aip/ccd-service";
 import { UserInfo } from "../aip/idam-service";
+import { getCaseDataJsonFromFile } from "../helpers/test-utils";
 
 export class StartBailApplicationFlow {
   private ccdFormPage = new CcdFormPage();
@@ -725,7 +725,11 @@ export class StartBailApplicationFlow {
   async completeCheckYourAnswers(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     if (clickContinue) {
-      await this.ccdFormPage.click("Save application");
+      try {
+        await this.ccdFormPage.click("Save application");
+      } catch (error) {
+        await this.ccdFormPage.click("Submit");
+      }
     }
   }
 
@@ -828,8 +832,7 @@ export class StartBailApplicationFlow {
   }
 
   async saveInitialApplication(clickContinue = false, user: string, detentionFacility: string, noOfSupporters: string, legalRepresentativeOrNot: string, fileUpload = true) {
-    const caseDataStr = fs
-      .readFileSync(process.cwd() + '/e2e/data/startBailApplication-data.json', 'utf8').toString();
+    const caseDataStr = getCaseDataJsonFromFile('startBailApplication-data.json');
     const caseData = JSON.parse(caseDataStr);
     if (user === 'Admin Officer') {
       caseData.sentByChecklist = 'Applicant';
