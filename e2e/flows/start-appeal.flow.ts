@@ -1,9 +1,9 @@
 import { browser } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
-import * as fs from "fs";
 import { UserInfo } from "../aip/idam-service";
 import { createCase } from "../aip/ccd-service";
 import CaseHelper from "../helpers/CaseHelper";
+import { getCaseDataJsonFromFile } from "../helpers/test-utils";
 
 const iaConfig = require('../ia.conf');
 const isOutOfCountryEnabled = iaConfig.isOutOfCountryEnabled === "true";
@@ -584,7 +584,7 @@ export class StartAppealFlow {
     paymentChoice = "",
     hasFixedAddress = true
   ) {
-    const caseDataStr = fs.readFileSync(process.cwd() + '/e2e/data/startAppeal-data.json', 'utf8').toString();
+    const caseDataStr = getCaseDataJsonFromFile('startAppeal-data.json');
     const caseData = JSON.parse(caseDataStr);
     const withoutHearing: boolean = feeType === "without";
     switch (appealType) {
