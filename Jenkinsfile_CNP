@@ -3,11 +3,16 @@
 properties([
     pipelineTriggers([cron('H 8 * * 1-5')]),
     parameters([
-        booleanParam(name: 'skipCrossBrowserTests', defaultValue: true, description: 'Tick the checkbox for skip'),
-        booleanParam(name: 'skipAppealFunctionalTests', defaultValue: true, description: 'Tick the checkbox for skip'),
-        booleanParam(name: 'skipBailFunctionalTests', defaultValue: true, description: 'Tick the checkbox for skip'),
+        booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
+        booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
+        booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
         string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
+        string(name: 'CCD_API_URL', defaultValue: 'http://ccd-data-store-api-aat.service.core-compute-aat.internal', description: 'The CCD API URL these tests will use'),
+        string(name: 'IDAM_URL', defaultValue: 'https://idam-api.aat.platform.hmcts.net', description: 'The IDAM API URL these tests will use'),
+        string(name: 'IDAM_WEB_URL', defaultValue: 'https://idam-web-public.aat.platform.hmcts.net', description: 'The IDAM web URL these tests will use'),
+        string(name: 'IDAM_TESTING_SUPPORT_URL', defaultValue: 'https://idam-testing-support-api.aat.platform.hmcts.net', description: 'The IDAM testing support URL these tests will use'),
+        string(name: 'S2S_URL', defaultValue: 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal', description: 'The S2S URL these tests will use'),
         string(name: 'TEST_ENVIRONMENT', defaultValue: 'aat', description: 'The environment to pull azure keys from'),
         string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
         string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
@@ -87,15 +92,34 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_URL_WEB = params.URL_TO_TEST
     env.RETRIES = params.RETRIES
     env.TEST_E2E_URL_GATEWAY = params.CCD_GATEWAY_URL
+    env.CCD_API_URL = params.CCD_API_URL
+    env.IDAM_URL = params.IDAM_URL
+    env.IDAM_WEB_URL = params.IDAM_WEB_URL
     env.TEST_E2E_NUM_BROWSERS = params.NUM_TESTS_IN_PARALLEL
     env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
-    env.S2S_URL = 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'
-    env.IDAM_TESTING_SUPPORT_URL = 'https://idam-testing-support-api.aat.platform.hmcts.net'
+    env.S2S_URL = params.S2S_URL
+    env.IDAM_TESTING_SUPPORT_URL = params.IDAM_TESTING_SUPPORT_URL
     env.PUPPETEER_SKIP_DOWNLOAD = 'true'
     env.PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = 'true'
     env.APPLICATIONINSIGHTS_NO_DIAGNOSTIC_CHANNEL = 'true'
+    def nonCriticalFailure = (currentBuild.currentResult == 'FAILURE')
+    def functionalTestsUnstable = false
+
+    def publishAccessibilityReport = { reportName ->
+        publishHTML([
+                allowMissing         : true,
+                alwaysLinkToLastBuild: true,
+                keepAll              : true,
+                reportDir            : "reports/tests",
+                reportFiles          : 'a11y.html',
+                reportName           : reportName
+        ])
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/a11y.html'
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/a11y_output.js'
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/resources/**'
+    }
 
     afterAlways('DependencyCheckNightly') {
         if (!params.skipAppealFunctionalTests) {
@@ -103,6 +127,7 @@ withNightlyPipeline("nodejs", product, component) {
                 try {
                     yarnBuilder.yarn("test:appealFullfunctional")
                 } catch (Error) {
+                    functionalTestsUnstable = true
                     unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
                     if (params.skipBailFunctionalTests) {
@@ -117,14 +142,7 @@ withNightlyPipeline("nodejs", product, component) {
                     }
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
-                    publishHTML([
-                            allowMissing         : true,
-                            alwaysLinkToLastBuild: true,
-                            keepAll              : true,
-                            reportDir            : "reports/tests/",
-                            reportFiles          : 'a11y.html',
-                            reportName           : 'IAC - Appeal a11y Test Report'
-                    ])
+                    publishAccessibilityReport('IAC - Appeal a11y Test Report')
                 }
             }
         }
@@ -133,6 +151,7 @@ withNightlyPipeline("nodejs", product, component) {
                 try {
                     yarnBuilder.yarn("test:bailFullfunctional")
                 } catch (Error) {
+                    functionalTestsUnstable = true
                     unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
                     publishHTML([
@@ -145,14 +164,7 @@ withNightlyPipeline("nodejs", product, component) {
                     ])
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/functional/*'
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
-                    publishHTML([
-                            allowMissing         : true,
-                            alwaysLinkToLastBuild: true,
-                            keepAll              : true,
-                            reportDir            : "reports/tests/",
-                            reportFiles          : 'a11y.html',
-                            reportName           : 'IAC - Bail a11y Test Report'
-                    ])
+                    publishAccessibilityReport('IAC - Bail a11y Test Report')
                 }
             }
         }
@@ -164,6 +176,7 @@ withNightlyPipeline("nodejs", product, component) {
                         sh "node e2e/cucumberTagSearcher.js ${params.SPECIFIC_TAGS}; yarn protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=${params.SPECIFIC_TAGS}"
                     }
                 } catch (Error) {
+                    functionalTestsUnstable = true
                     unstable(message: "${STAGE_NAME} is unstable: " + Error.toString())
                 } finally {
                     publishHTML([
@@ -175,13 +188,19 @@ withNightlyPipeline("nodejs", product, component) {
                             reportName           : "IAC - ${params.SPECIFIC_TAGS} E2E Test Report"
                     ])
                     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/failedScreenshots/**/*.png'
+                    publishAccessibilityReport("IAC - ${params.SPECIFIC_TAGS} a11y Test Report")
                 }
             }
         }
     }
 
     if (!params.skipCrossBrowserTests) {
-        enableCrossBrowserTest()
+        try {
+            enableCrossBrowserTest()
+        } catch (Error) {
+            unstable(message: "crossBrowserTest is unstable: " + Error.toString())
+            nonCriticalFailure = true
+        }
         afterAlways('crossBrowserTest') {
             publishHTML([
                     allowMissing         : true,
@@ -193,6 +212,12 @@ withNightlyPipeline("nodejs", product, component) {
             ])
             steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests/crossbrowser/*'
         }
+    }
+
+    if (functionalTestsUnstable) {
+        currentBuild.result = 'UNSTABLE'
+    } else if (nonCriticalFailure && currentBuild.currentResult in ['FAILURE', 'UNSTABLE']) {
+        currentBuild.result = 'SUCCESS'
     }
 
     enableSlackNotifications('#ia-tech')
