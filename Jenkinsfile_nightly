@@ -8,6 +8,11 @@ properties([
         booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         string(name: 'URL_TO_TEST', defaultValue: 'https://manage-case.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
         string(name: 'CCD_GATEWAY_URL', defaultValue: 'https://gateway-ccd.aat.platform.hmcts.net', description: 'The CCD Gateway URL these tests will need to run'),
+        string(name: 'CCD_API_URL', defaultValue: 'http://ccd-data-store-api-aat.service.core-compute-aat.internal', description: 'The CCD API URL these tests will use'),
+        string(name: 'IDAM_URL', defaultValue: 'https://idam-api.aat.platform.hmcts.net', description: 'The IDAM API URL these tests will use'),
+        string(name: 'IDAM_WEB_URL', defaultValue: 'https://idam-web-public.aat.platform.hmcts.net', description: 'The IDAM web URL these tests will use'),
+        string(name: 'IDAM_TESTING_SUPPORT_URL', defaultValue: 'https://idam-testing-support-api.aat.platform.hmcts.net', description: 'The IDAM testing support URL these tests will use'),
+        string(name: 'S2S_URL', defaultValue: 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal', description: 'The S2S URL these tests will use'),
         string(name: 'TEST_ENVIRONMENT', defaultValue: 'aat', description: 'The environment to pull azure keys from'),
         string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
         string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
@@ -87,12 +92,15 @@ withNightlyPipeline("nodejs", product, component) {
     env.TEST_E2E_URL_WEB = params.URL_TO_TEST
     env.RETRIES = params.RETRIES
     env.TEST_E2E_URL_GATEWAY = params.CCD_GATEWAY_URL
+    env.CCD_API_URL = params.CCD_API_URL
+    env.IDAM_URL = params.IDAM_URL
+    env.IDAM_WEB_URL = params.IDAM_WEB_URL
     env.TEST_E2E_NUM_BROWSERS = params.NUM_TESTS_IN_PARALLEL
     env.TEST_E2E_WAIT_FOR_ANGULAR = 'false'
     env.TEST_E2E_FAIL_FAST = 'false'
     env.TEST_E2E_ANNOTATION = params.NIGHTLY_TAG
-    env.S2S_URL = 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'
-    env.IDAM_TESTING_SUPPORT_URL = 'https://idam-testing-support-api.aat.platform.hmcts.net'
+    env.S2S_URL = params.S2S_URL
+    env.IDAM_TESTING_SUPPORT_URL = params.IDAM_TESTING_SUPPORT_URL
     env.PUPPETEER_SKIP_DOWNLOAD = 'true'
     env.PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = 'true'
     env.APPLICATIONINSIGHTS_NO_DIAGNOSTIC_CHANNEL = 'true'
