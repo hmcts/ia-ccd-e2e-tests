@@ -6,7 +6,6 @@ import * as fs from "fs";
 import * as path from "path";
 
 const rp = require('request-promise');
-const FormData = require("form-data");
 const iaConfig = require('../ia.conf');
 
 const ccdApiUrl = iaConfig.CcdApiUrl;
@@ -321,18 +320,19 @@ async function uploadDocumentToDmStore(fileName: string, headers: SecurityHeader
 
   for (const uploadUrl of uploadUrls) {
     try {
-      const formData = new FormData();
-      formData.append("files", fs.createReadStream(documentPath));
-      formData.append("classification", "PUBLIC");
-
-      const response = await axios.post(uploadUrl, formData, {
+      const response = await rp.post({
+        uri: uploadUrl,
         headers: {
           Authorization: headers.userToken,
           ServiceAuthorization: headers.serviceToken,
-          ...formData.getHeaders()
-        }
+        },
+        formData: {
+          files: fs.createReadStream(documentPath),
+          classification: "PUBLIC"
+        },
+        json: true
       });
-      return mapUploadedDocumentResponse(response.data, fileName);
+      return mapUploadedDocumentResponse(response, fileName);
     } catch (error) {
       lastError = error;
       console.warn(`Document upload failed at ${uploadUrl}`);
