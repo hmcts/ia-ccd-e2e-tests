@@ -2,8 +2,11 @@ import { getUserId, getUserToken, UserInfo } from "./idam-service";
 import { getS2sToken } from "./s2s";
 import axios from "axios";
 import CaseHelper from "../helpers/CaseHelper";
+import * as fs from "fs";
+import * as path from "path";
 
 const rp = require('request-promise');
+const FormData = require("form-data");
 const iaConfig = require('../ia.conf');
 
 const ccdApiUrl = iaConfig.CcdApiUrl;
@@ -270,6 +273,7 @@ async function createCase(caseData: any): Promise<CcdCaseDetails> {
   user.userToken = headers.userToken;
   const userId = await getUserId(headers.userToken);
   user.userId = userId;
+  await tryInjectUploadedNoticeOfDecision(caseData, headers);
   console.log(`Starting create ${caseData.appealType} case for user '${userId}'`);
   const startEventResponse = await startCreateCase(userId, headers, true);
   const supplementaryDataRequest = generateSupplementaryId();
@@ -291,12 +295,97 @@ async function createCase(caseData: any): Promise<CcdCaseDetails> {
   return caseDetails;
 }
 
+async function tryInjectUploadedNoticeOfDecision(caseData: any, headers: SecurityHeaders): Promise<void> {
+  const noticeDocs = caseData?.uploadTheNoticeOfDecisionDocs;
+  if (!Array.isArray(noticeDocs) || noticeDocs.length === 0) {
+    return;
+  }
+
+  const firstNoticeDoc = noticeDocs[0] || {};
+  const existingDocument = firstNoticeDoc?.value?.document || {};
+  const fileName = existingDocument.document_filename || "Evidence1.pdf";
+
+  const uploadedDocument = await uploadDocumentToDmStore(fileName, headers);
+  firstNoticeDoc.value = {
+    ...(firstNoticeDoc.value || {}),
+    document: uploadedDocument
+  };
+  caseData.uploadTheNoticeOfDecisionDocs[0] = firstNoticeDoc;
+  console.log(`Uploaded '${fileName}' to DM-store for API case creation`);
+}
+
+async function uploadDocumentToDmStore(fileName: string, headers: SecurityHeaders): Promise<SupportingDocument> {
+  const documentPath = path.resolve(`./documents/${fileName}`);
+  const uploadUrls = buildDocumentUploadUrls();
+  let lastError: any;
+
+  for (const uploadUrl of uploadUrls) {
+    try {
+      const formData = new FormData();
+      formData.append("files", fs.createReadStream(documentPath));
+      formData.append("classification", "PUBLIC");
+
+      const response = await axios.post(uploadUrl, formData, {
+        headers: {
+          Authorization: headers.userToken,
+          ServiceAuthorization: headers.serviceToken,
+          ...formData.getHeaders()
+        }
+      });
+      return mapUploadedDocumentResponse(response.data, fileName);
+    } catch (error) {
+      lastError = error;
+      console.warn(`Document upload failed at ${uploadUrl}`);
+    }
+  }
+
+  throw lastError || new Error("Unable to upload document to DM-store");
+}
+
+function mapUploadedDocumentResponse(payload: any, fallbackFileName: string): SupportingDocument {
+  const doc = payload?._embedded?.documents?.[0]
+    || payload?.documents?.[0]
+    || payload?.[0]
+    || payload;
+
+  const documentUrl = doc?.document_url || doc?.documentUrl || doc?._links?.self?.href;
+  const documentBinaryUrl = doc?.document_binary_url || doc?.documentBinaryUrl || doc?._links?.binary?.href;
+  const documentFileName = doc?.document_filename || doc?.documentFilename || doc?.originalDocumentName || fallbackFileName;
+
+  if (!documentUrl || !documentBinaryUrl) {
+    throw new Error("Unable to map DM-store upload response to CCD document links");
+  }
+
+  return {
+    document_url: documentUrl,
+    document_binary_url: documentBinaryUrl,
+    document_filename: documentFileName
+  };
+}
+
+function buildDocumentUploadUrls(): string[] {
+  const urls = new Set<string>();
+  if (iaConfig.CcdGatewayUrl) {
+    urls.add(`${iaConfig.CcdGatewayUrl}/documents`);
+  }
+
+  if (ccdApiUrl) {
+    const dmStoreUrl = ccdApiUrl
+      .replace("ccd-data-store-api-", "dm-store-")
+      .replace("ccd-data-store-api.", "dm-store.");
+    urls.add(`${dmStoreUrl}/documents`);
+  }
+
+  return Array.from(urls);
+}
+
 async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetails> {
   let userInfo: UserInfo = CaseHelper.getInstance().getBailUser(user);
   const headers = await getSecurityHeaders(userInfo);
   userInfo.userToken = headers.userToken;
   const userId = await getUserId(headers.userToken);
   userInfo.userId = userId;
+  await tryInjectUploadedBailDocuments(caseData, headers);
   console.log(`Starting create bail case for user '${userId}'`);
   const startEventResponse = await startBailCreateCase(userId, headers);
   const supplementaryDataRequest = generateSupplementaryId();
@@ -316,6 +405,45 @@ async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetai
   console.log(`Created bail case for user '${userId}' with case id '${userInfo.caseId}'`);
   CaseHelper.getInstance().setBailUser(user, userInfo);
   return caseDetails;
+}
+
+async function tryInjectUploadedBailDocuments(caseData: any, headers: SecurityHeaders): Promise<void> {
+  await tryInjectUploadedDocumentCollection(
+    caseData,
+    headers,
+    "uploadTheBailEvidenceDocs",
+    "GroundsForBailSupportingEvidence.pdf"
+  );
+  await tryInjectUploadedDocumentCollection(
+    caseData,
+    headers,
+    "uploadB1FormDocs",
+    "B1Form.pdf"
+  );
+}
+
+async function tryInjectUploadedDocumentCollection(
+  caseData: any,
+  headers: SecurityHeaders,
+  collectionKey: string,
+  defaultFileName: string
+): Promise<void> {
+  const docs = caseData?.[collectionKey];
+  if (!Array.isArray(docs) || docs.length === 0) {
+    return;
+  }
+
+  const firstDoc = docs[0] || {};
+  const existingDocument = firstDoc?.value?.document || {};
+  const fileName = existingDocument.document_filename || defaultFileName;
+
+  const uploadedDocument = await uploadDocumentToDmStore(fileName, headers);
+  firstDoc.value = {
+    ...(firstDoc.value || {}),
+    document: uploadedDocument
+  };
+  caseData[collectionKey][0] = firstDoc;
+  console.log(`Uploaded '${fileName}' for '${collectionKey}' in API case creation`);
 }
 
 async function startCreateCase(userId: string, headers: SecurityHeaders, isLegalRep = false): Promise<StartEventResponse> {
