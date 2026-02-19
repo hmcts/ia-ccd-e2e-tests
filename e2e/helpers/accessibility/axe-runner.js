@@ -28,22 +28,43 @@ function normalizePageUrl(pageUrl) {
   }
 }
 
+function sanitizePathSegment(segment) {
+  if (!segment) {
+    return 'unknown-page';
+  }
+
+  if (/^\d+$/.test(segment)) {
+    return ':id';
+  }
+
+  if (/^[0-9a-f]{8,}$/i.test(segment)) {
+    return ':id';
+  }
+
+  return segment;
+}
+
 function buildTestName(pageUrl) {
   const normalizedUrl = normalizePageUrl(pageUrl);
 
   try {
     const parsedUrl = new URL(normalizedUrl);
-    const pathSegments = parsedUrl.pathname.split('/').filter(Boolean);
+    const pathSegments = parsedUrl.pathname.split('/').filter(Boolean).map(sanitizePathSegment);
     if (pathSegments.length === 0) {
-      return parsedUrl.hostname;
+      return parsedUrl.hostname || 'unknown-page';
+    }
+    const shortPath = pathSegments.slice(-2).join('/');
+    return shortPath || pathSegments[pathSegments.length - 1] || parsedUrl.hostname || 'unknown-page';
+  } catch (error) {
+    const withoutHost = normalizedUrl.replace(/^https?:\/\/[^/]+/i, '');
+    const pathSegments = withoutHost.split('/').filter(Boolean).map(sanitizePathSegment);
+    if (pathSegments.length === 0) {
+      return 'unknown-page';
+    }
+    if (pathSegments.length === 1) {
+      return pathSegments[0];
     }
     return pathSegments.slice(-2).join('/');
-  } catch (error) {
-    const urlArr = normalizedUrl.split('/');
-    if (urlArr.length === 1) {
-      return normalizedUrl;
-    }
-    return urlArr[urlArr.length - 2] + '/' + urlArr[urlArr.length - 1];
   }
 }
 
