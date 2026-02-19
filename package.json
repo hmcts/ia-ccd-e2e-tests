@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "create:testCounter": "cat > e2e/testCounter.json <<< '{\"totalTests\": [], \"passedTests\": []}'",
-    "test:setupFunctional": "yarn create:testCounter; npx @puppeteer/browsers install chrome@123 --platform linux; npx @puppeteer/browsers install chromedriver@123 --platform linux",
+    "test:setupFunctional": "yarn create:testCounter; rm -rf reports/tests/a11y.html reports/tests/a11y_output.js reports/tests/assets reports/tests/resources; npx @puppeteer/browsers install chrome@123 --platform linux; npx @puppeteer/browsers install chromedriver@123 --platform linux",
     "test:appealFullfunctional": "yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @appeal-nightly-test; TESTS_FOR_ACCESSIBILITY=true NODE_OPTIONS='--max-old-space-size=8192' protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@appeal-nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:bailFullfunctional": "yarn test:setupFunctional; node e2e/cucumberTagSearcher.js @bail-nightly-test; TESTS_FOR_ACCESSIBILITY=true NODE_OPTIONS='--max-old-space-size=8192' protractor e2e/features.parallel.linux.conf.js --cucumberOpts.tags=@bail-nightly-test --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
     "test:linuxFullfunctional": "npx @puppeteer/browsers install chrome@123 --platform linux; npx @puppeteer/browsers install chromedriver@123 --platform linux; node e2e/cucumberTagSearcher.js @TAG-TO-CHANGE; TESTS_FOR_ACCESSIBILITY=true NODE_OPTIONS='--max-old-space-size=8192' protractor e2e/features.parallel.mac.conf.js --cucumberOpts.tags=@TAG-TO-CHANGE --cucumberOpts.tags=~@OnlyIfSaveAndContinueIsEnabled",
