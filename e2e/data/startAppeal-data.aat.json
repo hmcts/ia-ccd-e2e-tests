@@ -51,9 +51,9 @@
       "value": {
         "description": "This is the notice of decision",
         "document": {
-          "document_binary_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/9d65644c-5146-49b5-9e3c-2ce91afcefb3/binary",
+          "document_binary_url": "INJECTED_VALUE/binary",
           "document_filename": "Evidence1.pdf",
-          "document_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/9d65644c-5146-49b5-9e3c-2ce91afcefb3"
+          "document_url": "INJECTED_VALUE"
         }
       }
     }

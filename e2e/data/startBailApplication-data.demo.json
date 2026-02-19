@@ -45,8 +45,8 @@
       "value": {
         "description": "This is the supporting evidence",
         "document": {
-          "document_url": "http://dm-store-demo.service.core-compute-demo.internal/documents/50d5e3c8-9d61-4c5a-8bac-2a9b51a092e1",
-          "document_binary_url": "http://dm-store-demo.service.core-compute-demo.internal/documents/50d5e3c8-9d61-4c5a-8bac-2a9b51a092e1/binary",
+          "document_url": "INJECTED_VALUE",
+          "document_binary_url": "INJECTED_VALUE/binary",
           "document_filename": "GroundsForBailSupportingEvidence.pdf"
         }
       },
@@ -2752,8 +2752,8 @@
       "value": {
         "description": "This is the B1 form",
         "document": {
-          "document_url": "http://dm-store-demo.service.core-compute-demo.internal/documents/50d5e3c8-9d61-4c5a-8bac-2a9b51a092e1",
-          "document_binary_url": "http://dm-store-demo.service.core-compute-demo.internal/documents/50d5e3c8-9d61-4c5a-8bac-2a9b51a092e1/binary",
+          "document_url": "INJECTED_VALUE",
+          "document_binary_url": "INJECTED_VALUE/binary",
           "document_filename": "B1Form.pdf"
         }
       },
