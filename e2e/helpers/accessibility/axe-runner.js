@@ -14,6 +14,39 @@ const resultObj = {
   tests: [],
 };
 
+function normalizePageUrl(pageUrl) {
+  if (!pageUrl) {
+    return '';
+  }
+
+  try {
+    const parsedUrl = new URL(pageUrl);
+    const pathname = parsedUrl.pathname.replace(/\/+$/, '');
+    return `${parsedUrl.origin}${pathname || '/'}`;
+  } catch (error) {
+    return pageUrl.split('?')[0].split('#')[0];
+  }
+}
+
+function buildTestName(pageUrl) {
+  const normalizedUrl = normalizePageUrl(pageUrl);
+
+  try {
+    const parsedUrl = new URL(normalizedUrl);
+    const pathSegments = parsedUrl.pathname.split('/').filter(Boolean);
+    if (pathSegments.length === 0) {
+      return parsedUrl.hostname;
+    }
+    return pathSegments.slice(-2).join('/');
+  } catch (error) {
+    const urlArr = normalizedUrl.split('/');
+    if (urlArr.length === 1) {
+      return normalizedUrl;
+    }
+    return urlArr[urlArr.length - 2] + '/' + urlArr[urlArr.length - 1];
+  }
+}
+
 module.exports = {
   async runAndReportAccessibility() {
     const screenshotPath = iaconfig.TestOutputDir + '/assets';
@@ -45,8 +78,7 @@ module.exports = {
     };
     const violations = accessibilityErrorsOnThePage.violations.map(processIssue);
     const isPageAccessible = violations.length === 0 ? result.PASSED : result.FAILED;
-
-    const urlArr = accessibilityErrorsOnThePage.url.split('/');
+    const normalizedPageUrl = normalizePageUrl(accessibilityErrorsOnThePage.url);
 
     if (isPageAccessible === result.PASSED) {
       resultObj.passCount += 1;
@@ -55,8 +87,10 @@ module.exports = {
     }
 
     resultObj.tests.push({
-      name: urlArr[urlArr.length - 2] + '/' + urlArr[urlArr.length - 1],
-      pageUrl: accessibilityErrorsOnThePage.url,
+      name: buildTestName(accessibilityErrorsOnThePage.url),
+      pageUrl: normalizedPageUrl,
+      rawPageUrl: accessibilityErrorsOnThePage.url,
+      normalizedPageUrl,
       status: isPageAccessible,
       screenshot: screenshotReportRef,
       a11yIssues: violations,
