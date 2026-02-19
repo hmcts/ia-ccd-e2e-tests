@@ -4,15 +4,44 @@ const fs = require('fs');
 
 async function generateAccessibilityReport() {
   const reportJson = AxeRunner.getAccessibilityTestResult();
-  const result = 'var replacejsoncontent = ' + JSON.stringify(reportJson);
-
   const sourceReport = __dirname + '/Report.html';
   const destReport = testConfig.TestOutputDir + '/a11y.html';
   const destJson = testConfig.TestOutputDir + '/a11y_output.js';
+  const existingReport = readExistingAccessibilityReport(destJson);
+
+  // In parallel/sharded runs, onComplete can run multiple times.
+  // Avoid overwriting a previously generated non-empty report with empty data.
+  if (
+    (!reportJson.tests || reportJson.tests.length === 0) &&
+    existingReport &&
+    existingReport.tests &&
+    existingReport.tests.length > 0
+  ) {
+    return;
+  }
+
+  const result = 'var replacejsoncontent = ' + JSON.stringify(reportJson);
 
   fs.copyFileSync(sourceReport, destReport);
   fs.writeFileSync(destJson, result);
   copyResources();
+}
+
+function readExistingAccessibilityReport(destJson) {
+  if (!fs.existsSync(destJson)) {
+    return null;
+  }
+
+  try {
+    const fileContent = fs.readFileSync(destJson, 'utf8');
+    const marker = 'var replacejsoncontent = ';
+    if (!fileContent.startsWith(marker)) {
+      return null;
+    }
+    return JSON.parse(fileContent.slice(marker.length));
+  } catch (error) {
+    return null;
+  }
 }
 
 function copyResources() {
