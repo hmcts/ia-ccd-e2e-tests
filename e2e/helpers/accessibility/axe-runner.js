@@ -44,6 +44,43 @@ function sanitizePathSegment(segment) {
   return segment;
 }
 
+function isGenericSegment(segment) {
+  const generic = new Set(['cases', 'case-details', 'case-create', 'ia', 'asylum', 'bail', ':id']);
+  return generic.has((segment || '').toLowerCase());
+}
+
+function buildFromKnownPatterns(pathSegments, fallbackLabel) {
+  const triggerIndex = pathSegments.lastIndexOf('trigger');
+  if (triggerIndex >= 0 && pathSegments.length > triggerIndex + 2) {
+    return `${pathSegments[triggerIndex + 1]}/${pathSegments[triggerIndex + 2]}`;
+  }
+
+  const createIndex = pathSegments.lastIndexOf('case-create');
+  if (createIndex >= 0 && pathSegments.length > createIndex + 2) {
+    return `${pathSegments[createIndex + 1]}/${pathSegments[createIndex + 2]}`;
+  }
+
+  const detailsIndex = pathSegments.lastIndexOf('case-details');
+  if (detailsIndex >= 0) {
+    const root = pathSegments[detailsIndex - 1] || fallbackLabel;
+    return `${root}/case-details`;
+  }
+
+  const meaningful = pathSegments.filter((segment) => !isGenericSegment(segment));
+  if (meaningful.length >= 2) {
+    return `${meaningful[meaningful.length - 2]}/${meaningful[meaningful.length - 1]}`;
+  }
+  if (meaningful.length === 1) {
+    return meaningful[0];
+  }
+
+  if (pathSegments.length >= 2 && pathSegments[pathSegments.length - 1] === ':id') {
+    return `${pathSegments[pathSegments.length - 2]}/details`;
+  }
+
+  return pathSegments.slice(-2).join('/');
+}
+
 function buildTestName(pageUrl) {
   const normalizedUrl = normalizePageUrl(pageUrl);
 
@@ -53,7 +90,7 @@ function buildTestName(pageUrl) {
     if (pathSegments.length === 0) {
       return parsedUrl.hostname || 'unknown-page';
     }
-    const shortPath = pathSegments.slice(-2).join('/');
+    const shortPath = buildFromKnownPatterns(pathSegments, parsedUrl.hostname || 'cases');
     return shortPath || pathSegments[pathSegments.length - 1] || parsedUrl.hostname || 'unknown-page';
   } catch (error) {
     const withoutHost = normalizedUrl.replace(/^https?:\/\/[^/]+/i, '');
@@ -61,10 +98,7 @@ function buildTestName(pageUrl) {
     if (pathSegments.length === 0) {
       return 'unknown-page';
     }
-    if (pathSegments.length === 1) {
-      return pathSegments[0];
-    }
-    return pathSegments.slice(-2).join('/');
+    return buildFromKnownPatterns(pathSegments, 'cases') || 'unknown-page';
   }
 }
 
