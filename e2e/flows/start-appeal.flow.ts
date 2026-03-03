@@ -70,7 +70,8 @@ export class StartAppealFlow {
       await this.ccdFormPage.setFieldValue("Enter a UK postcode", "G20 0UE");
       await this.ccdFormPage.click("Find address");
       await this.ccdFormPage.doesDropdownHaveValues("Select an address");
-      await this.ccdFormPage.setFieldValue("Select an address",  "44 Millhouse Drive, Glasgow");
+      await browser.sleep(4000);
+      await this.ccdFormPage.setFieldValue("Select an address", "44 Millhouse Drive, Glasgow");
       await this.ccdFormPage.click('Continue');
 
     }
@@ -406,6 +407,7 @@ export class StartAppealFlow {
     await this.ccdFormPage.setFieldValue("Enter a UK postcode", postcode);
     await this.ccdFormPage.click("Find address");
     await this.ccdFormPage.doesDropdownHaveValues("Select an address");
+    await browser.sleep(4000);
     await this.ccdFormPage.setFieldValue("Select an address", address);
 
     if (clickContinue) {
@@ -726,13 +728,14 @@ export class StartAppealFlow {
     await this.completeWhichIRC(true);
     await this.completePendingBailApplicationQuestions(true);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
-    await this.completeBasicDetails(true);
-    await this.completeNationality(true);
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeRemovalDirectionQuestions(true);
@@ -756,11 +759,12 @@ export class StartAppealFlow {
     await this.completeWhichIRC(true);
     await this.completePendingBailApplicationQuestions(true);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
-    await this.completeGivenAppealType(true, appealType);
     await this.completeInternalBasicDetails(true);
     await this.completeNationality(true);
     await this.completeInternalContactPreference(true);
+    await this.completeGivenAppealType(true, appealType);
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeRemovalDirectionQuestions(true);
@@ -951,13 +955,14 @@ export class StartAppealFlow {
     await this.completeCustodialSentenceQuestions(true);
     await this.completePendingBailApplicationQuestions(true);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
-    await this.completeBasicDetails(true);
-    await this.completeNationality(true);
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeRemovalDirectionQuestions(true);
@@ -987,11 +992,12 @@ export class StartAppealFlow {
     await this.completeCustodialSentenceQuestions(true);
     await this.completePendingBailApplicationQuestions(true);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
-    await this.completeGivenAppealType(true, appealType);
     await this.completeInternalBasicDetails(true);
     await this.completeNationality(true);
     await this.completeInternalContactPreference(true);
+    await this.completeGivenAppealType(true, appealType);
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeRemovalDirectionQuestions(true);
@@ -1021,13 +1027,15 @@ export class StartAppealFlow {
     await this.completeCustodialSentenceQuestions(true);
     await this.completePendingBailApplicationQuestions(true);
     await this.completeHomeOfficeReference(true);
+    await this.completeBasicDetails(true);
+    await this.completeNationality(true);
     await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeGivenAppealType(true, appealType);
     if (appealType !== "EU") {
       await this.completedGivenAppealGrounds(true, appealType);
     }
-    await this.completeBasicDetails(true);
-    await this.completeNationality(true);
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeDetainedOtherClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
@@ -1060,12 +1068,13 @@ export class StartAppealFlow {
     await this.completeCustodialSentenceQuestions(true);
     await this.completePendingBailApplicationQuestions(true);
     await this.completeHomeOfficeReference(true);
-    await this.completeUploadNoticeDecisionNoUpload(true);
-    await this.completeGivenAppealType(true, appealType);
     await this.completeInternalBasicDetails(true);
     await this.completeNationality(true);
     await this.completeDetainedOtherClientAddress(true, hasFixedAddress, address, postcode);
     await this.completeInternalContactPreference(true);
+    await this.completeGivenAppealType(true, appealType);
+    await this.completeHomeOfficeDecisionDate(true);
+    await this.completeUploadNoticeDecisionNoUpload(true);
     await this.completeSponsorQuestion(true);
     await this.completeDeportationOrder(true);
     await this.completeRemovalDirectionQuestions(true);
