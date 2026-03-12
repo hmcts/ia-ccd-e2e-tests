@@ -220,7 +220,8 @@ export class StartAppealFlow {
       "Communication Preference",
       "Text message"
     );
-    await this.ccdFormPage.setFieldValue("Mobile phone number", "07977111111");
+    await this.ccdFormPage.setFieldValue("Appellant's mobile phone number", "07977111111");
+    await this.ccdFormPage.setFieldValue("Retype appellant's mobile phone number", "07977111111");
     if (clickContinue) {
       await this.ccdFormPage.click("Continue");
     }
