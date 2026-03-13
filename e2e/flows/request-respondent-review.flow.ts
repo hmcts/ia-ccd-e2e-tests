@@ -17,11 +17,11 @@ export class RequestRespondentReviewFlow {
   }
 
   async requestAppellantReview(clickContinue = false) {
-    await this.ccdFormPage.linkContains('direct the appellant to review the Home Office response');
-    await this.ccdFormPage.click('direct the appellant to review the Home Office response');
+    await this.ccdFormPage.selectNextStep('Review Home Office response');
 
     await this.ccdFormPage.headingContains('Review Home Office response');
     await this.ccdFormPage.click('Continue');
+    await this.ccdFormPage.contentContains('Check your answers');
     const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Send direction');
 

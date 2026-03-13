@@ -46,3 +46,7 @@ When('I should see the option `Appeal` prefix for the `Case type` field', async 
   const caseTypes = await ccdFormPage.getFieldOptions('Case type');
   expect(caseTypes.some((caseType) => caseType.startsWith('Appeal'))).to.equal(true);
 });
+
+When(/^I search for the aria migrated appeal (\d{16})$/, async function (appealReference) {
+  await caseListFlow.searchForAppealAndOpen(appealReference);
+});

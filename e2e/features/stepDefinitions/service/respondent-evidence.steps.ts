@@ -7,6 +7,10 @@ const requestRespondentEvidenceFlow = new RequestRespondentEvidenceFlow();
 const uploadAdditionalEvidenceFlow = new UploadAdditionalEvidenceFlow();
 const uploadRespondentEvidenceFlow = new UploadRespondentEvidenceFlow();
 
+Then(/^I progress the migrated case$/, async function () {
+  await requestRespondentEvidenceFlow.progressMigratedCase(true);
+});
+
 Then(/^I request respondent evidence$/, async function () {
   await requestRespondentEvidenceFlow.requestRespondentEvidence(true);
 });
