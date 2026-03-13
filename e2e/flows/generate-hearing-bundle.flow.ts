@@ -15,9 +15,9 @@ export class HearingBundleFlow {
 
     const locator = '//p[contains(text(), "The hearing bundle is being generated")]';
     await browser.wait(
-      async () => element(by.xpath(locator)).isPresent(),
-      30000,
-      `Expected ${locator} to be present in DOM within 30 seconds`
+        async () => element(by.xpath(locator)).isPresent(),
+        30000,
+        `Expected ${locator} to be present in DOM within 30 seconds`
     );
     expect(await element(by.xpath(locator)).isPresent()).to.equal(true);
     currentUrl = await this.ccdFormPage.getCurrentUrl();

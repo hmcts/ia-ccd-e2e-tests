@@ -10,6 +10,51 @@ import CaseHelper from "../../helpers/CaseHelper";
 const ccdPage = new CcdPage();
 const ccdFormPage = new CcdFormPage();
 const iaConfig = require("../../ia.conf");
+const overviewCaseFields = [
+  // "Online case reference number",
+  "Appeal reference",
+  "Appellant name",
+  "Date of birth",
+  "Nationalities",
+  "Type of appeal",
+  "Hearing centre",
+  "Out of country",
+  "Company",
+  "Email",
+  // "Home Office UAN or GWF reference",
+];
+const appealCaseFields = [
+  "Appeal reference",
+  "Appellant name",
+  "Type of appeal",
+  "Other appeals",
+  "S94B appeal",
+  "Out of country",
+  "Has a deportation order been made against the appellant?",
+  "Is the appellant currently in detention?",
+  "Home Office decision date",
+  "Date appeal received",
+  "Appeal submitted",
+  "Was the appeal submission late?",
+  "How do you want the appeal to be decided?",
+  "Payment status",
+];
+const appellantCaseFields = [
+  "Appeal reference",
+  "Given names",
+  "Family name",
+  "Date of birth",
+  "Nationalities",
+  "Does the appellant have a postal address?",
+  "Building and Street",
+  "Address Line 2",
+  "Postcode/Zipcode",
+  "Email address",
+  "Given name",
+  "Family name",
+  "Company",
+  "Email",
+];
 
 Given("I create a new case", async function () {
   await ccdPage.acceptCookies();
@@ -196,6 +241,51 @@ Then(
     );
   }
 );
+
+Then("I assert the overview case fields", async function () {
+  for (const fieldLabel of overviewCaseFields) {
+    expect(await ccdPage.isFieldDisplayed(fieldLabel)).to.equal(
+      true,
+      `Expected overview field "${fieldLabel}" to be displayed`
+    );
+  }
+});
+
+Then("I assert the appeal case fields", async function () {
+  for (const fieldLabel of appealCaseFields) {
+    expect(await ccdPage.isFieldDisplayed(fieldLabel)).to.equal(
+      true,
+      `Expected appeal field "${fieldLabel}" to be displayed`
+    );
+  }
+});
+
+Then("I assert the appellant case fields", async function () {
+  for (const fieldLabel of appellantCaseFields) {
+    expect(await ccdPage.isFieldDisplayed(fieldLabel)).to.equal(
+      true,
+      `Expected appellant field "${fieldLabel}" to be displayed`
+    );
+  }
+});
+
+Then("I assert the migrated case task and manage links", async function () {
+  expect(await ccdPage.contentContains("Active tasks")).to.equal(
+    true,
+    'Expected "Active tasks" to be displayed'
+  );
+  expect(await ccdPage.contentContains("Review migrated case")).to.equal(
+    true,
+    'Expected "Review migrated case" to be displayed'
+  );
+
+  for (const linkText of ["Assign task", "Cancel task", "Assign to me"]) {
+    expect(await ccdPage.linkContains(linkText)).to.equal(
+      true,
+      `Expected manage link "${linkText}" to be displayed`
+    );
+  }
+});
 
 Then("I should be on the overview page", async function () {
   await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
