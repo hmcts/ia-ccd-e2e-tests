@@ -7,6 +7,7 @@ Feature: Progress Internal Lr EA Appeal from Pending Payment upto FTPA decided
     And I click the `Tasks` tab
     And I assert the migrated case task and manage links
     And I click the `Overview` tab
+    And I should see `Migrated Legally Represented` tag
     And I assert the overview case fields
     And I click the `Appeal` tab
     And I assert the appeal case fields
@@ -81,8 +82,8 @@ Feature: Progress Internal Lr EA Appeal from Pending Payment upto FTPA decided
     When I switch to be a `Admin Officer`
     And I wait for 2 seconds
 
-  @lrInternal-ea-case
-  Scenario: FTPA judge decision - Review decision under rule 35 - Resident Judge only/Refused
+  @lrInternal-migrated-ea-case @test1
+  Scenario: FTPA judge decision - Application not admitted/Partially granted
 
     Then I apply for appellant FTPA
 
@@ -91,38 +92,7 @@ Feature: Progress Internal Lr EA Appeal from Pending Payment upto FTPA decided
     And I select the `Decide FTPA application` Next step
     And I select Appellant for the applicant type
     And I click the `Continue` button
-    And I select `Review decision under rule 35 - Resident Judge only` for the `The outcome of the application` field
-    And I click the `Continue` button
-    And I type `These are list of objections to the draft Notice` for the `List any objections to the draft Notice from either party (Optional)` field
-    And I click the `Continue` button
-    And I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
-    And I click the `Continue` button
-    And I am on the `Listing instructions` page
-    And I click the `Continue` button
-    And I should see `Check your answers`
-    And I click the `Submit` button
-    And I click the `Close and Return to case details` button if present
-    And I should see an alert confirming the case `has been updated with event: Decide FTPA application`
-    And I click the `Overview` tab
-    And I should see the image `appeal_reheard.png`
-
-
-    When I switch to be a `Case Officer`
-    And I click the `Overview` tab
-    And I should see the image `appeal_reheard.png`
-
-    When I switch to be a `Admin Officer`
-    And I click the `Overview` tab
-    And I should see the image `appeal_reheard.png`
-
-    When I switch to be a `Home Office POU`
-    Then I apply for respondent FTPA
-
-    When I switch to be a `Judge`
-    And I select the `Decide FTPA application` Next step
-    And I select Home Office for the applicant type
-    And I click the `Continue` button
-    And I select `Permission refused` for the `The outcome of the application` field
+    And I select `Application not admitted` for the `The outcome of the application` field
     And I click the `Continue` button
     And I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
     And I click the `Continue` button
@@ -131,18 +101,26 @@ Feature: Progress Internal Lr EA Appeal from Pending Payment upto FTPA decided
     And I click the `Continue` button
     And I should see `Check your answers`
     And I click the `Submit` button
-    And I wait for the spinner
     And I click the `Close and Return to case details` button if present
     And I should see an alert confirming the case `has been updated with event: Decide FTPA application`
 
-    And I click the `Overview` tab
-    And I should see the image `appeal_dismissed.png`
+    When I switch to be a `Home Office POU`
+    Then I apply for respondent FTPA
 
-
-    When I switch to be a `Case Officer`
-    And I click the `Overview` tab
-    And I should see the image `appeal_dismissed.png`
-
-    When I switch to be a `Admin Officer`
-    And I click the `Overview` tab
-    And I should see the image `appeal_dismissed.png`
+    When I switch to be a `Judge`
+    And I select the `Decide FTPA application` Next step
+    And I select Home Office for the applicant type
+    And I click the `Continue` button
+    And I select `Permission partially granted` for the `The outcome of the application` field
+    And I click the `Continue` button
+    And I upload `{@FTPADecisionAndReasons.pdf}` for the `Document` document field
+    And I click the `Continue` button
+    And I select `No` for the `Notice of Intention to Set Aside sent?` field
+    And I click the `Continue` button
+    And I should see `Notes for the Upper Tribunal`
+    And I click the `Continue` button
+    And I should see `Check your answers`
+    And I click the `Submit` button
+    And I wait for the spinner
+    And I click the `Close and Return to case details` button if present
+    And I should see an alert confirming the case `has been updated with event: Decide FTPA application`

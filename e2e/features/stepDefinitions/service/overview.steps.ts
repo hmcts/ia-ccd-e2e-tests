@@ -155,3 +155,11 @@ Then(/^I should (see|not see) `Legally Represented` tag$/, async function (seeOr
     expect(imageSources.some((src) => src.includes('/journey_type_legally_represented.png'))).to.equal(false);
   }
 });
+
+Then(/^I should (see|not see) `Migrated Legally Represented` tag$/, async function (seeOrNotSee) {
+  const isDisplayed = seeOrNotSee === 'see';
+  const imageSources = (await ccdPage.getDisplayedImageSources()).map((src) => src + '');
+  const migratedCaseImageDisplayed = imageSources.some((src) => src.includes('/migrate_aria_LR-manual_label.svg'));
+
+  expect(migratedCaseImageDisplayed).to.equal(isDisplayed);
+});

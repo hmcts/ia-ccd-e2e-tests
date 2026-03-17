@@ -19,15 +19,15 @@ export class RequestRespondentEvidenceFlow {
   async progressMigratedCase(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Progress Migrated Case');
 
-    await this.ccdFormPage.headingContains('Progress Migrated Case');
+    await this.ccdFormPage.headingContains('Desired state');
     await this.ccdFormPage.setFieldValue(
         "Is the desired state correct?",
         "Yes"
     );
     await this.ccdFormPage.click('Continue');
-    await this.ccdFormPage.setFieldValue(
-        "Do you want to add a case note?",
-        "No"
+    await this.ccdFormPage.setYesNoByQuestionText(
+      "Do you want to add a case note?",
+      "No"
     );
     const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Submit');

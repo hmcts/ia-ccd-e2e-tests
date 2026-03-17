@@ -1,5 +1,5 @@
 import { CcdPage } from "./ccd.page";
-import { $, browser, ExpectedConditions, By, protractor } from "protractor";
+import { $, browser, ExpectedConditions, By, by, element, protractor } from "protractor";
 import { Field } from "../fields/field";
 import { expect } from "chai";
 
@@ -83,6 +83,22 @@ export class CcdFormPage extends CcdPage {
     }
     if (fieldType === 'document') {
       await browser.sleep(15000);
+    }
+  }
+
+  async setYesNoByQuestionText(questionText: string, value: 'Yes' | 'No') {
+    const option = element(by.xpath(
+      '//*[normalize-space()="' + questionText + '"]' +
+      '/following::*[self::label or self::span][normalize-space()="' + value + '"][1]'
+    ));
+
+    await browser.wait(async () => option.isPresent(), 30000,
+      `Cannot find yes/no option "${value}" for question: ${questionText}`);
+    await browser.executeScript('arguments[0].scrollIntoView({block: "center"})', option.getWebElement());
+    try {
+      await option.click();
+    } catch {
+      await browser.executeScript('arguments[0].click()', option.getWebElement());
     }
   }
 
