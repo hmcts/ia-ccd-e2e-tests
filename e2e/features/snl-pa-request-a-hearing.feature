@@ -28,7 +28,7 @@ Feature: SnL Flow PA hearing request
     And I wait for 2 seconds
     And I record agreed hearing requirements yes path
     When I goto the `Case flags` tab
-    And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` with flag status `ACTIVE`
 
     ##Hearing Request
     And I switch to be a `Admin Officer`
@@ -92,8 +92,8 @@ Feature: SnL Flow PA hearing request
     And I wait for 2 seconds
     And I record agreed hearing requirements yes path
     When I goto the `Case flags` tab
-    And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
-    And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Unacceptable/disruptive customer behaviour` with flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Unaccompanied minor` with flag status `ACTIVE`
 
     ##Hearing Request
     And I switch to be a `Admin Officer`

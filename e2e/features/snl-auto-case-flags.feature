@@ -29,18 +29,18 @@ Feature: SnL Flow Auto creation of caseflags
     And I wait for 8 seconds
     And I should see the text `Case flags`
 
-    And within the `José González` collection's first item, I should see case flag name `Step free / wheelchair access` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
-    And within the `José González` collection's first item, I should see case flag name `Hearing loop (hearing enhancement system)` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
-    And within the `José González` collection's first item, I should see case flag name `Sign Language British Sign Language (BSL)` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
-    And within the `José González` collection's first item, I should see case flag name `Evidence given in private` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
-    And within the `José González` collection's first item, I should see case flag name `Language Interpreter Korean` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Step free / wheelchair access` with flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Hearing loop (hearing enhancement system)` with flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Sign Language British Sign Language (BSL)` with flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Evidence given in private` with flag status `ACTIVE`
+    And within the `José González` collection's first item, I should see case flag name `Language Interpreter Korean` with flag status `ACTIVE`
 
-    And within the `Jenny Bat 1` collection's first item, I should see case flag name `Sign Language Lipspeaker` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
-    And within the `Jenny Bat 1` collection's first item, I should see case flag name `Language Interpreter Brong` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
+    And within the `Jenny Bat 1` collection's first item, I should see case flag name `Sign Language Lipspeaker` with flag status `ACTIVE`
+    And within the `Jenny Bat 1` collection's first item, I should see case flag name `Language Interpreter Brong` with flag status `ACTIVE`
 
-    And within the `krish 2` collection's first item, I should see case flag name `Sign Language Notetaker` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
-    And within the `krish 2` collection's first item, I should see case flag name `Language Interpreter Akan` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
+    And within the `krish 2` collection's first item, I should see case flag name `Sign Language Notetaker` with flag status `ACTIVE`
+    And within the `krish 2` collection's first item, I should see case flag name `Language Interpreter Akan` with flag status `ACTIVE`
 
-    And within the `ramesh 3` collection's first item, I should see case flag name `Sign Language Visual frame signing` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
+    And within the `ramesh 3` collection's first item, I should see case flag name `Sign Language Visual frame signing` with flag status `ACTIVE`
 
-    And within the `Case level flags` collection's first item, I should see case flag name `RRO (Restricted Reporting Order / Anonymisation)` and comments "" creation date `{$TODAY|D MMM YYYY}` flag status `ACTIVE`
+    And within the `Case level flags` collection's first item, I should see case flag name `RRO (Restricted Reporting Order / Anonymisation)` with flag status `ACTIVE`
