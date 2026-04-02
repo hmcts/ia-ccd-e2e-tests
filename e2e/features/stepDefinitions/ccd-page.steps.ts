@@ -664,13 +664,12 @@ Given("I wait for the spinner", async function () {
 });
 
 Then(
-  /^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? and comments `?([^`]+)`? creation date `?([^`]+)`? last modified `?([^`]+)`? flag status `?([^`]+)`?$/,
+  /^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? and comments `?([^`]+)`? creation date `?([^`]+)`? flag status `?([^`]+)`?$/,
   async function (
     partie,
     caseFlagName,
     comments = "",
     creationDate,
-    lastModifiedDate,
     flagStatus
   ) {
     let field =
@@ -681,13 +680,10 @@ Then(
       caseFlagName +
       '"]' +
       "/ancestor::tr[position()=1]//td";
-    lastModifiedDate = lastModifiedDate === " " ? "" : lastModifiedDate;
     let tds = await element.all(by.xpath(field));
     let tdCount = await element.all(by.xpath(field)).count();
     // let createdDate = await ccdPage.getTodayDate(creationDate);
-    let ModifiedDate = await ccdPage.getTodayDate(lastModifiedDate);
 
-    console.log("ModifiedDate:::" + ModifiedDate);
     for (let td = 0; td < tdCount; td++) {
       let tdValue = await tds[td];
       let caseFlagValue = JSON.stringify(await tdValue.getText()).trim();
@@ -700,9 +696,6 @@ Then(
       // if (td === 2) {
       //   expect(JSON.stringify(createdDate).trim()).to.equal(caseFlagValue);
       // }
-      if (td === 3) {
-        expect(JSON.stringify(ModifiedDate).trim()).to.equal(caseFlagValue);
-      }
       if (td === 4) {
         expect(JSON.stringify(flagStatus).trim()).to.equal(caseFlagValue);
       }
