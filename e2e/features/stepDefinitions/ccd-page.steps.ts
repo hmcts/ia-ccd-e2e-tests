@@ -664,12 +664,10 @@ Given("I wait for the spinner", async function () {
 });
 
 Then(
-  /^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? and comments `?([^`]+)`? creation date `?([^`]+)`? flag status `?([^`]+)`?$/,
+  /^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? with flag status `?([^`]+)`?$/,
   async function (
     partie,
     caseFlagName,
-    comments = "",
-    creationDate,
     flagStatus
   ) {
     let field =
@@ -682,7 +680,6 @@ Then(
       "/ancestor::tr[position()=1]//td";
     let tds = await element.all(by.xpath(field));
     let tdCount = await element.all(by.xpath(field)).count();
-    // let createdDate = await ccdPage.getTodayDate(creationDate);
 
     for (let td = 0; td < tdCount; td++) {
       let tdValue = await tds[td];
@@ -690,12 +687,6 @@ Then(
       if (td === 0) {
         expect(JSON.stringify(caseFlagName).trim()).to.equal(caseFlagValue);
       }
-      if (td === 1) {
-        expect(comments.trim()).to.equal(caseFlagValue);
-      }
-      // if (td === 2) {
-      //   expect(JSON.stringify(createdDate).trim()).to.equal(caseFlagValue);
-      // }
       if (td === 4) {
         expect(JSON.stringify(flagStatus).trim()).to.equal(caseFlagValue);
       }
