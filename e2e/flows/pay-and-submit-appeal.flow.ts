@@ -1,6 +1,7 @@
 import { CcdPage } from '../pages/ccd.page';
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { browser, by, element } from 'protractor';
+import CaseHelper from "../helpers/CaseHelper";
 
 export class PayAndSubmitAppealFlow {
   private ccdPage = new CcdPage();
@@ -133,6 +134,17 @@ export class PayAndSubmitAppealFlow {
       await this.ccdFormPage.click('Continue');
     } catch {
       await this.ccdFormPage.click('Continue');
+    }
+  }
+
+  async returnToServiceRequest() {
+    if (process.env.PR_NUMBER && process.env.PR_NUMBER === '') {
+      await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
+      await this.ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
+      await this.ccdPage.gotoTabs('Service Request');
+    } else {
+      await this.ccdPage.waitForSpinner();
+      await this.ccdPage.click('Return to service request');
     }
   }
 }

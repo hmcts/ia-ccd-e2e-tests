@@ -7,11 +7,11 @@ const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 
 const submitAppealFlow = new SubmitAppealFlow();
 const payAndSubmitAppealFlow = new PayAndSubmitAppealFlow();
 
-When(/^I agree to the declaration$/, async() => {
+When(/^I agree to the declaration$/, async () => {
   await submitAppealFlow.completeDeclaration();
 });
 
-Then(/^I submit my appeal$/, async() => {
+Then(/^I submit my appeal$/, async () => {
   await submitAppealFlow.submitAppeal();
   if (isfeePaymentEnabled) {
     await payAndSubmitAppealFlow.createServiceRequest();
@@ -19,38 +19,42 @@ Then(/^I submit my appeal$/, async() => {
   }
 });
 
-Then(/^I pay for and submit my appeal by PBA/, async() => {
+Then(/^I pay for and submit my appeal by PBA/, async () => {
   await submitAppealFlow.submitAppeal();
   await payAndSubmitAppealFlow.createServiceRequest();
   await payAndSubmitAppealFlow.payForAppealByPBA();
 });
 
-Then(/^I pay for and submit my appeal by Card$/, async() => {
+Then(/^I pay for and submit my appeal by Card$/, async () => {
   await submitAppealFlow.submitAppeal();
   await payAndSubmitAppealFlow.createServiceRequest();
   await payAndSubmitAppealFlow.payForAppealByCard();
 });
 
-When('I check the case has been paid for', async() => {
+When('I check the case has been paid for', async () => {
   await payAndSubmitAppealFlow.checkCasePaidCaseOfficer();
 });
 
-Then('I should see the overview for a paid appeal', async() => {
+Then('I should see the overview for a paid appeal', async () => {
   await payAndSubmitAppealFlow.waitForPaymentRecognition();
 });
 
-Then(/^I submit my nonpayment appeal$/, async() => {
+Then(/^I submit my nonpayment appeal$/, async () => {
   await submitAppealFlow.submitAppeal();
 });
 
-Then(/^I submit my late appeal$/, async() => {
+Then(/^I submit my late appeal$/, async () => {
   await submitAppealFlow.submitLateAppeal();
 });
 
-Then(/^I submit my appeal before paying$/, async() => {
+Then(/^I submit my appeal before paying$/, async () => {
   await submitAppealFlow.submitAppeal();
 });
 
-Then(/^I click the Continue button on the Pay by card page$/, async() => {
+Then(/^I click the Continue button on the Pay by card page$/, async () => {
   await payAndSubmitAppealFlow.continuePayByCard();
+});
+
+When('I click the Return to service request link', async () => {
+  await payAndSubmitAppealFlow.returnToServiceRequest();
 });
