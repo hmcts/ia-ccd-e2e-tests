@@ -5,7 +5,7 @@ import CaseHelper from "../helpers/CaseHelper";
 import * as fs from "fs";
 import * as path from "path";
 
-const rp = require('request-promise');
+const FormData = require('form-data');
 const iaConfig = require('../ia.conf');
 
 const ccdApiUrl = iaConfig.CcdApiUrl;
@@ -159,27 +159,28 @@ function isoDate(date) {
 }
 
 class CcdService {
-  private createOptions(userId: string, headers: SecurityHeaders, uri) {
+  private createOptions(headers: SecurityHeaders) {
     return {
-      uri,
       headers: {
         Authorization: headers.userToken,
         ServiceAuthorization: headers.serviceToken,
         'content-type': 'application/json'
-      },
-      json: true
+      }
     };
   }
 
-  startCreateCase(userId: string, headers: SecurityHeaders): Promise<StartEventResponse> {
-    return rp.get(this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/event-triggers/startAppeal/token`));
+  async startCreateCase(userId: string, headers: SecurityHeaders): Promise<StartEventResponse> {
+    const options = this.createOptions(headers);
+    const url = `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/event-triggers/startAppeal/token`;
+    const response = await axios.get(url, options);
+    return response.data;
   }
 
-  submitCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData): Promise<CcdCaseDetails> {
-    const options: any = this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases?ignore-warning=true`);
-    options.body = startEvent;
-
-    return rp.post(options);
+  async submitCreateCase(userId: string, headers: SecurityHeaders, startEvent: SubmitEventData): Promise<CcdCaseDetails> {
+    const options: any = this.createOptions(headers);
+    const url = `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases?ignore-warning=true`;
+    const response = await axios.post(url, startEvent, options);
+    return response.data;
   }
 
   async createCase(userId: string, headers: SecurityHeaders): Promise<CcdCaseDetails> {
@@ -193,7 +194,7 @@ class CcdService {
       appellantGivenNames: 'given name',
       appellantFamilyName: 'family name',
       appellantDateOfBirth: isoDate(new Date('1950-01-01')),
-      appellantNationalities: [{ value: { code: 'AF' } }],
+      appellantNationalities: [{value: {code: 'AF'}}],
       appellantAddress: {
         AddressLine1: 'Address line 1',
         AddressLine2: 'Address line 2',
@@ -222,19 +223,25 @@ class CcdService {
     return createdCase;
   }
 
-  startUpdateAppeal(userId: string, caseId: string, eventId: string, headers: SecurityHeaders): Promise<StartEventResponse> {
-    return rp.get(this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases/${caseId}/event-triggers/${eventId}/token`));
+  async startUpdateAppeal(userId: string, caseId: string, eventId: string, headers: SecurityHeaders): Promise<StartEventResponse> {
+    const options = this.createOptions(headers);
+    const url = `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases/${caseId}/event-triggers/${eventId}/token`;
+    const response = await axios.get(url, options);
+    return response.data;
   }
 
-  submitUpdateAppeal(userId: string, caseId: string, headers: SecurityHeaders, event: SubmitEventData): Promise<CcdCaseDetails> {
-    const options: any = this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases/${caseId}/events`);
-    options.body = event;
-
-    return rp.post(options);
+  async submitUpdateAppeal(userId: string, caseId: string, headers: SecurityHeaders, event: SubmitEventData): Promise<CcdCaseDetails> {
+    const options: any = this.createOptions(headers);
+    const url = `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases/${caseId}/events`;
+    const response = await axios.post(url, event, options);
+    return response.data;
   }
 
-  loadCasesForUser(userId: string, headers: SecurityHeaders): Promise<CcdCaseDetails[]> {
-    return rp.get(this.createOptions(userId, headers, `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases`));
+  async loadCasesForUser(userId: string, headers: SecurityHeaders): Promise<CcdCaseDetails[]> {
+    const options = this.createOptions(headers);
+    const url = `${ccdApiUrl}/citizens/${userId}/jurisdictions/${jurisdictionId}/case-types/${caseType}/cases`;
+    const response = await axios.get(url, options);
+    return response.data;
   }
 
   async updateAppeal(event, userId: string, updatedCase: CcdCaseDetails, headers: SecurityHeaders): Promise<CcdCaseDetails> {
@@ -256,7 +263,7 @@ class CcdService {
 async function getSecurityHeaders(user: UserInfo): Promise<SecurityHeaders> {
   const userToken: string = await getUserToken(user);
   const serviceToken: string = await getS2sToken();
-  return { userToken, serviceToken };
+  return {userToken, serviceToken};
 }
 
 
@@ -338,19 +345,17 @@ async function uploadDocumentToDmStore(fileName: string, headers: SecurityHeader
 
   for (const uploadUrl of uploadUrls) {
     try {
-      const response = await rp.post({
-        uri: uploadUrl,
+      const form = new FormData();
+      form.append('files', fs.createReadStream(documentPath));
+      form.append('classification', 'PUBLIC');
+      const { data } = await axios.post(uploadUrl, form, {
         headers: {
+          ...form.getHeaders(),
           Authorization: headers.userToken,
           ServiceAuthorization: headers.serviceToken
-        },
-        formData: {
-          files: fs.createReadStream(documentPath),
-          classification: "PUBLIC"
-        },
-        json: true
+        }
       });
-      return mapUploadedDocumentResponse(response, fileName);
+      return mapUploadedDocumentResponse(data, fileName);
     } catch (error) {
       lastError = error;
       console.warn(`Document upload failed at ${uploadUrl}`);

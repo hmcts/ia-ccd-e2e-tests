@@ -7,9 +7,6 @@ module.exports = {
         sourceType: 'module'
     },
     plugins: ['@typescript-eslint'],
-    extends: [
-        '@hmcts/eslint-config'
-    ],
     rules: {
         'curly': ['error', 'all'],
         'eqeqeq': ['error', 'allow-null'],

@@ -1,7 +1,6 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { isJWTExpired } from "./jwt-utils";
 
-const rp = require('request-promise');
 const iaConfig = require('../ia.conf');
 
 const idamUrl = iaConfig.IdamApiUrl;
@@ -25,18 +24,16 @@ type UserInfo = {
 
 async function setTestingSupportToken() {
   try {
-    const response = await rp.post({
-      uri: `${idamWebUrl}/o/token`,
-      form: {
-        grant_type: 'client_credentials',
-        client_id: 'iac',
-        client_secret: idamSecret,
-        scope: 'profile roles'
-      },
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      json: true // Automatically parses the JSON response
-    });
-    idamTestingAccessToken = response.access_token;
+    const response: AxiosResponse<any> = await axios.post(
+      `${idamWebUrl}/o/token`,
+      `grant_type=client_credentials&client_id=${encodeURIComponent('iac')}&client_secret=${encodeURIComponent(idamSecret)}&scope=profile roles`,
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+    );
+    idamTestingAccessToken = response.data.access_token;
   } catch (error) {
     console.error(`Error in setTestingSupportToken: ${error.message}`);
   }
