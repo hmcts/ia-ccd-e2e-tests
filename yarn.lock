@@ -5,27 +5,6 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@angular/compiler@npm:^7.0.0":
-  version: 7.2.16
-  resolution: "@angular/compiler@npm:7.2.16"
-  dependencies:
-    tslib: "npm:^1.9.0"
-  checksum: 10/74d0d2e6febd0a07c969c9f962a6daeb750b611cc192dfbfb309595c3e904ab0e9e682d64e2c9edaaf32059c0b9bd642393265dea350e2e190f0ce38c1bcdc94
-  languageName: node
-  linkType: hard
-
-"@angular/core@npm:^11.0.5":
-  version: 11.2.14
-  resolution: "@angular/core@npm:11.2.14"
-  dependencies:
-    tslib: "npm:^2.0.0"
-  peerDependencies:
-    rxjs: ^6.5.3
-    zone.js: ^0.10.2 || ^0.11.3
-  checksum: 10/50ff69b6f3dec0a78005895ce945f01c47bd97233298b4585e7bf1d754b0dcf56a6929ee591048109d8cbbf9f1d8cd9a4fc377a49ebfb3391d96ec190a9a3412
-  languageName: node
-  linkType: hard
-
 "@axe-core/webdriverjs@npm:^4.1.1":
   version: 4.10.2
   resolution: "@axe-core/webdriverjs@npm:4.10.2"
@@ -77,15 +56,6 @@ __metadata:
   peerDependencies:
     eslint: ">= 4.4"
   checksum: 10/d6a784cfda28b9ce4809fea11970fa7e0dbf0d316bb32816b7e6deccf08caa6ff78b45bbc80046758d4b4cc225c9fed5520de27f8bb9afa5265f129e0a102553
-  languageName: node
-  linkType: hard
-
-"@types/axe-core@npm:^2.0.7":
-  version: 2.0.7
-  resolution: "@types/axe-core@npm:2.0.7"
-  dependencies:
-    axe-core: "npm:*"
-  checksum: 10/c26d9b40a9419030748595e813d5563204c688a9911e1af2c75bf1f6a0227d43095bd91b8e549b1c154c9d5aeb5306cb4a63449a4168402480e67220b409e7b3
   languageName: node
   linkType: hard
 
@@ -320,21 +290,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:*, axe-core@npm:~4.10.3":
+"axe-core@npm:~4.10.3":
   version: 4.10.3
   resolution: "axe-core@npm:4.10.3"
   checksum: 10/9ff51ad0fd0fdec5c0247ea74e8ace5990b54c7f01f8fa3e5cd8ba98b0db24d8ebd7bab4a9bd4d75c28c4edcd1eac455b44c8c6c258c6a98f3d2f88bc60af4cc
   languageName: node
   linkType: hard
 
-"axios@npm:^1.13.1":
-  version: 1.13.1
-  resolution: "axios@npm:1.13.1"
+"axios@npm:^1.16.1":
+  version: 1.16.1
+  resolution: "axios@npm:1.16.1"
   dependencies:
-    follow-redirects: "npm:^1.15.6"
-    form-data: "npm:^4.0.4"
-    proxy-from-env: "npm:^1.1.0"
-  checksum: 10/8046c15f3ffb5d5d45ce33074f69a9226d4c4312b205307d8a8f0d38bd549fdec7612b307a092b82d7af51d8f3a211ae27589f56a65643655acd01c6ee9bfdac
+    follow-redirects: "npm:^1.16.0"
+    form-data: "npm:^4.0.5"
+    https-proxy-agent: "npm:^5.0.1"
+    proxy-from-env: "npm:^2.1.0"
+  checksum: 10/9b6218cf96321cfbbf8f160658d695367114bcf4fb62492bdc1ccd647f184b5c71ae400e5ecaaf41079bc561de2ecbaf1fec63f398b3ec53389beff7694df64c
   languageName: node
   linkType: hard
 
@@ -1262,13 +1233,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.6":
-  version: 1.15.11
-  resolution: "follow-redirects@npm:1.15.11"
+"follow-redirects@npm:^1.16.0":
+  version: 1.16.0
+  resolution: "follow-redirects@npm:1.16.0"
   peerDependenciesMeta:
     debug:
       optional: true
-  checksum: 10/07372fd74b98c78cf4d417d68d41fdaa0be4dcacafffb9e67b1e3cf090bc4771515e65020651528faab238f10f9b9c0d9707d6c1574a6c0387c5de1042cde9ba
+  checksum: 10/3fbe3d80b3b544c22705d837aa5d4a0d07a740d913534a2620b0a004c610af4148e3b58723536dd099aaa1c9d3a155964bde9665d6e5cb331460809a1fc572fd
   languageName: node
   linkType: hard
 
@@ -1531,16 +1502,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ia-ccd-e2e-tests@workspace:."
   dependencies:
-    "@angular/compiler": "npm:^7.0.0"
-    "@angular/core": "npm:^11.0.5"
     "@axe-core/webdriverjs": "npm:^4.1.1"
     "@hmcts/eslint-config": "npm:^1.4.0"
-    "@types/axe-core": "npm:^2.0.7"
     "@types/chai": "npm:^4.1.6"
     "@types/cucumber": "npm:^4.0.7"
     "@types/jasmine": "npm:^2.8.24"
     "@types/node": "npm:^10.12.0"
-    axios: "npm:^1.13.1"
+    axios: "npm:^1.16.1"
     chai: "npm:^4.2.0"
     chai-as-promised: "npm:^7.1.2"
     codelyzer: "npm:^4.5.0"
@@ -2516,10 +2484,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proxy-from-env@npm:^1.0.0, proxy-from-env@npm:^1.1.0":
+"proxy-from-env@npm:^1.0.0":
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
   checksum: 10/f0bb4a87cfd18f77bc2fba23ae49c3b378fb35143af16cc478171c623eebe181678f09439707ad80081d340d1593cd54a33a0113f3ccb3f4bc9451488780ee23
+  languageName: node
+  linkType: hard
+
+"proxy-from-env@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "proxy-from-env@npm:2.1.0"
+  checksum: 10/fbbaf4dab2a6231dc9e394903a5f66f20475e36b734335790b46feb9da07c37d6b32e2c02e3e2ea4d4b23774c53d8562e5b7cc73282cb43f4a597b7eacaee2ee
   languageName: node
   linkType: hard
 
@@ -3199,13 +3174,6 @@ __metadata:
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: 10/7dbf34e6f55c6492637adb81b555af5e3b4f9cc6b998fb440dac82d3b42bdc91560a35a5fb75e20e24a076c651438234da6743d139e4feabf0783f3cdfe1dddb
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.0.0":
-  version: 2.8.1
-  resolution: "tslib@npm:2.8.1"
-  checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7
   languageName: node
   linkType: hard
 
