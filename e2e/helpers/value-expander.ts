@@ -17,8 +17,8 @@ export class ValueExpander {
 
     let match = fileRegExp.exec(value);
 
-    while (match != null) {
-      const absoluteFilename = path.resolve('./documents/' + match[1]);
+    while (match !== null) {
+      const absoluteFilename = path.resolve(`./documents/${match[1]}`);
 
       value = value.replace(match[0], absoluteFilename);
 
@@ -33,13 +33,13 @@ export class ValueExpander {
 
     let match = todayRegExp.exec(value);
 
-    while (match != null) {
+    while (match !== null) {
       let plusOrMinus = '+';
       let dayAdjustment = 0;
 
-      if (!!match[1]) {
+      if (match[1]) {
         plusOrMinus = match[1].charAt(0);
-        dayAdjustment = +match[1].substring(1);
+        dayAdjustment = Number(match[1].substring(1));
       }
 
       let date = moment();
@@ -51,7 +51,7 @@ export class ValueExpander {
       }
 
       let dateFormat = 'DD-MM-YYYY';
-      if (!!match[2]) {
+      if (match[2]) {
         dateFormat = match[2];
       }
 

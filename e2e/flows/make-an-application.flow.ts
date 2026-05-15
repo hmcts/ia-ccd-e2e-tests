@@ -23,19 +23,19 @@ export class MakeAnApplication {
       await this.ccdFormPage.setFieldValue('Explain why you need an adjournment and for how long you need it.', 'A reason for adjounment');
     }
     if (applicationType === 'Expedite') {
-      await this.ccdFormPage.setFieldValue('Explain why you need to expedite the appeal. Include the latest date you ' + 'would like the appeal to be decided by and state if you are willing for the appeal to be decided without a hearing.', 'A reason for expedite');
+      await this.ccdFormPage.setFieldValue('Explain why you need to expedite the appeal. Include the latest date you would like the appeal to be decided by and state if you are willing for the appeal to be decided without a hearing.', 'A reason for expedite');
     }
     if (applicationType === 'Link/unlink appeals') {
-      await this.ccdFormPage.setFieldValue('Explain why you want to link or unlink this appeal. You must include the ' + 'appellant name and HMCTS appeal reference of each appeal you want to link to or unlink from.', 'A reason to link or unlink');
+      await this.ccdFormPage.setFieldValue('Explain why you want to link or unlink this appeal. You must include the appellant name and HMCTS appeal reference of each appeal you want to link to or unlink from.', 'A reason to link or unlink');
     }
     if (applicationType === "Judge's review of application decision") {
-      await this.ccdFormPage.setFieldValue('Tell us which application decision you want to be reviewed by a Judge and explain why you think the original ' + 'decision was wrong.', 'A reason for Judge review');
+      await this.ccdFormPage.setFieldValue('Tell us which application decision you want to be reviewed by a Judge and explain why you think the original decision was wrong.', 'A reason for Judge review');
     }
     if (applicationType === 'Reinstate an ended appeal') {
       await this.ccdFormPage.setFieldValue('Explain why you believe the Tribunal should reinstate this appeal.', 'A reason for reinstate');
     }
     if (applicationType === 'Time extension') {
-      await this.ccdFormPage.setFieldValue('Tell us which task you need more time to complete, explain why you need more time and include how much more ' + 'time you will need.', 'A reason for time extension');
+      await this.ccdFormPage.setFieldValue('Tell us which task you need more time to complete, explain why you need more time and include how much more time you will need.', 'A reason for time extension');
     }
     if (applicationType === 'Transfer') {
       await this.ccdFormPage.setFieldValue('Tell us which hearing centre you want to transfer the appeal to and why.', 'A reason for transfer');

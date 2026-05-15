@@ -33,9 +33,7 @@ async function setTestingSupportToken() {
         client_secret: idamSecret,
         scope: 'profile roles'
       },
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       json: true // Automatically parses the JSON response
     });
     idamTestingAccessToken = response.access_token;
@@ -44,38 +42,6 @@ async function setTestingSupportToken() {
   }
 }
 
-async function createUser(): Promise<UserInfo> {
-  if (idamTestingAccessToken === undefined) {
-    await setTestingSupportToken();
-  }
-  const randomNumber = parseInt(Math.random() * 10000000 + '', 10);
-  const email = `ia_citizen${randomNumber}@hmcts.net`;
-  const password = 'Apassword123';
-
-  try {
-    await axios.post(`${idamTestingSupportUrl}/test/idam/users`, {
-      password: password,
-      user: {
-        email: email,
-        forename: 'ATestForename',
-        surname: 'ATestSurname',
-        roleNames: ['citizen']
-      }
-    }, {
-      headers: {
-        'Authorization': `Bearer ${idamTestingAccessToken}`,
-        'Content-Type': 'application/json'
-      },
-      timeout: 10000
-    });
-    let userInfo = {email: email, password: password} as UserInfo;
-    userInfo.userToken = await getUserToken(userInfo);
-    userInfo.userId = await getUserId(userInfo.userToken);
-    return userInfo;
-  } catch (error) {
-    console.log(`Error createUser ${error.message}`);
-  }
-}
 
 async function getUserToken(userConfig: UserInfo) {
   if (userConfig.userToken && !isJWTExpired(userConfig.userToken)) {
@@ -85,9 +51,7 @@ async function getUserToken(userConfig: UserInfo) {
     const response = await axios.post(
       `${idamUrl}/o/token`, '',
       {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         params: {
           grant_type: 'password',
           redirect_uri: redirectUrl,
@@ -107,14 +71,43 @@ async function getUserToken(userConfig: UserInfo) {
 
 async function getUserId(userToken: string) {
   try {
-    const userDetails = await axios.get(`${idamUrl}/details`, {
-      headers: {
-        'Authorization': userToken
-      }
-    });
+    const userDetails = await axios.get(`${idamUrl}/details`, { headers: { Authorization: userToken } });
     return userDetails.data.id;
   } catch (error) {
     console.error(`Error in getUserId: ${error.message}`);
+  }
+}
+
+async function createUser(): Promise<UserInfo> {
+  if (idamTestingAccessToken === undefined) {
+    await setTestingSupportToken();
+  }
+  const randomNumber = parseInt(`${Math.random() * 10000000}`, 10);
+  const email = `ia_citizen${randomNumber}@hmcts.net`;
+  const password = 'Apassword123';
+
+  try {
+    await axios.post(`${idamTestingSupportUrl}/test/idam/users`, {
+      password,
+      user: {
+        email,
+        forename: 'ATestForename',
+        surname: 'ATestSurname',
+        roleNames: ['citizen']
+      }
+    }, {
+      headers: {
+        Authorization: `Bearer ${idamTestingAccessToken}`,
+        'Content-Type': 'application/json'
+      },
+      timeout: 10000
+    });
+    const userInfo = { email, password } as UserInfo;
+    userInfo.userToken = await getUserToken(userInfo);
+    userInfo.userId = await getUserId(userInfo.userToken);
+    return userInfo;
+  } catch (error) {
+    console.log(`Error createUser ${error.message}`);
   }
 }
 

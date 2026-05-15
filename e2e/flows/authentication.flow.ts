@@ -36,85 +36,85 @@ export class AuthenticationFlow {
   async signOut() {
     await browser.waitForAngularEnabled(false);
     await browser.driver.manage().deleteAllCookies();
-    await browser.get(iaConfig.CcdWebUrl + '/auth/logout');
+    await browser.get(`${iaConfig.CcdWebUrl}/auth/logout`);
     await browser.sleep(3000);
-    await browser.get(iaConfig.CcdWebUrl + '/');
+    await browser.get(`${iaConfig.CcdWebUrl}/`);
     await this.idamSignInPage.waitUntilLoaded();
   }
 
   async signInByRole(role: UserRole) {
     switch (role) {
-      case 'Case Officer':
-        await this.signInAsCaseOfficer();
-        break;
-      case 'Sr Case Officer':
-        await this.signInAsSrCaseOfficer();
-        break;
-      case 'Admin Officer':
-        await this.signInAsAdminOfficer();
-        break;
-      case 'Legal Rep':
-        await this.signInAsLawFirmA();
-        break;
-      case 'Home Office APC':
-        await this.signInAsHomeOfficeApc();
-        break;
-      case 'Home Office LART':
-        await this.signInAsHomeOfficeLart();
-        break;
-      case 'Home Office POU':
-        await this.signInAsHomeOfficePou();
-        break;
-      case 'Home Office Generic':
-        await this.signInAsHomeOfficeGeneric();
-        break;
-      case 'Home Office Bails':
-        await this.signInAsHomeOfficeBails();
-        break;
-      case 'Judge':
-        await this.signInAsJudge();
-        break;
-      case 'Legal Org User Rep A':
-        await this.signInAsLawFirmOrgUserA();
-        break;
-      case 'Legal Org User Rep B':
-        await this.signInAsLawFirmOrgUserB();
-        break;
-      case 'Legal Org User Rep C':
-        await this.signInAsLawFirmOrgUserC();
-        break;
-      case 'Legal Ops A':
-        await this.signInAsLegalOpsA();
-        break;
-      case 'Judicial':
-        await this.signInAsJudicial();
-        break;
-      case 'WaAdmin':
-        await this.signInAsWaAdmin();
-        break;
-      case 'Judge Bails':
-        await this.signInAsJudgeBails();
-        break;
-      case 'Legal Org User Rep A Bails':
-        await this.signInAsLawFirmOrgUserABails();
-        break;
-      case 'Legal Org User Rep B Bails':
-        await this.signInAsLawFirmOrgUserBBails();
-        break;
-      case 'Admin Officer Bails':
-        await this.signInAsAdminOfficerBails();
-        break;
-      case 'Legal Org User Rep D':
-        await this.signInAsLawFirmOrgUserD();
-        break;
-      case 'Legal Org User Rep Creator':
-        await this.signInAsLawFirmOrgCreator();
-        break;
-      case 'Legal Org2 User Rep Creator':
-        await this.signInAsLawFirmOrg2Creator();
-        break;
-      default:
-        throw new Error(`Unknown role: ${role}`);
+    case 'Case Officer':
+      await this.signInAsCaseOfficer();
+      break;
+    case 'Sr Case Officer':
+      await this.signInAsSrCaseOfficer();
+      break;
+    case 'Admin Officer':
+      await this.signInAsAdminOfficer();
+      break;
+    case 'Legal Rep':
+      await this.signInAsLawFirmA();
+      break;
+    case 'Home Office APC':
+      await this.signInAsHomeOfficeApc();
+      break;
+    case 'Home Office LART':
+      await this.signInAsHomeOfficeLart();
+      break;
+    case 'Home Office POU':
+      await this.signInAsHomeOfficePou();
+      break;
+    case 'Home Office Generic':
+      await this.signInAsHomeOfficeGeneric();
+      break;
+    case 'Home Office Bails':
+      await this.signInAsHomeOfficeBails();
+      break;
+    case 'Judge':
+      await this.signInAsJudge();
+      break;
+    case 'Legal Org User Rep A':
+      await this.signInAsLawFirmOrgUserA();
+      break;
+    case 'Legal Org User Rep B':
+      await this.signInAsLawFirmOrgUserB();
+      break;
+    case 'Legal Org User Rep C':
+      await this.signInAsLawFirmOrgUserC();
+      break;
+    case 'Legal Ops A':
+      await this.signInAsLegalOpsA();
+      break;
+    case 'Judicial':
+      await this.signInAsJudicial();
+      break;
+    case 'WaAdmin':
+      await this.signInAsWaAdmin();
+      break;
+    case 'Judge Bails':
+      await this.signInAsJudgeBails();
+      break;
+    case 'Legal Org User Rep A Bails':
+      await this.signInAsLawFirmOrgUserABails();
+      break;
+    case 'Legal Org User Rep B Bails':
+      await this.signInAsLawFirmOrgUserBBails();
+      break;
+    case 'Admin Officer Bails':
+      await this.signInAsAdminOfficerBails();
+      break;
+    case 'Legal Org User Rep D':
+      await this.signInAsLawFirmOrgUserD();
+      break;
+    case 'Legal Org User Rep Creator':
+      await this.signInAsLawFirmOrgCreator();
+      break;
+    case 'Legal Org2 User Rep Creator':
+      await this.signInAsLawFirmOrg2Creator();
+      break;
+    default:
+      throw new Error(`Unknown role: ${role}`);
     }
   }
 

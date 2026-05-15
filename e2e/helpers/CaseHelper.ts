@@ -1,6 +1,7 @@
 import { UserInfo } from "../aip/idam-service";
 
 const iaConfig = require('../ia.conf');
+
 const legalRepUserName: string = iaConfig.TestLawFirmOrgAUserName;
 const legalRepPassword: string = iaConfig.TestLawFirmOrgAPassword;
 const legalRepBailUserName: string = iaConfig.TestLawFirmOrgABailsUserName;
@@ -11,11 +12,12 @@ const homeOfficeBailUserName: string = iaConfig.TestHomeOfficeBailsUserName;
 const homeOfficeBailPassword: string = iaConfig.TestHomeOfficeBailsPassword;
 
 export default class CaseHelper {
+  // eslint-disable-next-line no-use-before-define
   private static instance: CaseHelper;
-  private legalRep: UserInfo = {email: "", password: ""};
-  private legalRepBail: UserInfo = {email: "", password: ""};
-  private adminOfficerBail: UserInfo = {email: "", password: ""};
-  private homeOfficeBail: UserInfo = {email: "", password: ""};
+  private legalRep: UserInfo = { email: "", password: "" };
+  private legalRepBail: UserInfo = { email: "", password: "" };
+  private adminOfficerBail: UserInfo = { email: "", password: "" };
+  private homeOfficeBail: UserInfo = { email: "", password: "" };
   private caseUrl = "";
 
   public static getInstance(): CaseHelper {
@@ -38,7 +40,7 @@ export default class CaseHelper {
       return this.getLegalRepBail();
     }
     if (this.legalRep.email === "") {
-      this.legalRep = {email: legalRepUserName, password: legalRepPassword};
+      this.legalRep = { email: legalRepUserName, password: legalRepPassword };
     }
     return this.legalRep;
   }
@@ -49,7 +51,7 @@ export default class CaseHelper {
 
   getLegalRepBail() {
     if (this.legalRepBail.email === "") {
-      this.legalRepBail = {email: legalRepBailUserName, password: legalRepBailPassword};
+      this.legalRepBail = { email: legalRepBailUserName, password: legalRepBailPassword };
     }
     return this.legalRepBail;
   }
@@ -60,7 +62,7 @@ export default class CaseHelper {
 
   getAdminOfficerBail() {
     if (this.adminOfficerBail.email === "") {
-      this.adminOfficerBail = {email: adminOfficerBailUserName, password: adminOfficerBailPassword};
+      this.adminOfficerBail = { email: adminOfficerBailUserName, password: adminOfficerBailPassword };
     }
     return this.adminOfficerBail;
   }
@@ -71,34 +73,34 @@ export default class CaseHelper {
 
   getHomeOfficeBail() {
     if (this.homeOfficeBail.email === "") {
-      this.homeOfficeBail = {email: homeOfficeBailUserName, password: homeOfficeBailPassword};
+      this.homeOfficeBail = { email: homeOfficeBailUserName, password: homeOfficeBailPassword };
     }
     return this.homeOfficeBail;
   }
 
   getBailUser(user: string) {
     switch (user) {
-      case 'Legal Rep':
-        return this.getLegalRepBail();
-      case 'Admin Officer':
-        return this.getAdminOfficerBail();
-      case 'Home Office Bails':
-        return this.getHomeOfficeBail();
-      default:
-        throw new Error(`User role '${user}' is not defined in getUser function`);
+    case 'Legal Rep':
+      return this.getLegalRepBail();
+    case 'Admin Officer':
+      return this.getAdminOfficerBail();
+    case 'Home Office Bails':
+      return this.getHomeOfficeBail();
+    default:
+      throw new Error(`User role '${user}' is not defined in getUser function`);
     }
   }
 
   setBailUser(user: string, newUser: UserInfo) {
     switch (user) {
-      case 'Legal Rep':
-        return this.setLegalRepBail(newUser);
-      case 'Admin Officer':
-        return this.setAdminOfficerBail(newUser);
-      case 'Home Office Bails':
-        return this.setHomeOfficeBail(newUser);
-      default:
-        throw new Error(`User role '${user}' is not defined in getUser function`);
+    case 'Legal Rep':
+      return this.setLegalRepBail(newUser);
+    case 'Admin Officer':
+      return this.setAdminOfficerBail(newUser);
+    case 'Home Office Bails':
+      return this.setHomeOfficeBail(newUser);
+    default:
+      throw new Error(`User role '${user}' is not defined in getUser function`);
     }
   }
 

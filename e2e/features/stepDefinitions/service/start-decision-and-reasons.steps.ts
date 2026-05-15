@@ -3,6 +3,6 @@ import { Then } from '@cucumber/cucumber';
 
 const startDecisionAndReasonsFlow = new StartDecisionAndReasonsFlow();
 
-Then(/^I start decision and reasons$/, async function () {
+Then(/^I start decision and reasons$/, async() => {
   await startDecisionAndReasonsFlow.startDecisionAndReasons();
 });

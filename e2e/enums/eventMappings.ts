@@ -198,5 +198,5 @@ export const eventMappings = {
   "Case listing": "caseListing",
   "Force case to the hearing state": "forceCaseToHearing",
   "Change Tribunal Centre": "changeTribunalCentre",
-  "Upload a recording file for the hearing": "uploadHearingRecording",
+  "Upload a recording file for the hearing": "uploadHearingRecording"
 };

@@ -15,11 +15,11 @@ export class CcdWriteFixedListField implements Field {
   }
 
   public async getOptions() {
-    return await this.container.all(by.xpath('.//option')).map(async (option) => (await option.getText()).trim());
+    return this.container.all(by.xpath('.//option')).map(async option => (await option.getText()).trim());
   }
 
   public async getValue() {
-    return await this.getSelectedOptionElement().getText();
+    return this.getSelectedOptionElement().getText();
   }
 
   public async setValue(value) {
@@ -27,15 +27,15 @@ export class CcdWriteFixedListField implements Field {
       value = '--Select a value--';
     }
 
-    await this.container.element(by.xpath('.//option[normalize-space()="' + value + '"]')).click();
+    await this.container.element(by.xpath(`.//option[normalize-space()="${value}"]`)).click();
   }
 
   public async isDisplayed() {
-    return await this.getSelectElement().isDisplayed();
+    return this.getSelectElement().isDisplayed();
   }
 
   public async isEnabled() {
-    return await this.getSelectElement().isEnabled();
+    return this.getSelectElement().isEnabled();
   }
 
   public isReadOnly() {

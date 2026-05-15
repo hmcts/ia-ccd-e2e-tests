@@ -3,49 +3,48 @@ import { StartAppealFlow } from "../../../flows/start-appeal.flow";
 import { Given, Then } from "@cucumber/cucumber";
 import { expect } from "chai";
 
-const isfeePaymentEnabled =
-  require("../../../ia.conf").isfeePaymentEnabled === "true";
-const isOutOfCountryEnabled =
-  require("../../../ia.conf").isOutOfCountryEnabled === "true";
+const isfeePaymentEnabled = require("../../../ia.conf").isfeePaymentEnabled === "true";
+const isOutOfCountryEnabled = require("../../../ia.conf").isOutOfCountryEnabled === "true";
+
 const ccdFormPage = new CcdFormPage();
 const startAppealFlow = new StartAppealFlow();
 
-Given("I complete the `Appellant currently living` page", async function () {
-    await startAppealFlow.completeScreeningQuestions(true);
+Given("I complete the `Appellant currently living` page", async() => {
+  await startAppealFlow.completeScreeningQuestions(true);
 });
 
-Given("I complete the `Home Office reference number` page", async function () {
-    await startAppealFlow.completeHomeOfficeReference(true);
+Given("I complete the `Home Office reference number` page", async() => {
+  await startAppealFlow.completeHomeOfficeReference(true);
 });
 
-Given("I complete the `Home Office decision date` page", async function () {
+Given("I complete the `Home Office decision date` page", async() => {
   expect(await ccdFormPage.headingContains("Home Office decision date")).to.equal(
     true
   );
   await startAppealFlow.completeHomeOfficeDecisionDate(true);
 });
 
-Given("I complete the `Home Office details ooc` page", async function () {
+Given("I complete the `Home Office details ooc` page", async() => {
   expect(await ccdFormPage.headingContains("Home Office reference number")).to.equal(
     true
   );
-//  await startAppealFlow.completeHomeOfficeReference(true, true); - this used to include the Decision Date (OOC = true)
+  //  await startAppealFlow.completeHomeOfficeReference(true, true); - this used to include the Decision Date (OOC = true)
   await startAppealFlow.completeHomeOfficeReference(true);
 });
 
-Given("I complete the `Basic details` form", async function () {
+Given("I complete the `Basic details` form", async() => {
   expect(await ccdFormPage.headingContains("Basic details")).to.equal(true);
   await startAppealFlow.completeBasicDetails(false);
 });
 
-Given("I complete the `Basic details` page", async function () {
+Given("I complete the `Basic details` page", async() => {
   expect(await ccdFormPage.headingContains("Basic details")).to.equal(true);
   await startAppealFlow.completeBasicDetails(true);
 });
 
 Given(
   "I complete the `What is the appellant's nationality?` page",
-  async function () {
+  async() => {
     expect(
       await ccdFormPage.headingContains(
         "What is the appellant's nationality?"
@@ -55,14 +54,14 @@ Given(
   }
 );
 
-Given("I complete the `Upload the Notice of Decision` page", async function () {
+Given("I complete the `Upload the Notice of Decision` page", async() => {
   expect(
     await ccdFormPage.headingContains("Upload the Notice of Decision")
   ).to.equal(true);
   await startAppealFlow.completeUploadNoticeDecision(true);
 });
 
-Given("I complete the `Appellant's address` page", async function () {
+Given("I complete the `Appellant's address` page", async() => {
   expect(await ccdFormPage.headingContains("Appellant's address")).to.equal(
     true
   );
@@ -71,7 +70,7 @@ Given("I complete the `Appellant's address` page", async function () {
 
 Given(
   "I complete the `The appellant's contact preference` page",
-  async function () {
+  async() => {
     expect(
       await ccdFormPage.headingContains("The appellant's contact preference")
     ).to.equal(true);
@@ -81,7 +80,7 @@ Given(
 
 Given(
   "I complete the `Appellant's sponsor` page",
-  async function () {
+  async() => {
     expect(
       await ccdFormPage.headingContains("Appellant's sponsor")
     ).to.equal(true);
@@ -89,43 +88,43 @@ Given(
   }
 );
 
-Given("I complete the `Type of appeal` page", async function () {
+Given("I complete the `Type of appeal` page", async() => {
   expect(await ccdFormPage.headingContains("Type of appeal")).to.equal(true);
   await startAppealFlow.completeAppealType(true);
 });
 
-Given("I complete the `EA appeal type` page", async function () {
+Given("I complete the `EA appeal type` page", async() => {
   expect(await ccdFormPage.headingContains("Type of appeal")).to.equal(true);
   await startAppealFlow.completeGivenAppealType(true, "EA");
 });
 
-Given("I complete the `The grounds of your appeal` page", async function () {
+Given("I complete the `The grounds of your appeal` page", async() => {
   expect(
     await ccdFormPage.headingContains("The grounds of your appeal")
   ).to.equal(true);
   await startAppealFlow.completeAppealGrounds(true);
 });
 
-Given("I complete the `EA appeal grounds` page", async function () {
+Given("I complete the `EA appeal grounds` page", async() => {
   expect(
     await ccdFormPage.headingContains("The grounds of your appeal")
   ).to.equal(true);
   await startAppealFlow.completedGivenAppealGrounds(true, "EA");
 });
 
-Given("I complete the `New matters` page", async function () {
+Given("I complete the `New matters` page", async() => {
   expect(await ccdFormPage.headingContains("New matters")).to.equal(true);
   await startAppealFlow.completeNewMatters(true);
 });
 
-Given("I complete the `Deportation order` page", async function () {
+Given("I complete the `Deportation order` page", async() => {
   expect(await ccdFormPage.headingContains("Deportation order")).to.equal(true);
   await startAppealFlow.completeDeportationOrder(true);
 });
 
 Given(
   "I complete the `Other appeals` page",
-  async function () {
+  async() => {
     expect(
       await ccdFormPage.headingContains(
         "Other appeals"
@@ -135,26 +134,26 @@ Given(
   }
 );
 
-Given("I complete the `Legal representative details` page", async function () {
+Given("I complete the `Legal representative details` page", async() => {
   expect(
     await ccdFormPage.headingContains("Legal representative details")
   ).to.equal(true);
   await startAppealFlow.completeLegalRepresentativeDetails(true);
 });
 
-Given("I complete the `Remission details` page", async function () {
+Given("I complete the `Remission details` page", async() => {
   expect(await ccdFormPage.headingContains("Fee remissions")).to.equal(true);
   await startAppealFlow.completeRemissionDetails(true, "a remission");
 });
 
-Given("I complete the `no remission details` page", async function () {
+Given("I complete the `no remission details` page", async() => {
   expect(await ccdFormPage.headingContains("Fee remissions")).to.equal(true);
   await startAppealFlow.completeRemissionDetails(true, "no remission");
 });
 
 Given(
   "I complete the `Start appeal check your answers` page",
-  async function () {
+  async() => {
     expect(await ccdFormPage.headingContains("Check your answers")).to.equal(
       true
     );
@@ -164,13 +163,13 @@ Given(
 
 Given(
   /^I skip the `?([^`]+)`? page by clicking `?([^`]+)`?$/,
-  async function (pageName, buttonName) {
+  async(pageName, buttonName) => {
     expect(await ccdFormPage.headingContains(pageName)).to.equal(true);
     await ccdFormPage.click(buttonName);
   }
 );
 
-Given("I save my initial appeal", async function () {
+Given("I save my initial appeal", async() => {
   if (isfeePaymentEnabled) {
     await startAppealFlow.saveInitialAppealWithFee(
       true,
@@ -183,7 +182,7 @@ Given("I save my initial appeal", async function () {
   }
 });
 
-Given("I save my initial appeal with address", async function () {
+Given("I save my initial appeal with address", async() => {
   if (isfeePaymentEnabled) {
     await startAppealFlow.saveInitialAppealWithFee(
       true,
@@ -208,7 +207,7 @@ Given("I save my initial appeal with address", async function () {
 
 Given(
   /^I save my initial appeal with appellant living in UK `?([^\s`]+)`?$/,
-  async function (appellantInUk) {
+  async appellantInUk => {
     if (isOutOfCountryEnabled) {
       if (isfeePaymentEnabled) {
         await startAppealFlow.saveInitialAppealWithFeeOutOfCountry(
@@ -225,24 +224,22 @@ Given(
           appellantInUk
         );
       }
+    } else if (isfeePaymentEnabled) {
+      await startAppealFlow.saveInitialAppealWithFee(
+        true,
+        "PA",
+        "no remission",
+        "hearing fee"
+      );
     } else {
-      if (isfeePaymentEnabled) {
-        await startAppealFlow.saveInitialAppealWithFee(
-          true,
-          "PA",
-          "no remission",
-          "hearing fee"
-        );
-      } else {
-        await startAppealFlow.saveInitialNonPaymentAppeal(true, "PA");
-      }
+      await startAppealFlow.saveInitialNonPaymentAppeal(true, "PA");
     }
   }
 );
 
 Given(
   /^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s`]+)`?$/,
-  async function (lateAppeal, decisionType) {
+  async(lateAppeal, decisionType) => {
     if (isOutOfCountryEnabled) {
       if (isfeePaymentEnabled) {
         await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(
@@ -267,30 +264,27 @@ Given(
           "No"
         );
       }
+    } else if (isfeePaymentEnabled) {
+      await startAppealFlow.saveInitialAppealWithFee(
+        true,
+        "PA",
+        "no remission",
+        "hearing fee"
+      );
     } else {
-      if (isfeePaymentEnabled) {
-        await startAppealFlow.saveInitialAppealWithFee(
-          true,
-          "PA",
-          "no remission",
-          "hearing fee"
-        );
-      } else {
-        await startAppealFlow.saveInitialNonPaymentAppeal(true, "PA");
-      }
+      await startAppealFlow.saveInitialNonPaymentAppeal(true, "PA");
     }
   }
 );
 
-// tslint:disable-next-line:max-line-length
 Given(
   /^I save my out of country `?([^\s`]+)`? appeal with decision type `?([^\s`]+)`? with address `?([^\s`]+)`? and with sponsor `?([^\s`]+)`?$/,
-  async function (
+  async(
     lateAppeal,
     decisionType,
     hasAddress = "Yes",
     hasSponsor = "Yes"
-  ) {
+  ) => {
     if (isOutOfCountryEnabled) {
       if (isfeePaymentEnabled) {
         await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithDecision(
@@ -315,31 +309,28 @@ Given(
           hasSponsor
         );
       }
+    } else if (isfeePaymentEnabled) {
+      await startAppealFlow.saveInitialAppealWithFee(
+        true,
+        "PA",
+        "no remission",
+        "hearing fee"
+      );
     } else {
-      if (isfeePaymentEnabled) {
-        await startAppealFlow.saveInitialAppealWithFee(
-          true,
-          "PA",
-          "no remission",
-          "hearing fee"
-        );
-      } else {
-        await startAppealFlow.saveInitialNonPaymentAppeal(true, "PA");
-      }
+      await startAppealFlow.saveInitialNonPaymentAppeal(true, "PA");
     }
   }
 );
 
-// tslint:disable-next-line:max-line-length
 Given(
   /^I save my out of country appeal with sponsor given name `?([^\s`]+)`? family name `?([^`]+)`? contactPreference `?([^`]+)`? authorisation `?([^`]+)`? for `?([^`]+)`? appeal$/,
-  async function (
+  async(
     givenName,
     familyName,
     contactPreference,
     authorisation,
     appealType
-  ) {
+  ) => {
     if (isOutOfCountryEnabled) {
       if (isfeePaymentEnabled) {
         await startAppealFlow.saveInitialAppealWithFeeOutOfCountryWithSponsor(
@@ -359,24 +350,22 @@ Given(
           appealType
         );
       }
+    } else if (isfeePaymentEnabled) {
+      await startAppealFlow.saveInitialAppealWithFee(
+        true,
+        appealType,
+        "no remission",
+        "hearing fee"
+      );
     } else {
-      if (isfeePaymentEnabled) {
-        await startAppealFlow.saveInitialAppealWithFee(
-          true,
-          appealType,
-          "no remission",
-          "hearing fee"
-        );
-      } else {
-        await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType);
-      }
+      await startAppealFlow.saveInitialNonPaymentAppeal(true, appealType);
     }
   }
 );
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/,
-  async function (appealType, feeType, paymentChoice) {
+  async(appealType, feeType, paymentChoice) => {
     await startAppealFlow.saveInitialAppealWithoutRemission(
       true,
       appealType,
@@ -388,7 +377,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type manually without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`?$/,
-  async function (appealType, feeType, paymentChoice) {
+  async(appealType, feeType, paymentChoice) => {
     await startAppealFlow.saveInitialAppealWithoutRemissionManual(
       true,
       appealType,
@@ -400,7 +389,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee$/,
-  async function (appealType, remission, feeType) {
+  async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialAppealWithFee(
       true,
       appealType,
@@ -412,7 +401,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay now `?([^\s`]+)`? hearing fee$/,
-  async function (appealType, remission, feeType) {
+  async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialAppealPayNowWithFee(
       true,
       appealType,
@@ -424,7 +413,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay now `?([^\s`]+)`? hearing fee and out of time$/,
-  async function (appealType, remission, feeType) {
+  async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialAppealPayNowWithFeeOutOfTime(
       true,
       appealType,
@@ -436,7 +425,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee and out of time$/,
-  async function (appealType, remission, feeType) {
+  async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialAppealWithFeeOutOfTime(
       true,
       appealType,
@@ -448,7 +437,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay offline `?([^\s`]+)`? hearing fee$/,
-  async function (appealType, remission, feeType) {
+  async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialAppealWithFeePayOffline(
       true,
       appealType,
@@ -460,7 +449,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee and pay offline$/,
-  async function (appealType, remission, feeType) {
+  async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialAppealWithFeePayOffline(
       true,
       appealType,
@@ -472,7 +461,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee and pay later$/,
-  async function (appealType, remission, feeType) {
+  async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialAppealWithFeePayLater(
       true,
       appealType,
@@ -484,7 +473,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay offline `?([^\s`]+)`? hearing fee and out of time$/,
-  async function (appealType, remission, feeType) {
+  async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialOutOfTimeAppealWithFeePayOffline(
       true,
       appealType,
@@ -496,7 +485,7 @@ Given(
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and pay later `?([^\s`]+)`? hearing fee and out of time$/,
-  async function (appealType, remission, feeType) {
+  async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialOutOfTimeAppealWithFeePayLater(
       true,
       appealType,
@@ -508,21 +497,21 @@ Given(
 
 Given(
   "I save my initial appeal with out of time decision letter",
-  async function () {
+  async() => {
     await startAppealFlow.saveOutOfTimeAppeal(true);
   }
 );
 
 Given(
   /^I save my initial appeal with `?([^`]+)`? address and `?([^`]+)`? postcode$/,
-  async function (address, postcode) {
+  async(address, postcode) => {
     await startAppealFlow.saveAppeal(true, true, address, postcode);
   }
 );
 
 Given(
   /^I save my initial `?([^\s`]+)`? appeal for nonPayment `?([^\s`]+)`? hearing$/,
-  async function (appealType, hearingOption) {
+  async(appealType, hearingOption) => {
     await startAppealFlow.saveInitialAppealWithoutRemission(
       true,
       appealType,
@@ -531,13 +520,13 @@ Given(
   }
 );
 
-Given("I wait for any found addresses to load", async function () {
+Given("I wait for any found addresses to load", async() => {
   await ccdFormPage.doesDropdownHaveValues("Select an address");
 });
 
 Given(
   /^I save my initial appeal with Home Office Reference\/Case ID `?([^\s`]+)`?$/,
-  async function (homeOfficeReference) {
+  async homeOfficeReference => {
     await startAppealFlow.saveInitialAppealWithHomeOfficeReference(
       true,
       homeOfficeReference
@@ -547,12 +536,12 @@ Given(
 
 Given(
   /^I save my initial appeal with client living in United Kingdom `?([^\s`]+)`?$/,
-  async function (appellantInUk) {
+  async appellantInUk => {
     await startAppealFlow.completeOutOfCountryQuestion(true, appellantInUk);
   }
 );
 
-Then(/^I see a list of all nationalities$/, async function () {
+Then(/^I see a list of all nationalities$/, async() => {
   const nationalities = await ccdFormPage.getFieldOptions(
     "Nationality",
     "first",
@@ -568,7 +557,7 @@ Then(/^I see a list of all nationalities$/, async function () {
 
 Given(
   "I complete the `Entry clearance decision details` page",
-  async function () {
+  async() => {
     expect(
       await ccdFormPage.headingContains("Entry clearance decision details")
     ).to.equal(true);
@@ -576,12 +565,12 @@ Given(
   }
 );
 
-Given("I complete the `Departure date` page", async function () {
+Given("I complete the `Departure date` page", async() => {
   expect(await ccdFormPage.headingContains("Departure date")).to.equal(true);
   await startAppealFlow.completeDepartureDate(true);
 });
 
-Given("I complete the `Decision type` page", async function () {
+Given("I complete the `Decision type` page", async() => {
   expect(await ccdFormPage.headingContains("Out of country decision")).to.equal(
     true
   );
@@ -590,7 +579,7 @@ Given("I complete the `Decision type` page", async function () {
 
 Given(
   "I complete the `Decision type protection claim` page",
-  async function () {
+  async() => {
     expect(
       await ccdFormPage.headingContains("Out of country decision")
     ).to.equal(true);
@@ -598,7 +587,7 @@ Given(
   }
 );
 
-Given("I complete the `Decision type remove client` page", async function () {
+Given("I complete the `Decision type remove client` page", async() => {
   expect(await ccdFormPage.headingContains("Out of country decision")).to.equal(
     true
   );
@@ -607,7 +596,7 @@ Given("I complete the `Decision type remove client` page", async function () {
 
 Given(
   "I complete the `Is your client currently living in the United Kingdom?` page",
-  async function () {
+  async() => {
     expect(
       await ccdFormPage.headingContains("Tell us about your client")
     ).to.equal(true);
@@ -615,14 +604,14 @@ Given(
   }
 );
 
-Given("I complete the `Your client's ooc address` page", async function () {
+Given("I complete the `Your client's ooc address` page", async() => {
   expect(await ccdFormPage.headingContains("Appellant's address")).to.equal(
     true
   );
   await startAppealFlow.completeClientAddressOutOfCountry(true, true);
 });
 
-Given("I complete the `Sponsor` page", async function () {
+Given("I complete the `Sponsor` page", async() => {
   await startAppealFlow.completeSponsorQuestion(true, "Yes");
   await startAppealFlow.completeSponsorNames(true);
   await startAppealFlow.completeSponsorAddress(
@@ -636,7 +625,7 @@ Given("I complete the `Sponsor` page", async function () {
 
 Given(
   /^I save my legal rep details and continue `?([^\s`]+)`?$/,
-  async function (appealType) {
+  async appealType => {
     if (isfeePaymentEnabled) {
       await startAppealFlow.saveLegalRepAndContinueWithFee(
         true,

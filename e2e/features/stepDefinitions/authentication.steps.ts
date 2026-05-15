@@ -11,19 +11,19 @@ const ccdPage = new CcdPage();
 const idamSignInPage = new IdamSignInPage();
 const caseUrlMatcher = /^.*?\/cases\/case-details\/.*?\d{16}/g;
 
-Given('I am not signed in', async function () {
+Given('I am not signed in', async() => {
   await authenticationFlow.signOut();
 });
 
-Given(/^I am signed in as a `?([A-z ]+)?`$/, async function (role: UserRole) {
+Given(/^I am signed in as a `?([A-z ]+)?`$/, async(role: UserRole) => {
   await authenticationFlow.signInByRole(role);
 });
 
-Given(/^I sign back in as a `?([A-z ]+)?`$/, async function (role: UserRole) {
+Given(/^I sign back in as a `?([A-z ]+)?`$/, async(role: UserRole) => {
   await authenticationFlow.signInByRole(role);
 });
 
-Given(/^I switch to be a `?([A-z ]+)?`$/, async function (role: UserRole) {
+Given(/^I switch to be a `?([A-z ]+)?`$/, async(role: UserRole) => {
   const currentUrl = await ccdPage.getCurrentUrl();
   const caseUrl = currentUrl.match(caseUrlMatcher)[0];
   await authenticationFlow.signInByRole(role);
@@ -36,7 +36,7 @@ Given(/^I switch to be a `?([A-z ]+)?`$/, async function (role: UserRole) {
   }
 });
 
-Given(/^I am signed in as a `Legal Rep` without any cases$/, async function () {
+Given(/^I am signed in as a `Legal Rep` without any cases$/, async() => {
   if (iaConfig.WaitForAngular) {
     await authenticationFlow.signInAsLawFirmB();
   } else {
@@ -44,7 +44,7 @@ Given(/^I am signed in as a `Legal Rep` without any cases$/, async function () {
   }
 });
 
-Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async function () {
+Then(/^I should be redirected to the `Sign In` page(?:| instead)$/, async() => {
   await idamSignInPage.waitUntilLoaded();
   expect(await ccdPage.isLoaded()).to.equal(false);
   expect(await idamSignInPage.isLoaded()).to.equal(true);

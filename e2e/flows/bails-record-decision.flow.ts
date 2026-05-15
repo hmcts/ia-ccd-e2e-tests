@@ -77,7 +77,8 @@ export class RecordDecision {
       await this.ccdFormPage.click('Appearance (where bail is going to be transferred to the Home Office)');
       await this.ccdFormPage.setFieldValue(
         'Enter the appearance conditions the applicant will be subject to',
-        'The applicant is to appear before an Immigration Officer at Big Ben between 11am and 1pm on 1st January 2023 or any other place and on any other date and time that may be required by the Home Office or an Immigration Officer.  -OR-  The Applicant must appear before an Immigration Officer on a date and time and by such means as may be notified to him by the Home Office in writing.',
+        'The applicant is to appear before an Immigration Officer at Big Ben between 11am and 1pm on 1st January 2023 or any other place and on any other date and time that may be required by the Home Office or an Immigration Officer.  -OR-  ' +
+        'The Applicant must appear before an Immigration Officer on a date and time and by such means as may be notified to him by the Home Office in writing.'
       );
     }
     if (conditions.includes('Activities')) {
@@ -88,7 +89,11 @@ export class RecordDecision {
       await this.ccdFormPage.click('Residence');
       await this.ccdFormPage.setFieldValue(
         'Enter the residence conditions the applicant will be subject to',
-        'The applicant must reside at 123 Fake Street.  Where an Immigration Judge makes a conditional grant with deferred commencement:  The applicant will reside at an address approved by the probation/offender manager.  By virtue of para 3(8) of schedule 10 of The Immigration Act 2016 this grant of bail will not commence until such address has been approved by probation.  The approval of a residence address will be reviewed by the Tribunal on the first available date after [ ] days unless the Tribunal is notified prior to that date that accommodation has been approved and bail commenced in which case the matter will be dealt with administratively.  In the event that the applicant has not been released then at least 2 clear days before the bail review hearing, the Secretary of State is to update the Tribunal in writing as to the progress made in relation to sourcing and/or approving accommodation for the applicant.',
+        'The applicant must reside at 123 Fake Street.  Where an Immigration Judge makes a conditional grant with deferred commencement:  The applicant will reside at an address approved by the probation/offender manager.  By virtue of para 3(8) of schedule 10 of ' +
+        'The Immigration Act 2016 this grant of bail will not commence until such address has been approved by probation.  ' +
+        'The approval of a residence address will be reviewed by the Tribunal on the first available date after [ ] days unless the Tribunal is notified prior to that date that accommodation' +
+        ' has been approved and bail commenced in which case the matter will be dealt with administratively.  In the event that the applicant has not been released then at least 2 clear days before the bail review hearing, the Secretary of State is to update the ' +
+        'Tribunal in writing as to the progress made in relation to sourcing and/or approving accommodation for the applicant.'
       );
     }
     if (conditions.includes('Reporting')) {
@@ -99,7 +104,11 @@ export class RecordDecision {
       await this.ccdFormPage.click('Electronic Monitoring');
       await this.ccdFormPage.setFieldValue(
         'Enter the electronic monitoring conditions the applicant will be subject to',
-        "Note: Where the Tribunal has directed that the Applicant should be subject to an electronic monitoring condition there may be a delay of release of up to 72 hours pending arrangements for the electronic monitoring device.  Bail is granted conditional upon: the applicant being compliant with the fitting of an electronic monitoring device at the point of release from detention; and  the Secretary of State promptly arranging the fitting of the electronic monitoring device at the place of the Applicant's detention. If the secretary of State does not complete the fitting of the electronic monitoring device within 72 hours then this grant of bail will commence and the applicant is to be released subject to the other conditions of this grant of bail. In such an event the Secretary of State will make arrangements for the fitting of the electronic monitoring device post release.",
+        "Note: Where the Tribunal has directed that the Applicant should be subject to an electronic monitoring condition there may be a delay of release of up to 72 hours pending arrangements " +
+        "for the electronic monitoring device.  Bail is granted conditional upon: the applicant being compliant with the fitting of an electronic monitoring device at the point of release from detention; and  " +
+        "the Secretary of State promptly arranging the fitting of the electronic monitoring device at the place of the Applicant's detention. If the secretary of State does not complete the fitting of the electronic" +
+        " monitoring device within 72 hours then this grant of bail will commence and the applicant is to be released subject to the other conditions of this grant of bail. In such an event the Secretary of State will make arrangements " +
+        "for the fitting of the electronic monitoring device post release."
       );
     }
     if (conditions.includes('Other')) {
@@ -142,13 +151,13 @@ export class RecordDecision {
     for (let i = 0; i < numberOfSupporters; i++) {
       await this.ccdFormPage.runAccessbility();
       await browser.sleep(this.waitTime);
-      await this.ccdFormPage.setFieldValue('Did the judge agree to accept financial condition supporter ' + (i + 1) + '?', yesOrNoForEachSupporter[i]);
+      await this.ccdFormPage.setFieldValue(`Did the judge agree to accept financial condition supporter ${i + 1}?`, yesOrNoForEachSupporter[i]);
       if (clickContinue) {
         await this.ccdFormPage.click('Continue');
       }
       await this.ccdFormPage.runAccessbility();
       await browser.sleep(this.waitTime);
-      await this.ccdFormPage.typeText('financialAmountSupporterUndertakes' + (i + 1), '1');
+      await this.ccdFormPage.typeText(`financialAmountSupporterUndertakes${i + 1}`, '1');
       if (clickContinue) {
         await this.ccdFormPage.click('Continue');
       }
@@ -186,7 +195,7 @@ export class RecordDecision {
     financialConditionDetailsYesOrNo: string,
     numberOfSupporters: number,
     yesOrNoForEachSupporter: string[],
-    bailTransferYesOrNo: string,
+    bailTransferYesOrNo: string
   ) {
     await this.ccdFormPage.runAccessbility();
     await browser.sleep(this.waitTime);

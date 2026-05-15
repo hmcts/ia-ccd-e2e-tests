@@ -5,7 +5,7 @@ import { expect } from 'chai';
 
 const ccdPage = new CcdPage();
 
-Then(/^I should (see|not see) the appeal details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the appeal details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains('Appeal details', !isDisplayed)).to.equal(isDisplayed);
@@ -30,7 +30,7 @@ Then(/^I should (see|not see) the appeal details$/, async function (seeOrNotSee)
   }
 });
 
-Then(/^I should (see|not see) the submission details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the submission details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains('Submission details', !isDisplayed)).to.equal(isDisplayed);

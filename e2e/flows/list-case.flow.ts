@@ -96,50 +96,48 @@ export class ListCaseFlow {
     const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('List case');
 
-        if (clickContinue) {
-            await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
-        }
+    if (clickContinue) {
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
+  }
 
-    async listTheBailCase(clickContinue = false) {
-
-        await this.ccdFormPage.selectNextStep('Case listing');
-        await this.ccdFormPage.setFieldValue('Listing event', 'Initial listing');
-        await this.ccdFormPage.setFieldValue('Listing location', 'Hatton Cross Tribunal Hearing Centre');
-        await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
-        await this.ccdFormPage.typeText('listingHearingDuration', '60');
-        await this.ccdFormPage.setFieldValue(
-            'Date and time',
-            '{$TODAY+14|DD-MM-YYYY} 10:30:00'
-        );
-        await this.ccdFormPage.click('Continue');
-      const currentUrl = await this.ccdFormPage.getCurrentUrl();
-        await this.ccdFormPage.click('List case');
-        if (clickContinue) {
-            await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
-        }
+  async listTheBailCase(clickContinue = false) {
+    await this.ccdFormPage.selectNextStep('Case listing');
+    await this.ccdFormPage.setFieldValue('Listing event', 'Initial listing');
+    await this.ccdFormPage.setFieldValue('Listing location', 'Hatton Cross Tribunal Hearing Centre');
+    await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
+    await this.ccdFormPage.typeText('listingHearingDuration', '60');
+    await this.ccdFormPage.setFieldValue(
+      'Date and time',
+      '{$TODAY+14|DD-MM-YYYY} 10:30:00'
+    );
+    await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
+    await this.ccdFormPage.click('List case');
+    if (clickContinue) {
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
+  }
 
-    async reListTheBailCase(clickContinue = false) {
+  async reListTheBailCase(clickContinue = false) {
+    await this.ccdFormPage.selectNextStep('Case listing');
+    await this.ccdFormPage.setFieldValue('Listing event', 'Relisting');
+    await this.ccdFormPage.setFieldValue('Listing location', 'Hatton Cross Tribunal Hearing Centre');
+    await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
+    await browser.sleep(3000);
+    const listingHearingDuaration = element(by.xpath("//*[@id='listingHearingDuration']"));
+    await listingHearingDuaration.clear();
+    await this.ccdFormPage.typeText('listingHearingDuration', '30');
+    await this.ccdFormPage.setFieldValue(
+      'Date and time',
+      '{$TODAY+14|DD-MM-YYYY} 11:30:00'
+    );
+    await this.ccdFormPage.click('Continue');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
+    await this.ccdFormPage.click('List case');
 
-        await this.ccdFormPage.selectNextStep('Case listing');
-        await this.ccdFormPage.setFieldValue('Listing event', 'Relisting');
-        await this.ccdFormPage.setFieldValue('Listing location', 'Hatton Cross Tribunal Hearing Centre');
-        await this.ccdFormPage.setFieldValue('Will the hearing be held remotely?', 'Yes');
-        await browser.sleep(3000);
-      let listingHearingDuaration = element(by.xpath("//*[@id='listingHearingDuration']"));
-       await listingHearingDuaration.clear();
-       await this.ccdFormPage.typeText('listingHearingDuration', '30');
-        await this.ccdFormPage.setFieldValue(
-            'Date and time',
-            '{$TODAY+14|DD-MM-YYYY} 11:30:00'
-        );
-        await this.ccdFormPage.click('Continue');
-      const currentUrl = await this.ccdFormPage.getCurrentUrl();
-        await this.ccdFormPage.click('List case');
-
-        if (clickContinue) {
-            await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
-        }
+    if (clickContinue) {
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
     }
+  }
 }

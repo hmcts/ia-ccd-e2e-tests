@@ -7,22 +7,22 @@ const requestRespondentEvidenceFlow = new RequestRespondentEvidenceFlow();
 const uploadAdditionalEvidenceFlow = new UploadAdditionalEvidenceFlow();
 const uploadRespondentEvidenceFlow = new UploadRespondentEvidenceFlow();
 
-Then(/^I request respondent evidence$/, async function () {
+Then(/^I request respondent evidence$/, async() => {
   await requestRespondentEvidenceFlow.requestRespondentEvidence(true);
 });
 
-Then(/^I upload respondent evidence$/, async function () {
+Then(/^I upload respondent evidence$/, async() => {
   await uploadRespondentEvidenceFlow.uploadRespondentEvidence(true);
 });
 
-Then(/^I upload additional evidence$/, async function () {
+Then(/^I upload additional evidence$/, async() => {
   await uploadAdditionalEvidenceFlow.uploadAdditionalEvidence(true);
 });
 
-Then(/^I upload Home Office bundle$/, async function () {
+Then(/^I upload Home Office bundle$/, async() => {
   await uploadRespondentEvidenceFlow.uploadHomeOfficeBundle(true);
 });
 
-Then('I see the default text in the Request respondent evidence text area input field', async function () {
+Then('I see the default text in the Request respondent evidence text area input field', async() => {
   await uploadRespondentEvidenceFlow.verifyDefaultTextInTextArea();
 });

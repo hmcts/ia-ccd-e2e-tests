@@ -8,7 +8,7 @@ export class CcdWriteMultiSelectListFieldFinder implements FieldFinder {
   }
 
   public async findByLabel(container, instanceNumber: number, fieldLabel: string) {
-    const fieldContainer = container.all(by.xpath('.//span[contains(@class, "form-label") and normalize-space()="' + fieldLabel + '"]' + '/ancestor::ccd-field-write[position()=1]')).get(instanceNumber - 1);
+    const fieldContainer = container.all(by.xpath(`.//span[contains(@class, "form-label") and normalize-space()="${fieldLabel}"]/ancestor::ccd-field-write[position()=1]`)).get(instanceNumber - 1);
 
     if ((await fieldContainer.isPresent()) && (await fieldContainer.$$('ccd-write-multi-select-list-field').isPresent())) {
       return new CcdWriteMultiSelectListField(fieldContainer, fieldLabel);

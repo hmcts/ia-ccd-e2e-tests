@@ -3,14 +3,15 @@ import { PayAndSubmitAppealFlow } from '../../../flows/pay-and-submit-appeal.flo
 import { Then, When } from '@cucumber/cucumber';
 
 const isfeePaymentEnabled = require('../../../ia.conf').isfeePaymentEnabled === 'true';
+
 const submitAppealFlow = new SubmitAppealFlow();
 const payAndSubmitAppealFlow = new PayAndSubmitAppealFlow();
 
-When(/^I agree to the declaration$/, async function () {
+When(/^I agree to the declaration$/, async() => {
   await submitAppealFlow.completeDeclaration();
 });
 
-Then(/^I submit my appeal$/, async function () {
+Then(/^I submit my appeal$/, async() => {
   await submitAppealFlow.submitAppeal();
   if (isfeePaymentEnabled) {
     await payAndSubmitAppealFlow.createServiceRequest();
@@ -18,38 +19,38 @@ Then(/^I submit my appeal$/, async function () {
   }
 });
 
-Then(/^I pay for and submit my appeal by PBA/, async function () {
+Then(/^I pay for and submit my appeal by PBA/, async() => {
   await submitAppealFlow.submitAppeal();
   await payAndSubmitAppealFlow.createServiceRequest();
   await payAndSubmitAppealFlow.payForAppealByPBA();
 });
 
-Then(/^I pay for and submit my appeal by Card$/, async function () {
+Then(/^I pay for and submit my appeal by Card$/, async() => {
   await submitAppealFlow.submitAppeal();
   await payAndSubmitAppealFlow.createServiceRequest();
   await payAndSubmitAppealFlow.payForAppealByCard();
 });
 
-When('I check the case has been paid for', async function () {
+When('I check the case has been paid for', async() => {
   await payAndSubmitAppealFlow.checkCasePaidCaseOfficer();
 });
 
-Then('I should see the overview for a paid appeal', async function () {
+Then('I should see the overview for a paid appeal', async() => {
   await payAndSubmitAppealFlow.waitForPaymentRecognition();
 });
 
-Then(/^I submit my nonpayment appeal$/, async function () {
+Then(/^I submit my nonpayment appeal$/, async() => {
   await submitAppealFlow.submitAppeal();
 });
 
-Then(/^I submit my late appeal$/, async function () {
+Then(/^I submit my late appeal$/, async() => {
   await submitAppealFlow.submitLateAppeal();
 });
 
-Then(/^I submit my appeal before paying$/, async function () {
+Then(/^I submit my appeal before paying$/, async() => {
   await submitAppealFlow.submitAppeal();
 });
 
-Then(/^I click the Continue button on the Pay by card page$/, async function () {
+Then(/^I click the Continue button on the Pay by card page$/, async() => {
   await payAndSubmitAppealFlow.continuePayByCard();
 });

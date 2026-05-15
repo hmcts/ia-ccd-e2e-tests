@@ -15,7 +15,7 @@ export class HearingBundleFlow {
 
     const locator = '//p[contains(text(), "The hearing bundle is being generated")]';
     await browser.wait(
-      async () => element(by.xpath(locator)).isPresent(),
+      async() => element(by.xpath(locator)).isPresent(),
       30000,
       `Expected ${locator} to be present in DOM within 30 seconds`
     );

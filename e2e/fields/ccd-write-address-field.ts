@@ -22,11 +22,11 @@ export class CcdWriteAddressField implements Field {
   }
 
   public async getValue() {
-    return await this.getValueElement().getAttribute('value');
+    return this.getValueElement().getAttribute('value');
   }
 
   public async setValue(value) {
-    const optionElement = await this.container.element(by.xpath('.//option[normalize-space()="' + value + '"]'));
+    const optionElement = await this.container.element(by.xpath(`.//option[normalize-space()="${value}"]`));
 
     if (await optionElement.isPresent()) {
       await optionElement.click();
@@ -36,11 +36,13 @@ export class CcdWriteAddressField implements Field {
   }
 
   public async isDisplayed() {
-    return await this.getValueElement().first().isDisplayed();
+    return this.getValueElement().first()
+      .isDisplayed();
   }
 
   public async isEnabled() {
-    return await this.getValueElement().first().isEnabled();
+    return this.getValueElement().first()
+      .isEnabled();
   }
 
   public isReadOnly() {

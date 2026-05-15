@@ -32,7 +32,7 @@ export class CaseListFlow {
   }
 
   async clickCaseLinkAtRow(rowNum) {
-    let caseRow = await this.caseListRows.get(rowNum - 1);
+    const caseRow = await this.caseListRows.get(rowNum - 1);
     await caseRow.$('.search-result-column-cell a').click();
     await this.BrowserWaits.waitForElement(this.ccdCaseViewer, undefined, 'Case view page is not displayed');
   }

@@ -33,8 +33,8 @@ export function getCaseDataJsonFromFile(fileName: string): string {
 
   const envFileName = fileName.replace(/\.json$/, `.${env}.json`);
   const candidatePaths = [
-    process.cwd() + `/e2e/data/${envFileName}`,
-    process.cwd() + `/data/${envFileName}`
+    `${process.cwd()}/e2e/data/${envFileName}`,
+    `${process.cwd()}/data/${envFileName}`
   ];
 
   for (const path of candidatePaths) {

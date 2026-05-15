@@ -3,6 +3,6 @@ import { Then } from '@cucumber/cucumber';
 
 const requestHearingRequirementsFlow = new RequestHearingRequirementsFlow();
 
-Then(/^I request hearing requirements$/, async function () {
+Then(/^I request hearing requirements$/, async() => {
   await requestHearingRequirementsFlow.requestHearingRequirements();
 });

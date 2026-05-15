@@ -12,7 +12,7 @@ export class CcdWriteLabelFieldFinder implements FieldFinder {
       return;
     }
 
-    const fieldContainer = container.all(by.xpath('.//dt[normalize-space()="' + fieldLabel + '"]' + '/ancestor::ccd-field-read-label[position()=1]')).get(instanceNumber - 1);
+    const fieldContainer = container.all(by.xpath(`.//dt[normalize-space()="${fieldLabel}"]/ancestor::ccd-field-read-label[position()=1]`)).get(instanceNumber - 1);
 
     if (await fieldContainer.isPresent()) {
       return new CcdWriteLabelField(fieldContainer, fieldLabel);

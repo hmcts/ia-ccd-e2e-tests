@@ -7,15 +7,15 @@ import { CcdPage } from '../../../pages/ccd.page';
 const ftpaAppealFlow = new FtpaAppealFlow();
 const ccdPage = new CcdPage();
 
-Given(/^I submit FTPA Appellant appeal$/, async function () {
+Given(/^I submit FTPA Appellant appeal$/, async() => {
   await ftpaAppealFlow.submitAppellantAppeal(true);
 });
 
-Given(/^I submit FTPA Respondent appeal$/, async function () {
+Given(/^I submit FTPA Respondent appeal$/, async() => {
   await ftpaAppealFlow.submitRespondentAppeal(true);
 });
 
-Then(/^I verify the (presence|absence) of appellant FTPA documents under (Documents|FTPA) tab$/, async function (seeOrNotSee, documentOrFtpa) {
+Then(/^I verify the (presence|absence) of appellant FTPA documents under (Documents|FTPA) tab$/, async(seeOrNotSee, documentOrFtpa) => {
   const isDisplayed = seeOrNotSee === 'presence';
   const isFtpa = documentOrFtpa === 'FTPA';
   if (isDisplayed) {
@@ -49,7 +49,7 @@ Then(/^I verify the (presence|absence) of appellant FTPA documents under (Docume
   }
 });
 
-Then(/^I verify the (presence|absence) of respondent FTPA documents under (Documents|FTPA) tab$/, async function (seeOrNotSee, documentOrFtpa) {
+Then(/^I verify the (presence|absence) of respondent FTPA documents under (Documents|FTPA) tab$/, async(seeOrNotSee, documentOrFtpa) => {
   const isDisplayed = seeOrNotSee === 'presence';
   const isFtpa = documentOrFtpa === 'FTPA';
   if (isDisplayed) {

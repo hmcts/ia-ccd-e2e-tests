@@ -3,6 +3,6 @@ import { RequestCaseBuildingFlow } from '../../../flows/request-case-building.fl
 
 const requestCaseBuildingFlow = new RequestCaseBuildingFlow();
 
-Then(/^I request case building$/, async function () {
+Then(/^I request case building$/, async() => {
   await requestCaseBuildingFlow.requestCaseBuilding();
 });

@@ -3,6 +3,6 @@ import { PrepareDecisionAndReasonsFlow } from '../../../flows/prepare-decision-a
 
 const prepareDecisionAndReasonsFlow = new PrepareDecisionAndReasonsFlow();
 
-Then(/^I prepare decision and reasons$/, async function () {
+Then(/^I prepare decision and reasons$/, async() => {
   await prepareDecisionAndReasonsFlow.prepareDecisionAndReasons();
 });

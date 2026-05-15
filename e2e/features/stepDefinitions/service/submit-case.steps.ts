@@ -6,7 +6,7 @@ const isSaveAndContinueEnabled = require('../../../ia.conf').isSaveAndContinueEn
 
 const submitCaseFlow = new SubmitCaseFlow();
 
-Then(/^I submit my case$/, async function () {
+Then(/^I submit my case$/, async() => {
   if (isSaveAndContinueEnabled) {
     await submitCaseFlow.submitCase(true);
   } else {

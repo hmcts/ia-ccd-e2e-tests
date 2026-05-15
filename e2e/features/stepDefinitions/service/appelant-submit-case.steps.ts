@@ -9,7 +9,7 @@ const iaConfig = require('../../../ia.conf');
 const ccdPage = new CcdPage();
 const ccdUrl = iaConfig.CcdWebUrl;
 
-Given(/^An appellant has submitted an appeal$/, async function () {
+Given(/^An appellant has submitted an appeal$/, async () => {
   const appellantConfig = await createUser();
   const userToken = appellantConfig.userToken;
   const userId = appellantConfig.userId;
@@ -24,12 +24,12 @@ Given(/^An appellant has submitted an appeal$/, async function () {
   this.securityHeaders = securityHeaders;
 });
 
-Given(/^I am viewing the appellant's case$/, async function () {
+Given(/^I am viewing the appellant's case$/, async () => {
   await ccdPage.get(`${ccdUrl}/case/IA/Asylum/${this.caseDetails.id}`);
   await ccdPage.contentContains('Immigration');
 });
 
-Given(/^the appellant submits their reasons for appeal$/, async function () {
+Given(/^the appellant submits their reasons for appeal$/, async () => {
   const ccdService = new CcdService();
 
   const ccdCaseDetails = await ccdService.loadCasesForUser(this.userId, this.securityHeaders);
@@ -39,6 +39,6 @@ Given(/^the appellant submits their reasons for appeal$/, async function () {
   await ccdService.updateAppeal(Events.SUBMIT_REASONS_FOR_APPEAL, this.userId, usersCase, this.securityHeaders);
 });
 
-Then(/^I should see the appellants reasons for appeal$/, async function () {
+Then(/^I should see the appellants reasons for appeal$/, async() => {
   expect(await ccdPage.isFieldValueDisplayed('Appeal Reasons', 'a reason for appeal')).to.equal(true);
 });

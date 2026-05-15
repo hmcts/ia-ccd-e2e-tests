@@ -19,19 +19,22 @@ export class CcdReadField implements Field {
   }
 
   public async getValue() {
-    return await this.getValueElement().first().getText();
+    return this.getValueElement().first()
+      .getText();
   }
 
   public async setValue(value) {
-    throw 'Unsupported -- field is read only';
+    throw new Error('Unsupported -- field is read only');
   }
 
   public async isDisplayed() {
-    return await this.getValueElement().first().isDisplayed();
+    return this.getValueElement().first()
+      .isDisplayed();
   }
 
   public async isEnabled() {
-    return await this.getValueElement().first().isEnabled();
+    return this.getValueElement().first()
+      .isEnabled();
   }
 
   public isReadOnly() {
@@ -39,6 +42,6 @@ export class CcdReadField implements Field {
   }
 
   private getValueElement() {
-   return this.container.all(by.xpath('.//ccd-field-read|.//ccd-read-fixed-list-field'));
+    return this.container.all(by.xpath('.//ccd-field-read|.//ccd-read-fixed-list-field'));
   }
 }

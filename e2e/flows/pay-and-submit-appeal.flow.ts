@@ -22,7 +22,7 @@ export class PayAndSubmitAppealFlow {
     await browser.sleep(1000);
     await this.ccdFormPage.typeText('pbaAccountRef', 'Unique Reference');
     await this.ccdFormPage.typeEnter('pbaAccountRef');
-    let confirmPaymentButton = element(by.css('button.pba-payments-19-font'));
+    const confirmPaymentButton = element(by.css('button.pba-payments-19-font'));
     await confirmPaymentButton.click();
     await this.ccdPage.waitForCssElementVisible('div.pba-payments--confirmation');
     await this.ccdPage.click('View service requests');
@@ -59,7 +59,7 @@ export class PayAndSubmitAppealFlow {
   async createServiceRequest() {
     await this.ccdFormPage.selectNextStep('Create a service request');
     await this.ccdFormPage.headingContains('Pay for this appeal');
-    let currentUrl = await browser.getCurrentUrl();
+    const currentUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
     await this.ccdPage.waitForConfirmationScreenAndContinue(currentUrl);
     await this.ccdPage.waitForOverviewPage(this.ccdPage.getStoredCaseUrl());

@@ -8,30 +8,30 @@ const ccdPage = new CcdPage();
 
 const recordAgreedRequirementsFlow = new RecordAgreedRequirementsFlow();
 
-Then(/^I record agreed hearing requirements yes path$/, async function () {
+Then(/^I record agreed hearing requirements yes path$/, async() => {
   await recordAgreedRequirementsFlow.recordAgreedRequirementsYesPath(
     true,
     true
   );
 });
 
-Then(/^I record updated hearing requirements yes path$/, async function () {
+Then(/^I record updated hearing requirements yes path$/, async() => {
   await recordAgreedRequirementsFlow.recordUpdatedHearingRequirementsYesPath(
     true
   );
 });
 
-Then(/^I record agreed hearing requirements no path$/, async function () {
+Then(/^I record agreed hearing requirements no path$/, async() => {
   await recordAgreedRequirementsFlow.recordAgreedRequirementsNoPath(true);
 });
 
-Then(/^I record updated hearing requirements no path$/, async function () {
+Then(/^I record updated hearing requirements no path$/, async() => {
   await recordAgreedRequirementsFlow.recordAgreedRequirementsNoPath(true);
 });
 
 Then(
   /^I should (see|not see) the requests for additional adjustments (yes|no) path$/,
-  async function (seeOrNotSee, yesOrNo) {
+  async(seeOrNotSee, yesOrNo) => {
     const isDisplayed = seeOrNotSee === "see";
     const isYesPath = yesOrNo === "yes";
 
@@ -272,7 +272,7 @@ Then(
 
 Then(
   /^I should (see|not see) the agreed additional adjustments (yes|no) path$/,
-  async function (seeOrNotSee, yesOrNo) {
+  async(seeOrNotSee, yesOrNo) => {
     const isDisplayed = seeOrNotSee === "see";
     const isYesPath = yesOrNo === "yes";
 
@@ -372,7 +372,7 @@ Then(
 
 Given(
   /^I record `?([^\s`]+)`? for Remote hearing requirement will be reviewed$/,
-  async function (isYesPath) {
+  async isYesPath => {
     await recordAgreedRequirementsFlow.setRemoteHearingAdjustment(
       true,
       isYesPath,

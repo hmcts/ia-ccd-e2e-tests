@@ -1,7 +1,7 @@
 import { When } from '@cucumber/cucumber';
 import { CcdService, Events } from '../../../aip/ccd-service';
 
-When(/^the appellant submits clarifying answers$/, async function () {
+When(/^the appellant submits clarifying answers$/, async () => {
   const ccdService = new CcdService();
 
   const ccdCaseDetails = await ccdService.loadCasesForUser(this.userId, this.securityHeaders);
@@ -12,9 +12,9 @@ When(/^the appellant submits clarifying answers$/, async function () {
       id: '1',
       value: {
         question: 'Question 1',
-        answer: 'Answer 1',
-      },
-    },
+        answer: 'Answer 1'
+      }
+    }
   ];
 
   await ccdService.updateAppeal(Events.SUBMIT_CLARIFYING_QUESTION_ANSWERS, this.userId, usersCase, this.securityHeaders);

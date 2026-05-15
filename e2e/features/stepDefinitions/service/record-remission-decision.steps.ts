@@ -3,6 +3,6 @@ import { RecordRemissionDecisionFlow } from '../../../flows/record-remission-dec
 
 const recordRemissionDecisionFlow = new RecordRemissionDecisionFlow();
 
-Then(/^I record remission decision as partially approved/, async function () {
+Then(/^I record remission decision as partially approved/, async() => {
   await recordRemissionDecisionFlow.partiallyApproved(true);
 });

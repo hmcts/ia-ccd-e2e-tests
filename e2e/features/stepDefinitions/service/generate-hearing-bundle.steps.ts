@@ -3,6 +3,6 @@ import { Then } from '@cucumber/cucumber';
 
 const hearingBundleFlow = new HearingBundleFlow();
 
-Then(/^I generate the hearing bundle$/, async function () {
+Then(/^I generate the hearing bundle$/, async() => {
   await hearingBundleFlow.generateHearingBundle();
 });

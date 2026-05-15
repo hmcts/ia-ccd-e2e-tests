@@ -9,13 +9,13 @@ const submitHearingRequirementsFlow = new SubmitHearingRequirementsFlow();
 const ccdPage = new CcdPage();
 const ccdFormPage = new CcdFormPage();
 
-Then(/^I submit hearing requirements with all no$/, async function () {
+Then(/^I submit hearing requirements with all no$/, async() => {
   await submitHearingRequirementsFlow.submitHearingRequirements(true, false);
 });
 
 Then(
   /^I submit hearing requirements with all no when (in|out of) country$/,
-  async function (inOrOutOfCountry) {
+  async inOrOutOfCountry => {
     const inCountry = inOrOutOfCountry === "in";
 
     if (inCountry) {
@@ -34,17 +34,17 @@ Then(
   }
 );
 
-Then(/^I update hearing requirements with all no$/, async function () {
+Then(/^I update hearing requirements with all no$/, async() => {
   await submitHearingRequirementsFlow.updateHearingRequirements(true, false);
 });
 
-Then(/^I submit hearing requirements with all yes$/, async function () {
+Then(/^I submit hearing requirements with all yes$/, async() => {
   await submitHearingRequirementsFlow.submitHearingRequirements(true, true);
 });
 
 Then(
   /^I submit hearing requirements with all yes when (in|out of) country$/,
-  async function (inOrOutOfCountry) {
+  async inOrOutOfCountry => {
     const inCountry = inOrOutOfCountry === "in";
 
     if (inCountry) {
@@ -63,13 +63,13 @@ Then(
   }
 );
 
-Then(/^I update hearing requirements with all yes$/, async function () {
+Then(/^I update hearing requirements with all yes$/, async() => {
   await submitHearingRequirementsFlow.updateHearingRequirements(true, true);
 });
 
 Then(
   /^I update hearing requirements with all yes when (in|out of) country$/,
-  async function (inOrOutOfCountry) {
+  async inOrOutOfCountry => {
     const inCountry = inOrOutOfCountry === "in";
 
     if (inCountry) {
@@ -90,7 +90,7 @@ Then(
 
 Then(
   /^I update hearing requirements with all no when (in|out of) country$/,
-  async function (inOrOutOfCountry) {
+  async inOrOutOfCountry => {
     const inCountry = inOrOutOfCountry === "in";
 
     if (inCountry) {
@@ -111,7 +111,7 @@ Then(
 
 Then(
   /^I should (see|not see) the hearing requirements (yes|no) path$/,
-  async function (seeOrNotSee, yesOrNo) {
+  async(seeOrNotSee, yesOrNo) => {
     const isDisplayed = seeOrNotSee === "see";
     const isYesPath = yesOrNo === "yes";
 
@@ -275,7 +275,7 @@ Then(
 
 Then(
   /^I should (see|not see) the reheard hearing requirements (yes|no) path$/,
-  async function (seeOrNotSee, yesOrNo) {
+  async(seeOrNotSee, yesOrNo) => {
     const isDisplayed = seeOrNotSee === "see";
     const isYesPath = yesOrNo === "yes";
 
@@ -431,7 +431,7 @@ Then(
 
 Given(
   /^I select `?([^\s`]+)`? for Remote hearing with details `?([^`]+)`?$/,
-  async function (isYesPath, details) {
+  async(isYesPath, details) => {
     await submitHearingRequirementsFlow.setRemoteHearingRequirement(
       true,
       isYesPath,
@@ -440,13 +440,13 @@ Given(
   }
 );
 
-Given(/^I add the `?([^`]+)`? hearing location$/, async function (location) {
+Given(/^I add the `?([^`]+)`? hearing location$/, async location => {
   await submitHearingRequirementsFlow.setHearingLocation(true, location);
 });
-Given(/^I add the `?([^`]+)`? bail hearing location$/, async function (location) {
+Given(/^I add the `?([^`]+)`? bail hearing location$/, async location => {
   await submitHearingRequirementsFlow.setBailsHearingLocation(true, location);
 });
-Then(/^I Add the interpreter details$/, async function () {
+Then(/^I Add the interpreter details$/, async() => {
   await ccdPage.click("Add new");
   await ccdFormPage.setFieldValue("Booking reference", "Test-32123");
   await ccdFormPage.setFieldValue("Given names", "Thomas");
@@ -466,10 +466,10 @@ Then(/^I Add the interpreter details$/, async function () {
 //   await submitHearingRequirementsFlow.setHearingLocation(true, location);
 // });
 
-Then(/^I select how each of the ?([0-9]+)? participants will attend the hearing$/, async function (numberOfParticipants: number) {
+Then(/^I select how each of the ?([0-9]+)? participants will attend the hearing$/, async(numberOfParticipants: number) => {
   await submitHearingRequirementsFlow.selectParticipantAttendingMethods(numberOfParticipants);
 });
 
-Then(/^I select No for specific judge question with `?([^`]+)`? judge type$/, async function (judgeType: string) {
+Then(/^I select No for specific judge question with `?([^`]+)`? judge type$/, async(judgeType: string) => {
   await submitHearingRequirementsFlow.noSpecificJudge(judgeType);
 });

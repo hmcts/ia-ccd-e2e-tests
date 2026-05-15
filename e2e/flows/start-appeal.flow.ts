@@ -6,13 +6,13 @@ import CaseHelper from "../helpers/CaseHelper";
 import { getCaseDataJsonFromFile } from "../helpers/test-utils";
 
 const iaConfig = require('../ia.conf');
+
 const isOutOfCountryEnabled = iaConfig.isOutOfCountryEnabled === "true";
 
 export class StartAppealFlow {
   private ccdFormPage = new CcdFormPage();
 
   async completeScreeningQuestions(clickContinue = false) {
-
     await this.ccdFormPage.setFieldValue(
       "Is the appellant currently living in the United Kingdom?",
       "Yes"
@@ -339,8 +339,7 @@ export class StartAppealFlow {
   async completeNewMatters(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
     await this.ccdFormPage.setFieldValue(
-      "Are there any reasons the appellant wishes to remain in the UK " +
-      "or any new grounds on which they should be permitted to stay?",
+      "Are there any reasons the appellant wishes to remain in the UK or any new grounds on which they should be permitted to stay?",
       "Yes"
     );
     await this.ccdFormPage.setFieldValue(
@@ -505,7 +504,7 @@ export class StartAppealFlow {
     await this.completeOtherAppeals(true);
     await this.completeLegalRepresentativeDetails(true);
     await this.completeHearingOption(true, hearingOption);
-    let currentUrl = await browser.getCurrentUrl();
+    const currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
     await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
@@ -573,7 +572,7 @@ export class StartAppealFlow {
     if (appealType === "PA") {
       await this.completeHowToPay(true, paymentChoice);
     }
-    let currentUrl = await browser.getCurrentUrl();
+    const currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
     await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
@@ -589,77 +588,57 @@ export class StartAppealFlow {
     const caseData = JSON.parse(caseDataStr);
     const withoutHearing: boolean = feeType === "without";
     switch (appealType) {
-      case "EA":
-        caseData.appealType = 'refusalOfEu';
-        caseData.appealGroundsEuRefusal = {
-          values: [
-            "appealGroundsEuRefusal"
-          ]
-        };
-        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
-        caseData.remissionType = 'noRemission';
-        break;
-      case "HU":
-        caseData.appealType = 'refusalOfHumanRights';
-        caseData.appealGroundsDecisionHumanRightsRefusal = {
-          values: [
-            "humanRightsRefusal"
-          ]
-        };
-        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
-        caseData.remissionType = 'noRemission';
-        break;
-      case "PA":
-        caseData.appealType = 'protection';
-        caseData.paAppealTypePaymentOption = paymentChoice === "later" ? 'payLater' : 'payNow';
-        caseData.appealGroundsProtection = {
-          "values": [
-            "protectionRefugeeConvention"
-          ]
-        };
-        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
-        caseData.remissionType = 'noRemission';
-        break;
-      case "EU":
-        caseData.appealType = 'euSettlementScheme';
-        caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-        caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
-        caseData.remissionType = 'noRemission';
-        break;
-      case "RP":
-        caseData.appealType = 'revocationOfProtection';
-        caseData.appealGroundsRevocation = {
-          "values": [
-            "revocationRefugeeConvention"
-          ]
-        };
-        caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-        break;
-      default:
-      case "DC":
-        caseData.appealType = 'deprivation';
-        caseData.appealGroundsDeprivation = {
-          "values": [
-            "disproportionateDeprivation"
-          ]
-        };
-        caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-        break;
+    case "EA":
+      caseData.appealType = 'refusalOfEu';
+      caseData.appealGroundsEuRefusal = { values: ["appealGroundsEuRefusal"] };
+      caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+      caseData.remissionType = 'noRemission';
+      break;
+    case "HU":
+      caseData.appealType = 'refusalOfHumanRights';
+      caseData.appealGroundsDecisionHumanRightsRefusal = { values: ["humanRightsRefusal"] };
+      caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+      caseData.remissionType = 'noRemission';
+      break;
+    case "PA":
+      caseData.appealType = 'protection';
+      caseData.paAppealTypePaymentOption = paymentChoice === "later" ? 'payLater' : 'payNow';
+      caseData.appealGroundsProtection = { values: ["protectionRefugeeConvention"] };
+      caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+      caseData.remissionType = 'noRemission';
+      break;
+    case "EU":
+      caseData.appealType = 'euSettlementScheme';
+      caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+      caseData.remissionType = 'noRemission';
+      break;
+    case "RP":
+      caseData.appealType = 'revocationOfProtection';
+      caseData.appealGroundsRevocation = { values: ["revocationRefugeeConvention"] };
+      caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+      break;
+    default:
+    case "DC":
+      caseData.appealType = 'deprivation';
+      caseData.appealGroundsDeprivation = { values: ["disproportionateDeprivation"] };
+      caseData.rpDcAppealHearingOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
+      break;
     }
 
     if (hasFixedAddress) {
       caseData.appellantHasFixedAddress = 'Yes';
       caseData.appellantAddress = {
-        "AddressLine1": "44 Millhouse Drive",
-        "AddressLine2": "",
-        "AddressLine3": "",
-        "PostTown": "Glasgow",
-        "County": "",
-        "PostCode": "G20 0UE",
-        "Country": "United Kingdom"
+        AddressLine1: "44 Millhouse Drive",
+        AddressLine2: "",
+        AddressLine3: "",
+        PostTown: "Glasgow",
+        County: "",
+        PostCode: "G20 0UE",
+        Country: "United Kingdom"
       };
     } else {
       caseData.appellantHasFixedAddress = 'No';
@@ -752,8 +731,7 @@ export class StartAppealFlow {
     await this.completeOutOfCountryQuestion(true, appellantInUk);
     await this.completeDecisionType(true, decisionType);
     if (
-      decisionType === "refusalOfHumanRights" ||
-      decisionType === "refusePermitOfEUSS"
+      decisionType === "refusalOfHumanRights" || decisionType === "refusePermitOfEUSS"
     ) {
       await this.completeGlobalWebFormReference(true, "GWF1234567", lateAppeal);
     } else if (decisionType === "refusalOfProtection") {
@@ -785,7 +763,6 @@ export class StartAppealFlow {
     await this.completeCheckYourAnswers(true);
   }
 
-  // tslint:disable-next-line:max-line-length
   async saveInitialAppealWithFeeOutOfCountryWithDecision(
     clickContinue = false,
     appealType = "",
@@ -1187,7 +1164,7 @@ export class StartAppealFlow {
     if (appealType === "PA") {
       await this.completeHowToPay(true, paymentChoice);
     }
-    let currentUrl = await browser.getCurrentUrl();
+    const currentUrl = await browser.getCurrentUrl();
     await this.completeCheckYourAnswers(true);
     await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
   }
@@ -1384,7 +1361,6 @@ export class StartAppealFlow {
     homeOfficeReferenceNumber = "",
     lateAppeal = ""
   ) {
-
     await this.ccdFormPage.setFieldValue(
       "Home Office Reference/Case ID",
       homeOfficeReferenceNumber || "01234567"

@@ -3,6 +3,7 @@ import axios from "axios";
 
 const iaConfig = require('../ia.conf');
 const otp = require('otp');
+
 const s2sSecret: string = iaConfig.s2sSecret;
 const s2sUrl: string = iaConfig.s2sUrl;
 const microServiceName: string = iaConfig.s2sMicroserviceName;
@@ -13,10 +14,10 @@ async function requestServiceToken() {
   const uri = `${s2sUrl}/lease`;
   const oneTimePassword = await otp(s2sSecret).totp();
   const request = {
-    uri: uri,
+    uri,
     body: {
       microservice: microServiceName,
-      oneTimePassword: oneTimePassword
+      oneTimePassword
     }
   };
   let res;
@@ -35,7 +36,7 @@ async function requestServiceToken() {
 }
 
 async function getS2sToken() {
-  if (serviceToken == null || isJWTExpired(serviceToken)) {
+  if (serviceToken === null || isJWTExpired(serviceToken)) {
     console.log('Token expired Attempting to acquire a new one.');
     await requestServiceToken();
   }

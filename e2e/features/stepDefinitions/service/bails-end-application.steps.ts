@@ -3,6 +3,6 @@ import { Given } from '@cucumber/cucumber';
 
 const endApplication = new EndApplication();
 
-Given('I end the application', async function () {
+Given('I end the application', async() => {
   await endApplication.endApplication(true);
 });

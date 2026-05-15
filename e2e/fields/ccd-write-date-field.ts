@@ -29,7 +29,7 @@ export class CcdWriteDateField implements Field {
     const minuteElement = this.getMinuteElement();
     const secondElement = this.getSecondElement();
 
-    let datePart = (await dayElement.getAttribute('value')) + '-' + (await monthElement.getAttribute('value')) + '-' + (await yearElement.getAttribute('value'));
+    let datePart = `${await dayElement.getAttribute('value')}-${await monthElement.getAttribute('value')}-${await yearElement.getAttribute('value')}`;
 
     if (datePart === '--') {
       datePart = '';
@@ -38,14 +38,14 @@ export class CcdWriteDateField implements Field {
     let timePart = '';
 
     if ((await hourElement.isPresent()) && (await minuteElement.isPresent()) && (await secondElement.isPresent())) {
-      timePart = (await hourElement.getAttribute('value')) + ':' + (await minuteElement.getAttribute('value')) + ':' + (await secondElement.getAttribute('value'));
+      timePart = `${await hourElement.getAttribute('value')}:${await minuteElement.getAttribute('value')}:${await secondElement.getAttribute('value')}`;
 
       if (timePart === '::') {
         timePart = '';
       }
     }
 
-    return (datePart + ' ' + timePart).trim();
+    return (`${datePart} ${timePart}`).trim();
   }
 
   public async setValue(value) {
@@ -54,7 +54,8 @@ export class CcdWriteDateField implements Field {
     }
 
     // DD-MM-YYYY HH:MM:SS
-    const dateParts = value.replace(/\s+/g, '-').replace(/:/g, '-').split('-');
+    const dateParts = value.replace(/\s+/g, '-').replace(/:/g, '-')
+      .split('-');
 
     await this.formFiller.replaceText(this.getDayElement(), dateParts[0]);
 
@@ -88,11 +89,11 @@ export class CcdWriteDateField implements Field {
   }
 
   public async isDisplayed() {
-    return await this.getDayElement().isDisplayed();
+    return this.getDayElement().isDisplayed();
   }
 
   public async isEnabled() {
-    return await this.getDayElement().isEnabled();
+    return this.getDayElement().isEnabled();
   }
 
   public isReadOnly() {
@@ -124,6 +125,6 @@ export class CcdWriteDateField implements Field {
   }
 
   private getUnitElement(unit: string) {
-    return this.container.element(by.xpath('.//input[(@type="text" or @type="number") and contains(@name, "-' + unit + '")]'));
+    return this.container.element(by.xpath(`.//input[(@type="text" or @type="number") and contains(@name, "-${unit}")]`));
   }
 }

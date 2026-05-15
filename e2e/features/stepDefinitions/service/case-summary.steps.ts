@@ -3,6 +3,6 @@ import { Then } from '@cucumber/cucumber';
 
 const caseSummaryFlow = new CaseSummaryFlow();
 
-Then(/^I create case summary$/, async function () {
+Then(/^I create case summary$/, async() => {
   await caseSummaryFlow.createCaseSummary(true);
 });

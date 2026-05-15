@@ -22,7 +22,7 @@ export class CcdWriteTelField implements Field {
   }
 
   public async getValue() {
-    return await this.getValueElement().getAttribute('value');
+    return this.getValueElement().getAttribute('value');
   }
 
   public async setValue(value) {
@@ -30,11 +30,11 @@ export class CcdWriteTelField implements Field {
   }
 
   public async isDisplayed() {
-    return await this.getValueElement().isDisplayed();
+    return this.getValueElement().isDisplayed();
   }
 
   public async isEnabled() {
-    return await this.getValueElement().isEnabled();
+    return this.getValueElement().isEnabled();
   }
 
   public isReadOnly() {
