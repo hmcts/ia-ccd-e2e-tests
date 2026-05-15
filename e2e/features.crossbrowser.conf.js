@@ -19,7 +19,7 @@ const config = {
         'nightly-tag': iaConfig.NightlyTag,
         'no-source': true,
         strict: true,
-        format: ['node_modules/cucumber-pretty', 'json:./cb_reports/saucelab_results.json'],
+        format: ['/html:./reports/tests/functional/results.html', 'json:./cb_reports/saucelab_results.json'],
         retry: 1,
     },
 

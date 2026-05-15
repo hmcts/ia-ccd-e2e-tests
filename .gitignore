@@ -17,3 +17,4 @@ protractorFailuresReport/
 
 # If you run the tests locally, you might have this
 e2e/testCounter.json
+e2e/e2e/*

@@ -1,5 +1,5 @@
 import { UploadSignedDecisionNotice } from '../../../flows/bails-upload-signed-decision-notice.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const uploadSignedDecisionNotice = new UploadSignedDecisionNotice();
 

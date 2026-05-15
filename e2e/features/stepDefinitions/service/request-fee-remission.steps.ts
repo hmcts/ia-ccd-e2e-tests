@@ -1,4 +1,4 @@
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { RequestFeeRemissionFlow } from '../../../flows/request-fee-remission.flow';
 
 const requestFeeRemissionFlow = new RequestFeeRemissionFlow();

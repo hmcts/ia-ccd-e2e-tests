@@ -1,4 +1,4 @@
-import { Then, When } from 'cucumber';
+import { Then, When } from '@cucumber/cucumber';
 import { AllocateARoleFlow } from '../../flows/allocate-a-role.flow';
 
 const legalOpsFlow = new AllocateARoleFlow();

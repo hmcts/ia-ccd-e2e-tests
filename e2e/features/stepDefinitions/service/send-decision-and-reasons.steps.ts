@@ -1,5 +1,5 @@
 import { SendDecisionAndReasonsFlow } from '../../../flows/send-decision-and-reasons.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const sendDecisionAndReasonsFlow = new SendDecisionAndReasonsFlow();
 

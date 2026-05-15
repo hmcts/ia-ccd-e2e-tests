@@ -1,4 +1,4 @@
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { SendCasePreHearingFlow } from '../../../flows/send-case-pre-hearing.flow';
 
 const sendCasePreHearingFlow = new SendCasePreHearingFlow();

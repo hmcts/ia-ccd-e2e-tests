@@ -1,5 +1,5 @@
 import { ShareCasePage } from '../../pages/share-case.page';
-import { Then, When } from 'cucumber';
+import { Then, When } from '@cucumber/cucumber';
 
 const shareCasePage = new ShareCasePage();
 

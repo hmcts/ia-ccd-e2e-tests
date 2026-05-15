@@ -1,5 +1,5 @@
 import { RequestHearingRequirementsFlow } from '../../../flows/request-hearing-requirements.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const requestHearingRequirementsFlow = new RequestHearingRequirementsFlow();
 

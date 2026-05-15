@@ -1,6 +1,6 @@
 import { AuthenticationFlow, UserRole } from '../../flows/authentication.flow';
 import { CcdPage } from '../../pages/ccd.page';
-import { Given, Then } from 'cucumber';
+import { Given, Then } from '@cucumber/cucumber';
 import { IdamSignInPage } from '../../pages/idam-sign-in.page';
 import { expect } from 'chai';
 

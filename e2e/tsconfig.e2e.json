@@ -5,6 +5,6 @@
     "baseUrl": "./",
     "module": "commonjs",
     "target": "es5",
-    "types": ["cucumber", "jasmine", "node"]
+    "types": ["@cucumber/cucumber", "jasmine", "node"]
   }
 }

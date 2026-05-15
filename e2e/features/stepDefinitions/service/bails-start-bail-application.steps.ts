@@ -1,5 +1,5 @@
 import { StartBailApplicationFlow } from '../../../flows/bails-start-bail-application.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const startBailApplicationFlow = new StartBailApplicationFlow();
 

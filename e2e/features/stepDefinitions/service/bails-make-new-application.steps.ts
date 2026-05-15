@@ -1,5 +1,5 @@
 import { MakeNewApplicationFlow } from '../../../flows/bails-make-new-application.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const makeNewApplicationFlow = new MakeNewApplicationFlow();
 

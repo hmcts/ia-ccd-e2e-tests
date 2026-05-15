@@ -1,4 +1,4 @@
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { RecordRemissionDecisionFlow } from '../../../flows/record-remission-decision.flow';
 
 const recordRemissionDecisionFlow = new RecordRemissionDecisionFlow();

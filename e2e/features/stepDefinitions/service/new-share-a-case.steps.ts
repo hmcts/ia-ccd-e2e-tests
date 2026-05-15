@@ -1,5 +1,5 @@
 import { NewShareACaseFlow } from '../../../flows/new-share-a-case.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const newShareACaseFlow = new NewShareACaseFlow();
 

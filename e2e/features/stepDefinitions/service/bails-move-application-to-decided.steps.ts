@@ -1,5 +1,5 @@
 import { MoveToDecided } from '../../../flows/bails-move-application-to-decided.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const moveToDecided = new MoveToDecided();
 

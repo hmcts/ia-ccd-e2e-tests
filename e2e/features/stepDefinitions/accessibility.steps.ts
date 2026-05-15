@@ -1,5 +1,5 @@
 import { CcdPage } from '../../pages/ccd.page';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const iaConfig = require('../../ia.conf');
 const ccdPage = new CcdPage();

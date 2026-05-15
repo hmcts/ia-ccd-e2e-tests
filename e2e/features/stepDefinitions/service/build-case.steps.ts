@@ -1,5 +1,5 @@
 import { BuildCaseFlow } from '../../../flows/build-case.flow';
-import { Then, Given } from 'cucumber';
+import { Then, Given } from '@cucumber/cucumber';
 import { ForceACaseProgressionFlow } from '../../../flows/force-a-case-progression.flow';
 
 const buildCaseFlow = new BuildCaseFlow();

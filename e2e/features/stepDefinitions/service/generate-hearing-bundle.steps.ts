@@ -1,5 +1,5 @@
 import { HearingBundleFlow } from '../../../flows/generate-hearing-bundle.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const hearingBundleFlow = new HearingBundleFlow();
 

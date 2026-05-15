@@ -20,7 +20,7 @@ let config = {
     'nightly-tag': iaConfig.NightlyTag,
     'no-source': true,
     strict: true,
-    format: ['node_modules/cucumber-pretty', 'json:./reports/tests/functional/results.json'],
+    format: ['/html:./reports/tests/functional/results.html', 'json:./reports/tests/functional/results.json'],
     retry: parseInt(process.env.RETRIES || 3)
   },
 
