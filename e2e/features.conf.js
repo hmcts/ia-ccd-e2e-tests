@@ -50,9 +50,6 @@ exports.config = {
     keepAlive: false,
     tags: false,
     profile: false,
-    'fail-fast': iaConfig.FailFast,
-    'nightly-tag': iaConfig.NightlyTag,
-    'no-source': true,
     format: 'json:.tmp/results.json',
     strict: true,
     retry: parseInt(process.env.RETRIES || 3)

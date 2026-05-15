@@ -17,9 +17,6 @@ let config = {
     tags: false,
     profile: false,
     'fail-fast': iaConfig.FailFast,
-    'nightly-tag': iaConfig.NightlyTag,
-    'no-source': true,
-    strict: true,
     format: ['/html:./reports/tests/functional/results.html', 'json:./reports/tests/functional/results.json'],
     retry: parseInt(process.env.RETRIES || 3)
   },
