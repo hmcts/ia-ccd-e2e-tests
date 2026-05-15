@@ -5,18 +5,6 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@angular/core@npm:^11.0.5":
-  version: 11.2.14
-  resolution: "@angular/core@npm:11.2.14"
-  dependencies:
-    tslib: "npm:^2.0.0"
-  peerDependencies:
-    rxjs: ^6.5.3
-    zone.js: ^0.10.2 || ^0.11.3
-  checksum: 10/50ff69b6f3dec0a78005895ce945f01c47bd97233298b4585e7bf1d754b0dcf56a6929ee591048109d8cbbf9f1d8cd9a4fc377a49ebfb3391d96ec190a9a3412
-  languageName: node
-  linkType: hard
-
 "@axe-core/webdriverjs@npm:^4.1.1":
   version: 4.10.2
   resolution: "@axe-core/webdriverjs@npm:4.10.2"
@@ -2055,7 +2043,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ia-ccd-e2e-tests@workspace:."
   dependencies:
-    "@angular/core": "npm:^11.0.5"
     "@axe-core/webdriverjs": "npm:^4.1.1"
     "@cucumber/cucumber": "npm:^7.3.2"
     "@hmcts/eslint-config": "npm:^1.4.0"
@@ -4088,7 +4075,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.0.3":
+"tslib@npm:^2.0.3":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7
