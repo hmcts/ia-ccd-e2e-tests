@@ -1,12 +1,25 @@
-const {After, Before} = require('@cucumber/cucumber');
+const {After, Before, BeforeAll, AfterAll} = require('@cucumber/cucumber');
 const {browser} = require('protractor');
 const fs = require('fs');
 const path = require('path');
 let count = 0;
+let testCounterPath;
+let sessionId;
+const testData = {
+    totalTests: [],
+    passedTests: []
+};
+
+BeforeAll(async function () {
+    sessionId = process.pid
+    testCounterPath = path.join(process.cwd(), 'e2e', `testCounter-${sessionId}.json`);
+});
 
 Before(async function (scenario) {
     let test = `${scenario.pickle.uri}:${scenario.pickle.name}`;
-    await addToTotalTestsIfNotExists(test);
+    if (!testData.totalTests.includes(test)) {
+        testData.totalTests.push(test);
+    }
 });
 
 After(async function (scenario) {
@@ -53,88 +66,24 @@ After(async function (scenario) {
     }
     if (scenario.result.status.toLowerCase() === 'passed') {
         let test = `${scenario.pickle.uri}:${scenario.pickle.name}`;
-        await addToPassedTests(test);
+        if (!testData.passedTests.includes(test)) {
+            testData.passedTests.push(test);
+        }
     }
 });
 
-const DEFAULT_CONTENT = {
-    totalTests: [],
-    passedTests: []
-};
-
-async function addToTotalTestsIfNotExists(stringVar) {
-    const testCounterPath = path.join(process.cwd(), 'e2e', 'testCounter.json');
+AfterAll(async function () {
     const dir = path.dirname(testCounterPath);
-    await fs.mkdir(dir, {recursive: true}, () => {
-        // noop
-    });
-    await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
+    await fs.mkdir(dir, {recursive: true}, async (err) => {
         if (err) {
-            console.error('Error reading file:', err);
-            if (err.code !== 'ENOENT') throw err;
-            const defaultContentString = JSON.stringify(DEFAULT_CONTENT, null, 2)
-            await fs.writeFile(testCounterPath, defaultContentString, 'utf8', async () => {
-                await handleAddTotalData(testCounterPath, stringVar, defaultContentString);
-            });
-        } else {
-            await handleAddTotalData(testCounterPath, stringVar, data);
+            console.error('Error creating directory:', err);
         }
     });
-    sleep(1000);
-}
-
-async function handleAddTotalData(testCounterPath, stringVar, data) {
-    try {
-        const counterData = JSON.parse(data);
-        if (!counterData['totalTests'].includes(stringVar)) {
-            counterData['totalTests'].push(stringVar);
-            await fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
-                if (err) {
-                    console.error('Error writing file:', err);
-                    return;
-                }
-                console.log('String variable added to totalTests array:', stringVar);
-            });
-        }
-    } catch (error) {
-        console.error('Error parsing JSON:', error);
-    }
-}
-
-async function addToPassedTests(stringVar) {
-    const testCounterPath = path.join(process.cwd(), 'e2e', 'testCounter.json');
-    await fs.readFile(testCounterPath, 'utf8', async (err, data) => {
+    const dataString = JSON.stringify(testData, null, 2)
+    await fs.writeFile(testCounterPath, dataString, 'utf8', (err) => {
         if (err) {
-            console.error('Error reading file:', err);
-            return;
+            console.error('Error creating file:', err);
         }
-        await handleAddPassedData(testCounterPath, stringVar, data);
     });
-    sleep(1000);
-}
-
-async function handleAddPassedData(testCounterPath, stringVar, data) {
-    try {
-        const counterData = JSON.parse(data);
-        counterData['passedTests'].push(stringVar);
-        await fs.writeFile(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8', (err) => {
-            if (err) {
-                console.error('Error writing file:', err);
-                return;
-            }
-            console.log('String variable added to passedTests array:', stringVar);
-        });
-    } catch (error) {
-        console.error('Error parsing JSON:', error);
-    }
-}
-
-function sleep(milliseconds) {
-    let start = new Date().getTime();
-    for (let i = 0; i < 1e7; i++) {
-        if (new Date().getTime() - start > milliseconds) {
-            break;
-        }
-    }
-}
+});
 
