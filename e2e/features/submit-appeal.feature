@@ -1,22 +1,22 @@
 Feature: Submit appeal application
 
-#  Background:
-#    Given I am signed in as a `Legal Org User Rep A`
-#    And I save my initial PA appeal type without remission and with hearing fee and pay later
-#    And I go to the overview page for the stored case
-#    Then I should be on the overview page
+  Background:
+    Given I am signed in as a `Legal Org User Rep A`
+    And I save my initial PA appeal type without remission and with hearing fee and pay later
+    And I go to the overview page for the stored case
+    Then I should be on the overview page
 
   @appeal-nightly-test @testy-test
   Scenario: Submit an appeal application
-#
-#    And I select the `Submit your appeal` Next step
-#    And I wait for 5 seconds
-#    Then I should see the `Declaration` page
-#    And I agree to the declaration
-#    # And I click the `Continue` button
-#    When I click the `Submit` button
-#    Then I should see the text `Your appeal has been submitted`
-#    When I click the `Close and Return to case details` button if present
-#    And I wait for 2 seconds
-#    Then I should see the text `Case record`
+
+    And I select the `Submit your appeal` Next step
+    And I wait for 5 seconds
+    Then I should see the `Declaration` page
+    And I agree to the declaration
+    # And I click the `Continue` button
+    When I click the `Submit` button
+    Then I should see the text `Your appeal has been submitted`
+    When I click the `Close and Return to case details` button if present
+    And I wait for 2 seconds
+    Then I should see the text `Case record`
 
