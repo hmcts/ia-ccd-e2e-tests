@@ -17,7 +17,7 @@ let config = {
     tags: false,
     profile: false,
     'fail-fast': iaConfig.FailFast,
-    format: ['/html:./reports/tests/functional/results.html', 'json:./reports/tests/functional/results.json'],
+    format: ['html:./reports/tests/functional/results.html', 'json:./reports/tests/functional/results.json'],
     retry: parseInt(process.env.RETRIES || 3)
   },
 

@@ -16,7 +16,7 @@ const config = {
         tags: false,
         profile: false,
         'fail-fast': iaConfig.FailFast,
-        format: ['/html:./reports/tests/functional/results.html', 'json:./cb_reports/saucelab_results.json'],
+        format: ['html:./reports/tests/functional/results.html', 'json:./cb_reports/saucelab_results.json'],
         retry: 1,
     },
 
