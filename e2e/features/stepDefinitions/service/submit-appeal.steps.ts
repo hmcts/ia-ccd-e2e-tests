@@ -55,6 +55,6 @@ Then(/^I click the Continue button on the Pay by card page$/, async () => {
   await payAndSubmitAppealFlow.continuePayByCard();
 });
 
-When('I click the Return to service request link', async () => {
+When('I return to the service request', async () => {
   await payAndSubmitAppealFlow.returnToServiceRequest();
 });

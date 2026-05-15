@@ -138,13 +138,8 @@ export class PayAndSubmitAppealFlow {
   }
 
   async returnToServiceRequest() {
-    if (process.env.PR_NUMBER && process.env.PR_NUMBER === '') {
-      await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
-      await this.ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
-      await this.ccdPage.gotoTabs('Service Request');
-    } else {
-      await this.ccdPage.waitForSpinner();
-      await this.ccdPage.click('Return to service request');
-    }
+    await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
+    await this.ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
+    await this.ccdPage.gotoTabs('Service Request');
   }
 }
