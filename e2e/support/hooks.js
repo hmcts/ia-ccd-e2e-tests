@@ -44,7 +44,12 @@ After(async function (scenario) {
                 console.error(`Error writing failed screenshot ${count} for scenario: ${scenario.pickle.name}`);
             }
         }
-
+        const browserLogPath = `${process.cwd()}/reports/tests/functional`;
+        await fs.mkdir(browserLogPath, {recursive: true}, (err) => {
+            if (err) {
+                console.error(`Error creating browser log folder`, err);
+            }
+        })
         //fetch browser logs
         let browserLog = await browser.manage().logs().get('browser');
         let browserErrorLogs = [];
@@ -54,9 +59,9 @@ After(async function (scenario) {
             }
         }
         try {
-            this.attach(JSON.stringify(browserErrorLogs, null, 2));
-        } catch (err) {
-            console.log('Error occurred adding message to report. ' + err.stack);
+            await fs.writeFileSync(path.join(browserLogPath, `${scenario.pickle.name}-browser-logs.log`), browserErrorLogs);
+        } catch {
+            console.error(`Error writing browser logs for scenario: ${scenario.pickle.name}`);
         }
     }
     if (scenario.result.status.toLowerCase() === 'passed') {
