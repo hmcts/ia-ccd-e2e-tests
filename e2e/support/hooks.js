@@ -5,18 +5,19 @@ const path = require('path');
 let count = 0;
 let testCounterPath;
 let sessionId;
-let testData;
+const testData = {
+    totalTests: [],
+    passedTests: []
+};
+
+BeforeAll(async function () {
+    sessionId = process.pid
+    console.log(`Session ID: ${sessionId}`)
+    testCounterPath = path.join(process.cwd(), 'e2e', `testCounter-${sessionId}.json`);
+});
 
 Before(async function (scenario) {
-    sessionId = process.pid
-    testCounterPath = path.join(process.cwd(), 'e2e', `testCounter-${sessionId}.json`);
     let test = `${scenario.pickle.uri}:${scenario.pickle.name}`;
-    if (!testData) {
-        testData = {
-            totalTests: [],
-            passedTests: []
-        };
-    }
     if (!testData.totalTests.includes(test)) {
         testData.totalTests.push(test);
     }
