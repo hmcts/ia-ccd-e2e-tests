@@ -29,6 +29,30 @@ export type UserRole =
   'Legal Org User Rep B Bails' |
   'Admin Officer Bails';
 
+let caseOfficerCookies;
+let srCaseOfficerCookies;
+let adminOfficerCookies;
+let legalRepCookies;
+let homeOfficeAPCCookies;
+let homeOfficeLARTCookies;
+let homeOfficePOUCookies;
+let homeOfficeGenericCookies;
+let homeOfficeBailsCookies;
+let judgeCookies;
+let legalOrgUserRepACookies;
+let legalOrgUserRepBCookies;
+let legalOrgUserRepCCookies;
+let legalOrgUserRepDCookies;
+let legalOrgUserRepCreatorCookies;
+let legalOrg2UserRepCreatorCookies;
+let legalOpsACookies;
+let judicialCookies;
+let waAdminCookies;
+let judgeBailsCookies;
+let legalOrgUserRepABailsCookies;
+let legalOrgUserRepBBailsCookies;
+let adminOfficerBailsCookies;
+
 export class AuthenticationFlow {
   private idamSignInPage = new IdamSignInPage();
   private ccdPage = new CcdPage();
@@ -42,79 +66,142 @@ export class AuthenticationFlow {
     await this.idamSignInPage.waitUntilLoaded();
   }
 
-  async signInByRole(role: UserRole) {
+  getCookiesByRole(role: UserRole) {
     switch (role) {
-    case 'Case Officer':
-      await this.signInAsCaseOfficer();
-      break;
-    case 'Sr Case Officer':
-      await this.signInAsSrCaseOfficer();
-      break;
-    case 'Admin Officer':
-      await this.signInAsAdminOfficer();
-      break;
-    case 'Legal Rep':
-      await this.signInAsLawFirmA();
-      break;
-    case 'Home Office APC':
-      await this.signInAsHomeOfficeApc();
-      break;
-    case 'Home Office LART':
-      await this.signInAsHomeOfficeLart();
-      break;
-    case 'Home Office POU':
-      await this.signInAsHomeOfficePou();
-      break;
-    case 'Home Office Generic':
-      await this.signInAsHomeOfficeGeneric();
-      break;
-    case 'Home Office Bails':
-      await this.signInAsHomeOfficeBails();
-      break;
-    case 'Judge':
-      await this.signInAsJudge();
-      break;
-    case 'Legal Org User Rep A':
-      await this.signInAsLawFirmOrgUserA();
-      break;
-    case 'Legal Org User Rep B':
-      await this.signInAsLawFirmOrgUserB();
-      break;
-    case 'Legal Org User Rep C':
-      await this.signInAsLawFirmOrgUserC();
-      break;
-    case 'Legal Ops A':
-      await this.signInAsLegalOpsA();
-      break;
-    case 'Judicial':
-      await this.signInAsJudicial();
-      break;
-    case 'WaAdmin':
-      await this.signInAsWaAdmin();
-      break;
-    case 'Judge Bails':
-      await this.signInAsJudgeBails();
-      break;
-    case 'Legal Org User Rep A Bails':
-      await this.signInAsLawFirmOrgUserABails();
-      break;
-    case 'Legal Org User Rep B Bails':
-      await this.signInAsLawFirmOrgUserBBails();
-      break;
-    case 'Admin Officer Bails':
-      await this.signInAsAdminOfficerBails();
-      break;
-    case 'Legal Org User Rep D':
-      await this.signInAsLawFirmOrgUserD();
-      break;
-    case 'Legal Org User Rep Creator':
-      await this.signInAsLawFirmOrgCreator();
-      break;
-    case 'Legal Org2 User Rep Creator':
-      await this.signInAsLawFirmOrg2Creator();
-      break;
-    default:
-      throw new Error(`Unknown role: ${role}`);
+      case 'Case Officer':
+        return caseOfficerCookies;
+      case 'Sr Case Officer':
+        return srCaseOfficerCookies;
+      case 'Admin Officer':
+        return adminOfficerCookies;
+      case 'Legal Rep':
+        return legalRepCookies;
+      case 'Home Office APC':
+        return homeOfficeAPCCookies;
+      case 'Home Office LART':
+        return homeOfficeLARTCookies;
+      case 'Home Office POU':
+        return homeOfficePOUCookies;
+      case 'Home Office Generic':
+        return homeOfficeGenericCookies;
+      case 'Home Office Bails':
+        return homeOfficeBailsCookies;
+      case 'Judge':
+        return judgeCookies;
+      case 'Legal Org User Rep A':
+        return legalOrgUserRepACookies;
+      case 'Legal Org User Rep B':
+        return legalOrgUserRepBCookies;
+      case 'Legal Org User Rep C':
+        return legalOrgUserRepCCookies;
+      case 'Legal Org User Rep D':
+        return legalOrgUserRepDCookies;
+      case 'Legal Org User Rep Creator':
+        return legalOrgUserRepCreatorCookies;
+      case 'Legal Org2 User Rep Creator':
+        return legalOrg2UserRepCreatorCookies;
+      case 'Legal Ops A':
+        return legalOpsACookies;
+      case 'Judicial':
+        return judicialCookies;
+      case 'WaAdmin':
+        return waAdminCookies;
+      case 'Judge Bails':
+        return judgeBailsCookies;
+      case 'Legal Org User Rep A Bails':
+        return legalOrgUserRepABailsCookies;
+      case 'Legal Org User Rep B Bails':
+        return legalOrgUserRepBBailsCookies;
+      case 'Admin Officer Bails':
+        return adminOfficerBailsCookies;
+    }
+  }
+
+  async loadCookiesByRole(role: UserRole) {
+    await browser.manage().deleteAllCookies();
+    await Promise.all(this.getCookiesByRole(role).map((cookie) => browser.manage().addCookie(cookie)));
+    await this.ccdPage.get(`${iaConfig.CcdWebUrl}/cases`);
+    await this.checkExUiLoaded();
+  }
+
+  async signInByRole(role: UserRole) {
+    const cookies = await this.getCookiesByRole(role);
+    if (cookies) {
+      return this.loadCookiesByRole(role);
+    } else {
+      switch (role) {
+        case 'Case Officer':
+          await this.signInAsCaseOfficer();
+          break;
+        case 'Sr Case Officer':
+          await this.signInAsSrCaseOfficer();
+          break;
+        case 'Admin Officer':
+          await this.signInAsAdminOfficer();
+          break;
+        case 'Legal Rep':
+          await this.signInAsLawFirmA();
+          break;
+        case 'Home Office APC':
+          await this.signInAsHomeOfficeApc();
+          break;
+        case 'Home Office LART':
+          await this.signInAsHomeOfficeLart();
+          break;
+        case 'Home Office POU':
+          await this.signInAsHomeOfficePou();
+          break;
+        case 'Home Office Generic':
+          await this.signInAsHomeOfficeGeneric();
+          break;
+        case 'Home Office Bails':
+          await this.signInAsHomeOfficeBails();
+          break;
+        case 'Judge':
+          await this.signInAsJudge();
+          break;
+        case 'Legal Org User Rep A':
+          await this.signInAsLawFirmOrgUserA();
+          break;
+        case 'Legal Org User Rep B':
+          await this.signInAsLawFirmOrgUserB();
+          break;
+        case 'Legal Org User Rep C':
+          await this.signInAsLawFirmOrgUserC();
+          break;
+        case 'Legal Ops A':
+          await this.signInAsLegalOpsA();
+          break;
+        case 'Judicial':
+          await this.signInAsJudicial();
+          break;
+        case 'WaAdmin':
+          await this.signInAsWaAdmin();
+          break;
+        case 'Judge Bails':
+          await this.signInAsJudgeBails();
+          break;
+        case 'Legal Org User Rep A Bails':
+          await this.signInAsLawFirmOrgUserABails();
+          break;
+        case 'Legal Org User Rep B Bails':
+          await this.signInAsLawFirmOrgUserBBails();
+          break;
+        case 'Admin Officer Bails':
+          await this.signInAsAdminOfficerBails();
+          break;
+        case 'Legal Org User Rep D':
+          await this.signInAsLawFirmOrgUserD();
+          break;
+        case 'Legal Org User Rep Creator':
+          await this.signInAsLawFirmOrgCreator();
+          break;
+        case 'Legal Org2 User Rep Creator':
+          await this.signInAsLawFirmOrg2Creator();
+          break;
+        default:
+          throw new Error(`Unknown role: ${role}`);
+      }
     }
   }
 
@@ -349,6 +436,7 @@ export class AuthenticationFlow {
       }
     }
   }
+
   async signInAsLawFirmOrgUserD() {
     for (let i = 0; i < 5; i++) {
       try {
@@ -408,6 +496,7 @@ export class AuthenticationFlow {
       }
     }
   }
+
   async signInAsJudicial() {
     for (let i = 0; i < 5; i++) {
       try {
@@ -422,6 +511,7 @@ export class AuthenticationFlow {
       }
     }
   }
+
   async signInAsWaAdmin() {
     for (let i = 0; i < 5; i++) {
       try {
