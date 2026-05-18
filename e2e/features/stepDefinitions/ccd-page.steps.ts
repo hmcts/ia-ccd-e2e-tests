@@ -685,3 +685,8 @@ Then(
     }
   }
 );
+
+Then('I fail the test', () => {
+    expect(true).to.equal(false);
+  }
+);
