@@ -18,7 +18,7 @@ Feature: Submit appeal application
     And I wait for 2 seconds
     Then I should see the text `Case record`
 
-  @testy-test
+  @testy-test @appeal-nightly-test
   Scenario: Should fail
     Given I fail the test
 
