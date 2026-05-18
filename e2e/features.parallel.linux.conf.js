@@ -1,3 +1,3 @@
-import {getConfig} from "./features.parallel.conf";
+const { getConfig } = require('./features.parallel.conf.js');
 
 exports.config = getConfig('linux');

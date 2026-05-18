@@ -4,11 +4,41 @@ const iaConfig = require('./ia.conf');
 const {generateAccessibilityReport} = require('../reporter/customReporter');
 const retry = require('protractor-retry').retry;
 const cucumberTaggedFiles = require('../cucumberTaggedFiles.json');
-const {runAfterLaunch} = require("./support/hooks");
+const fs = require("fs");
 
 const chromeVersion = '123.0.6312.122';
 
-export function getConfig(platform) {
+function getTestDataMap() {
+    const dir = path.join(process.cwd(), 'e2e');
+    const map = new Map();
+    const files = fs.readdirSync(dir)
+        .filter(file => file.startsWith('testCounter-') && file.endsWith('.json'))
+        .map(file => path.join(dir, file));
+    files.forEach(file => {
+        map.set(file, JSON.parse(fs.readFileSync(file, 'utf8')));
+    })
+    return map;
+}
+
+function runAfterLaunch() {
+    let testDataMap = getTestDataMap();
+    let totalTests = [];
+    let passedTests = [];
+    testDataMap.forEach((value, key) => {
+        totalTests.push(`${key}:${value['totalTests']}`);
+        passedTests.push(`${key}:${value['passedTests']}`);
+    })
+    if (passedTests.length !== totalTests.length) {
+        const failedTests = totalTests.filter((item) => !passedTests.includes(item));
+        console.log('Tests failed including retries: ' + failedTests.toString().split(',').join("\n"));
+        process.exit(1);
+    } else {
+        console.log(`Tests passed after retries. Number of total tests: ${totalTests.length}. Number of passed tests: ${passedTests.length}.`);
+        process.exit(0);
+    }
+}
+
+function getConfig(platform) {
     let chromeDriverPath;
     let chromeBinaryPath;
     switch (platform) {
@@ -102,3 +132,5 @@ export function getConfig(platform) {
         afterLaunch: () => runAfterLaunch()
     };
 }
+
+module.exports = {getConfig};
