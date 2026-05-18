@@ -6,7 +6,7 @@ Feature: Submit appeal application
     And I go to the overview page for the stored case
     Then I should be on the overview page
 
-  @appeal-nightly-test
+  @appeal-nightly-test @testy-test
   Scenario: Submit an appeal application
 
     And I select the `Submit your appeal` Next step
