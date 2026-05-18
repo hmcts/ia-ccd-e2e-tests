@@ -31,7 +31,8 @@ function runAfterLaunch() {
         dataPassedTests.forEach((passed) => passedTests.push(`${key}:${passed}`));
     })
     if (passedTests.length !== totalTests.length) {
-        const failedTests = totalTests.filter((item) => !passedTests.includes(item));
+        const failedTests = totalTests.filter((item) => !passedTests.includes(item))
+            .map((item) => item.split(':')[1]);
         console.log('Tests failed including retries: ' + failedTests.toString().split(',').join("\n"));
         process.exit(1);
     } else {
