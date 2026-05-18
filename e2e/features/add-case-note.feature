@@ -7,7 +7,7 @@ Feature: Add a case note
     Then I should be on the overview page
     And I pay for and submit my appeal by PBA
 
-  @regression @add-case-note @RIA-575 @appeal-nightly-test
+  @regression @add-case-note @RIA-575 @appeal-nightly-test @testy-test
   Scenario: Add a case note with document
 
     And I switch to be a `Case Officer`

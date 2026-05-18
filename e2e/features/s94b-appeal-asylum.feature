@@ -3,7 +3,7 @@ Feature: s94b appeal
     Background:
         Given I am signed in as a `Legal Org User Rep A`
 
-    @regression @caseflag @appeal-nightly-test
+    @regression @caseflag @appeal-nightly-test @testy-test
     Scenario: S94B appeal for PA Case
         And I save my initial PA appeal type without remission and with hearing fee and pay now
         And I go to the overview page for the stored case
