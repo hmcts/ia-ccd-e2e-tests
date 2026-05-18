@@ -11,7 +11,7 @@ const ccdPage = new CcdPage();
 const ccdFormPage = new CcdFormPage();
 const iaConfig = require("../../ia.conf");
 
-Given("I create a new case", async() => {
+Given("I create a new case", async () => {
   await ccdPage.acceptCookies();
   await browser.get(`${iaConfig.CcdWebUrl}/cases/case-filter`);
   try {
@@ -28,7 +28,7 @@ Given("I create a new case", async() => {
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
   await browser.wait(
-    async() => element(by.xpath('//option[contains(text(), "Appeal*")]')).isPresent(),
+    async () => element(by.xpath('//option[contains(text(), "Appeal*")]')).isPresent(),
     30000,
     `Expected element "//option[contains(text(), "Appeal*")]" to be present within 30 seconds`
   );
@@ -44,7 +44,7 @@ Given("I create a new case", async() => {
   }
 });
 
-Given("I create a new bail application", async() => {
+Given("I create a new bail application", async () => {
   await ccdPage.acceptCookies();
   await browser.get(`${iaConfig.CcdWebUrl}/cases/case-filter`);
   try {
@@ -61,7 +61,7 @@ Given("I create a new bail application", async() => {
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
   await browser.wait(
-    async() => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
+    async () => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
     30000,
     `Expected element "//option[contains(text(), "Bail*")]" to be present within 30 seconds`
   );
@@ -77,7 +77,7 @@ Given("I create a new bail application", async() => {
   }
 });
 
-Given("I Apply case list filter", async() => {
+Given("I Apply case list filter", async () => {
   await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Case list")).to.equal(true);
   await ccdPage.runAccessbility();
@@ -85,7 +85,7 @@ Given("I Apply case list filter", async() => {
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
   await browser.wait(
-    async() => element(by.xpath('//option[contains(text(), "Appeal*")]')).isPresent(),
+    async () => element(by.xpath('//option[contains(text(), "Appeal*")]')).isPresent(),
     30000,
     `Expected element "//option[contains(text(), "Appeal*")]" to be present within 30 seconds`
   );
@@ -96,7 +96,7 @@ Given("I Apply case list filter", async() => {
   await ccdPage.click("Apply");
 });
 
-Given("I Apply case list filter for Bails", async() => {
+Given("I Apply case list filter for Bails", async () => {
   await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Case list")).to.equal(true);
   await ccdPage.runAccessbility();
@@ -104,7 +104,7 @@ Given("I Apply case list filter for Bails", async() => {
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
   await browser.wait(
-    async() => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
+    async () => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
     30000,
     `Expected element "//option[contains(text(), "Bail*")]" to be present within 30 seconds`
   );
@@ -115,7 +115,7 @@ Given("I Apply case list filter for Bails", async() => {
   await ccdPage.click("Apply");
 });
 
-Then("I wait for Create Case fields to load", async() => {
+Then("I wait for Create Case fields to load", async () => {
   await ccdPage.headingContains("Create Case");
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdPage.doesDropdownHaveValues("Case type");
@@ -138,7 +138,7 @@ Then(
   }
 );
 
-Then(/^I see the open case$/, async() => {
+Then(/^I see the open case$/, async () => {
   expect(await ccdPage.linkContains("Print")).to.equal(true);
 });
 
@@ -155,7 +155,7 @@ Then(/^I should see the username `?([^`]+)`?$/, async username => {
 
 Then(
   /^I (?:should |)(see|not see) the image `?([^`]+)`?$/,
-  async(seeOrNotSee, match) => {
+  async (seeOrNotSee, match) => {
     const shortWait = seeOrNotSee === "not see";
     try {
       expect(await ccdPage.imgSrcContains(match, shortWait)).to.equal(
@@ -172,7 +172,7 @@ Then(
 
 Then(
   /^I (?:should |)(see|not see) the text `?([^`]+)`?$/,
-  async(seeOrNotSee, match) => {
+  async (seeOrNotSee, match) => {
     const wait = seeOrNotSee === "not see" ? Wait.short : Wait.normal;
     expect(await ccdPage.contentContains(match, wait)).to.equal(
       seeOrNotSee === "see"
@@ -182,14 +182,14 @@ Then(
 
 Then(
   /^I should see ?`([^`]+)`?$/,
-  async(match: string) => {
+  async (match: string) => {
     await ccdPage.waitForXpathElementVisible(`//*[contains(text(), "${match}")]`);
   }
 );
 
 Then(
   /^I (?:should |)(see|not see) the `?([^`]+)`? (?:button|link|tab|label)$/,
-  async(seeOrNotSee, linkText) => {
+  async (seeOrNotSee, linkText) => {
     const shortWait = seeOrNotSee === "not see";
     expect(await ccdPage.linkContains(linkText, shortWait)).to.equal(
       seeOrNotSee === "see"
@@ -197,11 +197,11 @@ Then(
   }
 );
 
-Then("I should be on the overview page", async() => {
+Then("I should be on the overview page", async () => {
   await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
 });
 
-Then("I go to the overview page for the stored case", async() => {
+Then("I go to the overview page for the stored case", async () => {
   await ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
   await ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
   await ccdPage.gotoTabs("Overview");
@@ -209,7 +209,7 @@ Then("I go to the overview page for the stored case", async() => {
 
 Then(
   /^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/,
-  async(buttonText, enabledOrDisabled) => {
+  async (buttonText, enabledOrDisabled) => {
     expect(
       await ccdPage.isButtonEnabled(buttonText, enabledOrDisabled !== "enabled")
     ).to.equal(enabledOrDisabled === "enabled");
@@ -230,7 +230,7 @@ When(
 
 When(
   /^I click the `Continue` button for flakey Make an application$/,
-  async() => {
+  async () => {
     await ccdPage.waitForSpinner();
     try {
       await ccdPage.click("Continue", 0, 120000);
@@ -261,19 +261,19 @@ When(
 
 When(
   /^I click the `?(first|second|third|)`?\s`?([^`]+)`? (?:button|link|tab|label)$/,
-  async(instanceNumber, linkText) => {
+  async (instanceNumber, linkText) => {
     const xpathIndex = OrdinalToCardinal.convertWordToNumber(instanceNumber) - 1;
     await ccdPage.click(linkText, xpathIndex);
   }
 );
 
-When(/^I refresh the page$/, async() => {
+When(/^I refresh the page$/, async () => {
   await ccdPage.refresh();
 });
 
 Then(
   /^I should (see|not see) the `?(first|second|third|)`?\s?(?:answer|field) without a label$/,
-  async(seeOrNotSee, instanceNumber) => {
+  async (seeOrNotSee, instanceNumber) => {
     expect(await ccdPage.isFieldDisplayed("", instanceNumber)).to.equal(
       seeOrNotSee === "see"
     );
@@ -282,7 +282,7 @@ Then(
 
 Then(
   /^I should (see|not see) the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field)$/,
-  async(seeOrNotSee, instanceNumber, fieldLabel) => {
+  async (seeOrNotSee, instanceNumber, fieldLabel) => {
     expect(await ccdPage.isFieldDisplayed(fieldLabel, instanceNumber)).to.equal(
       seeOrNotSee === "see"
     );
@@ -291,7 +291,7 @@ Then(
 
 Then(
   /^the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field) should be empty$/,
-  async(instanceNumber, fieldLabel) => {
+  async (instanceNumber, fieldLabel) => {
     expect(
       await ccdPage.isFieldValueDisplayed(fieldLabel, "", true, instanceNumber)
     ).to.equal(true);
@@ -300,7 +300,7 @@ Then(
 
 Then(
   /^the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field) should be (\d+) characters long$/,
-  async(instanceNumber, fieldLabel, fieldValueSize) => {
+  async (instanceNumber, fieldLabel, fieldValueSize) => {
     expect(
       await ccdPage.isFieldValueCorrectLength(
         fieldLabel,
@@ -322,7 +322,7 @@ Then(
 
 Then(
   /^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?(?:answer|field) without a label$/,
-  async(fieldMatch, inOrFor, instanceNumber) => {
+  async (fieldMatch, inOrFor, instanceNumber) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -338,7 +338,7 @@ Then(
 
 Then(
   /^I should see `?([^`]+)`? (in|for) the `?(first|second|third|fourth|fifth|)`?\s?`?([^`]+)`? (?:answer|field)$/,
-  async(fieldMatch, inOrFor, instanceNumber, fieldLabel) => {
+  async (fieldMatch, inOrFor, instanceNumber, fieldLabel) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -354,7 +354,7 @@ Then(
 
 Then(
   /^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? text area input (?:answer|field)$/,
-  async(fieldMatch, inOrFor, fieldLabel) => {
+  async (fieldMatch, inOrFor, fieldLabel) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -373,7 +373,7 @@ Then(
 
 Then(
   /^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? date input (?:answer|field)$/,
-  async(fieldMatch, inOrFor, fieldLabel) => {
+  async (fieldMatch, inOrFor, fieldLabel) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -392,7 +392,7 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
-  async(instanceNumber, fieldsetLabel, fieldMatch, inOrFor) => {
+  async (instanceNumber, fieldsetLabel, fieldMatch, inOrFor) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -409,7 +409,7 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
-  async(
+  async (
     instanceNumber,
     fieldsetLabel,
     fieldMatch,
@@ -432,7 +432,7 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
-  async(
+  async (
     instanceNumber,
     collectionLabel,
     collectionItemNumber,
@@ -456,7 +456,7 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
-  async(
+  async (
     instanceNumber,
     collectionLabel,
     collectionItemNumber,
@@ -481,7 +481,7 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see one of `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
-  async(
+  async (
     instanceNumber,
     collectionLabel,
     collectionItemNumber,
@@ -515,12 +515,12 @@ Then(/^I go to the URL `?([^`]+)`?$/, async URL => {
 
 Then(
   /^I select `?([^`]+)`? from the dropdown with ID `?([^`]+)`?$/,
-  async(option, ID) => {
+  async (option, ID) => {
     await ccdFormPage.typeText(ID, option);
   }
 );
 
-Given("I restart the browser", async() => {
+Given("I restart the browser", async () => {
   await browser.restart();
 });
 Then(/^I will make `?([^`]+)`? as Inactive$/, async flagtype => {
@@ -539,7 +539,7 @@ Then(/^I will make `?([^`]+)`? as Inactive$/, async flagtype => {
 
 Then(
   /^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/,
-  async(flag, type) => {
+  async (flag, type) => {
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 30000, false);
     await ccdFormPage.waitForXpathElementVisible(`//label[contains(text(),"${flag}")][contains(@class, "govuk-radios__label")]`);
@@ -560,7 +560,7 @@ Then(
 );
 Then(
   /^I have created a `Language Interpreter` Flag in `?([^`]+)`? and language name is `?([^`]+)`?$/,
-  async(type, language) => {
+  async (type, language) => {
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Select flag type")]');
@@ -585,7 +585,7 @@ Then(
 );
 Then(
   /^I have created a `Reasonable adjustment` Flag in `?([^`]+)`? and signlanguage name is `?([^`]+)`?$/,
-  async(type, language) => {
+  async (type, language) => {
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Select flag type")]');
@@ -615,12 +615,12 @@ Then(
   }
 );
 
-Then(/^I will update s94b flag$/, async() => {
+Then(/^I will update s94b flag$/, async () => {
   await ccdFormPage.setFieldValue("Mark appeal as s94b?", "Yes");
   await ccdFormPage.click("Continue", 0, 0, false);
   await ccdFormPage.click("Submit");
 });
-Then(/^I Add the bail interpreter details$/, async() => {
+Then(/^I Add the bail interpreter details$/, async () => {
   await ccdPage.click("Add new");
   await ccdFormPage.setFieldValue("Booking reference", "Test-32123");
   await ccdFormPage.setFieldValue("Given names", "David");
@@ -636,7 +636,7 @@ Then(/^I Add the bail interpreter details$/, async() => {
 
   await ccdFormPage.click("Update");
 });
-Then(/^I update interpreter booking status$/, async() => {
+Then(/^I update interpreter booking status$/, async () => {
   await ccdFormPage.setFieldValue("Harri Pugh - Applicant - Korean", "Booked");
   await ccdFormPage.setFieldValue(
     "Harri Pugh - Applicant - British Sign Language (BSL)",
@@ -658,13 +658,13 @@ Then(/^I update interpreter booking status$/, async() => {
   await ccdFormPage.click("Update");
 });
 
-Given("I wait for the spinner", async() => {
+Given("I wait for the spinner", async () => {
   await ccdPage.waitForSpinner();
 });
 
 Then(
   /^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? with flag status `?([^`]+)`?$/,
-  async(
+  async (
     partie,
     caseFlagName,
     flagStatus
@@ -687,6 +687,6 @@ Then(
 );
 
 Then('I fail the test', () => {
-    expect(true).to.equal(false);
-  }
+  expect(true).to.equal(false);
+}
 );

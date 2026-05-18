@@ -3,22 +3,16 @@ const {browser} = require('protractor');
 const fs = require('fs');
 const path = require('path');
 let count = 0;
-let testCounterPath;
-let sessionId;
-const testData = {
-    totalTests: [],
-    passedTests: []
-};
-
-BeforeAll(async function () {
-    sessionId = process.pid
-    console.log(`Session ID: ${sessionId}`)
-    testCounterPath = path.join(process.cwd(), 'e2e', `testCounter-${sessionId}.json`);
-});
+let testData;
 
 Before(async function (scenario) {
     let test = `${scenario.pickle.uri}:${scenario.pickle.name}`;
-    if (!testData.totalTests.includes(test)) {
+    if (!testData) {
+        testData = {
+            totalTests: [test],
+            passedTests: []
+        }
+    } else if (!testData.totalTests.includes(test)) {
         testData.totalTests.push(test);
     }
 });
@@ -75,13 +69,17 @@ After(async function (scenario) {
 });
 
 AfterAll(async function () {
+    const sessionId = process.pid
+    const testCounterPath = path.join(process.cwd(), 'e2e', `testCounter-${sessionId}.json`);
     const dir = path.dirname(testCounterPath);
+    console.log(`Test directory ${dir}`);
     await fs.mkdir(dir, {recursive: true}, async (err) => {
         if (err) {
             console.error('Error creating directory:', err);
         }
     });
     const dataString = JSON.stringify(testData, null, 2)
+    console.log(`Writing test results to file ${testCounterPath} with data: ${dataString}`);
     await fs.writeFile(testCounterPath, dataString, 'utf8', (err) => {
         if (err) {
             console.error('Error creating file:', err);
@@ -89,3 +87,32 @@ AfterAll(async function () {
     });
 });
 
+export function runAfterLaunch() {
+    let testDataMap = getTestDataMap();
+    let totalTests = [];
+    let passedTests = [];
+    testDataMap.forEach((value, key) => {
+        totalTests.push(`${key}:${value['totalTests']}`);
+        passedTests.push(`${key}:${value['passedTests']}`);
+    })
+    if (passedTests.length !== totalTests.length) {
+        const failedTests = totalTests.filter((item) => !passedTests.includes(item));
+        console.log('Tests failed including retries: ' + failedTests.toString().split(',').join("\n"));
+        process.exit(1);
+    } else {
+        console.log(`Tests passed after retries. Number of total tests: ${totalTests.length}. Number of passed tests: ${passedTests.length}.`);
+        process.exit(0);
+    }
+}
+
+function getTestDataMap() {
+    const dir = path.join(process.cwd(), 'e2e');
+    const map = new Map();
+    const files = fs.readdirSync(dir)
+        .filter(file => file.startsWith('testCounter-') && file.endsWith('.json'))
+        .map(file => path.join(dir, file));
+    files.forEach(file => {
+        map.set(file, JSON.parse(fs.readFileSync(file, 'utf8')));
+    })
+    return map;
+}
