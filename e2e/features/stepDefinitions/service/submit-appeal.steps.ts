@@ -21,14 +21,20 @@ Then(/^I submit my appeal$/, async () => {
 
 Then(/^I pay for and submit my appeal by PBA/, async () => {
   await submitAppealFlow.submitAppeal();
+  console.log('Submitted appeal successfully, now creating service request and paying by PBA');
   await payAndSubmitAppealFlow.createServiceRequest();
+  console.log('Created service request successfully, now paying by PBA');
   await payAndSubmitAppealFlow.payForAppealByPBA();
+  console.log('Paid for appeal by PBA successfully');
 });
 
 Then(/^I pay for and submit my appeal by Card$/, async () => {
   await submitAppealFlow.submitAppeal();
+  console.log('Submitted appeal successfully, now creating service request and paying by card');
   await payAndSubmitAppealFlow.createServiceRequest();
+  console.log('Created service request successfully, now paying by card');
   await payAndSubmitAppealFlow.payForAppealByCard();
+  console.log('Paid for appeal by card successfully');
 });
 
 When('I check the case has been paid for', async () => {
