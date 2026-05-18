@@ -17,7 +17,7 @@ const config = {
         profile: false,
         'fail-fast': iaConfig.FailFast,
         format: ['html:./reports/tests/functional/results.html', 'json:./cb_reports/saucelab_results.json'],
-        retry: 1,
+        retry: 3,
     },
 
     sauceSeleniumAddress: 'ondemand.eu-central-1.saucelabs.com:443/wd/hub',
@@ -75,65 +75,37 @@ const config = {
     },
 
     afterLaunch() {
-        updatePassedTests()
-        let passedTests = getTestsArray('passedTests');
-        let totalTests = getTestsArray('totalTests');
-        const failedTests = totalTests.filter((item) => !passedTests.includes(item));
+        let totalTests = new Set();
+        let passedTests = new Set();
+        const filePath = path.join(__dirname, '../reports/tests/crossbrowser/enriched-output.json');
+        try {
+            const data = fs.readFileSync(filePath, 'utf8');
+            const jsonData = JSON.parse(data);
+            if (jsonData && jsonData.features && typeof jsonData.features === 'object') {
+                jsonData.features.forEach((feature => {
+                    const testIdentifier = `${feature.metadata.browser.name}-${feature.metadata.platform.name}`;
+                    totalTests.add(testIdentifier);
+                    if (!feature.isFailed) {
+                        passedTests.add(testIdentifier);
+                    }
+                }))
+            } else {
+                console.error('"features" not found in the file.');
+            }
+        } catch (err) {
+            console.error('Error reading or parsing the file:', err);
+        }
+
+        const failedTests = [...totalTests].filter((item) => !passedTests.has(item));
         console.log(passedTests, totalTests, failedTests);
         if (failedTests.length > 0) {
             console.log('Tests failed. Retrying. Failed tests: ' + failedTests);
-            return retry.afterLaunch(1);
+            process.exit(1);
         } else {
             console.log('Tests passed.');
             process.exit(0);
         }
     }
 };
-
-function updatePassedTests() {
-    const filePath = path.join(__dirname, '../reports/tests/crossbrowser/enriched-output.json');
-    try {
-        const data = fs.readFileSync(filePath, 'utf8');
-        const jsonData = JSON.parse(data);
-        if (jsonData && jsonData.features && typeof jsonData.features === 'object') {
-            jsonData.features.forEach((feature => {
-                addToTestsIfNotExists('totalTests', `${feature.metadata.browser.name}-${feature.metadata.platform.name}`);
-                if (!feature.isFailed) {
-                    addToTestsIfNotExists('passedTests', `${feature.metadata.browser.name}-${feature.metadata.platform.name}`);
-                }
-            }))
-        } else {
-            console.error('"features" not found in the file.');
-        }
-    } catch (err) {
-        console.error('Error reading or parsing the file:', err);
-    }
-}
-
-function getTestsArray(object) {
-    let testCounterPath = `${process.cwd()}/e2e/testCounter.json`;
-    try {
-        const data = fs.readFileSync(testCounterPath, 'utf8');
-        const counterData = JSON.parse(data);
-        return counterData[object];
-    } catch (err) {
-        console.error('Error reading file:', err);
-        return [];
-    }
-}
-
-function addToTestsIfNotExists(object, stringVar) {
-    const testCounterPath = path.join(process.cwd(), 'e2e', 'testCounter.json');
-    const data = fs.readFileSync(testCounterPath, 'utf8');
-    try {
-        const counterData = JSON.parse(data);
-        if (!counterData[object].includes(stringVar)) {
-            counterData[object].push(stringVar);
-            fs.writeFileSync(testCounterPath, JSON.stringify(counterData, null, 2), 'utf8');
-        }
-    } catch (error) {
-        console.error('Error parsing JSON:', error);
-    }
-}
 
 exports.config = config;
