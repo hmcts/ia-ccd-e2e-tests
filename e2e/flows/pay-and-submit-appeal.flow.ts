@@ -2,10 +2,14 @@ import { CcdPage } from '../pages/ccd.page';
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { browser, by, element } from 'protractor';
 import CaseHelper from "../helpers/CaseHelper";
+import { AuthenticationFlow } from "./authentication.flow";
+import { MarkAppealAsPaidFlow } from "./mark-appeal-as-paid.flow";
 
 export class PayAndSubmitAppealFlow {
   private ccdPage = new CcdPage();
   private ccdFormPage = new CcdFormPage();
+  private authenticationFlow = new AuthenticationFlow();
+  private markAppealAsPaidFlow = new MarkAppealAsPaidFlow();
 
   async payForAppealByPBA() {
     await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
@@ -50,27 +54,35 @@ export class PayAndSubmitAppealFlow {
     const currentUrl = await this.ccdPage.getCaseUrl();
     const nextStepPath = '//select[@id="next-step"]';
     const appealDetailsPath = '//h2[contains(text(), "Appeal details")]';
-    if (!currentUrl.includes('preview')) {
-      let isPaymentPending = true;
-      while (isPaymentPending) {
-        await browser.sleep(10000);
-        await this.ccdPage.refresh();
+    if (currentUrl.includes('preview')) {
+      const loggedInCookies = await browser.manage().getCookies();
+      await this.authenticationFlow.signInByRole("Admin Officer");
+      await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
+      await this.ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
+      await this.markAppealAsPaidFlow.markAppealAsPaid(true);
+      await browser.manage().deleteAllCookies();
+      await Promise.all(loggedInCookies.map((cookie) => browser.manage().addCookie(cookie)));
+      await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
+    }
+    let isPaymentPending = true;
+    while (isPaymentPending) {
+      await browser.sleep(10000);
+      await this.ccdPage.refresh();
+      await this.ccdPage.goToUrl(currentUrl);
+      try {
+        await this.ccdPage.waitForXpathElementVisible(nextStepPath);
+      } catch {
         await this.ccdPage.goToUrl(currentUrl);
-        try {
-          await this.ccdPage.waitForXpathElementVisible(nextStepPath);
-        } catch {
-          await this.ccdPage.goToUrl(currentUrl);
-          await this.ccdPage.waitForXpathElementVisible(nextStepPath);
-        }
-        await this.ccdPage.gotoTabs('Appeal');
-        await this.ccdPage.waitForXpathElementVisible(appealDetailsPath);
-
-        const isPaymentPendingCount: number = await element
-          .all(by.xpath('//span[contains(text(), "Payment pending")]'))
-          .filter(async e => await e.isPresent())
-          .count();
-        isPaymentPending = isPaymentPendingCount > 0;
+        await this.ccdPage.waitForXpathElementVisible(nextStepPath);
       }
+      await this.ccdPage.gotoTabs('Appeal');
+      await this.ccdPage.waitForXpathElementVisible(appealDetailsPath);
+
+      const isPaymentPendingCount: number = await element
+        .all(by.xpath('//span[contains(text(), "Payment pending")]'))
+        .filter(async e => await e.isPresent())
+        .count();
+      isPaymentPending = isPaymentPendingCount > 0;
     }
   }
 
