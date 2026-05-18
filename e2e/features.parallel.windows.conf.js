@@ -1,3 +1,3 @@
-const {getConfig} = require("./features.parallel.conf");
+import {getConfig} from "./features.parallel.conf";
 
 exports.config = getConfig('windows');
