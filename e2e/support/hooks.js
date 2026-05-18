@@ -63,7 +63,6 @@ After(async function (scenario) {
         let test = `${scenario.pickle.uri}:${scenario.pickle.name}`;
         if (!testData.passedTests.includes(test)) {
             testData.passedTests.push(test);
-            console.log(testData);
         }
     }
 });
@@ -72,14 +71,12 @@ AfterAll(async function () {
     const sessionId = process.pid
     const testCounterPath = path.join(process.cwd(), 'e2e', `testCounter-${sessionId}.json`);
     const dir = path.dirname(testCounterPath);
-    console.log(`Test directory ${dir}`);
     await fs.mkdir(dir, {recursive: true}, async (err) => {
         if (err) {
             console.error('Error creating directory:', err);
         }
     });
     const dataString = JSON.stringify(testData, null, 2)
-    console.log(`Writing test results to file ${testCounterPath} with data: ${dataString}`);
     await fs.writeFile(testCounterPath, dataString, 'utf8', (err) => {
         if (err) {
             console.error('Error creating file:', err);

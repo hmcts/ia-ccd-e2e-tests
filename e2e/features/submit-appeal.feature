@@ -1,6 +1,6 @@
 Feature: Submit appeal application
 
-  @appeal-nightly-test @testy-test
+  @appeal-nightly-test
   Scenario: Submit an appeal application
     Given I am signed in as a `Legal Org User Rep A`
     And I save my initial PA appeal type without remission and with hearing fee and pay later
@@ -17,8 +17,3 @@ Feature: Submit appeal application
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     Then I should see the text `Case record`
-
-  @testy-test @appeal-nightly-test
-  Scenario: Should fail
-    Given I fail the test
-

@@ -3,13 +3,13 @@
 properties([
     pipelineTriggers([cron('H 8 * * 1-5')]),
     parameters([
-        booleanParam(name: 'skipCrossBrowserTests', defaultValue: true, description: 'Tick the checkbox for skip'),
+        booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
-        booleanParam(name: 'skipBailFunctionalTests', defaultValue: true, description: 'Tick the checkbox for skip'),
+        booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         string(name: 'TEST_ENVIRONMENT', defaultValue: 'aat', description: 'The environment to test against'),
         string(name: 'PR_NUMBER', defaultValue: '', description: 'If running against preview, provide the ia-case-api PR number here'),
         string(name: 'NUM_TESTS_IN_PARALLEL', defaultValue: '4', description: 'The number of tests to run in parallel'),
-        string(name: 'RETRIES', defaultValue: '0', description: 'The number of retries to set for tests'),
+        string(name: 'RETRIES', defaultValue: '4', description: 'The number of retries to set for tests'),
         string(name: 'SPECIFIC_TAGS', defaultValue: '', description: 'Tag for a specific run of tests'),
     ])
 ])

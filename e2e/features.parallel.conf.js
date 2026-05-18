@@ -22,11 +22,6 @@ function getTestDataMap() {
 
 function runAfterLaunch() {
     let testDataMap = getTestDataMap();
-    console.log('Test data map: ' + JSON.stringify(testDataMap));
-    testDataMap.forEach((key, value) => {
-        console.log('File: ' + key);
-        console.log('Data:' + JSON.stringify(value));
-    })
     let totalTests = [];
     let passedTests = [];
     testDataMap.forEach((value, key) => {
@@ -35,8 +30,6 @@ function runAfterLaunch() {
         dataTotalTests.forEach((total) => totalTests.push(`${key}:${total}`));
         dataPassedTests.forEach((passed) => passedTests.push(`${key}:${passed}`));
     })
-    console.log('Total tests: ' + totalTests);
-    console.log('Passed tests: ' + passedTests);
     if (passedTests.length !== totalTests.length) {
         const failedTests = totalTests.filter((item) => !passedTests.includes(item));
         console.log('Tests failed including retries: ' + failedTests.toString().split(',').join("\n"));
