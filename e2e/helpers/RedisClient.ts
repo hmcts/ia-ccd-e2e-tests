@@ -3,8 +3,8 @@ import { createClient } from 'redis';
 const iaConfig = require('../ia.conf');
 
 const redisOpts = {
-  url: iaConfig.get('redisUrl'),
-  ttl: iaConfig.get('redisTtlInSeconds')
+  url: iaConfig.redisUrl,
+  ttl: iaConfig.redisTtlInSeconds
 };
 
 export default class RedisClient {
