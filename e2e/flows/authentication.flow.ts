@@ -117,6 +117,80 @@ export class AuthenticationFlow {
     }
   }
 
+  setCookiesByRole(role: UserRole, cookies) {
+    switch (role) {
+      case 'Case Officer':
+        caseOfficerCookies = cookies;
+        return;
+      case 'Sr Case Officer':
+        srCaseOfficerCookies = cookies;
+        return;
+      case 'Admin Officer':
+        adminOfficerCookies = cookies;
+        return;
+      case 'Legal Rep':
+        legalRepCookies = cookies;
+        return;
+      case 'Home Office APC':
+        homeOfficeAPCCookies = cookies;
+        return;
+      case 'Home Office LART':
+        homeOfficeLARTCookies = cookies;
+        return;
+      case 'Home Office POU':
+        homeOfficePOUCookies = cookies;
+        return;
+      case 'Home Office Generic':
+        homeOfficeGenericCookies = cookies;
+        return;
+      case 'Home Office Bails':
+        homeOfficeBailsCookies = cookies;
+        return;
+      case 'Judge':
+        judgeCookies = cookies;
+        return;
+      case 'Legal Org User Rep A':
+        legalOrgUserRepACookies = cookies;
+        return;
+      case 'Legal Org User Rep B':
+        legalOrgUserRepBCookies = cookies;
+        return;
+      case 'Legal Org User Rep C':
+        legalOrgUserRepCCookies = cookies;
+        return;
+      case 'Legal Org User Rep D':
+        legalOrgUserRepDCookies = cookies;
+        return;
+      case 'Legal Org User Rep Creator':
+        legalOrgUserRepCreatorCookies = cookies;
+        return;
+      case 'Legal Org2 User Rep Creator':
+        legalOrg2UserRepCreatorCookies = cookies;
+        return;
+      case 'Legal Ops A':
+        legalOpsACookies = cookies;
+        return;
+      case 'Judicial':
+        judicialCookies = cookies;
+        return;
+      case 'WaAdmin':
+        waAdminCookies = cookies;
+        return;
+      case 'Judge Bails':
+        judgeBailsCookies = cookies;
+        return;
+      case 'Legal Org User Rep A Bails':
+        legalOrgUserRepABailsCookies = cookies;
+        return;
+      case 'Legal Org User Rep B Bails':
+        legalOrgUserRepBBailsCookies = cookies;
+        return;
+      case 'Admin Officer Bails':
+        adminOfficerBailsCookies = cookies;
+        return;
+    }
+  }
+
   async loadCookiesByRole(role: UserRole) {
     await browser.manage().deleteAllCookies();
     await Promise.all(this.getCookiesByRole(role).map((cookie) => browser.manage().addCookie(cookie)));
@@ -202,6 +276,8 @@ export class AuthenticationFlow {
       default:
         throw new Error(`Unknown role: ${role}`);
       }
+      const newCookies = await browser.manage().getCookies();
+      this.setCookiesByRole(role, newCookies);
     }
   }
 
