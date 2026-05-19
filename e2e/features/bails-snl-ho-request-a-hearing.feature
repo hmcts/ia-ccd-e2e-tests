@@ -5,7 +5,7 @@ Feature: Bails SNL Hearing request as Home Office User
     And I go to the overview page for the stored case
     And I submit my bail application as a `Home Office Bails`
 
-  @submit-bail-application-home-office @bails-full @bails-regression @bail-nightly-test
+  @submit-bail-application-home-office @bails-full @bails-regression @bail-nightly-test @bail-testy-test
   Scenario: Bails Hearing request as as Home Office
     When I switch to be a `Admin Officer`
     Then I should see the text `Please Confirm location where Applicant is detained is correct, and they are held on immigration matters, before listing the case for hearing in List Assist.`

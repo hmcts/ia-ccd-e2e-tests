@@ -6,7 +6,7 @@ Feature: Bails Upload Documents
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
 
-  @bails-upload-documents @bails-full @RIA-5769 @bails-upload-documents-post-submit @bails-regression @bail-nightly-test
+  @bails-upload-documents @bails-full @RIA-5769 @bails-upload-documents-post-submit @bails-regression @bail-nightly-test @bail-testy-test
   Scenario: Upload Documents after submitting
     When I select the `Upload documents` Next step
     Then I am on the `Upload` page

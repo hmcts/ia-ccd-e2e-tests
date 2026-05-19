@@ -1,6 +1,6 @@
 Feature: Submit appeal application
 
-  @appeal-nightly-test
+  @appeal-nightly-test @appeal-testy-test
   Scenario: Submit an appeal application
     Given I am signed in as a `Legal Org User Rep A`
     And I save my initial PA appeal type without remission and with hearing fee and pay later
