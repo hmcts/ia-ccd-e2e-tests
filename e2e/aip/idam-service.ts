@@ -1,23 +1,11 @@
 import axios from "axios";
+import RedisClient from "../helpers/RedisClient";
 
 const iaConfig = require('../ia.conf');
 
-const legalRepUserName: string = iaConfig.TestLawFirmOrgAUserName;
-const legalRepPassword: string = iaConfig.TestLawFirmOrgAPassword;
-const legalRepBailUserName: string = iaConfig.TestLawFirmOrgABailsUserName;
-const legalRepBailPassword: string = iaConfig.TestLawFirmOrgABailsPassword;
-const adminOfficerBailUserName: string = iaConfig.TestAdminOfficerBailsUserName;
-const adminOfficerBailPassword: string = iaConfig.TestAdminOfficerBailsPassword;
-const homeOfficeBailUserName: string = iaConfig.TestHomeOfficeBailsUserName;
-const homeOfficeBailPassword: string = iaConfig.TestHomeOfficeBailsPassword;
 const idamUrl = iaConfig.IdamApiUrl;
 const idamClientSecret = iaConfig.IdamRpxClientSecret;
 const redirectUrl = 'https://localhost:3000/redirectUrl';
-
-type UserInfo = {
-  email: string;
-  password: string;
-};
 
 async function getUserToken(email: string, password: string) {
   try {
@@ -43,23 +31,15 @@ async function getUserToken(email: string, password: string) {
   }
 }
 
-async function getUserTokenLegalRep() {
-  if (iaConfig.xBrowser) {
-    return getUserTokenLegalRepBail();
+async function getUserTokenFromCache(cacheKey: string, email: string, password: string) {
+  const redisClient = RedisClient.getInstance();
+  const cachedToken = await redisClient.getFromCache(cacheKey);
+  if (cachedToken) {
+    return cachedToken;
   }
-  return getUserToken(legalRepUserName, legalRepPassword);
-}
-
-async function getUserTokenLegalRepBail() {
-  return getUserToken(legalRepBailUserName, legalRepBailPassword);
-}
-
-async function getUserTokenAdminOfficer() {
-  return getUserToken(adminOfficerBailUserName, adminOfficerBailPassword);
-}
-
-async function getUserTokenHomeOfficeBail() {
-  return getUserToken(homeOfficeBailUserName, homeOfficeBailPassword);
+  const tokenToCache = await getUserToken(email, password);
+  await redisClient.setCache(cacheKey, tokenToCache);
+  return tokenToCache;
 }
 
 async function getUserId(userToken: string) {
@@ -72,34 +52,7 @@ async function getUserId(userToken: string) {
   }
 }
 
-async function getUserIdLegalRep() {
-  if (iaConfig.xBrowser) {
-    return getUserIdLegalRepBail();
-  }
-  return getUserId(await getUserTokenLegalRep());
-}
-
-async function getUserIdLegalRepBail() {
-  return getUserId(await getUserTokenLegalRepBail());
-}
-
-async function getUserIdAdminOfficer() {
-  return getUserId(await getUserTokenAdminOfficer());
-}
-
-async function getUserIdHomeOfficeBail() {
-  return getUserId(await getUserTokenHomeOfficeBail());
-}
-
 export {
-  UserInfo,
   getUserId,
-  getUserTokenAdminOfficer,
-  getUserTokenHomeOfficeBail,
-  getUserTokenLegalRep,
-  getUserTokenLegalRepBail,
-  getUserIdAdminOfficer,
-  getUserIdHomeOfficeBail,
-  getUserIdLegalRep,
-  getUserIdLegalRepBail
+  getUserTokenFromCache
 };

@@ -40,6 +40,7 @@
     "protractor-multiple-cucumber-html-reporter-plugin": "1.8.1",
     "protractor-retry": "^1.2.14",
     "puppeteer": "1.15.0",
+    "redis": "^3.1.2",
     "rxjs": "^6.5.4",
     "ts-loader": "^9.5.7",
     "ts-node": "^7.0.1",

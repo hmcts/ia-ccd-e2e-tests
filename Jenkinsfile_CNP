@@ -60,7 +60,9 @@ def secrets = [
         secret('test-law-firm-noc-a-bails-username', 'TEST_LAW_FIRM_SHARE_CASE_A_BAILS_USERNAME'),
         secret('test-law-firm-noc-a-bails-password', 'TEST_LAW_FIRM_SHARE_CASE_A_BAILS_PASSWORD'),
         secret('test-law-firm-noc-b-bails-username', 'TEST_LAW_FIRM_SHARE_CASE_B_BAILS_USERNAME'),
-        secret('test-law-firm-noc-b-bails-password', 'TEST_LAW_FIRM_SHARE_CASE_B_BAILS_PASSWORD')
+        secret('test-law-firm-noc-b-bails-password', 'TEST_LAW_FIRM_SHARE_CASE_B_BAILS_PASSWORD'),
+
+        secret('ia-redis-connection-string', 'IA_REDIS_CONNECTION_STRING'),
     ],
     "rpx-${params.TEST_ENVIRONMENT}": [
         secret('mc-idam-client-secret', 'IDAM_CLIENT_SECRET')

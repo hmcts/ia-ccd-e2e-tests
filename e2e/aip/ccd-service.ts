@@ -1,9 +1,6 @@
 import {
-  getUserIdAdminOfficer, getUserIdHomeOfficeBail, getUserIdLegalRep,
-  getUserIdLegalRepBail,
-  getUserTokenAdminOfficer,
-  getUserTokenHomeOfficeBail, getUserTokenLegalRep,
-  getUserTokenLegalRepBail,
+  getUserId,
+  getUserTokenFromCache
 } from "./idam-service";
 import { getS2sToken } from "./s2s";
 import axios from "axios";
@@ -13,6 +10,14 @@ import * as path from "path";
 const FormData = require('form-data');
 const iaConfig = require('../ia.conf');
 
+const legalRepUserName: string = iaConfig.TestLawFirmOrgAUserName;
+const legalRepPassword: string = iaConfig.TestLawFirmOrgAPassword;
+const legalRepBailUserName: string = iaConfig.TestLawFirmOrgABailsUserName;
+const legalRepBailPassword: string = iaConfig.TestLawFirmOrgABailsPassword;
+const adminOfficerBailUserName: string = iaConfig.TestAdminOfficerBailsUserName;
+const adminOfficerBailPassword: string = iaConfig.TestAdminOfficerBailsPassword;
+const homeOfficeBailUserName: string = iaConfig.TestHomeOfficeBailsUserName;
+const homeOfficeBailPassword: string = iaConfig.TestHomeOfficeBailsPassword;
 const ccdApiUrl = iaConfig.CcdApiUrl;
 const jurisdictionId = 'IA';
 const caseType = 'Asylum';
@@ -269,33 +274,24 @@ async function getSecurityHeadersForCreateCase(userForBails?: string): Promise<S
   let userToken: string;
   switch (userForBails) {
   case 'Legal Rep':
-    userToken = await getUserTokenLegalRepBail();
+    userToken = await getUserTokenFromCache('legalRepBailE2EToken', legalRepBailUserName, legalRepBailPassword);
     break;
   case 'Admin Officer':
-    userToken = await getUserTokenAdminOfficer();
+    userToken = await getUserTokenFromCache('adminOfficerE2EToken', adminOfficerBailUserName, adminOfficerBailPassword);
     break;
   case 'Home Office Bails':
-    userToken = await getUserTokenHomeOfficeBail();
+    userToken = await getUserTokenFromCache('homeOfficeBailE2EToken', homeOfficeBailUserName, homeOfficeBailPassword);
     break;
   default:
-    userToken = await getUserTokenLegalRep();
+    if (iaConfig.xBrowser) {
+      userToken = await getUserTokenFromCache('legalRepBailE2EToken', legalRepBailUserName, legalRepBailPassword);
+    } else {
+      userToken = await getUserTokenFromCache('legalRepE2EToken', legalRepUserName, legalRepPassword);
+    }
     break;
   }
   const serviceToken: string = await getS2sToken();
   return {userToken, serviceToken};
-}
-
-async function getUserIdForCreateCase(userForBails?: string): Promise<string> {
-  switch (userForBails) {
-  case 'Legal Rep':
-    return getUserIdLegalRepBail();
-  case 'Admin Officer':
-    return getUserIdAdminOfficer();
-  case 'Home Office Bails':
-    return getUserIdHomeOfficeBail();
-  default:
-    return getUserIdLegalRep();
-  }
 }
 
 function createOptions(headers: SecurityHeaders) {
@@ -421,7 +417,7 @@ async function tryInjectUploadedNoticeOfDecision(caseData: any, headers: Securit
 
 async function createCase(caseData: any): Promise<CcdCaseDetails> {
   const headers = await getSecurityHeadersForCreateCase();
-  const userId = await getUserIdForCreateCase();
+  const userId = await getUserId(headers.userToken);
   await tryInjectUploadedNoticeOfDecision(caseData, headers);
   console.log(`Starting create ${caseData.appealType} case for user '${userId}'`);
   const startEventResponse = await startCreateCase(userId, headers, true);
@@ -500,7 +496,7 @@ async function tryInjectUploadedBailDocuments(caseData: any, headers: SecurityHe
 
 async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetails> {
   const headers = await getSecurityHeadersForCreateCase(user);
-  const userId = await getUserIdForCreateCase(user);
+  const userId = await getUserId(headers.userToken);
   await tryInjectUploadedBailDocuments(caseData, headers);
   console.log(`Starting create bail case for user '${userId}'`);
   const startEventResponse = await startBailCreateCase(userId, headers);
