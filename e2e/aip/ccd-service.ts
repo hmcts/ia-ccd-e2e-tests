@@ -1,7 +1,12 @@
-import { getUserId, getUserToken, UserInfo } from "./idam-service";
+import {
+  getUserIdAdminOfficer, getUserIdHomeOfficeBail, getUserIdLegalRep,
+  getUserIdLegalRepBail,
+  getUserTokenAdminOfficer,
+  getUserTokenHomeOfficeBail, getUserTokenLegalRep,
+  getUserTokenLegalRepBail,
+} from "./idam-service";
 import { getS2sToken } from "./s2s";
 import axios from "axios";
-import CaseHelper from "../helpers/CaseHelper";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -260,12 +265,38 @@ class CcdService {
   }
 }
 
-async function getSecurityHeaders(user: UserInfo): Promise<SecurityHeaders> {
-  const userToken: string = await getUserToken(user);
+async function getSecurityHeadersForCreateCase(userForBails?: string): Promise<SecurityHeaders> {
+  let userToken: string;
+  switch (userForBails) {
+  case 'Legal Rep':
+    userToken = await getUserTokenLegalRepBail();
+    break;
+  case 'Admin Officer':
+    userToken = await getUserTokenAdminOfficer();
+    break;
+  case 'Home Office Bails':
+    userToken = await getUserTokenHomeOfficeBail();
+    break;
+  default:
+    userToken = await getUserTokenLegalRep();
+    break;
+  }
   const serviceToken: string = await getS2sToken();
   return {userToken, serviceToken};
 }
 
+async function getUserIdForCreateCase(userForBails?: string): Promise<string> {
+  switch (userForBails) {
+  case 'Legal Rep':
+    return getUserIdLegalRepBail();
+  case 'Admin Officer':
+    return getUserIdAdminOfficer();
+  case 'Home Office Bails':
+    return getUserIdHomeOfficeBail();
+  default:
+    return getUserIdLegalRep();
+  }
+}
 
 function createOptions(headers: SecurityHeaders) {
   return {
@@ -310,10 +341,14 @@ function buildDocumentUploadUrls(): string[] {
   }
 
   if (ccdApiUrl) {
-    const dmStoreUrl = ccdApiUrl
-      .replace("ccd-data-store-api-", "dm-store-")
-      .replace("ccd-data-store-api.", "dm-store.");
-    urls.add(`${dmStoreUrl}/documents`);
+    if (ccdApiUrl.includes('preview')) {
+      urls.add("http://dm-store-aat.service.core-compute-aat.internal/documents");
+    } else {
+      const dmStoreUrl = ccdApiUrl
+        .replace("ccd-data-store-api-", "dm-store-")
+        .replace("ccd-data-store-api.", "dm-store.");
+      urls.add(`${dmStoreUrl}/documents`);
+    }
   }
 
   return Array.from(urls);
@@ -385,11 +420,8 @@ async function tryInjectUploadedNoticeOfDecision(caseData: any, headers: Securit
 }
 
 async function createCase(caseData: any): Promise<CcdCaseDetails> {
-  const user: UserInfo = CaseHelper.getInstance().getLegalRep();
-  const headers = await getSecurityHeaders(user);
-  user.userToken = headers.userToken;
-  const userId = await getUserId(headers.userToken);
-  user.userId = userId;
+  const headers = await getSecurityHeadersForCreateCase();
+  const userId = await getUserIdForCreateCase();
   await tryInjectUploadedNoticeOfDecision(caseData, headers);
   console.log(`Starting create ${caseData.appealType} case for user '${userId}'`);
   const startEventResponse = await startCreateCase(userId, headers, true);
@@ -406,9 +438,7 @@ async function createCase(caseData: any): Promise<CcdCaseDetails> {
     ignore_warning: true,
     supplementary_data_request: supplementaryDataRequest
   }, true);
-  user.caseId = caseDetails.id;
-  console.log(`Created ${caseData.appealType} case for user '${userId}' with case id '${user.caseId}'`);
-  CaseHelper.getInstance().setLegalRep(user);
+  console.log(`Created ${caseData.appealType} case for user '${userId}' with case id '${caseDetails.id}'`);
   return caseDetails;
 }
 
@@ -469,11 +499,8 @@ async function tryInjectUploadedBailDocuments(caseData: any, headers: SecurityHe
 }
 
 async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetails> {
-  const userInfo: UserInfo = CaseHelper.getInstance().getBailUser(user);
-  const headers = await getSecurityHeaders(userInfo);
-  userInfo.userToken = headers.userToken;
-  const userId = await getUserId(headers.userToken);
-  userInfo.userId = userId;
+  const headers = await getSecurityHeadersForCreateCase(user);
+  const userId = await getUserIdForCreateCase(user);
   await tryInjectUploadedBailDocuments(caseData, headers);
   console.log(`Starting create bail case for user '${userId}'`);
   const startEventResponse = await startBailCreateCase(userId, headers);
@@ -490,10 +517,8 @@ async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetai
     ignore_warning: true,
     supplementary_data_request: supplementaryDataRequest
   });
-  userInfo.caseId = caseDetails.id;
-  console.log(`Created bail case for user '${userId}' with case id '${userInfo.caseId}'`);
-  CaseHelper.getInstance().setBailUser(user, userInfo);
+  console.log(`Created bail case for user '${userId}' with case id '${caseDetails.id}'`);
   return caseDetails;
 }
 
-export { CcdService, CcdCaseDetails, Events, createCase, createBailCase };
+export { CcdService, CcdCaseDetails, Events, createCase, createBailCase, getSecurityHeadersForCreateCase };

@@ -1,9 +1,11 @@
 import { browser } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
 import CaseHelper from "../helpers/CaseHelper";
-import { createBailCase } from "../aip/ccd-service";
-import { UserInfo } from "../aip/idam-service";
+import { CcdCaseDetails, createBailCase } from "../aip/ccd-service";
 import { getCaseDataJsonFromFile } from "../helpers/test-utils";
+
+const iaConfig = require('../ia.conf');
+const legalRepBailUserName: string = iaConfig.TestLawFirmOrgABailsUserName;
 
 export class StartBailApplicationFlow {
   private ccdFormPage = new CcdFormPage();
@@ -951,7 +953,7 @@ export class StartBailApplicationFlow {
       caseData.legalRepPhone = "07292929292";
       caseData.legalRepReference = "This is a reference";
       if (user === 'Legal Rep') {
-        caseData.legalRepEmail = CaseHelper.getInstance().getLegalRep().email !== "" ? CaseHelper.getInstance().getLegalRep().email : "legalRep@test.com";
+        caseData.legalRepEmail = legalRepBailUserName;
       } else {
         caseData.hasLegalRep = "Yes";
         caseData.legalRepEmail = "legalRep@test.com";
@@ -962,14 +964,17 @@ export class StartBailApplicationFlow {
     if (user !== 'Admin Officer') {
       delete caseData.uploadB1FormDocs;
     }
+    let caseDetails: CcdCaseDetails;
     try {
-      await createBailCase(caseData, user);
+      caseDetails = await createBailCase(caseData, user);
     } catch (e) {
       console.error('Error creating bail case: ', e);
       console.log('Trying again...');
-      await createBailCase(caseData, user);
+      caseDetails = await createBailCase(caseData, user);
     }
-    const userInfo: UserInfo = CaseHelper.getInstance().getBailUser(user);
-    CaseHelper.getInstance().setStoredCaseUrlFromId(userInfo.caseId, 'IA', 'Bail');
+    if (!caseDetails) {
+      throw new Error('Case creation failed');
+    }
+    CaseHelper.getInstance().setStoredCaseUrlFromId(caseDetails.id, 'IA', 'Bail');
   }
 }

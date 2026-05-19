@@ -1,7 +1,6 @@
 import { browser } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
-import { UserInfo } from "../aip/idam-service";
-import { createCase } from "../aip/ccd-service";
+import { CcdCaseDetails, createCase } from "../aip/ccd-service";
 import CaseHelper from "../helpers/CaseHelper";
 import { getCaseDataJsonFromFile } from "../helpers/test-utils";
 
@@ -646,15 +645,15 @@ export class StartAppealFlow {
     }
 
     caseData.homeOfficeDecisionDate = this.getHoDecisionDate(false);
+    let caseDetails: CcdCaseDetails;
     try {
-      await createCase(caseData);
+      caseDetails = await createCase(caseData);
     } catch (e) {
       console.error('Error creating appeal case: ', e);
       console.log('Trying again...');
-      await createCase(caseData);
+      caseDetails = await createCase(caseData);
     }
-    const user: UserInfo = CaseHelper.getInstance().getLegalRep();
-    CaseHelper.getInstance().setStoredCaseUrlFromId(user.caseId, 'IA', 'Asylum');
+    CaseHelper.getInstance().setStoredCaseUrlFromId(caseDetails.id, 'IA', 'Asylum');
   }
 
   async saveInitialNonPaymentAppealOutOfCountry(
