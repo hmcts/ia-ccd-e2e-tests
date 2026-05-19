@@ -1,11 +1,9 @@
-import {
-  getUserId,
-  getUserTokenFromCache
-} from "./idam-service";
+import { getUserId, getUserTokenFromCache } from "./idam-service";
 import { getS2sToken } from "./s2s";
 import axios from "axios";
 import * as fs from "fs";
 import * as path from "path";
+import { browser } from "protractor";
 
 const FormData = require('form-data');
 const iaConfig = require('../ia.conf');
@@ -270,6 +268,11 @@ class CcdService {
   }
 }
 
+async function getSecurityHeadersGivenToken(token: string): Promise<SecurityHeaders> {
+  const serviceToken: string = await getS2sToken();
+  return {userToken: token, serviceToken};
+}
+
 async function getSecurityHeadersForCreateCase(userForBails?: string): Promise<SecurityHeaders> {
   let userToken: string;
   switch (userForBails) {
@@ -379,7 +382,7 @@ async function uploadDocumentToDmStore(fileName: string, headers: SecurityHeader
       const form = new FormData();
       form.append('files', fs.createReadStream(documentPath));
       form.append('classification', 'PUBLIC');
-      const { data } = await axios.post(uploadUrl, form, {
+      const {data} = await axios.post(uploadUrl, form, {
         headers: {
           ...form.getHeaders(),
           Authorization: headers.userToken,
@@ -416,7 +419,10 @@ async function tryInjectUploadedNoticeOfDecision(caseData: any, headers: Securit
 }
 
 async function createCase(caseData: any): Promise<CcdCaseDetails> {
-  const headers = await getSecurityHeadersForCreateCase();
+  const cookies = await browser.manage().getCookies();
+  cookies.filter(cookie => cookie.name === '__auth-token');
+  const headers = cookies.length === 0 ? await getSecurityHeadersForCreateCase()
+    : await getSecurityHeadersGivenToken(cookies[0].value);
   const userId = await getUserId(headers.userToken);
   await tryInjectUploadedNoticeOfDecision(caseData, headers);
   console.log(`Starting create ${caseData.appealType} case for user '${userId}'`);
@@ -495,7 +501,10 @@ async function tryInjectUploadedBailDocuments(caseData: any, headers: SecurityHe
 }
 
 async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetails> {
-  const headers = await getSecurityHeadersForCreateCase(user);
+  const cookies = await browser.manage().getCookies();
+  cookies.filter(cookie => cookie.name === '__auth-token');
+  const headers = cookies.length === 0 ? await getSecurityHeadersForCreateCase(user)
+    : await getSecurityHeadersGivenToken(cookies[0].value);
   const userId = await getUserId(headers.userToken);
   await tryInjectUploadedBailDocuments(caseData, headers);
   console.log(`Starting create bail case for user '${userId}'`);
@@ -517,4 +526,12 @@ async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetai
   return caseDetails;
 }
 
-export { CcdService, CcdCaseDetails, Events, createCase, createBailCase, getSecurityHeadersForCreateCase };
+export {
+  CcdService,
+  CcdCaseDetails,
+  Events,
+  createCase,
+  createBailCase,
+  getSecurityHeadersGivenToken,
+  getSecurityHeadersForCreateCase
+};
