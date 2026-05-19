@@ -13,40 +13,25 @@ export class PayAndSubmitAppealFlow {
 
   async payForAppealByPBA() {
     await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
-    console.log('Clicked on Service Request tab');
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
-    console.log('css element visible after clicking on Service Request tab');
     await this.ccdFormPage.click('Pay now');
-    console.log('Clicked on Pay now button');
     try {
       await this.ccdPage.waitForXpathElementVisible('//*[contains(text(), "Pay fee using Payment by Account")]');
-      console.log('pay fee using payment by account text visible');
     } catch {
       await this.ccdFormPage.click('Pay now');
-      console.log('Clicked on Pay now button again after failure');
       await this.ccdPage.waitForXpathElementVisible('//*[contains(text(), "Pay fee using Payment by Account")]');
-      console.log('pay fee using payment by account text visible after clicking Pay now again');
     }
     await this.ccdFormPage.click('Pay fee using Payment by Account (PBA)');
-    console.log('Clicked on pay by pba link');
     await this.ccdPage.waitForCssElementVisible('#pbaAccountNumber');
-    console.log('pba account number field visible');
     await this.ccdFormPage.typeText('pbaAccountNumber', 'PBA0087412');
-    console.log('pba account number filled in');
     await browser.sleep(1000);
     await this.ccdFormPage.typeText('pbaAccountRef', 'Unique Reference');
-    console.log('pba account reference filled in');
     await this.ccdFormPage.typeEnter('pbaAccountRef');
-    console.log('pba account enter key pressed');
     const confirmPaymentButton = element(by.css('button.pba-payments-19-font'));
     await confirmPaymentButton.click();
-    console.log('Confirm payment button clicked');
     await this.ccdPage.waitForCssElementVisible('div.pba-payments--confirmation');
-    console.log('confirmation message visible');
     await this.ccdPage.click('View service requests');
-    console.log('view service requests link clicked');
     await this.ccdPage.click('Overview');
-    console.log('overview tab clicked');
     await this.waitForPaymentRecognition();
   }
 
@@ -88,16 +73,11 @@ export class PayAndSubmitAppealFlow {
 
   async createServiceRequest() {
     await this.ccdFormPage.selectNextStep('Create a service request');
-    console.log('Selected Create a service request next step');
     await this.ccdFormPage.headingContains('Pay for this appeal');
-    console.log('Heading contains Pay for this appeal');
     const currentUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
-    console.log('Create service request Submit clicked');
     await this.ccdPage.waitForConfirmationScreenAndContinue(currentUrl);
-    console.log('waited for confirmation screen and continued');
     await this.ccdPage.waitForOverviewPage(this.ccdPage.getStoredCaseUrl());
-    console.log('Waiting for waitForOverviewPage complete after creating service request');
   }
 
   async payForAppealByCard() {
