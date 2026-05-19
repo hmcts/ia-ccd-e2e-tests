@@ -6,7 +6,7 @@ Feature: Bails Record the decision
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
      And I wait for 5 seconds
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     And I wait for 5 seconds
     And I list the bail case
     And I wait for 5 seconds
@@ -15,7 +15,7 @@ Feature: Bails Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-no-ss-consent @bails-record-the-decision-refused-no-ss-consent @bails-full
   Scenario: Refused case - SS consent No
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -60,7 +60,7 @@ Feature: Bails Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-refused-yes-ss-consent @bails-full
   Scenario: Refused case - SS consent Yes
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -105,7 +105,7 @@ Feature: Bails Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-refused @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-refused-yes-ss-consent-minded-to-grant @bails-full
   Scenario: Refused case - SS consent Yes - Minded to grant
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -160,7 +160,7 @@ Feature: Bails Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-no-ss-consent @bails-record-the-decision-granted-no-ss-consent @bails-full
   Scenario: Granted case - SS consent No
-   When I switch to be a `Admin Officer Bails`
+   When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -254,7 +254,7 @@ Feature: Bails Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-granted @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-granted-yes-ss-consent @bails-full @bails-regression @bails-regression-retest
   Scenario: Granted case - SS consent Yes
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -323,7 +323,7 @@ Feature: Bails Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-conditional-grant @bails-record-the-decision-no-ss-consent @bails-record-the-decision-conditional-grant-no-ss-consent @bails-full
   Scenario: Conditional grant case - SS consent No
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible
@@ -421,7 +421,7 @@ Feature: Bails Record the decision
 
   @bails-record-the-decision @RIA-5757 @bails-record-the-decision-conditional-grant @bails-record-the-decision-yes-ss-consent @bails-record-the-decision-conditional-grant-yes-ss-consent @bails-full
   Scenario: Conditional grant case - SS consent Yes
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Record the decision` Next step
     Then I am on the `Judge details` page
     And The page is accessible

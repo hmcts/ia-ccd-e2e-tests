@@ -26,8 +26,7 @@ export type UserRole =
   'WaAdmin' |
   'Judge Bails' |
   'Legal Org User Rep A Bails' |
-  'Legal Org User Rep B Bails' |
-  'Admin Officer Bails';
+  'Legal Org User Rep B Bails';
 
 let caseOfficerCookies;
 let srCaseOfficerCookies;
@@ -51,7 +50,6 @@ let waAdminCookies;
 let judgeBailsCookies;
 let legalOrgUserRepABailsCookies;
 let legalOrgUserRepBBailsCookies;
-let adminOfficerBailsCookies;
 
 export class AuthenticationFlow {
   private idamSignInPage = new IdamSignInPage();
@@ -112,8 +110,6 @@ export class AuthenticationFlow {
       return legalOrgUserRepABailsCookies;
     case 'Legal Org User Rep B Bails':
       return legalOrgUserRepBBailsCookies;
-    case 'Admin Officer Bails':
-      return adminOfficerBailsCookies;
     }
   }
 
@@ -184,9 +180,6 @@ export class AuthenticationFlow {
       return;
     case 'Legal Org User Rep B Bails':
       legalOrgUserRepBBailsCookies = cookies;
-      return;
-    case 'Admin Officer Bails':
-      adminOfficerBailsCookies = cookies;
       return;
     }
   }
@@ -260,9 +253,6 @@ export class AuthenticationFlow {
         break;
       case 'Legal Org User Rep B Bails':
         await this.signInAsLawFirmOrgUserBBails();
-        break;
-      case 'Admin Officer Bails':
-        await this.signInAsAdminOfficerBails();
         break;
       case 'Legal Org User Rep D':
         await this.signInAsLawFirmOrgUserD();
@@ -594,25 +584,6 @@ export class AuthenticationFlow {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(iaConfig.TestWaAdminUserName, iaConfig.TestWaAdminPassword);
-        await this.checkExUiLoaded();
-        break;
-      } catch (err) {
-        console.log('Unsuccessful log in');
-        console.log(err);
-      }
-    }
-  }
-
-  async signInAsAdminOfficerBails() {
-    for (let i = 0; i < 5; i++) {
-      try {
-        await this.signOut();
-        await this.idamSignInPage.waitUntilLoaded();
-        if (iaConfig.CcdWebUrl.includes('localhost')) {
-          await this.idamSignInPage.signIn(iaConfig.TestAdminOfficerUserName, iaConfig.TestAdminOfficerPassword);
-        } else {
-          await this.idamSignInPage.signIn(iaConfig.TestAdminOfficerBailsUserName, iaConfig.TestAdminOfficerBailsPassword);
-        }
         await this.checkExUiLoaded();
         break;
       } catch (err) {

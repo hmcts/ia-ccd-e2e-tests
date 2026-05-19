@@ -9,7 +9,7 @@ Feature: Bails List Case
   @bails-full
   # TODO needs to be fixed
   Scenario: List case via ILA
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     Then I should see the text `Please Confirm location where Applicant is detained is correct, and they are held on immigration matters, before listing the case for hearing in List Assist.`
     When I select the `Confirm detention location` Next step
     Then I am on the `Confirm detention location` page

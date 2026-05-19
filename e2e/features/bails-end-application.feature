@@ -8,7 +8,7 @@ Feature: Bails End the application
 
   @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-withdrawn @bails-end-the-application-post-submit @bails-regression @bail-nightly-test
   Scenario: End Application after submitting
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
     And The page is accessible
@@ -33,11 +33,11 @@ Feature: Bails End the application
 
 @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-dismissed @bails-end-the-application-post-bail-summary
   Scenario: End Application after uploading bail summary
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I list the bails case through Case Listing event
     And I switch to be a `Home Office Bails`
     And I upload the bail summary
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
     And The page is accessible
@@ -62,11 +62,11 @@ Feature: Bails End the application
 
   @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-record-decision
   Scenario: End Application after recording a decision
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I list the bails case through Case Listing event
     And I switch to be a `Home Office Bails`
     And I upload the bail summary
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I select the `End the application` Next step
     Then I am on the `Outcome and reasons` page
@@ -92,11 +92,11 @@ Feature: Bails End the application
 
   @bails-end-the-application @bails-full @RIA-5760 @bails-end-the-application-not-in-detention @bails-end-the-application-post-upload-signed-decision-notice
   Scenario: End Application after uploading signed decision notice for a conditional bail
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I list the bails case through Case Listing event
     And I switch to be a `Home Office Bails`
     And I upload the bail summary
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     And I record a conditional grant decision with SS consent Yes with no financial condition supporters
     And I upload the signed decision notice for a conditional grant
     And I select the `End the application` Next step

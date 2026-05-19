@@ -8,7 +8,7 @@ Feature: Bails Add a case flag to bails application
 
     @bail-nightly-test @caseflag
     Scenario: Create a case Flag
-        And I switch to be a `Admin Officer Bails`
+        And I switch to be a `Admin Officer`
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page
         And I have created a `Complex Case` Flag in `Case level`
@@ -22,7 +22,7 @@ Feature: Bails Add a case flag to bails application
 
     @bail-nightly-test @caseflag @fix-test
     Scenario: Create a case Flag and make Inactive
-        And I switch to be a `Admin Officer Bails`
+        And I switch to be a `Admin Officer`
         When I select the `Create Flag` Next step
         Then I am on the `Create Flag` page
         And I have created a `Complex Case` Flag in `Case level`

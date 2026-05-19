@@ -9,7 +9,7 @@ Feature: Bails Notice of Change
 
   @bails-NOC @RIA-5911 @bails-remove-legal-rep @bails-regression @bails-full
   Scenario: Remove Legal Rep
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Remove legal representative` Next step
     Then I should see the `Remove legal representative` page
     When I select `Legal Representative` for the `Case Role Id` field

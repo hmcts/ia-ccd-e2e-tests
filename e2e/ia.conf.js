@@ -58,8 +58,6 @@ module.exports = {
   TestLawFirmOrgDUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_D_USERNAME,
   TestLawFirmOrgDPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_D_PASSWORD,
 
-  TestAdminOfficerBailsUserName: process.env.TEST_ADMINOFFICER_BAILS_USERNAME,
-  TestAdminOfficerBailsPassword: process.env.TEST_ADMINOFFICER_BAILS_PASSWORD,
   TestJudgeBailsUserName: process.env.TEST_JUDGE_X_BAILS_USERNAME,
   TestJudgeBailsPassword: process.env.TEST_JUDGE_X_BAILS_PASSWORD,
   TestLawFirmOrgABailsUserName: process.env.TEST_LAW_FIRM_SHARE_CASE_A_BAILS_USERNAME,

@@ -76,7 +76,7 @@ Feature: Bails Edit application preSubmit
 
  @bails-edit-application-pre-submit @bails-full @RIA-5867 @bails-edit-application-pre-submit-admin-officer
    Scenario: Admin Officer Edit application Before Submitting
-    Given I am signed in as a `Admin Officer Bails`
+    Given I am signed in as a `Admin Officer`
     And I save my initial application as a `Admin Officer` for a Prison detention with one financial condition supporters and with no Legal Representative
    And I go to the overview page for the stored case
     When I edit my saved application as a `Admin Officer` for a Immigration removal centre detention with no financial condition supporters and with a Legal Representative

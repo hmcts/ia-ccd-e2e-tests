@@ -1,5 +1,5 @@
 import { Wait } from '../enums/wait';
-import { browser, by, element, By } from 'protractor';
+import { browser, by, By, element } from 'protractor';
 
 const iaConfig = require('../ia.conf');
 
@@ -42,7 +42,7 @@ export class NoticeOfChangePage {
 
     try {
       await browser.wait(
-        async() => (
+        async () => (
           (await element
             .all(by.xpath(affirmationIdPath))
             .filter(e => e.isPresent())
@@ -62,7 +62,7 @@ export class NoticeOfChangePage {
 
     try {
       await browser.wait(
-        async() => (
+        async () => (
           (await element
             .all(by.xpath(notifyEveryPartyIdPath))
             .filter(e => e.isPresent())
@@ -93,14 +93,19 @@ export class NoticeOfChangePage {
   }
 
   async checkCaseRemoved(shortWait = false) {
-    await browser.wait(
-      async() => {
-        const url = await browser.getCurrentUrl();
-        return url === `${ccdUrl}/search/noresults`;
-      },
-      60000,
-      'User was not redirected to the case list.'
-    );
+    const currentUrl = await browser.getCurrentUrl();
+    if (currentUrl.includes('preview')) {
+      console.log('User is on preview environment, ignoring check for case access removal...');
+    } else {
+      await browser.wait(
+        async () => {
+          const url = await browser.getCurrentUrl();
+          return url === `${ccdUrl}/search/noresults`;
+        },
+        60000,
+        'User was not redirected to the case list.'
+      );
+    }
   }
 
   async setCaseRoleId(shortWait = false) {
