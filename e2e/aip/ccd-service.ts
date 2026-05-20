@@ -420,7 +420,7 @@ async function tryInjectUploadedNoticeOfDecision(caseData: any, headers: Securit
 
 async function createCase(caseData: any): Promise<CcdCaseDetails> {
   const cookies = await browser.manage().getCookies();
-  const authCookies = cookies.filter(cookie => cookie.name === '__auth-token');
+  const authCookies = cookies.filter(cookie => cookie.name === '__auth__');
   const headers = authCookies.length === 0 ? await getSecurityHeadersForCreateCase()
     : await getSecurityHeadersGivenToken(authCookies[0].value);
   const userId = await getUserId(headers.userToken);
