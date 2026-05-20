@@ -66,8 +66,5 @@ module.exports = {
   TestLawFirmOrgBBailsPassword: process.env.TEST_LAW_FIRM_SHARE_CASE_B_BAILS_PASSWORD,
   isSaveAndContinueEnabled: process.env.IS_SAVE_AND_CONTINUE_ENABLED || false,
   isfeePaymentEnabled: process.env.IA_FEEPAYMENT_ENABLED || false,
-  isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true',
-
-  redisUrl: process.env.IA_REDIS_CONNECTION_STRING || '',
-  redisTtlInSeconds: process.env.IA_REDIS_TTL_IN_SECONDS || 1200,
+  isOutOfCountryEnabled: process.env.IA_OUT_OF_COUNTRY_ENABLED || 'true'
 };

@@ -1,9 +1,9 @@
-import { getUserId, getUserTokenFromCache } from "./idam-service";
 import { getS2sToken } from "./s2s";
 import axios from "axios";
 import * as fs from "fs";
 import * as path from "path";
 import { browser } from "protractor";
+import { getUserId, getUserToken } from "./idam-service";
 
 const FormData = require('form-data');
 const iaConfig = require('../ia.conf');
@@ -277,19 +277,19 @@ async function getSecurityHeadersForCreateCase(userForBails?: string): Promise<S
   let userToken: string;
   switch (userForBails) {
   case 'Legal Rep':
-    userToken = await getUserTokenFromCache('legalRepBailE2EToken', legalRepBailUserName, legalRepBailPassword);
+    userToken = await getUserToken(legalRepBailUserName, legalRepBailPassword);
     break;
   case 'Admin Officer':
-    userToken = await getUserTokenFromCache('adminOfficerE2EToken', adminOfficerBailUserName, adminOfficerBailPassword);
+    userToken = await getUserToken(adminOfficerBailUserName, adminOfficerBailPassword);
     break;
   case 'Home Office Bails':
-    userToken = await getUserTokenFromCache('homeOfficeBailE2EToken', homeOfficeBailUserName, homeOfficeBailPassword);
+    userToken = await getUserToken(homeOfficeBailUserName, homeOfficeBailPassword);
     break;
   default:
     if (iaConfig.xBrowser) {
-      userToken = await getUserTokenFromCache('legalRepBailE2EToken', legalRepBailUserName, legalRepBailPassword);
+      userToken = await getUserToken(legalRepBailUserName, legalRepBailPassword);
     } else {
-      userToken = await getUserTokenFromCache('legalRepE2EToken', legalRepUserName, legalRepPassword);
+      userToken = await getUserToken(legalRepUserName, legalRepPassword);
     }
     break;
   }

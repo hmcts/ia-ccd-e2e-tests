@@ -1,5 +1,4 @@
 import axios from "axios";
-import RedisClient from "../helpers/RedisClient";
 
 const iaConfig = require('../ia.conf');
 
@@ -31,17 +30,6 @@ async function getUserToken(email: string, password: string) {
   }
 }
 
-async function getUserTokenFromCache(cacheKey: string, email: string, password: string) {
-  const redisClient = RedisClient.getInstance();
-  const cachedToken = await redisClient.getFromCache(cacheKey);
-  if (cachedToken) {
-    return cachedToken;
-  }
-  const tokenToCache = await getUserToken(email, password);
-  await redisClient.setCache(cacheKey, tokenToCache);
-  return tokenToCache;
-}
-
 async function getUserId(userToken: string) {
   try {
     const userDetails = await axios.get(`${idamUrl}/details`, {headers: {Authorization: userToken}});
@@ -54,5 +42,5 @@ async function getUserId(userToken: string) {
 
 export {
   getUserId,
-  getUserTokenFromCache
+  getUserToken
 };
