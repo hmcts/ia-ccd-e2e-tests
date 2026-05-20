@@ -2087,7 +2087,6 @@ __metadata:
     chai: "npm:^4.2.0"
     chai-as-promised: "npm:^7.1.2"
     eslint: "npm:^8.57.0"
-    form-data: "npm:^4.0.5"
     husky: "npm:^9.1.7"
     jasmine-core: "npm:^3.2.1"
     jasmine-spec-reporter: "npm:^4.2.1"
