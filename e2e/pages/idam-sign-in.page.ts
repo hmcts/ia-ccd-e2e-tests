@@ -20,7 +20,9 @@ export class IdamSignInPage extends AnyPage {
   }
 
   async isLoaded() {
-    return (await browser.driver.getCurrentUrl()).includes('login') && (await ExpectedConditions.visibilityOf($(this.signInButton))());
+    const hasLogin = (await browser.driver.getCurrentUrl()).includes('login');
+    const signInButtonVisible = await ExpectedConditions.visibilityOf($(this.signInButton))();
+    return hasLogin && signInButtonVisible;
   }
 
   async waitUntilLoaded() {

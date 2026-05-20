@@ -1,12 +1,12 @@
 import { SubmitBailApplicationFlow } from '../../../flows/bails-submit-bail-application.flow';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 
 const submitBailApplicationFlow = new SubmitBailApplicationFlow();
 
-Given(/^I submit my bail application as a `(Admin Officer|Home Office Bails|Legal Rep)`$/, async function (user) {
+Given(/^I submit my bail application as a `(Admin Officer|Home Office Bails|Legal Rep)`$/, async user => {
   await submitBailApplicationFlow.submitBailApplication(true, user);
 });
 
-Given(/^I submit my bail application as a `(Admin Officer|Home Office Bails|Legal Rep)` without continue$/, async function (user) {
+Given(/^I submit my bail application as a `(Admin Officer|Home Office Bails|Legal Rep)` without continue$/, async user => {
   await submitBailApplicationFlow.submitBailApplication(false, user);
 });

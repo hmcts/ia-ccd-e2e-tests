@@ -1,6 +1,6 @@
 import { AnyPage } from "./any.page";
 import { Fields } from "../fields/fields";
-import { $, ActionSequence, browser, By, by, element, ExpectedConditions } from "protractor";
+import { $, ActionSequence, browser, By, by, element, ElementFinder, ExpectedConditions } from "protractor";
 import { expect } from "chai";
 import { eventMappings } from "../enums/eventMappings";
 
@@ -23,11 +23,11 @@ export class CcdPage extends AnyPage {
 
   async usernameContains(match: string) {
     try {
-      return await element(
+      return element(
         by.xpath(
-          '//*[@id="user-name" and contains(normalize-space(), "' +
-          match +
-          '")]'
+          `//*[@id="user-name" and contains(normalize-space(), "${
+            match
+          }")]`
         )
       ).isDisplayed();
     } catch (error) {
@@ -38,7 +38,7 @@ export class CcdPage extends AnyPage {
   async clickLinkText(linkText: string) {
     const expandedLinkText = await this.valueExpander.expand(linkText);
     element(
-      by.xpath('//a[normalize-space()="' + expandedLinkText + '"]')
+      by.xpath(`//a[normalize-space()="${expandedLinkText}"]`)
     ).click();
   }
 
@@ -60,11 +60,7 @@ export class CcdPage extends AnyPage {
   }
 
   async selectNextStep(nextStep: string) {
-    const nextStepPath =
-      '//select[@id="next-step"]' +
-      '/option[normalize-space()="' +
-      nextStep +
-      '"]';
+    const nextStepPath = `//select[@id="next-step"]/option[normalize-space()="${nextStep}"]`;
     const overviewUrl = await browser.getCurrentUrl();
     try {
       await this.triggerEventByUrl(overviewUrl, nextStep);
@@ -75,11 +71,7 @@ export class CcdPage extends AnyPage {
 
   async selectUploadSignedNoticeConditionalBail() {
     const nextStep = 'Upload signed decision notice';
-    const nextStepPath =
-      '//select[@id="next-step"]' +
-      '/option[normalize-space()="' +
-      nextStep +
-      '"]';
+    const nextStepPath = `//select[@id="next-step"]/option[normalize-space()="${nextStep}"]`;
     const overviewUrl = await browser.getCurrentUrl();
     const url = await this.getCaseUrl(overviewUrl);
     const nextStepSlug: string | string[] | null = eventMappings['Upload signed decision notice Conditional Bail'] || null;
@@ -99,7 +91,7 @@ export class CcdPage extends AnyPage {
       throw new Error(`No mapping found for next step: ${nextStep}`);
     }
     if (typeof nextStepSlug === "string") {
-      let hasFound: boolean = await this.triggerEventByUrlAttempt(url, nextStepSlug, nextStep);
+      const hasFound: boolean = await this.triggerEventByUrlAttempt(url, nextStepSlug, nextStep);
       if (!hasFound) {
         console.log(`Event not found for slug: ${nextStepSlug}`);
       } else {
@@ -107,7 +99,7 @@ export class CcdPage extends AnyPage {
       }
     } else {
       for (const slug of nextStepSlug) {
-        let hasFound: boolean = await this.triggerEventByUrlAttempt(url, slug, nextStep);
+        const hasFound: boolean = await this.triggerEventByUrlAttempt(url, slug, nextStep);
         if (!hasFound) {
           console.log(`Event not found for slug: ${slug}, trying next one.`);
         } else {
@@ -119,7 +111,7 @@ export class CcdPage extends AnyPage {
   }
 
   async triggerEventByUrlAttempt(url: string, slug: string, eventName: string) {
-    const eventTriggerUrl = url + "/trigger/" + slug;
+    const eventTriggerUrl = `${url}/trigger/${slug}`;
     console.log(`Triggering event at URL: ${eventTriggerUrl}`);
     const noEventFoundPath = '//p[contains(text(), "No event found")]';
     const captionPath = `//span[contains(text(), "${eventName}")][contains(@class, "govuk-caption-l")]`;
@@ -150,7 +142,8 @@ export class CcdPage extends AnyPage {
   async doubleClick(locatorType: 'xpath' | 'css', locator: string) {
     const driver = browser.driver;
     const goButton = driver.findElement(By[locatorType](locator));
-    await new ActionSequence(driver).doubleClick(goButton).perform();
+    await new ActionSequence(driver).doubleClick(goButton)
+      .perform();
   }
 
   async isFieldDisplayed(
@@ -167,7 +160,7 @@ export class CcdPage extends AnyPage {
       collectionItemNumber
     );
 
-    return !!field && (await field.isDisplayed());
+    return Boolean(field) && (await field.isDisplayed());
   }
 
   async isFieldValueDisplayed(
@@ -187,15 +180,14 @@ export class CcdPage extends AnyPage {
       collectionItemNumber
     );
 
-    if (!!field && (await field.isDisplayed())) {
+    if (Boolean(field) && (await field.isDisplayed())) {
       const expandedFieldMatch = await this.valueExpander.expand(fieldMatch);
       const fieldValue = await field.getValue();
 
       if (isExactMatch) {
         return fieldValue === expandedFieldMatch;
-      } else {
-        return fieldValue.includes(expandedFieldMatch);
       }
+      return fieldValue.includes(expandedFieldMatch);
     }
 
     return false;
@@ -216,7 +208,7 @@ export class CcdPage extends AnyPage {
       collectionItemNumber
     );
 
-    if (!!field && (await field.isDisplayed())) {
+    if (Boolean(field) && (await field.isDisplayed())) {
       const fieldValue = await field.getValue();
       return fieldValue.length === fieldValueLength;
     }
@@ -226,15 +218,14 @@ export class CcdPage extends AnyPage {
 
   async isLoaded() {
     return (
-      (await browser.driver.getCurrentUrl()).includes("ccd") &&
-      (await ExpectedConditions.visibilityOf($("#sign-out"))())
+      (await browser.driver.getCurrentUrl()).includes("ccd") && (await ExpectedConditions.visibilityOf($("#sign-out"))())
     );
   }
 
   async overViewContains(match: string) {
     try {
-      return await element(
-        by.xpath("//*" + '[text()[normalize-space()="' + match + '"]]')
+      return element(
+        by.xpath(`//*[text()[normalize-space()="${match}"]]`)
       ).isDisplayed();
     } catch (error) {
       return false;
@@ -242,35 +233,29 @@ export class CcdPage extends AnyPage {
   }
 
   async acceptCookies() {
-    let userIdCookie = await browser.manage().getCookie("__userid__");
+    const userIdCookie = await browser.manage().getCookie("__userid__");
     let userId: string;
-    if (userIdCookie == null) {
-      const sessionStorageData: string = await browser.executeScript(() => {
-        return JSON.stringify(sessionStorage);
-      });
+    if (userIdCookie === null) {
+      const sessionStorageData: string = await browser.executeScript(() => JSON.stringify(sessionStorage));
       const sessionStorageJson = JSON.parse(sessionStorageData);
-      userId = sessionStorageJson['userDetails'] != null ? sessionStorageJson['userDetails']['uid'] : "";
+      userId = sessionStorageJson.userDetails === null ? "" : sessionStorageJson.userDetails.uid;
     } else {
-      userId = userIdCookie["value"];
+      userId = userIdCookie.value;
     }
-    let cookieName = `hmcts-exui-cookies-${userId}-mc-accepted`;
-    let cookieValue = "true";
-    let cookieDomain =
-      iaConfig.CcdWebUrl.split("/")[iaConfig.CcdWebUrl.split("/").length - 1];
+    const cookieName = `hmcts-exui-cookies-${userId}-mc-accepted`;
+    const cookieValue = "true";
+    const cookieDomain = iaConfig.CcdWebUrl.split("/")[iaConfig.CcdWebUrl.split("/").length - 1];
     await browser.manage().addCookie({
       name: cookieName,
       value: cookieValue,
-      domain: cookieDomain,
+      domain: cookieDomain
     });
   }
 
   async hideErrorMessages() {
-    while (true) {
-      try {
-        await element(by.xpath("//a[text()='Hide message']")).click();
-      } catch {
-        break;
-      }
+    const hideMessages: ElementFinder[] = await element.all(by.xpath("//a[text()='Hide message']")) || null;
+    if (hideMessages !== null) {
+      await Promise.all(hideMessages.map(hideMessage => hideMessage.click()));
     }
   }
 
@@ -368,27 +353,6 @@ export class CcdPage extends AnyPage {
     await this.waitForCssElementVisible(
       "#case-viewer-field-read--caseDetailsTitle"
     );
-  }
-
-  async flakeyClick(clickText: string, currentUrl: string) {
-    for (let i = 0; i < 3; i++) {
-      try {
-        await this.click(clickText);
-        await this.waitForPageNavigation(currentUrl);
-        break;
-      } catch {
-        if (i < 2) {
-          console.log(`Click attempt ${i + 1} failed. Trying again.`);
-        } else {
-          throw "All click attempts failed. Giving up.";
-        }
-      }
-    }
-  }
-
-  async getTodayDate(date) {
-    const expandedMatch = await this.valueExpander.expand(date);
-    return expandedMatch;
   }
 
   async gotoTabs(match: string) {

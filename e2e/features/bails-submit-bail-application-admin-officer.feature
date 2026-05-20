@@ -1,7 +1,7 @@
 Feature: Bails Submit bail application as Admin Officer
 
   Background:
-    Given I am signed in as a `Admin Officer Bails`
+    Given I am signed in as a `Admin Officer`
     When I create a new bail application
     Then I save my initial application manually as a `Admin Officer` for a Prison detention with two financial condition supporters and with a Legal Representative
 

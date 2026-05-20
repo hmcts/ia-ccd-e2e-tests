@@ -5,7 +5,7 @@ Feature: Bails Upload signed decision notice
     And I go to the overview page for the stored case
    And I submit my bail application as a `Home Office Bails`
    And I should see the text `What happens next`
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     And I list the bail case
      When I switch to be a `Home Office Bails`
     And I upload the bail summary
@@ -13,7 +13,7 @@ Feature: Bails Upload signed decision notice
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-refused @bails-regression @nightly-test 
   Scenario: Upload signed decision notice for refused case
-    Given I switch to be a `Admin Officer Bails`
+    Given I switch to be a `Admin Officer`
     When I record a refused decision with SS consent Yes with no financial condition supporters
     And I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
@@ -35,7 +35,7 @@ Feature: Bails Upload signed decision notice
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-granted
   Scenario: Upload signed decision notice for granted case
-    Given I switch to be a `Admin Officer Bails`
+    Given I switch to be a `Admin Officer`
     When I record a granted decision with SS consent No with no financial condition supporters
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
@@ -57,7 +57,7 @@ Feature: Bails Upload signed decision notice
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-conditional-grant
   Scenario: Upload signed decision notice for conditional grant case
-   Given I switch to be a `Admin Officer Bails`
+   Given I switch to be a `Admin Officer`
     When I record a conditional grant decision with SS consent Yes with no financial condition supporters
     Then I select the `Upload signed decision notice` Next step
     Then I am on the `Upload document` page
@@ -79,7 +79,7 @@ Feature: Bails Upload signed decision notice
 
   @bails-upload-signed-decision-notice @bails-full @RIA-5759 @bails-upload-signed-decision-notice-judge
   Scenario: Upload signed decision notice as Judge
-    Given I switch to be a `Admin Officer Bails`
+    Given I switch to be a `Admin Officer`
     When I record a refused decision with SS consent Yes with no financial condition supporters
     And I switch to be a `Judge Bails`
     And I select the `Upload signed decision notice` Next step

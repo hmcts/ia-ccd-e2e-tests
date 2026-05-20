@@ -1,9 +1,11 @@
 import { browser } from "protractor";
 import { CcdFormPage } from "../pages/ccd-form.page";
 import CaseHelper from "../helpers/CaseHelper";
-import { createBailCase } from "../aip/ccd-service";
-import { UserInfo } from "../aip/idam-service";
+import { CcdCaseDetails, createBailCase } from "../aip/ccd-service";
 import { getCaseDataJsonFromFile } from "../helpers/test-utils";
+
+const iaConfig = require('../ia.conf');
+const legalRepBailUserName: string = iaConfig.TestLawFirmOrgABailsUserName;
 
 export class StartBailApplicationFlow {
   private ccdFormPage = new CcdFormPage();
@@ -858,13 +860,13 @@ export class StartBailApplicationFlow {
       caseData.supporterGivenNames = "John";
       caseData.supporterFamilyNames = "Smith";
       caseData.supporterAddressDetails = {
-        "AddressLine1": "J & P Engineering Services Ltd, Wellington House",
-        "AddressLine2": "Manor Lane",
-        "AddressLine3": "Penarlag Hawarden Industrial Park Airfield View",
-        "PostTown": "Glannau Dyfrdwy",
-        "County": "",
-        "PostCode": "CH5 3QW",
-        "Country": "Deyrnas Unedig"
+        AddressLine1: "J & P Engineering Services Ltd, Wellington House",
+        AddressLine2: "Manor Lane",
+        AddressLine3: "Penarlag Hawarden Industrial Park Airfield View",
+        PostTown: "Glannau Dyfrdwy",
+        County: "",
+        PostCode: "CH5 3QW",
+        Country: "Deyrnas Unedig"
       };
       caseData.supporterTelephoneNumber1 = "01182904610";
       caseData.supporterMobileNumber1 = "07930111222";
@@ -880,10 +882,8 @@ export class StartBailApplicationFlow {
       caseData.supporterImmigration = "Citizen";
       caseData.supporterNationality = [
         {
-          "value": {
-            "code": "Uzbek"
-          },
-          "id": "59e3f1fc-d978-41a1-97b1-bcad31b58918"
+          value: { code: "Uzbek" },
+          id: "59e3f1fc-d978-41a1-97b1-bcad31b58918"
         }
       ];
       caseData.supporterHasPassport = "Yes";
@@ -896,13 +896,13 @@ export class StartBailApplicationFlow {
         caseData.supporter2GivenNames = "Jane";
         caseData.supporter2FamilyNames = "Doe";
         caseData.supporter2AddressDetails = {
-          "AddressLine1": "Buckingham Palace",
-          "AddressLine2": "",
-          "AddressLine3": "",
-          "PostTown": "London",
-          "County": "",
-          "PostCode": "SW1A 1AA",
-          "Country": "United Kingdom"
+          AddressLine1: "Buckingham Palace",
+          AddressLine2: "",
+          AddressLine3: "",
+          PostTown: "London",
+          County: "",
+          PostCode: "SW1A 1AA",
+          Country: "United Kingdom"
         };
         caseData.supporter2MobileNumber1 = "07930111222";
         caseData.supporter2EmailAddress1 = "janeDoe@test.com";
@@ -916,10 +916,8 @@ export class StartBailApplicationFlow {
         caseData.supporter2Immigration = "Immigrant";
         caseData.supporter2Nationality = [
           {
-            "value": {
-              "code": "Armenian"
-            },
-            "id": "ea15e6f3-0e90-44bb-ae6f-cfdb243b0e85"
+            value: { code: "Armenian" },
+            id: "ea15e6f3-0e90-44bb-ae6f-cfdb243b0e85"
           }
         ];
         caseData.supporter2HasPassport = "Yes";
@@ -955,8 +953,7 @@ export class StartBailApplicationFlow {
       caseData.legalRepPhone = "07292929292";
       caseData.legalRepReference = "This is a reference";
       if (user === 'Legal Rep') {
-        caseData.legalRepEmail = CaseHelper.getInstance().getLegalRep().email !== "" ?
-          CaseHelper.getInstance().getLegalRep().email : "legalRep@test.com";
+        caseData.legalRepEmail = legalRepBailUserName;
       } else {
         caseData.hasLegalRep = "Yes";
         caseData.legalRepEmail = "legalRep@test.com";
@@ -967,14 +964,17 @@ export class StartBailApplicationFlow {
     if (user !== 'Admin Officer') {
       delete caseData.uploadB1FormDocs;
     }
+    let caseDetails: CcdCaseDetails;
     try {
-      await createBailCase(caseData, user);
+      caseDetails = await createBailCase(caseData, user);
     } catch (e) {
       console.error('Error creating bail case: ', e);
       console.log('Trying again...');
-      await createBailCase(caseData, user);
+      caseDetails = await createBailCase(caseData, user);
     }
-    const userInfo: UserInfo = CaseHelper.getInstance().getBailUser(user);
-    CaseHelper.getInstance().setStoredCaseUrlFromId(userInfo.caseId, 'IA', 'Bail');
+    if (!caseDetails) {
+      throw new Error('Case creation failed');
+    }
+    CaseHelper.getInstance().setStoredCaseUrlFromId(caseDetails.id, 'IA', 'Bail');
   }
 }

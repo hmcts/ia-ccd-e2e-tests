@@ -1,7 +1,7 @@
 Feature: Bails SNL Hearing request as Admin Officer
 
   Background:
-    Given I am signed in as a `Admin Officer Bails`
+    Given I am signed in as a `Admin Officer`
     And I save my initial application as a `Admin Officer` for a Prison detention with two financial condition supporters and with no Legal Representative
     And I go to the overview page for the stored case
     And I submit my bail application as a `Admin Officer`

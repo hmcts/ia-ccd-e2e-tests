@@ -1,8 +1,8 @@
 import { RequestHearingRequirementsFlow } from '../../../flows/request-hearing-requirements.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const requestHearingRequirementsFlow = new RequestHearingRequirementsFlow();
 
-Then(/^I request hearing requirements$/, async function () {
+Then(/^I request hearing requirements$/, async() => {
   await requestHearingRequirementsFlow.requestHearingRequirements();
 });

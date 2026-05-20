@@ -15,11 +15,12 @@ const submitButtons = [
   "Request Home Office data",
   "Save"
 ];
+
 export class AnyPage {
   protected readonly valueExpander = new ValueExpander();
 
   async getCurrentUrl() {
-    return await browser.driver.getCurrentUrl();
+    return browser.driver.getCurrentUrl();
   }
 
   async get(uri: string) {
@@ -34,19 +35,17 @@ export class AnyPage {
 
   async getDisplayedImageSources(wait = Wait.normal) {
     try {
-      await browser.wait(async () => {
-        return (
-          (await element
-            .all(by.xpath("//img"))
-            .filter((e) => e.isPresent() && e.isDisplayed())
-            .count()) > 0
-        );
-      }, wait);
+      await browser.wait(async () => (
+        (await element
+          .all(by.xpath("//img"))
+          .filter(e => e.isPresent() && e.isDisplayed())
+          .count()) > 0
+      ), wait);
 
-      return await element
+      return element
         .all(by.xpath("//img"))
-        .filter((e) => e.isPresent() && e.isDisplayed())
-        .map(async (img) => (await img.getAttribute("src")).trim());
+        .filter(e => e.isPresent() && e.isDisplayed())
+        .map(async img => (await img.getAttribute("src")).trim());
     } catch (error) {
       return [];
     }
@@ -60,30 +59,27 @@ export class AnyPage {
   ) {
     const expandedLinkText = await this.valueExpander.expand(linkText);
 
-    const buttonPath = '//button[normalize-space()="' + expandedLinkText + '"]';
-    const anchorPath = '//a[normalize-space()="' + expandedLinkText + '"]';
-    const linkPath =
-      "//*" + '[text()[normalize-space()="' + expandedLinkText + '"]]';
+    const buttonPath = `//button[normalize-space()="${expandedLinkText}"]`;
+    const anchorPath = `//a[normalize-space()="${expandedLinkText}"]`;
+    const linkPath = `//*[text()[normalize-space()="${expandedLinkText}"]]`;
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(by.xpath(buttonPath + " | " + anchorPath + " | " + linkPath))
-              .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
-              .count()) > 0
-          );
-        },
+        async () => (
+          (await element
+            .all(by.xpath(`${buttonPath} | ${anchorPath} | ${linkPath}`))
+            .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
+            .count()) > 0
+        ),
         linkText === "Close and Return to case details" ? Wait.long : Wait.short
       );
     } catch (e) {
-      console.log(linkText + " not found on page.");
+      console.log(`${linkText} not found on page.`);
     }
 
     const button = await element
       .all(by.xpath(buttonPath))
-      .filter((e) => e.isPresent() && e.isDisplayed())
+      .filter(e => e.isPresent() && e.isDisplayed())
       .get(xpathIndex);
 
     if (await button.isPresent()) {
@@ -120,7 +116,7 @@ export class AnyPage {
 
     const anchor = await element
       .all(by.xpath(anchorPath))
-      .filter((e) => e.isPresent() && e.isDisplayed())
+      .filter(e => e.isPresent() && e.isDisplayed())
       .get(xpathIndex);
 
     if (await anchor.isPresent()) {
@@ -132,7 +128,7 @@ export class AnyPage {
 
     const link = await element
       .all(by.xpath(linkPath))
-      .filter((e) => e.isPresent() && e.isDisplayed())
+      .filter(e => e.isPresent() && e.isDisplayed())
       .get(xpathIndex);
 
     await BrowserWaits.waitForelementToBeClickable(link);
@@ -145,15 +141,13 @@ export class AnyPage {
     waitForNavigationTime?: number
   ) {
     let nextPage = "";
-    let pageErrors = "";
+    const pageErrors = "";
     await browser.wait(
       async () => {
         nextPage = await browser.getCurrentUrl();
 
         if (
-          nextPage.includes("/noc") ||
-          nextPage.includes("/allocate-role/") ||
-          nextPage.includes("/add-exclusion")
+          nextPage.includes("/noc") || nextPage.includes("/allocate-role/") || nextPage.includes("/add-exclusion")
         ) {
           return true;
         }
@@ -161,12 +155,12 @@ export class AnyPage {
         return currentPageUrl !== nextPage;
       },
       waitForNavigationTime ? waitForNavigationTime : 30000,
-      "Navigation to next page taking too long " +
-      (waitForNavigationTime ? waitForNavigationTime : 30000) +
-      ". Current page " +
-      currentPageUrl +
-      ". Errors => " +
-      pageErrors
+      `Navigation to next page taking too long ${
+        waitForNavigationTime ? waitForNavigationTime : 30000
+      }. Current page ${
+        currentPageUrl
+      }. Errors => ${
+        pageErrors}`
     );
   }
 
@@ -175,21 +169,16 @@ export class AnyPage {
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(
-                by.xpath(
-                  "//*[self::button or self::a]" +
-                  '[contains(normalize-space(), "' +
-                  expandedMatch +
-                  '") and not(ancestor::*[@hidden])]'
-                )
+        async () => (
+          (await element
+            .all(
+              by.xpath(
+                `//*[self::button or self::a][contains(normalize-space(), "${expandedMatch}") and not(ancestor::*[@hidden])]`
               )
-              .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
-              .count()) > 0
-          );
-        },
+            )
+            .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
+            .count()) > 0
+        ),
         shortWait ? Wait.minimal : Wait.normal
       );
       return true;
@@ -203,21 +192,16 @@ export class AnyPage {
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(
-                by.xpath(
-                  '//label[contains(normalize-space(),"' +
-                  expandedMatch +
-                  '")]' +
-                  "/../select/option[string-length(@value) > 0]"
-                )
+        async () => (
+          (await element
+            .all(
+              by.xpath(
+                `//label[contains(normalize-space(),"${expandedMatch}")]/../select/option[string-length(@value) > 0]`
               )
-              .filter((e) => e.isPresent() && e.isDisplayed() && e.isEnabled())
-              .count()) > 0
-          );
-        },
+            )
+            .filter(e => e.isPresent() && e.isDisplayed() && e.isEnabled())
+            .count()) > 0
+        ),
         shortWait ? Wait.short : Wait.normal
       );
 
@@ -232,21 +216,16 @@ export class AnyPage {
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(
-                by.xpath(
-                  "//*[self::button or self::a]" +
-                  '[contains(normalize-space(), "' +
-                  expandedMatch +
-                  '") and not(ancestor::*[@hidden])]'
-                )
+        async () => (
+          (await element
+            .all(
+              by.xpath(
+                `//*[self::button or self::a][contains(normalize-space(), "${expandedMatch}") and not(ancestor::*[@hidden])]`
               )
-              .filter((e) => e.isPresent() && e.isDisplayed())
-              .count()) > 0
-          );
-        },
+            )
+            .filter(e => e.isPresent() && e.isDisplayed())
+            .count()) > 0
+        ),
         shortWait ? Wait.short : Wait.normal
       );
 
@@ -261,21 +240,16 @@ export class AnyPage {
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(
-                by.xpath(
-                  "//*[self::h1 or self::h2 or self::h3 or self::caption]" +
-                  '[contains(normalize-space(), "' +
-                  expandedMatch +
-                  '") and not(ancestor::*[@hidden])]'
-                )
+        async () => (
+          (await element
+            .all(
+              by.xpath(
+                `//*[self::h1 or self::h2 or self::h3 or self::caption][contains(normalize-space(), "${expandedMatch}") and not(ancestor::*[@hidden])]`
               )
-              .filter((e) => e.isPresent() && e.isDisplayed())
-              .count()) > 0
-          );
-        },
+            )
+            .filter(e => e.isPresent() && e.isDisplayed())
+            .count()) > 0
+        ),
         shortWait ? Wait.short : Wait.normal
       );
 
@@ -288,53 +262,23 @@ export class AnyPage {
   async contentContains(match: string, wait: Wait = Wait.normal) {
     const expandedMatch = await this.valueExpander.expand(match);
 
-    const contentPath =
-      "//*[" +
-      "self::h1 or " +
-      "self::h2 or " +
-      "self::h3 or " +
-      "self::h4 or " +
-      "self::caption or " +
-      "self::label or " +
-      "self::p or " +
-      'self::li                        [contains(text(), "' +
-      expandedMatch +
-      '")] or ' + // for bulleted text
-      'self::div                       [contains(text(), "' +
-      expandedMatch +
-      '")] or ' + // avoid text in child nodes
-      'self::ccd-read-date-field       [contains(text(), "' +
-      expandedMatch +
-      '")] or ' + // for more generic containers
-      'self::dt                        [contains(text(), "' +
-      expandedMatch +
-      '")] or ' + // added recently
-      'self::ccd-read-fixed-list-field [contains(text(), "' +
-      expandedMatch +
-      '")] or ' + // ..
-      'self::ng-component              [contains(text(), "' +
-      expandedMatch +
-      '")] or ' + // ..
-      'self::span                      [contains(text(), "' +
-      expandedMatch +
-      '")] or ' + // ..
-      'self::td                        [contains(text(), "' +
-      expandedMatch +
-      '")]' + // ..
-      "]" +
-      '[contains(normalize-space(), "' +
-      expandedMatch +
-      '") and not(ancestor::*[@hidden])]';
+    const contentPath = `//*[self::h1 or self::h2 or self::h3 or self::h4 or self::caption or self::label or self::p or self::li[contains(text(), "${expandedMatch}")] or ` +
+      `self::div[contains(text(), "${expandedMatch}")] or ` +
+      `self::ccd-read-date-field[contains(text(), "${expandedMatch}")] or ` +
+      `self::dt[contains(text(), "${expandedMatch}")] or ` +
+      `self::ccd-read-fixed-list-field[contains(text(), "${expandedMatch}")] or ` +
+      `self::ng-component[contains(text(), "${expandedMatch}")] or ` +
+      `self::span[contains(text(), "${expandedMatch}")] or ` +
+      `self::td[contains(text(), "${expandedMatch}")]` +
+      `][contains(normalize-space(), "${expandedMatch}") and not(ancestor::*[@hidden])]`;
 
     try {
-      await browser.wait(async () => {
-        return (
-          (await element
-            .all(by.xpath(contentPath))
-            .filter((e) => e.isPresent() && e.isDisplayed())
-            .count()) > 0
-        );
-      }, wait);
+      await browser.wait(async () => (
+        (await element
+          .all(by.xpath(contentPath))
+          .filter(e => e.isPresent() && e.isDisplayed())
+          .count()) > 0
+      ), wait);
 
       return true;
     } catch (error) {
@@ -346,14 +290,12 @@ export class AnyPage {
     const expandedMatch = await this.valueExpander.expand(match);
 
     try {
-      await browser.wait(async () => {
-        return (
-          (await element
-            .all(by.xpath('//img[contains(@src, "' + expandedMatch + '")]'))
-            .filter((e) => e.isPresent() && e.isDisplayed())
-            .count()) > 0
-        );
-      }, Wait.normal);
+      await browser.wait(async () => (
+        (await element
+          .all(by.xpath(`//img[contains(@src, "${expandedMatch}")]`))
+          .filter(e => e.isPresent() && e.isDisplayed())
+          .count()) > 0
+      ), Wait.normal);
 
       return true;
     } catch (error) {
@@ -366,9 +308,7 @@ export class AnyPage {
 
     try {
       await browser.wait(
-        async () => {
-          return (await browser.driver.getCurrentUrl()).includes(expandedMatch);
-        },
+        async () => (await browser.driver.getCurrentUrl()).includes(expandedMatch),
         shortWait ? Wait.short : Wait.normal
       );
 
@@ -387,8 +327,8 @@ export class AnyPage {
     }
   }
 
-  async waitForSpinner(timeout= 60000) {
-    let EC = protractor.ExpectedConditions;
+  async waitForSpinner(timeout = 60000) {
+    const EC = protractor.ExpectedConditions;
     await browser.wait(
       EC.invisibilityOf(element(by.css("div.spinner-container"))),
       timeout,
@@ -397,7 +337,7 @@ export class AnyPage {
   }
 
   async clickButtonIfVisible(linkText: string) {
-    let button = element(by.xpath('//button[text()="' + linkText + '"]'));
+    const button = element(by.xpath(`//button[text()="${linkText}"]`));
     try {
       await BrowserWaits.waitForElement(button);
       await BrowserWaits.waitForelementToBeClickable(button);
@@ -407,7 +347,7 @@ export class AnyPage {
   }
 
   async createCaseClickable() {
-    let createCase: ElementFinder = element(
+    const createCase: ElementFinder = element(
       by.xpath('//a[contains(text(), "Create case")]')
     );
     await BrowserWaits.waitForElement(createCase);

@@ -7,7 +7,7 @@ Feature: Bails case relisting bails application
     And I wait for 5 seconds
     And I should see the text `What happens next`
     And I wait for 5 seconds
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     And I wait for 5 seconds
     And I list the bail case
   @bails-end-the-application @bails-relist @bail-ho-test
@@ -27,7 +27,7 @@ Feature: Bails case relisting bails application
     Then I should see the text `You have uploaded the Bail Summary`
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I wait for 5 seconds
     And  I relist the bail case
     When I record a granted decision with SS consent No with no financial condition supporters

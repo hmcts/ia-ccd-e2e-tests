@@ -1,16 +1,16 @@
 import { NewShareACaseFlow } from '../../../flows/new-share-a-case.flow';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const newShareACaseFlow = new NewShareACaseFlow();
 
-Then(/^I select the most recent case to share$/, async function () {
+Then(/^I select the most recent case to share$/, async() => {
   await newShareACaseFlow.selectCaseToShare();
 });
 
-Then(/^I get the Appeal Reference$/, async function () {
+Then(/^I get the Appeal Reference$/, async() => {
   await newShareACaseFlow.getAndSaveAppealReference();
 });
 
-Then(/^I filter the cases by the Appeal Reference$/, async function () {
+Then(/^I filter the cases by the Appeal Reference$/, async() => {
   await newShareACaseFlow.filterBySavedAppealReference();
 });

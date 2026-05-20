@@ -1,16 +1,16 @@
 import { UploadBailSummary } from '../../../flows/bails-upload-bail-summary.flow';
 import { CcdFormPage } from '../../../pages/ccd-form.page';
-import { Given } from 'cucumber';
+import { Given } from '@cucumber/cucumber';
 import { expect } from 'chai';
 
 const ccdFormPage = new CcdFormPage();
 const uploadBailSummary = new UploadBailSummary();
 
-Given('I complete the `Upload Bail Summary` page', async function () {
+Given('I complete the `Upload Bail Summary` page', async() => {
   expect(await ccdFormPage.headingContains('Upload Bail Summary')).to.equal(true);
   await uploadBailSummary.uploadBailSummaryFile(false);
 });
 
-Given('I upload the bail summary', async function () {
+Given('I upload the bail summary', async() => {
   await uploadBailSummary.uploadBailSummary(true);
 });

@@ -3,6 +3,7 @@ import { $, $$, browser, by, element, ElementArrayFinder, ElementFinder } from '
 import { CcdFormPage } from './ccd-form.page';
 
 const BrowserWaits = require('../support/customWaits');
+
 const ccdFormPage = new CcdFormPage();
 
 export class ShareCasePage {
@@ -43,15 +44,13 @@ export class ShareCasePage {
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(by.xpath(checkboxPath))
-              .filter((e) => e.isPresent())
-              .count()) > 0
-          );
-        },
-        shortWait ? Wait.minimal : Wait.normal,
+        async() => (
+          (await element
+            .all(by.xpath(checkboxPath))
+            .filter(e => e.isPresent())
+            .count()) > 0
+        ),
+        shortWait ? Wait.minimal : Wait.normal
       );
     } catch (error) {
       throw Error('Case list did not load in time...');
@@ -70,7 +69,8 @@ export class ShareCasePage {
     } else if (checkBoxCount > 2) {
       throw Error('Multiple cases found for HMCTS reference');
     }
-    await element.all(by.xpath(checkboxPaths)).first().click();
+    await element.all(by.xpath(checkboxPaths)).first()
+      .click();
   }
 
   async getCaseIdToBeShared(shortWait = false) {
@@ -78,24 +78,23 @@ export class ShareCasePage {
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(by.xpath(caseIdPath))
-              .filter((e) => e.isPresent())
-              .count()) > 0
-          );
-        },
-        shortWait ? Wait.minimal : Wait.normal,
+        async() => (
+          (await element
+            .all(by.xpath(caseIdPath))
+            .filter(e => e.isPresent())
+            .count()) > 0
+        ),
+        shortWait ? Wait.minimal : Wait.normal
       );
     } catch (error) {
       throw Error('Case id not found...');
     }
 
-    const caseId = await element.all(by.xpath('//*[contains(@id,"case-id-")]')).last().getText();
+    const caseId = await element.all(by.xpath('//*[contains(@id,"case-id-")]')).last()
+      .getText();
 
     this.caseIdToBeShared = caseId;
-    console.log('\n\tSharing case with id : ' + caseId + '\n');
+    console.log(`\n\tSharing case with id : ${caseId}\n`);
   }
 
   async getSharedCaseId(shortWait = false) {
@@ -103,55 +102,52 @@ export class ShareCasePage {
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(by.xpath(caseIdPath))
-              .filter((e) => e.isPresent())
-              .count()) > 0
-          );
-        },
-        shortWait ? Wait.minimal : Wait.normal,
+        async() => (
+          (await element
+            .all(by.xpath(caseIdPath))
+            .filter(e => e.isPresent())
+            .count()) > 0
+        ),
+        shortWait ? Wait.minimal : Wait.normal
       );
     } catch (error) {
       throw Error('Case id not found...');
     }
 
-    const caseId = await element.all(by.xpath('//*[contains(@id,"case-id-")]')).last().getText();
+    const caseId = await element.all(by.xpath('//*[contains(@id,"case-id-")]')).last()
+      .getText();
 
     this.sharedCaseId = caseId;
-    console.log('\n\tShared case has id : ' + caseId + '\n');
+    console.log(`\n\tShared case has id : ${caseId}\n`);
   }
 
-  async checkSharedCaseIdIsTheSame(shortWait = false) {
-    if (this.caseIdToBeShared === this.sharedCaseId) {
-      return;
-    } else {
+  checkSharedCaseIdIsTheSame() {
+    if (this.caseIdToBeShared !== this.sharedCaseId) {
       throw Error('caseIdToBeShared and sharedCaseId are different...');
     }
   }
 
   async enterUserEmailToSelect(emailText) {
-    return await this.userEmailInput.sendKeys(emailText);
+    await this.userEmailInput.sendKeys(emailText);
   }
 
   async getFilteredUserEmails() {
-    let userEmails = [];
-    let usernameEmails = await this.getFilteredUserNameEmails();
+    const userEmails = [];
+    const usernameEmails = await this.getFilteredUserNameEmails();
     for (let userCounter = 0; userCounter < usernameEmails.length; userCounter++) {
-      let usernameEmailText = usernameEmails[userCounter];
-      let userEmail = usernameEmailText.split('-')[1].trim();
+      const usernameEmailText = usernameEmails[userCounter];
+      const userEmail = usernameEmailText.split('-')[1].trim();
       userEmails.push(userEmail);
     }
     return userEmails;
   }
 
   async getFilteredUserNameEmails() {
-    let userNameEmails = [];
-    let usersCount = await this.getFilteredUsersCount();
+    const userNameEmails = [];
+    const usersCount = await this.getFilteredUsersCount();
     for (let userCounter = 0; userCounter < usersCount; userCounter++) {
-      let user = await this.userFilterList.get(userCounter);
-      let usernameEmailText = await user.getText();
+      const user = await this.userFilterList.get(userCounter);
+      const usernameEmailText = await user.getText();
       userNameEmails.push(usernameEmailText);
     }
     return userNameEmails;
@@ -159,16 +155,16 @@ export class ShareCasePage {
 
   async getFilteredUsersCount() {
     await BrowserWaits.waitForSeconds(2);
-    return await this.userFilterList.count();
+    return this.userFilterList.count();
   }
 
   async selectUserWithEmailNotSharedWithAtLeastOneCase() {
-    let useremails = await this.getFilteredUserEmails();
+    const useremails = await this.getFilteredUserEmails();
     let userToSelect = 0;
     let email = '';
     for (let i = 0; i < useremails.length; i++) {
       email = useremails[i];
-      let caseNum = await this.isUserWithEmailNotSharedWithAtleastOneCase(email);
+      const caseNum = await this.isUserWithEmailNotSharedWithAtleastOneCase(email);
       if (caseNum > 0) {
         userToSelect = i + 1;
         break;
@@ -182,7 +178,7 @@ export class ShareCasePage {
   }
 
   async isUserWithEmailNotSharedWithAtleastOneCase(email) {
-    let totalCases = await this.casesCount();
+    const totalCases = await this.casesCount();
     for (let i = 1; i <= totalCases; i++) {
       if (!(await this.isUserWithEmailListedInCase(i, email))) {
         return i;
@@ -192,18 +188,18 @@ export class ShareCasePage {
   }
 
   async isUserWithEmailListedInCase(caseNum, email) {
-    let userRow = await this.getUserRowInCase(caseNum, email);
+    const userRow = await this.getUserRowInCase(caseNum, email);
     return userRow !== null;
   }
 
   async getUserRowInCase(caseNum, email) {
-    let selectedCase = await this.selectedCases.get(caseNum - 1);
-    let users = selectedCase.$$('tbody tr');
-    let userCount = await users.count();
+    const selectedCase = await this.selectedCases.get(caseNum - 1);
+    const users = selectedCase.$$('tbody tr');
+    const userCount = await users.count();
     for (let user = 0; user < userCount; user++) {
-      let userRow = await users.get(user);
+      const userRow = await users.get(user);
 
-      let userEmail = await browser.executeScript('return arguments[0].textContent', userRow.$('td:nth-of-type(2)'));
+      const userEmail = await browser.executeScript('return arguments[0].textContent', userRow.$('td:nth-of-type(2)'));
 
       if (userEmail === email) {
         return userRow;
@@ -213,20 +209,18 @@ export class ShareCasePage {
   }
 
   async selectUserFromFilteredList(userNum) {
-    let userToSelect = await this.userFilterList.get(userNum - 1);
+    const userToSelect = await this.userFilterList.get(userNum - 1);
     await userToSelect.click();
   }
 
   async casesCount() {
     await this.waitForPageToLoad();
-    return await this.selectedCases.count();
+    return this.selectedCases.count();
   }
 
   async waitForPageToLoad() {
     await BrowserWaits.waitForElement(this.shareCaseContainer);
-    await BrowserWaits.waitForCondition(async () => {
-      return (await this.selectedCases.count()) > 0;
-    });
+    await BrowserWaits.waitForCondition(async() => (await this.selectedCases.count()) > 0);
     await browser.sleep(2000);
   }
 
@@ -239,13 +233,13 @@ export class ShareCasePage {
   }
 
   async getAppealReference() {
-    let appealReferenceTitle = await element.all(by.xpath('(//h1)[1]')).getText();
+    const appealReferenceTitle = await element.all(by.xpath('(//h1)[1]')).getText();
     this.appealReference = appealReferenceTitle.toString().substring(16, 30);
-    console.log('\n\tCase has reference : ' + this.appealReference + '\n');
+    console.log(`\n\tCase has reference : ${this.appealReference}\n`);
   }
 
   async filterByAppealReference() {
-    const jurisdictionPath = '//select[@id="wb-jurisdiction"]' + '/option[normalize-space()="Immigration & Asylum"]';
+    const jurisdictionPath = '//select[@id="wb-jurisdiction"]/option[normalize-space()="Immigration & Asylum"]';
     await ccdFormPage.waitForXpathElementVisible(jurisdictionPath);
     await element(by.xpath(jurisdictionPath)).click();
     await element(by.xpath('//option[contains(text(), "Appeal*")]')).click();

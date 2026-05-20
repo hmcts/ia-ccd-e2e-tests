@@ -8,7 +8,7 @@ Feature: Bails Send direction
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-applicant @bails-send-direction-to-applicant-AO @bail-nightly-test
   Scenario: Send a direction to Applicant as an Admin Officer
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Send direction` Next step
     Then I am on the `Direction details` page
     And The page is accessible
@@ -35,7 +35,7 @@ Feature: Bails Send direction
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-LR @bails-send-direction-to-LR-AO @bails-regression
   Scenario: Send a direction to Legal Representative as an Admin Officer
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Send direction` Next step
     Then I am on the `Direction details` page
     And The page is accessible
@@ -62,7 +62,7 @@ Feature: Bails Send direction
 
   @bails-full @RIA-5771 @bails-send-direction @bails-send-direction-to-HO @bails-send-direction-to-HO-AO
   Scenario: Send a direction to Home Office as an Admin Officer
-    When I switch to be a `Admin Officer Bails`
+    When I switch to be a `Admin Officer`
     And I select the `Send direction` Next step
     Then I am on the `Direction details` page
     And The page is accessible

@@ -1,8 +1,7 @@
 import { CcdFormPage } from "../pages/ccd-form.page";
 import { browser, by, element, ElementFinder } from "protractor";
 
-const isOutOfCountryEnabled =
-  require("../ia.conf").isOutOfCountryEnabled === "true";
+const isOutOfCountryEnabled = require("../ia.conf").isOutOfCountryEnabled === "true";
 
 export class SubmitHearingRequirementsFlow {
   private ccdFormPage = new CcdFormPage();
@@ -38,12 +37,10 @@ export class SubmitHearingRequirementsFlow {
       } else {
         await this.hearingRequirementsYesPathForInOutOfCountry(false);
       }
+    } else if (inCountry) {
+      await this.hearingRequirementsNoPathForInOutOfCountry(true);
     } else {
-      if (inCountry) {
-        await this.hearingRequirementsNoPathForInOutOfCountry(true);
-      } else {
-        await this.hearingRequirementsNoPathForInOutOfCountry(false);
-      }
+      await this.hearingRequirementsNoPathForInOutOfCountry(false);
     }
 
     await this.ccdFormPage.click("Submit");
@@ -88,12 +85,10 @@ export class SubmitHearingRequirementsFlow {
           true
         );
       }
+    } else if (inCountry) {
+      await this.hearingRequirementsNoPathForInOutOfCountry(true);
     } else {
-      if (inCountry) {
-        await this.hearingRequirementsNoPathForInOutOfCountry(true);
-      } else {
-        await this.hearingRequirementsNoPathForInOutOfCountry(false);
-      }
+      await this.hearingRequirementsNoPathForInOutOfCountry(false);
     }
 
     await this.ccdFormPage.click("Update");

@@ -8,7 +8,7 @@ export class CaseListFixedListFieldFinder implements FieldFinder {
   }
 
   public async findByLabel(container, instanceNumber: number, fieldLabel: string) {
-    const fieldContainer = container.all(by.xpath('.//label[contains(@class, "form-label") and normalize-space()="' + fieldLabel + '"]' + '/ancestor::div[contains(@class, "form-group") and position()=1]')).get(instanceNumber - 1);
+    const fieldContainer = container.all(by.xpath(`.//label[contains(@class, "form-label") and normalize-space()="${fieldLabel}"]/ancestor::div[contains(@class, "form-group") and position()=1]`)).get(instanceNumber - 1);
 
     if ((await fieldContainer.isPresent()) && (await fieldContainer.$$('select').isPresent())) {
       return new CcdWriteFixedListField(fieldContainer, fieldLabel);

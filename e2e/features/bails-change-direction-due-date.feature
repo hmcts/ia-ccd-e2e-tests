@@ -5,7 +5,7 @@ Feature: Bails Change Direction Due Date
     And I go to the overview page for the stored case
     And I submit my bail application as a `Legal Rep`
     And I should see the text `What happens next`
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     And I send a direction to the `Legal representative`
 
   @RIA-5772 @bails-change-direction-due-date @bails-change-direction-due-date-AO @bails-full @bails-regression @bail-nightly-test

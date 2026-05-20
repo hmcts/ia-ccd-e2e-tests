@@ -9,8 +9,8 @@ export class ListCaseThroughEvent {
     await this.ccdFormPage.setFieldValue('Listing event', 'Initial listing');
     await this.ccdFormPage.setFieldValue('Listing location', 'Hatton Cross Tribunal Hearing Centre');
     await this.ccdFormPage.setFieldValue(
-        "Will the hearing be held remotely?",
-        "No"
+      "Will the hearing be held remotely?",
+      "No"
     );
     await element(by.css('#listingHearingDuration')).sendKeys('100');
     await this.ccdFormPage.setFieldValue('Date and time', '{$TODAY+14|DD-MM-YYYY} 10:30:00');

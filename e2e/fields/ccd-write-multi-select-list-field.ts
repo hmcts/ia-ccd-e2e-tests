@@ -15,28 +15,30 @@ export class CcdWriteMultiSelectListField implements Field {
   }
 
   public async getOptions() {
-    return await this.container.all(by.xpath('.//input/following-sibling::label')).map(async (option) => (await option.getText()).trim());
+    return this.container.all(by.xpath('.//input/following-sibling::label')).map(async option => (await option.getText()).trim());
   }
 
   public async getValue() {
     const selectedRadioElement = this.getSelectedRadioElement();
     if (await selectedRadioElement.isPresent()) {
-      return await selectedRadioElement.element(by.xpath('./following-sibling::label')).getText();
+      return selectedRadioElement.element(by.xpath('./following-sibling::label')).getText();
     }
 
     return '';
   }
 
   public async setValue(value) {
-    await this.container.element(by.xpath('.//label[normalize-space()="' + value + '"]/preceding-sibling::input[1]')).click();
+    await this.container.element(by.xpath(`.//label[normalize-space()="${value}"]/preceding-sibling::input[1]`)).click();
   }
 
   public async isDisplayed() {
-    return await this.getInputElementParents().first().isDisplayed();
+    return this.getInputElementParents().first()
+      .isDisplayed();
   }
 
   public async isEnabled() {
-    return await this.getInputElements().first().isEnabled();
+    return this.getInputElements().first()
+      .isEnabled();
   }
 
   public isReadOnly() {

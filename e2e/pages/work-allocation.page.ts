@@ -14,22 +14,22 @@ export class WorkAllocationPage {
   }
 
   async enterAllocateUserEmailInput(text: string) {
-    return await this.findPersonEmailInput.sendKeys(text);
+    await this.findPersonEmailInput.sendKeys(text);
   }
 
   async getFilteredUsersCount() {
     await BrowserWaits.waitForSeconds(2);
-    return await this.userFilterList.count();
+    return this.userFilterList.count();
   }
 
   async selectUser() {
-    let usersCount = await this.getFilteredUsersCount();
+    const usersCount = await this.getFilteredUsersCount();
     if (usersCount) {
       await this.userFilterList.get(0).click();
     }
   }
 
   async addExclusionReason(reason: string) {
-    return await this.exclusionTextArea.sendKeys(reason);
+    await this.exclusionTextArea.sendKeys(reason);
   }
 }

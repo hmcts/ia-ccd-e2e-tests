@@ -11,7 +11,7 @@ export class AddAppealResponseFlow {
     await this.ccdFormPage.addCollectionItem('Evidence (Optional)');
     await this.ccdFormPage.uploadFile('AppealResponseEvidence.pdf', 1);
 
-   //  await this.ccdFormPage.setFieldValue('Document (Optional)', '{@AppealResponseEvidence.pdf}', 'document', 'first', 'Evidence (Optional)', 'first');
+    //  await this.ccdFormPage.setFieldValue('Document (Optional)', '{@AppealResponseEvidence.pdf}', 'document', 'first', 'Evidence (Optional)', 'first');
 
     await this.ccdFormPage.setFieldValue('Describe the document (Optional)', 'This is the appeal response evidence', 'text area', 'first', 'Evidence (Optional)', 'first');
     await this.ccdFormPage.click('Continue');

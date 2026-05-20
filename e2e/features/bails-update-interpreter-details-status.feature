@@ -6,7 +6,7 @@ Feature: Bails Update interpreter details application as Legal Rep
     And I submit my bail application as a `Legal Rep`
 
   Scenario: Add Update interpreter details application
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     And I wait for 5 seconds
     When I select the `Update interpreter details` Next step
     Then I should see the text `Update interpreter details`
@@ -15,7 +15,7 @@ Feature: Bails Update interpreter details application as Legal Rep
  
  @bail-nightly-test
   Scenario: Add Update interpreter status application
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     When I select the `Update interpreter status` Next step
     Then I should see the text `Update interpreter status`
     When I update interpreter booking status

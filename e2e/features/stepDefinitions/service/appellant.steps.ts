@@ -1,12 +1,12 @@
 import { CcdPage } from '../../../pages/ccd.page';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { Wait } from '../../../enums/wait';
 import { expect } from 'chai';
 const iaConfig = require('../../../ia.conf');
 
 const ccdPage = new CcdPage();
 
-Then(/^I should (see|not see) the appellant's details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the appellant's details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains("Appellant's details", !isDisplayed)).to.equal(isDisplayed);
@@ -33,7 +33,7 @@ Then(/^I should (see|not see) the appellant's details$/, async function (seeOrNo
   }
 });
 
-Then(/^I should (see|not see) the legal representative's details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the legal representative's details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains("Legal representative's details", !isDisplayed)).to.equal(isDisplayed);

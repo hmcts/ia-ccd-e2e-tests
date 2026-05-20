@@ -23,22 +23,23 @@ export class CcdWriteYesNoField implements Field {
     if (selectedRadioElement.isPresent()) {
       if ((await selectedRadioElement.getId()).endsWith('Yes')) {
         return 'Yes';
-      } else {
-        return 'No';
       }
+      return 'No';
     }
   }
 
   public async setValue(value) {
-    await this.container.element(by.xpath('.//label[normalize-space()="' + value + '"]')).click();
+    await this.container.element(by.xpath(`.//label[normalize-space()="${value}"]`)).click();
   }
 
   public async isDisplayed() {
-    return await this.getInputElementParents().first().isDisplayed();
+    return this.getInputElementParents().first()
+      .isDisplayed();
   }
 
   public async isEnabled() {
-    return await this.getInputElements().first().isEnabled();
+    return this.getInputElements().first()
+      .isEnabled();
   }
 
   public isReadOnly() {

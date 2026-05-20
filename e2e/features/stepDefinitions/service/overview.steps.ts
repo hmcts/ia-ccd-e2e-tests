@@ -1,5 +1,5 @@
 import { CcdPage } from '../../../pages/ccd.page';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { Wait } from '../../../enums/wait';
 import { expect } from 'chai';
 import { browser } from 'protractor';
@@ -7,14 +7,14 @@ const iaConfig = require('../../../ia.conf');
 
 const ccdPage = new CcdPage();
 
-Then(/^I reload the Case Overview Page$/, async function () {
+Then(/^I reload the Case Overview Page$/, async() => {
   await browser.sleep(500);
   const currentUrl = await ccdPage.getCurrentUrl();
   await browser.sleep(500);
   await ccdPage.get(currentUrl);
 });
 
-Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the case details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains('Case details', !isDisplayed)).to.equal(isDisplayed);
@@ -41,7 +41,7 @@ Then(/^I should (see|not see) the case details$/, async function (seeOrNotSee) {
   }
 });
 
-Then(/^I should (see|not see) the legal representative details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the legal representative details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains('Legal representative', !isDisplayed)).to.equal(isDisplayed);
@@ -57,7 +57,7 @@ Then(/^I should (see|not see) the legal representative details$/, async function
   }
 });
 
-Then(/^I should (see|not see) the hearing details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the hearing details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains('Hearing details', !isDisplayed)).to.equal(isDisplayed);
@@ -71,7 +71,7 @@ Then(/^I should (see|not see) the hearing details$/, async function (seeOrNotSee
   }
 });
 
-Then(/^I should (see|not see) the ended appeal details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the ended appeal details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains('Ended appeal details', !isDisplayed)).to.equal(isDisplayed);
@@ -91,7 +91,7 @@ Then(/^I should (see|not see) the ended appeal details$/, async function (seeOrN
   }
 });
 
-Then(/^I should (see|not see) the ended appeal reinstate details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the ended appeal reinstate details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains('Ended appeal details', !isDisplayed)).to.equal(isDisplayed);
@@ -107,7 +107,7 @@ Then(/^I should (see|not see) the ended appeal reinstate details$/, async functi
   }
 });
 
-Then(/^I should (see|not see) the appeal removed from the online service details$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) the appeal removed from the online service details$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
 
   expect(await ccdPage.headingContains('Appeal removed from the online service', !isDisplayed)).to.equal(isDisplayed);
@@ -121,37 +121,37 @@ Then(/^I should (see|not see) the appeal removed from the online service details
   }
 });
 
-Then(/^I should only see the `?([^\s`]+)`? case progress image$/, async function (imageName) {
-  const caseProgressionImageSources = (await ccdPage.getDisplayedImageSources()).map((src) => src + '').filter((src) => src.includes('/caseOfficer_') || src.includes('/progress_legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_'));
+Then(/^I should only see the `?([^\s`]+)`? case progress image$/, async imageName => {
+  const caseProgressionImageSources = (await ccdPage.getDisplayedImageSources()).map(src => `${src}`).filter(src => src.includes('/caseOfficer_') || src.includes('/progress_legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_'));
 
-  expect(caseProgressionImageSources.some((src) => src.includes('/' + imageName))).to.equal(true);
+  expect(caseProgressionImageSources.some(src => src.includes(`/${imageName}`))).to.equal(true);
   expect(caseProgressionImageSources.length).to.equal(1);
 });
 
-Then(/^I should not see any case progress images$/, async function () {
-  const caseProgressionImageSources = (await ccdPage.getDisplayedImageSources()).map((src) => src + '').filter((src) => src.includes('/caseOfficer_') || src.includes('/progress_legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_'));
+Then(/^I should not see any case progress images$/, async() => {
+  const caseProgressionImageSources = (await ccdPage.getDisplayedImageSources()).map(src => `${src}`).filter(src => src.includes('/caseOfficer_') || src.includes('/progress_legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_'));
 
   expect(caseProgressionImageSources.length).to.equal(0);
 });
 
-Then(/^I should see the `?([^\s`]+)`? image$/, async function (imageName) {
-  const imageSources = (await ccdPage.getDisplayedImageSources()).map((src) => src + '').filter((src) => src.includes('/caseOfficer_') || src.includes('/progress_legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_') || src.includes('/caseFlag'));
+Then(/^I should see the `?([^\s`]+)`? image$/, async imageName => {
+  const imageSources = (await ccdPage.getDisplayedImageSources()).map(src => `${src}`).filter(src => src.includes('/caseOfficer_') || src.includes('/progress_legalRep_') || src.includes('/homeOffice_') || src.includes('/appeal_') || src.includes('/adminOfficer_') || src.includes('/caseFlag'));
 
-  expect(imageSources.some((src) => src.includes('/' + imageName))).to.equal(true);
+  expect(imageSources.some(src => src.includes(`/${imageName}`))).to.equal(true);
 });
 
-Then(/^I see the 'Appellant in person' tag$/, async function () {
-  const imageSources = (await ccdPage.getDisplayedImageSources()).map((src) => src + '');
+Then(/^I see the 'Appellant in person' tag$/, async() => {
+  const imageSources = (await ccdPage.getDisplayedImageSources()).map(src => `${src}`);
 
-  expect(imageSources.some((src) => src.includes('/journey_type_appellant_in_person.png'))).to.equal(true);
+  expect(imageSources.some(src => src.includes('/journey_type_appellant_in_person.png'))).to.equal(true);
 });
 
-Then(/^I should (see|not see) `Legally Represented` tag$/, async function (seeOrNotSee) {
+Then(/^I should (see|not see) `Legally Represented` tag$/, async seeOrNotSee => {
   const isDisplayed = seeOrNotSee === 'see';
-  const imageSources = (await ccdPage.getDisplayedImageSources()).map((src) => src + '');
+  const imageSources = (await ccdPage.getDisplayedImageSources()).map(src => `${src}`);
   if (isDisplayed) {
-    expect(imageSources.some((src) => src.includes('/journey_type_legally_represented.png'))).to.equal(true);
+    expect(imageSources.some(src => src.includes('/journey_type_legally_represented.png'))).to.equal(true);
   } else {
-    expect(imageSources.some((src) => src.includes('/journey_type_legally_represented.png'))).to.equal(false);
+    expect(imageSources.some(src => src.includes('/journey_type_legally_represented.png'))).to.equal(false);
   }
 });

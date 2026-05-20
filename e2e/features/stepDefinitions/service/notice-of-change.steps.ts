@@ -1,22 +1,22 @@
-import { Then, When } from 'cucumber';
+import { Then, When } from '@cucumber/cucumber';
 import { NoticeOfChangePage } from '../../../pages/notice-of-change.page';
 
 const noticeOfChangePage = new NoticeOfChangePage();
 
-When(/^I get the most recent case id for the notice of change case$/, async function () {
+When(/^I get the most recent case id for the notice of change case$/, async() => {
   await noticeOfChangePage.getLatestCaseIdFromUrl();
 });
 
-When('I enter the latest case id for the online case reference number', async function () {
+When('I enter the latest case id for the online case reference number', async() => {
   await noticeOfChangePage.enterCaseId();
 });
 
-When('I enter the correct answers to the challenge questions', async function () {
+When('I enter the correct answers to the challenge questions', async() => {
   await noticeOfChangePage.enterFirstName();
   await noticeOfChangePage.enterLastName();
 });
 
-When(/^I enter the incorrect (firstname|lastname) answer to the challenge questions$/, async function (incorrectAnswer) {
+When(/^I enter the incorrect (firstname|lastname) answer to the challenge questions$/, async incorrectAnswer => {
   const incorrectFirstName = incorrectAnswer === 'firstname';
 
   if (incorrectFirstName) {
@@ -28,7 +28,7 @@ When(/^I enter the incorrect (firstname|lastname) answer to the challenge questi
   }
 });
 
-When(/^I enter the correct (firstname|lastname) answer to the challenge questions$/, async function (correctAnswer) {
+When(/^I enter the correct (firstname|lastname) answer to the challenge questions$/, async correctAnswer => {
   const correctFirstName = correctAnswer === 'firstname';
 
   if (correctFirstName) {
@@ -38,46 +38,46 @@ When(/^I enter the correct (firstname|lastname) answer to the challenge question
   }
 });
 
-When('I select all the submit checkboxes', async function () {
+When('I select all the submit checkboxes', async() => {
   await noticeOfChangePage.checkAffirmationCheckbox();
   await noticeOfChangePage.checkNotifyEveryPartyCheckbox();
 });
 
-Then('I enter the removed case id in the url', async function () {
+Then('I enter the removed case id in the url', async() => {
   await noticeOfChangePage.goToRemovedCase();
 });
 
-Then('I should be redirected to the No results found page', async function () {
+Then('I should be redirected to the No results found page', async() => {
   await noticeOfChangePage.checkCaseRemoved();
 });
 
-When(/^I get the most recent case id for removing representation$/, async function () {
+When(/^I get the most recent case id for removing representation$/, async() => {
   await noticeOfChangePage.getLatestCaseIdFromUrl();
 });
 
-When(/^I set the case role id field$/, async function () {
+When(/^I set the case role id field$/, async() => {
   await noticeOfChangePage.setCaseRoleId();
 });
 
-When(/^I get the bails online case reference$/, async function () {
+When(/^I get the bails online case reference$/, async() => {
   await noticeOfChangePage.getLatestCaseIdFromUrl();
 });
 
-When('I filter by the bails online case reference', async function () {
+When('I filter by the bails online case reference', async() => {
   await noticeOfChangePage.filterBailsByCaseId();
 });
 
-When('I enter the bails online case reference for the online case reference number', async function () {
+When('I enter the bails online case reference for the online case reference number', async() => {
   await noticeOfChangePage.enterCaseId();
 });
 
-When('I enter the correct answers to the challenge questions for bails', async function () {
+When('I enter the correct answers to the challenge questions for bails', async() => {
   await noticeOfChangePage.enterBailsFirstName();
   await noticeOfChangePage.enterBailsLastName();
   await noticeOfChangePage.enterBailsDateOfBirth();
 });
 
-When(/^I enter the incorrect (first name|last name|DoB) answer to the challenge questions for bails$/, async function (incorrectAnswer) {
+When(/^I enter the incorrect (first name|last name|DoB) answer to the challenge questions for bails$/, async incorrectAnswer => {
   if (incorrectAnswer === 'first name') {
     await noticeOfChangePage.enterBailsIncorrectFirstName();
     await noticeOfChangePage.enterBailsLastName();

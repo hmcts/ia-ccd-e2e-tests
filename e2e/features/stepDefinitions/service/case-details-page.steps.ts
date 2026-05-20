@@ -1,21 +1,21 @@
 import { CcdPage } from '../../../pages/ccd.page';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
 import { Wait } from '../../../enums/wait';
 
 const ccdPage = new CcdPage();
 
-Then(/^I should see an alert confirming the case `?([^`]+)`?$/, async function (alertText) {
+Then(/^I should see an alert confirming the case `?([^`]+)`?$/, async alertText => {
   await ccdPage.runAccessbility();
   expect(await ccdPage.alertContains(alertText)).to.equal(true);
 });
 
-Then(/^I select the `?([^`]+)`? Next step$/, async function (nextStep) {
+Then(/^I select the `?([^`]+)`? Next step$/, async nextStep => {
   await ccdPage.runAccessbility();
   await ccdPage.selectNextStep(nextStep);
 });
 
-Then(/^I should not see the decision fields$/, async function () {
+Then(/^I should not see the decision fields$/, async() => {
   await ccdPage.runAccessbility();
   expect(await ccdPage.contentContains('Introduction', Wait.instant)).to.equal(false);
   expect(await ccdPage.contentContains("Appellant's case summary", Wait.instant)).to.equal(false);

@@ -26,8 +26,30 @@ export type UserRole =
   'WaAdmin' |
   'Judge Bails' |
   'Legal Org User Rep A Bails' |
-  'Legal Org User Rep B Bails' |
-  'Admin Officer Bails';
+  'Legal Org User Rep B Bails';
+
+let caseOfficerCookies;
+let srCaseOfficerCookies;
+let adminOfficerCookies;
+let legalRepCookies;
+let homeOfficeAPCCookies;
+let homeOfficeLARTCookies;
+let homeOfficePOUCookies;
+let homeOfficeGenericCookies;
+let homeOfficeBailsCookies;
+let judgeCookies;
+let legalOrgUserRepACookies;
+let legalOrgUserRepBCookies;
+let legalOrgUserRepCCookies;
+let legalOrgUserRepDCookies;
+let legalOrgUserRepCreatorCookies;
+let legalOrg2UserRepCreatorCookies;
+let legalOpsACookies;
+let judicialCookies;
+let waAdminCookies;
+let judgeBailsCookies;
+let legalOrgUserRepABailsCookies;
+let legalOrgUserRepBBailsCookies;
 
 export class AuthenticationFlow {
   private idamSignInPage = new IdamSignInPage();
@@ -36,14 +58,145 @@ export class AuthenticationFlow {
   async signOut() {
     await browser.waitForAngularEnabled(false);
     await browser.driver.manage().deleteAllCookies();
-    await browser.get(iaConfig.CcdWebUrl + '/auth/logout');
+    await browser.get(`${iaConfig.CcdWebUrl}/auth/logout`);
     await browser.sleep(3000);
-    await browser.get(iaConfig.CcdWebUrl + '/');
+    await browser.get(`${iaConfig.CcdWebUrl}/`);
     await this.idamSignInPage.waitUntilLoaded();
   }
 
-  async signInByRole(role: UserRole) {
+  getCookiesByRole(role: UserRole) {
     switch (role) {
+    case 'Case Officer':
+      return caseOfficerCookies;
+    case 'Sr Case Officer':
+      return srCaseOfficerCookies;
+    case 'Admin Officer':
+      return adminOfficerCookies;
+    case 'Legal Rep':
+      return legalRepCookies;
+    case 'Home Office APC':
+      return homeOfficeAPCCookies;
+    case 'Home Office LART':
+      return homeOfficeLARTCookies;
+    case 'Home Office POU':
+      return homeOfficePOUCookies;
+    case 'Home Office Generic':
+      return homeOfficeGenericCookies;
+    case 'Home Office Bails':
+      return homeOfficeBailsCookies;
+    case 'Judge':
+      return judgeCookies;
+    case 'Legal Org User Rep A':
+      return legalOrgUserRepACookies;
+    case 'Legal Org User Rep B':
+      return legalOrgUserRepBCookies;
+    case 'Legal Org User Rep C':
+      return legalOrgUserRepCCookies;
+    case 'Legal Org User Rep D':
+      return legalOrgUserRepDCookies;
+    case 'Legal Org User Rep Creator':
+      return legalOrgUserRepCreatorCookies;
+    case 'Legal Org2 User Rep Creator':
+      return legalOrg2UserRepCreatorCookies;
+    case 'Legal Ops A':
+      return legalOpsACookies;
+    case 'Judicial':
+      return judicialCookies;
+    case 'WaAdmin':
+      return waAdminCookies;
+    case 'Judge Bails':
+      return judgeBailsCookies;
+    case 'Legal Org User Rep A Bails':
+      return legalOrgUserRepABailsCookies;
+    case 'Legal Org User Rep B Bails':
+      return legalOrgUserRepBBailsCookies;
+    }
+  }
+
+  setCookiesByRole(role: UserRole, cookies) {
+    switch (role) {
+    case 'Case Officer':
+      caseOfficerCookies = cookies;
+      return;
+    case 'Sr Case Officer':
+      srCaseOfficerCookies = cookies;
+      return;
+    case 'Admin Officer':
+      adminOfficerCookies = cookies;
+      return;
+    case 'Legal Rep':
+      legalRepCookies = cookies;
+      return;
+    case 'Home Office APC':
+      homeOfficeAPCCookies = cookies;
+      return;
+    case 'Home Office LART':
+      homeOfficeLARTCookies = cookies;
+      return;
+    case 'Home Office POU':
+      homeOfficePOUCookies = cookies;
+      return;
+    case 'Home Office Generic':
+      homeOfficeGenericCookies = cookies;
+      return;
+    case 'Home Office Bails':
+      homeOfficeBailsCookies = cookies;
+      return;
+    case 'Judge':
+      judgeCookies = cookies;
+      return;
+    case 'Legal Org User Rep A':
+      legalOrgUserRepACookies = cookies;
+      return;
+    case 'Legal Org User Rep B':
+      legalOrgUserRepBCookies = cookies;
+      return;
+    case 'Legal Org User Rep C':
+      legalOrgUserRepCCookies = cookies;
+      return;
+    case 'Legal Org User Rep D':
+      legalOrgUserRepDCookies = cookies;
+      return;
+    case 'Legal Org User Rep Creator':
+      legalOrgUserRepCreatorCookies = cookies;
+      return;
+    case 'Legal Org2 User Rep Creator':
+      legalOrg2UserRepCreatorCookies = cookies;
+      return;
+    case 'Legal Ops A':
+      legalOpsACookies = cookies;
+      return;
+    case 'Judicial':
+      judicialCookies = cookies;
+      return;
+    case 'WaAdmin':
+      waAdminCookies = cookies;
+      return;
+    case 'Judge Bails':
+      judgeBailsCookies = cookies;
+      return;
+    case 'Legal Org User Rep A Bails':
+      legalOrgUserRepABailsCookies = cookies;
+      return;
+    case 'Legal Org User Rep B Bails':
+      legalOrgUserRepBBailsCookies = cookies;
+      return;
+    }
+  }
+
+  async loadCookiesByRole(role: UserRole) {
+    await browser.manage().deleteAllCookies();
+    await Promise.all(this.getCookiesByRole(role).map((cookie) => browser.manage().addCookie(cookie)));
+    await this.ccdPage.get(`${iaConfig.CcdWebUrl}/cases`);
+    await this.checkExUiLoaded();
+  }
+
+  async signInByRole(role: UserRole) {
+    const cookies = await this.getCookiesByRole(role);
+    if (cookies) {
+      return this.loadCookiesByRole(role);
+    } else {
+      switch (role) {
       case 'Case Officer':
         await this.signInAsCaseOfficer();
         break;
@@ -101,9 +254,6 @@ export class AuthenticationFlow {
       case 'Legal Org User Rep B Bails':
         await this.signInAsLawFirmOrgUserBBails();
         break;
-      case 'Admin Officer Bails':
-        await this.signInAsAdminOfficerBails();
-        break;
       case 'Legal Org User Rep D':
         await this.signInAsLawFirmOrgUserD();
         break;
@@ -115,6 +265,9 @@ export class AuthenticationFlow {
         break;
       default:
         throw new Error(`Unknown role: ${role}`);
+      }
+      const newCookies = await browser.manage().getCookies();
+      this.setCookiesByRole(role, newCookies);
     }
   }
 
@@ -349,6 +502,7 @@ export class AuthenticationFlow {
       }
     }
   }
+
   async signInAsLawFirmOrgUserD() {
     for (let i = 0; i < 5; i++) {
       try {
@@ -408,6 +562,7 @@ export class AuthenticationFlow {
       }
     }
   }
+
   async signInAsJudicial() {
     for (let i = 0; i < 5; i++) {
       try {
@@ -422,31 +577,13 @@ export class AuthenticationFlow {
       }
     }
   }
+
   async signInAsWaAdmin() {
     for (let i = 0; i < 5; i++) {
       try {
         await this.signOut();
         await this.idamSignInPage.waitUntilLoaded();
         await this.idamSignInPage.signIn(iaConfig.TestWaAdminUserName, iaConfig.TestWaAdminPassword);
-        await this.checkExUiLoaded();
-        break;
-      } catch (err) {
-        console.log('Unsuccessful log in');
-        console.log(err);
-      }
-    }
-  }
-
-  async signInAsAdminOfficerBails() {
-    for (let i = 0; i < 5; i++) {
-      try {
-        await this.signOut();
-        await this.idamSignInPage.waitUntilLoaded();
-        if (iaConfig.CcdWebUrl.includes('localhost')) {
-          await this.idamSignInPage.signIn(iaConfig.TestAdminOfficerUserName, iaConfig.TestAdminOfficerPassword);
-        } else {
-          await this.idamSignInPage.signIn(iaConfig.TestAdminOfficerBailsUserName, iaConfig.TestAdminOfficerBailsPassword);
-        }
         await this.checkExUiLoaded();
         break;
       } catch (err) {

@@ -12,7 +12,7 @@ export class CreateCaseFixedListFieldFinder implements FieldFinder {
       // special case for Create Case form, which has a different structure
       // to the CCD event forms
 
-      const fieldContainer = container.all(by.xpath('.//label[normalize-space()="' + fieldLabel + '"]' + '/ancestor::div[position()=1]')).get(instanceNumber - 1);
+      const fieldContainer = container.all(by.xpath(`.//label[normalize-space()="${fieldLabel}"]/ancestor::div[position()=1]`)).get(instanceNumber - 1);
 
       if ((await fieldContainer.isPresent()) && (await fieldContainer.$$('select').isPresent())) {
         return new CcdWriteFixedListField(fieldContainer, fieldLabel);
@@ -21,6 +21,6 @@ export class CreateCaseFixedListFieldFinder implements FieldFinder {
   }
 
   public async findHavingEmptyLabel(container, instanceNumber: number) {
-    throw 'Unsupported -- Create Case form has no fields without a label';
+    throw new Error('Unsupported -- Create Case form has no fields without a label');
   }
 }

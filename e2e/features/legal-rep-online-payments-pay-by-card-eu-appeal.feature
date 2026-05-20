@@ -45,7 +45,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     When I click the `Confirm payment` button
     And I wait for 5 seconds
     Then I should see the text `Payment successful`
-    When I click the `Return to service request` link
+    When I return to the service request
 
     Then I should see the text `Paid`
     And I should see the text `José González`
@@ -75,7 +75,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I should see the text `No money has been taken from your account.`
     When I click the `Continue` button
     Then I should see the text `Your card payment was unsuccessful`
-    When I click the `Return to service request` link
+    When I return to the service request
     Then I should see the text `Not paid`
 
   @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-eu-general-error
@@ -95,5 +95,5 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I should see the text `No money has been taken from your account.`
     When I click the `Cancel and go back to try the payment again` link
     Then I should see the text `Your card payment was unsuccessful`
-    When I click the `Return to service request` link
+    When I return to the service request
     Then I should see the text `Not paid`

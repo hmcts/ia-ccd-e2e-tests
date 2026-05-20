@@ -1,12 +1,12 @@
 import { SubmitCaseFlow } from '../../../flows/submit-case.flow';
 import { Logger } from '../../../helpers/logger';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 
 const isSaveAndContinueEnabled = require('../../../ia.conf').isSaveAndContinueEnabled === 'true';
 
 const submitCaseFlow = new SubmitCaseFlow();
 
-Then(/^I submit my case$/, async function () {
+Then(/^I submit my case$/, async() => {
   if (isSaveAndContinueEnabled) {
     await submitCaseFlow.submitCase(true);
   } else {

@@ -1,8 +1,8 @@
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { RecordRemissionDecisionFlow } from '../../../flows/record-remission-decision.flow';
 
 const recordRemissionDecisionFlow = new RecordRemissionDecisionFlow();
 
-Then(/^I record remission decision as partially approved/, async function () {
+Then(/^I record remission decision as partially approved/, async() => {
   await recordRemissionDecisionFlow.partiallyApproved(true);
 });

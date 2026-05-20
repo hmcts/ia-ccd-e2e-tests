@@ -9,8 +9,8 @@ export class CcdReadTableFieldFinder implements FieldFinder {
 
   public async findByLabel(container, instanceNumber: number, fieldLabel: string) {
     const fieldContainer = container
-      .all(by.xpath('.//tr/th[normalize-space()="' + fieldLabel + '"]' + '/ancestor::tr[position()=1]'))
-      .filter((e) => e.isDisplayed())
+      .all(by.xpath(`.//tr/th[normalize-space()="${fieldLabel}"]/ancestor::tr[position()=1]`))
+      .filter(e => e.isDisplayed())
       .get(instanceNumber - 1);
 
     if (await fieldContainer.isPresent()) {
@@ -20,8 +20,8 @@ export class CcdReadTableFieldFinder implements FieldFinder {
 
   public async findHavingEmptyLabel(container, instanceNumber: number) {
     const fieldContainer = container
-      .all(by.xpath('.//tr/th[normalize-space()=""]' + '/ancestor::tr[position()=1]'))
-      .filter((e) => e.isDisplayed())
+      .all(by.xpath('.//tr/th[normalize-space()=""]/ancestor::tr[position()=1]'))
+      .filter(e => e.isDisplayed())
       .get(instanceNumber - 1);
 
     if (await fieldContainer.isPresent()) {

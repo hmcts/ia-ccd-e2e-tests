@@ -1,10 +1,15 @@
 import { CcdPage } from '../pages/ccd.page';
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { browser, by, element } from 'protractor';
+import CaseHelper from "../helpers/CaseHelper";
+import { AuthenticationFlow } from "./authentication.flow";
+import { MarkAppealAsPaidFlow } from "./mark-appeal-as-paid.flow";
 
 export class PayAndSubmitAppealFlow {
   private ccdPage = new CcdPage();
   private ccdFormPage = new CcdFormPage();
+  private authenticationFlow = new AuthenticationFlow();
+  private markAppealAsPaidFlow = new MarkAppealAsPaidFlow();
 
   async payForAppealByPBA() {
     await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
@@ -22,7 +27,7 @@ export class PayAndSubmitAppealFlow {
     await browser.sleep(1000);
     await this.ccdFormPage.typeText('pbaAccountRef', 'Unique Reference');
     await this.ccdFormPage.typeEnter('pbaAccountRef');
-    let confirmPaymentButton = element(by.css('button.pba-payments-19-font'));
+    const confirmPaymentButton = element(by.css('button.pba-payments-19-font'));
     await confirmPaymentButton.click();
     await this.ccdPage.waitForCssElementVisible('div.pba-payments--confirmation');
     await this.ccdPage.click('View service requests');
@@ -34,6 +39,16 @@ export class PayAndSubmitAppealFlow {
     const currentUrl = await this.ccdPage.getCaseUrl();
     const nextStepPath = '//select[@id="next-step"]';
     const appealDetailsPath = '//h2[contains(text(), "Appeal details")]';
+    if (currentUrl.includes('preview')) {
+      const loggedInCookies = await browser.manage().getCookies();
+      await this.authenticationFlow.signInByRole("Admin Officer");
+      await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
+      await this.ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
+      await this.markAppealAsPaidFlow.markAppealAsPaid(true);
+      await browser.manage().deleteAllCookies();
+      await Promise.all(loggedInCookies.map((cookie) => browser.manage().addCookie(cookie)));
+      await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
+    }
     let isPaymentPending = true;
     while (isPaymentPending) {
       await browser.sleep(10000);
@@ -59,7 +74,7 @@ export class PayAndSubmitAppealFlow {
   async createServiceRequest() {
     await this.ccdFormPage.selectNextStep('Create a service request');
     await this.ccdFormPage.headingContains('Pay for this appeal');
-    let currentUrl = await browser.getCurrentUrl();
+    const currentUrl = await browser.getCurrentUrl();
     await this.ccdFormPage.click('Submit');
     await this.ccdPage.waitForConfirmationScreenAndContinue(currentUrl);
     await this.ccdPage.waitForOverviewPage(this.ccdPage.getStoredCaseUrl());
@@ -134,5 +149,11 @@ export class PayAndSubmitAppealFlow {
     } catch {
       await this.ccdFormPage.click('Continue');
     }
+  }
+
+  async returnToServiceRequest() {
+    await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
+    await this.ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
+    await this.ccdPage.gotoTabs('Service Request');
   }
 }

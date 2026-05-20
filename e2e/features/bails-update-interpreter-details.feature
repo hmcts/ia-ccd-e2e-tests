@@ -7,7 +7,7 @@ Feature: Bails Update interpreter details application as Legal Rep
 
   @bail-nightly-test
   Scenario: Add Update interpreter details application
-    And I switch to be a `Admin Officer Bails`
+    And I switch to be a `Admin Officer`
     When I select the `Update interpreter details` Next step
     Then I should see the text `Update interpreter details`
     When I click the `Add new` button

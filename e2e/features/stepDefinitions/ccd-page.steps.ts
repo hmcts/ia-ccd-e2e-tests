@@ -1,5 +1,5 @@
 import { CcdPage } from "../../pages/ccd.page";
-import { Given, Then, When } from "cucumber";
+import { Given, Then, When } from "@cucumber/cucumber";
 import { browser, By, by, element } from "protractor";
 import { expect } from "chai";
 import { Wait } from "../../enums/wait";
@@ -11,9 +11,9 @@ const ccdPage = new CcdPage();
 const ccdFormPage = new CcdFormPage();
 const iaConfig = require("../../ia.conf");
 
-Given("I create a new case", async function () {
+Given("I create a new case", async () => {
   await ccdPage.acceptCookies();
-  await browser.get(iaConfig.CcdWebUrl + "/cases/case-filter");
+  await browser.get(`${iaConfig.CcdWebUrl}/cases/case-filter`);
   try {
     await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   } catch {
@@ -37,16 +37,16 @@ Given("I create a new case", async function () {
   await ccdPage.isButtonEnabled("Start");
   await ccdPage.click("Start");
   try {
-    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+    await ccdPage.waitForPageNavigation(`${iaConfig.CcdWebUrl}/cases/case-filter`);
   } catch {
     await ccdPage.click("Start");
-    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+    await ccdPage.waitForPageNavigation(`${iaConfig.CcdWebUrl}/cases/case-filter`);
   }
 });
 
-Given("I create a new bail application", async function () {
+Given("I create a new bail application", async () => {
   await ccdPage.acceptCookies();
-  await browser.get(iaConfig.CcdWebUrl + "/cases/case-filter");
+  await browser.get(`${iaConfig.CcdWebUrl}/cases/case-filter`);
   try {
     await ccdPage.waitForCssElementVisible('#cc-jurisdiction');
   } catch {
@@ -70,14 +70,14 @@ Given("I create a new bail application", async function () {
   await ccdPage.isButtonEnabled("Start");
   await ccdPage.click("Start");
   try {
-    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+    await ccdPage.waitForPageNavigation(`${iaConfig.CcdWebUrl}/cases/case-filter`);
   } catch {
     await ccdPage.click("Start");
-    await ccdPage.waitForPageNavigation(iaConfig.CcdWebUrl + "/cases/case-filter");
+    await ccdPage.waitForPageNavigation(`${iaConfig.CcdWebUrl}/cases/case-filter`);
   }
 });
 
-Given("I Apply case list filter", async function () {
+Given("I Apply case list filter", async () => {
   await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Case list")).to.equal(true);
   await ccdPage.runAccessbility();
@@ -96,7 +96,7 @@ Given("I Apply case list filter", async function () {
   await ccdPage.click("Apply");
 });
 
-Given("I Apply case list filter for Bails", async function () {
+Given("I Apply case list filter for Bails", async () => {
   await ccdPage.waitForSpinner();
   expect(await ccdPage.headingContains("Case list")).to.equal(true);
   await ccdPage.runAccessbility();
@@ -115,7 +115,7 @@ Given("I Apply case list filter for Bails", async function () {
   await ccdPage.click("Apply");
 });
 
-Then("I wait for Create Case fields to load", async function () {
+Then("I wait for Create Case fields to load", async () => {
   await ccdPage.headingContains("Create Case");
   await ccdPage.doesDropdownHaveValues("Jurisdiction");
   await ccdPage.doesDropdownHaveValues("Case type");
@@ -123,39 +123,39 @@ Then("I wait for Create Case fields to load", async function () {
   await ccdPage.isButtonEnabled("Start");
 });
 
-Then(/I wait for (\d+) seconds?$/, async function (waitDelay) {
+Then(/I wait for (\d+) seconds?$/, async waitDelay => {
   await browser.sleep(waitDelay * 1000);
 });
 
-Then(/^I should see `?([^`]+)`? in the url$/, async function (urlText) {
+Then(/^I should see `?([^`]+)`? in the url$/, async urlText => {
   expect(await ccdPage.urlContains(urlText)).to.equal(true);
 });
 
 Then(
   /^I (?:am on|should see) the `?([^`]+)`? page$/,
-  async function (headingText) {
+  async headingText => {
     expect(await ccdPage.headingContains(headingText)).to.equal(true);
   }
 );
 
-Then(/^I see the open case$/, async function () {
+Then(/^I see the open case$/, async () => {
   expect(await ccdPage.linkContains("Print")).to.equal(true);
 });
 
 Then(
   /^I should see a notification saying `?([^`]+)`?$/,
-  async function (message) {
+  async message => {
     expect(await ccdPage.notificationContains(message)).to.equal(true);
   }
 );
 
-Then(/^I should see the username `?([^`]+)`?$/, async function (username) {
+Then(/^I should see the username `?([^`]+)`?$/, async username => {
   expect(await ccdPage.usernameContains(username)).to.equal(true);
 });
 
 Then(
   /^I (?:should |)(see|not see) the image `?([^`]+)`?$/,
-  async function (seeOrNotSee, match) {
+  async (seeOrNotSee, match) => {
     const shortWait = seeOrNotSee === "not see";
     try {
       expect(await ccdPage.imgSrcContains(match, shortWait)).to.equal(
@@ -172,7 +172,7 @@ Then(
 
 Then(
   /^I (?:should |)(see|not see) the text `?([^`]+)`?$/,
-  async function (seeOrNotSee, match) {
+  async (seeOrNotSee, match) => {
     const wait = seeOrNotSee === "not see" ? Wait.short : Wait.normal;
     expect(await ccdPage.contentContains(match, wait)).to.equal(
       seeOrNotSee === "see"
@@ -182,14 +182,14 @@ Then(
 
 Then(
   /^I should see ?`([^`]+)`?$/,
-  async function (match: string) {
+  async (match: string) => {
     await ccdPage.waitForXpathElementVisible(`//*[contains(text(), "${match}")]`);
   }
 );
 
 Then(
   /^I (?:should |)(see|not see) the `?([^`]+)`? (?:button|link|tab|label)$/,
-  async function (seeOrNotSee, linkText) {
+  async (seeOrNotSee, linkText) => {
     const shortWait = seeOrNotSee === "not see";
     expect(await ccdPage.linkContains(linkText, shortWait)).to.equal(
       seeOrNotSee === "see"
@@ -197,11 +197,11 @@ Then(
   }
 );
 
-Then("I should be on the overview page", async function () {
+Then("I should be on the overview page", async () => {
   await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
 });
 
-Then("I go to the overview page for the stored case", async function () {
+Then("I go to the overview page for the stored case", async () => {
   await ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
   await ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
   await ccdPage.gotoTabs("Overview");
@@ -209,7 +209,7 @@ Then("I go to the overview page for the stored case", async function () {
 
 Then(
   /^the `?([^`]+)`? button is (?:still |)(enabled|disabled)$/,
-  async function (buttonText, enabledOrDisabled) {
+  async (buttonText, enabledOrDisabled) => {
     expect(
       await ccdPage.isButtonEnabled(buttonText, enabledOrDisabled !== "enabled")
     ).to.equal(enabledOrDisabled === "enabled");
@@ -218,7 +218,7 @@ Then(
 
 When(
   /^I click the `?([^`]+)`? (?:button|link|tab|label)$/,
-  async function (linkText) {
+  async linkText => {
     await ccdPage.waitForSpinner();
     if (linkText === "tab") {
       await ccdPage.gotoTabs(linkText);
@@ -230,7 +230,7 @@ When(
 
 When(
   /^I click the `Continue` button for flakey Make an application$/,
-  async function () {
+  async () => {
     await ccdPage.waitForSpinner();
     try {
       await ccdPage.click("Continue", 0, 120000);
@@ -241,17 +241,17 @@ When(
   }
 );
 
-When(/^I click the `?([^`]+)`? button if present$/, async function (linkText) {
+When(/^I click the `?([^`]+)`? button if present$/, async linkText => {
   await ccdPage.waitForSpinner();
   await ccdPage.clickButtonIfVisible(linkText);
 });
 When(
   /^I goto the `?([^`]+)`? (?:button|link|tab|label)$/,
-  async function (linkText) {
+  async linkText => {
     await ccdPage.waitForSpinner();
     if (linkText === 'Hearings') {
       const url = await ccdPage.getCaseUrl();
-      await ccdPage.get(url + "/hearings");
+      await ccdPage.get(`${url}/hearings`);
       await ccdPage.waitForXpathElementVisible('//th[contains(text(), "Current and upcoming")]');
     } else {
       await ccdPage.gotoTabs(linkText);
@@ -261,20 +261,19 @@ When(
 
 When(
   /^I click the `?(first|second|third|)`?\s`?([^`]+)`? (?:button|link|tab|label)$/,
-  async function (instanceNumber, linkText) {
-    const xpathIndex =
-      OrdinalToCardinal.convertWordToNumber(instanceNumber) - 1;
+  async (instanceNumber, linkText) => {
+    const xpathIndex = OrdinalToCardinal.convertWordToNumber(instanceNumber) - 1;
     await ccdPage.click(linkText, xpathIndex);
   }
 );
 
-When(/^I refresh the page$/, async function () {
+When(/^I refresh the page$/, async () => {
   await ccdPage.refresh();
 });
 
 Then(
   /^I should (see|not see) the `?(first|second|third|)`?\s?(?:answer|field) without a label$/,
-  async function (seeOrNotSee, instanceNumber) {
+  async (seeOrNotSee, instanceNumber) => {
     expect(await ccdPage.isFieldDisplayed("", instanceNumber)).to.equal(
       seeOrNotSee === "see"
     );
@@ -283,7 +282,7 @@ Then(
 
 Then(
   /^I should (see|not see) the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field)$/,
-  async function (seeOrNotSee, instanceNumber, fieldLabel) {
+  async (seeOrNotSee, instanceNumber, fieldLabel) => {
     expect(await ccdPage.isFieldDisplayed(fieldLabel, instanceNumber)).to.equal(
       seeOrNotSee === "see"
     );
@@ -292,7 +291,7 @@ Then(
 
 Then(
   /^the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field) should be empty$/,
-  async function (instanceNumber, fieldLabel) {
+  async (instanceNumber, fieldLabel) => {
     expect(
       await ccdPage.isFieldValueDisplayed(fieldLabel, "", true, instanceNumber)
     ).to.equal(true);
@@ -301,7 +300,7 @@ Then(
 
 Then(
   /^the `?(first|second|third|)`?\s?`?([^`]+)`? (?:answer|field) should be (\d+) characters long$/,
-  async function (instanceNumber, fieldLabel, fieldValueSize) {
+  async (instanceNumber, fieldLabel, fieldValueSize) => {
     expect(
       await ccdPage.isFieldValueCorrectLength(
         fieldLabel,
@@ -314,7 +313,7 @@ Then(
 
 Then(
   /^the `?(first|second|third|)`?\s?(?:answer|field) without a label should be empty$/,
-  async function (instanceNumber) {
+  async instanceNumber => {
     expect(
       await ccdPage.isFieldValueDisplayed("", "", true, instanceNumber)
     ).to.equal(true);
@@ -323,7 +322,7 @@ Then(
 
 Then(
   /^I should see `?([^`]+)`? (in|for) the `?(first|second|third|)`?\s?(?:answer|field) without a label$/,
-  async function (fieldMatch, inOrFor, instanceNumber) {
+  async (fieldMatch, inOrFor, instanceNumber) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -339,7 +338,7 @@ Then(
 
 Then(
   /^I should see `?([^`]+)`? (in|for) the `?(first|second|third|fourth|fifth|)`?\s?`?([^`]+)`? (?:answer|field)$/,
-  async function (fieldMatch, inOrFor, instanceNumber, fieldLabel) {
+  async (fieldMatch, inOrFor, instanceNumber, fieldLabel) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -355,7 +354,7 @@ Then(
 
 Then(
   /^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? text area input (?:answer|field)$/,
-  async function (fieldMatch, inOrFor, fieldLabel) {
+  async (fieldMatch, inOrFor, fieldLabel) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -374,7 +373,7 @@ Then(
 
 Then(
   /^I should see `?([^`]+)`? (in|for) the `?([^`]+)`? date input (?:answer|field)$/,
-  async function (fieldMatch, inOrFor, fieldLabel) {
+  async (fieldMatch, inOrFor, fieldLabel) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -393,7 +392,7 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
-  async function (instanceNumber, fieldsetLabel, fieldMatch, inOrFor) {
+  async (instanceNumber, fieldsetLabel, fieldMatch, inOrFor) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -410,13 +409,13 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? fieldset, I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
-  async function (
+  async (
     instanceNumber,
     fieldsetLabel,
     fieldMatch,
     inOrFor,
     fieldLabel
-  ) {
+  ) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -433,13 +432,13 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see `?([^`]+)`? (in|for) the (?:answer|field) without a label$/,
-  async function (
+  async (
     instanceNumber,
     collectionLabel,
     collectionItemNumber,
     fieldMatch,
     inOrFor
-  ) {
+  ) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -457,14 +456,14 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
-  async function (
+  async (
     instanceNumber,
     collectionLabel,
     collectionItemNumber,
     fieldMatch,
     inOrFor,
     fieldLabel
-  ) {
+  ) => {
     const isExactMatch = inOrFor === "for";
 
     expect(
@@ -482,18 +481,18 @@ Then(
 
 Then(
   /^within the `?(first|second|third|)`?\s?`?([^`]+)`? collection's `?([^\s`]+)`? item, I should see one of `?([^`]+)`? (in|for) the `?([^`]+)`? (?:answer|field)$/,
-  async function (
+  async (
     instanceNumber,
     collectionLabel,
     collectionItemNumber,
     fieldMatch,
     inOrFor,
     fieldLabel
-  ) {
+  ) => {
     const isExactMatch = inOrFor === "for";
     const values = fieldMatch.split(',');
 
-    let result: boolean[] = [];
+    const result: boolean[] = [];
 
     for (const value of values) {
       const res = await ccdPage.isFieldValueDisplayed(
@@ -510,21 +509,21 @@ Then(
   }
 );
 
-Then(/^I go to the URL `?([^`]+)`?$/, async function (URL) {
+Then(/^I go to the URL `?([^`]+)`?$/, async URL => {
   await ccdFormPage.goToUrl(URL);
 });
 
 Then(
   /^I select `?([^`]+)`? from the dropdown with ID `?([^`]+)`?$/,
-  async function (option, ID) {
+  async (option, ID) => {
     await ccdFormPage.typeText(ID, option);
   }
 );
 
-Given("I restart the browser", async function () {
+Given("I restart the browser", async () => {
   await browser.restart();
 });
-Then(/^I will make `?([^`]+)`? as Inactive$/, async function (flagtype) {
+Then(/^I will make `?([^`]+)`? as Inactive$/, async flagtype => {
   await ccdFormPage.click(flagtype);
   await ccdFormPage.click("Continue", 0, 0, false);
   await ccdFormPage.waitForXpathElementVisible('//label[contains(text(), "Update flag")]');
@@ -540,7 +539,7 @@ Then(/^I will make `?([^`]+)`? as Inactive$/, async function (flagtype) {
 
 Then(
   /^I have created a `?([^`]+)`? Flag in `?([^`]+)`?$/,
-  async function (flag, type) {
+  async (flag, type) => {
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 30000, false);
     await ccdFormPage.waitForXpathElementVisible(`//label[contains(text(),"${flag}")][contains(@class, "govuk-radios__label")]`);
@@ -561,7 +560,7 @@ Then(
 );
 Then(
   /^I have created a `Language Interpreter` Flag in `?([^`]+)`? and language name is `?([^`]+)`?$/,
-  async function (type, language) {
+  async (type, language) => {
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Select flag type")]');
@@ -586,7 +585,7 @@ Then(
 );
 Then(
   /^I have created a `Reasonable adjustment` Flag in `?([^`]+)`? and signlanguage name is `?([^`]+)`?$/,
-  async function (type, language) {
+  async (type, language) => {
     await ccdFormPage.click(type);
     await ccdFormPage.click("Continue", 0, 0, false);
     await ccdFormPage.waitForXpathElementVisible('//h1[contains(text(), "Select flag type")]');
@@ -616,12 +615,12 @@ Then(
   }
 );
 
-Then(/^I will update s94b flag$/, async function () {
+Then(/^I will update s94b flag$/, async () => {
   await ccdFormPage.setFieldValue("Mark appeal as s94b?", "Yes");
   await ccdFormPage.click("Continue", 0, 0, false);
   await ccdFormPage.click("Submit");
 });
-Then(/^I Add the bail interpreter details$/, async function () {
+Then(/^I Add the bail interpreter details$/, async () => {
   await ccdPage.click("Add new");
   await ccdFormPage.setFieldValue("Booking reference", "Test-32123");
   await ccdFormPage.setFieldValue("Given names", "David");
@@ -637,7 +636,7 @@ Then(/^I Add the bail interpreter details$/, async function () {
 
   await ccdFormPage.click("Update");
 });
-Then(/^I update interpreter booking status$/, async function () {
+Then(/^I update interpreter booking status$/, async () => {
   await ccdFormPage.setFieldValue("Harri Pugh - Applicant - Korean", "Booked");
   await ccdFormPage.setFieldValue(
     "Harri Pugh - Applicant - British Sign Language (BSL)",
@@ -659,31 +658,24 @@ Then(/^I update interpreter booking status$/, async function () {
   await ccdFormPage.click("Update");
 });
 
-Given("I wait for the spinner", async function () {
+Given("I wait for the spinner", async () => {
   await ccdPage.waitForSpinner();
 });
 
 Then(
   /^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? with flag status `?([^`]+)`?$/,
-  async function (
+  async (
     partie,
     caseFlagName,
     flagStatus
-  ) {
-    let field =
-      '//caption[normalize-space()="' +
-      partie +
-      '"]' +
-      '/ancestor::ccd-case-flag-table[position()=1]/table/tbody/tr/td[normalize-space()="' +
-      caseFlagName +
-      '"]' +
-      "/ancestor::tr[position()=1]//td";
-    let tds = await element.all(by.xpath(field));
-    let tdCount = await element.all(by.xpath(field)).count();
+  ) => {
+    const field = `//caption[normalize-space()="${partie}"]/ancestor::ccd-case-flag-table[position()=1]/table/tbody/tr/td[normalize-space()="${caseFlagName}"]/ancestor::tr[position()=1]//td`;
+    const tds = await element.all(by.xpath(field));
+    const tdCount = await element.all(by.xpath(field)).count();
 
     for (let td = 0; td < tdCount; td++) {
-      let tdValue = await tds[td];
-      let caseFlagValue = JSON.stringify(await tdValue.getText()).trim();
+      const tdValue = await tds[td];
+      const caseFlagValue = JSON.stringify(await tdValue.getText()).trim();
       if (td === 0) {
         expect(JSON.stringify(caseFlagName).trim()).to.equal(caseFlagValue);
       }
@@ -693,3 +685,7 @@ Then(
     }
   }
 );
+
+Then('I fail the test', () => {
+  expect(true).to.equal(false);
+});

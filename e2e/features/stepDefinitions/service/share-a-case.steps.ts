@@ -1,10 +1,10 @@
 import { CcdFormPage } from '../../../pages/ccd-form.page';
-import { Then } from 'cucumber';
+import { Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
 
 const ccdFormPage = new CcdFormPage();
 
-Then('I wait for Share case page to load', async function () {
+Then('I wait for Share case page to load', async() => {
   expect(await ccdFormPage.headingContains('Share case with colleague')).to.equal(true);
   expect(await ccdFormPage.contentContains('Choose colleague from below list to share the case')).to.equal(true);
   const colleagues = await ccdFormPage.getFieldOptions('Colleague');
@@ -14,12 +14,12 @@ Then('I wait for Share case page to load', async function () {
   expect(await ccdFormPage.isButtonEnabled('Continue')).to.equal(true);
 });
 
-Then(/^I choose `?(?:|Legal Org User Rep)(?:| A| B)`?$/, async function () {
+Then(/^I choose `?(?:|Legal Org User Rep)(?:| A| B)`?$/, async() => {
   await ccdFormPage.setFieldValue('Colleague', 'ia.legalrep.bb.xui@fake.hmcts.net');
   await ccdFormPage.click('Continue');
 });
 
-Then('I complete the `Share a case check your answers` page', async function () {
+Then('I complete the `Share a case check your answers` page', async() => {
   expect(await ccdFormPage.headingContains('Check your answers')).to.equal(true);
   expect(await ccdFormPage.contentContains('Check the information below carefully.')).to.equal(true);
   expect(await ccdFormPage.isButtonEnabled('Previous')).to.equal(true);

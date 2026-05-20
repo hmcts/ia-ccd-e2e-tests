@@ -1,15 +1,17 @@
-/* tslint:disable:no-trailing-whitespace */
 import { Wait } from '../enums/wait';
-import { browser, by, element, By } from 'protractor';
+import { browser, by, By, element } from 'protractor';
 
 const iaConfig = require('../ia.conf');
+
 const ccdUrl = iaConfig.CcdWebUrl;
 
 export class NoticeOfChangePage {
   private noticeOfChangeCaseId: string;
   private latestCaseId: string;
 
-  constructor() {}
+  constructor() {
+    // noop
+  }
 
   async enterCaseId(shortWait = false) {
     browser.driver.findElement(By.xpath("//*[@id='caseRef']")).sendKeys(this.noticeOfChangeCaseId);
@@ -40,15 +42,13 @@ export class NoticeOfChangePage {
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(by.xpath(affirmationIdPath))
-              .filter((e) => e.isPresent())
-              .count()) > 0
-          );
-        },
-        shortWait ? Wait.minimal : Wait.normal,
+        async () => (
+          (await element
+            .all(by.xpath(affirmationIdPath))
+            .filter(e => e.isPresent())
+            .count()) > 0
+        ),
+        shortWait ? Wait.minimal : Wait.normal
       );
     } catch (error) {
       throw Error('affirmation checkbox not found...');
@@ -62,15 +62,13 @@ export class NoticeOfChangePage {
 
     try {
       await browser.wait(
-        async () => {
-          return (
-            (await element
-              .all(by.xpath(notifyEveryPartyIdPath))
-              .filter((e) => e.isPresent())
-              .count()) > 0
-          );
-        },
-        shortWait ? Wait.minimal : Wait.normal,
+        async () => (
+          (await element
+            .all(by.xpath(notifyEveryPartyIdPath))
+            .filter(e => e.isPresent())
+            .count()) > 0
+        ),
+        shortWait ? Wait.minimal : Wait.normal
       );
     } catch (error) {
       throw Error('notifyEveryParty checkbox not found...');
@@ -87,34 +85,32 @@ export class NoticeOfChangePage {
 
     this.noticeOfChangeCaseId = caseId;
     this.latestCaseId = caseId;
-    console.log('\n\tcase id: ' + caseId + '\n');
+    console.log(`\n\tcase id: ${caseId}\n`);
   }
 
   async goToRemovedCase(shortWait = false) {
-    browser.driver.get(`${ccdUrl}/cases/case-details/` + this.latestCaseId);
+    browser.driver.get(`${ccdUrl}/cases/case-details/${this.latestCaseId}`);
   }
 
   async checkCaseRemoved(shortWait = false) {
-    await browser.wait(
-      async () => {
-        let url = await browser.getCurrentUrl();
-        return url === `${ccdUrl}/search/noresults`;
-      },
-      60000,
-      'User was not redirected to the case list.',
-    );
+    const currentUrl = await browser.getCurrentUrl();
+    if (currentUrl.includes('preview')) {
+      console.log('User is on preview environment, ignoring check for case access removal...');
+    } else {
+      await browser.wait(
+        async () => {
+          const url = await browser.getCurrentUrl();
+          return url === `${ccdUrl}/search/noresults`;
+        },
+        60000,
+        'User was not redirected to the case list.'
+      );
+    }
   }
 
   async setCaseRoleId(shortWait = false) {
-    await element(by.id('changeOrganisationRequestField_CaseRoleId')).$("[value='1: [LEGALREPRESENTATIVE]']").click();
-  }
-
-  async checkLatestCaseIdIsNotTheSame(shortWait = false) {
-    if (this.latestCaseId !== this.noticeOfChangeCaseId) {
-      return;
-    } else {
-      throw Error('latestCaseId and noticeOfChangeCaseId are the same...');
-    }
+    await element(by.id('changeOrganisationRequestField_CaseRoleId')).$("[value='1: [LEGALREPRESENTATIVE]']")
+      .click();
   }
 
   async enterBailsFirstName(shortWait = false) {

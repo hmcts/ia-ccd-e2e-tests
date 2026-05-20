@@ -19,19 +19,19 @@ export class CcdWriteLabelField implements Field {
   }
 
   public async getValue() {
-    return await this.getValueElement().getText();
+    return this.getValueElement().getText();
   }
 
   public async setValue(value) {
-    throw 'Unsupported -- field is read only';
+    throw new Error('Unsupported -- field is read only');
   }
 
   public async isDisplayed() {
-    return await this.getValueElement().isDisplayed();
+    return this.getValueElement().isDisplayed();
   }
 
   public async isEnabled() {
-    return await this.getValueElement().isEnabled();
+    return this.getValueElement().isEnabled();
   }
 
   public isReadOnly() {

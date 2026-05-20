@@ -65,6 +65,7 @@ export class UploadRespondentEvidenceFlow {
     expect(actualText).to.contain('- a copy of the appellant\'s criminal record.');
     expect(actualText).to.contain('- a copy of any Parole Report or other document relating to the appellant\'s period in custody and/or release.');
     expect(actualText).to.contain('- a copy of any mental health report.');
-    expect(actualText).to.contain('Parties must ensure they conduct proceedings with procedural rigour. The Tribunal will not overlook breaches of the requirements of the Procedure Rules, Practice Statement or Practice Direction, nor failures to comply with directions issued by the Tribunal. Parties are reminded of the sanctions for non-compliance set out in paragraph 5.3 of the Practice Direction of 01.11.24.');
+    expect(actualText).to.contain('Parties must ensure they conduct proceedings with procedural rigour. The Tribunal will not overlook breaches of the requirements of the Procedure Rules, Practice Statement or Practice Direction, ' +
+      'nor failures to comply with directions issued by the Tribunal. Parties are reminded of the sanctions for non-compliance set out in paragraph 5.3 of the Practice Direction of 01.11.24.');
   }
 }
