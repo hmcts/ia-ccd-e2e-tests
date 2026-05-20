@@ -7,7 +7,7 @@ Feature: Bails SNL Hearing request as Admin Officer
     And I submit my bail application as a `Admin Officer`
     And I click the `Close and Return to case details` button if present
 
-  @bail-Admintest @bail-nightly-test @bail-testy-test
+  @bail-Admintest @bail-nightly-test
   Scenario: Bails Hearing request as Admin Officer
 
     Then I should see the text `Please Confirm location where Applicant is detained is correct, and they are held on immigration matters, before listing the case for hearing in List Assist.`
