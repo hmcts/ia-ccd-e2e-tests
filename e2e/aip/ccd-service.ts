@@ -270,7 +270,7 @@ class CcdService {
 
 async function getSecurityHeadersGivenToken(token: string): Promise<SecurityHeaders> {
   const serviceToken: string = await getS2sToken();
-  return {userToken: token, serviceToken};
+  return {userToken: `Bearer ${token}`, serviceToken};
 }
 
 async function getSecurityHeadersForCreateCase(userForBails?: string): Promise<SecurityHeaders> {
