@@ -502,9 +502,9 @@ async function tryInjectUploadedBailDocuments(caseData: any, headers: SecurityHe
 
 async function createBailCase(caseData: any, user: string): Promise<CcdCaseDetails> {
   const cookies = await browser.manage().getCookies();
-  cookies.filter(cookie => cookie.name === '__auth-token');
-  const headers = cookies.length === 0 ? await getSecurityHeadersForCreateCase(user)
-    : await getSecurityHeadersGivenToken(cookies[0].value);
+  const authCookies = cookies.filter(cookie => cookie.name === '__auth-token');
+  const headers = authCookies.length === 0 ? await getSecurityHeadersForCreateCase(user)
+    : await getSecurityHeadersGivenToken(authCookies[0].value);
   const userId = await getUserId(headers.userToken);
   await tryInjectUploadedBailDocuments(caseData, headers);
   console.log(`Starting create bail case for user '${userId}'`);
