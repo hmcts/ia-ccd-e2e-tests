@@ -4238,12 +4238,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "uuid@npm:10.0.0"
+"uuid@npm:^12.0.1":
+  version: 12.0.1
+  resolution: "uuid@npm:12.0.1"
   bin:
     uuid: dist/bin/uuid
-  checksum: 10/35aa60614811a201ff90f8ca5e9ecb7076a75c3821e17f0f5ff72d44e36c2d35fcbc2ceee9c4ac7317f4cc41895da30e74f3885e30313bee48fda6338f250538
+  checksum: 10/949407b5ef655432b94a445a66ddfa6b063e5a2efa70e73dbb3ac53a784dd4dfb3b4b18075d5f9ea028130af4aacf6f6307bc5078e705d28c0d98af67c3f0812
   languageName: node
   linkType: hard
 
