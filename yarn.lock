@@ -980,7 +980,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"combined-stream@npm:^1.0.6, combined-stream@npm:^1.0.8, combined-stream@npm:~1.0.6":
+"combined-stream@npm:^1.0.8, combined-stream@npm:~1.0.6":
   version: 1.0.8
   resolution: "combined-stream@npm:1.0.8"
   dependencies:
@@ -1749,17 +1749,6 @@ __metadata:
     hasown: "npm:^2.0.2"
     mime-types: "npm:^2.1.12"
   checksum: 10/52ecd6e927c8c4e215e68a7ad5e0f7c1031397439672fd9741654b4a94722c4182e74cc815b225dcb5be3f4180f36428f67c6dd39eaa98af0dcfdd26c00c19cd
-  languageName: node
-  linkType: hard
-
-"form-data@npm:~2.3.2":
-  version: 2.3.3
-  resolution: "form-data@npm:2.3.3"
-  dependencies:
-    asynckit: "npm:^0.4.0"
-    combined-stream: "npm:^1.0.6"
-    mime-types: "npm:^2.1.12"
-  checksum: 10/1b6f3ccbf4540e535887b42218a2431a3f6cfdea320119c2affa2a7a374ad8fdd1e60166fc865181f45d49b1684c3e90e7b2190d3fe016692957afb9cf0d0d02
   languageName: node
   linkType: hard
 
