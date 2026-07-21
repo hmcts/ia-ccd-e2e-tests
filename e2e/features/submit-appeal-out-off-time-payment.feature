@@ -11,7 +11,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
 
     When I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
-    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `The fee for an appeal with a hearing is £144`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
@@ -34,7 +34,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `Payment by Account number`
     And I should see the text `PBA0087412`
     And I should see the text `Fee`
-    And I should see the text `£140`
+    And I should see the text `£144`
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Pay and submit`
@@ -46,7 +46,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
 
     When I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
-    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `The fee for an appeal with a hearing is £144`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
@@ -69,7 +69,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `Payment by Account number`
     And I should see the text `PBA0087412`
     And I should see the text `Fee`
-    And I should see the text `£140`
+    And I should see the text `£144`
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Pay and submit`
@@ -81,7 +81,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
 
     When I select the `Pay and submit` Next step
     Then I should see the `Select PBA number` page
-    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `The fee for an appeal with a hearing is £144`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
@@ -104,7 +104,7 @@ Feature: Submit Appeal out of time payment for EA and HU and PA
     And I should see the text `Payment by Account number`
     And I should see the text `PBA0087412`
     And I should see the text `Fee`
-    And I should see the text `£140`
+    And I should see the text `£144`
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
     Then I should see an alert confirming the case `has been updated with event: Pay and submit`

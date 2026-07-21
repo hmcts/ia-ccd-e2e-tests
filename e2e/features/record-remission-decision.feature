@@ -32,14 +32,14 @@ Feature: Record remission decision
     And I select `Approved` for the `Decision` field
     And I click the `Continue` button
 
-    Then I should see the text `The full fee of £140 will be remitted. Click Continue to confirm the amount remitted and the amount left to pay are correct.`
-    And I type `140` for the `Amount remitted` field
+    Then I should see the text `The full fee of £144 will be remitted. Click Continue to confirm the amount remitted and the amount left to pay are correct.`
+    And I type `144` for the `Amount remitted` field
     And I type `0` for the `Amount left to pay` field
     And I click the `Continue` button
 
     Then I am on the `Check your answers` page
     And I should see `Approved` in the `Decision` field
-    And I should see `£140.00` for the `Amount remitted` field
+    And I should see `£144.00` for the `Amount remitted` field
     And I should see `£0.00` for the `Amount left to pay` field
     And I click the `Record decision` button
 
@@ -61,8 +61,8 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
-    And I should see `£140.00` for the `Amount remitted` field
+    And I should see `£144.00` for the `Fee` field
+    And I should see `£144.00` for the `Amount remitted` field
     And I should see `£0.00` for the `Amount left to pay` field
 
     When I switch to be a `Case Officer`
@@ -72,8 +72,8 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
-    And I should see `£140.00` for the `Amount remitted` field
+    And I should see `£144.00` for the `Fee` field
+    And I should see `£144.00` for the `Amount remitted` field
     And I should see `£0.00` for the `Amount left to pay` field
 
     When I switch to be a `Judge`
@@ -83,8 +83,8 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
-    And I should see `£140.00` for the `Amount remitted` field
+    And I should see `£144.00` for the `Fee` field
+    And I should see `£144.00` for the `Amount remitted` field
     And I should see `£0.00` for the `Amount left to pay` field
 
     When I switch to be a `Legal Org User Rep A`
@@ -98,8 +98,8 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
-    And I should see `£140.00` for the `Amount remitted` field
+    And I should see `£144.00` for the `Fee` field
+    And I should see `£144.00` for the `Amount remitted` field
     And I should see `£0.00` for the `Amount left to pay` field
 
   @record-remission-decision-partially-approved @RIA-3517-partially-approved @RIA-3517 @RIA-3829
@@ -130,7 +130,7 @@ Feature: Record remission decision
     And I select `Partially approved` for the `Decision` field
     And I click the `Continue` button
 
-    Then I should see the text `The full fee of £140 will be partially remitted. Click Continue to confirm the amount remitted and the amount left to pay are correct.`
+    Then I should see the text `The full fee of £144 will be partially remitted. Click Continue to confirm the amount remitted and the amount left to pay are correct.`
     And I type `100` for the `Amount remitted` field
     And I type `40` for the `Amount left to pay` field
     And I type `A reason for partially approved` for the `Reason for decision` field
@@ -161,7 +161,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
@@ -173,7 +173,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
@@ -185,7 +185,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
@@ -201,7 +201,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
@@ -234,7 +234,7 @@ Feature: Record remission decision
     And I select `Rejected` for the `Decision` field
     And I click the `Continue` button
 
-    Then I should see the text `The full fee of an appeal with hearing is £140.`
+    Then I should see the text `The full fee of an appeal with hearing is £144.`
     And I type `A reason for rejection` for the `Reason for decision` field
     And I click the `Continue` button
 
@@ -260,7 +260,7 @@ Feature: Record remission decision
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `Rejected` for the `Decision` field
     And I should see `A reason for rejection` for the `Reason for decision` field
 
@@ -270,7 +270,7 @@ Feature: Record remission decision
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `Rejected` for the `Decision` field
     And I should see `A reason for rejection` for the `Reason for decision` field
 
@@ -279,7 +279,7 @@ Feature: Record remission decision
     And I should see the `Appeal details` page
     And I should see the text `Remission details`
     And I should see `Legal Aid` for the `Fee remission type` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `Rejected` for the `Decision` field
     And I should see `A reason for rejection` for the `Reason for decision` field
 
@@ -291,7 +291,7 @@ Feature: Record remission decision
     Then I click the `Appeal` tab
     And I should see the `Appeal details` page
     And I should see the text `Remission details`
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `Rejected` for the `Decision` field
     And I should see `A reason for rejection` for the `Reason for decision` field
 
@@ -323,7 +323,7 @@ Feature: Record remission decision
     And I select `Partially approved` for the `Decision` field
     And I click the `Continue` button
 
-    Then I should see the text `The full fee of £140 will be partially remitted. Click Continue to confirm the amount remitted and the amount left to pay are correct.`
+    Then I should see the text `The full fee of £144 will be partially remitted. Click Continue to confirm the amount remitted and the amount left to pay are correct.`
     And I type `100` for the `Amount remitted` field
     And I type `40` for the `Amount left to pay` field
     And I type `A reason for partially approved` for the `Reason for decision` field
@@ -354,7 +354,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
@@ -391,7 +391,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
@@ -408,7 +408,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
@@ -425,7 +425,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
@@ -441,7 +441,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `A reason for partially approved` for the `Reason for decision` field
@@ -461,7 +461,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -472,7 +472,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -483,7 +483,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -494,7 +494,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -514,7 +514,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -525,7 +525,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -536,7 +536,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -547,7 +547,7 @@ Feature: Record remission decision
     And I should see `Legal Aid` for the `Fee remission type` field
     And I should see `1A234B` for the `Legal Aid account number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -572,7 +572,7 @@ Feature: Record remission decision
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -583,7 +583,7 @@ Feature: Record remission decision
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -594,7 +594,7 @@ Feature: Record remission decision
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field
@@ -605,7 +605,7 @@ Feature: Record remission decision
     And I should see `Help with Fees` for the `Fee remission type` field
     And I should see `HWF-A1B-23` for the `Help with Fees reference number` field
     And I should see `Partially approved` for the `Decision` field
-    And I should see `£140.00` for the `Fee` field
+    And I should see `£144.00` for the `Fee` field
     And I should see `£100.00` for the `Amount remitted` field
     And I should see `£40.00` for the `Amount left to pay` field
     And I should see `This remission is partially approved` for the `Reason for decision` field

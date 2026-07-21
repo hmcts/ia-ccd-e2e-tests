@@ -35,7 +35,7 @@ Feature: Mark appeal as paid after listing
 
     When I am on the `Check your answers` page
     And I should see `31 Aug 2020` in the `Payment date` field
-    And I should see `£140.00` for the `Amount paid` field
+    And I should see `£144.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
 
     When I click the `Mark as paid` button

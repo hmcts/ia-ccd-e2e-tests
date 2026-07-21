@@ -22,7 +22,7 @@ Feature: Start initial appeal application
     Given I am on the `What is the appellant's nationality?` page
     When I select `Has a nationality` for the `Nationality` field
     And I add an item to the `Nationality` collection
-    And within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
+    And within the `Nationality` collection's first item, I select `Finnish` for the `Nationality` field
     And I add another item to the `Nationality` collection
     And within the `Nationality` collection's second item, I select `Iceland` for the `Nationality` field
     And I click the `Continue` button
@@ -88,7 +88,7 @@ Feature: Start initial appeal application
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
+    And within the `Nationality` collection's first item, I should see `Finnish` for the `Nationality` answer
     And within the `Nationality` collection's second item, I should see `Iceland` for the `Nationality` answer
     And I should see `Yes` for the `Does the appellant have a postal address?` answer
     And within the `Address` fieldset, I should see `Prime Minister & First Lord Of The Treasury` for the `Building and Street` answer
@@ -127,7 +127,7 @@ Feature: Start initial appeal application
     And I should see `José` for the `Given names` field
     And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finnish` for the `Nationality` field
     And within the `Nationalities` collection's second item, I should see `Iceland` for the `Nationality` field
     And I should see `Yes` for the `Does the appellant have a postal address?` field
     And within the `Address` fieldset, I should see `Prime Minister & First Lord Of The Treasury` for the `Building and Street` field
@@ -159,7 +159,7 @@ Feature: Start initial appeal application
     And I should see `DRAFT` for the `Appeal reference` field
     And I should see `José González` for the `Appellant name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finnish` for the `Nationality` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `01234567` for the `Home Office Reference/Case ID` field
     And I should see `IA Legal Services` for the `Company` field
@@ -185,7 +185,7 @@ Feature: Start initial appeal application
     And I type `González` for the `Family name` field
     And I type `31-12-1999` for the `Date of birth` field
     And I add an item to the `Nationality` collection
-    And within the `Nationality` collection's first item, I select `Finland` for the `Nationality` field
+    And within the `Nationality` collection's first item, I select `Finnish` for the `Nationality` field
     And I add another item to the `Nationality` collection
     And within the `Nationality` collection's second item, I select `Iceland` for the `Nationality` field
     And I click the `Continue` button
@@ -252,7 +252,7 @@ Feature: Start initial appeal application
     And I should see `José` for the `Given names` answer
     And I should see `González` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
-    #And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
+    #And within the `Nationality` collection's first item, I should see `Finnish` for the `Nationality` answer
    # And within the `Nationality` collection's second item, I should see `Iceland` for the `Nationality` answer
     And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Text message` for the `Communication Preference` answer
@@ -285,7 +285,7 @@ Feature: Start initial appeal application
     And I should see `José` for the `Given names` field
     And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finnish` for the `Nationality` field
     And within the `Nationalities` collection's second item, I should see `Iceland` for the `Nationality` field
     And I should see `No` for the `Does the appellant have a postal address?` field
     And I should see `Text message` for the `Communication Preference` field
@@ -312,7 +312,7 @@ Feature: Start initial appeal application
     And I should see `DRAFT` for the `Appeal reference` field
     And I should see `José González` for the `Appellant name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finnish` for the `Nationality` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `01234567` for the `Home Office Reference/Case ID` field
     And I should see `IA Legal Services` for the `Company` field

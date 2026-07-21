@@ -17,7 +17,7 @@ Feature: Pay by card (offline) after submitting appeal (PA appeal type)
 
     When I click the `Appeal` tab
     Then I should see `Refusal of protection claim` for the `Type of appeal` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal by card` for the `Payment method` field
 
     When I click the `Overview` tab

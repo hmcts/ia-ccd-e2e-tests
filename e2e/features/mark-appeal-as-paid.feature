@@ -75,9 +75,9 @@ Feature: Mark appeal as paid
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
     And I should see `31 Aug 2020` for the `Payment date` field
-    And I should see `£140.00` for the `Amount paid` field
+    And I should see `£144.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal by card` for the `Payment method` field
 
 
@@ -88,9 +88,9 @@ Feature: Mark appeal as paid
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
     And I should see `31 Aug 2020` for the `Payment date` field
-    And I should see `£140.00` for the `Amount paid` field
+    And I should see `£144.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal by card` for the `Payment method` field
 
 
@@ -100,8 +100,8 @@ Feature: Mark appeal as paid
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
-    And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `£144.00` for the `Amount paid` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal by card` for the `Payment method` field
 
 
@@ -111,8 +111,8 @@ Feature: Mark appeal as paid
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
-    And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `£144.00` for the `Amount paid` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal by card` for the `Payment method` field
 
 
@@ -122,8 +122,8 @@ Feature: Mark appeal as paid
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
-    And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `£144.00` for the `Amount paid` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal by card` for the `Payment method` field
 
 
@@ -133,8 +133,8 @@ Feature: Mark appeal as paid
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `Removing the appellant from the UK would breach the UK's obligation under the Refugee Convention` for the `Grounds of appeal` field
     And I should see `Paid` for the `Payment status` field
-    And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `£144.00` for the `Amount paid` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay after submitting the appeal by card` for the `Payment method` field
 
   @Mark-appeal-as-paid-EA @RIA-3473-EA @RIA-3473 @RIA-3014
@@ -152,7 +152,7 @@ Feature: Mark appeal as paid
     And I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Payment pending` for the `Payment status` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
 
     Then I switch to be a `Admin Officer`
@@ -166,13 +166,13 @@ Feature: Mark appeal as paid
     And I select the `Mark appeal as paid` Next step
     Then I should see the `Mark appeal as paid` page
     And I type `31-08-2020` for the `Payment date` field
-    And I type `140` for the `Amount paid` field
+    And I type `144` for the `Amount paid` field
     And I type `Payment is now complete` for the `Additional payment information (Optional) field
     And I click the `Continue` button
 
     When I am on the `Check your answers` page
     And I should see `31 Aug 2020` in the `Payment date` field
-    And I should see `£140.00` for the `Amount paid` field
+    And I should see `£144.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
 
     When I click the `Mark as paid` button
@@ -190,10 +190,10 @@ Feature: Mark appeal as paid
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
     And I should see `31 Aug 2020` for the `Payment date` field
-    And I should see `£140.00` for the `Amount paid` field
+    And I should see `£144.00` for the `Amount paid` field
     And I should see `Paid` for the `Payment status` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
 
     When I switch to be a `Legal Rep`
     Then I click the `Overview` tab
@@ -207,9 +207,9 @@ Feature: Mark appeal as paid
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Paid` for the `Payment status` field
     And I should see `31 Aug 2020` for the `Payment date` field
-    And I should see `£140.00` for the `Amount paid` field
+    And I should see `£144.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
 
     When I switch to be a `Case Officer`
     When I click the `Appeal` tab
@@ -219,9 +219,9 @@ Feature: Mark appeal as paid
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Paid` for the `Payment status` field
     And I should see `31 Aug 2020` for the `Payment date` field
-    And I should see `£140.00` for the `Amount paid` field
+    And I should see `£144.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
 
     When I switch to be a `Judge`
     When I click the `Appeal` tab
@@ -231,9 +231,9 @@ Feature: Mark appeal as paid
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Paid` for the `Payment status` field
     And I should see `31 Aug 2020` for the `Payment date` field
-    And I should see `£140.00` for the `Amount paid` field
+    And I should see `£144.00` for the `Amount paid` field
     And I should see `Payment is now complete` for the `Additional payment information` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
 
     When I switch to be a `Home Office APC`
     When I click the `Appeal` tab
@@ -242,8 +242,8 @@ Feature: Mark appeal as paid
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Paid` for the `Payment status` field
-    And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `£144.00` for the `Amount paid` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
 
     When I switch to be a `Home Office LART`
     When I click the `Appeal` tab
@@ -252,8 +252,8 @@ Feature: Mark appeal as paid
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Paid` for the `Payment status` field
-    And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `£144.00` for the `Amount paid` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
 
     When I switch to be a `Home Office POU`
     When I click the `Appeal` tab
@@ -262,8 +262,8 @@ Feature: Mark appeal as paid
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Paid` for the `Payment status` field
-    And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
+    And I should see `£144.00` for the `Amount paid` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How does the appellant want the appeal to be decided?` field
 
 
     When I switch to be a `Home Office Generic`
@@ -273,8 +273,8 @@ Feature: Mark appeal as paid
     And I should see `The decision breaches the appellant's rights under the EEA regulations` for the `Grounds of appeal` field
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Paid` for the `Payment status` field
-    And I should see `£140.00` for the `Amount paid` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
+    And I should see `£144.00` for the `Amount paid` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How does the appellant want the appeal to be decided?` field
 
 
   @Mark-appeal-as-paid-HU @RIA-3473-HU @RIA-3473 @RIA-3014

@@ -20,7 +20,7 @@ Feature: Submit appeal with has a remission
   @submit-appeal-with-remission  @RIA-3088
   Scenario: Submit appeal with a remission
 
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
     Given I am on the `Fee remission` page

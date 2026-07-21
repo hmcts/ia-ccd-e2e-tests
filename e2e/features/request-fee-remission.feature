@@ -56,7 +56,7 @@ Feature: Apply for a late remission
     And within the `Previous remissions` collection's first item, I should see `Legal Aid` for the `Fee remission type` field
     And within the `Previous remissions` collection's first item, I should see `1A234B` for the `Legal Aid account number` field
     And within the `Previous remissions` collection's first item, I should see `Partially approved` for the `Decision` field
-    And within the `Previous remissions` collection's first item, I should see `£140.00` for the `Fee` field
+    And within the `Previous remissions` collection's first item, I should see `£144.00` for the `Fee` field
     And within the `Previous remissions` collection's first item, I should see `£100.00` for the `Amount remitted` field
     And within the `Previous remissions` collection's first item, I should see `£40.00` for the `Amount left to pay` field
     And within the `Previous remissions` collection's first item, I should see `This remission is partially approved` for the `Reason for decision` field

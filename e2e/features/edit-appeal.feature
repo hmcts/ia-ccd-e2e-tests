@@ -73,7 +73,7 @@ Feature: Edit appeal before submit
     And I should see `José` for the `Given names` field
     And I should see `González` for the `Family name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finnish` for the `Nationality` field
     And I should see `Yes` for the `Does the appellant have a postal address?` field
     And I should see `Email` for the `Communication Preference` field
     And I should see `test@test.com` for the `Email address` field
@@ -91,7 +91,7 @@ Feature: Edit appeal before submit
     And I should see `DRAFT` for the `Appeal reference` field
     And I should see `José González` for the `Appellant name` field
     And I should see `31 Dec 1999` for the `Date of birth` field
-    And within the `Nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Nationalities` collection's first item, I should see `Finnish` for the `Nationality` field
     And I should see `Revocation of a protection status` for the `Type of appeal` field
     And I should see `001234567` for the `Home Office UAN or GWF reference` field
     And I should see `IA Legal Services` for the `Company` field
@@ -207,7 +207,7 @@ Feature: Edit appeal before submit
     And I should see `John` for the `Given names` answer
     And I should see `Smith` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
+    And within the `Nationality` collection's first item, I should see `Finnish` for the `Nationality` answer
     And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer
@@ -348,7 +348,7 @@ Feature: Edit appeal before submit
     And I should see `John` for the `Given names` answer
     And I should see `Smith` for the `Family name` answer
     And I should see `31 Dec 1999` for the `Date of birth` answer
-    And within the `Nationality` collection's first item, I should see `Finland` for the `Nationality` answer
+    And within the `Nationality` collection's first item, I should see `Finnish` for the `Nationality` answer
     And I should see `No` for the `Does the appellant have a postal address?` answer
     And I should see `Yes` for the `Are there any new reasons your client wishes to remain in the UK or any new grounds on which they should be permitted to stay?` answer
     And I should see `Birth of a child` for the `Explain these new matters and their relevance to the appeal` answer

@@ -126,5 +126,5 @@ Feature: Submit Appeal with offline payment for EA and HU
     When I switch to be a `Home Office Generic`
     And I click the `Appeal` tab
     Then I should see the `Appeal details` page
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Payment pending` for the `Payment status` field

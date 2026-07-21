@@ -26,7 +26,7 @@ Then(/^I should (see|not see) the case details$/, async seeOrNotSee => {
     // expect(referenceNumberIsDraft || referenceNumberIsCorrectLength).to.equal(true);
     expect(await ccdPage.isFieldValueDisplayed('Appellant name', 'José González')).to.equal(true);
     expect(await ccdPage.isFieldValueDisplayed('Date of birth', '31 Dec 1999')).to.equal(true);
-    expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finland', true, 'first', 'Nationalities', 'first')).to.equal(true);
+    expect(await ccdPage.isFieldValueDisplayed('Nationality', 'Finnish', true, 'first', 'Nationalities', 'first')).to.equal(true);
     expect(await ccdPage.isFieldValueDisplayed('Type of appeal', 'Refusal of protection claim')).to.equal(true);
 
     expect(await ccdPage.contentContains('012345678', Wait.instant)).to.equal(true);

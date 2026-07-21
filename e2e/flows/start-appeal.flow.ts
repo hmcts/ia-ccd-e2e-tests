@@ -168,7 +168,7 @@ export class StartAppealFlow {
     await this.ccdFormPage.addCollectionItem("Nationality");
     await this.ccdFormPage.setFieldValue(
       "Nationality",
-      "Finland",
+      "Finnish",
       "select list",
       "first",
       "Nationality",

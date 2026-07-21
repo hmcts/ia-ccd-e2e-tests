@@ -12,7 +12,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
     And I should see the text `Next step - payment`
     And I should see the text `Select 'Submit' to create the service request`
     And I should see the text `Fee to pay`
-    And I should see the text `£80.00`
+    And I should see the text `£82.00`
     When I click the `Submit` button
     Then I should see the text `You have created a service request`
     Then I should see the text `What happens next`
@@ -56,7 +56,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EA appe
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision without a hearing. The fee for this type of appeal is £80` for the `How does the appellant want the appeal to be decided?` field
+    And I should see `Decision without a hearing. The fee for this type of appeal is £82` for the `How does the appellant want the appeal to be decided?` field
 
 
   @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-ea-declined

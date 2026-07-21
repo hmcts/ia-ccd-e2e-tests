@@ -1786,7 +1786,7 @@ Feature: Case progression path when case and continue is disabled
     And I should see `José` in the `Given names` field
     And I should see `González` in the `Family name` field
     And I should see `31 Dec 1999` in the `Date of birth` field
-    And I should see `Finland` in the `Nationality` field
+    And I should see `Finnish` in the `Nationality` field
     And I should see `No` in the `Does the appellant have a postal address?` field
     And I should see `Stephen Fenn` in the `Name` field
     And I should see `IA Legal Services` in the `Company` field

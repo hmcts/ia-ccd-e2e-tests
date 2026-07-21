@@ -69,7 +69,7 @@ Feature: Duplicate payment error handling
 
     When I select the `Make a payment` Next step
     Then I should see the `Make a payment` page
-    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `The fee for an appeal with a hearing is £144`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
@@ -93,7 +93,7 @@ Feature: Duplicate payment error handling
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
-    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `The fee for an appeal with a hearing is £144`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field
@@ -119,7 +119,7 @@ Feature: Duplicate payment error handling
 
     And I click the `Overview` tab
     And I select the `Pay and submit` Next step
-    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `The fee for an appeal with a hearing is £144`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I select `PBA0087412` for the `Select a Payment by Account number from the list` field

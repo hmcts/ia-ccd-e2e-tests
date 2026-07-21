@@ -13,7 +13,7 @@ Feature: Overview tab
 #    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `José González` for the `Appellant` field
-    And within the `Appellant nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Appellant nationalities` collection's first item, I should see `Finnish` for the `Nationality` field
     And I should see `31 Dec 1999` for the `Date of birth` field
 
     When I switch to be a `Case Officer`
@@ -23,5 +23,5 @@ Feature: Overview tab
 #    And I should see `{$TODAY|D MMM YYYY}` in the `Created Date` field
     And I should see `Refusal of protection claim` for the `Type of appeal` field
     And I should see `José González` for the `Appellant` field
-    And within the `Appellant nationalities` collection's first item, I should see `Finland` for the `Nationality` field
+    And within the `Appellant nationalities` collection's first item, I should see `Finnish` for the `Nationality` field
     And I should see `31 Dec 1999` for the `Date of birth` field
