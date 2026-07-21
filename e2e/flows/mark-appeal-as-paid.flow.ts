@@ -9,7 +9,7 @@ export class MarkAppealAsPaidFlow {
     await this.ccdFormPage.headingContains('Mark appeal as paid');
     await this.ccdFormPage.setFieldValue('Payment date', '{$TODAY|DD-MM-YYYY}');
 
-    await this.ccdFormPage.setFieldValue('Amount paid', '140');
+    await this.ccdFormPage.setFieldValue('Amount paid', '144');
 
     await this.ccdFormPage.setFieldValue('Amount paid', '40');
     await this.ccdFormPage.setFieldValue('Additional payment information (Optional)', 'The fee for the appeal has been paid now.', 'text area');

@@ -12,7 +12,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I should see the text `Next step - payment`
     And I should see the text `Select 'Submit' to create the service request`
     And I should see the text `Fee to pay`
-    And I should see the text `£140.00`
+    And I should see the text `£144.00`
     When I click the `Submit` button
     Then I should see the text `You have created a service request`
     Then I should see the text `What happens next`
@@ -55,7 +55,7 @@ Feature: Pay and submit appeal by card - successful and failed payments (EU appe
     And I should see the overview for a paid appeal
 
     When I click the `Appeal` tab
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
 
 
   @RIA-6104-pay-and-submit-card-failed @RIA-6104-pay-and-submit-card-failed-eu-declined

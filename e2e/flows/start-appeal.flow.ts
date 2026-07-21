@@ -391,12 +391,12 @@ export class StartAppealFlow {
     if (feeType === "without") {
       await this.ccdFormPage.setFieldValue(
         "How do you want the appeal to be decided?",
-        "Decision without a hearing. The fee for this type of appeal is £80"
+        "Decision without a hearing. The fee for this type of appeal is £82"
       );
     } else {
       await this.ccdFormPage.setFieldValue(
         "How do you want the appeal to be decided?",
-        "Decision with a hearing. The fee for this type of appeal is £140"
+        "Decision with a hearing. The fee for this type of appeal is £144"
       );
     }
     if (clickContinue) {
@@ -591,14 +591,14 @@ export class StartAppealFlow {
       caseData.appealType = 'refusalOfEu';
       caseData.appealGroundsEuRefusal = { values: ["appealGroundsEuRefusal"] };
       caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "82" : "144";
       caseData.remissionType = 'noRemission';
       break;
     case "HU":
       caseData.appealType = 'refusalOfHumanRights';
       caseData.appealGroundsDecisionHumanRightsRefusal = { values: ["humanRightsRefusal"] };
       caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "82" : "144";
       caseData.remissionType = 'noRemission';
       break;
     case "PA":
@@ -606,13 +606,13 @@ export class StartAppealFlow {
       caseData.paAppealTypePaymentOption = paymentChoice === "later" ? 'payLater' : 'payNow';
       caseData.appealGroundsProtection = { values: ["protectionRefugeeConvention"] };
       caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "82" : "144";
       caseData.remissionType = 'noRemission';
       break;
     case "EU":
       caseData.appealType = 'euSettlementScheme';
       caseData.decisionHearingFeeOption = withoutHearing ? "decisionWithoutHearing" : "decisionWithHearing";
-      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "80" : "140";
+      caseData[withoutHearing ? "feeWithoutHearing" : "feeWithHearing"] = withoutHearing ? "82" : "144";
       caseData.remissionType = 'noRemission';
       break;
     case "RP":

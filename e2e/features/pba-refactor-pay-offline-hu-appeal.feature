@@ -17,7 +17,7 @@ Feature: Pay by card (offline) after submitting appeal (HU appeal type)
 
     When I click the `Appeal` tab
     Then I should see `Refusal of a human rights claim` for the `Type of appeal` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay by card` for the `Payment method` field
     And I should see `Payment pending` for the `Payment status` field
 

@@ -12,7 +12,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
 
     When I click the `pay for and submit your appeal` link
     Then I should see the `Select PBA number` page
-    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `The fee for an appeal with a hearing is £144`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I should see the `edit your appeal` link
@@ -32,7 +32,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     And I should see the text `Payment by Account number`
     And I should see the text `PBA0087412`
     And I should see the text `Fee`
-    And I should see the text `£140`
+    And I should see the text `£144`
     And I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
 
@@ -43,7 +43,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay using Payment by Account` for the `Payment method` field
 
     When I click the `Overview` tab
@@ -57,7 +57,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
 
     When I click the `pay for and submit your appeal` link
     Then I should see the `Select PBA number` page
-    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `The fee for an appeal with a hearing is £144`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I should see the `edit your appeal` link
@@ -80,7 +80,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     And I should see the text `Payment by Account number`
     And I should see the text `PBA0087412`
     And I should see the text `Fee`
-    And I should see the text `£140`
+    And I should see the text `£144`
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is deleted`
     And I wait for 30 seconds
@@ -113,7 +113,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay using Payment by Account` for the `Payment method` field
 
   @RIA-4468-pay-and-submit-on-hold @RIA-4468-pay-and-submit-on-hold-ea  @RIA-4468-ea @RIA-4468 @RIA-4679
@@ -121,7 +121,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
 
     When I click the `pay for and submit your appeal` link
     Then I should see the `Select PBA number` page
-    And I should see the text `The fee for an appeal with a hearing is £140`
+    And I should see the text `The fee for an appeal with a hearing is £144`
     And I should see the text `Can’t see your Payment by Account number?`
     And I should see the `MyHMCTSsupport@justice.gov.uk` link
     And I should see the `edit your appeal` link
@@ -144,7 +144,7 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
     And I should see the text `Payment by Account number`
     And I should see the text `PBA0087442`
     And I should see the text `Fee`
-    And I should see the text `£140`
+    And I should see the text `£144`
     And I should see the text `Reason for failed payment`
     And I should see the text `Your account is on hold`
     And I wait for 30 seconds
@@ -156,5 +156,5 @@ Feature: Pay and submit appeal - successful and failed payments (EA appeal type)
 
     When I click the `Appeal` tab
     Then I should see `Refusal of application under the EEA regulations` for the `Type of appeal` field
-    And I should see `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    And I should see `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I should see `Pay using Payment by Account` for the `Payment method` field

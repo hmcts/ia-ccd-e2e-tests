@@ -20,7 +20,7 @@ Feature: Submit appeal with asylum support remission
   @submit-appeal-with-asylum-support-remission  @RIA-3685
   Scenario: Submit appeal with asylum support remission
 
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
     Given I am on the `Fee remission` page
@@ -100,7 +100,7 @@ Feature: Submit appeal with asylum support remission
   @submit-appeal-with-legal-aid-remission  @RIA-2113
   Scenario: Submit EA appeal type with legal aid remission
 
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
     Given I am on the `Fee remission` page
@@ -196,7 +196,7 @@ Feature: Submit appeal with asylum support remission
   @submit-appeal-with-section17-remission  @RIA-3686-section17-remission @RIA-3686
   Scenario: Submit appeal with Section 17 remission
 
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
     Given I am on the `Fee remission` page
@@ -295,7 +295,7 @@ Feature: Submit appeal with asylum support remission
   @submit-appeal-with-section20-remission  @RIA-3686-section20-remission @RIA-3686
   Scenario: Submit appeal with Section 20 remission
 
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
     Given I am on the `Fee remission` page
@@ -394,7 +394,7 @@ Feature: Submit appeal with asylum support remission
   @submit-appeal-with-hoWaiver-remission  @RIA-3686-hoWaiver-remission @RIA-3686
   Scenario: Submit appeal with Home Office waiver remission
 
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How do you want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £144` for the `How do you want the appeal to be decided?` field
     And I click the `Continue` button
 
     Given I am on the `Fee remission` page
@@ -493,7 +493,7 @@ Feature: Submit appeal with asylum support remission
   @submit-appeal-with-help-with-fees  @RIA-3084
   Scenario: Submit EA appeal type with help with fees
 
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £144` for the `How does the appellant want the appeal to be decided?` field
     And I click the `Continue` button
 
     Given I am on the `Fee remission` page
@@ -590,7 +590,7 @@ Feature: Submit appeal with asylum support remission
 
   @submit-appeal-with-exceptional-circumstances-remission  @RIA-3085
   Scenario: Submit appeal with Exceptional circumstances remission
-    Then I select `Decision with a hearing. The fee for this type of appeal is £140` for the `How does the appellant want the appeal to be decided?` field
+    Then I select `Decision with a hearing. The fee for this type of appeal is £144` for the `How does the appellant want the appeal to be decided?` field
     And I click the `Continue` button
 
     Given I am on the `Fee remission` page
