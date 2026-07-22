@@ -15,7 +15,7 @@ Feature: Review Additional Evidence
     And I click the `Request Home Office data` button
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case

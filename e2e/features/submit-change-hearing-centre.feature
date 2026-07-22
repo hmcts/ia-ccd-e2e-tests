@@ -15,7 +15,7 @@ Background:
     Then I should see the text `Your appeal has been paid for and submitted`
     And I switch to be a `Case Officer`
     And I request home office data
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I wait for 3 seconds
     # And I click the `Applications` tab
     # And I click the `Record an application` link

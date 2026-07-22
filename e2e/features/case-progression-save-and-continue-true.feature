@@ -109,7 +109,7 @@ Feature: Case progression path when save and continue is enabled
 
     ### awaiting respondent evidence
 
-    When I request respondent evidence
+    When I complete case review and request respondent evidence
     And I click the `Overview` tab
     And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_awaitingRespondentEvidence_preUpload` case progress image

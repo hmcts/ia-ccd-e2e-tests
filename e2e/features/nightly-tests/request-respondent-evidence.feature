@@ -13,10 +13,10 @@ Feature: Request respondent evidence
   Scenario: Request respondent evidence
 
     And I click the `Overview` tab
-    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the Validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
-
-    When I select the `Request Home Office data` Next step
-    And I am on the `Match appellant details` page
+    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the Validation tab.`
+    When I complete case review
+    And I select the `Request Home Office data` Next step
+    Then I am on the `Match appellant details` page
     And I should see the option `No Match` for the `Make a selection` field
     And I select `No Match` for the `Make a selection` field
     And I click the `Continue` button

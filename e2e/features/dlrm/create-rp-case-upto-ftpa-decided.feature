@@ -11,7 +11,7 @@ Feature: Create RP case upto FTPA submitted
     And I switch to be a `Case Officer`
     And I wait for 2 seconds
     And I request home office data
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds

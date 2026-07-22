@@ -113,7 +113,7 @@ Feature: Edit appeal before submit
 
     When I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I click the `Overview` tab
     Then I should only see the `caseOfficer_awaitingRespondentEvidence` case progress image
@@ -251,7 +251,7 @@ Feature: Edit appeal before submit
 
     When I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I click the `Overview` tab
     Then I should only see the `caseOfficer_awaitingRespondentEvidence` case progress image

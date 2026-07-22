@@ -12,7 +12,7 @@ Feature: SnL Flow HU hearing request
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
     And I check the case has been paid for
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
     And I have created a `Unacceptable/disruptive customer behaviour` Flag in `José González`
@@ -78,7 +78,7 @@ Feature: SnL Flow HU hearing request
     And I switch to be a `Case Officer`
     And I check the case has been paid for
     And I request home office data
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
       ##"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
     And I have created a `Unacceptable/disruptive customer behaviour` Flag in `José González`

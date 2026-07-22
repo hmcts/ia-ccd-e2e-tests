@@ -40,7 +40,7 @@ Feature: Case progression - Judge
     Then I click the `Validation` tab
     And I should see the text `There are no matching details for this appellant. You can contact the Home Office if you need more information to validate the appeal.`
 
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Judge`
     And I click the `Overview` tab

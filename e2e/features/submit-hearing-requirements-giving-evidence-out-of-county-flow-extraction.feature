@@ -6,7 +6,7 @@ Feature: Submit & update hearing requirements (summarised step flow) - Giving ev
     And I save my out of country `now` appeal with decision type `refusalOfHumanRights` with address `No` and with sponsor `No`
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case

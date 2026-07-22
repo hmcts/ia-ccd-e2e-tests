@@ -6,7 +6,7 @@ Feature: Remove repeated tab titles
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
   @RIA-4119
   Scenario: Remove repeated tab titles

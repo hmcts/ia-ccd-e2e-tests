@@ -9,7 +9,7 @@ Background:
     And I switch to be a `Case Officer`
     And I check the case has been paid for
     And I request home office data
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
 @update-legal-representatives-details @RIA-1358 @appeal-nightly-test
 Scenario: update legal representatives details

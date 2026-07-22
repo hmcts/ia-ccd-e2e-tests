@@ -7,7 +7,7 @@ Feature: Generate Upper Tribunal Bundle (FTPA partially granted)
     Then I should be on the overview page
     And I pay for and submit my appeal by PBA
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case

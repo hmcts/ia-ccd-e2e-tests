@@ -14,7 +14,7 @@ Feature: SnL Flow S94B flag with Type-C facility in hearing request
     And I switch to be a `Case Officer`
     And I check the case has been paid for
     And I request home office data
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I wait for 4 seconds
     When I select the `Update s94b status` Next step
     Then I am on the `Update s94b status` page
@@ -84,7 +84,7 @@ Feature: SnL Flow S94B flag with Type-C facility in hearing request
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
     And I check the case has been paid for
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I wait for 4 seconds
     When I select the `Update s94b status` Next step
     Then I am on the `Update s94b status` page

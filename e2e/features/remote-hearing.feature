@@ -6,7 +6,7 @@ Feature: Remote hearing during Submit hearing requirements
     And I save my out of country now appeal with decision type `refusalOfHumanRights`
     And I submit my nonpayment appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case

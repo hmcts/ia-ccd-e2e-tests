@@ -6,7 +6,7 @@ Feature: Upload respondent evidence
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
   @regression @create-direction @RIA-700 @RIA-592 @RIA-2034 @RIA-2694
   Scenario: Uploading respondent evidence adds documents and a new direction

@@ -7,6 +7,16 @@ const requestRespondentEvidenceFlow = new RequestRespondentEvidenceFlow();
 const uploadAdditionalEvidenceFlow = new UploadAdditionalEvidenceFlow();
 const uploadRespondentEvidenceFlow = new UploadRespondentEvidenceFlow();
 
+Then('I complete case review', async () => {
+  await requestRespondentEvidenceFlow.completeCaseReview(true);
+
+});
+
+Then(/^I complete case review and request respondent evidence$/, async() => {
+  await requestRespondentEvidenceFlow.completeCaseReview(true);
+  await requestRespondentEvidenceFlow.requestRespondentEvidence(true);
+});
+
 Then(/^I request respondent evidence$/, async() => {
   await requestRespondentEvidenceFlow.requestRespondentEvidence(true);
 });

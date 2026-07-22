@@ -11,7 +11,7 @@ Feature: SnL Flow submit hearing requirements
     And I switch to be a `Case Officer`
     And I check the case has been paid for
     And I request home office data
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I wait for 3 seconds
     And I progress case to force request case building
     And I request Force case - case under review

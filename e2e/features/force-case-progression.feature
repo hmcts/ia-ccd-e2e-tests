@@ -6,7 +6,7 @@ Feature: Force case progression
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
   @RIA-2774
   Scenario: Awaiting respondent evidence to Case building

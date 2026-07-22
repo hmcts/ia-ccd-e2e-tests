@@ -152,7 +152,7 @@ Feature: End appeal
   Scenario Outline: End appeal after listing case officer
 
     And I switch to be a `Case Officer`
-    When I request respondent evidence
+    When I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case
@@ -233,7 +233,7 @@ Feature: End appeal
   Scenario Outline: End appeal after listing judge
 
     And I switch to be a `Case Officer`
-    When I request respondent evidence
+    When I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case

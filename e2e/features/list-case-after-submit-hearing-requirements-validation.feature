@@ -7,7 +7,7 @@ Feature: Validation for list case without agreed hearing requirements
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Rep`
     And I build my case

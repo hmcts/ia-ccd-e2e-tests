@@ -133,7 +133,7 @@ Feature: Case officer or Judge make an application
   Scenario: Judge decide an application
 
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     And I switch to be a `Home Office APC`
     Then I make an application for `Time extension` type

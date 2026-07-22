@@ -10,7 +10,7 @@ Feature: SnL Flow Auto creation of caseflags
     And I switch to be a `Case Officer`
     # And I request home office data
     And I check the case has been paid for
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
       #"Foreign national offender" / "Unacceptable/disruptive customer behaviour" if we have these one of the case flags we should expect to see "Will additional security be required?" value "Yes" in hearing request
     When I select the `Create Flag` Next step
     And I have created a `Unacceptable/disruptive customer behaviour` Flag in `José González`
