@@ -7,7 +7,7 @@ Feature: Edit case listing and change the hearing centre to Belfast
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I switch to be a `Home Office APC`
     And I upload Home Office bundle
     And I switch to be a `Case Officer`

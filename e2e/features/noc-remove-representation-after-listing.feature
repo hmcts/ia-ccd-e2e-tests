@@ -13,7 +13,7 @@ Feature: Notice of Change (common component) - Remove Representation (after list
   Scenario: Notice of Change (common component) - Remove representation by legal representative (after listing)
 
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case

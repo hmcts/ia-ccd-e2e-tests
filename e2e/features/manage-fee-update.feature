@@ -144,7 +144,7 @@ Feature: Manage fee update
     Then I save my initial `PA` appeal type with `no remission` and pay offline `with` hearing fee
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Rep`
     And I build my case

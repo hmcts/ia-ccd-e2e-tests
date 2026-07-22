@@ -42,7 +42,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I end the appeal
     And I reinstate the appeal
 
@@ -68,7 +68,7 @@ Feature: Reinstate appeal
     Then I should only see the `caseOfficer_awaitingRespondentEvidence` case progress image
 
     And I switch to be a `Case Officer`
-    When I request respondent evidence
+    When I complete case review and request respondent evidence
     And I click the `Overview` tab
     And I should see `Legally Represented` tag
     Then I should only see the `caseOfficer_awaitingRespondentEvidence_preUpload` case progress image
@@ -82,7 +82,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -115,7 +115,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -152,7 +152,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -194,7 +194,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -256,7 +256,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -328,7 +328,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -398,7 +398,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -469,7 +469,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -539,7 +539,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab
@@ -613,7 +613,7 @@ Feature: Reinstate appeal
   Scenario: Reinstate appeal after end appeal submitted
 
     When I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office APC`
     And I click the `Overview` tab

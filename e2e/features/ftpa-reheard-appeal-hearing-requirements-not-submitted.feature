@@ -6,7 +6,7 @@ Feature: Hearing requirements not submitted - FTPA reheard decision (resident ju
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case

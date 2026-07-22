@@ -9,7 +9,7 @@ Feature: Create HU case upto FTPA submitted
     And I pay for and submit my appeal by Card
     And I switch to be a `Case Officer`
     And I check the case has been paid for
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I wait for 2 seconds

@@ -5,7 +5,7 @@ Feature: Review time extension
     Given An appellant has submitted an appeal
     And I am signed in as a `Case Officer`
     And I am viewing the appellant's case
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I switch to be a `Home Office APC`
     And I click the `upload the Home Office bundle` link
     And I am on the `Upload Home Office bundle` page

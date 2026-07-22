@@ -63,7 +63,7 @@ Feature: Record application
   @regression @record-application-time-extension-and-withdraw @RIA-1485 @RIA-1562 @RIA-1500 @RIA-3553
   Scenario: Record granted time extension application and later withdraw
 
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I select the `Record an application` Next step
     Then I am on the `Record an application` page
@@ -212,7 +212,7 @@ Feature: Record application
   @regression @record-application-transfer-and-edit @RIA-1485 @RIA-1654 @RIA-1500
   Scenario: Record granted transfer application and edit listing
 
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
 
     And I switch to be a `Legal Rep`

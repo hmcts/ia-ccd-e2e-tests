@@ -7,7 +7,7 @@ Feature: Upload Home Office bundle
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
   @regression @RIA-1308 @upload-home-office-bundle @RIA-1799 @RIA-2034 @RIA-3591
   Scenario: Only Home Office Generic and APC users can see and upload the Home Office bundle

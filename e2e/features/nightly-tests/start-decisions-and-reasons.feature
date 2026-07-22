@@ -10,7 +10,7 @@ Feature: Start decision and reasons
     And I switch to be a `Case Officer`
     And I check the case has been paid for
     And I wait for 2 seconds
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I wait for 5 seconds
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`

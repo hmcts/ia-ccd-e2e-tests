@@ -7,7 +7,7 @@ Feature: Force case progression to case under review
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
 
   @regression @force-case-progression-to-case-under-review @RIA-2775

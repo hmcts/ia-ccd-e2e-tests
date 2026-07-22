@@ -5,12 +5,22 @@ export class RequestRespondentEvidenceFlow {
 
   async requestRespondentEvidence(clickContinue = false) {
     await this.ccdFormPage.selectNextStep('Request respondent evidence');
-
     await this.ccdFormPage.headingContains('Request respondent evidence');
     await this.ccdFormPage.click('Continue');
     await this.ccdFormPage.contentContains('Check your answers');
     const currentUrl = await this.ccdFormPage.getCurrentUrl();
     await this.ccdFormPage.click('Send direction');
+
+    if (clickContinue) {
+      await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);
+    }
+  }
+
+  async completeCaseReview(clickContinue = false) {
+    await this.ccdFormPage.selectNextStep('Complete case review');
+    await this.ccdFormPage.headingContains('Complete case review');
+    const currentUrl = await this.ccdFormPage.getCurrentUrl();
+    await this.ccdFormPage.click('Submit');
 
     if (clickContinue) {
       await this.ccdFormPage.waitForConfirmationScreenAndContinue(currentUrl);

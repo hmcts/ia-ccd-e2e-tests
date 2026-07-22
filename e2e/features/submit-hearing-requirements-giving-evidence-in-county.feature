@@ -10,7 +10,7 @@ Feature: Submit & update hearing requirements - Giving evidence from outside the
     # And I submit my appeal
     And I switch to be a `Case Officer`
     And I check the case has been paid for
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case

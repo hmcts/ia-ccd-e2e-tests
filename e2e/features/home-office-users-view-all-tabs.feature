@@ -6,7 +6,7 @@ Feature: All home office users overview appeal case-details documents directions
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I switch to be a `Case Officer`
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`

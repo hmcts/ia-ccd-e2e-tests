@@ -11,6 +11,7 @@ export const eventMappings = {
     "sendBailDirection"
   ],
   "Change a direction due date": "changeDirectionDueDate",
+  "Complete case review": "completeCaseReview",
   "Request respondent evidence": "requestRespondentEvidence",
   "Upload respondent evidence": "uploadRespondentEvidence",
   "Upload Home Office bundle": "uploadHomeOfficeBundle",

@@ -20,7 +20,7 @@ Feature: Appeal tab
     And I should see `Refusal of protection claim` in the `Type of appeal` field
     And I should see `Yes` in the `Has a deportation order been made against the appellant?` field
 
-    When I request respondent evidence
+    When I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Rep`
     And I build my case

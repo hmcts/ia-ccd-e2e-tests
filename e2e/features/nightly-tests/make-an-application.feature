@@ -124,7 +124,7 @@ Feature: Legal representative make an application
   Scenario: Make an application in respondent review state
 
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
     When I switch to be a `Home Office POU`
     When I click the `Applications` tab
@@ -400,7 +400,7 @@ Feature: Legal representative make an application
   Scenario: Make an application in listing state
 
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case
@@ -460,7 +460,7 @@ Feature: Legal representative make an application
   Scenario: Make an application in prepare for hearing state
 
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
     And I upload respondent evidence
     And I switch to be a `Legal Org User Rep A`
     And I build my case

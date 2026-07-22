@@ -7,7 +7,7 @@ Feature: Different Home Office roles have different functionality
     And I save my initial appeal
     And I submit my appeal
     And I switch to be a `Case Officer`
-    And I request respondent evidence
+    And I complete case review and request respondent evidence
 
   @regression @home-office-exposure @RIA-1707 @RIA-1798 @RIA-1357 @RIA-2236
   Scenario: Home office functionality
