@@ -14,7 +14,7 @@ properties([
     ])
 ])
 
-@Library("Infrastructure")
+@Library("Infrastructure@2.5.1")
 
 def product = "ia"
 def component = "ccd-e2e-tests"
