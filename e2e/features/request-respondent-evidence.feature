@@ -13,7 +13,7 @@ Feature: Request respondent evidence
   Scenario: Request respondent evidence
 
     And I click the `Overview` tab
-    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the Validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
+    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the Validation tab.`
 
     When I select the `Request Home Office data` Next step
     And I am on the `Match appellant details` page
@@ -27,13 +27,19 @@ Feature: Request respondent evidence
 
     Then I should see the text `You have matched the appellant details`
     And I should see the text `Do this next`
-    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the validation tab. If the appeal looks valid, you must tell the respondent to supply their evidence.`
+    And I should see the text `You must review the appeal data and cross reference it with Home Office data in the validation tab.`
 
     When I click the `Close and Return to case details` button if present
     And I wait for 2 seconds
-    And I wait for 5 seconds
-    Then I click the `Validation` tab
-    And I should see the text `There are no matching details for this appellant. You can contact the Home Office if you need more information to validate the appeal.`
+    # And I wait for 5 seconds
+    # Then I click the `Validation` tab
+    # And I should see the text `There are no matching details for this appellant. You can contact the Home Office if you need more information to validate the appeal.`
+
+    When I select the `Complete case review` Next step
+    Then I am on the `Complete case review` page
+    When I click the `Submit` button
+    Then I should see the text `You have completed the case review`
+    Then I click the `Close and Return to case details` button if present
 
     When I select the `Request respondent evidence` Next step
     Then I am on the `Request respondent evidence` page

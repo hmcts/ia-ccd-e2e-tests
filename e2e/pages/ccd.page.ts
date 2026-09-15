@@ -355,6 +355,27 @@ export class CcdPage extends AnyPage {
     );
   }
 
+  async flakeyClick(clickText: string, currentUrl: string) {
+    for (let i = 0; i < 3; i++) {
+      try {
+        await this.click(clickText);
+        await this.waitForPageNavigation(currentUrl);
+        break;
+      } catch {
+        if (i < 2) {
+          console.log(`Click attempt ${i + 1} failed. Trying again.`);
+        } else {
+          throw "All click attempts failed. Giving up.";
+        }
+      }
+    }
+  }
+
+  async getTodayDate(date) {
+    const expandedMatch = await this.valueExpander.expand(date);
+    return expandedMatch;
+  }
+
   async gotoTabs(match: string) {
     try {
       await this.waitForXpathElementVisible(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`, 30000);
