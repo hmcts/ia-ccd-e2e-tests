@@ -47,7 +47,7 @@
     "uuid": "^7.0.3"
   },
   "resolutions": {
-    "adm-zip": "^0.6.0",
+    "adm-zip": "^0.6.1",
     "ajv": "^6.14.0",
     "brace-expansion": "^1.1.16",
     "https-proxy-agent": "^2.2.3",
