@@ -2,14 +2,10 @@ import { CcdPage } from '../pages/ccd.page';
 import { CcdFormPage } from '../pages/ccd-form.page';
 import { browser, by, element } from 'protractor';
 import CaseHelper from "../helpers/CaseHelper";
-import { AuthenticationFlow } from "./authentication.flow";
-import { MarkAppealAsPaidFlow } from "./mark-appeal-as-paid.flow";
 
 export class PayAndSubmitAppealFlow {
   private ccdPage = new CcdPage();
   private ccdFormPage = new CcdFormPage();
-  private authenticationFlow = new AuthenticationFlow();
-  private markAppealAsPaidFlow = new MarkAppealAsPaidFlow();
 
   async payForAppealByPBA() {
     await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
