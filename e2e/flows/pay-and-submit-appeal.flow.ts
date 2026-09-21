@@ -39,16 +39,6 @@ export class PayAndSubmitAppealFlow {
     const currentUrl = await this.ccdPage.getCaseUrl();
     const nextStepPath = '//select[@id="next-step"]';
     const appealDetailsPath = '//h2[contains(text(), "Appeal details")]';
-    if (currentUrl.includes('preview')) {
-      const loggedInCookies = await browser.manage().getCookies();
-      await this.authenticationFlow.signInByRole("Admin Officer");
-      await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
-      await this.ccdPage.waitForOverviewPage(CaseHelper.getInstance().getStoredCaseUrl());
-      await this.markAppealAsPaidFlow.markAppealAsPaid(true);
-      await browser.manage().deleteAllCookies();
-      await Promise.all(loggedInCookies.map((cookie) => browser.manage().addCookie(cookie)));
-      await this.ccdPage.get(CaseHelper.getInstance().getStoredCaseUrl());
-    }
     let isPaymentPending = true;
     while (isPaymentPending) {
       await browser.sleep(10000);
