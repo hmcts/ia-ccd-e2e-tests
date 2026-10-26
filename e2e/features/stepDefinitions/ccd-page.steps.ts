@@ -61,11 +61,11 @@ Given("I create a new bail application", async () => {
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
   await browser.wait(
-    async () => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
+    async () => element(by.xpath('//option[contains(text(), "Bail")]')).isPresent(),
     30000,
-    `Expected element "//option[contains(text(), "Bail*")]" to be present within 30 seconds`
+    `Expected element "//option[contains(text(), "Bail")]" to be present within 30 seconds`
   );
-  await element(by.xpath('//option[contains(text(), "Bail*")]')).click();
+  await element(by.xpath('//option[contains(text(), "Bail")]')).click();
   await ccdPage.doesDropdownHaveValues("Event");
   await ccdPage.isButtonEnabled("Start");
   await ccdPage.click("Start");
@@ -104,11 +104,11 @@ Given("I Apply case list filter for Bails", async () => {
   await ccdFormPage.setFieldValue("Jurisdiction", "Immigration & Asylum");
   await ccdPage.doesDropdownHaveValues("Case type");
   await browser.wait(
-    async () => element(by.xpath('//option[contains(text(), "Bail*")]')).isPresent(),
+    async () => element(by.xpath('//option[contains(text(), "Bail")]')).isPresent(),
     30000,
-    `Expected element "//option[contains(text(), "Bail*")]" to be present within 30 seconds`
+    `Expected element "//option[contains(text(), "Bail")]" to be present within 30 seconds`
   );
-  await element(by.xpath('//option[contains(text(), "Bail*")]')).click();
+  await element(by.xpath('//option[contains(text(), "Bail")]')).click();
   await ccdPage.doesDropdownHaveValues("State");
   await ccdFormPage.setFieldValue("State", "Any");
   await ccdPage.isButtonEnabled("Apply");
