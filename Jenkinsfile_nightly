@@ -3,7 +3,7 @@
 properties([
     pipelineTriggers([cron('H 8 * * 1-5')]),
     parameters([
-        booleanParam(name: 'skipCrossBrowserTests', defaultValue: false, description: 'Tick the checkbox for skip'),
+        booleanParam(name: 'skipCrossBrowserTests', defaultValue: true, description: 'Tick the checkbox for skip'),
         booleanParam(name: 'skipAppealFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         booleanParam(name: 'skipBailFunctionalTests', defaultValue: false, description: 'Tick the checkbox for skip'),
         string(name: 'TEST_ENVIRONMENT', defaultValue: 'aat', description: 'The environment to test against'),
