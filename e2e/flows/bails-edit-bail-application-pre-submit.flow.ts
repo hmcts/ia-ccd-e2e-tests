@@ -309,7 +309,7 @@ export class EditBailApplicationPreSubmitFlow {
 
   async completeSupportingEvidenceYesNo(clickContinue = false) {
     await this.ccdFormPage.runAccessbility();
-    await this.ccdFormPage.click('No');
+    await this.ccdFormPage.setFieldValue('Supporting evidence', 'No');
     if (clickContinue) {
       await this.ccdFormPage.click('Continue');
     }
@@ -454,8 +454,8 @@ export class EditBailApplicationPreSubmitFlow {
       }
     }
     await this.completeGroundsForBail(true);
-    await this.completeSupportingEvidenceYesNo(true);
     await this.completeInterpreterRequirements(true);
+    await this.completeSupportingEvidenceYesNo(true);
     if (noOfSupporters !== 'no') {
       await this.completeFinancialConditionSupporterInterpreterRequirements(true);
     }
