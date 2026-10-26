@@ -10,6 +10,51 @@ import CaseHelper from "../../helpers/CaseHelper";
 const ccdPage = new CcdPage();
 const ccdFormPage = new CcdFormPage();
 const iaConfig = require("../../ia.conf");
+const overviewCaseFields = [
+  // "Online case reference number",
+  "Appeal reference",
+  "Appellant name",
+  "Date of birth",
+  "Nationalities",
+  "Type of appeal",
+  "Hearing centre",
+  "Out of country",
+  "Company",
+  "Email",
+  // "Home Office UAN or GWF reference",
+];
+const appealCaseFields = [
+  "Appeal reference",
+  "Appellant name",
+  "Type of appeal",
+  "Other appeals",
+  "S94B appeal",
+  "Out of country",
+  "Has a deportation order been made against the appellant?",
+  "Is the appellant currently in detention?",
+  "Home Office decision date",
+  "Date appeal received",
+  "Appeal submitted",
+  "Was the appeal submission late?",
+  "How do you want the appeal to be decided?",
+  "Payment status",
+];
+const appellantCaseFields = [
+  "Appeal reference",
+  "Given names",
+  "Family name",
+  "Date of birth",
+  "Nationalities",
+  "Does the appellant have a postal address?",
+  "Building and Street",
+  "Address Line 2",
+  "Postcode/Zipcode",
+  "Email address",
+  "Given name",
+  "Family name",
+  "Company",
+  "Email",
+];
 
 Given("I create a new case", async () => {
   await ccdPage.acceptCookies();
@@ -196,6 +241,51 @@ Then(
     );
   }
 );
+
+Then("I assert the overview case fields", async function () {
+  for (const fieldLabel of overviewCaseFields) {
+    expect(await ccdPage.isFieldDisplayed(fieldLabel)).to.equal(
+      true,
+      `Expected overview field "${fieldLabel}" to be displayed`
+    );
+  }
+});
+
+Then("I assert the appeal case fields", async function () {
+  for (const fieldLabel of appealCaseFields) {
+    expect(await ccdPage.isFieldDisplayed(fieldLabel)).to.equal(
+      true,
+      `Expected appeal field "${fieldLabel}" to be displayed`
+    );
+  }
+});
+
+Then("I assert the appellant case fields", async function () {
+  for (const fieldLabel of appellantCaseFields) {
+    expect(await ccdPage.isFieldDisplayed(fieldLabel)).to.equal(
+      true,
+      `Expected appellant field "${fieldLabel}" to be displayed`
+    );
+  }
+});
+
+Then("I assert the migrated case task and manage links", async function () {
+  expect(await ccdPage.contentContains("Active tasks")).to.equal(
+    true,
+    'Expected "Active tasks" to be displayed'
+  );
+  expect(await ccdPage.contentContains("Review migrated case")).to.equal(
+    true,
+    'Expected "Review migrated case" to be displayed'
+  );
+
+  for (const linkText of ["Assign task", "Cancel task", "Assign to me"]) {
+    expect(await ccdPage.linkContains(linkText)).to.equal(
+      true,
+      `Expected manage link "${linkText}" to be displayed`
+    );
+  }
+});
 
 Then("I should be on the overview page", async () => {
   await ccdPage.waitForOverviewPage(ccdPage.getStoredCaseUrl());
@@ -661,6 +751,53 @@ Then(/^I update interpreter booking status$/, async () => {
 Given("I wait for the spinner", async () => {
   await ccdPage.waitForSpinner();
 });
+
+Then(
+  /^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? and comments `?([^`]+)`? creation date `?([^`]+)`? last modified `?([^`]+)`? flag status `?([^`]+)`?$/,
+  async function (
+    partie,
+    caseFlagName,
+    comments = "",
+    creationDate,
+    lastModifiedDate,
+    flagStatus
+  ) {
+    const field =
+      '//caption[normalize-space()="' +
+      partie +
+      '"]' +
+      '/ancestor::ccd-case-flag-table[position()=1]/table/tbody/tr/td[normalize-space()="' +
+      caseFlagName +
+      '"]' +
+      "/ancestor::tr[position()=1]//td";
+    lastModifiedDate = lastModifiedDate === " " ? "" : lastModifiedDate;
+    const tds = await element.all(by.xpath(field));
+    const tdCount = await element.all(by.xpath(field)).count();
+    // let createdDate = await ccdPage.getTodayDate(creationDate);
+    const ModifiedDate = await ccdPage.getTodayDate(lastModifiedDate);
+
+    console.log("ModifiedDate:::" + ModifiedDate);
+    for (let td = 0; td < tdCount; td++) {
+      const tdValue = await tds[td];
+      const caseFlagValue = JSON.stringify(await tdValue.getText()).trim();
+      if (td === 0) {
+        expect(JSON.stringify(caseFlagName).trim()).to.equal(caseFlagValue);
+      }
+      if (td === 1) {
+        expect(comments.trim()).to.equal(caseFlagValue);
+      }
+      // if (td === 2) {
+      //   expect(JSON.stringify(createdDate).trim()).to.equal(caseFlagValue);
+      // }
+      if (td === 3) {
+        expect(JSON.stringify(ModifiedDate).trim()).to.equal(caseFlagValue);
+      }
+      if (td === 4) {
+        expect(JSON.stringify(flagStatus).trim()).to.equal(caseFlagValue);
+      }
+    }
+  }
+);
 
 Then(
   /^within the `?([^`]+)`? collection's first item, I should see case flag name `?([^`]+)`? with flag status `?([^`]+)`?$/,

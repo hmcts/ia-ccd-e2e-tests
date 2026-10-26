@@ -388,6 +388,56 @@ Given(
 );
 
 Given(
+  /^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`? for an prison facility$/,
+  async function (appealType, feeType, paymentChoice) {
+    await startAppealFlow.saveInitialDetainedAppealWithoutRemission(
+      true,
+      appealType,
+      feeType,
+      paymentChoice
+    );
+  }
+);
+
+Given(
+  /^I save my initial (aip|lr) internal ([A-Za-z]+) appeal type without remission and (with|without) hearing fee and pay (now|later) for an prison facility$/,
+  async function (internalJourneyType, appealType, feeType, paymentChoice) {
+    await startAppealFlow.saveInitialAipDetainedAppealWithoutRemission(
+      true,
+      appealType,
+      feeType,
+      paymentChoice,
+      internalJourneyType
+    );
+  }
+);
+
+Given(
+  /^I save my initial `?([^\s`]+)`? appeal type without remission and `?([^\s`]+)`? hearing fee and pay `?([^\s`]+)`? for an other facility$/,
+  async function (appealType, feeType, paymentChoice) {
+    await startAppealFlow.saveInitialDetainedOtherAppealWithoutRemission(
+      true,
+      appealType,
+      feeType,
+      paymentChoice
+    );
+  }
+);
+
+Given(
+  /^I save my initial (aip|lr) internal ([A-Za-z]+) appeal type without remission and (with|without) hearing fee and pay (now|later) for an other facility$/,
+  async function (internalJourneyType, appealType, feeType, paymentChoice) {
+    await startAppealFlow.saveInitialAipDetainedOtherAppealWithoutRemission(
+      true,
+      appealType,
+      feeType,
+      paymentChoice,
+      internalJourneyType
+    );
+  }
+);
+
+Given(
   /^I save my initial `?([^\s`]+)`? appeal type with `?([^`]+)`? and `?([^\s`]+)`? hearing fee$/,
   async(appealType, remission, feeType) => {
     await startAppealFlow.saveInitialAppealWithFee(
@@ -516,6 +566,41 @@ Given(
       true,
       appealType,
       hearingOption
+    );
+  }
+);
+
+Given(
+  /^I save my initial `?([^\s`]+)`? appeal for nonPayment `?([^\s`]+)`? hearing for an Immigration removal centre detention facility$/,
+  async function (appealType, hearingOption) {
+    await startAppealFlow.saveInitialNonPaymentDetainedAppeal(
+      true,
+      appealType,
+      hearingOption,
+    );
+  }
+);
+
+Given(
+  /^I save my initial (aip|lr) internal ([A-Za-z]+) appeal for nonPayment (with|without) hearing for an Immigration removal centre detention facility$/,
+  async function (internalJourneyType, appealType, hearingOption) {
+    await startAppealFlow.saveInitialAipInternalNonPaymentDetainedAppeal(
+      true,
+      appealType,
+      hearingOption,
+      internalJourneyType
+    );
+  }
+);
+
+Given(
+  /^I save my initial (aip|lr) internal ([A-Za-z]+) nondetained appeal for nonPayment (with|without) hearing$/,
+  async function (internalJourneyType, appealType, hearingOption) {
+    await startAppealFlow.saveInitialAipInternalNonPaymentNonDetainedAppeal(
+      true,
+      appealType,
+      hearingOption,
+      internalJourneyType
     );
   }
 );
