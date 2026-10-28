@@ -377,13 +377,25 @@ export class CcdPage extends AnyPage {
   }
 
   async gotoTabs(match: string) {
-    try {
-      await this.waitForXpathElementVisible(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`, 30000);
-      await element(by.xpath(`//div[contains(@class, 'mat-tab-label-content')][contains(text(), '${match}')]`)).click();
-    } catch {
-      await element(by.xpath(`//button[contains(@class, 'mat-tab-header-pagination-after')]`)).click();
-      await this.waitForXpathElementVisible(`//div[contains(@class, 'mat-tab-label')][contains(text(), '${match}')]`, 30000);
-      await element(by.xpath(`//div[contains(@class, 'mat-tab-label-content')][contains(text(), '${match}')]`)).click();
+    await this.waitForXpathElementVisible("//div[contains(@class, 'mat-mdc-tab-label-container')]", 30000);
+    const locator: string = `//span[contains(@class, 'mdc-tab__text-label')][contains(text(), '${match}')]`;
+    const longLoadTabs: string[] = ['Tasks', 'Roles and access'];
+    while (true) {
+      try {
+        await this.waitForXpathElementVisible(locator, longLoadTabs.includes(match) ? 30000 : 5000);
+        await element(by.xpath(locator)).click();
+        break;
+      } catch {
+        const nextChevronDisabled: ElementFinder = element(by.xpath("//div[contains(@class, 'mat-mdc-tab-header-pagination-after')][contains(@class, 'mdc-tab-header-pagination-disabled')]"));
+        const isNextDisabled: boolean = await nextChevronDisabled.isDisplayed();
+        const beforeChevronDisabled: ElementFinder = element(by.xpath("//div[contains(@class, 'mat-mdc-tab-header-pagination-before')][contains(@class, 'mdc-tab-header-pagination-disabled')]"));
+        const isBeforeDisabled: boolean = await beforeChevronDisabled.isDisplayed();
+        if (!isNextDisabled) {
+          await element(by.xpath("//div[contains(@class, 'mat-mdc-tab-header-pagination-after')]")).click();
+        } else if (!isBeforeDisabled) {
+          await element(by.xpath("//div[contains(@class, 'mat-mdc-tab-header-pagination-before')]")).click();
+        }
+      }
     }
   }
 }
