@@ -1081,7 +1081,7 @@ export class SubmitHearingRequirementsFlow {
   async setHearingLocation(clickContinue = false, location = "") {
     await browser.sleep(3000);
     await this.ccdFormPage.typeTextBasedOnClass(
-      "mat-autocomplete-trigger",
+      "mat-mdc-autocomplete-trigger",
       location
     );
     await browser.sleep(3000);
@@ -1092,7 +1092,7 @@ export class SubmitHearingRequirementsFlow {
   async setBailsHearingLocation(clickContinue = false, location = "") {
     await browser.sleep(3000);
     await this.ccdFormPage.typeTextBasedOnClass(
-      "mat-autocomplete-trigger",
+      "mat-mdc-autocomplete-trigger",
       location
     );
     await browser.sleep(3000);

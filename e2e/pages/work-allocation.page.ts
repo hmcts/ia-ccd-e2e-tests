@@ -10,7 +10,7 @@ export class WorkAllocationPage {
   constructor() {
     this.findPersonEmailInput = $('xuilib-find-person #inputSelectPerson');
     this.exclusionTextArea = $('exui-describe-exclusion #exclusion-description');
-    this.userFilterList = $$('.mat-autocomplete-panel .mat-option-text');
+    this.userFilterList = $$('.mat-mdc-autocomplete-panel .mat-mdc-option');
   }
 
   async enterAllocateUserEmailInput(text: string) {

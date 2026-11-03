@@ -101,7 +101,7 @@ export class CcdFormPage extends CcdPage {
 
   async selectInterpreterLanguage(Language = '') {
     await browser.sleep(3000);
-    await this.typeTextBasedOnClass('mat-autocomplete-trigger', Language);
+    await this.typeTextBasedOnClass('mat-mdc-autocomplete-trigger', Language);
     await browser.sleep(3000);
     await this.click(Language);
   }

@@ -21,7 +21,7 @@ export class ShareCasePage {
     this.shareCaseContainer = $('exui-case-share');
     this.selectedCases = $$('xuilib-selected-case-list xuilib-selected-case');
     this.userEmailInput = $('#add-user xuilib-user-select .govuk-input');
-    this.userFilterList = $$('.mat-autocomplete-panel .mat-option-text');
+    this.userFilterList = $$('.mat-mdc-autocomplete-panel .mat-mdc-option');
     this.addUserBtn = $('#btn-add-user');
     this.continueButton = $('#share-case-nav button');
   }
