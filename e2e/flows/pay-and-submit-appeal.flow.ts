@@ -8,7 +8,7 @@ export class PayAndSubmitAppealFlow {
   private ccdFormPage = new CcdFormPage();
 
   async payForAppealByPBA() {
-    await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
+    await this.ccdPage.gotoTabs('Service Request');
     await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     await this.ccdFormPage.click('Pay now');
     try {
@@ -68,11 +68,11 @@ export class PayAndSubmitAppealFlow {
 
   async payForAppealByCard() {
     const currentUrl = await this.ccdPage.getCurrentUrl();
-    await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
+    await this.ccdPage.gotoTabs('Service Request');
     try {
       await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     } catch {
-      await element(by.xpath('//div[text()="Service Request"][contains(@class, "mat-tab-label-content")]')).click();
+      await this.ccdPage.gotoTabs('Service Request');
       await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
     }
     await this.ccdFormPage.click('Pay now');
