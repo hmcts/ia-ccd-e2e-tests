@@ -1711,7 +1711,7 @@ __metadata:
   linkType: hard
 
 "follow-redirects@npm:^1.16.0":
-  version: 1.16.1
+  version: 1.16.2
   resolution: "follow-redirects@npm:1.16.0"
   peerDependenciesMeta:
     debug:
