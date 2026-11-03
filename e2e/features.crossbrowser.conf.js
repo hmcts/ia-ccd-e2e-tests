@@ -20,14 +20,14 @@ const config = {
         retry: 3,
     },
 
-    sauceSeleniumAddress: 'ondemand.eu-central-1.saucelabs.com:443/wd/hub',
-    host: 'ondemand.eu-central-1.saucelabs.com',
+    sauceSeleniumAddress: 'ondemand.us-west-1.saucelabs.com:443/wd/hub',
+    host: 'ondemand.us-west-1.saucelabs.com',
     sauceRegion: 'eu',
     port: 80,
     sauceConnect: true,
     sauceUser: process.env.SAUCE_USERNAME,
     sauceKey: process.env.SAUCE_ACCESS_KEY,
-    SAUCE_REST_ENDPOINT: 'https://eu-central-1.saucelabs.com/rest/v1/',
+    SAUCE_REST_ENDPOINT: 'https://us-west-1.saucelabs.com/rest/v1/',
 
     specs: ['./features/*.feature'],
     baseUrl: iaConfig.CcdWebUrl,
