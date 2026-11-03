@@ -9,7 +9,7 @@ export class PayAndSubmitAppealFlow {
 
   async payForAppealByPBA() {
     await this.ccdPage.gotoTabs('Service Request');
-    await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
+    await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a');
     await this.ccdFormPage.click('Pay now');
     try {
       await this.ccdPage.waitForXpathElementVisible('//*[contains(text(), "Pay fee using Payment by Account")]');
@@ -70,10 +70,10 @@ export class PayAndSubmitAppealFlow {
     const currentUrl = await this.ccdPage.getCurrentUrl();
     await this.ccdPage.gotoTabs('Service Request');
     try {
-      await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
+      await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a');
     } catch {
       await this.ccdPage.gotoTabs('Service Request');
-      await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a.ng-star-inserted');
+      await this.ccdPage.waitForCssElementVisible('td.govuk-table__cell > a');
     }
     await this.ccdFormPage.click('Pay now');
     try {
